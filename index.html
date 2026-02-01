@@ -2,8 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0a0f14">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%234a8c4a' width='100' height='100' rx='20'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white'>⚡</text></svg>">
     <title>Henry Command Center</title>
     <style>
         :root {
@@ -24,6 +28,11 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        html {
+            -webkit-text-size-adjust: 100%;
         }
         
         body {
@@ -364,10 +373,145 @@
             margin-top: 24px;
         }
         
-        @media (max-width: 768px) {
-            body { padding: 16px; }
-            .stats-row { grid-template-columns: repeat(2, 1fr); }
+        /* Tablet */
+        @media (max-width: 1024px) {
             .grid { grid-template-columns: 1fr; }
+            .card[style*="grid-column: span 2"] { grid-column: span 1; }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            body { 
+                padding: 16px; 
+                padding-bottom: 32px;
+            }
+            
+            .header {
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+            
+            .header-text h1 {
+                font-size: 1.375rem;
+            }
+            
+            .status-indicator {
+                width: 100%;
+                justify-content: flex-start;
+                margin-left: 0;
+                margin-top: 8px;
+            }
+            
+            .stats-row { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 12px;
+            }
+            
+            .stat-card {
+                padding: 16px;
+            }
+            
+            .stat-value {
+                font-size: 1.5rem;
+            }
+            
+            .grid { 
+                grid-template-columns: 1fr; 
+                gap: 16px;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .card[style*="grid-column: span 2"] { 
+                grid-column: span 1; 
+            }
+            
+            .actions-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            
+            .action-btn {
+                padding: 14px 12px;
+            }
+            
+            .action-icon {
+                font-size: 1.5rem;
+            }
+            
+            .grunt-stats {
+                gap: 12px;
+            }
+            
+            .grunt-stat-value {
+                font-size: 1.25rem;
+            }
+            
+            .project-item,
+            .agent-item {
+                padding: 14px;
+            }
+        }
+        
+        /* Small mobile */
+        @media (max-width: 400px) {
+            body {
+                padding: 12px;
+            }
+            
+            .stats-row {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            
+            .stat-card {
+                padding: 12px;
+            }
+            
+            .stat-label {
+                font-size: 0.6875rem;
+            }
+            
+            .stat-value {
+                font-size: 1.25rem;
+            }
+            
+            .stat-sub {
+                font-size: 0.75rem;
+            }
+            
+            .header-text h1 {
+                font-size: 1.25rem;
+            }
+            
+            .logo {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+            
+            .card {
+                padding: 16px;
+                border-radius: 12px;
+            }
+            
+            .card-header {
+                margin-bottom: 16px;
+            }
+            
+            .actions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* PWA / Fullscreen */
+        @media (display-mode: standalone) {
+            body {
+                padding-top: env(safe-area-inset-top, 24px);
+                padding-bottom: env(safe-area-inset-bottom, 24px);
+            }
         }
     </style>
 </head>
