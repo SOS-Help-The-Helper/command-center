@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Henry Command Center</title>
+    <style>
+        :root {
+            --bg: #0a0f14;
+            --card-bg: #111820;
+            --card-border: #1e2a36;
+            --text: #ffffff;
+            --text-secondary: #8899aa;
+            --text-dim: #556677;
+            --accent: #4a8c4a;
+            --accent-light: #5cb85c;
+            --gold: #d4a530;
+            --blue: #4a90d4;
+            --red: #d45a5a;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 24px;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        
+        .logo {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .header-text h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .header-text p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+        
+        .status-indicator {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-light);
+            font-size: 0.875rem;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-light);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .stat-value.green { color: var(--accent-light); }
+        .stat-value.gold { color: var(--gold); }
+        .stat-value.blue { color: var(--blue); }
+        
+        .stat-sub {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .card-icon {
+            font-size: 1.25rem;
+        }
+        
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .card-action {
+            margin-left: auto;
+            background: transparent;
+            border: 1px solid var(--card-border);
+            color: var(--text-secondary);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            cursor: pointer;
+        }
+        
+        .card-action:hover {
+            border-color: var(--accent);
+            color: var(--accent-light);
+        }
+        
+        /* Projects */
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .project-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 10px;
+        }
+        
+        .project-status {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        
+        .project-status.active { background: var(--accent-light); }
+        .project-status.idle { background: var(--text-dim); }
+        .project-status.warning { background: var(--gold); }
+        
+        .project-info {
+            flex: 1;
+        }
+        
+        .project-name {
+            font-weight: 600;
+            font-size: 0.9375rem;
+        }
+        
+        .project-desc {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+        
+        .project-meta {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+        
+        /* Agents */
+        .agent-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+        
+        .agent-avatar {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent) 0%, #2d5a2d 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        
+        .agent-info { flex: 1; }
+        
+        .agent-name {
+            font-weight: 600;
+            font-size: 0.9375rem;
+        }
+        
+        .agent-task {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+        
+        .agent-tokens {
+            font-size: 0.8125rem;
+            color: var(--text-dim);
+        }
+        
+        /* Activity */
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .activity-item {
+            display: flex;
+            gap: 12px;
+            font-size: 0.8125rem;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+        
+        .activity-time {
+            color: var(--text-dim);
+            min-width: 50px;
+        }
+        
+        .activity-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            margin-top: 6px;
+        }
+        
+        .activity-dot.green { background: var(--accent-light); }
+        .activity-dot.blue { background: var(--blue); }
+        .activity-dot.gold { background: var(--gold); }
+        
+        .activity-text {
+            color: var(--text-secondary);
+        }
+        
+        /* Quick Actions */
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .action-btn {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 16px;
+            color: var(--text);
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.15s;
+        }
+        
+        .action-btn:hover {
+            border-color: var(--accent);
+            background: rgba(74, 140, 74, 0.1);
+        }
+        
+        .action-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .action-icon {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+        
+        .action-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        /* Grunt Stats */
+        .grunt-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            text-align: center;
+        }
+        
+        .grunt-stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .grunt-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            margin-top: 4px;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background: var(--card-border);
+            border-radius: 3px;
+            margin-top: 16px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 3px;
+            transition: width 0.5s;
+        }
+        
+        .last-updated {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.75rem;
+            margin-top: 24px;
+        }
+        
+        @media (max-width: 768px) {
+            body { padding: 16px; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">⚡</div>
+        <div class="header-text">
+            <h1>Henry Command Center</h1>
+            <p>Agent Orchestration Dashboard</p>
+        </div>
+        <div class="status-indicator">
+            <span class="status-dot"></span>
+            <span>Online</span>
+        </div>
+    </header>
+    
+    <div class="stats-row">
+        <div class="stat-card">
+            <div class="stat-label">Active Agents</div>
+            <div class="stat-value green" id="active-agents">1</div>
+            <div class="stat-sub">of 3 configured</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Tasks Today</div>
+            <div class="stat-value" id="tasks-today">--</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Tokens Used</div>
+            <div class="stat-value gold" id="tokens-used">--</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Est. Cost</div>
+            <div class="stat-value blue" id="cost-today">--</div>
+        </div>
+    </div>
+    
+    <div class="grid">
+        <!-- Projects -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">📊</span>
+                <span class="card-title">Projects</span>
+            </div>
+            <div class="project-list">
+                <div class="project-item">
+                    <div class="project-status active"></div>
+                    <div class="project-info">
+                        <div class="project-name">SOS</div>
+                        <div class="project-desc">Disaster coordination platform</div>
+                    </div>
+                    <div class="project-meta">Active</div>
+                </div>
+                <div class="project-item">
+                    <div class="project-status active"></div>
+                    <div class="project-info">
+                        <div class="project-name">Grunt (Reforge)</div>
+                        <div class="project-desc">Prospect qualification</div>
+                    </div>
+                    <div class="project-meta" id="grunt-remaining">-- left</div>
+                </div>
+                <div class="project-item">
+                    <div class="project-status idle"></div>
+                    <div class="project-info">
+                        <div class="project-name">Harmony Strategy</div>
+                        <div class="project-desc">GTM consulting</div>
+                    </div>
+                    <div class="project-meta">Paused</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Agents -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">🤖</span>
+                <span class="card-title">Agents</span>
+                <button class="card-action" onclick="spawnAgent()">+ New Agent</button>
+            </div>
+            <div id="agents-list">
+                <div class="agent-item">
+                    <div class="agent-avatar">⚡</div>
+                    <div class="agent-info">
+                        <div class="agent-name">Henry</div>
+                        <div class="agent-task">Main session</div>
+                    </div>
+                    <div class="agent-tokens" id="henry-tokens">-- tokens</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Grunt Stats -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">🎯</span>
+                <span class="card-title">Grunt Stats</span>
+                <button class="card-action" onclick="window.open('https://sos-help-the-helper.github.io/reforge-swipe/', '_blank')">Open Grunt</button>
+            </div>
+            <div class="grunt-stats">
+                <div>
+                    <div class="grunt-stat-value green" id="grunt-qualified">--</div>
+                    <div class="grunt-stat-label">Qualified</div>
+                </div>
+                <div>
+                    <div class="grunt-stat-value" id="grunt-passed">--</div>
+                    <div class="grunt-stat-label">Passed</div>
+                </div>
+                <div>
+                    <div class="grunt-stat-value gold" id="grunt-rate">--%</div>
+                    <div class="grunt-stat-label">Rate</div>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="grunt-progress" style="width: 0%"></div>
+            </div>
+        </div>
+        
+        <!-- Quick Actions -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">⚡</span>
+                <span class="card-title">Quick Actions</span>
+            </div>
+            <div class="actions-grid">
+                <button class="action-btn" onclick="triggerAction('check-email')">
+                    <div class="action-icon">📧</div>
+                    <div class="action-label">Check Email</div>
+                </button>
+                <button class="action-btn" onclick="triggerAction('research')">
+                    <div class="action-icon">🔍</div>
+                    <div class="action-label">Research Task</div>
+                </button>
+                <button class="action-btn" onclick="triggerAction('grunt-batch')">
+                    <div class="action-icon">📋</div>
+                    <div class="action-label">New Grunt Batch</div>
+                </button>
+                <button class="action-btn" onclick="triggerAction('status')">
+                    <div class="action-icon">📊</div>
+                    <div class="action-label">Full Status</div>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Recent Activity -->
+        <div class="card" style="grid-column: span 2;">
+            <div class="card-header">
+                <span class="card-icon">📜</span>
+                <span class="card-title">Recent Activity</span>
+            </div>
+            <div class="activity-list" id="activity-list">
+                <div class="activity-item">
+                    <span class="activity-time">--:--</span>
+                    <span class="activity-dot green"></span>
+                    <span class="activity-text">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="last-updated">Last updated: <span id="last-update">--</span></div>
+    
+    <script>
+        const SUPABASE_URL = 'https://rtduqguwhkczexnoawej.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ0ZHVxZ3V3aGtjemV4bm9hd2VqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE2Njg1ODAsImV4cCI6MjA2NzI0NDU4MH0.1QZ5ofS-ND_OI71igPlxxMTyZJJRlATSSC0djccWR8o';
+        
+        async function fetchSupabase(endpoint) {
+            const res = await fetch(`${SUPABASE_URL}/rest/v1/${endpoint}`, {
+                headers: {
+                    'apikey': SUPABASE_KEY,
+                    'Authorization': `Bearer ${SUPABASE_KEY}`
+                }
+            });
+            return res.json();
+        }
+        
+        async function loadGruntStats() {
+            try {
+                const swipes = await fetchSupabase('grunt_swipes?select=action,swiped_at&order=swiped_at.desc');
+                
+                const qualified = swipes.filter(s => s.action === 'qualify').length;
+                const passed = swipes.filter(s => s.action === 'reject').length;
+                const total = qualified + passed;
+                const rate = total > 0 ? Math.round((qualified / total) * 100) : 0;
+                
+                document.getElementById('grunt-qualified').textContent = qualified;
+                document.getElementById('grunt-passed').textContent = passed;
+                document.getElementById('grunt-rate').textContent = rate + '%';
+                document.getElementById('grunt-progress').style.width = `${(total / 25) * 100}%`;
+                document.getElementById('grunt-remaining').textContent = `${25 - total} left`;
+                
+                // Update activity with recent swipes
+                const recentSwipes = swipes.slice(0, 5);
+                updateActivity(recentSwipes);
+            } catch (e) {
+                console.error('Failed to load Grunt stats:', e);
+            }
+        }
+        
+        function updateActivity(swipes) {
+            const list = document.getElementById('activity-list');
+            if (!swipes.length) {
+                list.innerHTML = '<div class="activity-item"><span class="activity-time">--</span><span class="activity-dot"></span><span class="activity-text">No recent activity</span></div>';
+                return;
+            }
+            
+            list.innerHTML = swipes.map(s => {
+                const time = new Date(s.swiped_at);
+                const timeStr = time.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
+                const action = s.action === 'qualify' ? 'Qualified prospect' : 'Passed on prospect';
+                const color = s.action === 'qualify' ? 'green' : 'blue';
+                return `
+                    <div class="activity-item">
+                        <span class="activity-time">${timeStr}</span>
+                        <span class="activity-dot ${color}"></span>
+                        <span class="activity-text">${action}</span>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function updateStats() {
+            // Placeholder values - would come from Clawdbot API
+            document.getElementById('tasks-today').textContent = '15';
+            document.getElementById('tokens-used').textContent = '143K';
+            document.getElementById('cost-today').textContent = '$2.40';
+            document.getElementById('henry-tokens').textContent = '143K tokens';
+        }
+        
+        function spawnAgent() {
+            const task = prompt('What task should the new agent work on?');
+            if (task) {
+                alert('Agent spawned! Task: ' + task + '\n\n(Integration coming soon - for now, tell Henry directly in Slack)');
+            }
+        }
+        
+        function triggerAction(action) {
+            const messages = {
+                'check-email': 'Check my email for anything urgent',
+                'research': 'Research task - describe what to research',
+                'grunt-batch': 'Generate a new batch of prospects for Grunt',
+                'status': 'Give me a full status update on all projects'
+            };
+            
+            alert('Quick Action: ' + messages[action] + '\n\n(Send this to Henry in Slack for now)');
+        }
+        
+        function updateTimestamp() {
+            document.getElementById('last-update').textContent = new Date().toLocaleTimeString();
+        }
+        
+        async function init() {
+            await loadGruntStats();
+            updateStats();
+            updateTimestamp();
+            
+            // Refresh every 30 seconds
+            setInterval(async () => {
+                await loadGruntStats();
+                updateTimestamp();
+            }, 30000);
+        }
+        
+        init();
+    </script>
+</body>
+</html>
