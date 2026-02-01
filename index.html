@@ -903,12 +903,30 @@
             }).join('');
         }
         
-        function updateStats() {
-            // Placeholder values - would come from Clawdbot API
-            document.getElementById('tasks-today').textContent = '15';
-            document.getElementById('tokens-used').textContent = '143K';
-            document.getElementById('cost-today').textContent = '$2.40';
-            document.getElementById('henry-tokens').textContent = '143K tokens';
+        async function updateStats() {
+            try {
+                const resp = await fetch('data/costs.json?t=' + Date.now());
+                const costs = await resp.json();
+                
+                // Format token count
+                const totalTokens = (costs.tokens.input + costs.tokens.output + costs.tokens.cacheRead) / 1000000;
+                const tokenStr = totalTokens >= 1 ? totalTokens.toFixed(1) + 'M' : (totalTokens * 1000).toFixed(0) + 'K';
+                
+                document.getElementById('tokens-used').textContent = tokenStr;
+                document.getElementById('cost-today').textContent = '$' + costs.today.toFixed(2);
+                document.getElementById('henry-tokens').textContent = tokenStr + ' tokens';
+                
+                // Update provider breakdown if element exists
+                const providerEl = document.getElementById('cost-breakdown');
+                if (providerEl && costs.byProvider) {
+                    providerEl.innerHTML = Object.entries(costs.byProvider)
+                        .map(([p, c]) => `<div>${p}: $${c.toFixed(2)}</div>`).join('');
+                }
+            } catch (e) {
+                console.error('Failed to load costs:', e);
+                document.getElementById('tokens-used').textContent = '--';
+                document.getElementById('cost-today').textContent = '--';
+            }
         }
         
         function spawnAgent() {
