@@ -364,7 +364,45 @@
             log.push(logEntry);
             localStorage.setItem(STORAGE_KEYS.log, JSON.stringify(log));
 
-            // Send to backend for persistence + task creation
+            // Save to Supabase
+            const SUPABASE_URL = 'https://rtduqguwhkczexnoawej.supabase.co';
+            const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ0ZHVxZ3V3aGtjemV4bm9hd2VqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MTY2ODU4MCwiZXhwIjoyMDY3MjQ0NTgwfQ.yb3g5H0gB5kEaT9Z4JV5z-9hOSLZXKHWmBNUprtNlso';
+            
+            try {
+                await fetch(`${SUPABASE_URL}/rest/v1/decision_traces`, {
+                    method: 'POST',
+                    headers: {
+                        'apikey': SUPABASE_KEY,
+                        'Authorization': `Bearer ${SUPABASE_KEY}`,
+                        'Content-Type': 'application/json',
+                        'Prefer': 'return=minimal'
+                    },
+                    body: JSON.stringify({
+                        entity_type: 'reforge_deal',
+                        decision_type: decision.type || 'pipeline_triage',
+                        decision_outcome: action,
+                        actor_type: 'user',
+                        context: {
+                            company: decision.company,
+                            contact: decision.contact,
+                            deal_value: decision.deal_value,
+                            signal: decision.signal,
+                            question: decision.question
+                        },
+                        factors: {
+                            has_meeting: decision.has_upcoming_meeting || false,
+                            calendar_context: decision.calendar_context,
+                            packet_context: decision.packet_context?.substring(0, 200)
+                        },
+                        reasoning: `User chose: ${action}`
+                    })
+                });
+                console.log('✅ Saved to Supabase');
+            } catch(e) {
+                console.log('Supabase save failed:', e);
+            }
+            
+            // Also save to backend for local persistence
             try {
                 await fetch('/api/decision', {
                     method: 'POST',
