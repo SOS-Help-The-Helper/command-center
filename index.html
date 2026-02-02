@@ -452,6 +452,31 @@
         .task-priority.P1 { background: var(--gold); color: #1a1a1a; }
         .task-priority.P2 { background: var(--card-border); color: var(--text-secondary); }
 
+        /* Signal Cards */
+        .signals-feed { display: flex; flex-direction: column; gap: 12px; }
+        .signal-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            border-left: 3px solid var(--card-border);
+        }
+        .signal-card.high { border-left-color: #ef4444; background: rgba(239, 68, 68, 0.05); }
+        .signal-card.warn { border-left-color: var(--gold); background: rgba(212, 165, 48, 0.05); }
+        .signal-card.info { border-left-color: var(--blue); }
+        .signal-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+        .signal-priority { font-size: 0.875rem; }
+        .signal-type {
+            font-size: 0.625rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: var(--card-hover);
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+        .signal-summary { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.4; }
+        .signal-action { font-size: 0.8125rem; color: var(--green-light); margin-top: 8px; font-weight: 500; }
+
         .task-content { flex: 1; min-width: 0; }
         .task-title { font-weight: 500; }
         .task-meta { font-size: 0.75rem; color: var(--text-secondary); display: flex; gap: 8px; flex-wrap: wrap; }
@@ -815,9 +840,18 @@
             try {
                 const res = await fetch('data/unified.json');
                 data = await res.json();
+                
+                // Load Reforge signals
+                try {
+                    const signalsRes = await fetch('intel/reforge-signals.json');
+                    data.reforgeSignals = await signalsRes.json();
+                } catch (e) {
+                    console.log('No reforge signals yet');
+                    data.reforgeSignals = { signals: [] };
+                }
             } catch (e) {
                 console.error('Failed to load data:', e);
-                data = { projects: [], tasks: [], intel: [], metrics: [], activity: [], contributors: [] };
+                data = { projects: [], tasks: [], intel: [], metrics: [], activity: [], contributors: [], reforgeSignals: { signals: [] } };
             }
             
             const hash = window.location.hash.slice(1);
@@ -1201,6 +1235,33 @@
                 </tr>`;
             });
             html += '</tbody></table></div>';
+
+            // Pipeline Signals Section
+            const signals = data.reforgeSignals?.signals || [];
+            if (signals.length > 0) {
+                html += `
+                    <div class="section-header" style="margin-top: 24px;">
+                        <div class="section-title">🔍 Pipeline Signals</div>
+                        <span class="text-dim" style="font-size: 0.75rem;">Updated ${data.reforgeSignals?.lastIntelRun ? timeAgo(data.reforgeSignals.lastIntelRun) : 'never'}</span>
+                    </div>
+                    <div class="signals-feed">
+                `;
+                signals.slice(0, 5).forEach(s => {
+                    const priorityClass = s.priority?.includes('HIGH') ? 'high' : s.priority?.includes('CAUTION') ? 'warn' : 'info';
+                    html += `
+                        <div class="signal-card ${priorityClass}">
+                            <div class="signal-header">
+                                <span class="signal-priority">${s.priority || '📋'}</span>
+                                <strong>${s.company}</strong>
+                                <span class="signal-type">${s.type}</span>
+                            </div>
+                            <div class="signal-summary">${s.summary}</div>
+                            ${s.action ? `<div class="signal-action">→ ${s.action}</div>` : ''}
+                        </div>
+                    `;
+                });
+                html += '</div>';
+            }
 
             html += `
                 <div class="section-header" style="margin-top: 24px;">
