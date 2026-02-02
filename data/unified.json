@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "lastUpdated": "2026-02-02T05:15:00Z",
+  "version": "1.1.0",
+  "lastUpdated": "2026-02-02T05:45:00Z",
   
   "contributors": [
     { "id": "jonathan", "name": "Jonathan", "avatar": "J", "role": "founder" },
@@ -57,8 +57,10 @@
     { "id": "m4", "projectId": "reforge", "section": "sales", "name": "Quota Attainment", "value": 21, "format": "percent", "trend": "up", "target": 100 },
     
     { "id": "m5", "projectId": "sos", "section": "product", "name": "MVP Progress", "value": 35, "format": "percent", "trend": "up", "target": 100 },
-    { "id": "m6", "projectId": "sos", "section": "growth", "name": "Grants Submitted", "value": 0, "format": "number", "trend": "flat", "target": 20 },
+    { "id": "m6", "projectId": "sos", "section": "growth", "name": "Grants Researched", "value": 25, "format": "number", "trend": "up", "target": 20 },
     { "id": "m7", "projectId": "sos", "section": "growth", "name": "Funding Raised", "value": 60000, "format": "currency", "trend": "flat", "target": 1800000 },
+    { "id": "m14", "projectId": "sos", "section": "intelligence", "name": "Intel Items", "value": 12, "format": "number", "trend": "up" },
+    { "id": "m15", "projectId": "sos", "section": "growth", "name": "TAM Identified", "value": 450, "format": "currency", "trend": "up", "notes": "millions ARR high estimate" },
     
     { "id": "m8", "projectId": "harmony", "section": "sales", "name": "Active Clients", "value": 2, "format": "number" },
     { "id": "m9", "projectId": "harmony", "section": "operations", "name": "Avg Margin", "value": 45, "format": "percent", "target": 60 },
@@ -85,14 +87,16 @@
     {
       "id": "t2",
       "projectId": "sos",
-      "title": "Research 20 foundation grant opportunities",
+      "title": "Research 20+ foundation grant opportunities",
       "priority": "P0",
-      "status": "pending",
+      "status": "done",
       "section": "growth",
       "assigneeId": "henry",
       "createdBy": "jonathan",
       "createdAt": "2026-02-01T20:00:00Z",
-      "tags": ["grants", "funding"]
+      "completedAt": "2026-02-02T05:45:00Z",
+      "tags": ["grants", "funding"],
+      "notes": "25 grants researched, saved to grants.json with full details"
     },
     {
       "id": "t3",
@@ -165,10 +169,183 @@
       "createdBy": "jonathan",
       "createdAt": "2026-02-02T04:58:00Z",
       "tags": ["ui", "intel"]
+    },
+    {
+      "id": "t9",
+      "projectId": "sos",
+      "title": "Draft Hilton Foundation LOI",
+      "priority": "P0",
+      "status": "pending",
+      "section": "growth",
+      "assigneeId": "jonathan",
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T05:45:00Z",
+      "tags": ["grants", "funding", "hilton"],
+      "notes": "Top-ranked grant opportunity. Perfect mission alignment for disaster coordination innovation."
+    },
+    {
+      "id": "t10",
+      "projectId": "sos",
+      "title": "Prepare EDA Disaster Supplemental application",
+      "priority": "P1",
+      "status": "pending",
+      "section": "growth",
+      "assigneeId": "jonathan",
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T05:45:00Z",
+      "dueDate": "2026-03-03",
+      "tags": ["grants", "funding", "federal"],
+      "notes": "Deadline March 3, 2026. Industry Transformation path ideal for SOS."
+    },
+    {
+      "id": "t11",
+      "projectId": "sos",
+      "title": "Reach out to Google.org contact",
+      "priority": "P1",
+      "status": "pending",
+      "section": "growth",
+      "assigneeId": "jonathan",
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T05:45:00Z",
+      "tags": ["grants", "funding", "google"],
+      "notes": "Google.org crisis response team funds tech-enabled disaster coordination. Request intro."
+    },
+    {
+      "id": "t12",
+      "projectId": "sos",
+      "title": "Contact 3 state EMAs for pilot conversations",
+      "priority": "P0",
+      "status": "pending",
+      "section": "growth",
+      "assigneeId": "jonathan",
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T05:45:00Z",
+      "tags": ["sales", "partnerships", "states"],
+      "notes": "Target: California (CalOES), Texas (TDEM), New Mexico ($30M contingency fund). WebEOC pain point angle."
+    },
+    {
+      "id": "t13",
+      "projectId": "sos",
+      "title": "Build AI matching prototype",
+      "priority": "P1",
+      "status": "pending",
+      "section": "product",
+      "assigneeId": "henry",
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T05:45:00Z",
+      "tags": ["technical", "ai", "matching"],
+      "notes": "Core differentiator per competitive analysis. Every major funder prioritizing AI."
+    },
+    {
+      "id": "t14",
+      "projectId": "sos",
+      "title": "Review competitive intel and refine positioning",
+      "priority": "P1",
+      "status": "pending",
+      "section": "intelligence",
+      "assigneeId": "jonathan",
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T05:45:00Z",
+      "tags": ["strategy", "competitive"],
+      "notes": "Full competitive analysis in intel/competitive-analysis.json. Key insight: community coordination is blue ocean."
+    },
+    {
+      "id": "t15",
+      "projectId": "reforge",
+      "title": "Qualify 50 leads via Grunt swipe",
+      "priority": "P1",
+      "status": "pending",
+      "section": "sales",
+      "assigneeId": "jonathan",
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T06:00:00Z",
+      "tags": ["qualification", "leads"]
+    },
+    {
+      "id": "t16",
+      "projectId": "reforge",
+      "title": "Re-engage iRobot ($80K closed lost)",
+      "priority": "P1",
+      "status": "pending",
+      "section": "sales",
+      "assigneeId": "jonathan",
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T06:00:00Z",
+      "tags": ["deal", "re-engagement"]
+    },
+    {
+      "id": "t17",
+      "projectId": "harmony",
+      "title": "Invoice Client A for February",
+      "priority": "P1",
+      "status": "pending",
+      "section": "operations",
+      "assigneeId": "jonathan",
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T06:00:00Z",
+      "tags": ["finance", "invoicing"]
+    },
+    {
+      "id": "t18",
+      "projectId": "harmony",
+      "title": "Scope Client B RevOps project",
+      "priority": "P1",
+      "status": "pending",
+      "section": "sales",
+      "assigneeId": "jonathan",
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T06:00:00Z",
+      "tags": ["scoping", "new-work"]
+    },
+    {
+      "id": "t19",
+      "projectId": "grunt",
+      "title": "Implement per-project command center views",
+      "priority": "P0",
+      "status": "in_progress",
+      "section": "product",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-02T06:00:00Z",
+      "tags": ["ui", "command-center"]
+    },
+    {
+      "id": "t20",
+      "projectId": "grunt",
+      "title": "Add cost tracking dashboard",
+      "priority": "P2",
+      "status": "pending",
+      "section": "operations",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-02T06:00:00Z",
+      "tags": ["monitoring", "costs"]
     }
   ],
   
   "intel": [
+    {
+      "id": "i0",
+      "projectIds": ["reforge"],
+      "type": "strategy",
+      "icon": "🎯",
+      "title": "Lead Qualification Strategy",
+      "summary": "486 Product leads ready for qualification via Grunt swipe app. Focus on ICP fit: mid-market companies with complex data challenges.",
+      "tags": ["strategy", "sales"],
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T06:00:00Z",
+      "sources": [
+        { "name": "Reforge Swipe App", "url": "https://sos-help-the-helper.github.io/reforge-swipe/" }
+      ],
+      "details": {
+        "keyFacts": [
+          "486 Product leads available",
+          "Focus: IA + Research bundles",
+          "High-value re-engagement: iRobot ($80K), WSFS ($56K)"
+        ],
+        "approach": "Use Grunt swipe app for rapid lead qualification. Prioritize companies showing intent signals."
+      }
+    },
     {
       "id": "i1",
       "projectIds": ["sos"],
@@ -269,13 +446,255 @@
         "approach": "Bolt JS (self-hosted) over Deno SDK",
         "customSteps": ["Create Need", "Log Resource", "Match Request"]
       }
+    },
+    {
+      "id": "i6",
+      "projectIds": ["sos"],
+      "type": "funding",
+      "icon": "🎁",
+      "title": "25 Grant Opportunities Identified",
+      "summary": "Comprehensive grant research complete. Top 5: Hilton Foundation, FEMA EMPG, Google.org, Bezos AI Challenge, EDA Disaster Supplemental.",
+      "tags": ["funding", "grants", "opportunity"],
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T05:45:00Z",
+      "sources": [
+        { "name": "SOS Grants Database", "url": "file:///grants.json" }
+      ],
+      "details": {
+        "totalOpportunities": 25,
+        "priorityGrants": [
+          "Hilton Foundation - Disaster Relief & Recovery (9/10 fit)",
+          "FEMA EMPG - $319.5M to states (9/10 fit)",
+          "Google.org - Crisis Response (8/10 fit)",
+          "Bezos Earth Fund AI Challenge (8/10 fit)",
+          "EDA Disaster Supplemental (8/10 fit, March 2026 deadline)"
+        ],
+        "immediateActions": [
+          "Draft Hilton Foundation LOI",
+          "Prepare EDA application by March 3",
+          "Request Google.org introduction"
+        ]
+      }
+    },
+    {
+      "id": "i7",
+      "projectIds": ["sos"],
+      "type": "competitive",
+      "icon": "🏆",
+      "title": "WebEOC Dissatisfaction Creates Opening",
+      "summary": "Emergency managers frustrated with WebEOC cost and complexity. Reddit: 'expensive and slow compared to Veoci'.",
+      "tags": ["competitive", "opportunity", "sales"],
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T05:45:00Z",
+      "sources": [
+        { "name": "Reddit r/EmergencyManagement", "url": "https://www.reddit.com/r/EmergencyManagement/comments/1aly2nn/incident_management_softwareplatform/" }
+      ],
+      "details": {
+        "painPoints": [
+          "WebEOC is expensive ($50K-$200K+ annual)",
+          "Slow to modify and customize",
+          "Poor mobile experience",
+          "Legacy architecture"
+        ],
+        "sosOpportunity": "Position as modern, affordable WebEOC alternative with community coordination features."
+      }
+    },
+    {
+      "id": "i8",
+      "projectIds": ["sos"],
+      "type": "competitive",
+      "icon": "🌐",
+      "title": "Google Crisis Response = Awareness, Not Coordination",
+      "summary": "Google provides consumer alerts (SOS, FloodHub, WeatherNext) but doesn't coordinate responders. Complementary, not competitive.",
+      "tags": ["competitive", "google", "partnership"],
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T05:45:00Z",
+      "sources": [
+        { "name": "Google Crisis Response", "url": "https://crisisresponse.google/how-we-help" }
+      ],
+      "details": {
+        "googleCapabilities": ["SOS Alerts", "FloodHub forecasting", "WeatherNext AI", "Android earthquake alerts"],
+        "googleGap": "No coordination platform for responders/organizations",
+        "sosOpportunity": "Integrate Google alerts as input; SOS provides coordination layer"
+      }
+    },
+    {
+      "id": "i9",
+      "projectIds": ["sos"],
+      "type": "market",
+      "icon": "📈",
+      "title": "EM Software Market Growing 11% CAGR",
+      "summary": "Emergency Management Software market: $408M (2025) → $964M (2033). Crisis Management: $9.79B → $13.96B.",
+      "tags": ["market", "growth"],
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T05:45:00Z",
+      "sources": [
+        { "name": "Global Growth Insights", "url": "https://www.globalgrowthinsights.com/market-reports/emergency-management-software-market-105680" },
+        { "name": "Coherent Market Insights", "url": "https://www.coherentmarketinsights.com/industry-reports/crisis-management-software-market" }
+      ],
+      "details": {
+        "emergencyMgmtSoftware": { "2025": "$408M", "2033": "$964M", "cagr": "11.3%" },
+        "crisisMgmtSoftware": { "2025": "$9.79B", "2032": "$13.96B", "cagr": "5.2%" },
+        "keyDrivers": ["Increasing disaster frequency", "AI adoption", "Cloud migration", "FEMA uncertainty"]
+      }
+    },
+    {
+      "id": "i10",
+      "projectIds": ["sos"],
+      "type": "market",
+      "icon": "🎯",
+      "title": "SOS Addressable Market: $87M-$450M ARR",
+      "summary": "Conservative TAM $87M ARR across state/county/municipal EMAs + NGOs. Initial target: $5M ARR (10 states).",
+      "tags": ["market", "tam", "strategy"],
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T05:45:00Z",
+      "sources": [
+        { "name": "SOS Market Research", "url": "file:///market-research.json" }
+      ],
+      "details": {
+        "segments": {
+          "stateEMAs": "50 states × $100K-$500K = $5M-$25M",
+          "countyEMAs": "3,000+ × $10K-$50K = $30M-$150M",
+          "municipalEMAs": "10,000+ × $5K-$25K = $50M-$250M",
+          "voadNGOs": "500+ × $5K-$50K = $2.5M-$25M"
+        },
+        "initialTarget": "10 state EMAs at $500K avg = $5M ARR"
+      }
+    },
+    {
+      "id": "i11",
+      "projectIds": ["sos"],
+      "type": "strategy",
+      "icon": "💡",
+      "title": "Community Coordination = Blue Ocean",
+      "summary": "No competitor serves community-agency coordination well. All focus agency-to-agency. Major differentiation opportunity.",
+      "tags": ["strategy", "differentiation", "competitive"],
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T05:45:00Z",
+      "sources": [
+        { "name": "SOS Competitive Analysis", "url": "file:///competitive-analysis.json" }
+      ],
+      "details": {
+        "competitorFocus": {
+          "palantir": "Government agencies (surveillance)",
+          "webEOC": "EOC operations (agency staff)",
+          "veoci": "Agency workflows",
+          "everbridge": "Enterprise notification",
+          "google": "Consumer awareness"
+        },
+        "sosOpportunity": "Bridge communities/volunteers with official emergency management. No one does this well."
+      }
+    },
+    {
+      "id": "i12",
+      "projectIds": ["sos"],
+      "type": "strategy",
+      "icon": "🚀",
+      "title": "AI Recommendations for Product Roadmap",
+      "summary": "Key features to prioritize: AI matching (core), Slack integration (adoption), community-agency bridge (differentiation).",
+      "tags": ["strategy", "product", "roadmap"],
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T05:45:00Z",
+      "sources": [
+        { "name": "SOS Product Roadmap", "url": "file:///product-roadmap-suggestions.json" }
+      ],
+      "details": {
+        "p0Features": [
+          "AI-powered needs/resource matching",
+          "Slack-first integration",
+          "Community-agency coordination bridge"
+        ],
+        "p1Features": [
+          "Real-time situational dashboard",
+          "Mobile-native field app",
+          "Volunteer management"
+        ],
+        "competitiveMoats": [
+          "Community network effect",
+          "AI training data from responses",
+          "Mission alignment with funders"
+        ]
+      }
+    },
+    {
+      "id": "i13",
+      "projectIds": ["harmony"],
+      "type": "strategy",
+      "icon": "💼",
+      "title": "RevOps Consulting Positioning",
+      "summary": "Harmony Strategy differentiates through AI-augmented consulting. Lower overhead with Henry assistance = higher margins.",
+      "tags": ["strategy", "competitive"],
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T06:00:00Z",
+      "sources": [],
+      "details": {
+        "keyFacts": [
+          "2 active clients",
+          "Target margin: 60%",
+          "AI-augmented delivery reduces labor costs"
+        ],
+        "approach": "Position as boutique GTM consulting with AI-powered research and execution support."
+      }
+    },
+    {
+      "id": "i14",
+      "projectIds": ["grunt"],
+      "type": "technical",
+      "icon": "⚡",
+      "title": "Command Center Architecture",
+      "summary": "Static site hosted on GitHub Pages. Data-driven via JSON files. No backend needed = zero hosting costs.",
+      "tags": ["technical", "architecture"],
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T06:00:00Z",
+      "sources": [
+        { "name": "Command Center", "url": "https://sos-help-the-helper.github.io/command-center/" }
+      ],
+      "details": {
+        "keyFacts": [
+          "Pure static HTML/JS/CSS",
+          "GitHub Pages hosting (free)",
+          "JSON data files for easy updates",
+          "No authentication (internal tool)"
+        ],
+        "approach": "Keep it simple. Update JSON files to add data. GitHub Actions can automate data syncs."
+      }
+    },
+    {
+      "id": "i15",
+      "projectIds": ["grunt"],
+      "type": "market",
+      "icon": "💵",
+      "title": "API Cost Analysis",
+      "summary": "Monthly API costs averaging ~$300-400. Anthropic Claude as primary model. Prompt caching significantly reduces costs.",
+      "tags": ["market", "costs"],
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T06:00:00Z",
+      "sources": [],
+      "details": {
+        "keyFacts": [
+          "MTD: $315.68",
+          "277M+ cache read tokens",
+          "Cache hits save ~90% on repeated context"
+        ],
+        "approach": "Monitor costs daily. Optimize prompts. Use caching aggressively."
+      }
     }
   ],
   
   "activity": [
     { "id": "a1", "type": "intel_added", "contributorId": "henry", "projectId": "sos", "timestamp": "2026-02-02T04:40:00Z", "summary": "Added intel: $17B FEMA Aid Held Up", "targetId": "i1" },
     { "id": "a2", "type": "task_completed", "contributorId": "henry", "projectId": "grunt", "timestamp": "2026-02-02T05:10:00Z", "summary": "Completed: Build command center navigation", "targetId": "t7" },
-    { "id": "a3", "type": "task_completed", "contributorId": "henry", "projectId": "grunt", "timestamp": "2026-02-02T05:00:00Z", "summary": "Completed: Add verifiable source links", "targetId": "t8" }
+    { "id": "a3", "type": "task_completed", "contributorId": "henry", "projectId": "grunt", "timestamp": "2026-02-02T05:00:00Z", "summary": "Completed: Add verifiable source links", "targetId": "t8" },
+    { "id": "a4", "type": "task_completed", "contributorId": "henry", "projectId": "sos", "timestamp": "2026-02-02T05:45:00Z", "summary": "Completed: Research 25 foundation grant opportunities", "targetId": "t2" },
+    { "id": "a5", "type": "intel_added", "contributorId": "henry", "projectId": "sos", "timestamp": "2026-02-02T05:45:00Z", "summary": "Added intel: 25 Grant Opportunities Identified", "targetId": "i6" },
+    { "id": "a6", "type": "intel_added", "contributorId": "henry", "projectId": "sos", "timestamp": "2026-02-02T05:45:00Z", "summary": "Added intel: WebEOC Dissatisfaction Creates Opening", "targetId": "i7" },
+    { "id": "a7", "type": "intel_added", "contributorId": "henry", "projectId": "sos", "timestamp": "2026-02-02T05:45:00Z", "summary": "Added intel: Community Coordination = Blue Ocean", "targetId": "i11" },
+    { "id": "a8", "type": "intel_added", "contributorId": "henry", "projectId": "sos", "timestamp": "2026-02-02T05:45:00Z", "summary": "Added intel: Market research & competitive analysis", "targetId": "i9" },
+    { "id": "a9", "type": "task_created", "contributorId": "henry", "projectId": "sos", "timestamp": "2026-02-02T05:45:00Z", "summary": "Created: Draft Hilton Foundation LOI", "targetId": "t9" },
+    { "id": "a10", "type": "task_created", "contributorId": "henry", "projectId": "sos", "timestamp": "2026-02-02T05:45:00Z", "summary": "Created: Contact 3 state EMAs for pilot", "targetId": "t12" },
+    { "id": "a11", "type": "intel_added", "contributorId": "henry", "projectId": "grunt", "timestamp": "2026-02-02T06:00:00Z", "summary": "Added intel: Command Center Architecture", "targetId": "i14" },
+    { "id": "a12", "type": "intel_added", "contributorId": "henry", "projectId": "harmony", "timestamp": "2026-02-02T06:00:00Z", "summary": "Added intel: RevOps Consulting Positioning", "targetId": "i13" },
+    { "id": "a13", "type": "task_created", "contributorId": "henry", "projectId": "grunt", "timestamp": "2026-02-02T06:00:00Z", "summary": "Created: Implement per-project command center views", "targetId": "t19" }
   ],
   
   "pipelines": {
@@ -286,6 +705,58 @@
       { "account": "Fox Local", "amount": 27000, "product": "IA + R + Build", "status": "Budget 2-4 weeks", "nextStep": "Wait" },
       { "account": "DreamHost", "amount": 25000, "product": "IA", "status": "In pilot", "nextStep": "Check progress" },
       { "account": "Ecovadis", "amount": 18000, "product": "Build + IA + Research", "status": "Starting pilot", "nextStep": "Onboard" }
+    ],
+    "sos_grants": [
+      { "name": "Hilton Foundation", "status": "To Apply", "fitScore": 9, "deadline": "Rolling", "amount": "TBD" },
+      { "name": "EDA Disaster Supplemental", "status": "To Apply", "fitScore": 8, "deadline": "March 3, 2026", "amount": "$250K-$500K" },
+      { "name": "Google.org", "status": "To Contact", "fitScore": 8, "deadline": "Rolling", "amount": "$2M-$5M" },
+      { "name": "Bezos AI Challenge", "status": "To Apply", "fitScore": 8, "deadline": "Phase II TBD", "amount": "$1M+" },
+      { "name": "Climate Resilience Fund", "status": "To Apply", "fitScore": 8, "deadline": "March 12, 2026", "amount": "Up to $115K" }
+    ],
+    "sos_state_targets": [
+      { "state": "California", "agency": "CalOES", "status": "To Contact", "opportunity": "Wildfire coordination" },
+      { "state": "Texas", "agency": "TDEM", "status": "To Contact", "opportunity": "Largest state budget" },
+      { "state": "New Mexico", "agency": "DHSEM", "status": "To Contact", "opportunity": "$30M contingency fund" },
+      { "state": "Florida", "agency": "FDEM", "status": "To Research", "opportunity": "Hurricane response" },
+      { "state": "North Carolina", "agency": "NCEM", "status": "To Research", "opportunity": "Active grant programs" }
     ]
-  }
+  },
+  
+  "aiRecommendations": [
+    {
+      "priority": "HIGH",
+      "category": "funding",
+      "recommendation": "Apply to Hilton Foundation immediately",
+      "rationale": "Perfect mission alignment (9/10 fit). Explicitly funds 'innovations that strengthen disaster response'. Rolling deadline means no waiting.",
+      "action": "Draft LOI this week"
+    },
+    {
+      "priority": "HIGH",
+      "category": "sales",
+      "recommendation": "Contact New Mexico DHSEM first",
+      "rationale": "Added $30M contingency fund specifically due to FEMA uncertainty. Early adopter mindset. Perfect timing.",
+      "action": "Research contact, prepare pitch deck"
+    },
+    {
+      "priority": "HIGH",
+      "category": "product",
+      "recommendation": "Build AI matching as core feature",
+      "rationale": "Every major funder (Bezos, Google, Schmidt) prioritizing AI for climate/disaster. Table stakes for credibility.",
+      "action": "Prototype basic matching algorithm"
+    },
+    {
+      "priority": "MEDIUM",
+      "category": "competitive",
+      "recommendation": "Position against WebEOC, not Palantir",
+      "rationale": "Can't win against Palantir on their turf. WebEOC users are frustrated and accessible. Different buyer profile.",
+      "action": "Develop WebEOC migration messaging"
+    },
+    {
+      "priority": "MEDIUM",
+      "category": "partnership",
+      "recommendation": "Explore Google Crisis Response integration",
+      "rationale": "Google provides awareness, SOS provides coordination. Complementary. Google.org already funds this space.",
+      "action": "Map integration points, request intro"
+    }
+  ]
 }

@@ -497,6 +497,9 @@
         .feed-tag.technical { color: var(--purple); }
         .feed-tag.opportunity { color: var(--green-bright); }
         .feed-tag.urgent { color: var(--gold); background: rgba(212, 165, 48, 0.15); }
+        .feed-tag.funding { color: var(--gold); }
+        .feed-tag.strategy { color: var(--purple); }
+        .feed-tag.grants { color: var(--green-bright); }
 
         .feed-author {
             display: flex;
@@ -582,6 +585,27 @@
 
         .deal-amount { color: var(--green-bright); font-weight: 600; }
 
+        .status-badge {
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .status-badge.hot { background: rgba(212, 165, 48, 0.2); color: var(--gold); }
+        .status-badge.warm { background: rgba(74, 144, 212, 0.2); color: var(--blue); }
+        .status-badge.pending { background: rgba(139, 92, 246, 0.2); color: var(--purple); }
+        .status-badge.applied { background: rgba(92, 184, 92, 0.2); color: var(--green-bright); }
+
+        .fit-score {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-weight: 600;
+        }
+        .fit-score.high { color: var(--green-bright); }
+        .fit-score.medium { color: var(--gold); }
+        .fit-score.low { color: var(--text-secondary); }
+
         /* Activity feed */
         .activity-item {
             display: flex;
@@ -636,6 +660,63 @@
 
         .empty-state .icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.5; }
 
+        /* AI Recommendations */
+        .recommendation-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+        .recommendation-card.high { border-left: 3px solid var(--red-light); }
+        .recommendation-card.medium { border-left: 3px solid var(--gold); }
+
+        .recommendation-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .recommendation-priority {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .recommendation-priority.high { background: rgba(168, 84, 84, 0.3); color: var(--red-light); }
+        .recommendation-priority.medium { background: rgba(212, 165, 48, 0.2); color: var(--gold); }
+
+        .recommendation-category {
+            font-size: 0.6875rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        .recommendation-title { font-weight: 600; margin-bottom: 4px; }
+        .recommendation-rationale { font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 8px; }
+        .recommendation-action {
+            font-size: 0.8125rem;
+            color: var(--green-bright);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* State targets table */
+        .state-targets { margin-top: 24px; }
+
+        /* Two column layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        @media (max-width: 900px) {
+            .two-col { grid-template-columns: 1fr; }
+        }
+
         /* Responsive */
         @media (max-width: 900px) {
             .sidebar { display: none; }
@@ -685,7 +766,6 @@
                 </div>
                 <div class="header-actions">
                     <button class="btn" onclick="refreshData()">↻ Refresh</button>
-                    <button class="btn primary" onclick="showAddModal()">+ Add</button>
                 </div>
             </header>
 
@@ -701,7 +781,7 @@
         let currentProject = 'founder';
         let currentSection = 'splash';
 
-        // Section configs per project type
+        // Section configs per project - now project-specific
         const sectionConfigs = {
             founder: [
                 { id: 'splash', icon: '🏠', label: 'Overview' },
@@ -709,34 +789,34 @@
                 { id: 'tasks', icon: '✅', label: 'All Tasks' },
                 { id: 'activity', icon: '📊', label: 'Activity' }
             ],
-            product: [
+            sos: [
                 { id: 'splash', icon: '🏠', label: 'Overview' },
-                { id: 'product', icon: '🛠️', label: 'Product' },
-                { id: 'intelligence', icon: '📡', label: 'Intelligence' },
+                { id: 'grants', icon: '🎁', label: 'Grants Pipeline' },
+                { id: 'partners', icon: '🤝', label: 'Partners & States' },
+                { id: 'intelligence', icon: '📡', label: 'Intel' },
                 { id: 'tasks', icon: '✅', label: 'Tasks' },
-                { id: 'operations', icon: '⚙️', label: 'Operations' },
-                { id: 'growth', icon: '📈', label: 'Growth' }
+                { id: 'recommendations', icon: '🤖', label: 'AI Recommendations' }
             ],
-            sales: [
+            reforge: [
                 { id: 'splash', icon: '🏠', label: 'Overview' },
-                { id: 'sales', icon: '💰', label: 'Sales' },
+                { id: 'pipeline', icon: '💰', label: 'Deals Pipeline' },
+                { id: 'leads', icon: '🎯', label: 'Target Leads' },
                 { id: 'tasks', icon: '✅', label: 'Tasks' },
-                { id: 'operations', icon: '⚙️', label: 'Operations' },
-                { id: 'intelligence', icon: '📡', label: 'Intelligence' }
+                { id: 'intelligence', icon: '📡', label: 'Intel' }
             ],
-            operations: [
+            harmony: [
                 { id: 'splash', icon: '🏠', label: 'Overview' },
-                { id: 'sales', icon: '💰', label: 'Clients' },
+                { id: 'clients', icon: '👥', label: 'Clients' },
                 { id: 'operations', icon: '⚙️', label: 'Operations' },
                 { id: 'tasks', icon: '✅', label: 'Tasks' },
-                { id: 'growth', icon: '📈', label: 'Growth' }
+                { id: 'intelligence', icon: '📡', label: 'Intel' }
             ],
-            meta: [
+            grunt: [
                 { id: 'splash', icon: '🏠', label: 'Overview' },
-                { id: 'product', icon: '🛠️', label: 'Capabilities' },
-                { id: 'operations', icon: '⚙️', label: 'Operations' },
-                { id: 'intelligence', icon: '📡', label: 'Learning' },
-                { id: 'tasks', icon: '✅', label: 'Tasks' }
+                { id: 'capabilities', icon: '🛠️', label: 'Capabilities' },
+                { id: 'costs', icon: '💵', label: 'API Costs' },
+                { id: 'tasks', icon: '✅', label: 'Tasks' },
+                { id: 'intelligence', icon: '📡', label: 'Intel' }
             ]
         };
 
@@ -749,6 +829,13 @@
                 console.error('Failed to load data:', e);
                 data = { projects: [], tasks: [], intel: [], metrics: [], activity: [], contributors: [] };
             }
+            
+            // Handle hash-based navigation
+            const hash = window.location.hash.slice(1);
+            if (hash && data.projects?.find(p => p.id === hash)) {
+                currentProject = hash;
+            }
+            
             render();
         }
 
@@ -788,9 +875,8 @@
         function setProject(projectId) {
             currentProject = projectId;
             currentSection = 'splash';
-            render();
-            // Update URL hash
             window.location.hash = projectId === 'founder' ? '' : projectId;
+            render();
         }
 
         function setSection(sectionId) {
@@ -835,9 +921,7 @@
 
         function renderNav() {
             const nav = document.getElementById('section-nav');
-            const project = data?.projects?.find(p => p.id === currentProject);
-            const focus = project?.focus || 'founder';
-            const sections = sectionConfigs[focus] || sectionConfigs.founder;
+            const sections = sectionConfigs[currentProject] || sectionConfigs.founder;
 
             nav.innerHTML = sections.map(s => `
                 <div class="nav-item ${currentSection === s.id ? 'active' : ''}" onclick="setSection('${s.id}')">
@@ -851,8 +935,8 @@
         function renderHeader() {
             const header = document.getElementById('header-title');
             const project = data?.projects?.find(p => p.id === currentProject);
-            const sectionConfig = getSectionConfig();
-            const currentSectionLabel = sectionConfig?.find(s => s.id === currentSection)?.label || 'Overview';
+            const sections = sectionConfigs[currentProject] || sectionConfigs.founder;
+            const currentSectionLabel = sections.find(s => s.id === currentSection)?.label || 'Overview';
 
             if (currentProject === 'founder') {
                 header.innerHTML = `
@@ -875,28 +959,36 @@
             }
         }
 
-        function getSectionConfig() {
-            const project = data?.projects?.find(p => p.id === currentProject);
-            const focus = project?.focus || 'founder';
-            return sectionConfigs[focus] || sectionConfigs.founder;
+        // Main render function
+        function render() {
+            renderSidebar();
+            renderContent();
         }
 
-        // Render content
+        // Render content based on project and section
         function renderContent() {
             const container = document.getElementById('content');
             renderHeader();
 
             if (currentProject === 'founder') {
-                container.innerHTML = renderFounderView();
+                container.innerHTML = renderFounderContent();
+            } else if (currentProject === 'sos') {
+                container.innerHTML = renderSOSContent();
+            } else if (currentProject === 'reforge') {
+                container.innerHTML = renderReforgeContent();
+            } else if (currentProject === 'harmony') {
+                container.innerHTML = renderHarmonyContent();
+            } else if (currentProject === 'grunt') {
+                container.innerHTML = renderGruntContent();
             } else {
-                container.innerHTML = renderProjectView();
+                container.innerHTML = renderGenericProjectContent();
             }
 
-            // Attach event handlers
             attachEventHandlers();
         }
 
-        function renderFounderView() {
+        // ============ FOUNDER VIEW ============
+        function renderFounderContent() {
             switch (currentSection) {
                 case 'splash': return renderFounderSplash();
                 case 'intelligence': return renderIntelPage();
@@ -906,24 +998,9 @@
             }
         }
 
-        function renderProjectView() {
-            switch (currentSection) {
-                case 'splash': return renderProjectSplash();
-                case 'product': return renderProductPage();
-                case 'sales': return renderSalesPage();
-                case 'operations': return renderOpsPage();
-                case 'growth': return renderGrowthPage();
-                case 'intelligence': return renderIntelPage();
-                case 'tasks': return renderTasksPage();
-                default: return renderProjectSplash();
-            }
-        }
-
-        // FOUNDER SPLASH
         function renderFounderSplash() {
             const projects = data?.projects || [];
             
-            // Cross-project metrics
             const totalTasks = (data.tasks || []).filter(t => t.status !== 'done').length;
             const p0Tasks = (data.tasks || []).filter(t => t.status !== 'done' && t.priority === 'P0').length;
             const recentIntel = (data.intel || []).length;
@@ -994,17 +1071,26 @@
             return html;
         }
 
-        // PROJECT SPLASH
-        function renderProjectSplash() {
-            const project = data?.projects?.find(p => p.id === currentProject);
-            if (!project) return '<div class="empty-state"><div class="icon">📁</div>Project not found</div>';
+        // ============ SOS PROJECT ============
+        function renderSOSContent() {
+            switch (currentSection) {
+                case 'splash': return renderSOSSplash();
+                case 'grants': return renderSOSGrants();
+                case 'partners': return renderSOSPartners();
+                case 'intelligence': return renderIntelPage();
+                case 'tasks': return renderTasksPage();
+                case 'recommendations': return renderSOSRecommendations();
+                default: return renderSOSSplash();
+            }
+        }
 
-            const metrics = (data.metrics || []).filter(m => m.projectId === currentProject);
-            const tasks = (data.tasks || []).filter(t => t.projectId === currentProject && t.status !== 'done');
-            const intel = (data.intel || []).filter(i => (i.projectIds || []).includes(currentProject));
+        function renderSOSSplash() {
+            const metrics = (data.metrics || []).filter(m => m.projectId === 'sos');
+            const tasks = (data.tasks || []).filter(t => t.projectId === 'sos' && t.status !== 'done');
+            const intel = (data.intel || []).filter(i => (i.projectIds || []).includes('sos'));
+            const grants = data.pipelines?.sos_grants || [];
 
             let html = '<div class="metrics-grid">';
-            
             metrics.slice(0, 4).forEach(m => {
                 const statusClass = m.target ? (m.value >= m.target * 0.8 ? 'good' : m.value >= m.target * 0.5 ? 'warn' : 'bad') : '';
                 html += `
@@ -1015,175 +1101,649 @@
                     </div>
                 `;
             });
+            html += '</div>';
 
+            // Quick view of grants pipeline
             html += `
+                <div class="section-header">
+                    <div class="section-title">🎁 Grants Pipeline (${grants.length})</div>
+                    <button class="btn" onclick="setSection('grants')">View All →</button>
                 </div>
+                <div class="card">
+                    <table class="pipeline-table">
+                        <thead><tr><th>Grant</th><th>Fit</th><th>Status</th><th>Deadline</th></tr></thead>
+                        <tbody>
+            `;
+            grants.slice(0, 3).forEach(g => {
+                const fitClass = g.fitScore >= 8 ? 'high' : g.fitScore >= 6 ? 'medium' : 'low';
+                html += `
+                    <tr>
+                        <td>${g.name}</td>
+                        <td><span class="fit-score ${fitClass}">${g.fitScore}/10</span></td>
+                        <td><span class="status-badge pending">${g.status}</span></td>
+                        <td>${g.deadline || 'Rolling'}</td>
+                    </tr>
+                `;
+            });
+            html += '</tbody></table></div>';
 
+            // Tasks
+            html += `
+                <div class="section-header" style="margin-top: 24px;">
+                    <div class="section-title">Active Tasks (${tasks.length})</div>
+                    <button class="btn" onclick="setSection('tasks')">View All →</button>
+                </div>
+                <div class="task-list">${tasks.slice(0, 5).map(renderTaskItem).join('')}</div>
+            `;
+
+            // Intel
+            html += `
+                <div class="section-header" style="margin-top: 24px;">
+                    <div class="section-title">Latest Intel (${intel.length})</div>
+                    <button class="btn" onclick="setSection('intelligence')">View All →</button>
+                </div>
+                <div class="feed-container">${intel.slice(0, 2).map(renderIntelCard).join('')}</div>
+            `;
+
+            return html;
+        }
+
+        function renderSOSGrants() {
+            const grants = data.pipelines?.sos_grants || [];
+            
+            let html = `
+                <div class="section-header">
+                    <div class="section-title">🎁 Grants Pipeline</div>
+                </div>
+                <div class="card">
+                    <table class="pipeline-table">
+                        <thead>
+                            <tr>
+                                <th>Grant Opportunity</th>
+                                <th>Fit Score</th>
+                                <th>Status</th>
+                                <th>Amount</th>
+                                <th>Deadline</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+            
+            grants.forEach(g => {
+                const fitClass = g.fitScore >= 8 ? 'high' : g.fitScore >= 6 ? 'medium' : 'low';
+                html += `
+                    <tr>
+                        <td><strong>${g.name}</strong></td>
+                        <td><span class="fit-score ${fitClass}">⭐ ${g.fitScore}/10</span></td>
+                        <td><span class="status-badge pending">${g.status}</span></td>
+                        <td class="deal-amount">${g.amount || 'TBD'}</td>
+                        <td>${g.deadline || 'Rolling'}</td>
+                    </tr>
+                `;
+            });
+            
+            html += `
+                        </tbody>
+                    </table>
+                </div>
+            `;
+
+            // Grant-related intel
+            const grantIntel = (data.intel || []).filter(i => 
+                (i.projectIds || []).includes('sos') && 
+                (i.tags || []).some(t => ['funding', 'grants'].includes(t))
+            );
+
+            if (grantIntel.length > 0) {
+                html += `
+                    <div class="section-header" style="margin-top: 24px;">
+                        <div class="section-title">📡 Grant Research & Intel</div>
+                    </div>
+                    <div class="feed-container">${grantIntel.map(renderIntelCard).join('')}</div>
+                `;
+            }
+
+            return html;
+        }
+
+        function renderSOSPartners() {
+            const stateTargets = data.pipelines?.sos_state_targets || [];
+            
+            let html = `
+                <div class="section-header">
+                    <div class="section-title">🏛️ State EMA Targets</div>
+                </div>
+                <div class="card">
+                    <table class="pipeline-table">
+                        <thead>
+                            <tr>
+                                <th>State</th>
+                                <th>Agency</th>
+                                <th>Status</th>
+                                <th>Opportunity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+            
+            stateTargets.forEach(s => {
+                html += `
+                    <tr>
+                        <td><strong>${s.state}</strong></td>
+                        <td>${s.agency}</td>
+                        <td><span class="status-badge warm">${s.status}</span></td>
+                        <td>${s.opportunity}</td>
+                    </tr>
+                `;
+            });
+            
+            html += `
+                        </tbody>
+                    </table>
+                </div>
+            `;
+
+            // Competitive intel (partners need to know the landscape)
+            const competitiveIntel = (data.intel || []).filter(i => 
+                (i.projectIds || []).includes('sos') && 
+                (i.tags || []).some(t => ['competitive', 'partnership'].includes(t))
+            );
+
+            if (competitiveIntel.length > 0) {
+                html += `
+                    <div class="section-header" style="margin-top: 24px;">
+                        <div class="section-title">⚔️ Competitive Landscape</div>
+                    </div>
+                    <div class="feed-container">${competitiveIntel.map(renderIntelCard).join('')}</div>
+                `;
+            }
+
+            return html;
+        }
+
+        function renderSOSRecommendations() {
+            const recommendations = data.aiRecommendations || [];
+            
+            let html = `
+                <div class="section-header">
+                    <div class="section-title">🤖 AI Recommendations</div>
+                </div>
+            `;
+
+            recommendations.forEach(r => {
+                html += `
+                    <div class="recommendation-card ${r.priority.toLowerCase()}">
+                        <div class="recommendation-header">
+                            <span class="recommendation-priority ${r.priority.toLowerCase()}">${r.priority}</span>
+                            <span class="recommendation-category">${r.category}</span>
+                        </div>
+                        <div class="recommendation-title">${r.recommendation}</div>
+                        <div class="recommendation-rationale">${r.rationale}</div>
+                        <div class="recommendation-action">→ ${r.action}</div>
+                    </div>
+                `;
+            });
+
+            return html;
+        }
+
+        // ============ REFORGE PROJECT ============
+        function renderReforgeContent() {
+            switch (currentSection) {
+                case 'splash': return renderReforgeSplash();
+                case 'pipeline': return renderReforgePipeline();
+                case 'leads': return renderReforgeLeads();
+                case 'tasks': return renderTasksPage();
+                case 'intelligence': return renderIntelPage();
+                default: return renderReforgeSplash();
+            }
+        }
+
+        function renderReforgeSplash() {
+            const metrics = (data.metrics || []).filter(m => m.projectId === 'reforge');
+            const pipeline = data.pipelines?.reforge || [];
+            const tasks = (data.tasks || []).filter(t => t.projectId === 'reforge' && t.status !== 'done');
+
+            let html = '<div class="metrics-grid">';
+            metrics.forEach(m => {
+                const statusClass = m.target ? (m.value >= m.target * 0.8 ? 'good' : m.value >= m.target * 0.5 ? 'warn' : 'bad') : '';
+                html += `
+                    <div class="metric-card">
+                        <div class="metric-label">${m.name}</div>
+                        <div class="metric-value ${statusClass}">${formatMetric(m.value, m.format)}</div>
+                        ${m.target ? `<div class="metric-target">Target: ${formatMetric(m.target, m.format)}</div>` : ''}
+                    </div>
+                `;
+            });
+            html += '</div>';
+
+            // Pipeline preview
+            html += `
+                <div class="section-header">
+                    <div class="section-title">💰 Active Pipeline</div>
+                    <button class="btn" onclick="setSection('pipeline')">View All →</button>
+                </div>
+                <div class="card">
+                    <table class="pipeline-table">
+                        <thead><tr><th>Account</th><th>Amount</th><th>Product</th><th>Status</th></tr></thead>
+                        <tbody>
+            `;
+            pipeline.slice(0, 4).forEach(d => {
+                html += `
+                    <tr>
+                        <td><strong>${d.account}</strong></td>
+                        <td class="deal-amount">${formatCurrency(d.amount)}</td>
+                        <td>${d.product}</td>
+                        <td><span class="status-badge hot">${d.status}</span></td>
+                    </tr>
+                `;
+            });
+            html += '</tbody></table></div>';
+
+            // Tasks
+            html += `
+                <div class="section-header" style="margin-top: 24px;">
+                    <div class="section-title">Active Tasks (${tasks.length})</div>
+                    <button class="btn" onclick="setSection('tasks')">View All →</button>
+                </div>
+                <div class="task-list">${tasks.slice(0, 5).map(renderTaskItem).join('')}</div>
+            `;
+
+            return html;
+        }
+
+        function renderReforgePipeline() {
+            const pipeline = data.pipelines?.reforge || [];
+            const totalValue = pipeline.reduce((sum, d) => sum + d.amount, 0);
+            
+            let html = `
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">Total Pipeline</div>
+                        <div class="metric-value good">${formatCurrency(totalValue)}</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Active Deals</div>
+                        <div class="metric-value">${pipeline.length}</div>
+                    </div>
+                </div>
+                
+                <div class="section-header">
+                    <div class="section-title">💰 Deals Pipeline</div>
+                </div>
+                <div class="card">
+                    <table class="pipeline-table">
+                        <thead>
+                            <tr>
+                                <th>Account</th>
+                                <th>Amount</th>
+                                <th>Product</th>
+                                <th>Status</th>
+                                <th>Next Step</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+            
+            pipeline.forEach(d => {
+                html += `
+                    <tr>
+                        <td><strong>${d.account}</strong></td>
+                        <td class="deal-amount">${formatCurrency(d.amount)}</td>
+                        <td>${d.product}</td>
+                        <td><span class="status-badge hot">${d.status}</span></td>
+                        <td>${d.nextStep || '-'}</td>
+                    </tr>
+                `;
+            });
+            
+            html += '</tbody></table></div>';
+            return html;
+        }
+
+        function renderReforgeLeads() {
+            return `
+                <div class="section-header">
+                    <div class="section-title">🎯 Target Leads</div>
+                </div>
+                <div class="card" style="text-align: center; padding: 40px;">
+                    <div style="font-size: 3rem; margin-bottom: 16px;">🎯</div>
+                    <h3 style="margin-bottom: 8px;">Grunt Swipe App</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 16px;">486 Product leads ready for qualification</p>
+                    <a href="https://sos-help-the-helper.github.io/reforge-swipe/" target="_blank" class="btn primary" style="text-decoration: none;">
+                        Open Swipe App →
+                    </a>
+                </div>
+                
+                <div class="section-header" style="margin-top: 24px;">
+                    <div class="section-title">🔄 Re-engagement Opportunities</div>
+                </div>
+                <div class="card">
+                    <table class="pipeline-table">
+                        <thead><tr><th>Account</th><th>Value</th><th>Status</th><th>Notes</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>iRobot</strong></td>
+                                <td class="deal-amount">$80,000</td>
+                                <td><span class="status-badge warm">Closed Lost</span></td>
+                                <td>High-value re-engagement target</td>
+                            </tr>
+                            <tr>
+                                <td><strong>WSFS</strong></td>
+                                <td class="deal-amount">$56,000</td>
+                                <td><span class="status-badge warm">Closed Lost</span></td>
+                                <td>Financial services vertical</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        // ============ HARMONY PROJECT ============
+        function renderHarmonyContent() {
+            switch (currentSection) {
+                case 'splash': return renderHarmonySplash();
+                case 'clients': return renderHarmonyClients();
+                case 'operations': return renderHarmonyOps();
+                case 'tasks': return renderTasksPage();
+                case 'intelligence': return renderIntelPage();
+                default: return renderHarmonySplash();
+            }
+        }
+
+        function renderHarmonySplash() {
+            const metrics = (data.metrics || []).filter(m => m.projectId === 'harmony');
+            const tasks = (data.tasks || []).filter(t => t.projectId === 'harmony' && t.status !== 'done');
+
+            let html = '<div class="metrics-grid">';
+            metrics.forEach(m => {
+                const statusClass = m.target ? (m.value >= m.target * 0.8 ? 'good' : m.value >= m.target * 0.5 ? 'warn' : 'bad') : '';
+                html += `
+                    <div class="metric-card">
+                        <div class="metric-label">${m.name}</div>
+                        <div class="metric-value ${statusClass}">${formatMetric(m.value, m.format)}</div>
+                        ${m.target ? `<div class="metric-target">Target: ${formatMetric(m.target, m.format)}</div>` : ''}
+                    </div>
+                `;
+            });
+            html += '</div>';
+
+            // Tasks
+            html += `
                 <div class="section-header">
                     <div class="section-title">Active Tasks (${tasks.length})</div>
                     <button class="btn" onclick="setSection('tasks')">View All →</button>
                 </div>
-                <div class="task-list">
-                    ${tasks.slice(0, 5).map(renderTaskItem).join('')}
-                </div>
-
-                <div class="section-header" style="margin-top: 24px;">
-                    <div class="section-title">Recent Intel (${intel.length})</div>
-                    <button class="btn" onclick="setSection('intelligence')">View All →</button>
-                </div>
-                <div class="feed-container">
-                    ${intel.slice(0, 3).map(renderIntelCard).join('')}
-                </div>
+                <div class="task-list">${tasks.map(renderTaskItem).join('') || '<div class="empty-state">No active tasks</div>'}</div>
             `;
 
             return html;
         }
 
-        // PRODUCT PAGE
-        function renderProductPage() {
-            const tasks = (data.tasks || []).filter(t => t.projectId === currentProject && t.section === 'product');
-            const metrics = (data.metrics || []).filter(m => m.projectId === currentProject && m.section === 'product');
-
-            let html = `
-                <div class="metrics-grid">
-                    ${metrics.map(m => `
-                        <div class="metric-card">
-                            <div class="metric-label">${m.name}</div>
-                            <div class="metric-value">${formatMetric(m.value, m.format)}</div>
-                        </div>
-                    `).join('')}
-                </div>
-
+        function renderHarmonyClients() {
+            return `
                 <div class="section-header">
-                    <div class="section-title">Product Tasks</div>
-                    <button class="btn primary" onclick="showAddModal('task', 'product')">+ Add Task</button>
+                    <div class="section-title">👥 Active Clients</div>
                 </div>
-                <div class="task-list">
-                    ${tasks.map(renderTaskItem).join('') || '<div class="empty-state">No product tasks</div>'}
-                </div>
-            `;
-
-            return html;
-        }
-
-        // SALES PAGE
-        function renderSalesPage() {
-            const metrics = (data.metrics || []).filter(m => m.projectId === currentProject && m.section === 'sales');
-            const pipeline = data.pipelines?.[currentProject] || [];
-            const tasks = (data.tasks || []).filter(t => t.projectId === currentProject && t.section === 'sales');
-
-            let html = `
-                <div class="metrics-grid">
-                    ${metrics.map(m => `
-                        <div class="metric-card">
-                            <div class="metric-label">${m.name}</div>
-                            <div class="metric-value ${m.trend === 'up' ? 'good' : ''}">${formatMetric(m.value, m.format)}</div>
-                            ${m.target ? `<div class="metric-target">Target: ${formatMetric(m.target, m.format)}</div>` : ''}
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">🏢</div>
+                            <div>
+                                <div class="card-title">Client A</div>
+                                <div class="card-subtitle">GTM Consulting</div>
+                            </div>
                         </div>
-                    `).join('')}
-                </div>
-            `;
-
-            if (pipeline.length > 0) {
-                html += `
-                    <div class="section-header">
-                        <div class="section-title">Pipeline</div>
+                        <div class="card-stats">
+                            <span class="card-stat">Monthly retainer</span>
+                        </div>
                     </div>
                     <div class="card">
-                        <table class="pipeline-table">
-                            <thead>
-                                <tr>
-                                    <th>Account</th>
-                                    <th>Amount</th>
-                                    <th>Product</th>
-                                    <th>Status</th>
-                                    <th>Next Step</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${pipeline.map(d => `
-                                    <tr>
-                                        <td>${d.account}</td>
-                                        <td class="deal-amount">${formatCurrency(d.amount)}</td>
-                                        <td>${d.product}</td>
-                                        <td>${d.status}</td>
-                                        <td>${d.nextStep || '-'}</td>
-                                    </tr>
-                                `).join('')}
-                            </tbody>
-                        </table>
+                        <div class="card-header">
+                            <div class="card-icon">🏢</div>
+                            <div>
+                                <div class="card-title">Client B</div>
+                                <div class="card-subtitle">RevOps Setup</div>
+                            </div>
+                        </div>
+                        <div class="card-stats">
+                            <span class="card-stat">Project-based</span>
+                        </div>
                     </div>
+                </div>
+            `;
+        }
+
+        function renderHarmonyOps() {
+            const metrics = (data.metrics || []).filter(m => m.projectId === 'harmony' && m.section === 'operations');
+            
+            let html = '<div class="metrics-grid">';
+            metrics.forEach(m => {
+                html += `
+                    <div class="metric-card">
+                        <div class="metric-label">${m.name}</div>
+                        <div class="metric-value">${formatMetric(m.value, m.format)}</div>
+                        ${m.target ? `<div class="metric-target">Target: ${formatMetric(m.target, m.format)}</div>` : ''}
+                    </div>
+                `;
+            });
+            html += '</div>';
+
+            const tasks = (data.tasks || []).filter(t => t.projectId === 'harmony' && t.section === 'operations');
+            html += `
+                <div class="section-header">
+                    <div class="section-title">Operations Tasks</div>
+                </div>
+                <div class="task-list">${tasks.map(renderTaskItem).join('') || '<div class="empty-state">No operations tasks</div>'}</div>
+            `;
+
+            return html;
+        }
+
+        // ============ GRUNT PROJECT ============
+        function renderGruntContent() {
+            switch (currentSection) {
+                case 'splash': return renderGruntSplash();
+                case 'capabilities': return renderGruntCapabilities();
+                case 'costs': return renderGruntCosts();
+                case 'tasks': return renderTasksPage();
+                case 'intelligence': return renderIntelPage();
+                default: return renderGruntSplash();
+            }
+        }
+
+        function renderGruntSplash() {
+            const metrics = (data.metrics || []).filter(m => m.projectId === 'grunt');
+            const tasks = (data.tasks || []).filter(t => t.projectId === 'grunt' && t.status !== 'done');
+            const intel = (data.intel || []).filter(i => (i.projectIds || []).includes('grunt'));
+
+            let html = '<div class="metrics-grid">';
+            metrics.forEach(m => {
+                html += `
+                    <div class="metric-card">
+                        <div class="metric-label">${m.name}</div>
+                        <div class="metric-value">${formatMetric(m.value, m.format)}</div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+
+            // Tasks
+            html += `
+                <div class="section-header">
+                    <div class="section-title">Active Tasks (${tasks.length})</div>
+                    <button class="btn" onclick="setSection('tasks')">View All →</button>
+                </div>
+                <div class="task-list">${tasks.map(renderTaskItem).join('') || '<div class="empty-state">No active tasks</div>'}</div>
+            `;
+
+            // Intel
+            if (intel.length > 0) {
+                html += `
+                    <div class="section-header" style="margin-top: 24px;">
+                        <div class="section-title">Intel (${intel.length})</div>
+                        <button class="btn" onclick="setSection('intelligence')">View All →</button>
+                    </div>
+                    <div class="feed-container">${intel.slice(0, 2).map(renderIntelCard).join('')}</div>
                 `;
             }
 
-            html += `
-                <div class="section-header" style="margin-top: 24px;">
-                    <div class="section-title">Sales Tasks</div>
-                    <button class="btn primary" onclick="showAddModal('task', 'sales')">+ Add Task</button>
+            return html;
+        }
+
+        function renderGruntCapabilities() {
+            return `
+                <div class="section-header">
+                    <div class="section-title">🛠️ Active Capabilities</div>
                 </div>
-                <div class="task-list">
-                    ${tasks.map(renderTaskItem).join('') || '<div class="empty-state">No sales tasks</div>'}
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">🌐</div>
+                            <div>
+                                <div class="card-title">Web Search</div>
+                                <div class="card-subtitle">Brave Search API</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">🔍</div>
+                            <div>
+                                <div class="card-title">Web Fetch</div>
+                                <div class="card-subtitle">Content extraction</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">📧</div>
+                            <div>
+                                <div class="card-title">Gmail</div>
+                                <div class="card-subtitle">Read & send emails</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">📅</div>
+                            <div>
+                                <div class="card-title">Calendar</div>
+                                <div class="card-subtitle">Google Calendar API</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">💬</div>
+                            <div>
+                                <div class="card-title">Slack</div>
+                                <div class="card-subtitle">Messaging</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">🎨</div>
+                            <div>
+                                <div class="card-title">Canvas</div>
+                                <div class="card-subtitle">UI presentation</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             `;
+        }
+
+        function renderGruntCosts() {
+            return `
+                <div class="section-header">
+                    <div class="section-title">💵 API Costs</div>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">Today</div>
+                        <div class="metric-value">$49.25</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">MTD Total</div>
+                        <div class="metric-value">$315.68</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Provider</div>
+                        <div class="metric-value" style="font-size: 1.25rem;">Anthropic</div>
+                    </div>
+                </div>
+                <div class="card" style="margin-top: 24px;">
+                    <div class="section-title" style="margin-bottom: 12px;">Recent Days</div>
+                    <table class="pipeline-table">
+                        <thead><tr><th>Date</th><th>Cost</th></tr></thead>
+                        <tbody>
+                            <tr><td>2026-02-02</td><td class="deal-amount">$49.25</td></tr>
+                            <tr><td>2026-02-01</td><td class="deal-amount">$180.31</td></tr>
+                            <tr><td>2026-01-31</td><td class="deal-amount">$44.21</td></tr>
+                            <tr><td>2026-01-30</td><td class="deal-amount">$33.50</td></tr>
+                            <tr><td>2026-01-29</td><td class="deal-amount">$8.41</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        // ============ GENERIC PROJECT (fallback) ============
+        function renderGenericProjectContent() {
+            switch (currentSection) {
+                case 'splash': return renderGenericSplash();
+                case 'intelligence': return renderIntelPage();
+                case 'tasks': return renderTasksPage();
+                default: return renderGenericSplash();
+            }
+        }
+
+        function renderGenericSplash() {
+            const project = data?.projects?.find(p => p.id === currentProject);
+            const metrics = (data.metrics || []).filter(m => m.projectId === currentProject);
+            const tasks = (data.tasks || []).filter(t => t.projectId === currentProject && t.status !== 'done');
+            const intel = (data.intel || []).filter(i => (i.projectIds || []).includes(currentProject));
+
+            let html = '<div class="metrics-grid">';
+            metrics.slice(0, 4).forEach(m => {
+                html += `
+                    <div class="metric-card">
+                        <div class="metric-label">${m.name}</div>
+                        <div class="metric-value">${formatMetric(m.value, m.format)}</div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+
+            html += `
+                <div class="section-header">
+                    <div class="section-title">Active Tasks (${tasks.length})</div>
+                    <button class="btn" onclick="setSection('tasks')">View All →</button>
+                </div>
+                <div class="task-list">${tasks.slice(0, 5).map(renderTaskItem).join('')}</div>
+            `;
+
+            if (intel.length > 0) {
+                html += `
+                    <div class="section-header" style="margin-top: 24px;">
+                        <div class="section-title">Intel (${intel.length})</div>
+                        <button class="btn" onclick="setSection('intelligence')">View All →</button>
+                    </div>
+                    <div class="feed-container">${intel.slice(0, 3).map(renderIntelCard).join('')}</div>
+                `;
+            }
 
             return html;
         }
 
-        // OPS PAGE
-        function renderOpsPage() {
-            const metrics = (data.metrics || []).filter(m => m.projectId === currentProject && m.section === 'operations');
-            const tasks = (data.tasks || []).filter(t => t.projectId === currentProject && t.section === 'operations');
-
-            return `
-                <div class="metrics-grid">
-                    ${metrics.map(m => `
-                        <div class="metric-card">
-                            <div class="metric-label">${m.name}</div>
-                            <div class="metric-value">${formatMetric(m.value, m.format)}</div>
-                        </div>
-                    `).join('')}
-                </div>
-
-                <div class="section-header">
-                    <div class="section-title">Operations Tasks</div>
-                    <button class="btn primary" onclick="showAddModal('task', 'operations')">+ Add Task</button>
-                </div>
-                <div class="task-list">
-                    ${tasks.map(renderTaskItem).join('') || '<div class="empty-state">No operations tasks</div>'}
-                </div>
-            `;
-        }
-
-        // GROWTH PAGE
-        function renderGrowthPage() {
-            const metrics = (data.metrics || []).filter(m => m.projectId === currentProject && m.section === 'growth');
-            const tasks = (data.tasks || []).filter(t => t.projectId === currentProject && t.section === 'growth');
-
-            return `
-                <div class="metrics-grid">
-                    ${metrics.map(m => `
-                        <div class="metric-card">
-                            <div class="metric-label">${m.name}</div>
-                            <div class="metric-value">${formatMetric(m.value, m.format)}</div>
-                            ${m.target ? `<div class="metric-target">Target: ${formatMetric(m.target, m.format)}</div>` : ''}
-                        </div>
-                    `).join('')}
-                </div>
-
-                <div class="section-header">
-                    <div class="section-title">Growth Tasks</div>
-                    <button class="btn primary" onclick="showAddModal('task', 'growth')">+ Add Task</button>
-                </div>
-                <div class="task-list">
-                    ${tasks.map(renderTaskItem).join('') || '<div class="empty-state">No growth tasks</div>'}
-                </div>
-            `;
-        }
-
-        // INTEL PAGE
+        // ============ SHARED PAGES ============
         function renderIntelPage() {
             let intel = data?.intel || [];
             
+            // Filter by project if not on founder view
             if (currentProject !== 'founder') {
                 intel = intel.filter(i => (i.projectIds || []).includes(currentProject));
             }
@@ -1197,18 +1757,19 @@
                     <div class="filter-tab" data-type="market">📊 Market</div>
                     <div class="filter-tab" data-type="technical">🔧 Technical</div>
                     <div class="filter-tab" data-type="opportunity">💡 Opportunity</div>
+                    <div class="filter-tab" data-type="funding">🎁 Funding</div>
                 </div>
 
                 <div class="feed-container" id="intel-feed">
-                    ${intel.map(renderIntelCard).join('') || '<div class="empty-state"><div class="icon">📡</div>No intelligence yet</div>'}
+                    ${intel.map(renderIntelCard).join('') || '<div class="empty-state"><div class="icon">📡</div>No intelligence for this project</div>'}
                 </div>
             `;
         }
 
-        // TASKS PAGE
         function renderTasksPage() {
             let tasks = data?.tasks || [];
             
+            // Filter by project if not on founder view
             if (currentProject !== 'founder') {
                 tasks = tasks.filter(t => t.projectId === currentProject);
             }
@@ -1232,18 +1793,19 @@
 
                 <div class="section-header">
                     <div class="section-title">${tasks.length} Tasks</div>
-                    <button class="btn primary" onclick="showAddModal('task')">+ Add Task</button>
                 </div>
 
                 <div class="task-list" id="tasks-list">
-                    ${tasks.map(renderTaskItem).join('') || '<div class="empty-state"><div class="icon">✅</div>No tasks</div>'}
+                    ${tasks.map(renderTaskItem).join('') || '<div class="empty-state"><div class="icon">✅</div>No tasks for this project</div>'}
                 </div>
             `;
         }
 
-        // ACTIVITY PAGE
         function renderActivityPage() {
-            const activity = (data?.activity || []).slice().sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            let activity = data?.activity || [];
+            
+            // Sort by timestamp
+            activity = [...activity].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
 
             const icons = {
                 task_created: '➕',
@@ -1277,13 +1839,13 @@
             `;
         }
 
-        // RENDER HELPERS
+        // ============ RENDER HELPERS ============
         function renderTaskItem(task) {
             const assignee = data?.contributors?.find(c => c.id === task.assigneeId);
             const project = data?.projects?.find(p => p.id === task.projectId);
 
             return `
-                <div class="task-item ${task.status}" data-id="${task.id}">
+                <div class="task-item ${task.status}" data-id="${task.id}" data-status="${task.status}">
                     <div class="task-checkbox" onclick="toggleTask('${task.id}', event)"></div>
                     <span class="task-priority ${task.priority || 'P2'}">${task.priority || 'P2'}</span>
                     <div class="task-content">
@@ -1309,7 +1871,7 @@
                 detailsHtml += `<div class="feed-section">
                     <div class="feed-section-title">Sources</div>
                     ${intel.sources.map(s => 
-                        s.url ? `<a href="${s.url}" target="_blank" style="color: var(--blue); text-decoration: none; display: block; margin-bottom: 4px;">${s.name} ↗</a>` : s.name
+                        s.url ? `<a href="${s.url}" target="_blank" style="color: var(--blue); text-decoration: none; display: block; margin-bottom: 4px;">${s.name} ↗</a>` : `<span>${s.name}</span>`
                     ).join('')}
                 </div>`;
             }
@@ -1330,7 +1892,7 @@
             }
 
             return `
-                <div class="feed-card" data-id="${intel.id}">
+                <div class="feed-card" data-id="${intel.id}" data-type="${intel.type}">
                     <div class="feed-header" onclick="toggleIntel('${intel.id}')">
                         <div class="feed-icon">${intel.icon}</div>
                         <div class="feed-content">
@@ -1354,7 +1916,7 @@
             `;
         }
 
-        // EVENT HANDLERS
+        // ============ EVENT HANDLERS ============
         function attachEventHandlers() {
             // Intel type filter
             document.querySelectorAll('.filter-tab[data-type]').forEach(tab => {
@@ -1391,52 +1953,40 @@
                 if (status === 'all') {
                     item.style.display = '';
                 } else {
-                    item.style.display = item.classList.contains(status) ? '' : 'none';
+                    item.style.display = item.dataset.status === status ? '' : 'none';
                 }
             });
         }
 
+        function toggleIntel(id) {
+            const card = document.querySelector(`.feed-card[data-id="${id}"]`);
+            if (card) card.classList.toggle('expanded');
+        }
+
         function toggleTask(id, event) {
             event.stopPropagation();
-            const item = event.target.closest('.task-item');
-            item.classList.toggle('done');
-            // TODO: persist to JSON
+            // In a real app, this would update the data
+            const item = document.querySelector(`.task-item[data-id="${id}"]`);
+            if (item) {
+                item.classList.toggle('done');
+            }
         }
 
-        function toggleIntel(id) {
-            document.querySelectorAll(`.feed-card[data-id="${id}"]`).forEach(card => {
-                card.classList.toggle('expanded');
-            });
-        }
-
-        function showAddModal(type, section) {
-            // TODO: implement modal
-            const title = prompt(`Add ${type || 'item'} title:`);
-            if (title) alert(`Will add: ${title} (section: ${section || 'general'})`);
-        }
-
-        // RENDER ALL
-        function render() {
-            renderSidebar();
-            renderContent();
-        }
-
-        // Handle URL hash
-        function handleHash() {
+        // Handle browser back/forward
+        window.addEventListener('hashchange', () => {
             const hash = window.location.hash.slice(1);
             if (hash && data?.projects?.find(p => p.id === hash)) {
                 currentProject = hash;
+                currentSection = 'splash';
             } else {
                 currentProject = 'founder';
+                currentSection = 'splash';
             }
             render();
-        }
+        });
 
         // Initialize
-        loadData().then(() => {
-            handleHash();
-            window.addEventListener('hashchange', handleHash);
-        });
+        loadData();
     </script>
 </body>
 </html>

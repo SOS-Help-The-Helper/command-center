@@ -1,0 +1,209 @@
+{
+  "metadata": {
+    "lastUpdated": "2026-02-02T06:00:00Z",
+    "purpose": "Proactive intelligence monitoring for Jonathan's network"
+  },
+  "companies": {
+    "reforgeProspects": [
+      {
+        "name": "Litmos",
+        "domain": "litmos.com",
+        "priority": "high",
+        "reforgeScore": 8,
+        "watchFor": [
+          "VP Product / Director Product hiring",
+          "funding news",
+          "product launches",
+          "user research job postings",
+          "Dovetail/Productboard mentions",
+          "customer feedback initiatives"
+        ],
+        "linkedInPage": "https://www.linkedin.com/company/litmos/"
+      },
+      {
+        "name": "Waterfall.io",
+        "domain": "waterfall.io",
+        "priority": "high",
+        "reforgeScore": 7,
+        "watchFor": [
+          "funding news",
+          "product team growth",
+          "new features",
+          "pricing changes"
+        ]
+      },
+      {
+        "name": "Team Central AI",
+        "domain": "teamcentral.ai",
+        "priority": "medium",
+        "reforgeScore": 6,
+        "watchFor": [
+          "company profile/funding",
+          "product team hiring",
+          "AI product news"
+        ]
+      }
+    ],
+    "clients": [
+      {
+        "name": "Endurant",
+        "domain": "goendurant.com",
+        "priority": "high",
+        "watchFor": ["news mentions", "disaster response coverage", "expansion"]
+      },
+      {
+        "name": "Digi Global Tech",
+        "domain": "diglobal.tech",
+        "priority": "medium",
+        "watchFor": ["news", "funding", "company profile"]
+      },
+      {
+        "name": "InventWood",
+        "domain": "inventwood.com",
+        "priority": "low",
+        "watchFor": ["funding news", "product launches"]
+      }
+    ],
+    "sosPartners": [
+      {
+        "name": "Open Source Medical Supplies (OSMS)",
+        "domain": "opensourcemedicalsupplies.org",
+        "priority": "high",
+        "watchFor": ["disaster responses", "grant announcements", "new partnerships"],
+        "linkedInPage": "https://www.linkedin.com/company/43286955/"
+      },
+      {
+        "name": "Comcast/ERV",
+        "priority": "medium",
+        "watchFor": ["ERV deployments", "disaster response news"]
+      },
+      {
+        "name": "Public Invention",
+        "domain": "pubinv.org",
+        "priority": "medium",
+        "watchFor": ["new projects", "grants"]
+      },
+      {
+        "name": "Glia",
+        "domain": "glia.org",
+        "priority": "medium",
+        "watchFor": ["medical device news", "regulatory approvals"]
+      }
+    ],
+    "reforgeCompetitors": [
+      {
+        "name": "Dovetail",
+        "domain": "dovetailapp.com",
+        "priority": "low",
+        "watchFor": ["pricing changes", "customer wins", "layoffs"],
+        "note": "Reforge competes for same budget"
+      },
+      {
+        "name": "Productboard",
+        "domain": "productboard.com",
+        "priority": "low",
+        "watchFor": ["pricing changes", "new features"],
+        "note": "Reforge competes for same budget"
+      }
+    ]
+  },
+  "people": {
+    "reforgeChampions": [
+      {
+        "name": "Colin Hegwood",
+        "company": "Litmos",
+        "role": "CX",
+        "priority": "high",
+        "watchFor": ["job changes", "posts about customer feedback", "CX initiatives"]
+      },
+      {
+        "name": "Micheal Crook",
+        "company": "Litmos",
+        "priority": "high",
+        "watchFor": ["job changes", "promotions"]
+      },
+      {
+        "name": "Emre Kavaloglu",
+        "company": "Waterfall.io",
+        "priority": "medium",
+        "watchFor": ["posts about product development", "data enrichment trends"]
+      }
+    ],
+    "sosCore": [
+      {
+        "name": "Victoria Jaqua",
+        "linkedIn": "https://www.linkedin.com/in/victoria-jaqua-rt-r-ct-rcis-10459466/",
+        "watchFor": ["job changes", "posts about disaster response", "new projects"]
+      },
+      {
+        "name": "Woody Faircloth",
+        "company": "Comcast/ERV",
+        "watchFor": ["job changes", "ERV program news"]
+      }
+    ],
+    "harmonyClients": [
+      {
+        "name": "Jason Caulk",
+        "company": "CGEP",
+        "watchFor": ["job changes"]
+      },
+      {
+        "name": "Holland Hudspeth",
+        "company": "MCC Memphis",
+        "watchFor": ["job changes", "promotions"]
+      }
+    ]
+  },
+  "keywords": {
+    "reforgeICP": [
+      "VP Product hiring",
+      "Director of Product hiring",
+      "Head of User Research",
+      "customer feedback platform",
+      "qualitative research",
+      "user research at scale",
+      "product roadmap prioritization",
+      "voice of customer",
+      "Dovetail alternative",
+      "Productboard alternative"
+    ],
+    "reforgeSalesTriggers": [
+      "raised funding",
+      "Series A",
+      "Series B",
+      "product-led growth",
+      "customer discovery",
+      "feedback fragmentation",
+      "support ticket analysis",
+      "NPS analysis"
+    ],
+    "disasterTech": [
+      "disaster response technology",
+      "emergency management software",
+      "crisis response",
+      "FEMA technology",
+      "first responder technology"
+    ],
+    "sosRelevant": [
+      "Help the Helper",
+      "disaster responder support",
+      "first responder burnout",
+      "humanitarian tech"
+    ],
+    "enterprise": [
+      "RevOps",
+      "HubSpot integrations",
+      "PSA integration",
+      "sales automation",
+      "B2B data enrichment"
+    ]
+  },
+  "googleAlerts": {
+    "suggested": [
+      "\"Litmos\" \"product\" OR \"VP Product\" OR \"hiring\"",
+      "\"B2B SaaS\" \"customer feedback\" \"platform\"",
+      "\"disaster response\" \"technology\" \"startup\"",
+      "\"Waterfall.io\" funding OR news"
+    ]
+  }
+}

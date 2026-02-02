@@ -1,0 +1,341 @@
+{
+  "lastUpdated": "2026-02-02T05:30:00Z",
+  "generatedBy": "SOS Intelligence Agent",
+  
+  "competitors": {
+    "palantir": {
+      "name": "Palantir Technologies",
+      "products": ["Gotham", "Foundry", "AIP"],
+      "disasterCapabilities": {
+        "product": "Foundry - Emergency Preparedness, Response & Recovery",
+        "focus": "Cross-government coordination, data integration, AI-enabled analysis",
+        "features": [
+          "Integrate siloed data sources across agencies",
+          "Real-time situational awareness dashboards",
+          "Resource allocation optimization",
+          "AI/ML analysis of operational patterns",
+          "Microsoft Azure OpenAI integration"
+        ]
+      },
+      "marketPosition": {
+        "federalContracts2025": "$970.5M",
+        "icmContract": "$200M+ (ICE Investigative Case Management)",
+        "growthRate": "Nearly doubled federal contracts in 2025"
+      },
+      "strengths": [
+        "Deep government relationships",
+        "Massive data integration capabilities",
+        "Strong AI/ML infrastructure",
+        "Classified environment clearances",
+        "Enterprise sales force"
+      ],
+      "weaknesses": [
+        "Surveillance reputation (PR liability)",
+        "Extremely expensive ($5M+ implementations)",
+        "Complex deployments (6-18 months)",
+        "Not community-focused",
+        "Requires significant IT infrastructure"
+      ],
+      "pricing": "Enterprise only - typically $5M+ annual contracts",
+      "sosDifferentiation": [
+        "SOS = coordination, Palantir = surveillance (different values)",
+        "SOS designed for communities, not just agencies",
+        "10x faster deployment (days not months)",
+        "100x more affordable",
+        "Open, transparent platform vs black-box"
+      ],
+      "sources": [
+        "https://www.palantir.com/platforms/foundry/",
+        "https://thehill.com/policy/technology/5667232-palantir-trump-administration-surveillance/"
+      ]
+    },
+    
+    "googleCrisis": {
+      "name": "Google Crisis Response",
+      "products": ["SOS Alerts", "Crisis Map", "FloodHub", "Earthquake Alerts", "WeatherNext"],
+      "capabilities": {
+        "focus": "Consumer-facing alerts and information",
+        "features": [
+          "AI-driven weather/flood forecasting (WeatherNext)",
+          "SOS Alerts on Search and Maps",
+          "Android Earthquake Alerts System",
+          "Emergency Location Services",
+          "Google Maps navigation warnings",
+          "Hurricane cone visualizations"
+        ]
+      },
+      "partnerships": ["Red Cross", "FEMA", "GiveDirectly", "WFP"],
+      "funding": {
+        "google_org_crisis": "$60M+ since 2005",
+        "wildfire_ai_collaborative": "$27M+",
+        "annual_grants": "$200M+"
+      },
+      "strengths": [
+        "Massive consumer reach (billions of users)",
+        "Superior AI/ML capabilities",
+        "Real-time data from Android devices",
+        "Strong partnerships with official sources",
+        "Free for end users"
+      ],
+      "weaknesses": [
+        "Not a coordination platform for responders",
+        "Focuses on information, not workflow",
+        "No resource matching or needs tracking",
+        "Not designed for EOC operations",
+        "Privacy concerns limit data collection"
+      ],
+      "sosDifferentiation": [
+        "SOS enables coordination, Google enables awareness",
+        "SOS for responders/orgs, Google for consumers",
+        "SOS manages workflows, Google displays information",
+        "Complementary, not competitive",
+        "Potential integration partner (use Google alerts as inputs)"
+      ],
+      "sources": [
+        "https://crisisresponse.google/how-we-help",
+        "https://www.google.org/intl/en_us/stronger-communities/"
+      ]
+    },
+    
+    "webEOC": {
+      "name": "WebEOC (Juvare)",
+      "type": "Emergency Operations Center Software",
+      "marketPosition": "Industry standard for EOC coordination",
+      "features": [
+        "Web-based EOC management",
+        "Situation reports (SITREPs)",
+        "Resource tracking",
+        "Task management",
+        "GIS integration"
+      ],
+      "pricing": "$50K-$200K+ annual (varies by deployment)",
+      "strengths": [
+        "Established market leader",
+        "Deep state/local government adoption",
+        "Comprehensive EOC features",
+        "Long track record (20+ years)"
+      ],
+      "weaknesses": [
+        "Expensive and slow to modify",
+        "Legacy architecture",
+        "Poor mobile experience",
+        "Complex customization process",
+        "Not designed for community coordination"
+      ],
+      "userFeedback": "Reddit: 'WebEOC is nice, but expensive and slow compared to Veoci if you want to make changes'",
+      "sosDifferentiation": [
+        "SOS is community-first, WebEOC is agency-first",
+        "Modern architecture vs legacy",
+        "Faster, cheaper deployment",
+        "Mobile-native design",
+        "AI-powered matching vs manual workflows"
+      ],
+      "sources": [
+        "https://www.g2.com/products/webeoc/competitors/alternatives",
+        "https://www.reddit.com/r/EmergencyManagement/"
+      ]
+    },
+    
+    "veoci": {
+      "name": "Veoci",
+      "type": "Emergency & Continuity Management Platform",
+      "marketPosition": "Modern WebEOC alternative, growing market share",
+      "features": [
+        "Workflow automation",
+        "Form builders",
+        "Situational awareness",
+        "Mobile-first design",
+        "Flexible customization"
+      ],
+      "pricing": "Mid-market (~$25K-$100K annual)",
+      "strengths": [
+        "Modern, flexible platform",
+        "Faster customization than WebEOC",
+        "Good mobile experience",
+        "Growing enterprise adoption"
+      ],
+      "weaknesses": [
+        "Still primarily agency-focused",
+        "Limited community coordination features",
+        "Not AI-native",
+        "Missing needs/resource matching"
+      ],
+      "sosDifferentiation": [
+        "SOS designed for community + agency coordination",
+        "AI-powered resource matching",
+        "Slack/communication integrations",
+        "Lower price point for communities"
+      ],
+      "sources": [
+        "https://www.veoci.com/",
+        "https://www.reddit.com/r/EmergencyManagement/"
+      ]
+    },
+    
+    "d4h": {
+      "name": "D4H Technologies (EcoOnline)",
+      "type": "Incident Management Software",
+      "products": ["Incident Management", "Personnel & Training", "Equipment Management", "Incident Reporting"],
+      "marketPosition": "Response team readiness and incident management",
+      "pricing": "Tiered - contact for quote",
+      "strengths": [
+        "Strong incident management focus",
+        "Good equipment/personnel tracking",
+        "Healthcare/corporate adoption",
+        "Transparent website pricing"
+      ],
+      "weaknesses": [
+        "Focused on team readiness, not coordination",
+        "Limited community features",
+        "Not designed for multi-org coordination"
+      ],
+      "sosDifferentiation": [
+        "SOS coordinates across organizations",
+        "Focus on needs/resource matching",
+        "Community-scale design"
+      ],
+      "sources": [
+        "https://www.d4h.com/",
+        "https://www.g2.com/products/d4h/reviews"
+      ]
+    },
+    
+    "everbridge": {
+      "name": "Everbridge",
+      "type": "Critical Event Management Platform",
+      "products": ["Everbridge 360", "Crisis Management", "Mass Notification", "Visual Command Center"],
+      "marketPosition": "Enterprise critical event management leader",
+      "marketSize": "Crisis Management Software market: $9.79B (2025)",
+      "features": [
+        "Mass notification",
+        "Crisis management",
+        "Business continuity",
+        "Situational awareness",
+        "Government compliance"
+      ],
+      "pricing": "Enterprise - $100K+ annual",
+      "strengths": [
+        "Comprehensive CEM platform",
+        "Strong enterprise adoption",
+        "Government contracts",
+        "Integrated notification system"
+      ],
+      "weaknesses": [
+        "Expensive (enterprise-only)",
+        "Complex implementation",
+        "Not community-focused",
+        "Primarily notification, not coordination"
+      ],
+      "sosDifferentiation": [
+        "SOS is coordination-first, Everbridge is notification-first",
+        "Community-scale pricing",
+        "Simpler deployment",
+        "Humanitarian focus"
+      ],
+      "sources": [
+        "https://www.everbridge.com/",
+        "https://www.carahsoft.com/everbridge/solutions"
+      ]
+    },
+    
+    "openSource": {
+      "ushahidi": {
+        "name": "Ushahidi",
+        "type": "Open Source Crisis Mapping",
+        "features": ["Crowdsourced reporting", "Crisis mapping", "SMS/email collection"],
+        "strengths": ["Free/open source", "Proven in crises", "Community contributions"],
+        "weaknesses": ["Limited coordination features", "Requires technical setup", "Basic resource management"],
+        "sosRelationship": "Potential integration - use Ushahidi reports as input source"
+      },
+      "sahanaEden": {
+        "name": "Sahana Eden",
+        "type": "Open Source Disaster Management",
+        "features": ["Resource tracking", "Shelter management", "Organization registry"],
+        "strengths": ["Comprehensive features", "Free", "UN/NGO adoption"],
+        "weaknesses": ["Complex setup", "Outdated UX", "Limited active development"],
+        "sosRelationship": "Learning from Sahana's feature set, modern reimagining"
+      }
+    }
+  },
+  
+  "marketLandscape": {
+    "emergencyManagementSoftware": {
+      "marketSize2025": "$408M - $10.5B (varying estimates)",
+      "cagr": "8.9% - 11.3%",
+      "projected2033": "$964M - $24.6B",
+      "keyDrivers": [
+        "Increasing disaster frequency/severity",
+        "FEMA uncertainty driving state self-reliance",
+        "AI/ML adoption",
+        "Cloud migration",
+        "Mobile-first requirements"
+      ]
+    },
+    "crisisManagementSoftware": {
+      "marketSize2025": "$9.79B",
+      "projected2032": "$13.96B",
+      "cagr": "5.2%"
+    },
+    "incidentEmergencyManagement": {
+      "marketSize2025": "$157.27B",
+      "projected2030": "$217.40B",
+      "cagr": "6.69%"
+    }
+  },
+  
+  "sosCompetitiveAdvantages": [
+    {
+      "advantage": "Community-First Design",
+      "description": "Built for communities and volunteers, not just agencies",
+      "competitors": "WebEOC, Everbridge, Palantir all agency-focused"
+    },
+    {
+      "advantage": "AI-Powered Matching",
+      "description": "Intelligent needs/resource matching, not manual workflows",
+      "competitors": "Most competitors rely on manual data entry and tracking"
+    },
+    {
+      "advantage": "Rapid Deployment",
+      "description": "Days not months to deploy",
+      "competitors": "Palantir: 6-18 months, WebEOC: weeks-months"
+    },
+    {
+      "advantage": "Affordable",
+      "description": "Accessible to communities, not just enterprise budgets",
+      "competitors": "Palantir: $5M+, Everbridge: $100K+, WebEOC: $50K+"
+    },
+    {
+      "advantage": "Modern Architecture",
+      "description": "Cloud-native, mobile-first, API-driven",
+      "competitors": "Many legacy systems with poor mobile experience"
+    },
+    {
+      "advantage": "Mission-Driven",
+      "description": "Humanitarian focus, not profit-maximization",
+      "competitors": "Public companies focused on shareholder returns"
+    }
+  ],
+  
+  "strategicRecommendations": [
+    {
+      "strategy": "Avoid Direct Palantir Competition",
+      "action": "Position SOS as complementary community layer, not enterprise replacement",
+      "rationale": "Can't win on their turf; win on values and accessibility"
+    },
+    {
+      "strategy": "Partner with Google Crisis Response",
+      "action": "Explore integration with Google alerts as input source for SOS",
+      "rationale": "Google provides awareness, SOS provides coordination"
+    },
+    {
+      "strategy": "Target WebEOC Dissatisfied Users",
+      "action": "Market to state EMAs frustrated with WebEOC complexity/cost",
+      "rationale": "Clear pain point validated in Reddit feedback"
+    },
+    {
+      "strategy": "Fill the Community Gap",
+      "action": "No competitor serves community-agency coordination well",
+      "rationale": "Blue ocean opportunity in coordinator ecosystem"
+    }
+  ]
+}

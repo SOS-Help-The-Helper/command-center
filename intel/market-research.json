@@ -1,0 +1,201 @@
+{
+  "lastUpdated": "2026-02-02T05:35:00Z",
+  "generatedBy": "SOS Intelligence Agent",
+  
+  "stateEmergencyManagement": {
+    "overview": "States face critical inflection point as FEMA reliability decreases",
+    "federalContext": {
+      "femaReviewCouncil": "Established Jan 2025 to 'reenvsion federal role in disaster management'",
+      "femaAct2025": "HR bipartisan reform bill in Congress",
+      "coreStaffCuts": "50+ CORE workers terminated NYE 2025; CORE = 40% of FEMA workforce",
+      "gaoStaffingGap": "35% below target staffing before cuts",
+      "budgetHeldUp": "$17B in FEMA aid to states currently delayed/denied"
+    },
+    "stateBudgetRealities": {
+      "rainyDayFunds": {
+        "range": "$240M (South Dakota) to $20B+ (Texas)",
+        "usage": "Some states (Oregon) using rainy day funds for disaster purposes",
+        "trend": "All but 4 states have rainy day funds"
+      },
+      "disasterTracking": "Most states lack standardized disaster cost tracking",
+      "floridaModel": "Division of Emergency Management reimburses agencies from central fund"
+    },
+    "stateOpportunities": [
+      {
+        "state": "California",
+        "agency": "CalOES",
+        "budget": "Large, active procurement",
+        "rfpActivity": "Regular HSGP and EMPG programs",
+        "opportunity": "Major wildfire coordination needs"
+      },
+      {
+        "state": "Texas",
+        "agency": "TDEM",
+        "budget": "Rainy day fund $20B+",
+        "rfpActivity": "Hurricane/flood response focus",
+        "opportunity": "Largest state emergency budget"
+      },
+      {
+        "state": "Florida",
+        "agency": "FDEM",
+        "budget": "Established central fund model",
+        "rfpActivity": "Hurricane response priority",
+        "opportunity": "Strong disaster tracking infrastructure"
+      },
+      {
+        "state": "North Carolina",
+        "agency": "NC Emergency Management",
+        "budget": "Active grant programs",
+        "rfpActivity": "FY2025 applications Oct 1-31, 2025",
+        "opportunity": "Hurricane/flood coordination needs"
+      },
+      {
+        "state": "New Mexico",
+        "agency": "DHSEM",
+        "budget": "Added $30M to contingency fund (response to FEMA uncertainty)",
+        "rfpActivity": "Proactive budget planning",
+        "opportunity": "Early adopter of self-reliance model"
+      }
+    ],
+    "targetMetric": "319.5M in EMPG funds flow to states annually - technology is allowable expense"
+  },
+  
+  "femaContracts": {
+    "overview": "FEMA contracts through SAM.gov remain significant despite uncertainty",
+    "recentRFPs": {
+      "incidentStagingBase": {
+        "value": "Up to $190M",
+        "focus": "ISB and cross-docking operations support",
+        "date": "August 2025",
+        "opportunity": "Logistics coordination technology"
+      },
+      "advanceContracts": {
+        "description": "Pre-positioned goods/services for rapid disaster response",
+        "categories": ["Emergency supplies", "Construction", "Transportation", "Communication"],
+        "opportunity": "Coordination layer for advance contract activation"
+      }
+    },
+    "procurementChannels": [
+      "SAM.gov - Primary federal procurement portal",
+      "DHS Acquisition Planning Forecast System",
+      "Unison Marketplace",
+      "DIBBS"
+    ],
+    "naicsCodes": [
+      "541512 - Computer Systems Design Services",
+      "541511 - Custom Computer Programming Services",
+      "541519 - Other Computer Related Services",
+      "518210 - Data Processing, Hosting"
+    ],
+    "smallBusinessAdvantage": "SBA programs provide set-asides for disaster-related contracts"
+  },
+  
+  "disasterTechFunding": {
+    "vcLandscape2025": {
+      "overview": "VC selective but AI and impact sectors seeing investment",
+      "globalFundingQ1": "$91.5B",
+      "cybersecurityQ2": "$4.9B (highest in 3 years)",
+      "trends": [
+        "AI mega-rounds dominating",
+        "Fewer seed deals overall",
+        "Climate/resilience tech attracting impact investors",
+        "DPI (distributions) pressure on 2021 vintage funds"
+      ]
+    },
+    "climateAdaptationFunding": {
+      "adaptationResilienceFund": "$50M (ClimateWorks coalition)",
+      "bezosEarthFund": "$10B by 2030",
+      "rockefeller": "$100M climate resilience fund with USAID",
+      "macArthur": "$50M climate change grants"
+    },
+    "disasterSpecificFunding": {
+      "politicoInsight": "Sequoia and 4+ billion-dollar funds investing in climate failure adaptation",
+      "thesis": "Betting that disasters will increase, adaptation tech needed"
+    },
+    "sosImplications": [
+      "Impact/climate investors interested in disaster resilience",
+      "AI component attracts tech investors",
+      "Mission alignment with foundation funders",
+      "State budgets provide customer revenue path"
+    ]
+  },
+  
+  "marketSizeProjections": {
+    "emergencyManagementSoftware": {
+      "2025": "$408M",
+      "2033": "$964M",
+      "cagr": "11.3%"
+    },
+    "crisisManagementSoftware": {
+      "2025": "$9.79B",
+      "2032": "$13.96B",
+      "cagr": "5.2%"
+    },
+    "incidentEmergencyManagement": {
+      "2025": "$157.27B",
+      "2030": "$217.40B",
+      "cagr": "6.69%"
+    },
+    "homelandSecurityEmergencyManagement": {
+      "2030": "$1,110B+",
+      "notes": "Total market including all services/hardware"
+    }
+  },
+  
+  "sosAddressableMarket": {
+    "calculation": {
+      "stateEMAs": {
+        "count": 50,
+        "avgAnnualContract": "$100K-$500K",
+        "totalPotential": "$5M - $25M ARR"
+      },
+      "countyEMAs": {
+        "count": "3,000+",
+        "avgAnnualContract": "$10K-$50K",
+        "totalPotential": "$30M - $150M ARR"
+      },
+      "municipalEMAs": {
+        "count": "10,000+",
+        "avgAnnualContract": "$5K-$25K",
+        "totalPotential": "$50M - $250M ARR"
+      },
+      "voadNGOs": {
+        "count": "500+ major disaster response orgs",
+        "avgAnnualContract": "$5K-$50K",
+        "totalPotential": "$2.5M - $25M ARR"
+      }
+    },
+    "conservativeTAM": "$87M ARR (low estimate)",
+    "optimisticTAM": "$450M ARR (high estimate)",
+    "samRationale": "Start with 5-10 state EMAs, expand from there",
+    "initialTarget": "$5M ARR (10 states at $500K avg)"
+  },
+  
+  "keyInsights": [
+    {
+      "insight": "States are self-funding due to FEMA uncertainty",
+      "evidence": "New Mexico added $30M contingency, Texas has $20B rainy day fund",
+      "sosAction": "Target states proactively building disaster capacity"
+    },
+    {
+      "insight": "Community coordination is underserved gap",
+      "evidence": "No major competitor focuses on community-agency coordination",
+      "sosAction": "Position as bridge between agencies and community resources"
+    },
+    {
+      "insight": "Foundation funding aligns with SOS mission",
+      "evidence": "Hilton, Google.org, Rockefeller all explicitly fund disaster coordination innovation",
+      "sosAction": "Prioritize foundation grants for early capital"
+    },
+    {
+      "insight": "AI differentiation is table stakes",
+      "evidence": "Bezos, Schmidt, Google all investing heavily in AI for climate/disaster",
+      "sosAction": "Ensure AI/ML features are core to product positioning"
+    },
+    {
+      "insight": "WebEOC dissatisfaction creates opening",
+      "evidence": "Reddit feedback: 'expensive and slow compared to Veoci'",
+      "sosAction": "Market to frustrated WebEOC users seeking modern alternative"
+    }
+  ]
+}

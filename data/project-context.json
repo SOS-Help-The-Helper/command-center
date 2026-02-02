@@ -1,0 +1,111 @@
+{
+  "metadata": {
+    "lastUpdated": "2026-02-02T05:30:00Z"
+  },
+  "projects": {
+    "sos": {
+      "name": "SOS - Help the Helper",
+      "description": "Support platform for disaster responders and first responders",
+      "status": "active",
+      "keyContacts": [
+        {
+          "name": "Victoria Jaqua",
+          "role": "Core partner/collaborator",
+          "relationship": "Deep partnership, weekly syncs"
+        },
+        {
+          "name": "Woody Faircloth",
+          "role": "ERV Partnership Lead",
+          "relationship": "Ongoing ERV x SOS integration, weekly syncs"
+        }
+      ],
+      "upcomingMilestones": [
+        {
+          "event": "ERV x SOS Sync",
+          "date": "2026-02-05",
+          "notes": "Thu 4pm EST with Woody"
+        }
+      ],
+      "organizationsInNetwork": [
+        "Open Source Medical Supplies (OSMS)",
+        "Comcast/ERV",
+        "Public Invention",
+        "Glia",
+        "GOSQAS"
+      ],
+      "recentActivity": [
+        "Fireflies meeting recap: 'help the helper' (2026-01-29)",
+        "SOS meeting prep (2026-01-29)",
+        "WNC Fuel/SOS scope meeting with Victoria (2025-11-10)",
+        "SOS Proposal DUE (2025-11-12)"
+      ]
+    },
+    "harmony": {
+      "name": "Harmony Strategy",
+      "description": "Jonathan's consulting/strategy business",
+      "status": "active",
+      "clients": [
+        {
+          "name": "Litmos",
+          "contacts": ["Micheal Crook", "Michelle Benfer", "Beau Chapell", "Colin Hegwood", "Erica Light"],
+          "status": "Active engagement",
+          "workStreams": ["KPI Sync", "Marketing", "CX"]
+        },
+        {
+          "name": "Endurant",
+          "contacts": ["Jason Caulk (CGEP)", "Holland Hudspeth", "DJ McCabe", "Darius McFadden"],
+          "status": "Active integration project",
+          "workStreams": ["HubSpot integration", "Customer database migration", "PSA alignment"]
+        },
+        {
+          "name": "Digi Global Tech",
+          "contacts": ["Orly B"],
+          "status": "Recent kickoff"
+        }
+      ],
+      "partners": [
+        {
+          "name": "The Hubert Group",
+          "contact": "Mike",
+          "relationship": "Litmos partnership"
+        },
+        {
+          "name": "MCC Memphis",
+          "contacts": ["Holland Hudspeth", "DJ McCabe"],
+          "relationship": "Endurant integration"
+        },
+        {
+          "name": "Team Central AI",
+          "contacts": ["Marc Johnson", "Jamie Doyle"],
+          "relationship": "Tech integration partner"
+        }
+      ],
+      "incomingLeads": [
+        {
+          "source": "Endurant Quote Form",
+          "lead": "Tom Jacks",
+          "type": "Water Damage - Residential",
+          "date": "2026-02-02"
+        }
+      ]
+    },
+    "reforge": {
+      "name": "Reforge",
+      "description": "Sales/GTM workflow automation project",
+      "status": "exploration",
+      "focus": "Building automated prospecting workflows for AE role",
+      "currentStack": [
+        {"tool": "Clay", "tier": "Starter"},
+        {"tool": "Apollo", "tier": "Basic"}
+      ],
+      "evaluating": [
+        {
+          "vendor": "Waterfall.io",
+          "contact": "Emre Kavaloglu",
+          "meetingDate": "2026-02-03T13:30:00-05:00",
+          "interest": ["Job Changes API", "Coverage comparison vs individual vendors", "Pricing model", "SaaS integration potential"]
+        }
+      ]
+    }
+  }
+}

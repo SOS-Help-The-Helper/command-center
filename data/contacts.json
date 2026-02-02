@@ -1,0 +1,526 @@
+{
+  "metadata": {
+    "lastUpdated": "2026-02-02T06:00:00Z",
+    "extractedFrom": ["gmail:jonathan@harmonystrategy.com", "calendar:primary"],
+    "dateRange": "2025-11-04 to 2026-02-05",
+    "icpDefinitions": {
+      "reforge": "B2B SaaS with multi-product complexity, high feedback volume, product leaders (VP/Dir Product)",
+      "sos": "Disaster/emergency response, government, nonprofits, humanitarian",
+      "harmony": "GTM/HubSpot implementation clients, B2B consulting prospects"
+    }
+  },
+  "contacts": [
+    {
+      "name": "Victoria Jaqua",
+      "email": "victoria@opensourcemedicalsupplies.org",
+      "altEmail": "victoria@sos-help.org",
+      "company": "Open Source Medical Supplies (OSMS)",
+      "role": "Medical Community Lead",
+      "title": "RT(R)(CT), RCIS",
+      "context": "Key SOS partner. Also Steering Committee at GOSQAS, Board Member at Public Invention, Growth Partner at Glia. Works at hospital weekly.",
+      "lastContact": "2026-01-29",
+      "tier": "A",
+      "linkedIn": "https://www.linkedin.com/in/victoria-jaqua-rt-r-ct-rcis-10459466/",
+      "meetingPattern": "Weekly SOS syncs, proposal finalization calls",
+      "projectRelevance": {
+        "sos": {"score": 10, "tags": ["core_partner", "disaster_response", "medical_supplies", "nonprofit"]},
+        "reforge": {"score": 1, "tags": ["nonprofit_low_fit"]},
+        "harmony": {"score": 3, "tags": ["partner_not_client"]}
+      }
+    },
+    {
+      "name": "Woody Faircloth",
+      "email": "woody_faircloth@comcast.com",
+      "altEmail": "woody_faircloth@cable.comcast.com",
+      "company": "Comcast / ERV (Emergency Response Vehicle)",
+      "role": "ERV Lead",
+      "context": "Ongoing ERV x SOS partnership syncs. Regular weekly meetings since Dec 2025. Key disaster response partner.",
+      "lastContact": "2026-01-29",
+      "tier": "A",
+      "meetingPattern": "Weekly ERV x SOS syncs (Thursdays 4pm EST)",
+      "projectRelevance": {
+        "sos": {"score": 10, "tags": ["core_partner", "disaster_response", "emergency_vehicles", "enterprise"]},
+        "reforge": {"score": 4, "tags": ["enterprise_but_non_saas"]},
+        "harmony": {"score": 2, "tags": ["partner_not_client"]}
+      }
+    },
+    {
+      "name": "Micheal Crook",
+      "email": "micheal.crook@litmos.com",
+      "company": "Litmos (SAP Litmos)",
+      "companyInfo": {"type": "B2B SaaS", "industry": "Corporate LMS/E-learning", "competitors": ["TalentLMS", "Docebo", "D2L"]},
+      "role": "Client Contact - Primary",
+      "context": "Primary Litmos contact. Multiple weekly syncs on KPIs, marketing, CX.",
+      "lastContact": "2026-01-30",
+      "tier": "A",
+      "meetingPattern": "Multiple weekly meetings (KPI, Marketing, CX)",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 8, "tags": ["b2b_saas", "lms_platform", "multi_product", "enterprise_customers", "potential_intro_target"]},
+        "harmony": {"score": 10, "tags": ["active_client", "gtm_work"]}
+      },
+      "reforgeNotes": "Litmos = Corporate LMS. High feedback volume likely (support, training). COULD BE REFORGE CUSTOMER - B2B SaaS selling to enterprises"
+    },
+    {
+      "name": "Jamel Musa",
+      "email": "jamel.musa@litmos.com",
+      "company": "Litmos (SAP Litmos)",
+      "role": "GTM Audit Stakeholder",
+      "context": "GTM Audit meetings - likely leadership role",
+      "lastContact": "2025-12-15",
+      "tier": "B",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 7, "tags": ["b2b_saas", "gtm_leader", "potential_product_contact"]},
+        "harmony": {"score": 9, "tags": ["active_client", "gtm_audit"]}
+      }
+    },
+    {
+      "name": "Tara Baker",
+      "email": "tara.baker@litmos.com",
+      "company": "Litmos (SAP Litmos)",
+      "role": "GTM Stakeholder",
+      "context": "GTM Audit meetings",
+      "lastContact": "2025-12-15",
+      "tier": "B",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 6, "tags": ["b2b_saas"]},
+        "harmony": {"score": 8, "tags": ["active_client"]}
+      }
+    },
+    {
+      "name": "Michelle Benfer",
+      "email": "michelle.benfer@litmos.com",
+      "company": "Litmos (SAP Litmos)",
+      "role": "Client Contact",
+      "context": "KPI Sync meetings",
+      "lastContact": "2025-11-04",
+      "tier": "B",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 6, "tags": ["b2b_saas"]},
+        "harmony": {"score": 8, "tags": ["active_client"]}
+      }
+    },
+    {
+      "name": "Beau Chapell",
+      "email": "beau.chapell@litmos.com",
+      "company": "Litmos (SAP Litmos)",
+      "role": "Client Contact",
+      "context": "KPI Wishlist meetings",
+      "lastContact": "2025-11-10",
+      "tier": "B",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 6, "tags": ["b2b_saas"]},
+        "harmony": {"score": 8, "tags": ["active_client"]}
+      }
+    },
+    {
+      "name": "Colin Hegwood",
+      "email": "colin.hegwood@litmos.com",
+      "company": "Litmos (SAP Litmos)",
+      "role": "CX Contact",
+      "context": "Harmony x Litmos CX meetings",
+      "lastContact": "2025-11-13",
+      "tier": "B",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 7, "tags": ["b2b_saas", "cx_role", "customer_feedback_owner"]},
+        "harmony": {"score": 8, "tags": ["active_client"]}
+      },
+      "reforgeNotes": "CX role = likely owns customer feedback. Potential Reforge Insight Analytics champion"
+    },
+    {
+      "name": "Erica Light",
+      "email": "erica.light@litmos.com",
+      "company": "Litmos (SAP Litmos)",
+      "role": "Marketing Contact",
+      "context": "Harmony x Litmos Marketing meetings",
+      "lastContact": "2025-11-12",
+      "tier": "B",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 5, "tags": ["b2b_saas", "marketing"]},
+        "harmony": {"score": 8, "tags": ["active_client"]}
+      }
+    },
+    {
+      "name": "Jason Caulk",
+      "email": "jasonc@cgep.com",
+      "company": "CGEP (Compass Guide Executive Partners)",
+      "role": "Director - Digital Transformation",
+      "context": "Endurant tech integration. Managing customer database HubSpot integration.",
+      "lastContact": "2026-01-30",
+      "tier": "A",
+      "phone": {"office": "314.384.1115", "mobile": "813.334.5521"},
+      "address": "7701 Forsyth Boulevard, Suite 700, St. Louis, MO 63105",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 3, "tags": ["consulting_firm", "not_product_company"]},
+        "harmony": {"score": 9, "tags": ["active_partner", "hubspot_integration"]}
+      }
+    },
+    {
+      "name": "Holland Hudspeth",
+      "email": "holland@mccmemphis.com",
+      "company": "MCC Memphis / Endurant",
+      "role": "Director of Business Development",
+      "context": "Endurant HubSpot + PSA integration alignment calls",
+      "lastContact": "2026-01-30",
+      "tier": "B",
+      "phone": {"office": "901.756.8652", "mobile": "901.417.0218"},
+      "linkedIn": "https://www.linkedin.com/in/holland-hudspeth-938538157",
+      "projectRelevance": {
+        "sos": {"score": 2, "tags": ["disaster_restoration"]},
+        "reforge": {"score": 3, "tags": ["services_company"]},
+        "harmony": {"score": 9, "tags": ["active_client", "hubspot_psa"]}
+      }
+    },
+    {
+      "name": "DJ McCabe",
+      "email": "dj@mccmemphis.com",
+      "company": "MCC Memphis / Endurant",
+      "role": "Tech Lead",
+      "context": "Endurant integration team",
+      "lastContact": "2026-01-30",
+      "tier": "B",
+      "projectRelevance": {
+        "sos": {"score": 2, "tags": ["disaster_restoration"]},
+        "reforge": {"score": 2, "tags": []},
+        "harmony": {"score": 8, "tags": ["active_client"]}
+      }
+    },
+    {
+      "name": "Darius McFadden",
+      "email": "dmcfadden@ardent-technologies.com",
+      "company": "Ardent Technologies",
+      "role": "Data/Tech",
+      "context": "Endurant customer database extract and PSA data",
+      "lastContact": "2026-01-30",
+      "tier": "B",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 2, "tags": []},
+        "harmony": {"score": 7, "tags": ["integration_partner"]}
+      }
+    },
+    {
+      "name": "Jessica Simmons",
+      "email": "jsimmons@mccmemphis.com",
+      "company": "MCC Memphis",
+      "role": "HubSpot User",
+      "context": "HubSpot 1:1 training sessions",
+      "lastContact": "2025-12-10",
+      "tier": "C",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 1, "tags": []},
+        "harmony": {"score": 6, "tags": ["training_recipient"]}
+      }
+    },
+    {
+      "name": "Tori",
+      "email": "tori@mccmemphis.com",
+      "company": "MCC Memphis",
+      "role": "HubSpot User",
+      "context": "HubSpot 1:1 sessions",
+      "lastContact": "2025-12-08",
+      "tier": "C",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 1, "tags": []},
+        "harmony": {"score": 6, "tags": ["training_recipient"]}
+      }
+    },
+    {
+      "name": "Marc Johnson",
+      "email": "marc.johnson@teamcentral.ai",
+      "company": "Team Central AI",
+      "companyInfo": {"type": "Tech/AI", "industry": "AI/Automation"},
+      "role": "Tech Partner",
+      "context": "Endurant integration team",
+      "lastContact": "2026-01-30",
+      "tier": "C",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 5, "tags": ["ai_company", "potential_b2b_saas"]},
+        "harmony": {"score": 5, "tags": ["vendor_partner"]}
+      }
+    },
+    {
+      "name": "Jamie Doyle",
+      "email": "jamie.doyle@teamcentral.ai",
+      "company": "Team Central AI",
+      "role": "Tech Partner",
+      "context": "Endurant integration team",
+      "lastContact": "2026-01-30",
+      "tier": "C",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 5, "tags": ["ai_company"]},
+        "harmony": {"score": 5, "tags": ["vendor_partner"]}
+      }
+    },
+    {
+      "name": "Emre Kavaloglu",
+      "email": "emre@waterfall.io",
+      "company": "Waterfall.io",
+      "companyInfo": {"type": "B2B SaaS", "industry": "Data Enrichment", "competitors": ["Clay", "Apollo", "Clearbit"]},
+      "role": "Sales/Partnerships",
+      "context": "Data enrichment vendor evaluation. Meeting scheduled Feb 3, 2026. Evaluating as data layer for sales stack.",
+      "lastContact": "2026-02-02",
+      "tier": "B",
+      "nextMeeting": "2026-02-03T13:30:00-05:00",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 8, "tags": ["b2b_saas", "data_enrichment", "revops_tool", "potential_partner_or_customer"]},
+        "harmony": {"score": 4, "tags": ["vendor_evaluation"]}
+      },
+      "reforgeNotes": "Waterfall is B2B SaaS serving RevOps. COULD BE Reforge customer (product teams building data products) OR partner (data enrichment for Reforge)"
+    },
+    {
+      "name": "Jelica Baker",
+      "email": "jb@1988.consulting",
+      "company": "1988.consulting",
+      "role": "Consultant",
+      "context": "JG <> JG Chat scheduled",
+      "lastContact": "2026-01-30",
+      "tier": "B",
+      "nextMeeting": "2026-02-03T14:00:00-05:00",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 2, "tags": ["consulting"]},
+        "harmony": {"score": 5, "tags": ["peer_consultant"]}
+      }
+    },
+    {
+      "name": "Curtis Bolton",
+      "email": "curt@inventwood.com",
+      "company": "InventWood",
+      "companyInfo": {"type": "Manufacturing/Materials", "industry": "Advanced Wood Materials", "focus": "Cellulose materials for construction/aerospace"},
+      "role": "Leadership",
+      "context": "Sales Order Process-NetSuite meetings",
+      "lastContact": "2025-12-05",
+      "tier": "B",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 2, "tags": ["manufacturing", "non_saas"]},
+        "harmony": {"score": 7, "tags": ["netsuite_client"]}
+      }
+    },
+    {
+      "name": "Glorimar Kepler",
+      "email": "glorimar.kepler@inventwood.com",
+      "company": "InventWood",
+      "role": "Operations",
+      "context": "Sales Order Process-NetSuite meetings",
+      "lastContact": "2025-12-05",
+      "tier": "C",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 1, "tags": []},
+        "harmony": {"score": 6, "tags": ["client_user"]}
+      }
+    },
+    {
+      "name": "L. Farnsworth",
+      "email": "lfarnsworth@parkeryoung.com",
+      "company": "Parker Young",
+      "role": "HubSpot User",
+      "context": "HubSpot Training",
+      "lastContact": "2025-12-01",
+      "tier": "C",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 2, "tags": []},
+        "harmony": {"score": 6, "tags": ["hubspot_training"]}
+      }
+    },
+    {
+      "name": "J. Keith",
+      "email": "jkeith@parkeryoung.com",
+      "company": "Parker Young",
+      "role": "HubSpot User",
+      "context": "HubSpot Training",
+      "lastContact": "2025-12-01",
+      "tier": "C",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 2, "tags": []},
+        "harmony": {"score": 6, "tags": ["hubspot_training"]}
+      }
+    },
+    {
+      "name": "Orly B",
+      "email": "orly.b@diglobal.tech",
+      "company": "Digi Global Tech",
+      "companyInfo": {"type": "Tech", "industry": "Unknown - needs enrichment"},
+      "role": "Client Contact",
+      "context": "Digi Global x Harmony Kickoff meeting",
+      "lastContact": "2025-11-04",
+      "tier": "B",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 5, "tags": ["tech_company", "needs_enrichment"]},
+        "harmony": {"score": 8, "tags": ["new_client"]}
+      }
+    },
+    {
+      "name": "Mike",
+      "email": "mike@thehubertgroup.com",
+      "company": "The Hubert Group",
+      "role": "Litmos Partner",
+      "context": "Litmos Sync meetings - weekly. Hubert x Harmony TSLE meetings.",
+      "lastContact": "2025-12-15",
+      "tier": "B",
+      "meetingPattern": "Weekly Litmos Syncs",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 4, "tags": ["consulting_partner"]},
+        "harmony": {"score": 8, "tags": ["strategic_partner"]}
+      }
+    },
+    {
+      "name": "S. Goldberg",
+      "email": "sgoldberg@iengsolutions.com",
+      "company": "iENG Solutions (IES)",
+      "role": "Sales",
+      "context": "IES x Harmony Sales meetings",
+      "lastContact": "2025-12-10",
+      "tier": "C",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 3, "tags": []},
+        "harmony": {"score": 6, "tags": ["prospect"]}
+      }
+    },
+    {
+      "name": "Steve Gretton",
+      "email": "steve@iengsolutions.com",
+      "company": "iENG Solutions",
+      "role": "Prospect/Partner",
+      "context": "30min consultation scheduled",
+      "lastContact": "2025-11-07",
+      "tier": "C",
+      "projectRelevance": {
+        "sos": {"score": 0, "tags": []},
+        "reforge": {"score": 3, "tags": []},
+        "harmony": {"score": 5, "tags": ["consultation"]}
+      }
+    }
+  ],
+  "companies": [
+    {
+      "name": "Litmos (SAP Litmos)",
+      "domain": "litmos.com",
+      "type": "B2B SaaS",
+      "industry": "Corporate LMS / E-learning",
+      "reforgeICP": {
+        "fitScore": 8,
+        "signals": ["b2b_saas", "enterprise_customers", "multi_product_potential", "customer_feedback_heavy"],
+        "buyerPersonas": ["VP Product", "Head of CX", "Product Manager"],
+        "potentialProducts": ["Insight Analytics", "Research"],
+        "notes": "LMS platforms have MASSIVE customer feedback (support tickets, course reviews, NPS). High Reforge fit."
+      },
+      "contacts": ["micheal.crook@litmos.com", "jamel.musa@litmos.com", "tara.baker@litmos.com", "colin.hegwood@litmos.com", "erica.light@litmos.com", "beau.chapell@litmos.com", "michelle.benfer@litmos.com"]
+    },
+    {
+      "name": "Waterfall.io",
+      "domain": "waterfall.io",
+      "type": "B2B SaaS",
+      "industry": "Data Enrichment / RevOps",
+      "reforgeICP": {
+        "fitScore": 7,
+        "signals": ["b2b_saas", "revops_tool", "data_product"],
+        "buyerPersonas": ["VP Product", "Product Manager"],
+        "potentialProducts": ["Build", "Insight Analytics"],
+        "notes": "Data enrichment company building product for sales/RevOps teams. Could be customer (they build data products) or partner."
+      },
+      "contacts": ["emre@waterfall.io"]
+    },
+    {
+      "name": "Team Central AI",
+      "domain": "teamcentral.ai",
+      "type": "B2B SaaS/AI",
+      "industry": "AI/Automation",
+      "reforgeICP": {
+        "fitScore": 6,
+        "signals": ["ai_company", "b2b", "tech_integration"],
+        "notes": "AI company - needs more research. Could be Reforge fit if they have product team."
+      },
+      "contacts": ["marc.johnson@teamcentral.ai", "jamie.doyle@teamcentral.ai"]
+    },
+    {
+      "name": "Endurant / MCC Memphis",
+      "domain": "goendurant.com",
+      "type": "Services",
+      "industry": "Disaster Restoration",
+      "reforgeICP": {
+        "fitScore": 2,
+        "signals": ["services_company", "low_product_fit"],
+        "notes": "Restoration services company. Not SaaS. Low Reforge fit."
+      },
+      "contacts": ["holland@mccmemphis.com", "dj@mccmemphis.com", "jsimmons@mccmemphis.com", "tori@mccmemphis.com"]
+    },
+    {
+      "name": "OSMS (Open Source Medical Supplies)",
+      "domain": "opensourcemedicalsupplies.org",
+      "type": "Nonprofit",
+      "industry": "Medical Supplies / Disaster Response",
+      "reforgeICP": {
+        "fitScore": 1,
+        "signals": ["nonprofit"],
+        "notes": "Nonprofit. Not Reforge ICP."
+      },
+      "sosRelevance": {"score": 10, "tags": ["core_partner", "medical_supplies", "disaster_response"]},
+      "contacts": ["victoria@opensourcemedicalsupplies.org"]
+    },
+    {
+      "name": "InventWood",
+      "domain": "inventwood.com",
+      "type": "Manufacturing/Materials",
+      "industry": "Advanced Materials (Cellulose/Wood)",
+      "reforgeICP": {
+        "fitScore": 2,
+        "signals": ["manufacturing", "physical_product"],
+        "notes": "Materials company. Not SaaS. Low Reforge fit."
+      },
+      "contacts": ["curt@inventwood.com", "glorimar.kepler@inventwood.com"]
+    }
+  ],
+  "recentLeads": [
+    {
+      "name": "Tom Jacks",
+      "email": "tomjacks@mac.com",
+      "phone": "+12142266448",
+      "source": "Endurant Quote Request",
+      "serviceType": "Water Damage",
+      "propertyType": "Residential",
+      "location": {
+        "address": "413 Turnberry Circle",
+        "city": "Oxford",
+        "state": "Mississippi",
+        "zip": "38655"
+      },
+      "notes": "Water damage to ceiling, walls, floors (hardwood and carpet), furniture, etc from tankless water heater failure during ice storm.",
+      "dateReceived": "2026-02-02T04:07:00Z",
+      "projectRelevance": {"harmony": 8, "reforge": 0, "sos": 0}
+    }
+  ],
+  "reforgeProspectSummary": {
+    "highFit": [
+      {"company": "Litmos", "score": 8, "primaryContact": "Micheal Crook or Colin Hegwood (CX)", "angle": "Insight Analytics for LMS customer feedback"},
+      {"company": "Waterfall.io", "score": 7, "primaryContact": "Emre Kavaloglu", "angle": "Build for data product prototyping OR Insight Analytics"}
+    ],
+    "mediumFit": [
+      {"company": "Team Central AI", "score": 6, "primaryContact": "Marc Johnson", "angle": "Needs research - AI company could have product team"}
+    ],
+    "lowFit": [
+      {"company": "Endurant/MCC", "score": 2, "reason": "Services company, not SaaS"},
+      {"company": "InventWood", "score": 2, "reason": "Manufacturing, not SaaS"},
+      {"company": "OSMS", "score": 1, "reason": "Nonprofit"}
+    ]
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "lastUpdated": "2026-02-02T05:30:00Z",
+    "description": "Potential warm introduction opportunities within Jonathan's network"
+  },
+  "introOpportunities": [
+    {
+      "connector": "Jonathan",
+      "from": {
+        "name": "Victoria Jaqua",
+        "company": "OSMS",
+        "expertise": "Medical supplies, disaster response, open source medical tech"
+      },
+      "to": {
+        "name": "Woody Faircloth",
+        "company": "Comcast/ERV",
+        "need": "Medical supply partnerships for ERV deployments"
+      },
+      "rationale": "Both deeply involved in disaster response. Victoria's medical supply expertise could enhance ERV capabilities.",
+      "status": "likely_already_connected_through_sos"
+    },
+    {
+      "connector": "Jonathan",
+      "from": {
+        "name": "Jason Caulk",
+        "company": "CGEP",
+        "expertise": "Digital transformation, HubSpot implementations"
+      },
+      "to": {
+        "name": "Litmos team",
+        "company": "Litmos",
+        "need": "Marketing/CX tech stack optimization"
+      },
+      "rationale": "If Litmos needs deeper CRM/automation work, Jason's team could potentially help.",
+      "status": "potential"
+    },
+    {
+      "connector": "Jonathan",
+      "from": {
+        "name": "Emre Kavaloglu",
+        "company": "Waterfall.io",
+        "expertise": "B2B data enrichment"
+      },
+      "to": {
+        "name": "Endurant/CGEP team",
+        "company": "Endurant",
+        "need": "Customer data enrichment for HubSpot"
+      },
+      "rationale": "If Waterfall proves valuable for Reforge, could be useful for Endurant's customer database enrichment.",
+      "status": "pending_evaluation"
+    },
+    {
+      "connector": "Jonathan",
+      "from": {
+        "name": "Victoria Jaqua",
+        "company": "OSMS/Public Invention",
+        "expertise": "Open source medical devices, regulatory pathways"
+      },
+      "to": {
+        "name": "Any medtech startup",
+        "need": "Medical device development guidance"
+      },
+      "rationale": "Victoria's network (Public Invention, Glia, GOSQAS) is gold for anyone in medical device/supplies space.",
+      "status": "available"
+    }
+  ],
+  "networkOverlaps": {
+    "disasterResponse": {
+      "members": ["Victoria Jaqua", "Woody Faircloth"],
+      "organizations": ["OSMS", "ERV", "Public Invention", "Glia", "GOSQAS"]
+    },
+    "b2bTech": {
+      "members": ["Jason Caulk", "Holland Hudspeth", "Emre Kavaloglu"],
+      "organizations": ["CGEP", "MCC Memphis", "Waterfall.io", "Team Central AI"]
+    },
+    "learningTech": {
+      "members": ["Micheal Crook", "Mike (Hubert Group)"],
+      "organizations": ["Litmos", "The Hubert Group"]
+    }
+  }
+}
