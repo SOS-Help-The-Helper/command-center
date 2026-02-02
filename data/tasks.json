@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-02-02T02:57:00Z",
+  "updated_at": "2026-02-02T17:35:00Z",
   "updated_by": "Henry",
   "projects": {
     "context_graph": {
@@ -37,6 +37,37 @@
           "title": "Build 'find similar decisions' query",
           "status": "pending",
           "notes": "Vector similarity search"
+        }
+      ]
+    },
+    "intel_agents": {
+      "name": "Intel Agents",
+      "priority": "P1",
+      "status": "in_progress",
+      "tasks": [
+        {
+          "id": "intel-1",
+          "title": "Test browser access to Gong/Gmail",
+          "status": "blocked",
+          "notes": "Waiting for Jonathan back from ER"
+        },
+        {
+          "id": "intel-2",
+          "title": "Set up Reforge pipeline intel agent (browser-based)",
+          "status": "in_progress",
+          "notes": "Check emails, Gong transcripts 2x/day"
+        },
+        {
+          "id": "intel-3",
+          "title": "Set up SOS intel agent",
+          "status": "pending",
+          "notes": "Competitor news, disaster alerts, grant deadlines"
+        },
+        {
+          "id": "intel-4",
+          "title": "Set up Harmony intel agent",
+          "status": "pending",
+          "notes": "Client inbox monitoring"
         }
       ]
     },
@@ -114,6 +145,12 @@
           "title": "Design Harmony extension schema",
           "status": "done",
           "file": "projects/SOS/db/context_graph_schema.sql"
+        },
+        {
+          "id": "har-3",
+          "title": "DI Global (Orly) - Deliver contracted work",
+          "status": "urgent",
+          "notes": "13 weeks overdue. Contact import (2600+), dashboards, pipeline reports. Client asking for refund."
         }
       ]
     }
