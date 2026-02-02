@@ -682,8 +682,8 @@
     <div class="stats-row">
         <div class="stat-card">
             <div class="stat-label">Active Agents</div>
-            <div class="stat-value green" id="active-agents">1</div>
-            <div class="stat-sub">of 3 configured</div>
+            <div class="stat-value green" id="active-agents">--</div>
+            <div class="stat-sub" id="agents-sub">loading...</div>
         </div>
         <div class="stat-card">
             <div class="stat-label">Tasks Today</div>
@@ -904,6 +904,7 @@
         }
         
         async function updateStats() {
+            // Fetch costs
             try {
                 const resp = await fetch('data/costs.json?t=' + Date.now());
                 const costs = await resp.json();
@@ -926,6 +927,20 @@
                 console.error('Failed to load costs:', e);
                 document.getElementById('tokens-used').textContent = '--';
                 document.getElementById('cost-today').textContent = '--';
+            }
+            
+            // Fetch agent status
+            try {
+                const agentResp = await fetch('data/agents.json?t=' + Date.now());
+                const agents = await agentResp.json();
+                
+                const active = agents.recentSessions || 0;
+                document.getElementById('active-agents').textContent = active;
+                document.getElementById('agents-sub').textContent = active === 1 ? '1 session active' : active + ' sessions active';
+            } catch (e) {
+                console.error('Failed to load agents:', e);
+                document.getElementById('active-agents').textContent = '--';
+                document.getElementById('agents-sub').textContent = 'offline';
             }
         }
         
