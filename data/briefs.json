@@ -1,6 +1,35 @@
 {
   "briefs": [
     {
+      "id": "brief-2026-02-02-005",
+      "type": "market",
+      "icon": "💰",
+      "title": "$17B FEMA Aid Held Up - States Scrambling",
+      "summary": "States facing delays, denials, cancellations of federal disaster funds. Budget pressures mounting. New Mexico added $30M emergency fund due to slower FEMA reimbursements.",
+      "tags": ["market", "opportunity", "urgent"],
+      "author": "Henry",
+      "timestamp": "2026-02-02T04:40:00Z",
+      "details": {
+        "source": "Pew Charitable Trusts, NYT (Jan 2026)",
+        "keyFacts": [
+          "$17 billion in FEMA aid to states currently held up by extra scrutiny",
+          "States already facing delays, denials, or cancellations at every stage",
+          "New Mexico added $30M to contingency fund due to slower FEMA reimbursements",
+          "State rainy day funds falling - would be insufficient to replace federal aid",
+          "Minnesota passed law to auto-transfer surplus to disaster contingency account",
+          "Massachusetts established statewide disaster account as guardrail"
+        ],
+        "quote": "States are now bracing because they don't know what will be expected of them in the disaster realm, capacity-wise. That part of FEMA is really important to states because they don't have the buying power to do that on their own.",
+        "quoteSource": "Nicole Ezeh, NCSL Legislative Director",
+        "sosOpportunity": "States are building their own disaster capacity because they can't rely on FEMA. SOS sells directly to state emergency management agencies as the coordination layer they now need to own themselves. Pitch: 'Build state-owned disaster coordination capacity that doesn't depend on federal timelines.'",
+        "actionItems": [
+          "Research state emergency management RFPs",
+          "Target states that added disaster contingency funds",
+          "Build case study: 'What NC could have done differently'"
+        ]
+      }
+    },
+    {
       "id": "brief-2026-02-02-001",
       "type": "competitive",
       "icon": "🎯",
@@ -111,5 +140,5 @@
       }
     }
   ],
-  "lastUpdated": "2026-02-02T04:20:00Z"
+  "lastUpdated": "2026-02-02T04:40:00Z"
 }
