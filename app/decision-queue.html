@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision Queue - Reforge Pipeline</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .decision-card { animation: slideIn 0.3s ease-out; }
+        .priority-high { border-left: 4px solid #ef4444; }
+        .priority-medium { border-left: 4px solid #f59e0b; }
+        .priority-low { border-left: 4px solid #6b7280; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <div id="app" class="max-w-6xl mx-auto p-6">
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-8">
+            <div>
+                <h1 class="text-3xl font-bold">🎯 Decision Queue</h1>
+                <p class="text-gray-400 mt-1">Things that need your call</p>
+            </div>
+            <div class="flex gap-4 items-center">
+                <div id="stats" class="text-sm text-gray-400"></div>
+                <button onclick="refreshData()" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm">
+                    ↻ Refresh
+                </button>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="flex gap-4 mb-6 flex-wrap">
+            <select id="filterType" onchange="filterDecisions()" class="bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm">
+                <option value="">All Types</option>
+            </select>
+            <select id="filterPriority" onchange="filterDecisions()" class="bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm">
+                <option value="">All Priorities</option>
+                <option value="high">🔴 High</option>
+                <option value="medium">🟡 Medium</option>
+                <option value="low">⚪ Low</option>
+            </select>
+            <input type="text" id="searchBox" onkeyup="filterDecisions()" placeholder="Search company or contact..." 
+                   class="bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm w-64">
+            <label class="flex items-center gap-2 text-sm text-gray-400">
+                <input type="checkbox" id="hideResolved" onchange="filterDecisions()" class="rounded">
+                Hide resolved
+            </label>
+        </div>
+
+        <!-- Decision List -->
+        <div id="decisionList" class="space-y-4"></div>
+
+        <!-- Empty state -->
+        <div id="emptyState" class="hidden text-center py-16">
+            <div class="text-6xl mb-4">🎉</div>
+            <h2 class="text-xl font-semibold">All caught up!</h2>
+            <p class="text-gray-400">No decisions need your attention right now.</p>
+        </div>
+    </div>
+
+    <!-- Context Panel (slides in from right) -->
+    <div id="contextPanel" class="fixed right-0 top-0 h-full w-96 bg-gray-800 shadow-2xl transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-bold">Context</h2>
+                <button onclick="closeContextPanel()" class="text-gray-400 hover:text-white">✕</button>
+            </div>
+            <div id="contextContent"></div>
+        </div>
+    </div>
+    <div id="contextOverlay" class="fixed inset-0 bg-black/50 hidden z-40" onclick="closeContextPanel()"></div>
+
+    <script>
+        let allDecisions = [];
+        let resolvedIds = JSON.parse(localStorage.getItem('resolvedDecisions') || '[]');
+        let decisionNotes = JSON.parse(localStorage.getItem('decisionNotes') || '{}');
+
+        const typeLabels = {
+            'pricing_visit_no_followup': '💰 Pricing Visit',
+            'trial_expiring': '⏰ Trial Expiring',
+            'email_engagement_no_reply': '📧 Email Engagement',
+            'unworked_high_priority': '🚨 Unworked',
+            'sequence_ended_no_response': '📬 Sequence Ended',
+            'stalled_deal': '🧊 Stalled Deal',
+            'renewal_approaching': '🔄 Renewal Due',
+            'intent_signal': '🎯 Intent Signal',
+            'no_show_pattern': '👻 No-Show Pattern'
+        };
+
+        const priorityColors = {
+            'high': 'bg-red-500/20 text-red-400 border-red-500/30',
+            'medium': 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
+            'low': 'bg-gray-500/20 text-gray-400 border-gray-500/30'
+        };
+
+        async function loadDecisions() {
+            try {
+                const response = await fetch('/data/decisions-queue.json');
+                allDecisions = await response.json();
+                
+                // Filter out unworked noise by default
+                allDecisions = allDecisions.filter(d => d.type !== 'unworked_high_priority');
+                
+                populateFilters();
+                filterDecisions();
+                updateStats();
+            } catch (e) {
+                console.error('Failed to load decisions:', e);
+                document.getElementById('decisionList').innerHTML = `
+                    <div class="text-center py-8 text-red-400">
+                        Failed to load decisions. Make sure the server is running.
+                    </div>
+                `;
+            }
+        }
+
+        function populateFilters() {
+            const types = [...new Set(allDecisions.map(d => d.type))];
+            const select = document.getElementById('filterType');
+            select.innerHTML = '<option value="">All Types</option>';
+            types.forEach(t => {
+                const label = typeLabels[t] || t;
+                select.innerHTML += `<option value="${t}">${label}</option>`;
+            });
+        }
+
+        function filterDecisions() {
+            const typeFilter = document.getElementById('filterType').value;
+            const priorityFilter = document.getElementById('filterPriority').value;
+            const searchTerm = document.getElementById('searchBox').value.toLowerCase();
+            const hideResolved = document.getElementById('hideResolved').checked;
+
+            let filtered = allDecisions.filter(d => {
+                if (typeFilter && d.type !== typeFilter) return false;
+                if (priorityFilter && d.priority !== priorityFilter) return false;
+                if (searchTerm) {
+                    const searchable = `${d.contact} ${d.company} ${d.email}`.toLowerCase();
+                    if (!searchable.includes(searchTerm)) return false;
+                }
+                if (hideResolved && resolvedIds.includes(d.contact_id)) return false;
+                return true;
+            });
+
+            renderDecisions(filtered);
+        }
+
+        function renderDecisions(decisions) {
+            const container = document.getElementById('decisionList');
+            const emptyState = document.getElementById('emptyState');
+
+            if (decisions.length === 0) {
+                container.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+
+            container.innerHTML = decisions.map((d, idx) => {
+                const isResolved = resolvedIds.includes(d.contact_id);
+                const note = decisionNotes[d.contact_id] || '';
+                const typeLabel = typeLabels[d.type] || d.type;
+                const priorityClass = priorityColors[d.priority];
+
+                return `
+                    <div class="decision-card bg-gray-800 rounded-lg p-5 priority-${d.priority} ${isResolved ? 'opacity-50' : ''}" data-id="${d.contact_id}">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <span class="inline-block px-2 py-1 text-xs rounded border ${priorityClass} mr-2">
+                                    ${d.priority.toUpperCase()}
+                                </span>
+                                <span class="text-xs text-gray-500">${typeLabel}</span>
+                            </div>
+                            <button onclick="showContext(${idx})" class="text-sm text-blue-400 hover:text-blue-300">
+                                More context →
+                            </button>
+                        </div>
+                        
+                        <h3 class="text-lg font-semibold mb-2">${d.question}</h3>
+                        <p class="text-gray-400 text-sm mb-4">${d.signal}</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            ${d.options.map(opt => `
+                                <button onclick="selectOption('${d.contact_id}', '${opt}')" 
+                                        class="px-3 py-1.5 bg-gray-700 hover:bg-gray-600 rounded text-sm transition-colors">
+                                    ${opt}
+                                </button>
+                            `).join('')}
+                        </div>
+
+                        <div class="flex items-center gap-2 mt-3 pt-3 border-t border-gray-700">
+                            <input type="text" placeholder="Add note..." 
+                                   value="${note}"
+                                   onchange="saveNote('${d.contact_id}', this.value)"
+                                   class="flex-1 bg-gray-700 border-none rounded px-3 py-1.5 text-sm">
+                            ${isResolved ? `
+                                <button onclick="unresolve('${d.contact_id}')" class="text-sm text-gray-400 hover:text-white">
+                                    Reopen
+                                </button>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // Store filtered for context panel
+            window.filteredDecisions = decisions;
+        }
+
+        function selectOption(contactId, option) {
+            const decision = allDecisions.find(d => d.contact_id === contactId);
+            
+            // Log the decision
+            const log = JSON.parse(localStorage.getItem('decisionLog') || '[]');
+            log.push({
+                contactId,
+                contact: decision?.contact,
+                company: decision?.company,
+                type: decision?.type,
+                option,
+                timestamp: new Date().toISOString()
+            });
+            localStorage.setItem('decisionLog', JSON.stringify(log));
+
+            // Mark as resolved
+            if (!resolvedIds.includes(contactId)) {
+                resolvedIds.push(contactId);
+                localStorage.setItem('resolvedDecisions', JSON.stringify(resolvedIds));
+            }
+
+            // Visual feedback
+            const card = document.querySelector(`[data-id="${contactId}"]`);
+            if (card) {
+                card.style.transition = 'all 0.3s';
+                card.style.opacity = '0.3';
+                card.style.transform = 'translateX(50px)';
+                setTimeout(() => {
+                    filterDecisions();
+                    updateStats();
+                }, 300);
+            }
+
+            // Show toast
+            showToast(`Selected: ${option}`);
+        }
+
+        function saveNote(contactId, note) {
+            decisionNotes[contactId] = note;
+            localStorage.setItem('decisionNotes', JSON.stringify(decisionNotes));
+        }
+
+        function unresolve(contactId) {
+            resolvedIds = resolvedIds.filter(id => id !== contactId);
+            localStorage.setItem('resolvedDecisions', JSON.stringify(resolvedIds));
+            filterDecisions();
+            updateStats();
+        }
+
+        function showContext(idx) {
+            const d = window.filteredDecisions[idx];
+            const panel = document.getElementById('contextPanel');
+            const content = document.getElementById('contextContent');
+            const overlay = document.getElementById('contextOverlay');
+
+            content.innerHTML = `
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-lg font-semibold">${d.contact}</h3>
+                        <p class="text-gray-400">${d.email}</p>
+                        ${d.company ? `<p class="text-gray-400">${d.company}</p>` : ''}
+                    </div>
+
+                    <div>
+                        <h4 class="text-sm font-semibold text-gray-400 mb-2">SIGNAL</h4>
+                        <p>${d.signal}</p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-sm font-semibold text-gray-400 mb-2">CONTEXT</h4>
+                        <div class="bg-gray-700/50 rounded p-3 text-sm space-y-2">
+                            ${Object.entries(d.context || {}).map(([k, v]) => `
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">${k.replace(/_/g, ' ')}</span>
+                                    <span>${v || '-'}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <a href="https://app.hubspot.com/contacts/${d.contact_id}" target="_blank" 
+                           class="flex-1 text-center px-3 py-2 bg-orange-600 hover:bg-orange-500 rounded text-sm">
+                            Open in HubSpot
+                        </a>
+                        ${d.context?.linkedin ? `
+                            <a href="${d.context.linkedin}" target="_blank" 
+                               class="px-3 py-2 bg-blue-600 hover:bg-blue-500 rounded text-sm">
+                                LinkedIn
+                            </a>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+
+            panel.classList.remove('translate-x-full');
+            overlay.classList.remove('hidden');
+        }
+
+        function closeContextPanel() {
+            document.getElementById('contextPanel').classList.add('translate-x-full');
+            document.getElementById('contextOverlay').classList.add('hidden');
+        }
+
+        function updateStats() {
+            const total = allDecisions.length;
+            const resolved = resolvedIds.filter(id => allDecisions.some(d => d.contact_id === id)).length;
+            const high = allDecisions.filter(d => d.priority === 'high' && !resolvedIds.includes(d.contact_id)).length;
+            
+            document.getElementById('stats').innerHTML = `
+                <span class="text-red-400">${high} high priority</span> · 
+                ${resolved}/${total} resolved
+            `;
+        }
+
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-4 right-4 bg-green-600 text-white px-4 py-2 rounded shadow-lg z-50';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2000);
+        }
+
+        function refreshData() {
+            loadDecisions();
+            showToast('Refreshed');
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeContextPanel();
+        });
+
+        // Load on start
+        loadDecisions();
+    </script>
+</body>
+</html>

@@ -1,97 +1,108 @@
 {
-  "lastUpdated": "2026-02-02T17:42:00Z",
-  "updatedBy": "Henry",
-  "description": "Reforge pipeline intelligence signals - updated 3x daily by intel agent",
-  
-  "signalTypes": {
-    "email": {
-      "description": "Deal replies, meeting confirmations, objections from prospects",
-      "frequency": "3x daily (9am, 12pm, 5pm EST)",
-      "source": "jonathan@harmonystrategy.com"
-    },
-    "company_news": {
-      "description": "Funding rounds, acquisitions, leadership changes, layoffs",
-      "frequency": "3x daily",
-      "source": "Web search on active pipeline + Grunt leads"
-    },
-    "hiring_signals": {
-      "description": "Job postings indicating growth/investment in product/growth teams",
-      "frequency": "3x daily",
-      "source": "LinkedIn, company careers pages"
-    },
-    "competitive_moves": {
-      "description": "Competitor wins/losses, market positioning changes",
-      "frequency": "3x daily",
-      "source": "Web search, industry news"
-    }
+  "lastUpdated": "2026-02-02T22:00:00Z",
+  "runType": "scheduled_intel",
+  "summary": {
+    "highPriority": 2,
+    "newSignals": 6,
+    "alertsRequiringAction": 1
   },
-  
-  "activePipeline": [
-    {"company": "Ecovadis", "deal_size": 18000, "status": "Pilot starting", "priority": "high"},
-    {"company": "Neo Financial", "deal_size": 60000, "status": "Pricing discussion", "priority": "high"},
-    {"company": "Fox Local", "deal_size": 27000, "status": "Budget approval pending", "priority": "high"},
-    {"company": "DreamHost", "deal_size": 25000, "status": "In pilot", "priority": "high"},
-    {"company": "EvenUp", "deal_size": 35000, "status": "Active", "priority": "medium"},
-    {"company": "Muse", "deal_size": null, "status": "Could be massive", "priority": "medium"}
-  ],
-  
   "signals": [
     {
-      "timestamp": "2026-02-02T17:42:00Z",
-      "type": "funding",
+      "timestamp": "2026-02-02T22:00:00Z",
+      "type": "deal_acceleration",
       "company": "EvenUp",
-      "priority": "🔥 HIGH",
-      "summary": "$150M Series E at $2B valuation (Oct 2025). Platform volume doubled to 10K cases/week. Legal tech funding at record high 2025. HOT COMPANY.",
-      "source": "Crunchbase, Bloomberg Law",
-      "action": "Push for close - they have budget and momentum"
+      "dealValue": 50000,
+      "stage": "Pilot (Trial)",
+      "signal": "EvenUp actively expanding - launched Communication Agents + Next-Gen AI Drafts Suite, presenting at National Trial Lawyers Summit 2026, actively hiring for revenue kickoff. $1B valuation company.",
+      "urgency": "high",
+      "recommendation": "Re-engage immediately. 105 days stalled on $50K pilot is too long for a company this hot. They're in growth mode and spending on tools.",
+      "source": "web_research"
     },
     {
-      "timestamp": "2026-02-02T17:42:00Z",
-      "type": "risk",
+      "timestamp": "2026-02-02T22:00:00Z",
+      "type": "validation_signal",
       "company": "Neo Financial",
-      "priority": "⚠️ CAUTION",
-      "summary": "Despite $360M Series D (Nov 2024), multiple layoff allegations (Mar 2025 Reddit, Glassdoor). 'Soft layoffs' reported. Government grant closing Mar 2025.",
-      "source": "BetaKit, Reddit r/Winnipeg, Winnipeg Free Press",
-      "action": "Validate budget still exists. Ask about team stability."
+      "dealValue": 60000,
+      "stage": "Pre-Pilot",
+      "signal": "Neo Financial raised $650M+ total funding. Ranked #1 on Canada's Top Growing Companies 3 years running. Deloitte Enterprise Industry Leaders #1 (2025).",
+      "urgency": "medium",
+      "recommendation": "Strong company validation. Push for trial start - this is a high-quality logo worth pursuing.",
+      "source": "web_research"
     },
     {
-      "timestamp": "2026-02-02T17:42:00Z",
-      "type": "acquisition",
-      "company": "Ecovadis",
-      "priority": "📋 INFO",
-      "summary": "Acquired by Ecotrek (per Tracxn). $732M total funding, $1B valuation. Sustainability leader.",
-      "source": "Tracxn",
-      "action": "Confirm acquisition doesn't affect buying timeline"
+      "timestamp": "2026-02-02T22:00:00Z",
+      "type": "competitive_intel",
+      "company": "EcoVadis",
+      "dealValue": 18000,
+      "stage": "Pilot Starting",
+      "signal": "No specific recent news found. Company doing sustainability ratings - stable but no major funding/growth signals.",
+      "urgency": "low",
+      "recommendation": "Proceed with pilot as planned. Monitor for competitive pressure from Replit mentioned in notes.",
+      "source": "web_research"
     },
     {
-      "timestamp": "2026-02-02T17:42:00Z",
-      "type": "strategic",
-      "company": "Fox Local",
-      "priority": "📋 INFO",
-      "summary": "Fox Corporation launching FOX One streaming service (Aug 2025) - consolidating content strategy across Fox properties.",
-      "source": "LiveNOW from FOX",
-      "action": "May affect Fox Local's budget/priorities. Confirm with contact."
+      "timestamp": "2026-02-02T22:00:00Z",
+      "type": "deal_stall_alert",
+      "company": "Muse Group",
+      "dealValue": 15000,
+      "stage": "Contracting",
+      "signal": "61 days in contracting stage with no activity. Budget approved per notes, waiting for product team owner.",
+      "urgency": "high",
+      "recommendation": "Push Georgiy for contract signature. 61 days in contracting is a red flag - deals die here.",
+      "source": "hubspot_analysis"
     },
     {
-      "timestamp": "2026-02-02T17:42:00Z",
-      "type": "expansion",
-      "company": "DreamHost",
-      "priority": "✅ POSITIVE",
-      "summary": "New data center facility announced (Feb 2025). Active marketing campaigns. WordCamp US 2026 presence confirmed.",
-      "source": "DreamHost News",
-      "action": "Company investing in growth - good sign for deal"
+      "timestamp": "2026-02-02T22:00:00Z",
+      "type": "grunt_lead_opportunity",
+      "company": "360Learning",
+      "contact": "Sarah Celnik",
+      "title": "VP of Product",
+      "signal": "New VP of Product at 360Learning (L&D/LMS company). 3 months in role. L&D platforms are perfect Reforge fit for product team training.",
+      "urgency": "medium",
+      "recommendation": "Outreach to Sarah - new in role, likely building out product team capabilities. L&D angle is strong.",
+      "source": "grunt_batch_feb2"
     },
     {
-      "timestamp": "2026-02-02T17:42:00Z",
-      "type": "quiet",
-      "company": "Muse (InteraXon)",
-      "priority": "📋 INFO",
-      "summary": "No recent funding since $9.5M Series C (Aug 2022). $39.3M total raised. Still active but no major news.",
-      "source": "TechCrunch, PitchBook",
-      "action": "May have budget constraints. Qualify carefully."
+      "timestamp": "2026-02-02T22:00:00Z",
+      "type": "grunt_lead_opportunity",
+      "company": "FriendliAI",
+      "contact": "Ryan Pollock",
+      "title": "VP, Go-to-Market (GTM)",
+      "signal": "New VP GTM at FriendliAI (AI infrastructure company). Building GTM function. SF-based, 2nd degree connection.",
+      "urgency": "medium",
+      "recommendation": "Outreach to Ryan - new GTM leader at AI company likely needs to upskill team fast.",
+      "source": "grunt_batch_feb2"
     }
   ],
-  
-  "lastIntelRun": "2026-02-02T17:42:00Z",
-  "nextScheduledRun": "2026-02-03T14:00:00Z"
+  "pipelineHealth": {
+    "totalActiveDeals": 259,
+    "stalledDeals": 141,
+    "stalledPipelineValue": 245150,
+    "urgentFollowUps": [
+      {
+        "company": "EvenUp",
+        "value": 50000,
+        "daysStalled": 105,
+        "action": "Re-engage Garrett Edel immediately"
+      },
+      {
+        "company": "Muse Group",
+        "value": 15000,
+        "daysStalled": 61,
+        "action": "Push Georgiy for contract"
+      },
+      {
+        "company": "Pocket FM",
+        "value": 15000,
+        "daysStalled": 28,
+        "action": "Check in with Nish Shah"
+      }
+    ]
+  },
+  "emailSignals": {
+    "checked": true,
+    "reforgeReplies": 0,
+    "meetingConfirmations": 0,
+    "note": "No new Reforge-related emails in last 2 days"
+  }
 }
