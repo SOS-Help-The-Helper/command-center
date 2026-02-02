@@ -2,1095 +2,769 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#0a0f14">
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%234a8c4a' width='100' height='100' rx='20'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white'>⚡</text></svg>">
-    <title>Henry Command Center</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Center</title>
     <style>
         :root {
-            --bg: #0a0f14;
-            --card-bg: #111820;
-            --card-border: #1e2a36;
+            --bg: #0a0f0a;
+            --bg-secondary: #0d120d;
+            --card-bg: #141f14;
+            --card-border: #1e2e1e;
+            --card-hover: #1a2a1a;
             --text: #ffffff;
-            --text-secondary: #8899aa;
-            --text-dim: #556677;
-            --accent: #4a8c4a;
-            --accent-light: #5cb85c;
+            --text-secondary: #8a9a8a;
+            --text-dim: #5a6a5a;
+            --green: #2d5a2d;
+            --green-light: #4a8c4a;
+            --green-bright: #5cb85c;
+            --green-glow: rgba(92, 184, 92, 0.3);
+            --red: #8b3a3a;
+            --red-light: #a85454;
             --gold: #d4a530;
             --blue: #4a90d4;
-            --red: #d45a5a;
+            --purple: #8b5cf6;
         }
-        
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            -webkit-tap-highlight-color: transparent;
         }
-        
-        html {
-            -webkit-text-size-adjust: 100%;
-        }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
             background: var(--bg);
             color: var(--text);
             min-height: 100vh;
-            padding: 24px;
+            line-height: 1.5;
         }
-        
-        .header {
+
+        /* Header */
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--card-border);
+            padding: 16px 24px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 16px;
-            margin-bottom: 32px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        
+
         .logo {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%);
-            border-radius: 12px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 24px;
-        }
-        
-        .header-text h1 {
-            font-size: 1.75rem;
+            gap: 12px;
+            font-size: 1.25rem;
             font-weight: 700;
             letter-spacing: -0.5px;
         }
-        
-        .header-text p {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--green-light) 0%, var(--green) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
         }
-        
-        .status-indicator {
-            margin-left: auto;
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .user-badge {
             display: flex;
             align-items: center;
             gap: 8px;
-            color: var(--accent-light);
+            padding: 6px 12px;
+            background: var(--card-bg);
+            border-radius: 20px;
             font-size: 0.875rem;
+            color: var(--text-secondary);
         }
-        
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--accent-light);
+
+        .user-badge .avatar {
+            width: 24px;
+            height: 24px;
+            background: var(--green);
             border-radius: 50%;
-            animation: pulse 2s infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
         }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+
+        /* Main container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px;
         }
-        
-        .stats-row {
+
+        /* Project cards */
+        .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 16px;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
         }
-        
-        .stat-card {
+
+        .project-card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 12px;
             padding: 20px;
-        }
-        
-        .stat-label {
-            font-size: 0.75rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-        }
-        
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-        }
-        
-        .stat-value.green { color: var(--accent-light); }
-        .stat-value.gold { color: var(--gold); }
-        .stat-value.blue { color: var(--blue); }
-        
-        .stat-sub {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin-top: 4px;
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-        }
-        
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 24px;
-        }
-        
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-        
-        .card-icon {
-            font-size: 1.25rem;
-        }
-        
-        .card-title {
-            font-size: 1rem;
-            font-weight: 600;
-        }
-        
-        .card-action {
-            margin-left: auto;
-            background: transparent;
-            border: 1px solid var(--card-border);
-            color: var(--text-secondary);
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 0.75rem;
             cursor: pointer;
+            transition: all 0.2s;
         }
-        
-        .card-action:hover {
-            border-color: var(--accent);
-            color: var(--accent-light);
+
+        .project-card:hover {
+            background: var(--card-hover);
+            border-color: var(--green);
+            transform: translateY(-2px);
         }
-        
-        /* Projects */
-        .project-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+
+        .project-card.active {
+            border-color: var(--green-bright);
+            box-shadow: 0 0 20px var(--green-glow);
         }
-        
-        .project-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            background: rgba(255,255,255,0.02);
-            border-radius: 10px;
-        }
-        
-        .project-status {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-        
-        .project-status.active { background: var(--accent-light); }
-        .project-status.idle { background: var(--text-dim); }
-        .project-status.warning { background: var(--gold); }
-        
-        .project-info {
-            flex: 1;
-        }
-        
-        .project-name {
-            font-weight: 600;
-            font-size: 0.9375rem;
-        }
-        
-        .project-desc {
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
-        }
-        
-        .project-meta {
-            font-size: 0.75rem;
-            color: var(--text-dim);
-        }
-        
-        /* Agents */
-        .agent-item {
+
+        .project-header {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 12px;
-            background: rgba(255,255,255,0.02);
-            border-radius: 10px;
+            gap: 10px;
             margin-bottom: 12px;
         }
-        
-        .agent-avatar {
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(135deg, var(--accent) 0%, #2d5a2d 100%);
-            border-radius: 10px;
+
+        .project-icon {
+            font-size: 1.5rem;
+        }
+
+        .project-name {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 12px;
+            font-size: 0.8125rem;
+        }
+
+        .stat {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1rem;
+            gap: 4px;
         }
-        
-        .agent-info { flex: 1; }
-        
-        .agent-name {
-            font-weight: 600;
-            font-size: 0.9375rem;
-        }
-        
-        .agent-task {
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
-        }
-        
-        .agent-tokens {
-            font-size: 0.8125rem;
-            color: var(--text-dim);
-        }
-        
-        /* Activity */
-        .activity-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        
-        .activity-item {
-            display: flex;
-            gap: 12px;
-            font-size: 0.8125rem;
-            padding: 8px 0;
-            border-bottom: 1px solid var(--card-border);
-        }
-        
-        .activity-time {
-            color: var(--text-dim);
-            min-width: 50px;
-        }
-        
-        .activity-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            margin-top: 6px;
-        }
-        
-        .activity-dot.green { background: var(--accent-light); }
-        .activity-dot.blue { background: var(--blue); }
-        .activity-dot.gold { background: var(--gold); }
-        
-        .activity-text {
-            color: var(--text-secondary);
-        }
-        
-        /* Quick Actions */
-        .actions-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-        
-        .action-btn {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--card-border);
-            border-radius: 10px;
-            padding: 16px;
-            color: var(--text);
-            cursor: pointer;
-            text-align: left;
-            transition: all 0.15s;
-        }
-        
-        .action-btn:hover {
-            border-color: var(--accent);
-            background: rgba(74, 140, 74, 0.1);
-        }
-        
-        .action-btn:active {
-            transform: scale(0.98);
-        }
-        
-        .action-icon {
-            font-size: 1.25rem;
-            margin-bottom: 8px;
-        }
-        
-        .action-label {
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-        
-        /* Grunt Stats */
-        .grunt-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            text-align: center;
-        }
-        
-        .grunt-stat-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .grunt-stat-label {
-            font-size: 0.75rem;
-            color: var(--text-dim);
-            margin-top: 4px;
-        }
-        
-        .progress-bar {
-            height: 6px;
-            background: var(--card-border);
-            border-radius: 3px;
-            margin-top: 16px;
-            overflow: hidden;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
-            border-radius: 3px;
-            transition: width 0.5s;
-        }
-        
-        .last-updated {
-            text-align: center;
-            color: var(--text-dim);
-            font-size: 0.75rem;
-            margin-top: 24px;
-        }
-        
-        /* Daily Brief */
-        .brief-section {
-            margin-bottom: 24px;
-        }
-        
-        .brief-card {
-            background: linear-gradient(135deg, var(--card-bg) 0%, #0d1318 100%);
-            border: 1px solid var(--accent);
-        }
-        
-        .brief-date {
-            margin-left: auto;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-        }
-        
-        .brief-summary {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--card-border);
-        }
-        
-        .tasks-header {
+
+        .stat.p0 { color: var(--red-light); }
+        .stat.p1 { color: var(--gold); }
+        .stat.p2 { color: var(--text-secondary); }
+        .stat.done { color: var(--green-bright); }
+
+        /* Section headers */
+        .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .section-title {
+            font-size: 0.875rem;
             font-weight: 600;
-            font-size: 0.9375rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
         }
-        
-        .tasks-count {
+
+        .section-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--card-border);
+            background: var(--card-bg);
+            color: var(--text);
             font-size: 0.8125rem;
-            color: var(--text-dim);
-            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.2s;
         }
-        
-        .tasks-list {
+
+        .btn:hover {
+            background: var(--card-hover);
+            border-color: var(--green);
+        }
+
+        .btn.primary {
+            background: var(--green);
+            border-color: var(--green);
+        }
+
+        .btn.primary:hover {
+            background: var(--green-light);
+        }
+
+        /* Filter tabs */
+        .filter-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .filter-tab {
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-secondary);
+            font-size: 0.8125rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-tab:hover {
+            color: var(--text);
+            border-color: var(--green);
+        }
+
+        .filter-tab.active {
+            background: var(--green);
+            border-color: var(--green);
+            color: var(--text);
+        }
+
+        /* Task list */
+        .task-list {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 8px;
         }
-        
+
         .task-item {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 12px;
-            padding: 16px;
-            background: rgba(255,255,255,0.02);
-            border-radius: 12px;
+            padding: 12px 16px;
+            background: var(--card-bg);
             border: 1px solid var(--card-border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
         }
-        
+
+        .task-item:hover {
+            background: var(--card-hover);
+            border-color: var(--green);
+        }
+
+        .task-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--card-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .task-item:hover .task-checkbox {
+            border-color: var(--green);
+        }
+
+        .task-item.done .task-checkbox {
+            background: var(--green);
+            border-color: var(--green);
+        }
+
+        .task-item.done .task-checkbox::after {
+            content: '✓';
+            color: white;
+            font-size: 12px;
+        }
+
         .task-priority {
-            width: 4px;
-            height: 100%;
-            min-height: 40px;
-            border-radius: 2px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.6875rem;
+            font-weight: 700;
             flex-shrink: 0;
         }
-        
-        .task-priority.high { background: var(--gold); }
-        .task-priority.medium { background: var(--blue); }
-        .task-priority.low { background: var(--text-dim); }
-        
+
+        .task-priority.P0 { background: var(--red); color: white; }
+        .task-priority.P1 { background: var(--gold); color: black; }
+        .task-priority.P2 { background: var(--card-border); color: var(--text-secondary); }
+        .task-priority.P3 { background: transparent; color: var(--text-dim); border: 1px solid var(--card-border); }
+
         .task-content {
             flex: 1;
             min-width: 0;
         }
-        
+
         .task-title {
-            font-weight: 600;
             font-size: 0.9375rem;
-            margin-bottom: 4px;
+            font-weight: 500;
+            margin-bottom: 2px;
         }
-        
-        .task-desc {
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
+
+        .task-item.done .task-title {
+            text-decoration: line-through;
+            color: var(--text-dim);
         }
-        
+
         .task-meta {
             display: flex;
             gap: 12px;
             font-size: 0.75rem;
             color: var(--text-dim);
         }
-        
-        .task-category {
-            background: rgba(255,255,255,0.05);
+
+        .task-project {
             padding: 2px 8px;
+            background: var(--bg);
             border-radius: 4px;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        
-        .task-actions {
+
+        .task-project.sos { color: var(--green-bright); }
+        .task-project.reforge { color: var(--blue); }
+        .task-project.harmony { color: var(--gold); }
+        .task-project.grunt { color: var(--green-light); }
+        .task-project.context_graph { color: var(--purple); }
+
+        .task-assignee {
             display: flex;
-            gap: 8px;
-            flex-shrink: 0;
+            align-items: center;
+            gap: 4px;
         }
-        
-        .task-btn {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            border: 1px solid var(--card-border);
-            background: transparent;
-            color: var(--text-secondary);
-            cursor: pointer;
+
+        .assignee-avatar {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--green);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
-            transition: all 0.15s;
+            font-size: 10px;
         }
-        
-        .task-btn.approve:hover {
-            background: rgba(92, 184, 92, 0.2);
-            border-color: var(--accent-light);
-            color: var(--accent-light);
+
+        /* Metrics bar */
+        .metrics-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
         }
-        
-        .task-btn.deny:hover {
-            background: rgba(212, 90, 90, 0.2);
-            border-color: var(--red);
-            color: var(--red);
+
+        .metric-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 16px;
         }
-        
-        .task-btn:active {
-            transform: scale(0.9);
-        }
-        
-        .task-item.approved {
-            opacity: 0.6;
-            border-color: var(--accent);
-        }
-        
-        .task-item.denied {
-            opacity: 0.4;
-            text-decoration: line-through;
-        }
-        
-        .no-tasks {
-            text-align: center;
+
+        .metric-label {
+            font-size: 0.75rem;
             color: var(--text-dim);
-            padding: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
         }
-        
-        /* Tablet */
-        @media (max-width: 1024px) {
-            .grid { grid-template-columns: 1fr; }
-            .card[style*="grid-column: span 2"] { grid-column: span 1; }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
         }
-        
-        /* Mobile */
+
+        .metric-value.positive { color: var(--green-bright); }
+        .metric-value.warning { color: var(--gold); }
+        .metric-value.negative { color: var(--red-light); }
+
+        /* Project detail view */
+        .project-detail {
+            display: none;
+        }
+
+        .project-detail.active {
+            display: block;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 16px;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            color: var(--green-bright);
+        }
+
+        /* Pipeline table */
+        .pipeline-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .pipeline-table th,
+        .pipeline-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .pipeline-table th {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-dim);
+            background: var(--bg-secondary);
+        }
+
+        .pipeline-table tr:hover {
+            background: var(--card-hover);
+        }
+
+        .deal-amount {
+            font-weight: 600;
+            color: var(--green-bright);
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            body { 
-                padding: 16px; 
-                padding-bottom: 32px;
+            .container {
+                padding: 16px;
             }
-            
-            .header {
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .task-meta {
                 flex-wrap: wrap;
-                gap: 12px;
-            }
-            
-            .header-text h1 {
-                font-size: 1.375rem;
-            }
-            
-            .status-indicator {
-                width: 100%;
-                justify-content: flex-start;
-                margin-left: 0;
-                margin-top: 8px;
-            }
-            
-            .stats-row { 
-                grid-template-columns: repeat(2, 1fr); 
-                gap: 12px;
-            }
-            
-            .stat-card {
-                padding: 16px;
-            }
-            
-            .stat-value {
-                font-size: 1.5rem;
-            }
-            
-            .grid { 
-                grid-template-columns: 1fr; 
-                gap: 16px;
-            }
-            
-            .card {
-                padding: 20px;
-            }
-            
-            .card[style*="grid-column: span 2"] { 
-                grid-column: span 1; 
-            }
-            
-            .actions-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-            
-            .action-btn {
-                padding: 14px 12px;
-            }
-            
-            .action-icon {
-                font-size: 1.5rem;
-            }
-            
-            .grunt-stats {
-                gap: 12px;
-            }
-            
-            .grunt-stat-value {
-                font-size: 1.25rem;
-            }
-            
-            .project-item,
-            .agent-item {
-                padding: 14px;
-            }
-        }
-        
-        /* Small mobile */
-        @media (max-width: 400px) {
-            body {
-                padding: 12px;
-            }
-            
-            .stats-row {
-                grid-template-columns: 1fr 1fr;
-                gap: 8px;
-            }
-            
-            .stat-card {
-                padding: 12px;
-            }
-            
-            .stat-label {
-                font-size: 0.6875rem;
-            }
-            
-            .stat-value {
-                font-size: 1.25rem;
-            }
-            
-            .stat-sub {
-                font-size: 0.75rem;
-            }
-            
-            .header-text h1 {
-                font-size: 1.25rem;
-            }
-            
-            .logo {
-                width: 40px;
-                height: 40px;
-                font-size: 20px;
-            }
-            
-            .card {
-                padding: 16px;
-                border-radius: 12px;
-            }
-            
-            .card-header {
-                margin-bottom: 16px;
-            }
-            
-            .actions-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* PWA / Fullscreen */
-        @media (display-mode: standalone) {
-            body {
-                padding-top: env(safe-area-inset-top, 24px);
-                padding-bottom: env(safe-area-inset-bottom, 24px);
             }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="logo">⚡</div>
-        <div class="header-text">
-            <h1>Henry Command Center</h1>
-            <p>Agent Orchestration Dashboard</p>
+    <header>
+        <div class="logo">
+            <div class="logo-icon">⚡</div>
+            <span>COMMAND CENTER</span>
         </div>
-        <div class="status-indicator">
-            <span class="status-dot"></span>
-            <span>Online</span>
+        <div class="header-right">
+            <div class="user-badge">
+                <div class="avatar">J</div>
+                <span>Jonathan</span>
+            </div>
         </div>
     </header>
-    
-    <div class="stats-row">
-        <div class="stat-card">
-            <div class="stat-label">Active Agents</div>
-            <div class="stat-value green" id="active-agents">--</div>
-            <div class="stat-sub" id="agents-sub">loading...</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-label">Tasks Today</div>
-            <div class="stat-value" id="tasks-today">--</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-label">Tokens Used</div>
-            <div class="stat-value gold" id="tokens-used">--</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-label">Est. Cost</div>
-            <div class="stat-value blue" id="cost-today">--</div>
-        </div>
-    </div>
-    
-    <!-- Daily Brief Section -->
-    <div class="brief-section" id="brief-section">
-        <div class="card brief-card">
-            <div class="card-header">
-                <span class="card-icon">📋</span>
-                <span class="card-title">Daily Brief</span>
-                <span class="brief-date" id="brief-date">Loading...</span>
-            </div>
-            <div class="brief-summary" id="brief-summary">
-                Good morning! Here's what needs your attention today.
-            </div>
-            <div class="tasks-header">
-                <span>Recommended Tasks</span>
-                <span class="tasks-count" id="tasks-count">0 pending</span>
-            </div>
-            <div class="tasks-list" id="tasks-list">
-                <!-- Tasks loaded dynamically -->
-            </div>
-        </div>
-    </div>
-    
-    <div class="grid">
-        <!-- Projects -->
-        <div class="card">
-            <div class="card-header">
-                <span class="card-icon">📊</span>
-                <span class="card-title">Projects</span>
-            </div>
-            <div class="project-list">
-                <div class="project-item">
-                    <div class="project-status active"></div>
-                    <div class="project-info">
-                        <div class="project-name">SOS</div>
-                        <div class="project-desc">Disaster coordination platform</div>
-                    </div>
-                    <div class="project-meta">Active</div>
+
+    <div class="container">
+        <!-- All Projects View -->
+        <div id="all-projects-view">
+            <!-- Metrics -->
+            <div class="metrics-bar">
+                <div class="metric-card">
+                    <div class="metric-label">Reforge Pipeline</div>
+                    <div class="metric-value positive">$311K</div>
                 </div>
-                <div class="project-item">
-                    <div class="project-status active"></div>
-                    <div class="project-info">
-                        <div class="project-name">Grunt (Reforge)</div>
-                        <div class="project-desc">Prospect qualification</div>
-                    </div>
-                    <div class="project-meta" id="grunt-remaining">-- left</div>
+                <div class="metric-card">
+                    <div class="metric-label">Won 2025</div>
+                    <div class="metric-value">$50K</div>
                 </div>
-                <div class="project-item">
-                    <div class="project-status idle"></div>
-                    <div class="project-info">
-                        <div class="project-name">Harmony Strategy</div>
-                        <div class="project-desc">GTM consulting</div>
-                    </div>
-                    <div class="project-meta">Paused</div>
+                <div class="metric-card">
+                    <div class="metric-label">Re-engageable</div>
+                    <div class="metric-value warning">$508K</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Tasks P0/P1</div>
+                    <div class="metric-value" id="urgent-tasks">-</div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Agents -->
-        <div class="card">
-            <div class="card-header">
-                <span class="card-icon">🤖</span>
-                <span class="card-title">Agents</span>
-                <button class="card-action" onclick="spawnAgent()">+ New Agent</button>
+
+            <!-- Projects -->
+            <div class="section-header">
+                <div class="section-title">Projects</div>
             </div>
-            <div id="agents-list">
-                <div class="agent-item">
-                    <div class="agent-avatar">⚡</div>
-                    <div class="agent-info">
-                        <div class="agent-name">Henry</div>
-                        <div class="agent-task">Main session</div>
-                    </div>
-                    <div class="agent-tokens" id="henry-tokens">-- tokens</div>
+            <div class="projects-grid" id="projects-grid">
+                <!-- Populated by JS -->
+            </div>
+
+            <!-- Filter tabs -->
+            <div class="filter-tabs">
+                <div class="filter-tab active" data-filter="all">All Tasks</div>
+                <div class="filter-tab" data-filter="pending">Pending</div>
+                <div class="filter-tab" data-filter="in_progress">In Progress</div>
+                <div class="filter-tab" data-filter="done">Done</div>
+            </div>
+
+            <!-- Tasks -->
+            <div class="section-header">
+                <div class="section-title">Tasks</div>
+                <div class="section-actions">
+                    <button class="btn primary" onclick="addTask()">+ Add Task</button>
                 </div>
             </div>
-        </div>
-        
-        <!-- Grunt Stats -->
-        <div class="card">
-            <div class="card-header">
-                <span class="card-icon">🎯</span>
-                <span class="card-title">Grunt Stats</span>
-                <button class="card-action" onclick="window.open('https://sos-help-the-helper.github.io/reforge-swipe/', '_blank')">Open Grunt</button>
-            </div>
-            <div class="grunt-stats">
-                <div>
-                    <div class="grunt-stat-value green" id="grunt-qualified">--</div>
-                    <div class="grunt-stat-label">Qualified</div>
-                </div>
-                <div>
-                    <div class="grunt-stat-value" id="grunt-passed">--</div>
-                    <div class="grunt-stat-label">Passed</div>
-                </div>
-                <div>
-                    <div class="grunt-stat-value gold" id="grunt-rate">--%</div>
-                    <div class="grunt-stat-label">Rate</div>
-                </div>
-            </div>
-            <div class="progress-bar">
-                <div class="progress-fill" id="grunt-progress" style="width: 0%"></div>
+            <div class="task-list" id="task-list">
+                <!-- Populated by JS -->
             </div>
         </div>
-        
-        <!-- Quick Actions -->
-        <div class="card">
-            <div class="card-header">
-                <span class="card-icon">⚡</span>
-                <span class="card-title">Quick Actions</span>
-            </div>
-            <div class="actions-grid">
-                <button class="action-btn" onclick="triggerAction('check-email')">
-                    <div class="action-icon">📧</div>
-                    <div class="action-label">Check Email</div>
-                </button>
-                <button class="action-btn" onclick="triggerAction('research')">
-                    <div class="action-icon">🔍</div>
-                    <div class="action-label">Research Task</div>
-                </button>
-                <button class="action-btn" onclick="triggerAction('grunt-batch')">
-                    <div class="action-icon">📋</div>
-                    <div class="action-label">New Grunt Batch</div>
-                </button>
-                <button class="action-btn" onclick="triggerAction('status')">
-                    <div class="action-icon">📊</div>
-                    <div class="action-label">Full Status</div>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Recent Activity -->
-        <div class="card" style="grid-column: span 2;">
-            <div class="card-header">
-                <span class="card-icon">📜</span>
-                <span class="card-title">Recent Activity</span>
-            </div>
-            <div class="activity-list" id="activity-list">
-                <div class="activity-item">
-                    <span class="activity-time">--:--</span>
-                    <span class="activity-dot green"></span>
-                    <span class="activity-text">Loading...</span>
-                </div>
+
+        <!-- Project Detail View -->
+        <div id="project-detail-view" class="project-detail">
+            <div class="back-btn" onclick="showAllProjects()">← Back to all projects</div>
+            <div id="project-detail-content">
+                <!-- Populated by JS -->
             </div>
         </div>
     </div>
-    
-    <div class="last-updated">Last updated: <span id="last-update">--</span></div>
-    
+
     <script>
-        const SUPABASE_URL = 'https://rtduqguwhkczexnoawej.supabase.co';
-        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ0ZHVxZ3V3aGtjemV4bm9hd2VqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE2Njg1ODAsImV4cCI6MjA2NzI0NDU4MH0.1QZ5ofS-ND_OI71igPlxxMTyZJJRlATSSC0djccWR8o';
-        
-        async function fetchSupabase(endpoint) {
-            const res = await fetch(`${SUPABASE_URL}/rest/v1/${endpoint}`, {
-                headers: {
-                    'apikey': SUPABASE_KEY,
-                    'Authorization': `Bearer ${SUPABASE_KEY}`
-                }
-            });
-            return res.json();
-        }
-        
-        async function loadGruntStats() {
+        // Data - will be loaded from API
+        let tasksData = null;
+        let currentFilter = 'all';
+        let currentProject = null;
+
+        // Load data
+        async function loadData() {
             try {
-                const swipes = await fetchSupabase('grunt_swipes?select=action,swiped_at&order=swiped_at.desc');
-                
-                const qualified = swipes.filter(s => s.action === 'qualify').length;
-                const passed = swipes.filter(s => s.action === 'reject').length;
-                const total = qualified + passed;
-                const rate = total > 0 ? Math.round((qualified / total) * 100) : 0;
-                
-                document.getElementById('grunt-qualified').textContent = qualified;
-                document.getElementById('grunt-passed').textContent = passed;
-                document.getElementById('grunt-rate').textContent = rate + '%';
-                document.getElementById('grunt-progress').style.width = `${(total / 25) * 100}%`;
-                document.getElementById('grunt-remaining').textContent = `${25 - total} left`;
-                
-                // Update activity with recent swipes
-                const recentSwipes = swipes.slice(0, 5);
-                updateActivity(recentSwipes);
+                const res = await fetch('data/tasks.json');
+                tasksData = await res.json();
+                render();
             } catch (e) {
-                console.error('Failed to load Grunt stats:', e);
+                console.error('Failed to load tasks:', e);
+                // Fallback data
+                tasksData = { projects: {}, pipeline: {} };
+                render();
             }
         }
-        
-        function updateActivity(swipes) {
-            const list = document.getElementById('activity-list');
-            if (!swipes.length) {
-                list.innerHTML = '<div class="activity-item"><span class="activity-time">--</span><span class="activity-dot"></span><span class="activity-text">No recent activity</span></div>';
-                return;
-            }
+
+        // Render everything
+        function render() {
+            renderProjects();
+            renderTasks();
+            updateMetrics();
+        }
+
+        // Render project cards
+        function renderProjects() {
+            const grid = document.getElementById('projects-grid');
+            const projects = tasksData.projects || {};
             
-            list.innerHTML = swipes.map(s => {
-                const time = new Date(s.swiped_at);
-                const timeStr = time.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
-                const action = s.action === 'qualify' ? 'Qualified prospect' : 'Passed on prospect';
-                const color = s.action === 'qualify' ? 'green' : 'blue';
+            const projectColors = {
+                sos: '#5cb85c',
+                reforge: '#4a90d4',
+                harmony: '#d4a530',
+                grunt: '#2d5a2d',
+                context_graph: '#8b5cf6'
+            };
+
+            const projectIcons = {
+                sos: '🆘',
+                reforge: '💼',
+                harmony: '🎯',
+                grunt: '⚡',
+                context_graph: '🧠'
+            };
+
+            grid.innerHTML = Object.entries(projects).map(([slug, project]) => {
+                const tasks = project.tasks || [];
+                const p0 = tasks.filter(t => t.status !== 'done' && (project.priority === 'P0' || t.priority === 'P0')).length;
+                const p1 = tasks.filter(t => t.status !== 'done' && t.priority !== 'P0').length;
+                const done = tasks.filter(t => t.status === 'done').length;
+
                 return `
-                    <div class="activity-item">
-                        <span class="activity-time">${timeStr}</span>
-                        <span class="activity-dot ${color}"></span>
-                        <span class="activity-text">${action}</span>
+                    <div class="project-card" onclick="showProject('${slug}')" style="--project-color: ${projectColors[slug] || '#4a8c4a'}">
+                        <div class="project-header">
+                            <span class="project-icon">${projectIcons[slug] || '📁'}</span>
+                            <span class="project-name">${project.name}</span>
+                        </div>
+                        <div class="project-stats">
+                            ${p0 > 0 ? `<span class="stat p0">🔴 ${p0} P0</span>` : ''}
+                            ${p1 > 0 ? `<span class="stat p1">🟡 ${p1}</span>` : ''}
+                            ${done > 0 ? `<span class="stat done">✓ ${done}</span>` : ''}
+                        </div>
                     </div>
                 `;
             }).join('');
         }
-        
-        async function updateStats() {
-            // Fetch costs
-            try {
-                const resp = await fetch('data/costs.json?t=' + Date.now());
-                const costs = await resp.json();
-                
-                // Format token count
-                const totalTokens = (costs.tokens.input + costs.tokens.output + costs.tokens.cacheRead) / 1000000;
-                const tokenStr = totalTokens >= 1 ? totalTokens.toFixed(1) + 'M' : (totalTokens * 1000).toFixed(0) + 'K';
-                
-                document.getElementById('tokens-used').textContent = tokenStr;
-                document.getElementById('cost-today').textContent = '$' + costs.today.toFixed(2);
-                document.getElementById('henry-tokens').textContent = tokenStr + ' tokens';
-                
-                // Update provider breakdown if element exists
-                const providerEl = document.getElementById('cost-breakdown');
-                if (providerEl && costs.byProvider) {
-                    providerEl.innerHTML = Object.entries(costs.byProvider)
-                        .map(([p, c]) => `<div>${p}: $${c.toFixed(2)}</div>`).join('');
-                }
-            } catch (e) {
-                console.error('Failed to load costs:', e);
-                document.getElementById('tokens-used').textContent = '--';
-                document.getElementById('cost-today').textContent = '--';
-            }
+
+        // Render task list
+        function renderTasks() {
+            const list = document.getElementById('task-list');
+            const projects = tasksData.projects || {};
             
-            // Fetch agent status
-            try {
-                const agentResp = await fetch('data/agents.json?t=' + Date.now());
-                const agents = await agentResp.json();
-                
-                const active = agents.recentSessions || 0;
-                document.getElementById('active-agents').textContent = active;
-                document.getElementById('agents-sub').textContent = active === 1 ? '1 session active' : active + ' sessions active';
-            } catch (e) {
-                console.error('Failed to load agents:', e);
-                document.getElementById('active-agents').textContent = '--';
-                document.getElementById('agents-sub').textContent = 'offline';
-            }
-        }
-        
-        function spawnAgent() {
-            const task = prompt('What task should the new agent work on?');
-            if (task) {
-                alert('Agent spawned! Task: ' + task + '\n\n(Integration coming soon - for now, tell Henry directly in Slack)');
-            }
-        }
-        
-        function triggerAction(action) {
-            const messages = {
-                'check-email': 'Check my email for anything urgent',
-                'research': 'Research task - describe what to research',
-                'grunt-batch': 'Generate a new batch of prospects for Grunt',
-                'status': 'Give me a full status update on all projects'
-            };
-            
-            alert('Quick Action: ' + messages[action] + '\n\n(Send this to Henry in Slack for now)');
-        }
-        
-        function updateTimestamp() {
-            document.getElementById('last-update').textContent = new Date().toLocaleTimeString();
-        }
-        
-        // Daily Brief & Tasks
-        async function loadTasks() {
-            document.getElementById('brief-date').textContent = new Date().toLocaleDateString('en-US', { 
-                weekday: 'long', month: 'short', day: 'numeric' 
+            // Flatten all tasks
+            let allTasks = [];
+            Object.entries(projects).forEach(([slug, project]) => {
+                (project.tasks || []).forEach(task => {
+                    allTasks.push({ ...task, projectSlug: slug, projectName: project.name });
+                });
             });
-            
-            try {
-                const tasks = await fetchSupabase('henry_tasks?select=*&status=eq.pending&order=priority.desc,created_at.desc');
-                renderTasks(tasks);
-            } catch (e) {
-                console.error('Failed to load tasks:', e);
-                // Show placeholder tasks if DB not set up
-                renderTasks([
-                    { id: '1', title: 'Review Grunt qualified leads', description: 'Export and review prospects for outreach', category: 'reforge', priority: 'high' },
-                    { id: '2', title: 'Check SOS Supabase logs', description: 'Review edge function logs for errors', category: 'sos', priority: 'medium' },
-                    { id: '3', title: 'Draft foundation emails', description: 'Prepare emails for top 5 foundation targets', category: 'sos', priority: 'high' }
-                ]);
+
+            // Filter
+            if (currentFilter !== 'all') {
+                allTasks = allTasks.filter(t => t.status === currentFilter);
             }
-        }
-        
-        function renderTasks(tasks) {
-            const list = document.getElementById('tasks-list');
-            const count = document.getElementById('tasks-count');
-            
-            if (!tasks || !tasks.length) {
-                list.innerHTML = '<div class="no-tasks">✨ All caught up! No pending tasks.</div>';
-                count.textContent = '0 pending';
-                return;
+
+            // Filter by project if selected
+            if (currentProject) {
+                allTasks = allTasks.filter(t => t.projectSlug === currentProject);
             }
-            
-            count.textContent = `${tasks.length} pending`;
-            document.getElementById('tasks-today').textContent = tasks.length;
-            
-            list.innerHTML = tasks.map(t => `
-                <div class="task-item" id="task-${t.id}">
-                    <div class="task-priority ${t.priority}"></div>
+
+            // Sort by priority then status
+            const priorityOrder = { P0: 0, P1: 1, P2: 2, P3: 3 };
+            const statusOrder = { pending: 0, in_progress: 1, blocked: 2, done: 3 };
+            allTasks.sort((a, b) => {
+                const pDiff = (priorityOrder[a.priority] || 2) - (priorityOrder[b.priority] || 2);
+                if (pDiff !== 0) return pDiff;
+                return (statusOrder[a.status] || 0) - (statusOrder[b.status] || 0);
+            });
+
+            list.innerHTML = allTasks.map(task => `
+                <div class="task-item ${task.status || ''}" data-id="${task.id}">
+                    <div class="task-checkbox" onclick="toggleTask('${task.id}', event)"></div>
+                    <span class="task-priority ${task.priority || 'P2'}">${task.priority || 'P2'}</span>
                     <div class="task-content">
-                        <div class="task-title">${t.title}</div>
-                        <div class="task-desc">${t.description || ''}</div>
+                        <div class="task-title">${task.title}</div>
                         <div class="task-meta">
-                            <span class="task-category">${t.category || 'general'}</span>
-                            <span>${t.priority} priority</span>
+                            <span class="task-project ${task.projectSlug}">${task.projectSlug.toUpperCase()}</span>
+                            ${task.notes ? `<span>${task.notes}</span>` : ''}
                         </div>
                     </div>
-                    <div class="task-actions">
-                        <button class="task-btn approve" onclick="approveTask('${t.id}')" title="Approve">✓</button>
-                        <button class="task-btn deny" onclick="denyTask('${t.id}')" title="Deny">✗</button>
+                    <div class="task-assignee">
+                        <div class="assignee-avatar">H</div>
                     </div>
                 </div>
             `).join('');
+
+            // Update urgent count
+            const urgentCount = allTasks.filter(t => 
+                t.status !== 'done' && (t.priority === 'P0' || t.priority === 'P1')
+            ).length;
+            document.getElementById('urgent-tasks').textContent = urgentCount;
         }
-        
-        async function approveTask(id) {
-            const el = document.getElementById(`task-${id}`);
-            el.classList.add('approved');
-            
-            // Try to update in Supabase
-            try {
-                await fetch(`${SUPABASE_URL}/rest/v1/henry_tasks?id=eq.${id}`, {
-                    method: 'PATCH',
-                    headers: {
-                        'apikey': SUPABASE_KEY,
-                        'Authorization': `Bearer ${SUPABASE_KEY}`,
-                        'Content-Type': 'application/json',
-                        'Prefer': 'return=minimal'
-                    },
-                    body: JSON.stringify({ status: 'approved', approved_at: new Date().toISOString() })
-                });
-            } catch (e) {
-                console.log('Task approval (DB not connected):', id);
+
+        // Update metrics
+        function updateMetrics() {
+            if (tasksData.pipeline?.reforge) {
+                // Metrics already set in HTML for now
             }
-            
-            // Visual feedback
-            setTimeout(() => el.style.display = 'none', 500);
-            showToast('Task approved! ✓');
         }
-        
-        async function denyTask(id) {
-            const el = document.getElementById(`task-${id}`);
-            el.classList.add('denied');
+
+        // Show project detail
+        function showProject(slug) {
+            currentProject = slug;
+            document.getElementById('all-projects-view').style.display = 'none';
+            document.getElementById('project-detail-view').classList.add('active');
             
-            // Try to update in Supabase
-            try {
-                await fetch(`${SUPABASE_URL}/rest/v1/henry_tasks?id=eq.${id}`, {
-                    method: 'PATCH',
-                    headers: {
-                        'apikey': SUPABASE_KEY,
-                        'Authorization': `Bearer ${SUPABASE_KEY}`,
-                        'Content-Type': 'application/json',
-                        'Prefer': 'return=minimal'
-                    },
-                    body: JSON.stringify({ status: 'denied', denied_at: new Date().toISOString() })
-                });
-            } catch (e) {
-                console.log('Task denial (DB not connected):', id);
+            const project = tasksData.projects[slug];
+            const content = document.getElementById('project-detail-content');
+            
+            // Reforge has pipeline
+            let pipelineHtml = '';
+            if (slug === 'reforge') {
+                pipelineHtml = `
+                    <div class="section-header">
+                        <div class="section-title">Pipeline ($311K Active)</div>
+                    </div>
+                    <table class="pipeline-table">
+                        <thead>
+                            <tr>
+                                <th>Account</th>
+                                <th>Amount</th>
+                                <th>Product</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Neo Financial</td><td class="deal-amount">$60K</td><td>IA + Research</td><td>Pricing sent</td></tr>
+                            <tr><td>EvenUp</td><td class="deal-amount">$50K</td><td>IA</td><td>In pilot</td></tr>
+                            <tr><td>E&Y</td><td class="deal-amount">$30K</td><td>IA + Research</td><td>Discovery</td></tr>
+                            <tr><td>Fox Local</td><td class="deal-amount">$27K</td><td>IA + R + Build</td><td>Budget 2-4 weeks</td></tr>
+                            <tr><td>DreamHost</td><td class="deal-amount">$25K</td><td>IA</td><td>In pilot</td></tr>
+                            <tr><td>Ecovadis</td><td class="deal-amount">$18K</td><td>Build + IA + Research</td><td>Starting pilot</td></tr>
+                        </tbody>
+                    </table>
+                    <br><br>
+                `;
             }
-            
-            // Visual feedback
-            setTimeout(() => el.style.display = 'none', 500);
-            showToast('Task denied ✗');
+
+            content.innerHTML = `
+                <h2 style="margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 2rem;">${slug === 'sos' ? '🆘' : slug === 'reforge' ? '💼' : slug === 'harmony' ? '🎯' : slug === 'grunt' ? '⚡' : '🧠'}</span>
+                    ${project.name}
+                </h2>
+                ${pipelineHtml}
+                <div class="section-header">
+                    <div class="section-title">Tasks</div>
+                </div>
+            `;
+
+            // Re-render tasks filtered by project
+            renderTasks();
+            content.appendChild(document.getElementById('task-list').cloneNode(true));
         }
-        
-        function showToast(msg) {
-            // Simple toast notification
-            const toast = document.createElement('div');
-            toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--card-bg);border:1px solid var(--card-border);padding:12px 24px;border-radius:8px;z-index:1000;';
-            toast.textContent = msg;
-            document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 2000);
+
+        // Show all projects
+        function showAllProjects() {
+            currentProject = null;
+            document.getElementById('all-projects-view').style.display = 'block';
+            document.getElementById('project-detail-view').classList.remove('active');
+            renderTasks();
         }
-        
-        async function init() {
-            await loadTasks();
-            await loadGruntStats();
-            updateStats();
-            updateTimestamp();
-            
-            // Refresh every 30 seconds
-            setInterval(async () => {
-                await loadGruntStats();
-                updateTimestamp();
-            }, 30000);
+
+        // Toggle task done
+        function toggleTask(id, event) {
+            event.stopPropagation();
+            // Would update DB in real implementation
+            const item = event.target.closest('.task-item');
+            item.classList.toggle('done');
         }
-        
-        init();
+
+        // Add task
+        function addTask() {
+            const title = prompt('Task title:');
+            if (title) {
+                // Would add to DB in real implementation
+                alert('Task creation will be connected to Supabase');
+            }
+        }
+
+        // Filter handling
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentFilter = tab.dataset.filter;
+                renderTasks();
+            });
+        });
+
+        // Initialize
+        loadData();
     </script>
 </body>
 </html>
