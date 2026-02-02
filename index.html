@@ -35,7 +35,6 @@
             line-height: 1.5;
         }
 
-        /* Layout */
         .app { display: flex; min-height: 100vh; }
 
         /* Sidebar */
@@ -64,9 +63,7 @@
             transition: background 0.2s;
         }
 
-        .logo:hover {
-            background: var(--card-hover);
-        }
+        .logo:hover { background: var(--card-hover); }
 
         .logo-icon {
             width: 32px;
@@ -78,7 +75,6 @@
             justify-content: center;
         }
 
-        /* Home button */
         .home-btn {
             margin-bottom: 16px;
             background: var(--green) !important;
@@ -87,10 +83,7 @@
 
         .home-btn.hidden { display: none; }
 
-        /* Project switcher */
-        .project-switcher {
-            margin-bottom: 24px;
-        }
+        .project-switcher { margin-bottom: 24px; }
 
         .project-switcher-label {
             font-size: 0.6875rem;
@@ -119,7 +112,6 @@
 
         .project-btn:hover { background: var(--card-hover); border-color: var(--green); }
         .project-btn.active { border-color: var(--green-bright); background: var(--green); }
-
         .project-btn .icon { font-size: 1.25rem; }
         .project-btn .name { font-weight: 600; flex: 1; text-align: left; }
         .project-btn .badge {
@@ -129,10 +121,7 @@
             background: var(--red-light);
         }
 
-        /* Section nav */
-        .section-nav {
-            flex: 1;
-        }
+        .section-nav { flex: 1; }
 
         .nav-group-title {
             font-size: 0.6875rem;
@@ -158,10 +147,8 @@
 
         .nav-item:hover { color: var(--text); background: var(--card-hover); }
         .nav-item.active { color: var(--text); background: var(--green); }
-
         .nav-item .icon { width: 20px; text-align: center; }
 
-        /* User section */
         .user-section {
             padding-top: 16px;
             border-top: 1px solid var(--card-border);
@@ -226,26 +213,13 @@
             transition: color 0.2s;
         }
 
-        .breadcrumb-link:hover {
-            color: var(--green-bright);
-        }
-
-        .breadcrumb-sep {
-            color: var(--text-dim);
-        }
-
-        .breadcrumb-current {
-            color: var(--text);
-            font-weight: 600;
-        }
+        .breadcrumb-link:hover { color: var(--green-bright); }
+        .breadcrumb-sep { color: var(--text-dim); }
+        .breadcrumb-current { color: var(--text); font-weight: 600; }
 
         .header-actions { display: flex; gap: 8px; }
 
         .container { padding: 24px; max-width: 1200px; }
-
-        /* Page sections */
-        .page { display: none; }
-        .page.active { display: block; }
 
         /* Metrics */
         .metrics-grid {
@@ -270,11 +244,7 @@
             margin-bottom: 4px;
         }
 
-        .metric-value {
-            font-size: 1.75rem;
-            font-weight: 700;
-        }
-
+        .metric-value { font-size: 1.75rem; font-weight: 700; }
         .metric-value.good { color: var(--green-bright); }
         .metric-value.warn { color: var(--gold); }
         .metric-value.bad { color: var(--red-light); }
@@ -312,6 +282,10 @@
             font-size: 0.8125rem;
             cursor: pointer;
             transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .btn:hover { background: var(--card-hover); border-color: var(--green); }
@@ -370,6 +344,69 @@
         .card-stat.p1 { color: var(--gold); }
         .card-stat.done { color: var(--green-bright); }
 
+        /* What To Do Next - Action Items */
+        .action-box {
+            background: linear-gradient(135deg, rgba(92, 184, 92, 0.1), rgba(45, 90, 45, 0.2));
+            border: 1px solid var(--green);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .action-box-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .action-box-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--green-bright);
+        }
+
+        .action-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .action-item:hover {
+            border-color: var(--green);
+            transform: translateX(4px);
+        }
+
+        .action-item:last-child { margin-bottom: 0; }
+
+        .action-priority {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .action-priority.P0 { background: var(--red); color: white; }
+        .action-priority.P1 { background: var(--gold); color: #1a1a1a; }
+
+        .action-content { flex: 1; }
+        .action-title { font-weight: 600; margin-bottom: 2px; }
+        .action-why { font-size: 0.8125rem; color: var(--text-secondary); }
+
+        .action-cta {
+            color: var(--green-bright);
+            font-size: 0.8125rem;
+            flex-shrink: 0;
+        }
+
         /* Task list */
         .task-list { display: flex; flex-direction: column; gap: 8px; }
 
@@ -381,7 +418,6 @@
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 8px;
-            cursor: pointer;
             transition: all 0.2s;
         }
 
@@ -396,11 +432,14 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            cursor: pointer;
+            transition: all 0.2s;
         }
 
-        .task-item:hover .task-checkbox { border-color: var(--green); }
+        .task-checkbox:hover { border-color: var(--green); }
         .task-item.done .task-checkbox { background: var(--green); border-color: var(--green); }
         .task-item.done .task-checkbox::after { content: '✓'; color: white; font-size: 12px; }
+        .task-item.done .task-title { text-decoration: line-through; opacity: 0.6; }
 
         .task-priority {
             padding: 2px 8px;
@@ -415,7 +454,7 @@
 
         .task-content { flex: 1; min-width: 0; }
         .task-title { font-weight: 500; }
-        .task-meta { font-size: 0.75rem; color: var(--text-secondary); display: flex; gap: 8px; }
+        .task-meta { font-size: 0.75rem; color: var(--text-secondary); display: flex; gap: 8px; flex-wrap: wrap; }
 
         .task-section {
             font-size: 0.625rem;
@@ -500,6 +539,7 @@
         .feed-tag.funding { color: var(--gold); }
         .feed-tag.strategy { color: var(--purple); }
         .feed-tag.grants { color: var(--green-bright); }
+        .feed-tag.sales { color: var(--blue); }
 
         .feed-author {
             display: flex;
@@ -521,7 +561,6 @@
         }
 
         .feed-time { font-size: 0.75rem; color: var(--text-dim); }
-
         .feed-expand { color: var(--text-dim); transition: transform 0.2s; }
         .feed-card.expanded .feed-expand { transform: rotate(180deg); }
 
@@ -532,7 +571,6 @@
         }
 
         .feed-card.expanded .feed-details { display: block; }
-
         .feed-section { margin-top: 16px; }
 
         .feed-section-title {
@@ -590,7 +628,9 @@
             border-radius: 4px;
             font-size: 0.75rem;
             font-weight: 600;
+            display: inline-block;
         }
+
         .status-badge.hot { background: rgba(212, 165, 48, 0.2); color: var(--gold); }
         .status-badge.warm { background: rgba(74, 144, 212, 0.2); color: var(--blue); }
         .status-badge.pending { background: rgba(139, 92, 246, 0.2); color: var(--purple); }
@@ -602,6 +642,7 @@
             gap: 4px;
             font-weight: 600;
         }
+
         .fit-score.high { color: var(--green-bright); }
         .fit-score.medium { color: var(--gold); }
         .fit-score.low { color: var(--text-secondary); }
@@ -660,63 +701,6 @@
 
         .empty-state .icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.5; }
 
-        /* AI Recommendations */
-        .recommendation-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 12px;
-        }
-        .recommendation-card.high { border-left: 3px solid var(--red-light); }
-        .recommendation-card.medium { border-left: 3px solid var(--gold); }
-
-        .recommendation-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 8px;
-        }
-
-        .recommendation-priority {
-            font-size: 0.6875rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-        .recommendation-priority.high { background: rgba(168, 84, 84, 0.3); color: var(--red-light); }
-        .recommendation-priority.medium { background: rgba(212, 165, 48, 0.2); color: var(--gold); }
-
-        .recommendation-category {
-            font-size: 0.6875rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-        }
-
-        .recommendation-title { font-weight: 600; margin-bottom: 4px; }
-        .recommendation-rationale { font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 8px; }
-        .recommendation-action {
-            font-size: 0.8125rem;
-            color: var(--green-bright);
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        /* State targets table */
-        .state-targets { margin-top: 24px; }
-
-        /* Two column layout */
-        .two-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-        @media (max-width: 900px) {
-            .two-col { grid-template-columns: 1fr; }
-        }
-
         /* Responsive */
         @media (max-width: 900px) {
             .sidebar { display: none; }
@@ -726,26 +710,19 @@
 </head>
 <body>
     <div class="app">
-        <!-- Sidebar -->
         <aside class="sidebar">
-            <div class="logo" onclick="goHome()" title="Back to Founder View">
+            <div class="logo" onclick="goHome()" title="Back to Home">
                 <div class="logo-icon">⚡</div>
                 <span>COMMAND</span>
             </div>
 
-            <!-- Home button - always visible -->
             <button class="project-btn home-btn" onclick="goHome()" id="home-btn">
                 <span class="icon">🏠</span>
                 <span class="name">Home</span>
             </button>
 
-            <div class="project-switcher" id="project-switcher">
-                <!-- Populated by JS -->
-            </div>
-
-            <nav class="section-nav" id="section-nav">
-                <!-- Populated by JS based on project -->
-            </nav>
+            <div class="project-switcher" id="project-switcher"></div>
+            <nav class="section-nav" id="section-nav"></nav>
 
             <div class="user-section">
                 <div class="user-badge">
@@ -758,30 +735,22 @@
             </div>
         </aside>
 
-        <!-- Main content -->
         <main class="main">
             <header class="header">
-                <div class="header-title" id="header-title">
-                    <!-- Set by JS -->
-                </div>
+                <div class="header-title" id="header-title"></div>
                 <div class="header-actions">
                     <button class="btn" onclick="refreshData()">↻ Refresh</button>
                 </div>
             </header>
-
-            <div class="container" id="content">
-                <!-- Pages rendered by JS -->
-            </div>
+            <div class="container" id="content"></div>
         </main>
     </div>
 
     <script>
-        // State
         let data = null;
         let currentProject = 'founder';
         let currentSection = 'splash';
 
-        // Section configs per project - now project-specific
         const sectionConfigs = {
             founder: [
                 { id: 'splash', icon: '🏠', label: 'Overview' },
@@ -794,8 +763,7 @@
                 { id: 'grants', icon: '🎁', label: 'Grants Pipeline' },
                 { id: 'partners', icon: '🤝', label: 'Partners & States' },
                 { id: 'intelligence', icon: '📡', label: 'Intel' },
-                { id: 'tasks', icon: '✅', label: 'Tasks' },
-                { id: 'recommendations', icon: '🤖', label: 'AI Recommendations' }
+                { id: 'tasks', icon: '✅', label: 'Tasks' }
             ],
             reforge: [
                 { id: 'splash', icon: '🏠', label: 'Overview' },
@@ -807,7 +775,6 @@
             harmony: [
                 { id: 'splash', icon: '🏠', label: 'Overview' },
                 { id: 'clients', icon: '👥', label: 'Clients' },
-                { id: 'operations', icon: '⚙️', label: 'Operations' },
                 { id: 'tasks', icon: '✅', label: 'Tasks' },
                 { id: 'intelligence', icon: '📡', label: 'Intel' }
             ],
@@ -820,7 +787,30 @@
             ]
         };
 
-        // Load data
+        // Project-specific recommended actions
+        const projectActions = {
+            sos: [
+                { priority: 'P0', title: 'Draft Hilton Foundation LOI', why: 'Perfect mission alignment (9/10 fit). Rolling deadline.', section: 'grants' },
+                { priority: 'P0', title: 'Contact New Mexico DHSEM', why: 'Added $30M contingency fund - early adopter mindset.', section: 'partners' },
+                { priority: 'P1', title: 'Prepare EDA Disaster Supplemental app', why: 'Deadline March 3, 2026. $250K-$500K available.', section: 'grants' }
+            ],
+            reforge: [
+                { priority: 'P0', title: 'Follow up with Neo Financial', why: '$60K deal - pricing sent, needs follow-up.', section: 'pipeline' },
+                { priority: 'P1', title: 'Qualify 50 leads via Grunt Swipe', why: '486 Product leads ready for qualification.', section: 'leads', link: 'https://sos-help-the-helper.github.io/reforge-swipe/' },
+                { priority: 'P1', title: 'Re-engage iRobot ($80K)', why: 'High-value closed lost - worth another attempt.', section: 'leads' }
+            ],
+            harmony: [
+                { priority: 'P1', title: 'Invoice Client A for February', why: 'Monthly retainer billing due.', section: 'tasks' },
+                { priority: 'P1', title: 'Scope Client B RevOps project', why: 'New work opportunity - define deliverables.', section: 'tasks' },
+                { priority: 'P2', title: 'Review contractor margins', why: 'Target 60% margin - currently at 45%.', section: 'tasks' }
+            ],
+            grunt: [
+                { priority: 'P0', title: 'Complete per-project views', why: 'In progress - polishing UX.', section: 'tasks' },
+                { priority: 'P2', title: 'Add cost tracking dashboard', why: 'Better visibility into API spend.', section: 'costs' },
+                { priority: 'P2', title: 'Document capability integrations', why: 'Keep tools reference updated.', section: 'capabilities' }
+            ]
+        };
+
         async function loadData() {
             try {
                 const res = await fetch('data/unified.json');
@@ -830,7 +820,6 @@
                 data = { projects: [], tasks: [], intel: [], metrics: [], activity: [], contributors: [] };
             }
             
-            // Handle hash-based navigation
             const hash = window.location.hash.slice(1);
             if (hash && data.projects?.find(p => p.id === hash)) {
                 currentProject = hash;
@@ -843,7 +832,6 @@
             loadData();
         }
 
-        // Time formatting
         function timeAgo(ts) {
             const diff = Math.floor((Date.now() - new Date(ts)) / 1000);
             if (diff < 60) return 'just now';
@@ -864,7 +852,6 @@
             return val.toString();
         }
 
-        // Navigation
         function goHome() {
             currentProject = 'founder';
             currentSection = 'splash';
@@ -885,29 +872,19 @@
             renderNav();
         }
 
-        // Render sidebar
         function renderSidebar() {
             const switcher = document.getElementById('project-switcher');
             const homeBtn = document.getElementById('home-btn');
             const projects = data?.projects || [];
 
-            // Show/hide home button based on current view
-            if (currentProject === 'founder') {
-                homeBtn.classList.add('hidden');
-            } else {
-                homeBtn.classList.remove('hidden');
-            }
+            homeBtn.classList.toggle('hidden', currentProject === 'founder');
 
-            // Project switcher label + buttons
             let html = '<div class="project-switcher-label">Projects</div>';
-
-            // Project buttons
             projects.forEach(p => {
                 const tasks = (data.tasks || []).filter(t => t.projectId === p.id && t.status !== 'done');
                 const p0Count = tasks.filter(t => t.priority === 'P0').length;
-
                 html += `
-                    <button class="project-btn ${currentProject === p.id ? 'active' : ''}" onclick="setProject('${p.id}')" style="--accent: ${p.color}">
+                    <button class="project-btn ${currentProject === p.id ? 'active' : ''}" onclick="setProject('${p.id}')">
                         <span class="icon">${p.icon}</span>
                         <span class="name">${p.name}</span>
                         ${p0Count > 0 ? `<span class="badge">${p0Count}</span>` : ''}
@@ -922,7 +899,6 @@
         function renderNav() {
             const nav = document.getElementById('section-nav');
             const sections = sectionConfigs[currentProject] || sectionConfigs.founder;
-
             nav.innerHTML = sections.map(s => `
                 <div class="nav-item ${currentSection === s.id ? 'active' : ''}" onclick="setSection('${s.id}')">
                     <span class="icon">${s.icon}</span>
@@ -931,7 +907,6 @@
             `).join('');
         }
 
-        // Render header with breadcrumbs
         function renderHeader() {
             const header = document.getElementById('header-title');
             const project = data?.projects?.find(p => p.id === currentProject);
@@ -939,71 +914,75 @@
             const currentSectionLabel = sections.find(s => s.id === currentSection)?.label || 'Overview';
 
             if (currentProject === 'founder') {
-                header.innerHTML = `
-                    <div class="breadcrumb">
-                        <span class="breadcrumb-current">👁️ Founder Command Center</span>
-                        <span class="breadcrumb-sep">›</span>
-                        <span class="breadcrumb-current">${currentSectionLabel}</span>
-                    </div>
-                `;
+                header.innerHTML = `<div class="breadcrumb">
+                    <span class="breadcrumb-current">👁️ Founder Command Center</span>
+                    <span class="breadcrumb-sep">›</span>
+                    <span class="breadcrumb-current">${currentSectionLabel}</span>
+                </div>`;
             } else {
-                header.innerHTML = `
-                    <div class="breadcrumb">
-                        <span class="breadcrumb-link" onclick="goHome()">🏠 Home</span>
-                        <span class="breadcrumb-sep">›</span>
-                        <span class="breadcrumb-current">${project?.icon || '📁'} ${project?.name || currentProject}</span>
-                        <span class="breadcrumb-sep">›</span>
-                        <span class="breadcrumb-current">${currentSectionLabel}</span>
-                    </div>
-                `;
+                header.innerHTML = `<div class="breadcrumb">
+                    <span class="breadcrumb-link" onclick="goHome()">🏠 Home</span>
+                    <span class="breadcrumb-sep">›</span>
+                    <span class="breadcrumb-current">${project?.icon || '📁'} ${project?.name || currentProject}</span>
+                    <span class="breadcrumb-sep">›</span>
+                    <span class="breadcrumb-current">${currentSectionLabel}</span>
+                </div>`;
             }
         }
 
-        // Main render function
         function render() {
             renderSidebar();
             renderContent();
         }
 
-        // Render content based on project and section
         function renderContent() {
             const container = document.getElementById('content');
             renderHeader();
 
-            if (currentProject === 'founder') {
-                container.innerHTML = renderFounderContent();
-            } else if (currentProject === 'sos') {
-                container.innerHTML = renderSOSContent();
-            } else if (currentProject === 'reforge') {
-                container.innerHTML = renderReforgeContent();
-            } else if (currentProject === 'harmony') {
-                container.innerHTML = renderHarmonyContent();
-            } else if (currentProject === 'grunt') {
-                container.innerHTML = renderGruntContent();
-            } else {
-                container.innerHTML = renderGenericProjectContent();
-            }
+            const renderers = {
+                founder: { splash: renderFounderSplash, intelligence: renderIntelPage, tasks: renderTasksPage, activity: renderActivityPage },
+                sos: { splash: renderSOSSplash, grants: renderSOSGrants, partners: renderSOSPartners, intelligence: renderIntelPage, tasks: renderTasksPage },
+                reforge: { splash: renderReforgeSplash, pipeline: renderReforgePipeline, leads: renderReforgeLeads, tasks: renderTasksPage, intelligence: renderIntelPage },
+                harmony: { splash: renderHarmonySplash, clients: renderHarmonyClients, tasks: renderTasksPage, intelligence: renderIntelPage },
+                grunt: { splash: renderGruntSplash, capabilities: renderGruntCapabilities, costs: renderGruntCosts, tasks: renderTasksPage, intelligence: renderIntelPage }
+            };
 
+            const projectRenderers = renderers[currentProject] || renderers.founder;
+            const renderer = projectRenderers[currentSection] || projectRenderers.splash;
+            container.innerHTML = renderer();
             attachEventHandlers();
         }
 
-        // ============ FOUNDER VIEW ============
-        function renderFounderContent() {
-            switch (currentSection) {
-                case 'splash': return renderFounderSplash();
-                case 'intelligence': return renderIntelPage();
-                case 'tasks': return renderTasksPage();
-                case 'activity': return renderActivityPage();
-                default: return renderFounderSplash();
-            }
+        // ============ ACTION BOX ============
+        function renderActionBox(projectId) {
+            const actions = projectActions[projectId] || [];
+            if (actions.length === 0) return '';
+
+            return `
+                <div class="action-box">
+                    <div class="action-box-header">
+                        <span style="font-size: 1.25rem;">🎯</span>
+                        <span class="action-box-title">What To Do Next</span>
+                    </div>
+                    ${actions.map(a => `
+                        <div class="action-item" onclick="${a.link ? `window.open('${a.link}', '_blank')` : `setSection('${a.section}')`}">
+                            <span class="action-priority ${a.priority}">${a.priority}</span>
+                            <div class="action-content">
+                                <div class="action-title">${a.title}</div>
+                                <div class="action-why">${a.why}</div>
+                            </div>
+                            <span class="action-cta">${a.link ? 'Open →' : 'View →'}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
         }
 
+        // ============ FOUNDER VIEW ============
         function renderFounderSplash() {
             const projects = data?.projects || [];
-            
             const totalTasks = (data.tasks || []).filter(t => t.status !== 'done').length;
             const p0Tasks = (data.tasks || []).filter(t => t.status !== 'done' && t.priority === 'P0').length;
-            const recentIntel = (data.intel || []).length;
 
             let html = `
                 <div class="metrics-grid">
@@ -1017,7 +996,7 @@
                     </div>
                     <div class="metric-card">
                         <div class="metric-label">Intel Items</div>
-                        <div class="metric-value">${recentIntel}</div>
+                        <div class="metric-value">${(data.intel || []).length}</div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-label">Active Projects</div>
@@ -1057,53 +1036,37 @@
 
             html += '</div>';
 
-            // Recent intel
+            const recentItems = (data.intel || []).slice(0, 3);
             html += `
                 <div class="section-header">
                     <div class="section-title">Recent Intelligence</div>
                     <button class="btn" onclick="setSection('intelligence')">View All →</button>
                 </div>
+                <div class="feed-container">${recentItems.map(renderIntelCard).join('')}</div>
             `;
-
-            const recentItems = (data.intel || []).slice(0, 3);
-            html += '<div class="feed-container">' + recentItems.map(renderIntelCard).join('') + '</div>';
 
             return html;
         }
 
         // ============ SOS PROJECT ============
-        function renderSOSContent() {
-            switch (currentSection) {
-                case 'splash': return renderSOSSplash();
-                case 'grants': return renderSOSGrants();
-                case 'partners': return renderSOSPartners();
-                case 'intelligence': return renderIntelPage();
-                case 'tasks': return renderTasksPage();
-                case 'recommendations': return renderSOSRecommendations();
-                default: return renderSOSSplash();
-            }
-        }
-
         function renderSOSSplash() {
             const metrics = (data.metrics || []).filter(m => m.projectId === 'sos');
             const tasks = (data.tasks || []).filter(t => t.projectId === 'sos' && t.status !== 'done');
-            const intel = (data.intel || []).filter(i => (i.projectIds || []).includes('sos'));
             const grants = data.pipelines?.sos_grants || [];
 
-            let html = '<div class="metrics-grid">';
+            let html = renderActionBox('sos');
+
+            html += '<div class="metrics-grid">';
             metrics.slice(0, 4).forEach(m => {
                 const statusClass = m.target ? (m.value >= m.target * 0.8 ? 'good' : m.value >= m.target * 0.5 ? 'warn' : 'bad') : '';
-                html += `
-                    <div class="metric-card">
-                        <div class="metric-label">${m.name}</div>
-                        <div class="metric-value ${statusClass}">${formatMetric(m.value, m.format)}</div>
-                        ${m.target ? `<div class="metric-target">Target: ${formatMetric(m.target, m.format)}</div>` : ''}
-                    </div>
-                `;
+                html += `<div class="metric-card">
+                    <div class="metric-label">${m.name}</div>
+                    <div class="metric-value ${statusClass}">${formatMetric(m.value, m.format)}</div>
+                    ${m.target ? `<div class="metric-target">Target: ${formatMetric(m.target, m.format)}</div>` : ''}
+                </div>`;
             });
             html += '</div>';
 
-            // Quick view of grants pipeline
             html += `
                 <div class="section-header">
                     <div class="section-title">🎁 Grants Pipeline (${grants.length})</div>
@@ -1116,18 +1079,15 @@
             `;
             grants.slice(0, 3).forEach(g => {
                 const fitClass = g.fitScore >= 8 ? 'high' : g.fitScore >= 6 ? 'medium' : 'low';
-                html += `
-                    <tr>
-                        <td>${g.name}</td>
-                        <td><span class="fit-score ${fitClass}">${g.fitScore}/10</span></td>
-                        <td><span class="status-badge pending">${g.status}</span></td>
-                        <td>${g.deadline || 'Rolling'}</td>
-                    </tr>
-                `;
+                html += `<tr>
+                    <td>${g.name}</td>
+                    <td><span class="fit-score ${fitClass}">${g.fitScore}/10</span></td>
+                    <td><span class="status-badge pending">${g.status}</span></td>
+                    <td>${g.deadline || 'Rolling'}</td>
+                </tr>`;
             });
             html += '</tbody></table></div>';
 
-            // Tasks
             html += `
                 <div class="section-header" style="margin-top: 24px;">
                     <div class="section-title">Active Tasks (${tasks.length})</div>
@@ -1136,188 +1096,92 @@
                 <div class="task-list">${tasks.slice(0, 5).map(renderTaskItem).join('')}</div>
             `;
 
-            // Intel
-            html += `
-                <div class="section-header" style="margin-top: 24px;">
-                    <div class="section-title">Latest Intel (${intel.length})</div>
-                    <button class="btn" onclick="setSection('intelligence')">View All →</button>
-                </div>
-                <div class="feed-container">${intel.slice(0, 2).map(renderIntelCard).join('')}</div>
-            `;
-
             return html;
         }
 
         function renderSOSGrants() {
             const grants = data.pipelines?.sos_grants || [];
-            
             let html = `
-                <div class="section-header">
-                    <div class="section-title">🎁 Grants Pipeline</div>
-                </div>
+                <div class="section-header"><div class="section-title">🎁 Grants Pipeline</div></div>
                 <div class="card">
                     <table class="pipeline-table">
-                        <thead>
-                            <tr>
-                                <th>Grant Opportunity</th>
-                                <th>Fit Score</th>
-                                <th>Status</th>
-                                <th>Amount</th>
-                                <th>Deadline</th>
-                            </tr>
-                        </thead>
+                        <thead><tr><th>Grant Opportunity</th><th>Fit Score</th><th>Status</th><th>Amount</th><th>Deadline</th></tr></thead>
                         <tbody>
             `;
-            
             grants.forEach(g => {
                 const fitClass = g.fitScore >= 8 ? 'high' : g.fitScore >= 6 ? 'medium' : 'low';
-                html += `
-                    <tr>
-                        <td><strong>${g.name}</strong></td>
-                        <td><span class="fit-score ${fitClass}">⭐ ${g.fitScore}/10</span></td>
-                        <td><span class="status-badge pending">${g.status}</span></td>
-                        <td class="deal-amount">${g.amount || 'TBD'}</td>
-                        <td>${g.deadline || 'Rolling'}</td>
-                    </tr>
-                `;
+                html += `<tr>
+                    <td><strong>${g.name}</strong></td>
+                    <td><span class="fit-score ${fitClass}">⭐ ${g.fitScore}/10</span></td>
+                    <td><span class="status-badge pending">${g.status}</span></td>
+                    <td class="deal-amount">${g.amount || 'TBD'}</td>
+                    <td>${g.deadline || 'Rolling'}</td>
+                </tr>`;
             });
-            
-            html += `
-                        </tbody>
-                    </table>
-                </div>
-            `;
+            html += '</tbody></table></div>';
 
-            // Grant-related intel
             const grantIntel = (data.intel || []).filter(i => 
-                (i.projectIds || []).includes('sos') && 
-                (i.tags || []).some(t => ['funding', 'grants'].includes(t))
+                (i.projectIds || []).includes('sos') && (i.tags || []).some(t => ['funding', 'grants'].includes(t))
             );
-
             if (grantIntel.length > 0) {
                 html += `
-                    <div class="section-header" style="margin-top: 24px;">
-                        <div class="section-title">📡 Grant Research & Intel</div>
-                    </div>
+                    <div class="section-header" style="margin-top: 24px;"><div class="section-title">📡 Grant Research & Intel</div></div>
                     <div class="feed-container">${grantIntel.map(renderIntelCard).join('')}</div>
                 `;
             }
-
             return html;
         }
 
         function renderSOSPartners() {
             const stateTargets = data.pipelines?.sos_state_targets || [];
-            
             let html = `
-                <div class="section-header">
-                    <div class="section-title">🏛️ State EMA Targets</div>
-                </div>
+                <div class="section-header"><div class="section-title">🏛️ State EMA Targets</div></div>
                 <div class="card">
                     <table class="pipeline-table">
-                        <thead>
-                            <tr>
-                                <th>State</th>
-                                <th>Agency</th>
-                                <th>Status</th>
-                                <th>Opportunity</th>
-                            </tr>
-                        </thead>
+                        <thead><tr><th>State</th><th>Agency</th><th>Status</th><th>Opportunity</th></tr></thead>
                         <tbody>
             `;
-            
             stateTargets.forEach(s => {
-                html += `
-                    <tr>
-                        <td><strong>${s.state}</strong></td>
-                        <td>${s.agency}</td>
-                        <td><span class="status-badge warm">${s.status}</span></td>
-                        <td>${s.opportunity}</td>
-                    </tr>
-                `;
+                html += `<tr>
+                    <td><strong>${s.state}</strong></td>
+                    <td>${s.agency}</td>
+                    <td><span class="status-badge warm">${s.status}</span></td>
+                    <td>${s.opportunity}</td>
+                </tr>`;
             });
-            
-            html += `
-                        </tbody>
-                    </table>
-                </div>
-            `;
+            html += '</tbody></table></div>';
 
-            // Competitive intel (partners need to know the landscape)
             const competitiveIntel = (data.intel || []).filter(i => 
-                (i.projectIds || []).includes('sos') && 
-                (i.tags || []).some(t => ['competitive', 'partnership'].includes(t))
+                (i.projectIds || []).includes('sos') && (i.tags || []).some(t => ['competitive', 'partnership'].includes(t))
             );
-
             if (competitiveIntel.length > 0) {
                 html += `
-                    <div class="section-header" style="margin-top: 24px;">
-                        <div class="section-title">⚔️ Competitive Landscape</div>
-                    </div>
+                    <div class="section-header" style="margin-top: 24px;"><div class="section-title">⚔️ Competitive Landscape</div></div>
                     <div class="feed-container">${competitiveIntel.map(renderIntelCard).join('')}</div>
                 `;
             }
-
-            return html;
-        }
-
-        function renderSOSRecommendations() {
-            const recommendations = data.aiRecommendations || [];
-            
-            let html = `
-                <div class="section-header">
-                    <div class="section-title">🤖 AI Recommendations</div>
-                </div>
-            `;
-
-            recommendations.forEach(r => {
-                html += `
-                    <div class="recommendation-card ${r.priority.toLowerCase()}">
-                        <div class="recommendation-header">
-                            <span class="recommendation-priority ${r.priority.toLowerCase()}">${r.priority}</span>
-                            <span class="recommendation-category">${r.category}</span>
-                        </div>
-                        <div class="recommendation-title">${r.recommendation}</div>
-                        <div class="recommendation-rationale">${r.rationale}</div>
-                        <div class="recommendation-action">→ ${r.action}</div>
-                    </div>
-                `;
-            });
-
             return html;
         }
 
         // ============ REFORGE PROJECT ============
-        function renderReforgeContent() {
-            switch (currentSection) {
-                case 'splash': return renderReforgeSplash();
-                case 'pipeline': return renderReforgePipeline();
-                case 'leads': return renderReforgeLeads();
-                case 'tasks': return renderTasksPage();
-                case 'intelligence': return renderIntelPage();
-                default: return renderReforgeSplash();
-            }
-        }
-
         function renderReforgeSplash() {
             const metrics = (data.metrics || []).filter(m => m.projectId === 'reforge');
             const pipeline = data.pipelines?.reforge || [];
             const tasks = (data.tasks || []).filter(t => t.projectId === 'reforge' && t.status !== 'done');
 
-            let html = '<div class="metrics-grid">';
+            let html = renderActionBox('reforge');
+
+            html += '<div class="metrics-grid">';
             metrics.forEach(m => {
                 const statusClass = m.target ? (m.value >= m.target * 0.8 ? 'good' : m.value >= m.target * 0.5 ? 'warn' : 'bad') : '';
-                html += `
-                    <div class="metric-card">
-                        <div class="metric-label">${m.name}</div>
-                        <div class="metric-value ${statusClass}">${formatMetric(m.value, m.format)}</div>
-                        ${m.target ? `<div class="metric-target">Target: ${formatMetric(m.target, m.format)}</div>` : ''}
-                    </div>
-                `;
+                html += `<div class="metric-card">
+                    <div class="metric-label">${m.name}</div>
+                    <div class="metric-value ${statusClass}">${formatMetric(m.value, m.format)}</div>
+                    ${m.target ? `<div class="metric-target">Target: ${formatMetric(m.target, m.format)}</div>` : ''}
+                </div>`;
             });
             html += '</div>';
 
-            // Pipeline preview
             html += `
                 <div class="section-header">
                     <div class="section-title">💰 Active Pipeline</div>
@@ -1329,18 +1193,15 @@
                         <tbody>
             `;
             pipeline.slice(0, 4).forEach(d => {
-                html += `
-                    <tr>
-                        <td><strong>${d.account}</strong></td>
-                        <td class="deal-amount">${formatCurrency(d.amount)}</td>
-                        <td>${d.product}</td>
-                        <td><span class="status-badge hot">${d.status}</span></td>
-                    </tr>
-                `;
+                html += `<tr>
+                    <td><strong>${d.account}</strong></td>
+                    <td class="deal-amount">${formatCurrency(d.amount)}</td>
+                    <td>${d.product}</td>
+                    <td><span class="status-badge hot">${d.status}</span></td>
+                </tr>`;
             });
             html += '</tbody></table></div>';
 
-            // Tasks
             html += `
                 <div class="section-header" style="margin-top: 24px;">
                     <div class="section-title">Active Tasks (${tasks.length})</div>
@@ -1356,7 +1217,7 @@
             const pipeline = data.pipelines?.reforge || [];
             const totalValue = pipeline.reduce((sum, d) => sum + d.amount, 0);
             
-            let html = `
+            return `
                 <div class="metrics-grid">
                     <div class="metric-card">
                         <div class="metric-label">Total Pipeline</div>
@@ -1367,73 +1228,40 @@
                         <div class="metric-value">${pipeline.length}</div>
                     </div>
                 </div>
-                
-                <div class="section-header">
-                    <div class="section-title">💰 Deals Pipeline</div>
-                </div>
+                <div class="section-header"><div class="section-title">💰 Deals Pipeline</div></div>
                 <div class="card">
                     <table class="pipeline-table">
-                        <thead>
-                            <tr>
-                                <th>Account</th>
-                                <th>Amount</th>
-                                <th>Product</th>
-                                <th>Status</th>
-                                <th>Next Step</th>
-                            </tr>
-                        </thead>
+                        <thead><tr><th>Account</th><th>Amount</th><th>Product</th><th>Status</th><th>Next Step</th></tr></thead>
                         <tbody>
+                        ${pipeline.map(d => `<tr>
+                            <td><strong>${d.account}</strong></td>
+                            <td class="deal-amount">${formatCurrency(d.amount)}</td>
+                            <td>${d.product}</td>
+                            <td><span class="status-badge hot">${d.status}</span></td>
+                            <td>${d.nextStep || '-'}</td>
+                        </tr>`).join('')}
+                        </tbody>
+                    </table>
+                </div>
             `;
-            
-            pipeline.forEach(d => {
-                html += `
-                    <tr>
-                        <td><strong>${d.account}</strong></td>
-                        <td class="deal-amount">${formatCurrency(d.amount)}</td>
-                        <td>${d.product}</td>
-                        <td><span class="status-badge hot">${d.status}</span></td>
-                        <td>${d.nextStep || '-'}</td>
-                    </tr>
-                `;
-            });
-            
-            html += '</tbody></table></div>';
-            return html;
         }
 
         function renderReforgeLeads() {
             return `
-                <div class="section-header">
-                    <div class="section-title">🎯 Target Leads</div>
-                </div>
+                <div class="section-header"><div class="section-title">🎯 Lead Qualification</div></div>
                 <div class="card" style="text-align: center; padding: 40px;">
                     <div style="font-size: 3rem; margin-bottom: 16px;">🎯</div>
                     <h3 style="margin-bottom: 8px;">Grunt Swipe App</h3>
                     <p style="color: var(--text-secondary); margin-bottom: 16px;">486 Product leads ready for qualification</p>
-                    <a href="https://sos-help-the-helper.github.io/reforge-swipe/" target="_blank" class="btn primary" style="text-decoration: none;">
-                        Open Swipe App →
-                    </a>
+                    <a href="https://sos-help-the-helper.github.io/reforge-swipe/" target="_blank" class="btn primary">Open Swipe App →</a>
                 </div>
-                
-                <div class="section-header" style="margin-top: 24px;">
-                    <div class="section-title">🔄 Re-engagement Opportunities</div>
-                </div>
+                <div class="section-header" style="margin-top: 24px;"><div class="section-title">🔄 Re-engagement Opportunities</div></div>
                 <div class="card">
                     <table class="pipeline-table">
                         <thead><tr><th>Account</th><th>Value</th><th>Status</th><th>Notes</th></tr></thead>
                         <tbody>
-                            <tr>
-                                <td><strong>iRobot</strong></td>
-                                <td class="deal-amount">$80,000</td>
-                                <td><span class="status-badge warm">Closed Lost</span></td>
-                                <td>High-value re-engagement target</td>
-                            </tr>
-                            <tr>
-                                <td><strong>WSFS</strong></td>
-                                <td class="deal-amount">$56,000</td>
-                                <td><span class="status-badge warm">Closed Lost</span></td>
-                                <td>Financial services vertical</td>
-                            </tr>
+                            <tr><td><strong>iRobot</strong></td><td class="deal-amount">$80,000</td><td><span class="status-badge warm">Closed Lost</span></td><td>High-value re-engagement target</td></tr>
+                            <tr><td><strong>WSFS</strong></td><td class="deal-amount">$56,000</td><td><span class="status-badge warm">Closed Lost</span></td><td>Financial services vertical</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -1441,35 +1269,23 @@
         }
 
         // ============ HARMONY PROJECT ============
-        function renderHarmonyContent() {
-            switch (currentSection) {
-                case 'splash': return renderHarmonySplash();
-                case 'clients': return renderHarmonyClients();
-                case 'operations': return renderHarmonyOps();
-                case 'tasks': return renderTasksPage();
-                case 'intelligence': return renderIntelPage();
-                default: return renderHarmonySplash();
-            }
-        }
-
         function renderHarmonySplash() {
             const metrics = (data.metrics || []).filter(m => m.projectId === 'harmony');
             const tasks = (data.tasks || []).filter(t => t.projectId === 'harmony' && t.status !== 'done');
 
-            let html = '<div class="metrics-grid">';
+            let html = renderActionBox('harmony');
+
+            html += '<div class="metrics-grid">';
             metrics.forEach(m => {
                 const statusClass = m.target ? (m.value >= m.target * 0.8 ? 'good' : m.value >= m.target * 0.5 ? 'warn' : 'bad') : '';
-                html += `
-                    <div class="metric-card">
-                        <div class="metric-label">${m.name}</div>
-                        <div class="metric-value ${statusClass}">${formatMetric(m.value, m.format)}</div>
-                        ${m.target ? `<div class="metric-target">Target: ${formatMetric(m.target, m.format)}</div>` : ''}
-                    </div>
-                `;
+                html += `<div class="metric-card">
+                    <div class="metric-label">${m.name}</div>
+                    <div class="metric-value ${statusClass}">${formatMetric(m.value, m.format)}</div>
+                    ${m.target ? `<div class="metric-target">Target: ${formatMetric(m.target, m.format)}</div>` : ''}
+                </div>`;
             });
             html += '</div>';
 
-            // Tasks
             html += `
                 <div class="section-header">
                     <div class="section-title">Active Tasks (${tasks.length})</div>
@@ -1483,9 +1299,7 @@
 
         function renderHarmonyClients() {
             return `
-                <div class="section-header">
-                    <div class="section-title">👥 Active Clients</div>
-                </div>
+                <div class="section-header"><div class="section-title">👥 Active Clients</div></div>
                 <div class="cards-grid">
                     <div class="card">
                         <div class="card-header">
@@ -1495,9 +1309,7 @@
                                 <div class="card-subtitle">GTM Consulting</div>
                             </div>
                         </div>
-                        <div class="card-stats">
-                            <span class="card-stat">Monthly retainer</span>
-                        </div>
+                        <div class="card-stats"><span class="card-stat">Monthly retainer</span></div>
                     </div>
                     <div class="card">
                         <div class="card-header">
@@ -1507,69 +1319,28 @@
                                 <div class="card-subtitle">RevOps Setup</div>
                             </div>
                         </div>
-                        <div class="card-stats">
-                            <span class="card-stat">Project-based</span>
-                        </div>
+                        <div class="card-stats"><span class="card-stat">Project-based</span></div>
                     </div>
                 </div>
             `;
-        }
-
-        function renderHarmonyOps() {
-            const metrics = (data.metrics || []).filter(m => m.projectId === 'harmony' && m.section === 'operations');
-            
-            let html = '<div class="metrics-grid">';
-            metrics.forEach(m => {
-                html += `
-                    <div class="metric-card">
-                        <div class="metric-label">${m.name}</div>
-                        <div class="metric-value">${formatMetric(m.value, m.format)}</div>
-                        ${m.target ? `<div class="metric-target">Target: ${formatMetric(m.target, m.format)}</div>` : ''}
-                    </div>
-                `;
-            });
-            html += '</div>';
-
-            const tasks = (data.tasks || []).filter(t => t.projectId === 'harmony' && t.section === 'operations');
-            html += `
-                <div class="section-header">
-                    <div class="section-title">Operations Tasks</div>
-                </div>
-                <div class="task-list">${tasks.map(renderTaskItem).join('') || '<div class="empty-state">No operations tasks</div>'}</div>
-            `;
-
-            return html;
         }
 
         // ============ GRUNT PROJECT ============
-        function renderGruntContent() {
-            switch (currentSection) {
-                case 'splash': return renderGruntSplash();
-                case 'capabilities': return renderGruntCapabilities();
-                case 'costs': return renderGruntCosts();
-                case 'tasks': return renderTasksPage();
-                case 'intelligence': return renderIntelPage();
-                default: return renderGruntSplash();
-            }
-        }
-
         function renderGruntSplash() {
             const metrics = (data.metrics || []).filter(m => m.projectId === 'grunt');
             const tasks = (data.tasks || []).filter(t => t.projectId === 'grunt' && t.status !== 'done');
-            const intel = (data.intel || []).filter(i => (i.projectIds || []).includes('grunt'));
 
-            let html = '<div class="metrics-grid">';
+            let html = renderActionBox('grunt');
+
+            html += '<div class="metrics-grid">';
             metrics.forEach(m => {
-                html += `
-                    <div class="metric-card">
-                        <div class="metric-label">${m.name}</div>
-                        <div class="metric-value">${formatMetric(m.value, m.format)}</div>
-                    </div>
-                `;
+                html += `<div class="metric-card">
+                    <div class="metric-label">${m.name}</div>
+                    <div class="metric-value">${formatMetric(m.value, m.format)}</div>
+                </div>`;
             });
             html += '</div>';
 
-            // Tasks
             html += `
                 <div class="section-header">
                     <div class="section-title">Active Tasks (${tasks.length})</div>
@@ -1578,89 +1349,39 @@
                 <div class="task-list">${tasks.map(renderTaskItem).join('') || '<div class="empty-state">No active tasks</div>'}</div>
             `;
 
-            // Intel
-            if (intel.length > 0) {
-                html += `
-                    <div class="section-header" style="margin-top: 24px;">
-                        <div class="section-title">Intel (${intel.length})</div>
-                        <button class="btn" onclick="setSection('intelligence')">View All →</button>
-                    </div>
-                    <div class="feed-container">${intel.slice(0, 2).map(renderIntelCard).join('')}</div>
-                `;
-            }
-
             return html;
         }
 
         function renderGruntCapabilities() {
+            const capabilities = [
+                { icon: '🌐', name: 'Web Search', desc: 'Brave Search API' },
+                { icon: '🔍', name: 'Web Fetch', desc: 'Content extraction' },
+                { icon: '📧', name: 'Gmail', desc: 'Read & send emails' },
+                { icon: '📅', name: 'Calendar', desc: 'Google Calendar API' },
+                { icon: '💬', name: 'Slack', desc: 'Messaging' },
+                { icon: '🎨', name: 'Canvas', desc: 'UI presentation' },
+                { icon: '🖥️', name: 'Browser', desc: 'Web automation' },
+                { icon: '📁', name: 'File System', desc: 'Read/write files' }
+            ];
             return `
-                <div class="section-header">
-                    <div class="section-title">🛠️ Active Capabilities</div>
-                </div>
+                <div class="section-header"><div class="section-title">🛠️ Active Capabilities</div></div>
                 <div class="cards-grid">
-                    <div class="card">
+                    ${capabilities.map(c => `<div class="card">
                         <div class="card-header">
-                            <div class="card-icon">🌐</div>
+                            <div class="card-icon">${c.icon}</div>
                             <div>
-                                <div class="card-title">Web Search</div>
-                                <div class="card-subtitle">Brave Search API</div>
+                                <div class="card-title">${c.name}</div>
+                                <div class="card-subtitle">${c.desc}</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-icon">🔍</div>
-                            <div>
-                                <div class="card-title">Web Fetch</div>
-                                <div class="card-subtitle">Content extraction</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-icon">📧</div>
-                            <div>
-                                <div class="card-title">Gmail</div>
-                                <div class="card-subtitle">Read & send emails</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-icon">📅</div>
-                            <div>
-                                <div class="card-title">Calendar</div>
-                                <div class="card-subtitle">Google Calendar API</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-icon">💬</div>
-                            <div>
-                                <div class="card-title">Slack</div>
-                                <div class="card-subtitle">Messaging</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-icon">🎨</div>
-                            <div>
-                                <div class="card-title">Canvas</div>
-                                <div class="card-subtitle">UI presentation</div>
-                            </div>
-                        </div>
-                    </div>
+                    </div>`).join('')}
                 </div>
             `;
         }
 
         function renderGruntCosts() {
             return `
-                <div class="section-header">
-                    <div class="section-title">💵 API Costs</div>
-                </div>
+                <div class="section-header"><div class="section-title">💵 API Costs</div></div>
                 <div class="metrics-grid">
                     <div class="metric-card">
                         <div class="metric-label">Today</div>
@@ -1691,63 +1412,12 @@
             `;
         }
 
-        // ============ GENERIC PROJECT (fallback) ============
-        function renderGenericProjectContent() {
-            switch (currentSection) {
-                case 'splash': return renderGenericSplash();
-                case 'intelligence': return renderIntelPage();
-                case 'tasks': return renderTasksPage();
-                default: return renderGenericSplash();
-            }
-        }
-
-        function renderGenericSplash() {
-            const project = data?.projects?.find(p => p.id === currentProject);
-            const metrics = (data.metrics || []).filter(m => m.projectId === currentProject);
-            const tasks = (data.tasks || []).filter(t => t.projectId === currentProject && t.status !== 'done');
-            const intel = (data.intel || []).filter(i => (i.projectIds || []).includes(currentProject));
-
-            let html = '<div class="metrics-grid">';
-            metrics.slice(0, 4).forEach(m => {
-                html += `
-                    <div class="metric-card">
-                        <div class="metric-label">${m.name}</div>
-                        <div class="metric-value">${formatMetric(m.value, m.format)}</div>
-                    </div>
-                `;
-            });
-            html += '</div>';
-
-            html += `
-                <div class="section-header">
-                    <div class="section-title">Active Tasks (${tasks.length})</div>
-                    <button class="btn" onclick="setSection('tasks')">View All →</button>
-                </div>
-                <div class="task-list">${tasks.slice(0, 5).map(renderTaskItem).join('')}</div>
-            `;
-
-            if (intel.length > 0) {
-                html += `
-                    <div class="section-header" style="margin-top: 24px;">
-                        <div class="section-title">Intel (${intel.length})</div>
-                        <button class="btn" onclick="setSection('intelligence')">View All →</button>
-                    </div>
-                    <div class="feed-container">${intel.slice(0, 3).map(renderIntelCard).join('')}</div>
-                `;
-            }
-
-            return html;
-        }
-
         // ============ SHARED PAGES ============
         function renderIntelPage() {
             let intel = data?.intel || [];
-            
-            // Filter by project if not on founder view
             if (currentProject !== 'founder') {
                 intel = intel.filter(i => (i.projectIds || []).includes(currentProject));
             }
-
             intel = [...intel].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
             return `
@@ -1759,7 +1429,6 @@
                     <div class="filter-tab" data-type="opportunity">💡 Opportunity</div>
                     <div class="filter-tab" data-type="funding">🎁 Funding</div>
                 </div>
-
                 <div class="feed-container" id="intel-feed">
                     ${intel.map(renderIntelCard).join('') || '<div class="empty-state"><div class="icon">📡</div>No intelligence for this project</div>'}
                 </div>
@@ -1768,13 +1437,9 @@
 
         function renderTasksPage() {
             let tasks = data?.tasks || [];
-            
-            // Filter by project if not on founder view
             if (currentProject !== 'founder') {
                 tasks = tasks.filter(t => t.projectId === currentProject);
             }
-
-            // Sort by priority then status
             const pOrder = { P0: 0, P1: 1, P2: 2, P3: 3 };
             const sOrder = { pending: 0, in_progress: 1, blocked: 2, done: 3 };
             tasks = [...tasks].sort((a, b) => {
@@ -1790,11 +1455,7 @@
                     <div class="filter-tab" data-status="in_progress">In Progress</div>
                     <div class="filter-tab" data-status="done">Done</div>
                 </div>
-
-                <div class="section-header">
-                    <div class="section-title">${tasks.length} Tasks</div>
-                </div>
-
+                <div class="section-header"><div class="section-title">${tasks.length} Tasks</div></div>
                 <div class="task-list" id="tasks-list">
                     ${tasks.map(renderTaskItem).join('') || '<div class="empty-state"><div class="icon">✅</div>No tasks for this project</div>'}
                 </div>
@@ -1802,38 +1463,22 @@
         }
 
         function renderActivityPage() {
-            let activity = data?.activity || [];
-            
-            // Sort by timestamp
-            activity = [...activity].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-
-            const icons = {
-                task_created: '➕',
-                task_completed: '✅',
-                intel_added: '📡',
-                decision_made: '🎯',
-                note_added: '📝'
-            };
+            let activity = [...(data?.activity || [])].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            const icons = { task_created: '➕', task_completed: '✅', intel_added: '📡', decision_made: '🎯', note_added: '📝' };
 
             return `
-                <div class="section-header">
-                    <div class="section-title">Activity Feed</div>
-                </div>
+                <div class="section-header"><div class="section-title">Activity Feed</div></div>
                 <div class="card">
                     ${activity.map(a => {
                         const contributor = data.contributors?.find(c => c.id === a.contributorId);
                         const project = data.projects?.find(p => p.id === a.projectId);
-                        return `
-                            <div class="activity-item">
-                                <div class="activity-icon">${icons[a.type] || '📌'}</div>
-                                <div class="activity-content">
-                                    <div class="activity-summary">
-                                        <strong>${contributor?.name || 'Unknown'}</strong> ${a.summary}
-                                    </div>
-                                    <div class="activity-meta">${project?.name || ''} • ${timeAgo(a.timestamp)}</div>
-                                </div>
+                        return `<div class="activity-item">
+                            <div class="activity-icon">${icons[a.type] || '📌'}</div>
+                            <div class="activity-content">
+                                <div class="activity-summary"><strong>${contributor?.name || 'Unknown'}</strong> ${a.summary}</div>
+                                <div class="activity-meta">${project?.name || ''} • ${timeAgo(a.timestamp)}</div>
                             </div>
-                        `;
+                        </div>`;
                     }).join('') || '<div class="empty-state">No activity yet</div>'}
                 </div>
             `;
@@ -1853,7 +1498,7 @@
                         <div class="task-meta">
                             ${currentProject === 'founder' ? `<span class="task-section" style="background: ${project?.color}22; color: ${project?.color}">${project?.name || task.projectId}</span>` : ''}
                             <span class="task-section">${task.section}</span>
-                            ${task.tags?.slice(0, 2).map(t => `<span>${t}</span>`).join('') || ''}
+                            ${(task.tags || []).slice(0, 2).map(t => `<span>${t}</span>`).join('')}
                         </div>
                     </div>
                     <div class="task-assignee">${assignee?.avatar || '?'}</div>
@@ -1866,23 +1511,18 @@
             const details = intel.details || {};
 
             let detailsHtml = '';
-            
             if (intel.sources?.length) {
                 detailsHtml += `<div class="feed-section">
                     <div class="feed-section-title">Sources</div>
-                    ${intel.sources.map(s => 
-                        s.url ? `<a href="${s.url}" target="_blank" style="color: var(--blue); text-decoration: none; display: block; margin-bottom: 4px;">${s.name} ↗</a>` : `<span>${s.name}</span>`
-                    ).join('')}
+                    ${intel.sources.map(s => s.url ? `<a href="${s.url}" target="_blank" style="color: var(--blue); text-decoration: none; display: block; margin-bottom: 4px;">${s.name} ↗</a>` : `<span>${s.name}</span>`).join('')}
                 </div>`;
             }
-
             if (details.keyFacts?.length) {
                 detailsHtml += `<div class="feed-section">
                     <div class="feed-section-title">Key Facts</div>
                     <ul>${details.keyFacts.map(f => `<li>${f}</li>`).join('')}</ul>
                 </div>`;
             }
-
             const insight = details.sosOpportunity || details.sosDifferentiation || details.approach;
             if (insight) {
                 detailsHtml += `<div class="feed-insight">
@@ -1899,9 +1539,7 @@
                             <div class="feed-title">${intel.title}</div>
                             <div class="feed-summary">${intel.summary}</div>
                             <div class="feed-meta">
-                                <div class="feed-tags">
-                                    ${(intel.tags || []).map(t => `<span class="feed-tag ${t}">${t}</span>`).join('')}
-                                </div>
+                                <div class="feed-tags">${(intel.tags || []).map(t => `<span class="feed-tag ${t}">${t}</span>`).join('')}</div>
                                 <div class="feed-author">
                                     <div class="feed-author-avatar">${contributor?.avatar || '?'}</div>
                                     ${contributor?.name || 'Unknown'}
@@ -1918,7 +1556,6 @@
 
         // ============ EVENT HANDLERS ============
         function attachEventHandlers() {
-            // Intel type filter
             document.querySelectorAll('.filter-tab[data-type]').forEach(tab => {
                 tab.onclick = () => {
                     document.querySelectorAll('.filter-tab[data-type]').forEach(t => t.classList.remove('active'));
@@ -1926,8 +1563,6 @@
                     filterIntel(tab.dataset.type);
                 };
             });
-
-            // Task status filter
             document.querySelectorAll('.filter-tab[data-status]').forEach(tab => {
                 tab.onclick = () => {
                     document.querySelectorAll('.filter-tab[data-status]').forEach(t => t.classList.remove('active'));
@@ -1950,11 +1585,7 @@
 
         function filterTasks(status) {
             document.querySelectorAll('.task-item').forEach(item => {
-                if (status === 'all') {
-                    item.style.display = '';
-                } else {
-                    item.style.display = item.dataset.status === status ? '' : 'none';
-                }
+                item.style.display = (status === 'all' || item.dataset.status === status) ? '' : 'none';
             });
         }
 
@@ -1965,27 +1596,21 @@
 
         function toggleTask(id, event) {
             event.stopPropagation();
-            // In a real app, this would update the data
             const item = document.querySelector(`.task-item[data-id="${id}"]`);
-            if (item) {
-                item.classList.toggle('done');
-            }
+            if (item) item.classList.toggle('done');
         }
 
-        // Handle browser back/forward
         window.addEventListener('hashchange', () => {
             const hash = window.location.hash.slice(1);
             if (hash && data?.projects?.find(p => p.id === hash)) {
                 currentProject = hash;
-                currentSection = 'splash';
             } else {
                 currentProject = 'founder';
-                currentSection = 'splash';
             }
+            currentSection = 'splash';
             render();
         });
 
-        // Initialize
         loadData();
     </script>
 </body>
