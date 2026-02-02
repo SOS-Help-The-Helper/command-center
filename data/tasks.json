@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-02-02T17:35:00Z",
+  "updated_at": "2026-02-02T17:50:00Z",
   "updated_by": "Henry",
   "projects": {
     "context_graph": {
@@ -53,21 +53,45 @@
         },
         {
           "id": "intel-2",
-          "title": "Set up Reforge pipeline intel agent (browser-based)",
-          "status": "in_progress",
-          "notes": "Check emails, Gong transcripts 2x/day"
+          "title": "Set up Reforge pipeline intel agent",
+          "status": "done",
+          "completed_at": "2026-02-02T17:36:00Z",
+          "notes": "Cron: 9am, 12pm, 5pm EST M-F. Checks emails, web research on pipeline + Grunt leads."
         },
         {
           "id": "intel-3",
           "title": "Set up SOS intel agent",
-          "status": "pending",
-          "notes": "Competitor news, disaster alerts, grant deadlines"
+          "status": "done",
+          "completed_at": "2026-02-02T17:46:00Z",
+          "notes": "Cron: 10am, 6pm EST daily. Grants, competitors, partnerships, market signals."
         },
         {
           "id": "intel-4",
           "title": "Set up Harmony intel agent",
-          "status": "pending",
-          "notes": "Client inbox monitoring"
+          "status": "done",
+          "completed_at": "2026-02-02T17:46:00Z",
+          "notes": "Cron: 11am EST M-F. Client health, risks, upsells."
+        },
+        {
+          "id": "intel-5",
+          "title": "Set up morning brief",
+          "status": "done",
+          "completed_at": "2026-02-02T17:46:00Z",
+          "notes": "Cron: 9am EST daily. Full intelligence briefing."
+        },
+        {
+          "id": "intel-6",
+          "title": "Add Pipeline Signals section to command center",
+          "status": "done",
+          "completed_at": "2026-02-02T17:45:00Z",
+          "notes": "Reforge signals now display in dashboard"
+        },
+        {
+          "id": "intel-7",
+          "title": "Run first intel sweep (manual)",
+          "status": "done",
+          "completed_at": "2026-02-02T17:48:00Z",
+          "notes": "Found EvenUp hot, Neo caution, Palantir growing, grant deadline March 3"
         }
       ]
     },
@@ -87,7 +111,7 @@
           "id": "rf-2",
           "title": "Follow up: Fox Local, DreamHost, EvenUp",
           "status": "ready",
-          "notes": "Active pipeline deals"
+          "notes": "EvenUp HOT - $2B valuation, push to close"
         },
         {
           "id": "rf-3",
@@ -104,6 +128,13 @@
           "id": "rf-5",
           "title": "Update HubSpot with latest deal status",
           "status": "pending"
+        },
+        {
+          "id": "rf-6",
+          "title": "Validate Neo Financial budget (layoff risk)",
+          "status": "ready",
+          "notes": "Intel found layoff allegations. Confirm $60K deal still viable.",
+          "created_at": "2026-02-02T17:42:00Z"
         }
       ]
     },
@@ -127,13 +158,20 @@
           "title": "Test with Aid Arena",
           "status": "blocked",
           "notes": "Needs channel setup first"
+        },
+        {
+          "id": "sos-4",
+          "title": "Add EDA grant to pipeline (deadline March 3, 2026)",
+          "status": "ready",
+          "notes": "Industry Transformation grants due March 3. Disaster supplemental funding.",
+          "created_at": "2026-02-02T17:48:00Z"
         }
       ]
     },
     "harmony": {
       "name": "Harmony Strategy",
       "priority": "P2",
-      "status": "planning",
+      "status": "in_progress",
       "tasks": [
         {
           "id": "har-1",
@@ -148,9 +186,31 @@
         },
         {
           "id": "har-3",
-          "title": "DI Global (Orly) - Deliver contracted work",
+          "title": "DI Global (Orly) - Deliver or refund decision",
           "status": "urgent",
-          "notes": "13 weeks overdue. Contact import (2600+), dashboards, pipeline reports. Client asking for refund."
+          "notes": "13 weeks overdue. Contact import (2600+), dashboards, pipeline reports. Client sent ACH for refund Jan 29.",
+          "action_needed": "Jonathan to decide: deliver this week or process refund"
+        },
+        {
+          "id": "har-4",
+          "title": "Reply to InventWood - confirm next week's NetSuite call",
+          "status": "ready",
+          "notes": "Darby scheduled next week (may be 1hr). Regina covered for today's emergency.",
+          "created_at": "2026-02-02T17:48:00Z"
+        },
+        {
+          "id": "har-5",
+          "title": "Follow up with Endurant on canceled meeting",
+          "status": "ready",
+          "notes": "Holland canceled HubSpot + PSA Integrations call. Get reschedule.",
+          "created_at": "2026-02-02T17:48:00Z"
+        },
+        {
+          "id": "har-6",
+          "title": "Pay Hubert Group invoice (PAST DUE)",
+          "status": "urgent",
+          "notes": "Payment to The Hubert Group LLC is past due per email today.",
+          "created_at": "2026-02-02T17:48:00Z"
         }
       ]
     }
@@ -161,5 +221,9 @@
       "won_2025": 50100,
       "closed_lost_reengageable": 508000
     }
+  },
+  "task_log": {
+    "description": "All tasks from conversations are logged here. Nothing gets lost.",
+    "last_sync": "2026-02-02T17:50:00Z"
   }
 }
