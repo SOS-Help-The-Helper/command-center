@@ -35,125 +35,170 @@
             line-height: 1.5;
         }
 
-        /* Header */
-        header {
+        /* Layout */
+        .app { display: flex; min-height: 100vh; }
+
+        /* Sidebar */
+        .sidebar {
+            width: 240px;
             background: var(--bg-secondary);
-            border-bottom: 1px solid var(--card-border);
-            padding: 12px 24px;
+            border-right: 1px solid var(--card-border);
+            padding: 16px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 1.25rem;
+            gap: 10px;
+            font-size: 1.125rem;
             font-weight: 700;
-            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            padding: 8px;
         }
 
         .logo-icon {
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(135deg, var(--green-light) 0%, var(--green) 100%);
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--green-light), var(--green));
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
         }
 
-        /* Main Navigation */
-        .main-nav {
+        /* Project switcher */
+        .project-switcher {
+            margin-bottom: 24px;
+        }
+
+        .project-btn {
+            width: 100%;
             display: flex;
-            gap: 4px;
-            background: var(--card-bg);
-            padding: 4px;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border: 1px solid var(--card-border);
             border-radius: 10px;
-        }
-
-        .nav-tab {
-            padding: 8px 20px;
-            border-radius: 8px;
-            border: none;
-            background: transparent;
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            font-weight: 500;
+            background: var(--card-bg);
+            color: var(--text);
             cursor: pointer;
             transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            margin-bottom: 6px;
         }
 
-        .nav-tab:hover {
-            color: var(--text);
-            background: var(--card-hover);
-        }
+        .project-btn:hover { background: var(--card-hover); border-color: var(--green); }
+        .project-btn.active { border-color: var(--green-bright); background: var(--green); }
 
-        .nav-tab.active {
-            background: var(--green);
-            color: var(--text);
-        }
-
-        .nav-tab .badge {
-            background: var(--red-light);
-            color: white;
+        .project-btn .icon { font-size: 1.25rem; }
+        .project-btn .name { font-weight: 600; flex: 1; text-align: left; }
+        .project-btn .badge {
             font-size: 0.7rem;
             padding: 2px 6px;
-            border-radius: 10px;
-            font-weight: 600;
+            border-radius: 8px;
+            background: var(--red-light);
         }
 
-        .header-right {
+        /* Section nav */
+        .section-nav {
+            flex: 1;
+        }
+
+        .nav-group-title {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dim);
+            margin: 16px 0 8px;
+            padding: 0 12px;
+        }
+
+        .nav-item {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.15s;
+            font-size: 0.9rem;
+        }
+
+        .nav-item:hover { color: var(--text); background: var(--card-hover); }
+        .nav-item.active { color: var(--text); background: var(--green); }
+
+        .nav-item .icon { width: 20px; text-align: center; }
+
+        /* User section */
+        .user-section {
+            padding-top: 16px;
+            border-top: 1px solid var(--card-border);
+            margin-top: auto;
         }
 
         .user-badge {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 6px 12px;
-            background: var(--card-bg);
-            border-radius: 20px;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
+            gap: 10px;
+            padding: 10px 12px;
         }
 
-        .user-badge .avatar {
-            width: 24px;
-            height: 24px;
+        .user-avatar {
+            width: 32px;
+            height: 32px;
             background: var(--green);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-weight: 600;
         }
 
-        /* Main container */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 24px;
+        .user-info { flex: 1; }
+        .user-name { font-weight: 600; font-size: 0.875rem; }
+        .user-role { font-size: 0.75rem; color: var(--text-secondary); }
+
+        /* Main content */
+        .main { flex: 1; margin-left: 240px; }
+
+        .header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--card-border);
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 50;
         }
 
-        /* Page views */
+        .header-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-actions { display: flex; gap: 8px; }
+
+        .container { padding: 24px; max-width: 1200px; }
+
+        /* Page sections */
         .page { display: none; }
         .page.active { display: block; }
 
-        /* Metrics bar */
-        .metrics-bar {
+        /* Metrics */
+        .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 16px;
             margin-bottom: 24px;
         }
@@ -174,15 +219,21 @@
         }
 
         .metric-value {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
         }
 
-        .metric-value.positive { color: var(--green-bright); }
-        .metric-value.warning { color: var(--gold); }
-        .metric-value.danger { color: var(--red-light); }
+        .metric-value.good { color: var(--green-bright); }
+        .metric-value.warn { color: var(--gold); }
+        .metric-value.bad { color: var(--red-light); }
 
-        /* Section headers */
+        .metric-target {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            margin-top: 4px;
+        }
+
+        /* Section cards */
         .section-header {
             display: flex;
             justify-content: space-between;
@@ -200,14 +251,9 @@
             color: var(--text-secondary);
         }
 
-        .section-actions {
-            display: flex;
-            gap: 8px;
-        }
-
         .btn {
-            padding: 6px 12px;
-            border-radius: 6px;
+            padding: 8px 14px;
+            border-radius: 8px;
             border: 1px solid var(--card-border);
             background: var(--card-bg);
             color: var(--text);
@@ -216,105 +262,64 @@
             transition: all 0.2s;
         }
 
-        .btn:hover {
-            background: var(--card-hover);
-            border-color: var(--green);
-        }
+        .btn:hover { background: var(--card-hover); border-color: var(--green); }
+        .btn.primary { background: var(--green); border-color: var(--green); }
+        .btn.primary:hover { background: var(--green-light); }
 
-        .btn.primary {
-            background: var(--green);
-            border-color: var(--green);
-        }
-
-        .btn.primary:hover {
-            background: var(--green-light);
-        }
-
-        /* Filter tabs */
-        .filter-tabs {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-        }
-
-        .filter-tab {
-            padding: 8px 16px;
-            border-radius: 20px;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            color: var(--text-secondary);
-            font-size: 0.8125rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .filter-tab:hover {
-            color: var(--text);
-            border-color: var(--green);
-        }
-
-        .filter-tab.active {
-            background: var(--green);
-            border-color: var(--green);
-            color: var(--text);
-        }
-
-        /* Project cards */
-        .projects-grid {
+        /* Cards grid */
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 16px;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
 
-        .project-card {
+        .card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 12px;
             padding: 20px;
-            cursor: pointer;
             transition: all 0.2s;
         }
 
-        .project-card:hover {
-            background: var(--card-hover);
-            border-color: var(--green);
-            transform: translateY(-2px);
-        }
+        .card:hover { border-color: var(--green); }
+        .card.clickable { cursor: pointer; }
+        .card.clickable:hover { transform: translateY(-2px); }
 
-        .project-header {
+        .card-header {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             margin-bottom: 12px;
         }
 
-        .project-icon { font-size: 1.5rem; }
-        .project-name { font-weight: 600; font-size: 1rem; }
-
-        .project-stats {
+        .card-icon {
+            font-size: 1.5rem;
+            width: 44px;
+            height: 44px;
+            background: var(--card-hover);
+            border-radius: 10px;
             display: flex;
-            gap: 12px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-title { font-weight: 600; font-size: 1rem; }
+        .card-subtitle { font-size: 0.8125rem; color: var(--text-secondary); }
+
+        .card-stats {
+            display: flex;
+            gap: 16px;
             font-size: 0.8125rem;
         }
 
-        .stat {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .stat.p0 { color: var(--red-light); }
-        .stat.p1 { color: var(--gold); }
-        .stat.done { color: var(--green-bright); }
+        .card-stat { display: flex; align-items: center; gap: 4px; }
+        .card-stat.p0 { color: var(--red-light); }
+        .card-stat.p1 { color: var(--gold); }
+        .card-stat.done { color: var(--green-bright); }
 
         /* Task list */
-        .task-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
+        .task-list { display: flex; flex-direction: column; gap: 8px; }
 
         .task-item {
             display: flex;
@@ -328,10 +333,7 @@
             transition: all 0.2s;
         }
 
-        .task-item:hover {
-            background: var(--card-hover);
-            border-color: var(--green);
-        }
+        .task-item:hover { background: var(--card-hover); border-color: var(--green); }
 
         .task-checkbox {
             width: 20px;
@@ -342,7 +344,6 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            transition: all 0.2s;
         }
 
         .task-item:hover .task-checkbox { border-color: var(--green); }
@@ -354,7 +355,6 @@
             border-radius: 4px;
             font-size: 0.6875rem;
             font-weight: 700;
-            text-transform: uppercase;
         }
 
         .task-priority.P0 { background: var(--red); color: white; }
@@ -362,26 +362,16 @@
         .task-priority.P2 { background: var(--card-border); color: var(--text-secondary); }
 
         .task-content { flex: 1; min-width: 0; }
-        .task-title { font-weight: 500; margin-bottom: 2px; }
+        .task-title { font-weight: 500; }
+        .task-meta { font-size: 0.75rem; color: var(--text-secondary); display: flex; gap: 8px; }
 
-        .task-meta {
-            display: flex;
-            gap: 12px;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
-
-        .task-project {
+        .task-section {
+            font-size: 0.625rem;
             padding: 2px 6px;
             border-radius: 4px;
-            font-size: 0.625rem;
-            font-weight: 700;
+            background: var(--card-hover);
             text-transform: uppercase;
         }
-
-        .task-project.sos { background: rgba(92, 184, 92, 0.2); color: var(--green-bright); }
-        .task-project.reforge { background: rgba(74, 144, 212, 0.2); color: var(--blue); }
-        .task-project.harmony { background: rgba(212, 165, 48, 0.2); color: var(--gold); }
 
         .task-assignee {
             width: 28px;
@@ -392,15 +382,10 @@
             align-items: center;
             justify-content: center;
             font-size: 12px;
-            flex-shrink: 0;
         }
 
-        /* Intelligence Feed */
-        .feed-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+        /* Intel feed */
+        .feed-container { display: flex; flex-direction: column; gap: 12px; }
 
         .feed-card {
             background: var(--card-bg);
@@ -421,8 +406,7 @@
         }
 
         .feed-icon {
-            font-size: 1.5rem;
-            flex-shrink: 0;
+            font-size: 1.25rem;
             width: 40px;
             height: 40px;
             background: var(--card-hover);
@@ -430,11 +414,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
 
         .feed-content { flex: 1; min-width: 0; }
-        .feed-title { font-weight: 600; font-size: 1rem; margin-bottom: 4px; }
-        .feed-summary { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; }
+        .feed-title { font-weight: 600; margin-bottom: 4px; }
+        .feed-summary { font-size: 0.875rem; color: var(--text-secondary); }
 
         .feed-meta {
             display: flex;
@@ -453,18 +438,13 @@
             font-size: 0.6875rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .feed-tag.competitive { color: var(--red-light); }
-        .feed-tag.opportunity { color: var(--green-bright); }
-        .feed-tag.urgent { color: var(--gold); background: rgba(212, 165, 48, 0.15); }
         .feed-tag.market { color: var(--blue); }
         .feed-tag.technical { color: var(--purple); }
-        .feed-tag.palantir { color: var(--red-light); }
-        .feed-tag.sos { color: var(--green-bright); }
-        .feed-tag.reforge { color: var(--blue); }
-        .feed-tag.harmony { color: var(--gold); }
+        .feed-tag.opportunity { color: var(--green-bright); }
+        .feed-tag.urgent { color: var(--gold); background: rgba(212, 165, 48, 0.15); }
 
         .feed-author {
             display: flex;
@@ -475,26 +455,20 @@
         }
 
         .feed-author-avatar {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             background: var(--green);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 10px;
-            color: white;
         }
 
         .feed-time { font-size: 0.75rem; color: var(--text-dim); }
 
-        .feed-expand-icon {
-            color: var(--text-dim);
-            transition: transform 0.2s;
-            flex-shrink: 0;
-        }
-
-        .feed-card.expanded .feed-expand-icon { transform: rotate(180deg); }
+        .feed-expand { color: var(--text-dim); transition: transform 0.2s; }
+        .feed-card.expanded .feed-expand { transform: rotate(180deg); }
 
         .feed-details {
             display: none;
@@ -518,15 +492,6 @@
         .feed-section ul { margin: 0; padding-left: 20px; }
         .feed-section li { font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 4px; }
 
-        .feed-quote {
-            border-left: 3px solid var(--green);
-            padding-left: 16px;
-            margin: 12px 0;
-            font-style: italic;
-            color: var(--text-secondary);
-            font-size: 0.9375rem;
-        }
-
         .feed-insight {
             background: rgba(92, 184, 92, 0.1);
             border: 1px solid rgba(92, 184, 92, 0.2);
@@ -534,58 +499,13 @@
             padding: 12px 16px;
             margin-top: 12px;
             font-size: 0.875rem;
-            line-height: 1.6;
         }
 
         .feed-insight-label {
             font-size: 0.6875rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
             color: var(--green-bright);
-            margin-bottom: 4px;
-        }
-
-        .feed-actions {
-            display: flex;
-            gap: 8px;
-            margin-top: 16px;
-            padding-top: 16px;
-            border-top: 1px solid var(--card-border);
-            flex-wrap: wrap;
-        }
-
-        /* Costs page */
-        .costs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 16px;
-        }
-
-        .cost-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 20px;
-        }
-
-        .cost-card h3 {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .cost-value {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .cost-detail {
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
             margin-bottom: 4px;
         }
 
@@ -593,7 +513,6 @@
         .pipeline-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 16px;
         }
 
         .pipeline-table th, .pipeline-table td {
@@ -611,530 +530,822 @@
 
         .deal-amount { color: var(--green-bright); font-weight: 600; }
 
+        /* Activity feed */
+        .activity-item {
+            display: flex;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .activity-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--card-hover);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .activity-content { flex: 1; }
+        .activity-summary { font-size: 0.875rem; }
+        .activity-meta { font-size: 0.75rem; color: var(--text-dim); margin-top: 2px; }
+
+        /* Filter tabs */
+        .filter-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 8px 14px;
+            border-radius: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-secondary);
+            font-size: 0.8125rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-tab:hover { color: var(--text); border-color: var(--green); }
+        .filter-tab.active { background: var(--green); border-color: var(--green); color: var(--text); }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 48px;
+            color: var(--text-secondary);
+        }
+
+        .empty-state .icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.5; }
+
         /* Responsive */
-        @media (max-width: 768px) {
-            .container { padding: 16px; }
-            .main-nav { display: none; }
-            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+        @media (max-width: 900px) {
+            .sidebar { display: none; }
+            .main { margin-left: 0; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <div class="logo-icon">⚡</div>
-            <span>COMMAND CENTER</span>
-        </div>
-        <nav class="main-nav">
-            <button class="nav-tab active" data-page="dashboard">📊 Dashboard</button>
-            <button class="nav-tab" data-page="intelligence">📡 Intel <span class="badge" id="intel-count">0</span></button>
-            <button class="nav-tab" data-page="tasks">✅ Tasks</button>
-            <button class="nav-tab" data-page="costs">💰 Costs</button>
-        </nav>
-        <div class="header-right">
-            <div class="user-badge">
-                <div class="avatar">J</div>
-                <span>Jonathan</span>
+    <div class="app">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">⚡</div>
+                <span>COMMAND</span>
             </div>
-        </div>
-    </header>
 
-    <div class="container">
-        <!-- DASHBOARD PAGE -->
-        <div class="page active" id="page-dashboard">
-            <div class="metrics-bar">
-                <div class="metric-card">
-                    <div class="metric-label">Reforge Pipeline</div>
-                    <div class="metric-value positive">$311K</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-label">Won 2025</div>
-                    <div class="metric-value">$50K</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-label">Tasks P0/P1</div>
-                    <div class="metric-value warning" id="urgent-tasks-dash">-</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-label">API Costs (Today)</div>
-                    <div class="metric-value" id="costs-today">-</div>
+            <div class="project-switcher" id="project-switcher">
+                <!-- Populated by JS -->
+            </div>
+
+            <nav class="section-nav" id="section-nav">
+                <!-- Populated by JS based on project -->
+            </nav>
+
+            <div class="user-section">
+                <div class="user-badge">
+                    <div class="user-avatar">J</div>
+                    <div class="user-info">
+                        <div class="user-name">Jonathan</div>
+                        <div class="user-role">Founder</div>
+                    </div>
                 </div>
             </div>
+        </aside>
 
-            <div class="section-header">
-                <div class="section-title">Projects</div>
-            </div>
-            <div class="projects-grid" id="projects-grid"></div>
-
-            <div class="section-header">
-                <div class="section-title">Recent Intel</div>
-                <button class="btn" onclick="showPage('intelligence')">View All →</button>
-            </div>
-            <div class="feed-container" id="recent-briefs"></div>
-        </div>
-
-        <!-- INTELLIGENCE PAGE -->
-        <div class="page" id="page-intelligence">
-            <div class="section-header">
-                <div class="section-title">📡 Intelligence Feed</div>
-                <div class="section-actions">
-                    <button class="btn" onclick="toggleAllBriefs()">Expand All</button>
+        <!-- Main content -->
+        <main class="main">
+            <header class="header">
+                <div class="header-title" id="header-title">
+                    <!-- Set by JS -->
                 </div>
-            </div>
-
-            <div class="filter-tabs" id="intel-filters">
-                <div class="filter-tab active" data-project="all">All Projects</div>
-                <div class="filter-tab" data-project="sos">🆘 SOS</div>
-                <div class="filter-tab" data-project="reforge">💼 Reforge</div>
-                <div class="filter-tab" data-project="harmony">🎯 Harmony</div>
-                <div class="filter-tab" data-project="general">🌐 General</div>
-            </div>
-            <div class="filter-tabs" id="intel-type-filters">
-                <div class="filter-tab active" data-type="all">All Types</div>
-                <div class="filter-tab" data-type="competitive">⚔️ Competitive</div>
-                <div class="filter-tab" data-type="market">📊 Market</div>
-                <div class="filter-tab" data-type="technical">🔧 Technical</div>
-                <div class="filter-tab" data-type="opportunity">💡 Opportunity</div>
-            </div>
-
-            <div class="feed-container" id="feed-container"></div>
-        </div>
-
-        <!-- TASKS PAGE -->
-        <div class="page" id="page-tasks">
-            <div class="section-header">
-                <div class="section-title">✅ All Tasks</div>
-                <div class="section-actions">
-                    <button class="btn primary" onclick="addTask()">+ Add Task</button>
+                <div class="header-actions">
+                    <button class="btn" onclick="refreshData()">↻ Refresh</button>
+                    <button class="btn primary" onclick="showAddModal()">+ Add</button>
                 </div>
-            </div>
+            </header>
 
-            <div class="filter-tabs" id="task-project-filters">
-                <div class="filter-tab active" data-project="all">All Projects</div>
-                <div class="filter-tab" data-project="sos">🆘 SOS</div>
-                <div class="filter-tab" data-project="reforge">💼 Reforge</div>
-                <div class="filter-tab" data-project="harmony">🎯 Harmony</div>
+            <div class="container" id="content">
+                <!-- Pages rendered by JS -->
             </div>
-            <div class="filter-tabs" id="task-status-filters">
-                <div class="filter-tab active" data-filter="all">All</div>
-                <div class="filter-tab" data-filter="pending">Pending</div>
-                <div class="filter-tab" data-filter="in_progress">In Progress</div>
-                <div class="filter-tab" data-filter="done">Done</div>
-            </div>
-
-            <div class="task-list" id="task-list"></div>
-        </div>
-
-        <!-- COSTS PAGE -->
-        <div class="page" id="page-costs">
-            <div class="section-header">
-                <div class="section-title">💰 API Costs</div>
-            </div>
-
-            <div class="costs-grid" id="costs-grid">
-                <div class="cost-card">
-                    <h3>Loading...</h3>
-                    <div class="cost-value">-</div>
-                </div>
-            </div>
-        </div>
+        </main>
     </div>
 
     <script>
         // State
-        let tasksData = null;
-        let briefsData = null;
-        let costsData = null;
-        let currentPage = 'dashboard';
-        let currentTaskFilter = 'all';
-        let currentTaskProject = 'all';
-        let currentIntelProject = 'all';
-        let currentIntelType = 'all';
+        let data = null;
+        let currentProject = 'founder';
+        let currentSection = 'splash';
+
+        // Section configs per project type
+        const sectionConfigs = {
+            founder: [
+                { id: 'splash', icon: '🏠', label: 'Overview' },
+                { id: 'intelligence', icon: '📡', label: 'All Intel' },
+                { id: 'tasks', icon: '✅', label: 'All Tasks' },
+                { id: 'activity', icon: '📊', label: 'Activity' }
+            ],
+            product: [
+                { id: 'splash', icon: '🏠', label: 'Overview' },
+                { id: 'product', icon: '🛠️', label: 'Product' },
+                { id: 'intelligence', icon: '📡', label: 'Intelligence' },
+                { id: 'tasks', icon: '✅', label: 'Tasks' },
+                { id: 'operations', icon: '⚙️', label: 'Operations' },
+                { id: 'growth', icon: '📈', label: 'Growth' }
+            ],
+            sales: [
+                { id: 'splash', icon: '🏠', label: 'Overview' },
+                { id: 'sales', icon: '💰', label: 'Sales' },
+                { id: 'tasks', icon: '✅', label: 'Tasks' },
+                { id: 'operations', icon: '⚙️', label: 'Operations' },
+                { id: 'intelligence', icon: '📡', label: 'Intelligence' }
+            ],
+            operations: [
+                { id: 'splash', icon: '🏠', label: 'Overview' },
+                { id: 'sales', icon: '💰', label: 'Clients' },
+                { id: 'operations', icon: '⚙️', label: 'Operations' },
+                { id: 'tasks', icon: '✅', label: 'Tasks' },
+                { id: 'growth', icon: '📈', label: 'Growth' }
+            ],
+            meta: [
+                { id: 'splash', icon: '🏠', label: 'Overview' },
+                { id: 'product', icon: '🛠️', label: 'Capabilities' },
+                { id: 'operations', icon: '⚙️', label: 'Operations' },
+                { id: 'intelligence', icon: '📡', label: 'Learning' },
+                { id: 'tasks', icon: '✅', label: 'Tasks' }
+            ]
+        };
 
         // Load data
         async function loadData() {
             try {
-                const [tasksRes, briefsRes, costsRes] = await Promise.all([
-                    fetch('data/tasks.json'),
-                    fetch('data/briefs.json'),
-                    fetch('data/costs.json')
-                ]);
-                tasksData = await tasksRes.json();
-                briefsData = await briefsRes.json();
-                costsData = await costsRes.json();
+                const res = await fetch('data/unified.json');
+                data = await res.json();
             } catch (e) {
                 console.error('Failed to load data:', e);
-                tasksData = { projects: {} };
-                briefsData = { briefs: [] };
-                costsData = {};
+                data = { projects: [], tasks: [], intel: [], metrics: [], activity: [], contributors: [] };
             }
             render();
         }
 
-        // Navigation
-        function showPage(page) {
-            currentPage = page;
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-            document.getElementById(`page-${page}`).classList.add('active');
-            document.querySelector(`.nav-tab[data-page="${page}"]`).classList.add('active');
-            render();
-        }
-
-        document.querySelectorAll('.nav-tab').forEach(tab => {
-            tab.addEventListener('click', () => showPage(tab.dataset.page));
-        });
-
-        // Render
-        function render() {
-            renderProjects();
-            renderBriefs();
-            renderTasks();
-            renderCosts();
-            updateMetrics();
+        function refreshData() {
+            loadData();
         }
 
         // Time formatting
-        function timeAgo(timestamp) {
-            const now = new Date();
-            const then = new Date(timestamp);
-            const diff = Math.floor((now - then) / 1000);
+        function timeAgo(ts) {
+            const diff = Math.floor((Date.now() - new Date(ts)) / 1000);
             if (diff < 60) return 'just now';
             if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
             if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
-            if (diff < 604800) return `${Math.floor(diff / 86400)}d ago`;
-            return then.toLocaleDateString();
+            return `${Math.floor(diff / 86400)}d ago`;
         }
 
-        // Render projects
-        function renderProjects() {
-            const grid = document.getElementById('projects-grid');
-            const projects = tasksData?.projects || {};
-            
-            const icons = { sos: '🆘', reforge: '💼', harmony: '🎯', grunt: '⚡', context_graph: '🧠' };
+        function formatCurrency(val) {
+            if (val >= 1000000) return `$${(val / 1000000).toFixed(1)}M`;
+            if (val >= 1000) return `$${(val / 1000).toFixed(0)}K`;
+            return `$${val.toFixed(2)}`;
+        }
 
-            grid.innerHTML = Object.entries(projects).map(([slug, project]) => {
-                const tasks = project.tasks || [];
-                const p0 = tasks.filter(t => t.status !== 'done' && t.priority === 'P0').length;
-                const p1 = tasks.filter(t => t.status !== 'done' && t.priority === 'P1').length;
-                const done = tasks.filter(t => t.status === 'done').length;
+        function formatMetric(val, format) {
+            if (format === 'currency') return formatCurrency(val);
+            if (format === 'percent') return `${val}%`;
+            return val.toString();
+        }
 
-                return `
-                    <div class="project-card" onclick="showProjectTasks('${slug}')">
-                        <div class="project-header">
-                            <span class="project-icon">${icons[slug] || '📁'}</span>
-                            <span class="project-name">${project.name}</span>
-                        </div>
-                        <div class="project-stats">
-                            ${p0 > 0 ? `<span class="stat p0">🔴 ${p0} P0</span>` : ''}
-                            ${p1 > 0 ? `<span class="stat p1">🟡 ${p1}</span>` : ''}
-                            ${done > 0 ? `<span class="stat done">✓ ${done}</span>` : ''}
-                        </div>
-                    </div>
+        // Navigation
+        function setProject(projectId) {
+            currentProject = projectId;
+            currentSection = 'splash';
+            render();
+            // Update URL hash
+            window.location.hash = projectId === 'founder' ? '' : projectId;
+        }
+
+        function setSection(sectionId) {
+            currentSection = sectionId;
+            renderContent();
+            renderNav();
+        }
+
+        // Render sidebar
+        function renderSidebar() {
+            const switcher = document.getElementById('project-switcher');
+            const projects = data?.projects || [];
+
+            // Founder view button
+            let html = `
+                <button class="project-btn ${currentProject === 'founder' ? 'active' : ''}" onclick="setProject('founder')">
+                    <span class="icon">👁️</span>
+                    <span class="name">Founder View</span>
+                </button>
+            `;
+
+            // Project buttons
+            projects.forEach(p => {
+                const tasks = (data.tasks || []).filter(t => t.projectId === p.id && t.status !== 'done');
+                const p0Count = tasks.filter(t => t.priority === 'P0').length;
+
+                html += `
+                    <button class="project-btn ${currentProject === p.id ? 'active' : ''}" onclick="setProject('${p.id}')" style="--accent: ${p.color}">
+                        <span class="icon">${p.icon}</span>
+                        <span class="name">${p.name}</span>
+                        ${p0Count > 0 ? `<span class="badge">${p0Count}</span>` : ''}
+                    </button>
                 `;
-            }).join('');
-        }
-
-        function showProjectTasks(slug) {
-            currentTaskProject = slug;
-            showPage('tasks');
-            document.querySelectorAll('#task-project-filters .filter-tab').forEach(t => {
-                t.classList.toggle('active', t.dataset.project === slug);
             });
-            renderTasks();
+
+            switcher.innerHTML = html;
+            renderNav();
         }
 
-        // Render briefs (intelligence)
-        function renderBriefs() {
-            const fullContainer = document.getElementById('feed-container');
-            const recentContainer = document.getElementById('recent-briefs');
-            let briefs = briefsData?.briefs || [];
+        function renderNav() {
+            const nav = document.getElementById('section-nav');
+            const project = data?.projects?.find(p => p.id === currentProject);
+            const focus = project?.focus || 'founder';
+            const sections = sectionConfigs[focus] || sectionConfigs.founder;
+
+            nav.innerHTML = sections.map(s => `
+                <div class="nav-item ${currentSection === s.id ? 'active' : ''}" onclick="setSection('${s.id}')">
+                    <span class="icon">${s.icon}</span>
+                    <span>${s.label}</span>
+                </div>
+            `).join('');
+        }
+
+        // Render header
+        function renderHeader() {
+            const header = document.getElementById('header-title');
+            if (currentProject === 'founder') {
+                header.innerHTML = '👁️ Founder Command Center';
+            } else {
+                const project = data?.projects?.find(p => p.id === currentProject);
+                header.innerHTML = `${project?.icon || '📁'} ${project?.name || currentProject}`;
+            }
+        }
+
+        // Render content
+        function renderContent() {
+            const container = document.getElementById('content');
+            renderHeader();
+
+            if (currentProject === 'founder') {
+                container.innerHTML = renderFounderView();
+            } else {
+                container.innerHTML = renderProjectView();
+            }
+
+            // Attach event handlers
+            attachEventHandlers();
+        }
+
+        function renderFounderView() {
+            switch (currentSection) {
+                case 'splash': return renderFounderSplash();
+                case 'intelligence': return renderIntelPage();
+                case 'tasks': return renderTasksPage();
+                case 'activity': return renderActivityPage();
+                default: return renderFounderSplash();
+            }
+        }
+
+        function renderProjectView() {
+            switch (currentSection) {
+                case 'splash': return renderProjectSplash();
+                case 'product': return renderProductPage();
+                case 'sales': return renderSalesPage();
+                case 'operations': return renderOpsPage();
+                case 'growth': return renderGrowthPage();
+                case 'intelligence': return renderIntelPage();
+                case 'tasks': return renderTasksPage();
+                default: return renderProjectSplash();
+            }
+        }
+
+        // FOUNDER SPLASH
+        function renderFounderSplash() {
+            const projects = data?.projects || [];
             
-            // Update intel count badge
-            document.getElementById('intel-count').textContent = briefs.length;
+            // Cross-project metrics
+            const totalTasks = (data.tasks || []).filter(t => t.status !== 'done').length;
+            const p0Tasks = (data.tasks || []).filter(t => t.status !== 'done' && t.priority === 'P0').length;
+            const recentIntel = (data.intel || []).length;
 
-            // Filter by project
-            if (currentIntelProject !== 'all') {
-                briefs = briefs.filter(b => {
-                    const tags = b.tags || [];
-                    if (currentIntelProject === 'general') {
-                        return !tags.includes('sos') && !tags.includes('reforge') && !tags.includes('harmony');
-                    }
-                    return tags.includes(currentIntelProject);
-                });
-            }
+            let html = `
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">Open Tasks</div>
+                        <div class="metric-value">${totalTasks}</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">P0 Blockers</div>
+                        <div class="metric-value ${p0Tasks > 0 ? 'bad' : 'good'}">${p0Tasks}</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Intel Items</div>
+                        <div class="metric-value">${recentIntel}</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Active Projects</div>
+                        <div class="metric-value">${projects.length}</div>
+                    </div>
+                </div>
 
-            // Filter by type
-            if (currentIntelType !== 'all') {
-                briefs = briefs.filter(b => b.type === currentIntelType || (b.tags || []).includes(currentIntelType));
-            }
+                <div class="section-header">
+                    <div class="section-title">Projects</div>
+                </div>
+                <div class="cards-grid">
+            `;
 
-            // Sort by timestamp
-            briefs = [...briefs].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            projects.forEach(p => {
+                const tasks = (data.tasks || []).filter(t => t.projectId === p.id && t.status !== 'done');
+                const p0 = tasks.filter(t => t.priority === 'P0').length;
+                const p1 = tasks.filter(t => t.priority === 'P1').length;
+                const done = (data.tasks || []).filter(t => t.projectId === p.id && t.status === 'done').length;
 
-            const renderBrief = brief => {
-                const details = brief.details || {};
-                let detailsHtml = '';
-
-                if (details.source) {
-                    let sourceHtml = details.sourceUrl 
-                        ? `<a href="${details.sourceUrl}" target="_blank" style="color: var(--blue); text-decoration: none;">${details.source} ↗</a>`
-                        : details.source;
-                    
-                    let additionalHtml = '';
-                    if (details.additionalSources?.length) {
-                        additionalHtml = '<div style="margin-top: 8px; font-size: 0.8rem;">' +
-                            details.additionalSources.map(s => 
-                                `<a href="${s.url}" target="_blank" style="color: var(--text-secondary); text-decoration: none; display: block; margin-top: 4px;">${s.name} ↗</a>`
-                            ).join('') + '</div>';
-                    }
-                    
-                    detailsHtml += `<div class="feed-section">
-                        <div class="feed-section-title">Sources</div>
-                        <div style="font-size: 0.875rem;">${sourceHtml}${additionalHtml}</div>
-                    </div>`;
-                }
-
-                if (details.keyFacts?.length) {
-                    detailsHtml += `<div class="feed-section">
-                        <div class="feed-section-title">Key Facts</div>
-                        <ul>${details.keyFacts.map(f => `<li>${f}</li>`).join('')}</ul>
-                    </div>`;
-                }
-
-                if (details.quote) {
-                    detailsHtml += `<div class="feed-quote">"${details.quote}"</div>`;
-                }
-
-                ['theirWeakness', 'whatGothamDoes', 'customSteps', 'keyTrends', 'nextSteps'].forEach(key => {
-                    if (details[key]?.length) {
-                        const titles = {
-                            theirWeakness: 'Their Weakness',
-                            whatGothamDoes: 'What Gotham Does',
-                            customSteps: 'Custom Steps',
-                            keyTrends: 'Key Trends',
-                            nextSteps: 'Next Steps'
-                        };
-                        detailsHtml += `<div class="feed-section">
-                            <div class="feed-section-title">${titles[key]}</div>
-                            <ul>${details[key].map(x => `<li>${x}</li>`).join('')}</ul>
-                        </div>`;
-                    }
-                });
-
-                const insight = details.sosOpportunity || details.sosDifferentiation || details.approach;
-                if (insight) {
-                    detailsHtml += `<div class="feed-insight">
-                        <div class="feed-insight-label">💡 SOS Insight</div>
-                        ${insight}
-                    </div>`;
-                }
-
-                if (details.actionItems?.length) {
-                    detailsHtml += `<div class="feed-actions">
-                        ${details.actionItems.map(a => `<button class="btn">${a}</button>`).join('')}
-                    </div>`;
-                }
-
-                return `
-                    <div class="feed-card" data-id="${brief.id}">
-                        <div class="feed-header" onclick="toggleBrief('${brief.id}')">
-                            <div class="feed-icon">${brief.icon}</div>
-                            <div class="feed-content">
-                                <div class="feed-title">${brief.title}</div>
-                                <div class="feed-summary">${brief.summary}</div>
-                                <div class="feed-meta">
-                                    <div class="feed-tags">
-                                        ${(brief.tags || []).map(t => `<span class="feed-tag ${t}">${t}</span>`).join('')}
-                                    </div>
-                                    <div class="feed-author">
-                                        <div class="feed-author-avatar">${brief.author?.[0] || 'H'}</div>
-                                        ${brief.author || 'Henry'}
-                                    </div>
-                                    <div class="feed-time">${timeAgo(brief.timestamp)}</div>
-                                </div>
+                html += `
+                    <div class="card clickable" onclick="setProject('${p.id}')">
+                        <div class="card-header">
+                            <div class="card-icon">${p.icon}</div>
+                            <div>
+                                <div class="card-title">${p.name}</div>
+                                <div class="card-subtitle">${p.description}</div>
                             </div>
-                            <div class="feed-expand-icon">▼</div>
                         </div>
-                        <div class="feed-details">${detailsHtml}</div>
+                        <div class="card-stats">
+                            ${p0 > 0 ? `<span class="card-stat p0">🔴 ${p0} P0</span>` : ''}
+                            ${p1 > 0 ? `<span class="card-stat p1">🟡 ${p1} P1</span>` : ''}
+                            ${done > 0 ? `<span class="card-stat done">✓ ${done} done</span>` : ''}
+                        </div>
                     </div>
                 `;
+            });
+
+            html += '</div>';
+
+            // Recent intel
+            html += `
+                <div class="section-header">
+                    <div class="section-title">Recent Intelligence</div>
+                    <button class="btn" onclick="setSection('intelligence')">View All →</button>
+                </div>
+            `;
+
+            const recentItems = (data.intel || []).slice(0, 3);
+            html += '<div class="feed-container">' + recentItems.map(renderIntelCard).join('') + '</div>';
+
+            return html;
+        }
+
+        // PROJECT SPLASH
+        function renderProjectSplash() {
+            const project = data?.projects?.find(p => p.id === currentProject);
+            if (!project) return '<div class="empty-state"><div class="icon">📁</div>Project not found</div>';
+
+            const metrics = (data.metrics || []).filter(m => m.projectId === currentProject);
+            const tasks = (data.tasks || []).filter(t => t.projectId === currentProject && t.status !== 'done');
+            const intel = (data.intel || []).filter(i => (i.projectIds || []).includes(currentProject));
+
+            let html = '<div class="metrics-grid">';
+            
+            metrics.slice(0, 4).forEach(m => {
+                const statusClass = m.target ? (m.value >= m.target * 0.8 ? 'good' : m.value >= m.target * 0.5 ? 'warn' : 'bad') : '';
+                html += `
+                    <div class="metric-card">
+                        <div class="metric-label">${m.name}</div>
+                        <div class="metric-value ${statusClass}">${formatMetric(m.value, m.format)}</div>
+                        ${m.target ? `<div class="metric-target">Target: ${formatMetric(m.target, m.format)}</div>` : ''}
+                    </div>
+                `;
+            });
+
+            html += `
+                </div>
+
+                <div class="section-header">
+                    <div class="section-title">Active Tasks (${tasks.length})</div>
+                    <button class="btn" onclick="setSection('tasks')">View All →</button>
+                </div>
+                <div class="task-list">
+                    ${tasks.slice(0, 5).map(renderTaskItem).join('')}
+                </div>
+
+                <div class="section-header" style="margin-top: 24px;">
+                    <div class="section-title">Recent Intel (${intel.length})</div>
+                    <button class="btn" onclick="setSection('intelligence')">View All →</button>
+                </div>
+                <div class="feed-container">
+                    ${intel.slice(0, 3).map(renderIntelCard).join('')}
+                </div>
+            `;
+
+            return html;
+        }
+
+        // PRODUCT PAGE
+        function renderProductPage() {
+            const tasks = (data.tasks || []).filter(t => t.projectId === currentProject && t.section === 'product');
+            const metrics = (data.metrics || []).filter(m => m.projectId === currentProject && m.section === 'product');
+
+            let html = `
+                <div class="metrics-grid">
+                    ${metrics.map(m => `
+                        <div class="metric-card">
+                            <div class="metric-label">${m.name}</div>
+                            <div class="metric-value">${formatMetric(m.value, m.format)}</div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="section-header">
+                    <div class="section-title">Product Tasks</div>
+                    <button class="btn primary" onclick="showAddModal('task', 'product')">+ Add Task</button>
+                </div>
+                <div class="task-list">
+                    ${tasks.map(renderTaskItem).join('') || '<div class="empty-state">No product tasks</div>'}
+                </div>
+            `;
+
+            return html;
+        }
+
+        // SALES PAGE
+        function renderSalesPage() {
+            const metrics = (data.metrics || []).filter(m => m.projectId === currentProject && m.section === 'sales');
+            const pipeline = data.pipelines?.[currentProject] || [];
+            const tasks = (data.tasks || []).filter(t => t.projectId === currentProject && t.section === 'sales');
+
+            let html = `
+                <div class="metrics-grid">
+                    ${metrics.map(m => `
+                        <div class="metric-card">
+                            <div class="metric-label">${m.name}</div>
+                            <div class="metric-value ${m.trend === 'up' ? 'good' : ''}">${formatMetric(m.value, m.format)}</div>
+                            ${m.target ? `<div class="metric-target">Target: ${formatMetric(m.target, m.format)}</div>` : ''}
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            if (pipeline.length > 0) {
+                html += `
+                    <div class="section-header">
+                        <div class="section-title">Pipeline</div>
+                    </div>
+                    <div class="card">
+                        <table class="pipeline-table">
+                            <thead>
+                                <tr>
+                                    <th>Account</th>
+                                    <th>Amount</th>
+                                    <th>Product</th>
+                                    <th>Status</th>
+                                    <th>Next Step</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${pipeline.map(d => `
+                                    <tr>
+                                        <td>${d.account}</td>
+                                        <td class="deal-amount">${formatCurrency(d.amount)}</td>
+                                        <td>${d.product}</td>
+                                        <td>${d.status}</td>
+                                        <td>${d.nextStep || '-'}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+            }
+
+            html += `
+                <div class="section-header" style="margin-top: 24px;">
+                    <div class="section-title">Sales Tasks</div>
+                    <button class="btn primary" onclick="showAddModal('task', 'sales')">+ Add Task</button>
+                </div>
+                <div class="task-list">
+                    ${tasks.map(renderTaskItem).join('') || '<div class="empty-state">No sales tasks</div>'}
+                </div>
+            `;
+
+            return html;
+        }
+
+        // OPS PAGE
+        function renderOpsPage() {
+            const metrics = (data.metrics || []).filter(m => m.projectId === currentProject && m.section === 'operations');
+            const tasks = (data.tasks || []).filter(t => t.projectId === currentProject && t.section === 'operations');
+
+            return `
+                <div class="metrics-grid">
+                    ${metrics.map(m => `
+                        <div class="metric-card">
+                            <div class="metric-label">${m.name}</div>
+                            <div class="metric-value">${formatMetric(m.value, m.format)}</div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="section-header">
+                    <div class="section-title">Operations Tasks</div>
+                    <button class="btn primary" onclick="showAddModal('task', 'operations')">+ Add Task</button>
+                </div>
+                <div class="task-list">
+                    ${tasks.map(renderTaskItem).join('') || '<div class="empty-state">No operations tasks</div>'}
+                </div>
+            `;
+        }
+
+        // GROWTH PAGE
+        function renderGrowthPage() {
+            const metrics = (data.metrics || []).filter(m => m.projectId === currentProject && m.section === 'growth');
+            const tasks = (data.tasks || []).filter(t => t.projectId === currentProject && t.section === 'growth');
+
+            return `
+                <div class="metrics-grid">
+                    ${metrics.map(m => `
+                        <div class="metric-card">
+                            <div class="metric-label">${m.name}</div>
+                            <div class="metric-value">${formatMetric(m.value, m.format)}</div>
+                            ${m.target ? `<div class="metric-target">Target: ${formatMetric(m.target, m.format)}</div>` : ''}
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="section-header">
+                    <div class="section-title">Growth Tasks</div>
+                    <button class="btn primary" onclick="showAddModal('task', 'growth')">+ Add Task</button>
+                </div>
+                <div class="task-list">
+                    ${tasks.map(renderTaskItem).join('') || '<div class="empty-state">No growth tasks</div>'}
+                </div>
+            `;
+        }
+
+        // INTEL PAGE
+        function renderIntelPage() {
+            let intel = data?.intel || [];
+            
+            if (currentProject !== 'founder') {
+                intel = intel.filter(i => (i.projectIds || []).includes(currentProject));
+            }
+
+            intel = [...intel].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+            return `
+                <div class="filter-tabs">
+                    <div class="filter-tab active" data-type="all">All</div>
+                    <div class="filter-tab" data-type="competitive">⚔️ Competitive</div>
+                    <div class="filter-tab" data-type="market">📊 Market</div>
+                    <div class="filter-tab" data-type="technical">🔧 Technical</div>
+                    <div class="filter-tab" data-type="opportunity">💡 Opportunity</div>
+                </div>
+
+                <div class="feed-container" id="intel-feed">
+                    ${intel.map(renderIntelCard).join('') || '<div class="empty-state"><div class="icon">📡</div>No intelligence yet</div>'}
+                </div>
+            `;
+        }
+
+        // TASKS PAGE
+        function renderTasksPage() {
+            let tasks = data?.tasks || [];
+            
+            if (currentProject !== 'founder') {
+                tasks = tasks.filter(t => t.projectId === currentProject);
+            }
+
+            // Sort by priority then status
+            const pOrder = { P0: 0, P1: 1, P2: 2, P3: 3 };
+            const sOrder = { pending: 0, in_progress: 1, blocked: 2, done: 3 };
+            tasks = [...tasks].sort((a, b) => {
+                const pDiff = (pOrder[a.priority] || 2) - (pOrder[b.priority] || 2);
+                if (pDiff !== 0) return pDiff;
+                return (sOrder[a.status] || 0) - (sOrder[b.status] || 0);
+            });
+
+            return `
+                <div class="filter-tabs">
+                    <div class="filter-tab active" data-status="all">All</div>
+                    <div class="filter-tab" data-status="pending">Pending</div>
+                    <div class="filter-tab" data-status="in_progress">In Progress</div>
+                    <div class="filter-tab" data-status="done">Done</div>
+                </div>
+
+                <div class="section-header">
+                    <div class="section-title">${tasks.length} Tasks</div>
+                    <button class="btn primary" onclick="showAddModal('task')">+ Add Task</button>
+                </div>
+
+                <div class="task-list" id="tasks-list">
+                    ${tasks.map(renderTaskItem).join('') || '<div class="empty-state"><div class="icon">✅</div>No tasks</div>'}
+                </div>
+            `;
+        }
+
+        // ACTIVITY PAGE
+        function renderActivityPage() {
+            const activity = (data?.activity || []).slice().sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+            const icons = {
+                task_created: '➕',
+                task_completed: '✅',
+                intel_added: '📡',
+                decision_made: '🎯',
+                note_added: '📝'
             };
 
-            fullContainer.innerHTML = briefs.map(renderBrief).join('');
-            recentContainer.innerHTML = briefs.slice(0, 3).map(renderBrief).join('');
+            return `
+                <div class="section-header">
+                    <div class="section-title">Activity Feed</div>
+                </div>
+                <div class="card">
+                    ${activity.map(a => {
+                        const contributor = data.contributors?.find(c => c.id === a.contributorId);
+                        const project = data.projects?.find(p => p.id === a.projectId);
+                        return `
+                            <div class="activity-item">
+                                <div class="activity-icon">${icons[a.type] || '📌'}</div>
+                                <div class="activity-content">
+                                    <div class="activity-summary">
+                                        <strong>${contributor?.name || 'Unknown'}</strong> ${a.summary}
+                                    </div>
+                                    <div class="activity-meta">${project?.name || ''} • ${timeAgo(a.timestamp)}</div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('') || '<div class="empty-state">No activity yet</div>'}
+                </div>
+            `;
         }
 
-        function toggleBrief(id) {
-            document.querySelectorAll(`.feed-card[data-id="${id}"]`).forEach(card => {
-                card.classList.toggle('expanded');
-            });
-        }
+        // RENDER HELPERS
+        function renderTaskItem(task) {
+            const assignee = data?.contributors?.find(c => c.id === task.assigneeId);
+            const project = data?.projects?.find(p => p.id === task.projectId);
 
-        function toggleAllBriefs() {
-            const cards = document.querySelectorAll('#feed-container .feed-card');
-            const anyExpanded = [...cards].some(c => c.classList.contains('expanded'));
-            cards.forEach(c => c.classList.toggle('expanded', !anyExpanded));
-        }
-
-        // Intel filters
-        document.getElementById('intel-filters').addEventListener('click', e => {
-            if (e.target.classList.contains('filter-tab')) {
-                document.querySelectorAll('#intel-filters .filter-tab').forEach(t => t.classList.remove('active'));
-                e.target.classList.add('active');
-                currentIntelProject = e.target.dataset.project;
-                renderBriefs();
-            }
-        });
-
-        document.getElementById('intel-type-filters').addEventListener('click', e => {
-            if (e.target.classList.contains('filter-tab')) {
-                document.querySelectorAll('#intel-type-filters .filter-tab').forEach(t => t.classList.remove('active'));
-                e.target.classList.add('active');
-                currentIntelType = e.target.dataset.type;
-                renderBriefs();
-            }
-        });
-
-        // Render tasks
-        function renderTasks() {
-            const list = document.getElementById('task-list');
-            const projects = tasksData?.projects || {};
-            
-            let allTasks = [];
-            Object.entries(projects).forEach(([slug, project]) => {
-                (project.tasks || []).forEach(task => {
-                    allTasks.push({ ...task, projectSlug: slug, projectName: project.name });
-                });
-            });
-
-            // Filter by project
-            if (currentTaskProject !== 'all') {
-                allTasks = allTasks.filter(t => t.projectSlug === currentTaskProject);
-            }
-
-            // Filter by status
-            if (currentTaskFilter !== 'all') {
-                allTasks = allTasks.filter(t => t.status === currentTaskFilter);
-            }
-
-            // Sort
-            const priorityOrder = { P0: 0, P1: 1, P2: 2, P3: 3 };
-            const statusOrder = { pending: 0, in_progress: 1, blocked: 2, done: 3 };
-            allTasks.sort((a, b) => {
-                const pDiff = (priorityOrder[a.priority] || 2) - (priorityOrder[b.priority] || 2);
-                if (pDiff !== 0) return pDiff;
-                return (statusOrder[a.status] || 0) - (statusOrder[b.status] || 0);
-            });
-
-            list.innerHTML = allTasks.map(task => `
-                <div class="task-item ${task.status || ''}" data-id="${task.id}">
+            return `
+                <div class="task-item ${task.status}" data-id="${task.id}">
                     <div class="task-checkbox" onclick="toggleTask('${task.id}', event)"></div>
                     <span class="task-priority ${task.priority || 'P2'}">${task.priority || 'P2'}</span>
                     <div class="task-content">
                         <div class="task-title">${task.title}</div>
                         <div class="task-meta">
-                            <span class="task-project ${task.projectSlug}">${task.projectSlug.toUpperCase()}</span>
-                            ${task.notes ? `<span>${task.notes}</span>` : ''}
+                            ${currentProject === 'founder' ? `<span class="task-section" style="background: ${project?.color}22; color: ${project?.color}">${project?.name || task.projectId}</span>` : ''}
+                            <span class="task-section">${task.section}</span>
+                            ${task.tags?.slice(0, 2).map(t => `<span>${t}</span>`).join('') || ''}
                         </div>
                     </div>
-                    <div class="task-assignee">H</div>
+                    <div class="task-assignee">${assignee?.avatar || '?'}</div>
                 </div>
-            `).join('') || '<div style="color: var(--text-secondary); padding: 20px;">No tasks found</div>';
-
-            // Update urgent count
-            const urgentCount = Object.values(tasksData?.projects || {}).reduce((sum, p) => {
-                return sum + (p.tasks || []).filter(t => t.status !== 'done' && (t.priority === 'P0' || t.priority === 'P1')).length;
-            }, 0);
-            document.getElementById('urgent-tasks-dash').textContent = urgentCount;
+            `;
         }
 
-        // Task filters
-        document.getElementById('task-project-filters').addEventListener('click', e => {
-            if (e.target.classList.contains('filter-tab')) {
-                document.querySelectorAll('#task-project-filters .filter-tab').forEach(t => t.classList.remove('active'));
-                e.target.classList.add('active');
-                currentTaskProject = e.target.dataset.project;
-                renderTasks();
-            }
-        });
+        function renderIntelCard(intel) {
+            const contributor = data?.contributors?.find(c => c.id === intel.createdBy);
+            const details = intel.details || {};
 
-        document.getElementById('task-status-filters').addEventListener('click', e => {
-            if (e.target.classList.contains('filter-tab')) {
-                document.querySelectorAll('#task-status-filters .filter-tab').forEach(t => t.classList.remove('active'));
-                e.target.classList.add('active');
-                currentTaskFilter = e.target.dataset.filter;
-                renderTasks();
+            let detailsHtml = '';
+            
+            if (intel.sources?.length) {
+                detailsHtml += `<div class="feed-section">
+                    <div class="feed-section-title">Sources</div>
+                    ${intel.sources.map(s => 
+                        s.url ? `<a href="${s.url}" target="_blank" style="color: var(--blue); text-decoration: none; display: block; margin-bottom: 4px;">${s.name} ↗</a>` : s.name
+                    ).join('')}
+                </div>`;
             }
-        });
+
+            if (details.keyFacts?.length) {
+                detailsHtml += `<div class="feed-section">
+                    <div class="feed-section-title">Key Facts</div>
+                    <ul>${details.keyFacts.map(f => `<li>${f}</li>`).join('')}</ul>
+                </div>`;
+            }
+
+            const insight = details.sosOpportunity || details.sosDifferentiation || details.approach;
+            if (insight) {
+                detailsHtml += `<div class="feed-insight">
+                    <div class="feed-insight-label">💡 Insight</div>
+                    ${insight}
+                </div>`;
+            }
+
+            return `
+                <div class="feed-card" data-id="${intel.id}">
+                    <div class="feed-header" onclick="toggleIntel('${intel.id}')">
+                        <div class="feed-icon">${intel.icon}</div>
+                        <div class="feed-content">
+                            <div class="feed-title">${intel.title}</div>
+                            <div class="feed-summary">${intel.summary}</div>
+                            <div class="feed-meta">
+                                <div class="feed-tags">
+                                    ${(intel.tags || []).map(t => `<span class="feed-tag ${t}">${t}</span>`).join('')}
+                                </div>
+                                <div class="feed-author">
+                                    <div class="feed-author-avatar">${contributor?.avatar || '?'}</div>
+                                    ${contributor?.name || 'Unknown'}
+                                </div>
+                                <div class="feed-time">${timeAgo(intel.createdAt)}</div>
+                            </div>
+                        </div>
+                        <div class="feed-expand">▼</div>
+                    </div>
+                    <div class="feed-details">${detailsHtml}</div>
+                </div>
+            `;
+        }
+
+        // EVENT HANDLERS
+        function attachEventHandlers() {
+            // Intel type filter
+            document.querySelectorAll('.filter-tab[data-type]').forEach(tab => {
+                tab.onclick = () => {
+                    document.querySelectorAll('.filter-tab[data-type]').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    filterIntel(tab.dataset.type);
+                };
+            });
+
+            // Task status filter
+            document.querySelectorAll('.filter-tab[data-status]').forEach(tab => {
+                tab.onclick = () => {
+                    document.querySelectorAll('.filter-tab[data-status]').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    filterTasks(tab.dataset.status);
+                };
+            });
+        }
+
+        function filterIntel(type) {
+            document.querySelectorAll('.feed-card').forEach(card => {
+                if (type === 'all') {
+                    card.style.display = '';
+                } else {
+                    const tags = [...card.querySelectorAll('.feed-tag')].map(t => t.textContent);
+                    card.style.display = tags.includes(type) ? '' : 'none';
+                }
+            });
+        }
+
+        function filterTasks(status) {
+            document.querySelectorAll('.task-item').forEach(item => {
+                if (status === 'all') {
+                    item.style.display = '';
+                } else {
+                    item.style.display = item.classList.contains(status) ? '' : 'none';
+                }
+            });
+        }
 
         function toggleTask(id, event) {
             event.stopPropagation();
             const item = event.target.closest('.task-item');
             item.classList.toggle('done');
+            // TODO: persist to JSON
         }
 
-        function addTask() {
-            const title = prompt('Task title:');
-            if (title) alert('Task creation will be connected to Supabase');
+        function toggleIntel(id) {
+            document.querySelectorAll(`.feed-card[data-id="${id}"]`).forEach(card => {
+                card.classList.toggle('expanded');
+            });
         }
 
-        // Render costs
-        function renderCosts() {
-            const grid = document.getElementById('costs-grid');
-            const costs = costsData || {};
-            
-            let html = '';
-            
-            if (costs.today !== undefined) {
-                document.getElementById('costs-today').textContent = `$${costs.today.toFixed(2)}`;
-                html += `
-                    <div class="cost-card">
-                        <h3>Today</h3>
-                        <div class="cost-value ${costs.today > 5 ? 'warning' : ''}">$${costs.today.toFixed(2)}</div>
-                    </div>
-                `;
-            }
-
-            if (costs.yesterday !== undefined) {
-                html += `
-                    <div class="cost-card">
-                        <h3>Yesterday</h3>
-                        <div class="cost-value">$${costs.yesterday.toFixed(2)}</div>
-                    </div>
-                `;
-            }
-
-            if (costs.thisMonth !== undefined) {
-                html += `
-                    <div class="cost-card">
-                        <h3>This Month</h3>
-                        <div class="cost-value ${costs.thisMonth > 50 ? 'danger' : ''}">$${costs.thisMonth.toFixed(2)}</div>
-                        ${costs.lastMonth !== undefined ? `<div class="cost-detail">Last month: $${costs.lastMonth.toFixed(2)}</div>` : ''}
-                    </div>
-                `;
-            }
-
-            if (costs.byModel) {
-                html += `
-                    <div class="cost-card">
-                        <h3>By Model (This Month)</h3>
-                        ${Object.entries(costs.byModel).map(([model, val]) => 
-                            `<div class="cost-detail">${model}: $${val.toFixed(2)}</div>`
-                        ).join('')}
-                    </div>
-                `;
-            }
-
-            grid.innerHTML = html || '<div class="cost-card"><h3>No Data</h3><div class="cost-value">-</div></div>';
+        function showAddModal(type, section) {
+            // TODO: implement modal
+            const title = prompt(`Add ${type || 'item'} title:`);
+            if (title) alert(`Will add: ${title} (section: ${section || 'general'})`);
         }
 
-        function updateMetrics() {
-            // Additional metric updates can go here
+        // RENDER ALL
+        function render() {
+            renderSidebar();
+            renderContent();
+        }
+
+        // Handle URL hash
+        function handleHash() {
+            const hash = window.location.hash.slice(1);
+            if (hash && data?.projects?.find(p => p.id === hash)) {
+                currentProject = hash;
+            } else {
+                currentProject = 'founder';
+            }
+            render();
         }
 
         // Initialize
-        loadData();
+        loadData().then(() => {
+            handleHash();
+            window.addEventListener('hashchange', handleHash);
+        });
     </script>
 </body>
 </html>

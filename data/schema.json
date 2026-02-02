@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Command Center Unified Schema",
+  "description": "Unified data structure for multi-project command center with context graph support",
+  
+  "definitions": {
+    "contributor": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "avatar": { "type": "string" },
+        "role": { "type": "string" }
+      }
+    },
+    
+    "activity": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "enum": ["task_created", "task_completed", "intel_added", "decision_made", "note_added"] },
+        "contributorId": { "type": "string" },
+        "projectId": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "summary": { "type": "string" },
+        "targetId": { "type": "string" },
+        "metadata": { "type": "object" }
+      }
+    },
+    
+    "task": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "projectId": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "priority": { "enum": ["P0", "P1", "P2", "P3"] },
+        "status": { "enum": ["pending", "in_progress", "blocked", "done"] },
+        "section": { "enum": ["product", "operations", "growth", "sales", "general"] },
+        "assigneeId": { "type": "string" },
+        "createdBy": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "dueDate": { "type": "string", "format": "date" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "linkedIntelIds": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    
+    "intel": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "projectIds": { "type": "array", "items": { "type": "string" } },
+        "type": { "enum": ["competitive", "market", "technical", "opportunity", "risk", "learning"] },
+        "icon": { "type": "string" },
+        "title": { "type": "string" },
+        "summary": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "createdBy": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "url": { "type": "string" }
+            }
+          }
+        },
+        "details": { "type": "object" }
+      }
+    },
+    
+    "metric": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "projectId": { "type": "string" },
+        "section": { "type": "string" },
+        "name": { "type": "string" },
+        "value": { "type": ["number", "string"] },
+        "format": { "enum": ["currency", "percent", "number", "text"] },
+        "trend": { "enum": ["up", "down", "flat"] },
+        "target": { "type": "number" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    
+    "project": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "icon": { "type": "string" },
+        "description": { "type": "string" },
+        "focus": { "enum": ["product", "sales", "operations", "meta"] },
+        "color": { "type": "string" },
+        "sections": {
+          "type": "array",
+          "items": { "enum": ["product", "operations", "growth", "sales", "intelligence", "tasks"] }
+        },
+        "kpis": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  
+  "type": "object",
+  "properties": {
+    "version": { "type": "string" },
+    "lastUpdated": { "type": "string", "format": "date-time" },
+    "contributors": { "type": "array", "items": { "$ref": "#/definitions/contributor" } },
+    "projects": { "type": "array", "items": { "$ref": "#/definitions/project" } },
+    "tasks": { "type": "array", "items": { "$ref": "#/definitions/task" } },
+    "intel": { "type": "array", "items": { "$ref": "#/definitions/intel" } },
+    "metrics": { "type": "array", "items": { "$ref": "#/definitions/metric" } },
+    "activity": { "type": "array", "items": { "$ref": "#/definitions/activity" } }
+  }
+}

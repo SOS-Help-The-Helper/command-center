@@ -1,0 +1,291 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-02-02T05:15:00Z",
+  
+  "contributors": [
+    { "id": "jonathan", "name": "Jonathan", "avatar": "J", "role": "founder" },
+    { "id": "henry", "name": "Henry", "avatar": "⚡", "role": "ai" }
+  ],
+  
+  "projects": [
+    {
+      "id": "sos",
+      "name": "SOS",
+      "icon": "🆘",
+      "description": "Disaster coordination platform",
+      "focus": "product",
+      "color": "#5cb85c",
+      "sections": ["product", "intelligence", "tasks", "operations", "growth"],
+      "kpis": ["mvp_progress", "grants_submitted", "partnerships"]
+    },
+    {
+      "id": "reforge",
+      "name": "Reforge",
+      "icon": "💼",
+      "description": "Enterprise sales role",
+      "focus": "sales",
+      "color": "#4a90d4",
+      "sections": ["sales", "tasks", "operations", "intelligence"],
+      "kpis": ["pipeline_value", "quota_attainment", "deals_closed"]
+    },
+    {
+      "id": "harmony",
+      "name": "Harmony Strategy",
+      "icon": "🎯",
+      "description": "GTM consulting practice",
+      "focus": "operations",
+      "color": "#d4a530",
+      "sections": ["sales", "operations", "tasks", "growth"],
+      "kpis": ["revenue", "margin", "active_clients"]
+    },
+    {
+      "id": "grunt",
+      "name": "Grunt",
+      "icon": "⚡",
+      "description": "AI operations & capabilities",
+      "focus": "meta",
+      "color": "#8b5cf6",
+      "sections": ["product", "operations", "intelligence", "tasks"],
+      "kpis": ["api_costs", "uptime", "capabilities"]
+    }
+  ],
+  
+  "metrics": [
+    { "id": "m1", "projectId": "reforge", "section": "sales", "name": "Pipeline Value", "value": 311000, "format": "currency", "trend": "up", "target": 500000 },
+    { "id": "m2", "projectId": "reforge", "section": "sales", "name": "Won 2025", "value": 50000, "format": "currency", "trend": "flat" },
+    { "id": "m3", "projectId": "reforge", "section": "sales", "name": "Re-engageable", "value": 508000, "format": "currency", "trend": "flat" },
+    { "id": "m4", "projectId": "reforge", "section": "sales", "name": "Quota Attainment", "value": 21, "format": "percent", "trend": "up", "target": 100 },
+    
+    { "id": "m5", "projectId": "sos", "section": "product", "name": "MVP Progress", "value": 35, "format": "percent", "trend": "up", "target": 100 },
+    { "id": "m6", "projectId": "sos", "section": "growth", "name": "Grants Submitted", "value": 0, "format": "number", "trend": "flat", "target": 20 },
+    { "id": "m7", "projectId": "sos", "section": "growth", "name": "Funding Raised", "value": 60000, "format": "currency", "trend": "flat", "target": 1800000 },
+    
+    { "id": "m8", "projectId": "harmony", "section": "sales", "name": "Active Clients", "value": 2, "format": "number" },
+    { "id": "m9", "projectId": "harmony", "section": "operations", "name": "Avg Margin", "value": 45, "format": "percent", "target": 60 },
+    { "id": "m10", "projectId": "harmony", "section": "sales", "name": "2025 Revenue", "value": 15000, "format": "currency", "target": 100000 },
+    
+    { "id": "m11", "projectId": "grunt", "section": "operations", "name": "API Costs (MTD)", "value": 47.50, "format": "currency" },
+    { "id": "m12", "projectId": "grunt", "section": "operations", "name": "Uptime", "value": 99.9, "format": "percent" },
+    { "id": "m13", "projectId": "grunt", "section": "product", "name": "Active Skills", "value": 12, "format": "number" }
+  ],
+  
+  "tasks": [
+    {
+      "id": "t1",
+      "projectId": "sos",
+      "title": "Complete Supabase schema migration",
+      "priority": "P0",
+      "status": "in_progress",
+      "section": "product",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-01T20:00:00Z",
+      "tags": ["technical", "database"]
+    },
+    {
+      "id": "t2",
+      "projectId": "sos",
+      "title": "Research 20 foundation grant opportunities",
+      "priority": "P0",
+      "status": "pending",
+      "section": "growth",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-01T20:00:00Z",
+      "tags": ["grants", "funding"]
+    },
+    {
+      "id": "t3",
+      "projectId": "sos",
+      "title": "Build Slack integration prototype",
+      "priority": "P1",
+      "status": "pending",
+      "section": "product",
+      "assigneeId": "henry",
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T04:15:00Z",
+      "tags": ["integration", "slack"]
+    },
+    {
+      "id": "t4",
+      "projectId": "reforge",
+      "title": "Follow up with Neo Financial",
+      "priority": "P0",
+      "status": "pending",
+      "section": "sales",
+      "assigneeId": "jonathan",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-01T10:00:00Z",
+      "tags": ["deal", "follow-up"]
+    },
+    {
+      "id": "t5",
+      "projectId": "reforge",
+      "title": "Build prospecting automation",
+      "priority": "P1",
+      "status": "pending",
+      "section": "operations",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-01T20:00:00Z",
+      "tags": ["automation", "prospecting"]
+    },
+    {
+      "id": "t6",
+      "projectId": "harmony",
+      "title": "Review contractor margins",
+      "priority": "P1",
+      "status": "pending",
+      "section": "operations",
+      "assigneeId": "jonathan",
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T03:00:00Z",
+      "tags": ["finance", "contractors"]
+    },
+    {
+      "id": "t7",
+      "projectId": "grunt",
+      "title": "Build command center navigation",
+      "priority": "P0",
+      "status": "done",
+      "section": "product",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-02T05:00:00Z",
+      "tags": ["ui", "command-center"]
+    },
+    {
+      "id": "t8",
+      "projectId": "grunt",
+      "title": "Add verifiable source links to intel",
+      "priority": "P0",
+      "status": "done",
+      "section": "product",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-02T04:58:00Z",
+      "tags": ["ui", "intel"]
+    }
+  ],
+  
+  "intel": [
+    {
+      "id": "i1",
+      "projectIds": ["sos"],
+      "type": "market",
+      "icon": "💰",
+      "title": "$17B FEMA Aid Held Up - States Scrambling",
+      "summary": "States facing delays, denials, cancellations of federal disaster funds. Budget pressures mounting.",
+      "tags": ["market", "opportunity", "urgent"],
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T04:40:00Z",
+      "sources": [
+        { "name": "Pew Charitable Trusts", "url": "https://www.pew.org/en/research-and-analysis/articles/2026/01/15/uncertainty-surrounding-federal-disaster-funding-looms-over-state-budgets" }
+      ],
+      "details": {
+        "keyFacts": [
+          "$17 billion in FEMA aid to states currently held up",
+          "States facing delays, denials, or cancellations",
+          "New Mexico added $30M to contingency fund"
+        ],
+        "sosOpportunity": "States need to own their disaster coordination capacity. SOS sells directly to state emergency management."
+      }
+    },
+    {
+      "id": "i2",
+      "projectIds": ["sos"],
+      "type": "competitive",
+      "icon": "🎯",
+      "title": "FEMA Being Gutted - States On Their Own",
+      "summary": "Trump admin cutting CORE staff (40% of FEMA workforce). States need alternatives.",
+      "tags": ["competitive", "opportunity", "urgent"],
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T04:10:00Z",
+      "sources": [
+        { "name": "CNN Exclusive", "url": "https://www.cnn.com/2026/01/01/politics/dhs-cutting-fema-disaster-response-staff" }
+      ],
+      "details": {
+        "keyFacts": [
+          "50+ CORE workers terminated on New Year's Eve",
+          "CORE = 40% of FEMA workforce (~8,000 people)",
+          "GAO: Agency already 35% below target staffing"
+        ],
+        "sosOpportunity": "FEMA becoming unreliable. SOS positioning: Community-first coordination that works WITH states."
+      }
+    },
+    {
+      "id": "i3",
+      "projectIds": ["sos"],
+      "type": "competitive",
+      "icon": "⚔️",
+      "title": "Palantir at $970M Federal Contracts",
+      "summary": "Palantir doubled federal contracts in 2025. Surveillance play vs SOS coordination play.",
+      "tags": ["competitive", "palantir"],
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T04:10:00Z",
+      "sources": [
+        { "name": "The Hill", "url": "https://thehill.com/policy/technology/5667232-palantir-trump-administration-surveillance/" }
+      ],
+      "details": {
+        "keyFacts": [
+          "Federal contracts nearly doubled to $970.5M in 2025",
+          "ICE alone: $200M+ for Investigative Case Management"
+        ],
+        "sosDifferentiation": "Palantir = surveillance. SOS = coordination. Different buyers, different values."
+      }
+    },
+    {
+      "id": "i4",
+      "projectIds": ["sos"],
+      "type": "market",
+      "icon": "📊",
+      "title": "Emergency Management Market: $1.1T+",
+      "summary": "Homeland Security & Emergency Management market at $1.1 trillion by 2030.",
+      "tags": ["market", "opportunity"],
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T04:10:00Z",
+      "sources": [
+        { "name": "GlobeNewswire", "url": "https://www.globenewswire.com/news-release/2026/01/20/3222046/28124/en/Homeland-Security-and-Emergency-Management-Market-Report-2026-1-110-Bn-Opportunities-Trends-Competitive-Landscape-Strategies-and-Forecasts-2020-2025-2025-2030F-2035F.html" }
+      ],
+      "details": {
+        "marketSize": "$1,110+ billion",
+        "keyTrends": ["Integrated disaster response platforms", "AI adoption", "Cloud-based coordination"]
+      }
+    },
+    {
+      "id": "i5",
+      "projectIds": ["sos", "grunt"],
+      "type": "technical",
+      "icon": "🔧",
+      "title": "Slack Integration Architecture Mapped",
+      "summary": "Custom workflow steps via Bolt JS for SOS integration.",
+      "tags": ["technical"],
+      "createdBy": "henry",
+      "createdAt": "2026-02-02T04:15:00Z",
+      "sources": [
+        { "name": "Slack Platform Docs", "url": "https://api.slack.com/automation/functions/custom-bolt" }
+      ],
+      "details": {
+        "approach": "Bolt JS (self-hosted) over Deno SDK",
+        "customSteps": ["Create Need", "Log Resource", "Match Request"]
+      }
+    }
+  ],
+  
+  "activity": [
+    { "id": "a1", "type": "intel_added", "contributorId": "henry", "projectId": "sos", "timestamp": "2026-02-02T04:40:00Z", "summary": "Added intel: $17B FEMA Aid Held Up", "targetId": "i1" },
+    { "id": "a2", "type": "task_completed", "contributorId": "henry", "projectId": "grunt", "timestamp": "2026-02-02T05:10:00Z", "summary": "Completed: Build command center navigation", "targetId": "t7" },
+    { "id": "a3", "type": "task_completed", "contributorId": "henry", "projectId": "grunt", "timestamp": "2026-02-02T05:00:00Z", "summary": "Completed: Add verifiable source links", "targetId": "t8" }
+  ],
+  
+  "pipelines": {
+    "reforge": [
+      { "account": "Neo Financial", "amount": 60000, "product": "IA + Research", "status": "Pricing sent", "nextStep": "Follow up" },
+      { "account": "EvenUp", "amount": 50000, "product": "IA", "status": "In pilot", "nextStep": "Check progress" },
+      { "account": "E&Y", "amount": 30000, "product": "IA + Research", "status": "Discovery", "nextStep": "Schedule call" },
+      { "account": "Fox Local", "amount": 27000, "product": "IA + R + Build", "status": "Budget 2-4 weeks", "nextStep": "Wait" },
+      { "account": "DreamHost", "amount": 25000, "product": "IA", "status": "In pilot", "nextStep": "Check progress" },
+      { "account": "Ecovadis", "amount": 18000, "product": "Build + IA + Research", "status": "Starting pilot", "nextStep": "Onboard" }
+    ]
+  }
+}
