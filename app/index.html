@@ -283,6 +283,7 @@
                             <h3 class="font-semibold">${d.question || d.context || 'Decision needed'}</h3>
                             ${d.deal_value ? `<span class="text-green-400 font-bold">$${d.deal_value.toLocaleString()}</span>` : ''}
                         </div>
+                        ${d.calendar_context ? `<div class="text-xs ${d.has_upcoming_meeting ? 'text-yellow-400 font-semibold' : 'text-gray-500'} mb-2">${d.calendar_context}</div>` : ''}
                         <p class="text-sm text-gray-400 mb-3">${d.signal || d.company || ''}</p>
                         
                         <div class="flex flex-wrap gap-2">

@@ -2,6 +2,220 @@
   {
     "type": "stalled_deal",
     "priority": "high",
+    "contact_id": "62217486908",
+    "contact": "Adam Basilio (Workhuman)",
+    "email": "adam.basilio@workhuman.com",
+    "company": "Workhuman",
+    "signal": "Has 1 open deal(s), no activity in 103 days",
+    "question": "Adam Basilio (Workhuman) has gone quiet on active deal - re-engage?",
+    "options": [
+      "Re-engage now",
+      "Try different contact",
+      "Deprioritize",
+      "Close lost"
+    ],
+    "context": {
+      "last_activity": "2025-10-22 08:50",
+      "open_deals": 1,
+      "deal_ids": "39613811888"
+    },
+    "deal_value": 10000.0,
+    "calendar_context": "\ud83d\udcc5 MEETING: 2026-02-06 - work hard play hard - company wide geoguesser tournament",
+    "has_upcoming_meeting": true
+  },
+  {
+    "type": "pricing_visit_no_followup",
+    "priority": "high",
+    "contact_id": "198143870835",
+    "contact": "Anusha K. (WithGrowth)",
+    "email": "anusha@withgrowth.me",
+    "company": "WithGrowth",
+    "signal": "Visited pricing page 2 day(s) ago",
+    "question": "Follow up with Anusha K. (WithGrowth)?",
+    "options": [
+      "Call now",
+      "Send email",
+      "Wait and monitor",
+      "Not a fit"
+    ],
+    "context": {
+      "pricing_visit": "2026-01-31",
+      "last_contacted": "",
+      "job_title": "Chief Product Officer"
+    },
+    "deal_value": 0.0,
+    "calendar_context": "\ud83d\udcc5 UPCOMING: 2026-02-03 - withgrowth: Reforge",
+    "has_upcoming_meeting": true
+  },
+  {
+    "type": "stalled_deal",
+    "priority": "high",
+    "contact_id": "64258201",
+    "contact": "Esteban Contreras (Fleetio)",
+    "email": "econtreras@fleetio.com",
+    "company": "Fleetio",
+    "signal": "Has 3 open deal(s), no activity in 104 days",
+    "question": "Esteban Contreras (Fleetio) has gone quiet on active deal - re-engage?",
+    "options": [
+      "Re-engage now",
+      "Try different contact",
+      "Deprioritize",
+      "Close lost"
+    ],
+    "context": {
+      "last_activity": "2025-10-21 11:03",
+      "open_deals": 3,
+      "deal_ids": "54630952034;54980080735;53946000271;32637467490;17001400215;16808325935;13423123545;12755745443"
+    },
+    "deal_value": 0.0,
+    "calendar_context": "\ud83d\udcc5 UPCOMING: 2026-02-06 - Fleetio: Reforge",
+    "has_upcoming_meeting": true
+  },
+  {
+    "type": "stalled_deal",
+    "priority": "high",
+    "contact_id": "19758901",
+    "contact": "Mauricio Andujar Tagle (Vivaldi Group)",
+    "email": "mandujar@vivaldigroup.com",
+    "company": "Vivaldi Group",
+    "signal": "Has 1 open deal(s), no activity in 62 days",
+    "question": "Mauricio Andujar Tagle (Vivaldi Group) has gone quiet on active deal - re-engage?",
+    "options": [
+      "Re-engage now",
+      "Try different contact",
+      "Deprioritize",
+      "Close lost"
+    ],
+    "context": {
+      "last_activity": "2025-12-02 13:28",
+      "open_deals": 1,
+      "deal_ids": "48895791656"
+    },
+    "deal_value": 0,
+    "packet_context": "Partner, Head of Latin America Global Consulting Firm - innovation/transformation Over past years - experience in defining growth strategies for their clients Innovation portfolio Early prototypes to test Moving prototypes to high fidelity Very familiar with Reforge Do you use a prototyping tool today? He\u2019s used Lovable Not today at Vivaldi - mostly designers / freelance Most work is growth strategy / innovation Prototypes to test digital services Extended network of freelancers Want to extend t",
+    "calendar_context": "\ud83d\udcc5 MEETING: 2026-02-02 - Aviva Canada x Reforge Build",
+    "has_upcoming_meeting": true
+  },
+  {
+    "type": "pricing_visit_no_followup",
+    "priority": "medium",
+    "contact_id": "197189922348",
+    "contact": "Tom Newton (Numan)",
+    "email": "tom.newton@numan.com",
+    "company": "Numan",
+    "signal": "Visited pricing page 4 day(s) ago",
+    "question": "Follow up with Tom Newton (Numan)?",
+    "options": [
+      "Call now",
+      "Send email",
+      "Wait and monitor",
+      "Not a fit"
+    ],
+    "context": {
+      "pricing_visit": "2026-01-29",
+      "last_contacted": "",
+      "job_title": ""
+    },
+    "deal_value": 0.0,
+    "calendar_context": "\ud83d\udcc5 UPCOMING: 2026-02-05 - Numan: Reforge",
+    "has_upcoming_meeting": true
+  },
+  {
+    "type": "sequence_ended_no_response",
+    "priority": "low",
+    "contact_id": "166434278782",
+    "contact": "Gr\u00e1inne O'Connell (Yazio)",
+    "email": "grainne.oconnell@yazio.com",
+    "company": "Yazio",
+    "signal": "Sequence '99928107' ended 11 days ago, no response",
+    "question": "Gr\u00e1inne O'Connell (Yazio) finished sequence without responding - next?",
+    "options": [
+      "Manual outreach",
+      "Different sequence",
+      "Nurture list",
+      "Close out"
+    ],
+    "context": {
+      "sequence": "99928107",
+      "sequence_ended": "2026-01-22 10:27"
+    },
+    "deal_value": 4800.0,
+    "packet_context": "Tab 1 Grainne Courses - have done them at different companies Looking at the Starter Pricing, contract length, live cohorts Kate Build and Research 2026: Become prototype driven Mindset, culture User insights, user feedbacks Dont have a strong discovery model Questions How can this link up with Omni Definition of insights is a little wooly - quantitative testing Insights Something you validate Put into a process - put into a roadmap At Yazio Different meanings Not just enter user -  Next Steps T",
+    "calendar_context": "\ud83d\udcc5 UPCOMING: 2026-02-04 - Yazio | Reforge - Pilot",
+    "has_upcoming_meeting": true
+  },
+  {
+    "type": "sequence_ended_no_response",
+    "priority": "low",
+    "contact_id": "194596678788",
+    "contact": "Lucas Moore (Workana)",
+    "email": "lucas@workana.com",
+    "company": "Workana",
+    "signal": "Sequence '295183182' ended 13 days ago, no response",
+    "question": "Lucas Moore (Workana) finished sequence without responding - next?",
+    "options": [
+      "Manual outreach",
+      "Different sequence",
+      "Nurture list",
+      "Close out"
+    ],
+    "context": {
+      "sequence": "295183182",
+      "sequence_ended": "2026-01-20 06:00"
+    },
+    "deal_value": 0,
+    "calendar_context": "\ud83d\udcc5 MEETING: 2026-02-06 - work hard play hard - company wide geoguesser tournament",
+    "has_upcoming_meeting": true
+  },
+  {
+    "type": "sequence_ended_no_response",
+    "priority": "low",
+    "contact_id": "197576591959",
+    "contact": "Ren Carolino (Canon Press)",
+    "email": "ren@canonpress.com",
+    "company": "Canon Press",
+    "signal": "Sequence '270879143' ended 4 days ago, no response",
+    "question": "Ren Carolino (Canon Press) finished sequence without responding - next?",
+    "options": [
+      "Manual outreach",
+      "Different sequence",
+      "Nurture list",
+      "Close out"
+    ],
+    "context": {
+      "sequence": "270879143",
+      "sequence_ended": "2026-01-29 15:00"
+    },
+    "deal_value": 0.0,
+    "calendar_context": "\ud83d\udcc5 UPCOMING: 2026-02-02 - Canon Press: Reforge",
+    "has_upcoming_meeting": true
+  },
+  {
+    "type": "sequence_ended_no_response",
+    "priority": "low",
+    "contact_id": "194336857187",
+    "contact": "Ari Balducci (Workana)",
+    "email": "ariel.balducci@workana.com",
+    "company": "Workana",
+    "signal": "Sequence '295183182' ended 14 days ago, no response",
+    "question": "Ari Balducci (Workana) finished sequence without responding - next?",
+    "options": [
+      "Manual outreach",
+      "Different sequence",
+      "Nurture list",
+      "Close out"
+    ],
+    "context": {
+      "sequence": "295183182",
+      "sequence_ended": "2026-01-19 13:09"
+    },
+    "deal_value": 0,
+    "calendar_context": "\ud83d\udcc5 MEETING: 2026-02-06 - work hard play hard - company wide geoguesser tournament",
+    "has_upcoming_meeting": true
+  },
+  {
+    "type": "stalled_deal",
+    "priority": "high",
     "contact_id": "154916130738",
     "contact": "Garrett Edel (EvenUp)",
     "email": "garrett.edel@evenuplaw.com",
@@ -20,7 +234,8 @@
       "deal_ids": "44576922402"
     },
     "deal_value": 50000.0,
-    "packet_context": "Company Fit Analysis EVENUP PROSPECT ANALYSIS PROSPECT SCORE: B+ (Strong Fit, High Potential) Justification:  EvenUp is a high-growth, well-funded B2B SaaS company with significant user volume and multi-product complexity that generates substantial feedback fragmentation. While not a traditional marketplace, they serve 1,500+ law firms with ~18,750 total users across multiple product lines, creating ideal conditions for scattered feedback analysis needs. KEY FINDINGS Company Profile & Scale $1B "
+    "packet_context": "Company Fit Analysis EVENUP PROSPECT ANALYSIS PROSPECT SCORE: B+ (Strong Fit, High Potential) Justification:  EvenUp is a high-growth, well-funded B2B SaaS company with significant user volume and multi-product complexity that generates substantial feedback fragmentation. While not a traditional marketplace, they serve 1,500+ law firms with ~18,750 total users across multiple product lines, creating ideal conditions for scattered feedback analysis needs. KEY FINDINGS Company Profile & Scale $1B ",
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-22 - EvenUp | Pilot + Data import"
   },
   {
     "type": "stalled_deal",
@@ -43,7 +258,8 @@
       "deal_ids": "53213750343"
     },
     "deal_value": 15000.0,
-    "packet_context": "Tab 1 Insights tool Background Dir of Product - Nishad Pocket FM Largest consumer companies in India 22 million MAU Discovery process Broadly a mix of data and research Have a lot of dashboards internally What are users doing in the product What are major gaps on content they are consuming User journeys that are working well or not Also have user research team, do surveys/interviews - test hypothesis Example Realized - thriller content genre - not represented well in platform Deploy user researc"
+    "packet_context": "Tab 1 Insights tool Background Dir of Product - Nishad Pocket FM Largest consumer companies in India 22 million MAU Discovery process Broadly a mix of data and research Have a lot of dashboards internally What are users doing in the product What are major gaps on content they are consuming User journeys that are working well or not Also have user research team, do surveys/interviews - test hypothesis Example Realized - thriller content genre - not represented well in platform Deploy user researc",
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-05 - Pocket FM: Reforge"
   },
   {
     "type": "stalled_deal",
@@ -180,7 +396,8 @@
       "deal_ids": "45416583272"
     },
     "deal_value": 15000.0,
-    "packet_context": "Meeting Notes Sid Kumar - Databricks Litmos Work for PE firm Fransisco Partners Operating partner Some PE firms - two sides - one is investment side - buying companies CRO atlassian Freshworks CEO at Litmos Diagnostic  - concerns she has there CEO - hiring a CEO to backfill Remain on board Fintech Data Projects Litmos Also hiring a SVP of GTM Ops at Litmos VP of Sales Ops Not as good as their most entry level ops guys at HubSpot Roadblocks / hindrances Everyones on Salesforce Power I She has to "
+    "packet_context": "Meeting Notes Sid Kumar - Databricks Litmos Work for PE firm Fransisco Partners Operating partner Some PE firms - two sides - one is investment side - buying companies CRO atlassian Freshworks CEO at Litmos Diagnostic  - concerns she has there CEO - hiring a CEO to backfill Remain on board Fintech Data Projects Litmos Also hiring a SVP of GTM Ops at Litmos VP of Sales Ops Not as good as their most entry level ops guys at HubSpot Roadblocks / hindrances Everyones on Salesforce Power I She has to ",
+    "calendar_context": "\ud83d\udcc5 Last: 2026-01-22"
   },
   {
     "type": "stalled_deal",
@@ -300,28 +517,6 @@
   {
     "type": "stalled_deal",
     "priority": "high",
-    "contact_id": "62217486908",
-    "contact": "Adam Basilio (Workhuman)",
-    "email": "adam.basilio@workhuman.com",
-    "company": "Workhuman",
-    "signal": "Has 1 open deal(s), no activity in 103 days",
-    "question": "Adam Basilio (Workhuman) has gone quiet on active deal - re-engage?",
-    "options": [
-      "Re-engage now",
-      "Try different contact",
-      "Deprioritize",
-      "Close lost"
-    ],
-    "context": {
-      "last_activity": "2025-10-22 08:50",
-      "open_deals": 1,
-      "deal_ids": "39613811888"
-    },
-    "deal_value": 10000.0
-  },
-  {
-    "type": "stalled_deal",
-    "priority": "high",
     "contact_id": "152575989166",
     "contact": "Iryna Koshelieva (Annuities Genius)",
     "email": "iryna.koshelieva@annuitiesgenius.com",
@@ -340,7 +535,8 @@
       "deal_ids": "48194050439"
     },
     "deal_value": 5000.0,
-    "packet_context": "Tab 1 Outsourcing user interviews to another company Doing it manually  Who are you trying to collect feedback from? Interviews are for a different project People who are going to retire soon Consider buying them For AG - also interesting Annuities sales agents, carriers PostHog for AG - NPS survey Volume of feedback For october - 10 NPS responses Every 3 months Sales calls HelpScout - support tickets Apollo - calls  PostHog - NPS - surveys Aggregates but doesnt surface any insights Next Step Sh"
+    "packet_context": "Tab 1 Outsourcing user interviews to another company Doing it manually  Who are you trying to collect feedback from? Interviews are for a different project People who are going to retire soon Consider buying them For AG - also interesting Annuities sales agents, carriers PostHog for AG - NPS survey Volume of feedback For october - 10 NPS responses Every 3 months Sales calls HelpScout - support tickets Apollo - calls  PostHog - NPS - surveys Aggregates but doesnt surface any insights Next Step Sh",
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-13 - Tie x Reforge | Onboarding"
   },
   {
     "type": "stalled_deal",
@@ -455,28 +651,6 @@
     "deal_value": 50.0
   },
   {
-    "type": "pricing_visit_no_followup",
-    "priority": "high",
-    "contact_id": "198143870835",
-    "contact": "Anusha K. (WithGrowth)",
-    "email": "anusha@withgrowth.me",
-    "company": "WithGrowth",
-    "signal": "Visited pricing page 2 day(s) ago",
-    "question": "Follow up with Anusha K. (WithGrowth)?",
-    "options": [
-      "Call now",
-      "Send email",
-      "Wait and monitor",
-      "Not a fit"
-    ],
-    "context": {
-      "pricing_visit": "2026-01-31",
-      "last_contacted": "",
-      "job_title": "Chief Product Officer"
-    },
-    "deal_value": 0.0
-  },
-  {
     "type": "stalled_deal",
     "priority": "high",
     "contact_id": "260301",
@@ -517,28 +691,6 @@
       "last_activity": "2025-10-27 08:00",
       "open_deals": 1,
       "deal_ids": "41035635271"
-    },
-    "deal_value": 0.0
-  },
-  {
-    "type": "stalled_deal",
-    "priority": "high",
-    "contact_id": "64258201",
-    "contact": "Esteban Contreras (Fleetio)",
-    "email": "econtreras@fleetio.com",
-    "company": "Fleetio",
-    "signal": "Has 3 open deal(s), no activity in 104 days",
-    "question": "Esteban Contreras (Fleetio) has gone quiet on active deal - re-engage?",
-    "options": [
-      "Re-engage now",
-      "Try different contact",
-      "Deprioritize",
-      "Close lost"
-    ],
-    "context": {
-      "last_activity": "2025-10-21 11:03",
-      "open_deals": 3,
-      "deal_ids": "54630952034;54980080735;53946000271;32637467490;17001400215;16808325935;13423123545;12755745443"
     },
     "deal_value": 0.0
   },
@@ -611,29 +763,6 @@
   {
     "type": "stalled_deal",
     "priority": "high",
-    "contact_id": "188627943245",
-    "contact": "Fumnanya Agbimson ( -)",
-    "email": "admin@catalystgroup.consulting",
-    "company": " -",
-    "signal": "Has 1 open deal(s), no activity in 34 days",
-    "question": "Fumnanya Agbimson ( -) has gone quiet on active deal - re-engage?",
-    "options": [
-      "Re-engage now",
-      "Try different contact",
-      "Deprioritize",
-      "Close lost"
-    ],
-    "context": {
-      "last_activity": "2025-12-30 10:15",
-      "open_deals": 1,
-      "deal_ids": "52735799623"
-    },
-    "deal_value": 0.0,
-    "packet_context": "General best ways we can work together Not a ton of stuff my end going to EDU Scale plan -  Cross-Selling Does it come up? Are there opportunities? Bucket 1 Renewals Teeing up some hand offs there Between us, who owns it on the Insights side Slow trickle Clay / GTM Engineering Learning ecosystem Drive Insights demand Demand Quarterly Dinners Boston New York LA - October Renewals Enterprises at 60%"
-  },
-  {
-    "type": "stalled_deal",
-    "priority": "high",
     "contact_id": "187098271050",
     "contact": "Lusine Miller (DVX Night Vision)",
     "email": "lusine.m@dvxnightstorm.com",
@@ -673,7 +802,8 @@
       "open_deals": 1,
       "deal_ids": "53582897335"
     },
-    "deal_value": 0.0
+    "deal_value": 0.0,
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-12 - vaa625682@gmail.com: Reforge"
   },
   {
     "type": "stalled_deal",
@@ -761,7 +891,8 @@
       "open_deals": 1,
       "deal_ids": "53422307893"
     },
-    "deal_value": 0.0
+    "deal_value": 0.0,
+    "calendar_context": "\ud83d\udcc5 Last: 2026-01-08"
   },
   {
     "type": "stalled_deal",
@@ -783,7 +914,8 @@
       "open_deals": 2,
       "deal_ids": "53398665903;53401143190"
     },
-    "deal_value": 0.0
+    "deal_value": 0.0,
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-22 - JPMorgan x Reforge Build"
   },
   {
     "type": "stalled_deal",
@@ -1004,7 +1136,8 @@
       "open_deals": 1,
       "deal_ids": "51891638597"
     },
-    "deal_value": 0.0
+    "deal_value": 0.0,
+    "calendar_context": "\ud83d\udcc5 Last: 2026-01-09"
   },
   {
     "type": "stalled_deal",
@@ -1314,7 +1447,8 @@
       "open_deals": 1,
       "deal_ids": "50734363030;50757622892;50726621704"
     },
-    "deal_value": 0.0
+    "deal_value": 0.0,
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-14 - Caterina Technologies: Reforge"
   },
   {
     "type": "stalled_deal",
@@ -1498,51 +1632,6 @@
   {
     "type": "stalled_deal",
     "priority": "high",
-    "contact_id": "178168217158",
-    "contact": "\u05de\u05d5\u05d7\u05de\u05d3 \u05d7\u05dc\u05d9\u05dc\u05d9 (\u05de\u05dc\u05d7\u05d9\u05df)",
-    "email": "mohamdkha184@gmail.com",
-    "company": "\u05de\u05dc\u05d7\u05d9\u05df",
-    "signal": "Has 1 open deal(s), no activity in 59 days",
-    "question": "\u05de\u05d5\u05d7\u05de\u05d3 \u05d7\u05dc\u05d9\u05dc\u05d9 (\u05de\u05dc\u05d7\u05d9\u05df) has gone quiet on active deal - re-engage?",
-    "options": [
-      "Re-engage now",
-      "Try different contact",
-      "Deprioritize",
-      "Close lost"
-    ],
-    "context": {
-      "last_activity": "2025-12-05 17:00",
-      "open_deals": 1,
-      "deal_ids": "50106970197"
-    },
-    "deal_value": 0.0
-  },
-  {
-    "type": "stalled_deal",
-    "priority": "high",
-    "contact_id": "19758901",
-    "contact": "Mauricio Andujar Tagle (Vivaldi Group)",
-    "email": "mandujar@vivaldigroup.com",
-    "company": "Vivaldi Group",
-    "signal": "Has 1 open deal(s), no activity in 62 days",
-    "question": "Mauricio Andujar Tagle (Vivaldi Group) has gone quiet on active deal - re-engage?",
-    "options": [
-      "Re-engage now",
-      "Try different contact",
-      "Deprioritize",
-      "Close lost"
-    ],
-    "context": {
-      "last_activity": "2025-12-02 13:28",
-      "open_deals": 1,
-      "deal_ids": "48895791656"
-    },
-    "deal_value": 0,
-    "packet_context": "Partner, Head of Latin America Global Consulting Firm - innovation/transformation Over past years - experience in defining growth strategies for their clients Innovation portfolio Early prototypes to test Moving prototypes to high fidelity Very familiar with Reforge Do you use a prototyping tool today? He\u2019s used Lovable Not today at Vivaldi - mostly designers / freelance Most work is growth strategy / innovation Prototypes to test digital services Extended network of freelancers Want to extend t"
-  },
-  {
-    "type": "stalled_deal",
-    "priority": "high",
     "contact_id": "149604717360",
     "contact": "MARIA PIPINI (Exus)",
     "email": "mariapipini90@gmail.com",
@@ -1628,7 +1717,8 @@
       "open_deals": 1,
       "deal_ids": "49533720076"
     },
-    "deal_value": 0
+    "deal_value": 0,
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-16 - Banco digio x Reforge Build"
   },
   {
     "type": "stalled_deal",
@@ -1655,28 +1745,6 @@
   {
     "type": "stalled_deal",
     "priority": "high",
-    "contact_id": "175869007480",
-    "contact": "\u05de\u05d9\u05d9\u05e7\u05dc \u05e4\u05e8\u05d3\u05d9\u05dc\u05d5\u05d1 \u05db\u05db\u05e2\u05e0\u05db (\u05e9\u05dc)",
-    "email": "mikelpar@gmail.com",
-    "company": "\u05e9\u05dc",
-    "signal": "Has 1 open deal(s), no activity in 63 days",
-    "question": "\u05de\u05d9\u05d9\u05e7\u05dc \u05e4\u05e8\u05d3\u05d9\u05dc\u05d5\u05d1 \u05db\u05db\u05e2\u05e0\u05db (\u05e9\u05dc) has gone quiet on active deal - re-engage?",
-    "options": [
-      "Re-engage now",
-      "Try different contact",
-      "Deprioritize",
-      "Close lost"
-    ],
-    "context": {
-      "last_activity": "2025-12-01 17:00",
-      "open_deals": 1,
-      "deal_ids": "49453601567"
-    },
-    "deal_value": 0.0
-  },
-  {
-    "type": "stalled_deal",
-    "priority": "high",
     "contact_id": "159693158153",
     "contact": "Imam Buana (Doubledeer Group)",
     "email": "imam.buana@gmail.com",
@@ -1695,28 +1763,6 @@
       "deal_ids": "45125671250"
     },
     "deal_value": 0.0
-  },
-  {
-    "type": "stalled_deal",
-    "priority": "high",
-    "contact_id": "175488237237",
-    "contact": "Kyle Bray (N/A)",
-    "email": "kkbray00@gmail.com",
-    "company": "N/A",
-    "signal": "Has 1 open deal(s), no activity in 73 days",
-    "question": "Kyle Bray (N/A) has gone quiet on active deal - re-engage?",
-    "options": [
-      "Re-engage now",
-      "Try different contact",
-      "Deprioritize",
-      "Close lost"
-    ],
-    "context": {
-      "last_activity": "2025-11-21 10:01",
-      "open_deals": 1,
-      "deal_ids": "49136263524"
-    },
-    "deal_value": 0
   },
   {
     "type": "stalled_deal",
@@ -2403,7 +2449,8 @@
       "open_deals": 1,
       "deal_ids": "45441763177"
     },
-    "deal_value": 0.0
+    "deal_value": 0.0,
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-22 - Neo Financial x Reforge"
   },
   {
     "type": "stalled_deal",
@@ -2446,28 +2493,6 @@
       "last_activity": "2025-10-06 14:03",
       "open_deals": 1,
       "deal_ids": "45266483574"
-    },
-    "deal_value": 0.0
-  },
-  {
-    "type": "stalled_deal",
-    "priority": "high",
-    "contact_id": "161147299718",
-    "contact": "Jennifer Sergeant (SD)",
-    "email": "jensergeant@yahoo.com",
-    "company": "SD",
-    "signal": "Has 1 open deal(s), no activity in 119 days",
-    "question": "Jennifer Sergeant (SD) has gone quiet on active deal - re-engage?",
-    "options": [
-      "Re-engage now",
-      "Try different contact",
-      "Deprioritize",
-      "Close lost"
-    ],
-    "context": {
-      "last_activity": "2025-10-06 14:28",
-      "open_deals": 1,
-      "deal_ids": "45213273264"
     },
     "deal_value": 0.0
   },
@@ -2937,7 +2962,8 @@
       "deal_ids": "44432314497"
     },
     "deal_value": 10000.0,
-    "packet_context": "Malaysia Food Nature Danish Make sure product team has their eye on quantitative data Growth marketer for 7 years LottieFiles - 10,000 new users signing up per day Ecosystem of solutions Feedback Reviews Sometimes they miss feedback Much earlier stage Stack ZenDesk - support tickets - majority HubSpot - Enterprise customers Companies of a certain size / volume Typeforms all over tools Feature requests Danish summarizes everything - turns into a report - AI helps - quite manually Volume Every two"
+    "packet_context": "Malaysia Food Nature Danish Make sure product team has their eye on quantitative data Growth marketer for 7 years LottieFiles - 10,000 new users signing up per day Ecosystem of solutions Feedback Reviews Sometimes they miss feedback Much earlier stage Stack ZenDesk - support tickets - majority HubSpot - Enterprise customers Companies of a certain size / volume Typeforms all over tools Feature requests Danish summarizes everything - turns into a report - AI helps - quite manually Volume Every two",
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-13 - Tie x Reforge | Onboarding"
   },
   {
     "type": "stalled_deal",
@@ -3165,28 +3191,6 @@
   {
     "type": "no_show_pattern",
     "priority": "medium",
-    "contact_id": "14013759",
-    "contact": "Gabor Kiss",
-    "email": "gabor@miro.com",
-    "company": "",
-    "signal": "Registered 2x, attended 1x (50% no-show rate)",
-    "question": "Gabor Kiss has pattern of not showing up - different approach?",
-    "options": [
-      "Call instead of meeting",
-      "Send reminder sequence",
-      "Try different time",
-      "Deprioritize"
-    ],
-    "context": {
-      "registrations": 2,
-      "attended": 1,
-      "last_meeting": ""
-    },
-    "deal_value": 0
-  },
-  {
-    "type": "no_show_pattern",
-    "priority": "medium",
     "contact_id": "14012251",
     "contact": "Casey Marshall (Miro)",
     "email": "casey@miro.com",
@@ -3249,28 +3253,6 @@
       "last_meeting": ""
     },
     "deal_value": 0
-  },
-  {
-    "type": "pricing_visit_no_followup",
-    "priority": "medium",
-    "contact_id": "197189922348",
-    "contact": "Tom Newton (Numan)",
-    "email": "tom.newton@numan.com",
-    "company": "Numan",
-    "signal": "Visited pricing page 4 day(s) ago",
-    "question": "Follow up with Tom Newton (Numan)?",
-    "options": [
-      "Call now",
-      "Send email",
-      "Wait and monitor",
-      "Not a fit"
-    ],
-    "context": {
-      "pricing_visit": "2026-01-29",
-      "last_contacted": "",
-      "job_title": ""
-    },
-    "deal_value": 0.0
   },
   {
     "type": "pricing_visit_no_followup",
@@ -3359,7 +3341,8 @@
       "open_deals": 2,
       "deal_ids": "52006833492;52006214222;18116821139;16808252584;13827167252;12295153779"
     },
-    "deal_value": 0.0
+    "deal_value": 0.0,
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-15 - Reschedule - Trintech"
   },
   {
     "type": "stalled_deal",
@@ -3381,7 +3364,8 @@
       "open_deals": 1,
       "deal_ids": "53886097516"
     },
-    "deal_value": 0.0
+    "deal_value": 0.0,
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-16 - Willbank: Reforge"
   },
   {
     "type": "stalled_deal",
@@ -3403,7 +3387,8 @@
       "open_deals": 1,
       "deal_ids": "53884491583"
     },
-    "deal_value": 0
+    "deal_value": 0,
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-15 - George x Reforge Build"
   },
   {
     "type": "stalled_deal",
@@ -3426,7 +3411,8 @@
       "deal_ids": "45405124630"
     },
     "deal_value": 0,
-    "packet_context": "Centric - C Corp Integrait - Services company Feedback volume Very ad hoc Mixing things from calls, forms, Slack into a ad hoc list that they prioritize They have their own system to extract snippets from a conversation Conversations > lists Manual process For Slack > integrated to google spreadsheets -  feedback.ai  - like insights but with less features Feedback.ai Score them against each other Labels Prompt to classify Scoring is not super reliable Want to professionalize this - close the ins"
+    "packet_context": "Centric - C Corp Integrait - Services company Feedback volume Very ad hoc Mixing things from calls, forms, Slack into a ad hoc list that they prioritize They have their own system to extract snippets from a conversation Conversations > lists Manual process For Slack > integrated to google spreadsheets -  feedback.ai  - like insights but with less features Feedback.ai Score them against each other Labels Prompt to classify Scoring is not super reliable Want to professionalize this - close the ins",
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-09 - Trintech | Reforge"
   },
   {
     "type": "stalled_deal",
@@ -3470,7 +3456,8 @@
       "open_deals": 1,
       "deal_ids": "53447875106"
     },
-    "deal_value": 0.0
+    "deal_value": 0.0,
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-14 - Caterina Technologies: Reforge"
   },
   {
     "type": "stalled_deal",
@@ -3514,7 +3501,8 @@
       "open_deals": 2,
       "deal_ids": "53211434375;53327327148"
     },
-    "deal_value": 0.0
+    "deal_value": 0.0,
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-16 - Banco digio x Reforge Build"
   },
   {
     "type": "stalled_deal",
@@ -3645,17 +3633,18 @@
       "sequence_ended": "2026-01-29 21:58"
     },
     "deal_value": 10000.0,
-    "packet_context": "Malaysia Food Nature Danish Make sure product team has their eye on quantitative data Growth marketer for 7 years LottieFiles - 10,000 new users signing up per day Ecosystem of solutions Feedback Reviews Sometimes they miss feedback Much earlier stage Stack ZenDesk - support tickets - majority HubSpot - Enterprise customers Companies of a certain size / volume Typeforms all over tools Feature requests Danish summarizes everything - turns into a report - AI helps - quite manually Volume Every two"
+    "packet_context": "Malaysia Food Nature Danish Make sure product team has their eye on quantitative data Growth marketer for 7 years LottieFiles - 10,000 new users signing up per day Ecosystem of solutions Feedback Reviews Sometimes they miss feedback Much earlier stage Stack ZenDesk - support tickets - majority HubSpot - Enterprise customers Companies of a certain size / volume Typeforms all over tools Feature requests Danish summarizes everything - turns into a report - AI helps - quite manually Volume Every two",
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-13 - Tie x Reforge | Onboarding"
   },
   {
     "type": "sequence_ended_no_response",
     "priority": "low",
-    "contact_id": "166434278782",
-    "contact": "Gr\u00e1inne O'Connell (Yazio)",
-    "email": "grainne.oconnell@yazio.com",
-    "company": "Yazio",
-    "signal": "Sequence '99928107' ended 11 days ago, no response",
-    "question": "Gr\u00e1inne O'Connell (Yazio) finished sequence without responding - next?",
+    "contact_id": "79833052",
+    "contact": "Shea Kusiak (Join)",
+    "email": "shea@join.build",
+    "company": "Join",
+    "signal": "Sequence '298238743' ended 10 days ago, no response",
+    "question": "Shea Kusiak (Join) finished sequence without responding - next?",
     "options": [
       "Manual outreach",
       "Different sequence",
@@ -3663,11 +3652,10 @@
       "Close out"
     ],
     "context": {
-      "sequence": "99928107",
-      "sequence_ended": "2026-01-22 10:27"
+      "sequence": "298238743",
+      "sequence_ended": "2026-01-23 15:19"
     },
-    "deal_value": 4800.0,
-    "packet_context": "Tab 1 Grainne Courses - have done them at different companies Looking at the Starter Pricing, contract length, live cohorts Kate Build and Research 2026: Become prototype driven Mindset, culture User insights, user feedbacks Dont have a strong discovery model Questions How can this link up with Omni Definition of insights is a little wooly - quantitative testing Insights Something you validate Put into a process - put into a roadmap At Yazio Different meanings Not just enter user -  Next Steps T"
+    "deal_value": 10000.0
   },
   {
     "type": "sequence_ended_no_response",
@@ -3688,7 +3676,8 @@
       "sequence": "296709049",
       "sequence_ended": "2026-01-26 18:00"
     },
-    "deal_value": 50.0
+    "deal_value": 50.0,
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-16 - Meet With Huntscape Operations - HubSpot\\, RevOps and Marketing Ser"
   },
   {
     "type": "sequence_ended_no_response",
@@ -3756,27 +3745,6 @@
   {
     "type": "sequence_ended_no_response",
     "priority": "low",
-    "contact_id": "194596678788",
-    "contact": "Lucas Moore (Workana)",
-    "email": "lucas@workana.com",
-    "company": "Workana",
-    "signal": "Sequence '295183182' ended 13 days ago, no response",
-    "question": "Lucas Moore (Workana) finished sequence without responding - next?",
-    "options": [
-      "Manual outreach",
-      "Different sequence",
-      "Nurture list",
-      "Close out"
-    ],
-    "context": {
-      "sequence": "295183182",
-      "sequence_ended": "2026-01-20 06:00"
-    },
-    "deal_value": 0
-  },
-  {
-    "type": "sequence_ended_no_response",
-    "priority": "low",
     "contact_id": "197812843592",
     "contact": "Philippe Loggia (Natan)",
     "email": "philippe.loggia@natan.fr",
@@ -3813,27 +3781,6 @@
     "context": {
       "sequence": "285787716",
       "sequence_ended": "2026-01-30 04:55"
-    },
-    "deal_value": 0.0
-  },
-  {
-    "type": "sequence_ended_no_response",
-    "priority": "low",
-    "contact_id": "197576591959",
-    "contact": "Ren Carolino (Canon Press)",
-    "email": "ren@canonpress.com",
-    "company": "Canon Press",
-    "signal": "Sequence '270879143' ended 4 days ago, no response",
-    "question": "Ren Carolino (Canon Press) finished sequence without responding - next?",
-    "options": [
-      "Manual outreach",
-      "Different sequence",
-      "Nurture list",
-      "Close out"
-    ],
-    "context": {
-      "sequence": "270879143",
-      "sequence_ended": "2026-01-29 15:00"
     },
     "deal_value": 0.0
   },
@@ -4214,7 +4161,8 @@
       "sequence": "295183182",
       "sequence_ended": "2026-01-23 04:53"
     },
-    "deal_value": 0
+    "deal_value": 0,
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-29 - None x Reforge Build"
   },
   {
     "type": "sequence_ended_no_response",
@@ -4319,7 +4267,8 @@
       "sequence": "296709049",
       "sequence_ended": "2026-01-22 13:09"
     },
-    "deal_value": 0
+    "deal_value": 0,
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-15 - Chat with Ityam @ Albert Invent re: Reforge Build"
   },
   {
     "type": "sequence_ended_no_response",
@@ -5161,7 +5110,8 @@
       "sequence": "296817261",
       "sequence_ended": "2026-01-30 14:14"
     },
-    "deal_value": 0
+    "deal_value": 0,
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-16 - Meet With Huntscape Operations - HubSpot\\, RevOps and Marketing Ser"
   },
   {
     "type": "sequence_ended_no_response",
@@ -5497,7 +5447,8 @@
       "sequence": "295800663",
       "sequence_ended": "2026-01-28 15:24"
     },
-    "deal_value": 0
+    "deal_value": 0,
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-05 - Pocket FM: Reforge"
   },
   {
     "type": "sequence_ended_no_response",
@@ -5538,27 +5489,6 @@
     "context": {
       "sequence": "296709049",
       "sequence_ended": "2026-01-28 14:33"
-    },
-    "deal_value": 0
-  },
-  {
-    "type": "sequence_ended_no_response",
-    "priority": "low",
-    "contact_id": "194336857187",
-    "contact": "Ari Balducci (Workana)",
-    "email": "ariel.balducci@workana.com",
-    "company": "Workana",
-    "signal": "Sequence '295183182' ended 14 days ago, no response",
-    "question": "Ari Balducci (Workana) finished sequence without responding - next?",
-    "options": [
-      "Manual outreach",
-      "Different sequence",
-      "Nurture list",
-      "Close out"
-    ],
-    "context": {
-      "sequence": "295183182",
-      "sequence_ended": "2026-01-19 13:09"
     },
     "deal_value": 0
   },
@@ -6085,7 +6015,8 @@
       "sequence": "298238743",
       "sequence_ended": "2026-01-23 15:08"
     },
-    "deal_value": 0
+    "deal_value": 0,
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-26 - Brigit: Reforge"
   },
   {
     "type": "sequence_ended_no_response",
@@ -6127,7 +6058,8 @@
       "sequence": "298238743",
       "sequence_ended": "2026-01-22 16:17"
     },
-    "deal_value": 0
+    "deal_value": 0,
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-30 - Microsoft: Reforge"
   },
   {
     "type": "sequence_ended_no_response",
@@ -6274,7 +6206,8 @@
       "sequence": "298238743",
       "sequence_ended": "2026-01-22 09:27"
     },
-    "deal_value": 0
+    "deal_value": 0,
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-09 - Trintech | Reforge"
   },
   {
     "type": "sequence_ended_no_response",
@@ -6862,27 +6795,6 @@
     "context": {
       "sequence": "298069096",
       "sequence_ended": "2026-01-19 13:29"
-    },
-    "deal_value": 0
-  },
-  {
-    "type": "sequence_ended_no_response",
-    "priority": "low",
-    "contact_id": "79833052",
-    "contact": "Shea Kusiak (Join)",
-    "email": "shea@join.build",
-    "company": "Join",
-    "signal": "Sequence '298238743' ended 10 days ago, no response",
-    "question": "Shea Kusiak (Join) finished sequence without responding - next?",
-    "options": [
-      "Manual outreach",
-      "Different sequence",
-      "Nurture list",
-      "Close out"
-    ],
-    "context": {
-      "sequence": "298238743",
-      "sequence_ended": "2026-01-23 15:19"
     },
     "deal_value": 0
   },
