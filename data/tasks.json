@@ -1,0 +1,128 @@
+{
+  "updated_at": "2026-02-02T02:57:00Z",
+  "updated_by": "Henry",
+  "projects": {
+    "context_graph": {
+      "name": "Context Graph Foundation",
+      "priority": "P0",
+      "status": "in_progress",
+      "tasks": [
+        {
+          "id": "cg-1",
+          "title": "Run context graph schema migration",
+          "status": "ready",
+          "file": "projects/SOS/db/context_graph_schema.sql",
+          "notes": "Creates decision_traces + extensions"
+        },
+        {
+          "id": "cg-2",
+          "title": "Implement Grunt swipe → decision trace capture",
+          "status": "next",
+          "notes": "Every swipe becomes a trace with reasoning"
+        },
+        {
+          "id": "cg-3",
+          "title": "Add reasoning prompt to swipe UI",
+          "status": "pending",
+          "notes": "Quick feedback: why qualified/disqualified"
+        },
+        {
+          "id": "cg-4",
+          "title": "Generate embeddings on decision traces",
+          "status": "pending",
+          "notes": "For precedent search"
+        },
+        {
+          "id": "cg-5",
+          "title": "Build 'find similar decisions' query",
+          "status": "pending",
+          "notes": "Vector similarity search"
+        }
+      ]
+    },
+    "reforge": {
+      "name": "Reforge Sales",
+      "priority": "P1",
+      "status": "in_progress",
+      "tasks": [
+        {
+          "id": "rf-1",
+          "title": "Qualify leads in Grunt swipe app",
+          "status": "ready",
+          "url": "https://sos-help-the-helper.github.io/reforge-swipe/",
+          "notes": "486 Product leads ready"
+        },
+        {
+          "id": "rf-2",
+          "title": "Follow up: Fox Local, DreamHost, EvenUp",
+          "status": "ready",
+          "notes": "Active pipeline deals"
+        },
+        {
+          "id": "rf-3",
+          "title": "Re-engage: iRobot ($80K), WSFS ($56K)",
+          "status": "ready",
+          "notes": "High-value closed lost"
+        },
+        {
+          "id": "rf-4",
+          "title": "Start LinkedIn outreach with qualified leads",
+          "status": "pending"
+        },
+        {
+          "id": "rf-5",
+          "title": "Update HubSpot with latest deal status",
+          "status": "pending"
+        }
+      ]
+    },
+    "sos": {
+      "name": "SOS Platform",
+      "priority": "P1",
+      "status": "in_progress",
+      "tasks": [
+        {
+          "id": "sos-1",
+          "title": "Set Helene slack_channel_id for announcements",
+          "status": "ready"
+        },
+        {
+          "id": "sos-2",
+          "title": "Set up cron jobs (matching, canvas refresh)",
+          "status": "pending"
+        },
+        {
+          "id": "sos-3",
+          "title": "Test with Aid Arena",
+          "status": "blocked",
+          "notes": "Needs channel setup first"
+        }
+      ]
+    },
+    "harmony": {
+      "name": "Harmony Strategy",
+      "priority": "P2",
+      "status": "planning",
+      "tasks": [
+        {
+          "id": "har-1",
+          "title": "Define RevOps decision types to capture",
+          "status": "pending"
+        },
+        {
+          "id": "har-2",
+          "title": "Design Harmony extension schema",
+          "status": "done",
+          "file": "projects/SOS/db/context_graph_schema.sql"
+        }
+      ]
+    }
+  },
+  "pipeline": {
+    "reforge": {
+      "active": 311000,
+      "won_2025": 50100,
+      "closed_lost_reengageable": 508000
+    }
+  }
+}
