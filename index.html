@@ -451,6 +451,199 @@
             color: var(--green-bright);
         }
 
+        /* Intelligence Feed */
+        .feed-container {
+            margin-bottom: 32px;
+        }
+
+        .feed-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        .feed-card:hover {
+            border-color: var(--green);
+        }
+
+        .feed-card.expanded {
+            border-color: var(--green-bright);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .feed-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px 20px;
+            cursor: pointer;
+        }
+
+        .feed-icon {
+            font-size: 1.75rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .feed-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .feed-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .feed-summary {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .feed-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .feed-time {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+
+        .feed-author {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+
+        .feed-author-avatar {
+            width: 16px;
+            height: 16px;
+            background: var(--green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+        }
+
+        .feed-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .feed-tag {
+            padding: 2px 8px;
+            background: var(--bg);
+            border-radius: 4px;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .feed-tag.competitive { color: var(--red-light); }
+        .feed-tag.opportunity { color: var(--green-bright); }
+        .feed-tag.urgent { color: var(--gold); background: rgba(212, 165, 48, 0.15); }
+        .feed-tag.market { color: var(--blue); }
+        .feed-tag.technical { color: var(--purple); }
+        .feed-tag.palantir { color: var(--red-light); }
+        .feed-tag.slack { color: #4a154b; }
+        .feed-tag.sos { color: var(--green-bright); }
+
+        .feed-expand-icon {
+            color: var(--text-dim);
+            transition: transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .feed-card.expanded .feed-expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .feed-details {
+            display: none;
+            padding: 0 20px 20px;
+            border-top: 1px solid var(--card-border);
+            margin-top: 0;
+        }
+
+        .feed-card.expanded .feed-details {
+            display: block;
+        }
+
+        .feed-section {
+            margin-top: 16px;
+        }
+
+        .feed-section-title {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dim);
+            margin-bottom: 8px;
+        }
+
+        .feed-section ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .feed-section li {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+            line-height: 1.5;
+        }
+
+        .feed-quote {
+            border-left: 3px solid var(--green);
+            padding-left: 16px;
+            margin: 12px 0;
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+        }
+
+        .feed-insight {
+            background: rgba(92, 184, 92, 0.1);
+            border: 1px solid rgba(92, 184, 92, 0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-top: 12px;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .feed-insight-label {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--green-bright);
+            margin-bottom: 4px;
+        }
+
+        .feed-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--card-border);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .container {
@@ -504,6 +697,17 @@
                 </div>
             </div>
 
+            <!-- Intelligence Feed -->
+            <div class="section-header">
+                <div class="section-title">📡 Intelligence Feed</div>
+                <div class="section-actions">
+                    <button class="btn" onclick="toggleAllBriefs()">Collapse All</button>
+                </div>
+            </div>
+            <div class="feed-container" id="feed-container">
+                <!-- Populated by JS -->
+            </div>
+
             <!-- Projects -->
             <div class="section-header">
                 <div class="section-title">Projects</div>
@@ -544,28 +748,180 @@
     <script>
         // Data - will be loaded from API
         let tasksData = null;
+        let briefsData = null;
         let currentFilter = 'all';
         let currentProject = null;
 
         // Load data
         async function loadData() {
             try {
-                const res = await fetch('data/tasks.json');
-                tasksData = await res.json();
+                const [tasksRes, briefsRes] = await Promise.all([
+                    fetch('data/tasks.json'),
+                    fetch('data/briefs.json')
+                ]);
+                tasksData = await tasksRes.json();
+                briefsData = await briefsRes.json();
                 render();
             } catch (e) {
-                console.error('Failed to load tasks:', e);
-                // Fallback data
+                console.error('Failed to load data:', e);
                 tasksData = { projects: {}, pipeline: {} };
+                briefsData = { briefs: [] };
                 render();
             }
         }
 
         // Render everything
         function render() {
+            renderBriefs();
             renderProjects();
             renderTasks();
             updateMetrics();
+        }
+
+        // Format relative time
+        function timeAgo(timestamp) {
+            const now = new Date();
+            const then = new Date(timestamp);
+            const diff = Math.floor((now - then) / 1000);
+            
+            if (diff < 60) return 'just now';
+            if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
+            if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
+            if (diff < 604800) return `${Math.floor(diff / 86400)}d ago`;
+            return then.toLocaleDateString();
+        }
+
+        // Render intelligence feed
+        function renderBriefs() {
+            const container = document.getElementById('feed-container');
+            const briefs = briefsData?.briefs || [];
+            
+            // Sort by timestamp descending (newest first)
+            const sortedBriefs = [...briefs].sort((a, b) => 
+                new Date(b.timestamp) - new Date(a.timestamp)
+            );
+
+            container.innerHTML = sortedBriefs.map(brief => {
+                const details = brief.details || {};
+                
+                // Build details HTML based on content
+                let detailsHtml = '';
+                
+                if (details.source) {
+                    detailsHtml += `<div class="feed-section">
+                        <div class="feed-section-title">Source</div>
+                        <div style="font-size: 0.875rem; color: var(--text-secondary);">${details.source}</div>
+                    </div>`;
+                }
+                
+                if (details.keyFacts?.length) {
+                    detailsHtml += `<div class="feed-section">
+                        <div class="feed-section-title">Key Facts</div>
+                        <ul>${details.keyFacts.map(f => `<li>${f}</li>`).join('')}</ul>
+                    </div>`;
+                }
+                
+                if (details.quote) {
+                    detailsHtml += `<div class="feed-quote">"${details.quote}"</div>`;
+                }
+                
+                if (details.theirWeakness?.length) {
+                    detailsHtml += `<div class="feed-section">
+                        <div class="feed-section-title">Their Weakness</div>
+                        <ul>${details.theirWeakness.map(w => `<li>${w}</li>`).join('')}</ul>
+                    </div>`;
+                }
+                
+                if (details.whatGothamDoes?.length) {
+                    detailsHtml += `<div class="feed-section">
+                        <div class="feed-section-title">What Gotham Does</div>
+                        <ul>${details.whatGothamDoes.map(w => `<li>${w}</li>`).join('')}</ul>
+                    </div>`;
+                }
+                
+                if (details.customSteps?.length) {
+                    detailsHtml += `<div class="feed-section">
+                        <div class="feed-section-title">Custom Steps</div>
+                        <ul>${details.customSteps.map(s => `<li>${s}</li>`).join('')}</ul>
+                    </div>`;
+                }
+                
+                if (details.keyTrends?.length) {
+                    detailsHtml += `<div class="feed-section">
+                        <div class="feed-section-title">Key Trends</div>
+                        <ul>${details.keyTrends.map(t => `<li>${t}</li>`).join('')}</ul>
+                    </div>`;
+                }
+                
+                // SOS opportunity or differentiation insight
+                const insight = details.sosOpportunity || details.sosDifferentiation || details.approach;
+                if (insight) {
+                    detailsHtml += `<div class="feed-insight">
+                        <div class="feed-insight-label">💡 SOS Insight</div>
+                        ${insight}
+                    </div>`;
+                }
+                
+                if (details.actionItems?.length) {
+                    detailsHtml += `<div class="feed-actions">
+                        ${details.actionItems.map(a => `<button class="btn">${a}</button>`).join('')}
+                    </div>`;
+                }
+                
+                if (details.nextSteps?.length) {
+                    detailsHtml += `<div class="feed-section">
+                        <div class="feed-section-title">Next Steps</div>
+                        <ul>${details.nextSteps.map(s => `<li>${s}</li>`).join('')}</ul>
+                    </div>`;
+                }
+
+                return `
+                    <div class="feed-card" data-id="${brief.id}">
+                        <div class="feed-header" onclick="toggleBrief('${brief.id}')">
+                            <div class="feed-icon">${brief.icon}</div>
+                            <div class="feed-content">
+                                <div class="feed-title">${brief.title}</div>
+                                <div class="feed-summary">${brief.summary}</div>
+                                <div class="feed-meta">
+                                    <div class="feed-tags">
+                                        ${brief.tags.map(t => `<span class="feed-tag ${t}">${t}</span>`).join('')}
+                                    </div>
+                                    <div class="feed-author">
+                                        <div class="feed-author-avatar">${brief.author?.[0] || 'H'}</div>
+                                        ${brief.author}
+                                    </div>
+                                    <div class="feed-time">${timeAgo(brief.timestamp)}</div>
+                                </div>
+                            </div>
+                            <div class="feed-expand-icon">▼</div>
+                        </div>
+                        <div class="feed-details">
+                            ${detailsHtml}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Toggle brief expansion
+        function toggleBrief(id) {
+            const card = document.querySelector(`.feed-card[data-id="${id}"]`);
+            if (card) {
+                card.classList.toggle('expanded');
+            }
+        }
+
+        // Toggle all briefs
+        function toggleAllBriefs() {
+            const cards = document.querySelectorAll('.feed-card');
+            const anyExpanded = [...cards].some(c => c.classList.contains('expanded'));
+            cards.forEach(c => {
+                if (anyExpanded) {
+                    c.classList.remove('expanded');
+                } else {
+                    c.classList.add('expanded');
+                }
+            });
         }
 
         // Render project cards

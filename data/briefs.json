@@ -1,0 +1,115 @@
+{
+  "briefs": [
+    {
+      "id": "brief-2026-02-02-001",
+      "type": "competitive",
+      "icon": "🎯",
+      "title": "FEMA Being Gutted - States On Their Own",
+      "summary": "Trump admin cutting CORE staff (40% of FEMA workforce). States will need alternative coordination tools. Perfect timing for SOS.",
+      "tags": ["competitive", "opportunity", "urgent"],
+      "author": "Henry",
+      "timestamp": "2026-02-02T04:10:00Z",
+      "details": {
+        "source": "CNN Exclusive (Jan 1, 2026)",
+        "keyFacts": [
+          "50+ CORE disaster response workers terminated on New Year's Eve",
+          "CORE = 40% of FEMA workforce (~8,000 people), 'backbone of operations'",
+          "Contracts now require DHS approval to renew (previously routine)",
+          "FEMA Review Council proposing 50% workforce cut",
+          "GAO: Agency already 35% below target staffing (6,000+ short)"
+        ],
+        "quote": "FEMA can't do disaster response without CORE employees. The regional offices are almost entirely CORE staff. The impact is states are on their own.",
+        "sosOpportunity": "States need alternatives. FEMA is becoming unreliable. SOS positioning: Community-first coordination that works WITH states, not above them. Capture institutional knowledge as FEMA staff leave.",
+        "actionItems": [
+          "Update grant pitches with FEMA narrative",
+          "Research which states lost most FEMA staff",
+          "Find former CORE workers for testimonials"
+        ]
+      }
+    },
+    {
+      "id": "brief-2026-02-02-002",
+      "type": "competitive",
+      "icon": "⚔️",
+      "title": "Palantir at $970M Federal Contracts",
+      "summary": "Palantir doubled federal contracts in 2025. They're the surveillance play - SOS is the coordination play. Different buyers, different values.",
+      "tags": ["competitive", "palantir"],
+      "author": "Henry",
+      "timestamp": "2026-02-02T04:10:00Z",
+      "details": {
+        "source": "The Hill, The Conversation (Jan 2026)",
+        "keyFacts": [
+          "Federal contracts nearly doubled to $970.5 million in 2025",
+          "ICE alone: $200M+ for Investigative Case Management",
+          "DoD: Billion-dollar battlefield intelligence contracts",
+          "Also in: CDC, IRS, NYPD, many local police departments"
+        ],
+        "whatGothamDoes": [
+          "Integrates disparate data sources into unified, searchable web",
+          "Maps social networks, tracks movements, identifies physical characteristics",
+          "Creates detailed individual profiles from DMV, police, social media data"
+        ],
+        "theirWeakness": [
+          "Surveillance-first - law enforcement focus",
+          "Proprietary black box - no transparency",
+          "Top-down government partner, not community tool",
+          "Extractive - takes data, doesn't build community capacity"
+        ],
+        "sosDifferentiation": "Palantir = surveillance play. SOS = coordination play. Different buyer (emergency managers vs law enforcement), different use case (humanitarian vs enforcement), different values (transparent vs black box)."
+      }
+    },
+    {
+      "id": "brief-2026-02-02-003",
+      "type": "market",
+      "icon": "📊",
+      "title": "Emergency Management Market: $1.1T+ Opportunity",
+      "summary": "Homeland Security & Emergency Management market at $1.1 trillion. North America leads, key trend is 'integrated disaster response platforms'.",
+      "tags": ["market", "opportunity"],
+      "author": "Henry",
+      "timestamp": "2026-02-02T04:10:00Z",
+      "details": {
+        "source": "GlobeNewswire Market Report (Jan 2026)",
+        "marketSize": "$1,110+ billion",
+        "keyTrends": [
+          "Integrated disaster response platforms",
+          "Smart emergency communication networks",
+          "AI, blockchain, and thermal imaging adoption"
+        ],
+        "regions": {
+          "leader": "North America",
+          "fastestGrowing": "Asia-Pacific"
+        }
+      }
+    },
+    {
+      "id": "brief-2026-02-02-004",
+      "type": "technical",
+      "icon": "🔧",
+      "title": "Slack Integration Architecture Mapped",
+      "summary": "Studied Slack platform docs. Custom workflow steps via Bolt JS for SOS integration. Can expose 'Create Need', 'Log Resource', 'Match Request' as steps.",
+      "tags": ["technical", "slack", "sos"],
+      "author": "Henry",
+      "timestamp": "2026-02-02T04:15:00Z",
+      "details": {
+        "approach": "Bolt JS (self-hosted) over Deno SDK (Slack-hosted) - we already have Supabase edge functions",
+        "customSteps": [
+          "Create Need - form to log new resource need",
+          "Log Resource - track available resources",
+          "Match Request - trigger matching algorithm"
+        ],
+        "invocationTypes": [
+          "Scheduled (daily digest, matching runs)",
+          "Webhooks (Supabase → Slack notifications)",
+          "Events API (react to app_mention, channel messages)",
+          "User-initiated (shortcuts, slash commands)"
+        ],
+        "nextSteps": [
+          "Set up Bolt JS project",
+          "Define app manifest with custom steps",
+          "Connect to Supabase edge functions"
+        ]
+      }
+    }
+  ],
+  "lastUpdated": "2026-02-02T04:20:00Z"
+}
