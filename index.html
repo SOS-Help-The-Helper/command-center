@@ -59,6 +59,13 @@
             font-weight: 700;
             margin-bottom: 24px;
             padding: 8px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background 0.2s;
+        }
+
+        .logo:hover {
+            background: var(--card-hover);
         }
 
         .logo-icon {
@@ -71,9 +78,28 @@
             justify-content: center;
         }
 
+        /* Home button */
+        .home-btn {
+            margin-bottom: 16px;
+            background: var(--green) !important;
+            border-color: var(--green) !important;
+        }
+
+        .home-btn.hidden { display: none; }
+
         /* Project switcher */
         .project-switcher {
             margin-bottom: 24px;
+        }
+
+        .project-switcher-label {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dim);
+            margin-bottom: 8px;
+            padding: 0 12px;
         }
 
         .project-btn {
@@ -185,6 +211,32 @@
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+        }
+
+        .breadcrumb-link {
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb-link:hover {
+            color: var(--green-bright);
+        }
+
+        .breadcrumb-sep {
+            color: var(--text-dim);
+        }
+
+        .breadcrumb-current {
+            color: var(--text);
+            font-weight: 600;
         }
 
         .header-actions { display: flex; gap: 8px; }
@@ -595,10 +647,16 @@
     <div class="app">
         <!-- Sidebar -->
         <aside class="sidebar">
-            <div class="logo">
+            <div class="logo" onclick="goHome()" title="Back to Founder View">
                 <div class="logo-icon">⚡</div>
                 <span>COMMAND</span>
             </div>
+
+            <!-- Home button - always visible -->
+            <button class="project-btn home-btn" onclick="goHome()" id="home-btn">
+                <span class="icon">🏠</span>
+                <span class="name">Home</span>
+            </button>
 
             <div class="project-switcher" id="project-switcher">
                 <!-- Populated by JS -->
@@ -720,6 +778,13 @@
         }
 
         // Navigation
+        function goHome() {
+            currentProject = 'founder';
+            currentSection = 'splash';
+            window.location.hash = '';
+            render();
+        }
+
         function setProject(projectId) {
             currentProject = projectId;
             currentSection = 'splash';
@@ -737,15 +802,18 @@
         // Render sidebar
         function renderSidebar() {
             const switcher = document.getElementById('project-switcher');
+            const homeBtn = document.getElementById('home-btn');
             const projects = data?.projects || [];
 
-            // Founder view button
-            let html = `
-                <button class="project-btn ${currentProject === 'founder' ? 'active' : ''}" onclick="setProject('founder')">
-                    <span class="icon">👁️</span>
-                    <span class="name">Founder View</span>
-                </button>
-            `;
+            // Show/hide home button based on current view
+            if (currentProject === 'founder') {
+                homeBtn.classList.add('hidden');
+            } else {
+                homeBtn.classList.remove('hidden');
+            }
+
+            // Project switcher label + buttons
+            let html = '<div class="project-switcher-label">Projects</div>';
 
             // Project buttons
             projects.forEach(p => {
@@ -779,15 +847,38 @@
             `).join('');
         }
 
-        // Render header
+        // Render header with breadcrumbs
         function renderHeader() {
             const header = document.getElementById('header-title');
+            const project = data?.projects?.find(p => p.id === currentProject);
+            const sectionConfig = getSectionConfig();
+            const currentSectionLabel = sectionConfig?.find(s => s.id === currentSection)?.label || 'Overview';
+
             if (currentProject === 'founder') {
-                header.innerHTML = '👁️ Founder Command Center';
+                header.innerHTML = `
+                    <div class="breadcrumb">
+                        <span class="breadcrumb-current">👁️ Founder Command Center</span>
+                        <span class="breadcrumb-sep">›</span>
+                        <span class="breadcrumb-current">${currentSectionLabel}</span>
+                    </div>
+                `;
             } else {
-                const project = data?.projects?.find(p => p.id === currentProject);
-                header.innerHTML = `${project?.icon || '📁'} ${project?.name || currentProject}`;
+                header.innerHTML = `
+                    <div class="breadcrumb">
+                        <span class="breadcrumb-link" onclick="goHome()">🏠 Home</span>
+                        <span class="breadcrumb-sep">›</span>
+                        <span class="breadcrumb-current">${project?.icon || '📁'} ${project?.name || currentProject}</span>
+                        <span class="breadcrumb-sep">›</span>
+                        <span class="breadcrumb-current">${currentSectionLabel}</span>
+                    </div>
+                `;
             }
+        }
+
+        function getSectionConfig() {
+            const project = data?.projects?.find(p => p.id === currentProject);
+            const focus = project?.focus || 'founder';
+            return sectionConfigs[focus] || sectionConfigs.founder;
         }
 
         // Render content
