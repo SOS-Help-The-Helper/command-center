@@ -1,0 +1,182 @@
+[
+  {
+    "id": "a01d70d",
+    "date": "2026-02-02 00:22:50 +0000",
+    "message": "Add pending tasks: Google Takeout exports",
+    "category": "other"
+  },
+  {
+    "id": "994a559",
+    "date": "2026-02-02 00:17:45 +0000",
+    "message": "Fireflies complete: 758 transcripts, 589 contacts indexed",
+    "category": "other"
+  },
+  {
+    "id": "4b30492",
+    "date": "2026-02-02 00:13:43 +0000",
+    "message": "Evening session: Sales Nav scraping, Fireflies integration, decision traces",
+    "category": "system"
+  },
+  {
+    "id": "a02359c",
+    "date": "2026-02-01 23:25:01 +0000",
+    "message": "Add cost tracking to heartbeat routine",
+    "category": "henry"
+  },
+  {
+    "id": "0c28829",
+    "date": "2026-02-01 23:20:36 +0000",
+    "message": "Add Grunt enrichment strategy, decision traces, memory updates",
+    "category": "reforge"
+  },
+  {
+    "id": "19ee513",
+    "date": "2026-02-01 18:38:33 +0000",
+    "message": "Memory flush: Reforge swipe app deployed to GitHub Pages",
+    "category": "reforge"
+  },
+  {
+    "id": "b0e23a4",
+    "date": "2026-02-01 16:59:17 +0000",
+    "message": "Browser relay milestone - remote control working via Tailscale",
+    "category": "other"
+  },
+  {
+    "id": "2c72119",
+    "date": "2026-02-01 16:10:55 +0000",
+    "message": "Redesign memory system - decision traces as recoverable context",
+    "category": "system"
+  },
+  {
+    "id": "8f5327a",
+    "date": "2026-02-01 05:32:56 +0000",
+    "message": "Pre-compaction memory flush - capture session context",
+    "category": "system"
+  },
+  {
+    "id": "1bbe31f",
+    "date": "2026-02-01 05:30:50 +0000",
+    "message": "Add Lovable competitor analysis",
+    "category": "other"
+  },
+  {
+    "id": "389b6a4",
+    "date": "2026-02-01 05:18:35 +0000",
+    "message": "Finalize morning brief - overnight session complete",
+    "category": "other"
+  },
+  {
+    "id": "ddaf627",
+    "date": "2026-02-01 05:18:28 +0000",
+    "message": "Add funding trend analysis - mega-rounds not our target",
+    "category": "other"
+  },
+  {
+    "id": "0742ad6",
+    "date": "2026-02-01 04:57:40 +0000",
+    "message": "Document data source limitations for prospecting",
+    "category": "reforge"
+  },
+  {
+    "id": "9fc9649",
+    "date": "2026-02-01 04:57:01 +0000",
+    "message": "Document overnight cadence + content strategy",
+    "category": "other"
+  },
+  {
+    "id": "f532742",
+    "date": "2026-02-01 04:49:48 +0000",
+    "message": "Overnight session summary - 28 commits",
+    "category": "other"
+  },
+  {
+    "id": "17aaa9b",
+    "date": "2026-02-01 04:49:20 +0000",
+    "message": "Update morning brief with Reforge progress",
+    "category": "reforge"
+  },
+  {
+    "id": "ead6e5d",
+    "date": "2026-02-01 04:49:01 +0000",
+    "message": "Add Reforge prospect workflow and initial research",
+    "category": "reforge"
+  },
+  {
+    "id": "73e2543",
+    "date": "2026-02-01 04:47:38 +0000",
+    "message": "Major Reforge context update",
+    "category": "reforge"
+  },
+  {
+    "id": "df0952f",
+    "date": "2026-02-01 04:46:00 +0000",
+    "message": "Add disaster response coordination patterns research",
+    "category": "sos"
+  },
+  {
+    "id": "9a70492",
+    "date": "2026-02-01 04:45:30 +0000",
+    "message": "Update SOS CONTEXT.md with overnight progress",
+    "category": "sos"
+  },
+  {
+    "id": "854b5df",
+    "date": "2026-02-01 04:45:01 +0000",
+    "message": "Add grant opportunities research",
+    "category": "other"
+  },
+  {
+    "id": "1a26d59",
+    "date": "2026-02-01 04:43:57 +0000",
+    "message": "Add match engine analysis to research notes",
+    "category": "other"
+  },
+  {
+    "id": "5d54f7d",
+    "date": "2026-02-01 04:43:16 +0000",
+    "message": "Add threading support for channel match announcements",
+    "category": "other"
+  },
+  {
+    "id": "80523e4",
+    "date": "2026-02-01 04:42:16 +0000",
+    "message": "Prepare morning brief for Jonathan",
+    "category": "other"
+  },
+  {
+    "id": "d3a1b83",
+    "date": "2026-02-01 04:41:28 +0000",
+    "message": "Overnight research: Slack platform + competitor intel",
+    "category": "sos"
+  },
+  {
+    "id": "3a1e6ab",
+    "date": "2026-02-01 04:40:11 +0000",
+    "message": "Wire up App Home buttons + Coordinator modals + Channel match announcements",
+    "category": "other"
+  },
+  {
+    "id": "3efd78a",
+    "date": "2026-02-01 04:36:23 +0000",
+    "message": "Add DECISION_LOG.md - structured decision traces with WHY",
+    "category": "system"
+  },
+  {
+    "id": "0c72763",
+    "date": "2026-02-01 04:29:38 +0000",
+    "message": "Add visual stats dashboard + document design decisions",
+    "category": "system"
+  },
+  {
+    "id": "0204796",
+    "date": "2026-02-01 04:16:36 +0000",
+    "message": "Add coordinator dashboard to App Home",
+    "category": "other"
+  },
+  {
+    "id": "918916f",
+    "date": "2026-02-01 04:11:35 +0000",
+    "message": "Apply brand styling to Slack UI",
+    "category": "sos"
+  }
+]
