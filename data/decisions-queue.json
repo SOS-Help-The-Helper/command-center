@@ -2,220 +2,6 @@
   {
     "type": "stalled_deal",
     "priority": "high",
-    "contact_id": "62217486908",
-    "contact": "Adam Basilio (Workhuman)",
-    "email": "adam.basilio@workhuman.com",
-    "company": "Workhuman",
-    "signal": "Has 1 open deal(s), no activity in 103 days",
-    "question": "Adam Basilio (Workhuman) has gone quiet on active deal - re-engage?",
-    "options": [
-      "Re-engage now",
-      "Try different contact",
-      "Deprioritize",
-      "Close lost"
-    ],
-    "context": {
-      "last_activity": "2025-10-22 08:50",
-      "open_deals": 1,
-      "deal_ids": "39613811888"
-    },
-    "deal_value": 10000.0,
-    "calendar_context": "\ud83d\udcc5 MEETING: 2026-02-06 - work hard play hard - company wide geoguesser tournament",
-    "has_upcoming_meeting": true
-  },
-  {
-    "type": "pricing_visit_no_followup",
-    "priority": "high",
-    "contact_id": "198143870835",
-    "contact": "Anusha K. (WithGrowth)",
-    "email": "anusha@withgrowth.me",
-    "company": "WithGrowth",
-    "signal": "Visited pricing page 2 day(s) ago",
-    "question": "Follow up with Anusha K. (WithGrowth)?",
-    "options": [
-      "Call now",
-      "Send email",
-      "Wait and monitor",
-      "Not a fit"
-    ],
-    "context": {
-      "pricing_visit": "2026-01-31",
-      "last_contacted": "",
-      "job_title": "Chief Product Officer"
-    },
-    "deal_value": 0.0,
-    "calendar_context": "\ud83d\udcc5 UPCOMING: 2026-02-03 - withgrowth: Reforge",
-    "has_upcoming_meeting": true
-  },
-  {
-    "type": "stalled_deal",
-    "priority": "high",
-    "contact_id": "64258201",
-    "contact": "Esteban Contreras (Fleetio)",
-    "email": "econtreras@fleetio.com",
-    "company": "Fleetio",
-    "signal": "Has 3 open deal(s), no activity in 104 days",
-    "question": "Esteban Contreras (Fleetio) has gone quiet on active deal - re-engage?",
-    "options": [
-      "Re-engage now",
-      "Try different contact",
-      "Deprioritize",
-      "Close lost"
-    ],
-    "context": {
-      "last_activity": "2025-10-21 11:03",
-      "open_deals": 3,
-      "deal_ids": "54630952034;54980080735;53946000271;32637467490;17001400215;16808325935;13423123545;12755745443"
-    },
-    "deal_value": 0.0,
-    "calendar_context": "\ud83d\udcc5 UPCOMING: 2026-02-06 - Fleetio: Reforge",
-    "has_upcoming_meeting": true
-  },
-  {
-    "type": "stalled_deal",
-    "priority": "high",
-    "contact_id": "19758901",
-    "contact": "Mauricio Andujar Tagle (Vivaldi Group)",
-    "email": "mandujar@vivaldigroup.com",
-    "company": "Vivaldi Group",
-    "signal": "Has 1 open deal(s), no activity in 62 days",
-    "question": "Mauricio Andujar Tagle (Vivaldi Group) has gone quiet on active deal - re-engage?",
-    "options": [
-      "Re-engage now",
-      "Try different contact",
-      "Deprioritize",
-      "Close lost"
-    ],
-    "context": {
-      "last_activity": "2025-12-02 13:28",
-      "open_deals": 1,
-      "deal_ids": "48895791656"
-    },
-    "deal_value": 0,
-    "packet_context": "Partner, Head of Latin America Global Consulting Firm - innovation/transformation Over past years - experience in defining growth strategies for their clients Innovation portfolio Early prototypes to test Moving prototypes to high fidelity Very familiar with Reforge Do you use a prototyping tool today? He\u2019s used Lovable Not today at Vivaldi - mostly designers / freelance Most work is growth strategy / innovation Prototypes to test digital services Extended network of freelancers Want to extend t",
-    "calendar_context": "\ud83d\udcc5 MEETING: 2026-02-02 - Aviva Canada x Reforge Build",
-    "has_upcoming_meeting": true
-  },
-  {
-    "type": "pricing_visit_no_followup",
-    "priority": "medium",
-    "contact_id": "197189922348",
-    "contact": "Tom Newton (Numan)",
-    "email": "tom.newton@numan.com",
-    "company": "Numan",
-    "signal": "Visited pricing page 4 day(s) ago",
-    "question": "Follow up with Tom Newton (Numan)?",
-    "options": [
-      "Call now",
-      "Send email",
-      "Wait and monitor",
-      "Not a fit"
-    ],
-    "context": {
-      "pricing_visit": "2026-01-29",
-      "last_contacted": "",
-      "job_title": ""
-    },
-    "deal_value": 0.0,
-    "calendar_context": "\ud83d\udcc5 UPCOMING: 2026-02-05 - Numan: Reforge",
-    "has_upcoming_meeting": true
-  },
-  {
-    "type": "sequence_ended_no_response",
-    "priority": "low",
-    "contact_id": "166434278782",
-    "contact": "Gr\u00e1inne O'Connell (Yazio)",
-    "email": "grainne.oconnell@yazio.com",
-    "company": "Yazio",
-    "signal": "Sequence '99928107' ended 11 days ago, no response",
-    "question": "Gr\u00e1inne O'Connell (Yazio) finished sequence without responding - next?",
-    "options": [
-      "Manual outreach",
-      "Different sequence",
-      "Nurture list",
-      "Close out"
-    ],
-    "context": {
-      "sequence": "99928107",
-      "sequence_ended": "2026-01-22 10:27"
-    },
-    "deal_value": 4800.0,
-    "packet_context": "Tab 1 Grainne Courses - have done them at different companies Looking at the Starter Pricing, contract length, live cohorts Kate Build and Research 2026: Become prototype driven Mindset, culture User insights, user feedbacks Dont have a strong discovery model Questions How can this link up with Omni Definition of insights is a little wooly - quantitative testing Insights Something you validate Put into a process - put into a roadmap At Yazio Different meanings Not just enter user -  Next Steps T",
-    "calendar_context": "\ud83d\udcc5 UPCOMING: 2026-02-04 - Yazio | Reforge - Pilot",
-    "has_upcoming_meeting": true
-  },
-  {
-    "type": "sequence_ended_no_response",
-    "priority": "low",
-    "contact_id": "194596678788",
-    "contact": "Lucas Moore (Workana)",
-    "email": "lucas@workana.com",
-    "company": "Workana",
-    "signal": "Sequence '295183182' ended 13 days ago, no response",
-    "question": "Lucas Moore (Workana) finished sequence without responding - next?",
-    "options": [
-      "Manual outreach",
-      "Different sequence",
-      "Nurture list",
-      "Close out"
-    ],
-    "context": {
-      "sequence": "295183182",
-      "sequence_ended": "2026-01-20 06:00"
-    },
-    "deal_value": 0,
-    "calendar_context": "\ud83d\udcc5 MEETING: 2026-02-06 - work hard play hard - company wide geoguesser tournament",
-    "has_upcoming_meeting": true
-  },
-  {
-    "type": "sequence_ended_no_response",
-    "priority": "low",
-    "contact_id": "197576591959",
-    "contact": "Ren Carolino (Canon Press)",
-    "email": "ren@canonpress.com",
-    "company": "Canon Press",
-    "signal": "Sequence '270879143' ended 4 days ago, no response",
-    "question": "Ren Carolino (Canon Press) finished sequence without responding - next?",
-    "options": [
-      "Manual outreach",
-      "Different sequence",
-      "Nurture list",
-      "Close out"
-    ],
-    "context": {
-      "sequence": "270879143",
-      "sequence_ended": "2026-01-29 15:00"
-    },
-    "deal_value": 0.0,
-    "calendar_context": "\ud83d\udcc5 UPCOMING: 2026-02-02 - Canon Press: Reforge",
-    "has_upcoming_meeting": true
-  },
-  {
-    "type": "sequence_ended_no_response",
-    "priority": "low",
-    "contact_id": "194336857187",
-    "contact": "Ari Balducci (Workana)",
-    "email": "ariel.balducci@workana.com",
-    "company": "Workana",
-    "signal": "Sequence '295183182' ended 14 days ago, no response",
-    "question": "Ari Balducci (Workana) finished sequence without responding - next?",
-    "options": [
-      "Manual outreach",
-      "Different sequence",
-      "Nurture list",
-      "Close out"
-    ],
-    "context": {
-      "sequence": "295183182",
-      "sequence_ended": "2026-01-19 13:09"
-    },
-    "deal_value": 0,
-    "calendar_context": "\ud83d\udcc5 MEETING: 2026-02-06 - work hard play hard - company wide geoguesser tournament",
-    "has_upcoming_meeting": true
-  },
-  {
-    "type": "stalled_deal",
-    "priority": "high",
     "contact_id": "154916130738",
     "contact": "Garrett Edel (EvenUp)",
     "email": "garrett.edel@evenuplaw.com",
@@ -513,6 +299,188 @@
     },
     "deal_value": 10000.0,
     "packet_context": "Use JPD for research tools Transitioning to JPD premium Looking for something to add Roll out for March Talking to two other product discovery tools JPD Roadmapping Doing pretty much everything Were using Monday SFDC & Jira integrations were lacking Atlassian ecosystem Its fine for roadmapping, feature, public roadmap PMs have to go tpe up a insight and tie it to a specific feature request They have PMs - tons of data Call data, support ticket, transcripts, slacks Co-mingled product set PMs for "
+  },
+  {
+    "type": "no_show_pattern",
+    "priority": "medium",
+    "contact_id": "117071701",
+    "contact": "Arthur Muradyan (Muse Group)",
+    "email": "arthur.muradyann@gmail.com",
+    "company": "Muse Group",
+    "signal": "Registered 2x, attended 1x (50% no-show rate)",
+    "question": "Arthur Muradyan (Muse Group) has pattern of not showing up - different approach?",
+    "options": [
+      "Call instead of meeting",
+      "Send reminder sequence",
+      "Try different time",
+      "Deprioritize"
+    ],
+    "context": {
+      "registrations": 2,
+      "attended": 1,
+      "last_meeting": "2024-02-27 16:15"
+    },
+    "deal_value": 15000.0,
+    "packet_context": "Tab 1 Current process for feedback Support team - monitoring store reviews/tickets Research team - surveys, NPS,  Not on every product - flagship ultimate muse score Monitor it Accurate Takes more time than they would like it to Usertesting Qualitative answers on deep questions Pay rewards for participating Promo code,  Limit the amount of interviews by 20 - 50 Need to know who finished these interviews  Can we auto shut off when people hit x amount 1000 rewards Today Segment, 8-12 people Small "
+  },
+  {
+    "type": "no_show_pattern",
+    "priority": "medium",
+    "contact_id": "50626668379",
+    "contact": "Roma Ivashkevich (Muse Group)",
+    "email": "r.ivashkevich@mu.se",
+    "company": "Muse Group",
+    "signal": "Registered 2x, attended 1x (50% no-show rate)",
+    "question": "Roma Ivashkevich (Muse Group) has pattern of not showing up - different approach?",
+    "options": [
+      "Call instead of meeting",
+      "Send reminder sequence",
+      "Try different time",
+      "Deprioritize"
+    ],
+    "context": {
+      "registrations": 2,
+      "attended": 1,
+      "last_meeting": ""
+    },
+    "deal_value": 15000.0,
+    "packet_context": "Tab 1 Current process for feedback Support team - monitoring store reviews/tickets Research team - surveys, NPS,  Not on every product - flagship ultimate muse score Monitor it Accurate Takes more time than they would like it to Usertesting Qualitative answers on deep questions Pay rewards for participating Promo code,  Limit the amount of interviews by 20 - 50 Need to know who finished these interviews  Can we auto shut off when people hit x amount 1000 rewards Today Segment, 8-12 people Small "
+  },
+  {
+    "type": "no_show_pattern",
+    "priority": "medium",
+    "contact_id": "28088401",
+    "contact": "Roman Kislenok (Muse Group)",
+    "email": "kislenok.roman@gmail.com",
+    "company": "Muse Group",
+    "signal": "Registered 2x, attended 0x (100% no-show rate)",
+    "question": "Roman Kislenok (Muse Group) has pattern of not showing up - different approach?",
+    "options": [
+      "Call instead of meeting",
+      "Send reminder sequence",
+      "Try different time",
+      "Deprioritize"
+    ],
+    "context": {
+      "registrations": 2,
+      "attended": 0,
+      "last_meeting": ""
+    },
+    "deal_value": 15000.0,
+    "packet_context": "Tab 1 Current process for feedback Support team - monitoring store reviews/tickets Research team - surveys, NPS,  Not on every product - flagship ultimate muse score Monitor it Accurate Takes more time than they would like it to Usertesting Qualitative answers on deep questions Pay rewards for participating Promo code,  Limit the amount of interviews by 20 - 50 Need to know who finished these interviews  Can we auto shut off when people hit x amount 1000 rewards Today Segment, 8-12 people Small "
+  },
+  {
+    "type": "stalled_deal",
+    "priority": "medium",
+    "contact_id": "157965142819",
+    "contact": "Dhanish Athif (LottieFiles)",
+    "email": "dhanish@lottiefiles.com",
+    "company": "LottieFiles",
+    "signal": "Has 1 open deal(s), no activity in 20 days",
+    "question": "Dhanish Athif (LottieFiles) has gone quiet on active deal - re-engage?",
+    "options": [
+      "Re-engage now",
+      "Try different contact",
+      "Deprioritize",
+      "Close lost"
+    ],
+    "context": {
+      "last_activity": "2026-01-13 11:12",
+      "open_deals": 1,
+      "deal_ids": "44432314497"
+    },
+    "deal_value": 10000.0,
+    "packet_context": "Malaysia Food Nature Danish Make sure product team has their eye on quantitative data Growth marketer for 7 years LottieFiles - 10,000 new users signing up per day Ecosystem of solutions Feedback Reviews Sometimes they miss feedback Much earlier stage Stack ZenDesk - support tickets - majority HubSpot - Enterprise customers Companies of a certain size / volume Typeforms all over tools Feature requests Danish summarizes everything - turns into a report - AI helps - quite manually Volume Every two",
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-13 - Tie x Reforge | Onboarding"
+  },
+  {
+    "type": "sequence_ended_no_response",
+    "priority": "low",
+    "contact_id": "116452572205",
+    "contact": "Steven Loncle (WeTravel)",
+    "email": "steven.loncle@wetravel.com",
+    "company": "WeTravel",
+    "signal": "Sequence '298505034' ended 6 days ago, no response",
+    "question": "Steven Loncle (WeTravel) finished sequence without responding - next?",
+    "options": [
+      "Manual outreach",
+      "Different sequence",
+      "Nurture list",
+      "Close out"
+    ],
+    "context": {
+      "sequence": "298505034",
+      "sequence_ended": "2026-01-27 08:32"
+    },
+    "deal_value": 15000.0
+  },
+  {
+    "type": "sequence_ended_no_response",
+    "priority": "low",
+    "contact_id": "151011426157",
+    "contact": "Li Ching H (LottieFiles)",
+    "email": "lichinghoe1994@gmail.com",
+    "company": "LottieFiles",
+    "signal": "Sequence '299349679' ended 4 days ago, no response",
+    "question": "Li Ching H (LottieFiles) finished sequence without responding - next?",
+    "options": [
+      "Manual outreach",
+      "Different sequence",
+      "Nurture list",
+      "Close out"
+    ],
+    "context": {
+      "sequence": "299349679",
+      "sequence_ended": "2026-01-29 21:58"
+    },
+    "deal_value": 10000.0,
+    "packet_context": "Malaysia Food Nature Danish Make sure product team has their eye on quantitative data Growth marketer for 7 years LottieFiles - 10,000 new users signing up per day Ecosystem of solutions Feedback Reviews Sometimes they miss feedback Much earlier stage Stack ZenDesk - support tickets - majority HubSpot - Enterprise customers Companies of a certain size / volume Typeforms all over tools Feature requests Danish summarizes everything - turns into a report - AI helps - quite manually Volume Every two",
+    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-13 - Tie x Reforge | Onboarding"
+  },
+  {
+    "type": "sequence_ended_no_response",
+    "priority": "low",
+    "contact_id": "79833052",
+    "contact": "Shea Kusiak (Join)",
+    "email": "shea@join.build",
+    "company": "Join",
+    "signal": "Sequence '298238743' ended 10 days ago, no response",
+    "question": "Shea Kusiak (Join) finished sequence without responding - next?",
+    "options": [
+      "Manual outreach",
+      "Different sequence",
+      "Nurture list",
+      "Close out"
+    ],
+    "context": {
+      "sequence": "298238743",
+      "sequence_ended": "2026-01-23 15:19"
+    },
+    "deal_value": 10000.0
+  },
+  {
+    "type": "stalled_deal",
+    "priority": "high",
+    "contact_id": "62217486908",
+    "contact": "Adam Basilio (Workhuman)",
+    "email": "adam.basilio@workhuman.com",
+    "company": "Workhuman",
+    "signal": "Has 1 open deal(s), no activity in 103 days",
+    "question": "Adam Basilio (Workhuman) has gone quiet on active deal - re-engage?",
+    "options": [
+      "Re-engage now",
+      "Try different contact",
+      "Deprioritize",
+      "Close lost"
+    ],
+    "context": {
+      "last_activity": "2025-10-22 08:50",
+      "open_deals": 1,
+      "deal_ids": "39613811888"
+    },
+    "deal_value": 10000.0,
+    "calendar_context": "\ud83d\udcc5 MEETING: 2026-02-06 - work hard play hard - company wide geoguesser tournament",
+    "has_upcoming_meeting": true
   },
   {
     "type": "stalled_deal",
@@ -2873,99 +2841,6 @@
     "deal_value": 0
   },
   {
-    "type": "no_show_pattern",
-    "priority": "medium",
-    "contact_id": "117071701",
-    "contact": "Arthur Muradyan (Muse Group)",
-    "email": "arthur.muradyann@gmail.com",
-    "company": "Muse Group",
-    "signal": "Registered 2x, attended 1x (50% no-show rate)",
-    "question": "Arthur Muradyan (Muse Group) has pattern of not showing up - different approach?",
-    "options": [
-      "Call instead of meeting",
-      "Send reminder sequence",
-      "Try different time",
-      "Deprioritize"
-    ],
-    "context": {
-      "registrations": 2,
-      "attended": 1,
-      "last_meeting": "2024-02-27 16:15"
-    },
-    "deal_value": 15000.0,
-    "packet_context": "Tab 1 Current process for feedback Support team - monitoring store reviews/tickets Research team - surveys, NPS,  Not on every product - flagship ultimate muse score Monitor it Accurate Takes more time than they would like it to Usertesting Qualitative answers on deep questions Pay rewards for participating Promo code,  Limit the amount of interviews by 20 - 50 Need to know who finished these interviews  Can we auto shut off when people hit x amount 1000 rewards Today Segment, 8-12 people Small "
-  },
-  {
-    "type": "no_show_pattern",
-    "priority": "medium",
-    "contact_id": "50626668379",
-    "contact": "Roma Ivashkevich (Muse Group)",
-    "email": "r.ivashkevich@mu.se",
-    "company": "Muse Group",
-    "signal": "Registered 2x, attended 1x (50% no-show rate)",
-    "question": "Roma Ivashkevich (Muse Group) has pattern of not showing up - different approach?",
-    "options": [
-      "Call instead of meeting",
-      "Send reminder sequence",
-      "Try different time",
-      "Deprioritize"
-    ],
-    "context": {
-      "registrations": 2,
-      "attended": 1,
-      "last_meeting": ""
-    },
-    "deal_value": 15000.0,
-    "packet_context": "Tab 1 Current process for feedback Support team - monitoring store reviews/tickets Research team - surveys, NPS,  Not on every product - flagship ultimate muse score Monitor it Accurate Takes more time than they would like it to Usertesting Qualitative answers on deep questions Pay rewards for participating Promo code,  Limit the amount of interviews by 20 - 50 Need to know who finished these interviews  Can we auto shut off when people hit x amount 1000 rewards Today Segment, 8-12 people Small "
-  },
-  {
-    "type": "no_show_pattern",
-    "priority": "medium",
-    "contact_id": "28088401",
-    "contact": "Roman Kislenok (Muse Group)",
-    "email": "kislenok.roman@gmail.com",
-    "company": "Muse Group",
-    "signal": "Registered 2x, attended 0x (100% no-show rate)",
-    "question": "Roman Kislenok (Muse Group) has pattern of not showing up - different approach?",
-    "options": [
-      "Call instead of meeting",
-      "Send reminder sequence",
-      "Try different time",
-      "Deprioritize"
-    ],
-    "context": {
-      "registrations": 2,
-      "attended": 0,
-      "last_meeting": ""
-    },
-    "deal_value": 15000.0,
-    "packet_context": "Tab 1 Current process for feedback Support team - monitoring store reviews/tickets Research team - surveys, NPS,  Not on every product - flagship ultimate muse score Monitor it Accurate Takes more time than they would like it to Usertesting Qualitative answers on deep questions Pay rewards for participating Promo code,  Limit the amount of interviews by 20 - 50 Need to know who finished these interviews  Can we auto shut off when people hit x amount 1000 rewards Today Segment, 8-12 people Small "
-  },
-  {
-    "type": "stalled_deal",
-    "priority": "medium",
-    "contact_id": "157965142819",
-    "contact": "Dhanish Athif (LottieFiles)",
-    "email": "dhanish@lottiefiles.com",
-    "company": "LottieFiles",
-    "signal": "Has 1 open deal(s), no activity in 20 days",
-    "question": "Dhanish Athif (LottieFiles) has gone quiet on active deal - re-engage?",
-    "options": [
-      "Re-engage now",
-      "Try different contact",
-      "Deprioritize",
-      "Close lost"
-    ],
-    "context": {
-      "last_activity": "2026-01-13 11:12",
-      "open_deals": 1,
-      "deal_ids": "44432314497"
-    },
-    "deal_value": 10000.0,
-    "packet_context": "Malaysia Food Nature Danish Make sure product team has their eye on quantitative data Growth marketer for 7 years LottieFiles - 10,000 new users signing up per day Ecosystem of solutions Feedback Reviews Sometimes they miss feedback Much earlier stage Stack ZenDesk - support tickets - majority HubSpot - Enterprise customers Companies of a certain size / volume Typeforms all over tools Feature requests Danish summarizes everything - turns into a report - AI helps - quite manually Volume Every two",
-    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-13 - Tie x Reforge | Onboarding"
-  },
-  {
     "type": "stalled_deal",
     "priority": "medium",
     "contact_id": "157256881680",
@@ -3591,71 +3466,6 @@
       "activity_l7": "1.0"
     },
     "deal_value": 0
-  },
-  {
-    "type": "sequence_ended_no_response",
-    "priority": "low",
-    "contact_id": "116452572205",
-    "contact": "Steven Loncle (WeTravel)",
-    "email": "steven.loncle@wetravel.com",
-    "company": "WeTravel",
-    "signal": "Sequence '298505034' ended 6 days ago, no response",
-    "question": "Steven Loncle (WeTravel) finished sequence without responding - next?",
-    "options": [
-      "Manual outreach",
-      "Different sequence",
-      "Nurture list",
-      "Close out"
-    ],
-    "context": {
-      "sequence": "298505034",
-      "sequence_ended": "2026-01-27 08:32"
-    },
-    "deal_value": 15000.0
-  },
-  {
-    "type": "sequence_ended_no_response",
-    "priority": "low",
-    "contact_id": "151011426157",
-    "contact": "Li Ching H (LottieFiles)",
-    "email": "lichinghoe1994@gmail.com",
-    "company": "LottieFiles",
-    "signal": "Sequence '299349679' ended 4 days ago, no response",
-    "question": "Li Ching H (LottieFiles) finished sequence without responding - next?",
-    "options": [
-      "Manual outreach",
-      "Different sequence",
-      "Nurture list",
-      "Close out"
-    ],
-    "context": {
-      "sequence": "299349679",
-      "sequence_ended": "2026-01-29 21:58"
-    },
-    "deal_value": 10000.0,
-    "packet_context": "Malaysia Food Nature Danish Make sure product team has their eye on quantitative data Growth marketer for 7 years LottieFiles - 10,000 new users signing up per day Ecosystem of solutions Feedback Reviews Sometimes they miss feedback Much earlier stage Stack ZenDesk - support tickets - majority HubSpot - Enterprise customers Companies of a certain size / volume Typeforms all over tools Feature requests Danish summarizes everything - turns into a report - AI helps - quite manually Volume Every two",
-    "calendar_context": "\ud83d\udcc5 Last meeting: 2026-01-13 - Tie x Reforge | Onboarding"
-  },
-  {
-    "type": "sequence_ended_no_response",
-    "priority": "low",
-    "contact_id": "79833052",
-    "contact": "Shea Kusiak (Join)",
-    "email": "shea@join.build",
-    "company": "Join",
-    "signal": "Sequence '298238743' ended 10 days ago, no response",
-    "question": "Shea Kusiak (Join) finished sequence without responding - next?",
-    "options": [
-      "Manual outreach",
-      "Different sequence",
-      "Nurture list",
-      "Close out"
-    ],
-    "context": {
-      "sequence": "298238743",
-      "sequence_ended": "2026-01-23 15:19"
-    },
-    "deal_value": 10000.0
   },
   {
     "type": "sequence_ended_no_response",
@@ -6986,5 +6796,195 @@
       "sequence_ended": "2026-01-29 12:03"
     },
     "deal_value": 0
+  },
+  {
+    "type": "pricing_visit_no_followup",
+    "priority": "high",
+    "contact_id": "198143870835",
+    "contact": "Anusha K. (WithGrowth)",
+    "email": "anusha@withgrowth.me",
+    "company": "WithGrowth",
+    "signal": "Visited pricing page 2 day(s) ago",
+    "question": "Follow up with Anusha K. (WithGrowth)?",
+    "options": [
+      "Call now",
+      "Send email",
+      "Wait and monitor",
+      "Not a fit"
+    ],
+    "context": {
+      "pricing_visit": "2026-01-31",
+      "last_contacted": "",
+      "job_title": "Chief Product Officer"
+    },
+    "deal_value": 0.0,
+    "calendar_context": "\ud83d\udcc5 UPCOMING: 2026-02-03 - withgrowth: Reforge",
+    "has_upcoming_meeting": true
+  },
+  {
+    "type": "stalled_deal",
+    "priority": "high",
+    "contact_id": "64258201",
+    "contact": "Esteban Contreras (Fleetio)",
+    "email": "econtreras@fleetio.com",
+    "company": "Fleetio",
+    "signal": "Has 3 open deal(s), no activity in 104 days",
+    "question": "Esteban Contreras (Fleetio) has gone quiet on active deal - re-engage?",
+    "options": [
+      "Re-engage now",
+      "Try different contact",
+      "Deprioritize",
+      "Close lost"
+    ],
+    "context": {
+      "last_activity": "2025-10-21 11:03",
+      "open_deals": 3,
+      "deal_ids": "54630952034;54980080735;53946000271;32637467490;17001400215;16808325935;13423123545;12755745443"
+    },
+    "deal_value": 0.0,
+    "calendar_context": "\ud83d\udcc5 UPCOMING: 2026-02-06 - Fleetio: Reforge",
+    "has_upcoming_meeting": true
+  },
+  {
+    "type": "stalled_deal",
+    "priority": "high",
+    "contact_id": "19758901",
+    "contact": "Mauricio Andujar Tagle (Vivaldi Group)",
+    "email": "mandujar@vivaldigroup.com",
+    "company": "Vivaldi Group",
+    "signal": "Has 1 open deal(s), no activity in 62 days",
+    "question": "Mauricio Andujar Tagle (Vivaldi Group) has gone quiet on active deal - re-engage?",
+    "options": [
+      "Re-engage now",
+      "Try different contact",
+      "Deprioritize",
+      "Close lost"
+    ],
+    "context": {
+      "last_activity": "2025-12-02 13:28",
+      "open_deals": 1,
+      "deal_ids": "48895791656"
+    },
+    "deal_value": 0,
+    "packet_context": "Partner, Head of Latin America Global Consulting Firm - innovation/transformation Over past years - experience in defining growth strategies for their clients Innovation portfolio Early prototypes to test Moving prototypes to high fidelity Very familiar with Reforge Do you use a prototyping tool today? He\u2019s used Lovable Not today at Vivaldi - mostly designers / freelance Most work is growth strategy / innovation Prototypes to test digital services Extended network of freelancers Want to extend t",
+    "calendar_context": "\ud83d\udcc5 MEETING: 2026-02-02 - Aviva Canada x Reforge Build",
+    "has_upcoming_meeting": true
+  },
+  {
+    "type": "pricing_visit_no_followup",
+    "priority": "medium",
+    "contact_id": "197189922348",
+    "contact": "Tom Newton (Numan)",
+    "email": "tom.newton@numan.com",
+    "company": "Numan",
+    "signal": "Visited pricing page 4 day(s) ago",
+    "question": "Follow up with Tom Newton (Numan)?",
+    "options": [
+      "Call now",
+      "Send email",
+      "Wait and monitor",
+      "Not a fit"
+    ],
+    "context": {
+      "pricing_visit": "2026-01-29",
+      "last_contacted": "",
+      "job_title": ""
+    },
+    "deal_value": 0.0,
+    "calendar_context": "\ud83d\udcc5 UPCOMING: 2026-02-05 - Numan: Reforge",
+    "has_upcoming_meeting": true
+  },
+  {
+    "type": "sequence_ended_no_response",
+    "priority": "low",
+    "contact_id": "166434278782",
+    "contact": "Gr\u00e1inne O'Connell (Yazio)",
+    "email": "grainne.oconnell@yazio.com",
+    "company": "Yazio",
+    "signal": "Sequence '99928107' ended 11 days ago, no response",
+    "question": "Gr\u00e1inne O'Connell (Yazio) finished sequence without responding - next?",
+    "options": [
+      "Manual outreach",
+      "Different sequence",
+      "Nurture list",
+      "Close out"
+    ],
+    "context": {
+      "sequence": "99928107",
+      "sequence_ended": "2026-01-22 10:27"
+    },
+    "deal_value": 4800.0,
+    "packet_context": "Tab 1 Grainne Courses - have done them at different companies Looking at the Starter Pricing, contract length, live cohorts Kate Build and Research 2026: Become prototype driven Mindset, culture User insights, user feedbacks Dont have a strong discovery model Questions How can this link up with Omni Definition of insights is a little wooly - quantitative testing Insights Something you validate Put into a process - put into a roadmap At Yazio Different meanings Not just enter user -  Next Steps T",
+    "calendar_context": "\ud83d\udcc5 UPCOMING: 2026-02-04 - Yazio | Reforge - Pilot",
+    "has_upcoming_meeting": true
+  },
+  {
+    "type": "sequence_ended_no_response",
+    "priority": "low",
+    "contact_id": "194596678788",
+    "contact": "Lucas Moore (Workana)",
+    "email": "lucas@workana.com",
+    "company": "Workana",
+    "signal": "Sequence '295183182' ended 13 days ago, no response",
+    "question": "Lucas Moore (Workana) finished sequence without responding - next?",
+    "options": [
+      "Manual outreach",
+      "Different sequence",
+      "Nurture list",
+      "Close out"
+    ],
+    "context": {
+      "sequence": "295183182",
+      "sequence_ended": "2026-01-20 06:00"
+    },
+    "deal_value": 0,
+    "calendar_context": "\ud83d\udcc5 MEETING: 2026-02-06 - work hard play hard - company wide geoguesser tournament",
+    "has_upcoming_meeting": true
+  },
+  {
+    "type": "sequence_ended_no_response",
+    "priority": "low",
+    "contact_id": "197576591959",
+    "contact": "Ren Carolino (Canon Press)",
+    "email": "ren@canonpress.com",
+    "company": "Canon Press",
+    "signal": "Sequence '270879143' ended 4 days ago, no response",
+    "question": "Ren Carolino (Canon Press) finished sequence without responding - next?",
+    "options": [
+      "Manual outreach",
+      "Different sequence",
+      "Nurture list",
+      "Close out"
+    ],
+    "context": {
+      "sequence": "270879143",
+      "sequence_ended": "2026-01-29 15:00"
+    },
+    "deal_value": 0.0,
+    "calendar_context": "\ud83d\udcc5 UPCOMING: 2026-02-02 - Canon Press: Reforge",
+    "has_upcoming_meeting": true
+  },
+  {
+    "type": "sequence_ended_no_response",
+    "priority": "low",
+    "contact_id": "194336857187",
+    "contact": "Ari Balducci (Workana)",
+    "email": "ariel.balducci@workana.com",
+    "company": "Workana",
+    "signal": "Sequence '295183182' ended 14 days ago, no response",
+    "question": "Ari Balducci (Workana) finished sequence without responding - next?",
+    "options": [
+      "Manual outreach",
+      "Different sequence",
+      "Nurture list",
+      "Close out"
+    ],
+    "context": {
+      "sequence": "295183182",
+      "sequence_ended": "2026-01-19 13:09"
+    },
+    "deal_value": 0,
+    "calendar_context": "\ud83d\udcc5 MEETING: 2026-02-06 - work hard play hard - company wide geoguesser tournament",
+    "has_upcoming_meeting": true
   }
 ]
