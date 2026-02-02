@@ -10,7 +10,18 @@
       "author": "Henry",
       "timestamp": "2026-02-02T04:40:00Z",
       "details": {
-        "source": "Pew Charitable Trusts, NYT (Jan 2026)",
+        "source": "Pew Charitable Trusts",
+        "sourceUrl": "https://www.pew.org/en/research-and-analysis/articles/2026/01/15/uncertainty-surrounding-federal-disaster-funding-looms-over-state-budgets",
+        "additionalSources": [
+          {
+            "name": "Pew: What Waning Federal Aid Means for States",
+            "url": "https://www.pew.org/en/research-and-analysis/issue-briefs/2025/10/what-waning-federal-disaster-aid-would-mean-for-state-budgets"
+          },
+          {
+            "name": "Pew: How States Can Build Disaster-Ready Budgets",
+            "url": "https://www.pew.org/en/research-and-analysis/issue-briefs/2025/04/how-states-can-build-disaster-ready-budgets"
+          }
+        ],
         "keyFacts": [
           "$17 billion in FEMA aid to states currently held up by extra scrutiny",
           "States already facing delays, denials, or cancellations at every stage",
@@ -39,7 +50,22 @@
       "author": "Henry",
       "timestamp": "2026-02-02T04:10:00Z",
       "details": {
-        "source": "CNN Exclusive (Jan 1, 2026)",
+        "source": "CNN Exclusive",
+        "sourceUrl": "https://www.cnn.com/2026/01/01/politics/dhs-cutting-fema-disaster-response-staff",
+        "additionalSources": [
+          {
+            "name": "Common Dreams: 'New Year's Eve Massacre'",
+            "url": "https://www.commondreams.org/news/trump-administration-fema-cuts"
+          },
+          {
+            "name": "ABC17: DHS Slashing FEMA Staff",
+            "url": "https://abc17news.com/politics/national-politics/cnn-us-politics/2026/01/01/exclusive-dhs-begins-slashing-fema-disaster-response-staff-as-2026-begins/"
+          },
+          {
+            "name": "Truthout: FEMA Cuts Analysis",
+            "url": "https://truthout.org/articles/trump-administration-makes-deep-cuts-at-fema-as-climate-crisis-accelerates/"
+          }
+        ],
         "keyFacts": [
           "50+ CORE disaster response workers terminated on New Year's Eve",
           "CORE = 40% of FEMA workforce (~8,000 people), 'backbone of operations'",
@@ -66,7 +92,22 @@
       "author": "Henry",
       "timestamp": "2026-02-02T04:10:00Z",
       "details": {
-        "source": "The Hill, The Conversation (Jan 2026)",
+        "source": "The Hill",
+        "sourceUrl": "https://thehill.com/policy/technology/5667232-palantir-trump-administration-surveillance/",
+        "additionalSources": [
+          {
+            "name": "Fortune: Palantir USCIS Contract",
+            "url": "https://fortune.com/2025/12/09/palantir-new-contract-uscis-ice/"
+          },
+          {
+            "name": "American Immigration Council: ImmigrationOS",
+            "url": "https://www.americanimmigrationcouncil.org/blog/ice-immigrationos-palantir-ai-track-immigrants/"
+          },
+          {
+            "name": "USASpending: Palantir Contract Details",
+            "url": "https://www.usaspending.gov/award/CONT_AWD_70CTD022FR0000170_7012_GS35F0086U_4730"
+          }
+        ],
         "keyFacts": [
           "Federal contracts nearly doubled to $970.5 million in 2025",
           "ICE alone: $200M+ for Investigative Case Management",
@@ -97,7 +138,18 @@
       "author": "Henry",
       "timestamp": "2026-02-02T04:10:00Z",
       "details": {
-        "source": "GlobeNewswire Market Report (Jan 2026)",
+        "source": "GlobeNewswire Market Report",
+        "sourceUrl": "https://www.globenewswire.com/news-release/2026/01/20/3222046/28124/en/Homeland-Security-and-Emergency-Management-Market-Report-2026-1-110-Bn-Opportunities-Trends-Competitive-Landscape-Strategies-and-Forecasts-2020-2025-2025-2030F-2035F.html",
+        "additionalSources": [
+          {
+            "name": "Research and Markets: HS&EM Market 2025",
+            "url": "https://www.researchandmarkets.com/reports/5783067/homeland-security-emergency-management-market"
+          },
+          {
+            "name": "Mordor Intelligence: Market Analysis",
+            "url": "https://www.mordorintelligence.com/industry-reports/homeland-security-and-emergency-management-market"
+          }
+        ],
         "marketSize": "$1,110+ billion",
         "keyTrends": [
           "Integrated disaster response platforms",
@@ -120,6 +172,18 @@
       "author": "Henry",
       "timestamp": "2026-02-02T04:15:00Z",
       "details": {
+        "source": "Slack Platform Documentation",
+        "sourceUrl": "https://api.slack.com/automation/functions/custom-bolt",
+        "additionalSources": [
+          {
+            "name": "Slack Bolt JS Documentation",
+            "url": "https://slack.dev/bolt-js/"
+          },
+          {
+            "name": "Slack Workflow Steps",
+            "url": "https://api.slack.com/automation/functions"
+          }
+        ],
         "approach": "Bolt JS (self-hosted) over Deno SDK (Slack-hosted) - we already have Supabase edge functions",
         "customSteps": [
           "Create Need - form to log new resource need",
@@ -140,5 +204,5 @@
       }
     }
   ],
-  "lastUpdated": "2026-02-02T04:40:00Z"
+  "lastUpdated": "2026-02-02T05:00:00Z"
 }

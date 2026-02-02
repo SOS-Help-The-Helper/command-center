@@ -808,9 +808,22 @@
                 let detailsHtml = '';
                 
                 if (details.source) {
+                    let sourceHtml = details.sourceUrl 
+                        ? `<a href="${details.sourceUrl}" target="_blank" rel="noopener" style="color: var(--blue); text-decoration: none;">${details.source} ↗</a>`
+                        : details.source;
+                    
+                    // Add additional sources if present
+                    let additionalHtml = '';
+                    if (details.additionalSources?.length) {
+                        additionalHtml = '<div style="margin-top: 8px; font-size: 0.8rem;">' +
+                            details.additionalSources.map(s => 
+                                `<a href="${s.url}" target="_blank" rel="noopener" style="color: var(--text-secondary); text-decoration: none; display: block; margin-top: 4px;">${s.name} ↗</a>`
+                            ).join('') + '</div>';
+                    }
+                    
                     detailsHtml += `<div class="feed-section">
-                        <div class="feed-section-title">Source</div>
-                        <div style="font-size: 0.875rem; color: var(--text-secondary);">${details.source}</div>
+                        <div class="feed-section-title">Sources</div>
+                        <div style="font-size: 0.875rem;">${sourceHtml}${additionalHtml}</div>
                     </div>`;
                 }
                 
