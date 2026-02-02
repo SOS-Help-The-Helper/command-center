@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-02T17:40:00Z",
+  "lastUpdated": "2026-02-02T17:42:00Z",
   "updatedBy": "Henry",
   "description": "Reforge pipeline intelligence signals - updated 3x daily by intel agent",
   
@@ -35,8 +35,63 @@
     {"company": "Muse", "deal_size": null, "status": "Could be massive", "priority": "medium"}
   ],
   
-  "signals": [],
+  "signals": [
+    {
+      "timestamp": "2026-02-02T17:42:00Z",
+      "type": "funding",
+      "company": "EvenUp",
+      "priority": "🔥 HIGH",
+      "summary": "$150M Series E at $2B valuation (Oct 2025). Platform volume doubled to 10K cases/week. Legal tech funding at record high 2025. HOT COMPANY.",
+      "source": "Crunchbase, Bloomberg Law",
+      "action": "Push for close - they have budget and momentum"
+    },
+    {
+      "timestamp": "2026-02-02T17:42:00Z",
+      "type": "risk",
+      "company": "Neo Financial",
+      "priority": "⚠️ CAUTION",
+      "summary": "Despite $360M Series D (Nov 2024), multiple layoff allegations (Mar 2025 Reddit, Glassdoor). 'Soft layoffs' reported. Government grant closing Mar 2025.",
+      "source": "BetaKit, Reddit r/Winnipeg, Winnipeg Free Press",
+      "action": "Validate budget still exists. Ask about team stability."
+    },
+    {
+      "timestamp": "2026-02-02T17:42:00Z",
+      "type": "acquisition",
+      "company": "Ecovadis",
+      "priority": "📋 INFO",
+      "summary": "Acquired by Ecotrek (per Tracxn). $732M total funding, $1B valuation. Sustainability leader.",
+      "source": "Tracxn",
+      "action": "Confirm acquisition doesn't affect buying timeline"
+    },
+    {
+      "timestamp": "2026-02-02T17:42:00Z",
+      "type": "strategic",
+      "company": "Fox Local",
+      "priority": "📋 INFO",
+      "summary": "Fox Corporation launching FOX One streaming service (Aug 2025) - consolidating content strategy across Fox properties.",
+      "source": "LiveNOW from FOX",
+      "action": "May affect Fox Local's budget/priorities. Confirm with contact."
+    },
+    {
+      "timestamp": "2026-02-02T17:42:00Z",
+      "type": "expansion",
+      "company": "DreamHost",
+      "priority": "✅ POSITIVE",
+      "summary": "New data center facility announced (Feb 2025). Active marketing campaigns. WordCamp US 2026 presence confirmed.",
+      "source": "DreamHost News",
+      "action": "Company investing in growth - good sign for deal"
+    },
+    {
+      "timestamp": "2026-02-02T17:42:00Z",
+      "type": "quiet",
+      "company": "Muse (InteraXon)",
+      "priority": "📋 INFO",
+      "summary": "No recent funding since $9.5M Series C (Aug 2022). $39.3M total raised. Still active but no major news.",
+      "source": "TechCrunch, PitchBook",
+      "action": "May have budget constraints. Qualify carefully."
+    }
+  ],
   
-  "lastIntelRun": null,
+  "lastIntelRun": "2026-02-02T17:42:00Z",
   "nextScheduledRun": "2026-02-03T14:00:00Z"
 }
