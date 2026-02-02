@@ -1,0 +1,42 @@
+{
+  "lastUpdated": "2026-02-02T17:40:00Z",
+  "updatedBy": "Henry",
+  "description": "Reforge pipeline intelligence signals - updated 3x daily by intel agent",
+  
+  "signalTypes": {
+    "email": {
+      "description": "Deal replies, meeting confirmations, objections from prospects",
+      "frequency": "3x daily (9am, 12pm, 5pm EST)",
+      "source": "jonathan@harmonystrategy.com"
+    },
+    "company_news": {
+      "description": "Funding rounds, acquisitions, leadership changes, layoffs",
+      "frequency": "3x daily",
+      "source": "Web search on active pipeline + Grunt leads"
+    },
+    "hiring_signals": {
+      "description": "Job postings indicating growth/investment in product/growth teams",
+      "frequency": "3x daily",
+      "source": "LinkedIn, company careers pages"
+    },
+    "competitive_moves": {
+      "description": "Competitor wins/losses, market positioning changes",
+      "frequency": "3x daily",
+      "source": "Web search, industry news"
+    }
+  },
+  
+  "activePipeline": [
+    {"company": "Ecovadis", "deal_size": 18000, "status": "Pilot starting", "priority": "high"},
+    {"company": "Neo Financial", "deal_size": 60000, "status": "Pricing discussion", "priority": "high"},
+    {"company": "Fox Local", "deal_size": 27000, "status": "Budget approval pending", "priority": "high"},
+    {"company": "DreamHost", "deal_size": 25000, "status": "In pilot", "priority": "high"},
+    {"company": "EvenUp", "deal_size": 35000, "status": "Active", "priority": "medium"},
+    {"company": "Muse", "deal_size": null, "status": "Could be massive", "priority": "medium"}
+  ],
+  
+  "signals": [],
+  
+  "lastIntelRun": null,
+  "nextScheduledRun": "2026-02-03T14:00:00Z"
+}
