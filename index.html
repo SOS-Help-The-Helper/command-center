@@ -25,11 +25,7 @@
             --purple: #8b5cf6;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
@@ -43,7 +39,7 @@
         header {
             background: var(--bg-secondary);
             border-bottom: 1px solid var(--card-border);
-            padding: 16px 24px;
+            padding: 12px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -70,6 +66,49 @@
             align-items: center;
             justify-content: center;
             font-size: 18px;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            display: flex;
+            gap: 4px;
+            background: var(--card-bg);
+            padding: 4px;
+            border-radius: 10px;
+        }
+
+        .nav-tab {
+            padding: 8px 20px;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-tab:hover {
+            color: var(--text);
+            background: var(--card-hover);
+        }
+
+        .nav-tab.active {
+            background: var(--green);
+            color: var(--text);
+        }
+
+        .nav-tab .badge {
+            background: var(--red-light);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: 600;
         }
 
         .header-right {
@@ -107,66 +146,41 @@
             padding: 24px;
         }
 
-        /* Project cards */
-        .projects-grid {
+        /* Page views */
+        .page { display: none; }
+        .page.active { display: block; }
+
+        /* Metrics bar */
+        .metrics-bar {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 16px;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
 
-        .project-card {
+        .metric-card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 12px;
-            padding: 20px;
-            cursor: pointer;
-            transition: all 0.2s;
+            padding: 16px;
         }
 
-        .project-card:hover {
-            background: var(--card-hover);
-            border-color: var(--green);
-            transform: translateY(-2px);
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
         }
 
-        .project-card.active {
-            border-color: var(--green-bright);
-            box-shadow: 0 0 20px var(--green-glow);
-        }
-
-        .project-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .project-icon {
+        .metric-value {
             font-size: 1.5rem;
+            font-weight: 700;
         }
 
-        .project-name {
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .project-stats {
-            display: flex;
-            gap: 12px;
-            font-size: 0.8125rem;
-        }
-
-        .stat {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .stat.p0 { color: var(--red-light); }
-        .stat.p1 { color: var(--gold); }
-        .stat.p2 { color: var(--text-secondary); }
-        .stat.done { color: var(--green-bright); }
+        .metric-value.positive { color: var(--green-bright); }
+        .metric-value.warning { color: var(--gold); }
+        .metric-value.danger { color: var(--red-light); }
 
         /* Section headers */
         .section-header {
@@ -221,6 +235,7 @@
             display: flex;
             gap: 8px;
             margin-bottom: 16px;
+            flex-wrap: wrap;
         }
 
         .filter-tab {
@@ -244,6 +259,55 @@
             border-color: var(--green);
             color: var(--text);
         }
+
+        /* Project cards */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .project-card:hover {
+            background: var(--card-hover);
+            border-color: var(--green);
+            transform: translateY(-2px);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .project-icon { font-size: 1.5rem; }
+        .project-name { font-weight: 600; font-size: 1rem; }
+
+        .project-stats {
+            display: flex;
+            gap: 12px;
+            font-size: 0.8125rem;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .stat.p0 { color: var(--red-light); }
+        .stat.p1 { color: var(--gold); }
+        .stat.done { color: var(--green-bright); }
 
         /* Task list */
         .task-list {
@@ -281,272 +345,111 @@
             transition: all 0.2s;
         }
 
-        .task-item:hover .task-checkbox {
-            border-color: var(--green);
-        }
-
-        .task-item.done .task-checkbox {
-            background: var(--green);
-            border-color: var(--green);
-        }
-
-        .task-item.done .task-checkbox::after {
-            content: '✓';
-            color: white;
-            font-size: 12px;
-        }
+        .task-item:hover .task-checkbox { border-color: var(--green); }
+        .task-item.done .task-checkbox { background: var(--green); border-color: var(--green); }
+        .task-item.done .task-checkbox::after { content: '✓'; color: white; font-size: 12px; }
 
         .task-priority {
             padding: 2px 8px;
             border-radius: 4px;
             font-size: 0.6875rem;
             font-weight: 700;
-            flex-shrink: 0;
+            text-transform: uppercase;
         }
 
         .task-priority.P0 { background: var(--red); color: white; }
-        .task-priority.P1 { background: var(--gold); color: black; }
+        .task-priority.P1 { background: var(--gold); color: #1a1a1a; }
         .task-priority.P2 { background: var(--card-border); color: var(--text-secondary); }
-        .task-priority.P3 { background: transparent; color: var(--text-dim); border: 1px solid var(--card-border); }
 
-        .task-content {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .task-title {
-            font-size: 0.9375rem;
-            font-weight: 500;
-            margin-bottom: 2px;
-        }
-
-        .task-item.done .task-title {
-            text-decoration: line-through;
-            color: var(--text-dim);
-        }
+        .task-content { flex: 1; min-width: 0; }
+        .task-title { font-weight: 500; margin-bottom: 2px; }
 
         .task-meta {
             display: flex;
             gap: 12px;
             font-size: 0.75rem;
-            color: var(--text-dim);
+            color: var(--text-secondary);
         }
 
         .task-project {
-            padding: 2px 8px;
-            background: var(--bg);
+            padding: 2px 6px;
             border-radius: 4px;
-            font-size: 0.6875rem;
-            font-weight: 600;
+            font-size: 0.625rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
-        .task-project.sos { color: var(--green-bright); }
-        .task-project.reforge { color: var(--blue); }
-        .task-project.harmony { color: var(--gold); }
-        .task-project.grunt { color: var(--green-light); }
-        .task-project.context_graph { color: var(--purple); }
+        .task-project.sos { background: rgba(92, 184, 92, 0.2); color: var(--green-bright); }
+        .task-project.reforge { background: rgba(74, 144, 212, 0.2); color: var(--blue); }
+        .task-project.harmony { background: rgba(212, 165, 48, 0.2); color: var(--gold); }
 
         .task-assignee {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .assignee-avatar {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
+            width: 28px;
+            height: 28px;
             background: var(--green);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
-        }
-
-        /* Metrics bar */
-        .metrics-bar {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-
-        .metric-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            padding: 16px;
-        }
-
-        .metric-label {
-            font-size: 0.75rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
-        }
-
-        .metric-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .metric-value.positive { color: var(--green-bright); }
-        .metric-value.warning { color: var(--gold); }
-        .metric-value.negative { color: var(--red-light); }
-
-        /* Project detail view */
-        .project-detail {
-            display: none;
-        }
-
-        .project-detail.active {
-            display: block;
-        }
-
-        .back-btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            margin-bottom: 16px;
-            cursor: pointer;
-        }
-
-        .back-btn:hover {
-            color: var(--green-bright);
-        }
-
-        /* Pipeline table */
-        .pipeline-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .pipeline-table th,
-        .pipeline-table td {
-            padding: 12px 16px;
-            text-align: left;
-            border-bottom: 1px solid var(--card-border);
-        }
-
-        .pipeline-table th {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--text-dim);
-            background: var(--bg-secondary);
-        }
-
-        .pipeline-table tr:hover {
-            background: var(--card-hover);
-        }
-
-        .deal-amount {
-            font-weight: 600;
-            color: var(--green-bright);
+            font-size: 12px;
+            flex-shrink: 0;
         }
 
         /* Intelligence Feed */
         .feed-container {
-            margin-bottom: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .feed-card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 12px;
-            margin-bottom: 12px;
             overflow: hidden;
             transition: all 0.2s;
         }
 
-        .feed-card:hover {
-            border-color: var(--green);
-        }
-
-        .feed-card.expanded {
-            border-color: var(--green-bright);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-        }
+        .feed-card:hover { border-color: var(--green); }
 
         .feed-header {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
+            gap: 16px;
             padding: 16px 20px;
             cursor: pointer;
         }
 
         .feed-icon {
-            font-size: 1.75rem;
-            line-height: 1;
+            font-size: 1.5rem;
             flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--card-hover);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .feed-content {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .feed-title {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-            line-height: 1.3;
-        }
-
-        .feed-summary {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
+        .feed-content { flex: 1; min-width: 0; }
+        .feed-title { font-weight: 600; font-size: 1rem; margin-bottom: 4px; }
+        .feed-summary { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; }
 
         .feed-meta {
             display: flex;
             align-items: center;
             gap: 12px;
             margin-top: 8px;
-        }
-
-        .feed-time {
-            font-size: 0.75rem;
-            color: var(--text-dim);
-        }
-
-        .feed-author {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            font-size: 0.75rem;
-            color: var(--text-dim);
-        }
-
-        .feed-author-avatar {
-            width: 16px;
-            height: 16px;
-            background: var(--green);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 9px;
-        }
-
-        .feed-tags {
-            display: flex;
-            gap: 6px;
             flex-wrap: wrap;
         }
 
+        .feed-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+
         .feed-tag {
-            padding: 2px 8px;
-            background: var(--bg);
+            padding: 3px 8px;
             border-radius: 4px;
+            background: var(--card-hover);
             font-size: 0.6875rem;
             font-weight: 600;
             text-transform: uppercase;
@@ -559,8 +462,31 @@
         .feed-tag.market { color: var(--blue); }
         .feed-tag.technical { color: var(--purple); }
         .feed-tag.palantir { color: var(--red-light); }
-        .feed-tag.slack { color: #4a154b; }
         .feed-tag.sos { color: var(--green-bright); }
+        .feed-tag.reforge { color: var(--blue); }
+        .feed-tag.harmony { color: var(--gold); }
+
+        .feed-author {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .feed-author-avatar {
+            width: 20px;
+            height: 20px;
+            background: var(--green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: white;
+        }
+
+        .feed-time { font-size: 0.75rem; color: var(--text-dim); }
 
         .feed-expand-icon {
             color: var(--text-dim);
@@ -568,24 +494,17 @@
             flex-shrink: 0;
         }
 
-        .feed-card.expanded .feed-expand-icon {
-            transform: rotate(180deg);
-        }
+        .feed-card.expanded .feed-expand-icon { transform: rotate(180deg); }
 
         .feed-details {
             display: none;
             padding: 0 20px 20px;
             border-top: 1px solid var(--card-border);
-            margin-top: 0;
         }
 
-        .feed-card.expanded .feed-details {
-            display: block;
-        }
+        .feed-card.expanded .feed-details { display: block; }
 
-        .feed-section {
-            margin-top: 16px;
-        }
+        .feed-section { margin-top: 16px; }
 
         .feed-section-title {
             font-size: 0.6875rem;
@@ -596,17 +515,8 @@
             margin-bottom: 8px;
         }
 
-        .feed-section ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-
-        .feed-section li {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin-bottom: 4px;
-            line-height: 1.5;
-        }
+        .feed-section ul { margin: 0; padding-left: 20px; }
+        .feed-section li { font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 4px; }
 
         .feed-quote {
             border-left: 3px solid var(--green);
@@ -642,21 +552,70 @@
             margin-top: 16px;
             padding-top: 16px;
             border-top: 1px solid var(--card-border);
+            flex-wrap: wrap;
         }
+
+        /* Costs page */
+        .costs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .cost-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .cost-card h3 {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cost-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .cost-detail {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        /* Pipeline table */
+        .pipeline-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        .pipeline-table th, .pipeline-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .pipeline-table th {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .deal-amount { color: var(--green-bright); font-weight: 600; }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 16px;
-            }
-
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .task-meta {
-                flex-wrap: wrap;
-            }
+            .container { padding: 16px; }
+            .main-nav { display: none; }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -666,6 +625,12 @@
             <div class="logo-icon">⚡</div>
             <span>COMMAND CENTER</span>
         </div>
+        <nav class="main-nav">
+            <button class="nav-tab active" data-page="dashboard">📊 Dashboard</button>
+            <button class="nav-tab" data-page="intelligence">📡 Intel <span class="badge" id="intel-count">0</span></button>
+            <button class="nav-tab" data-page="tasks">✅ Tasks</button>
+            <button class="nav-tab" data-page="costs">💰 Costs</button>
+        </nav>
         <div class="header-right">
             <div class="user-badge">
                 <div class="avatar">J</div>
@@ -675,9 +640,8 @@
     </header>
 
     <div class="container">
-        <!-- All Projects View -->
-        <div id="all-projects-view">
-            <!-- Metrics -->
+        <!-- DASHBOARD PAGE -->
+        <div class="page active" id="page-dashboard">
             <div class="metrics-bar">
                 <div class="metric-card">
                     <div class="metric-label">Reforge Pipeline</div>
@@ -688,102 +652,153 @@
                     <div class="metric-value">$50K</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-label">Re-engageable</div>
-                    <div class="metric-value warning">$508K</div>
+                    <div class="metric-label">Tasks P0/P1</div>
+                    <div class="metric-value warning" id="urgent-tasks-dash">-</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-label">Tasks P0/P1</div>
-                    <div class="metric-value" id="urgent-tasks">-</div>
+                    <div class="metric-label">API Costs (Today)</div>
+                    <div class="metric-value" id="costs-today">-</div>
                 </div>
             </div>
 
-            <!-- Intelligence Feed -->
-            <div class="section-header">
-                <div class="section-title">📡 Intelligence Feed</div>
-                <div class="section-actions">
-                    <button class="btn" onclick="toggleAllBriefs()">Collapse All</button>
-                </div>
-            </div>
-            <div class="feed-container" id="feed-container">
-                <!-- Populated by JS -->
-            </div>
-
-            <!-- Projects -->
             <div class="section-header">
                 <div class="section-title">Projects</div>
             </div>
-            <div class="projects-grid" id="projects-grid">
-                <!-- Populated by JS -->
+            <div class="projects-grid" id="projects-grid"></div>
+
+            <div class="section-header">
+                <div class="section-title">Recent Intel</div>
+                <button class="btn" onclick="showPage('intelligence')">View All →</button>
+            </div>
+            <div class="feed-container" id="recent-briefs"></div>
+        </div>
+
+        <!-- INTELLIGENCE PAGE -->
+        <div class="page" id="page-intelligence">
+            <div class="section-header">
+                <div class="section-title">📡 Intelligence Feed</div>
+                <div class="section-actions">
+                    <button class="btn" onclick="toggleAllBriefs()">Expand All</button>
+                </div>
             </div>
 
-            <!-- Filter tabs -->
-            <div class="filter-tabs">
-                <div class="filter-tab active" data-filter="all">All Tasks</div>
+            <div class="filter-tabs" id="intel-filters">
+                <div class="filter-tab active" data-project="all">All Projects</div>
+                <div class="filter-tab" data-project="sos">🆘 SOS</div>
+                <div class="filter-tab" data-project="reforge">💼 Reforge</div>
+                <div class="filter-tab" data-project="harmony">🎯 Harmony</div>
+                <div class="filter-tab" data-project="general">🌐 General</div>
+            </div>
+            <div class="filter-tabs" id="intel-type-filters">
+                <div class="filter-tab active" data-type="all">All Types</div>
+                <div class="filter-tab" data-type="competitive">⚔️ Competitive</div>
+                <div class="filter-tab" data-type="market">📊 Market</div>
+                <div class="filter-tab" data-type="technical">🔧 Technical</div>
+                <div class="filter-tab" data-type="opportunity">💡 Opportunity</div>
+            </div>
+
+            <div class="feed-container" id="feed-container"></div>
+        </div>
+
+        <!-- TASKS PAGE -->
+        <div class="page" id="page-tasks">
+            <div class="section-header">
+                <div class="section-title">✅ All Tasks</div>
+                <div class="section-actions">
+                    <button class="btn primary" onclick="addTask()">+ Add Task</button>
+                </div>
+            </div>
+
+            <div class="filter-tabs" id="task-project-filters">
+                <div class="filter-tab active" data-project="all">All Projects</div>
+                <div class="filter-tab" data-project="sos">🆘 SOS</div>
+                <div class="filter-tab" data-project="reforge">💼 Reforge</div>
+                <div class="filter-tab" data-project="harmony">🎯 Harmony</div>
+            </div>
+            <div class="filter-tabs" id="task-status-filters">
+                <div class="filter-tab active" data-filter="all">All</div>
                 <div class="filter-tab" data-filter="pending">Pending</div>
                 <div class="filter-tab" data-filter="in_progress">In Progress</div>
                 <div class="filter-tab" data-filter="done">Done</div>
             </div>
 
-            <!-- Tasks -->
-            <div class="section-header">
-                <div class="section-title">Tasks</div>
-                <div class="section-actions">
-                    <button class="btn primary" onclick="addTask()">+ Add Task</button>
-                </div>
-            </div>
-            <div class="task-list" id="task-list">
-                <!-- Populated by JS -->
-            </div>
+            <div class="task-list" id="task-list"></div>
         </div>
 
-        <!-- Project Detail View -->
-        <div id="project-detail-view" class="project-detail">
-            <div class="back-btn" onclick="showAllProjects()">← Back to all projects</div>
-            <div id="project-detail-content">
-                <!-- Populated by JS -->
+        <!-- COSTS PAGE -->
+        <div class="page" id="page-costs">
+            <div class="section-header">
+                <div class="section-title">💰 API Costs</div>
+            </div>
+
+            <div class="costs-grid" id="costs-grid">
+                <div class="cost-card">
+                    <h3>Loading...</h3>
+                    <div class="cost-value">-</div>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Data - will be loaded from API
+        // State
         let tasksData = null;
         let briefsData = null;
-        let currentFilter = 'all';
-        let currentProject = null;
+        let costsData = null;
+        let currentPage = 'dashboard';
+        let currentTaskFilter = 'all';
+        let currentTaskProject = 'all';
+        let currentIntelProject = 'all';
+        let currentIntelType = 'all';
 
         // Load data
         async function loadData() {
             try {
-                const [tasksRes, briefsRes] = await Promise.all([
+                const [tasksRes, briefsRes, costsRes] = await Promise.all([
                     fetch('data/tasks.json'),
-                    fetch('data/briefs.json')
+                    fetch('data/briefs.json'),
+                    fetch('data/costs.json')
                 ]);
                 tasksData = await tasksRes.json();
                 briefsData = await briefsRes.json();
-                render();
+                costsData = await costsRes.json();
             } catch (e) {
                 console.error('Failed to load data:', e);
-                tasksData = { projects: {}, pipeline: {} };
+                tasksData = { projects: {} };
                 briefsData = { briefs: [] };
-                render();
+                costsData = {};
             }
+            render();
         }
 
-        // Render everything
+        // Navigation
+        function showPage(page) {
+            currentPage = page;
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(`page-${page}`).classList.add('active');
+            document.querySelector(`.nav-tab[data-page="${page}"]`).classList.add('active');
+            render();
+        }
+
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => showPage(tab.dataset.page));
+        });
+
+        // Render
         function render() {
-            renderBriefs();
             renderProjects();
+            renderBriefs();
             renderTasks();
+            renderCosts();
             updateMetrics();
         }
 
-        // Format relative time
+        // Time formatting
         function timeAgo(timestamp) {
             const now = new Date();
             const then = new Date(timestamp);
             const diff = Math.floor((now - then) / 1000);
-            
             if (diff < 60) return 'just now';
             if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
             if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
@@ -791,183 +806,23 @@
             return then.toLocaleDateString();
         }
 
-        // Render intelligence feed
-        function renderBriefs() {
-            const container = document.getElementById('feed-container');
-            const briefs = briefsData?.briefs || [];
-            
-            // Sort by timestamp descending (newest first)
-            const sortedBriefs = [...briefs].sort((a, b) => 
-                new Date(b.timestamp) - new Date(a.timestamp)
-            );
-
-            container.innerHTML = sortedBriefs.map(brief => {
-                const details = brief.details || {};
-                
-                // Build details HTML based on content
-                let detailsHtml = '';
-                
-                if (details.source) {
-                    let sourceHtml = details.sourceUrl 
-                        ? `<a href="${details.sourceUrl}" target="_blank" rel="noopener" style="color: var(--blue); text-decoration: none;">${details.source} ↗</a>`
-                        : details.source;
-                    
-                    // Add additional sources if present
-                    let additionalHtml = '';
-                    if (details.additionalSources?.length) {
-                        additionalHtml = '<div style="margin-top: 8px; font-size: 0.8rem;">' +
-                            details.additionalSources.map(s => 
-                                `<a href="${s.url}" target="_blank" rel="noopener" style="color: var(--text-secondary); text-decoration: none; display: block; margin-top: 4px;">${s.name} ↗</a>`
-                            ).join('') + '</div>';
-                    }
-                    
-                    detailsHtml += `<div class="feed-section">
-                        <div class="feed-section-title">Sources</div>
-                        <div style="font-size: 0.875rem;">${sourceHtml}${additionalHtml}</div>
-                    </div>`;
-                }
-                
-                if (details.keyFacts?.length) {
-                    detailsHtml += `<div class="feed-section">
-                        <div class="feed-section-title">Key Facts</div>
-                        <ul>${details.keyFacts.map(f => `<li>${f}</li>`).join('')}</ul>
-                    </div>`;
-                }
-                
-                if (details.quote) {
-                    detailsHtml += `<div class="feed-quote">"${details.quote}"</div>`;
-                }
-                
-                if (details.theirWeakness?.length) {
-                    detailsHtml += `<div class="feed-section">
-                        <div class="feed-section-title">Their Weakness</div>
-                        <ul>${details.theirWeakness.map(w => `<li>${w}</li>`).join('')}</ul>
-                    </div>`;
-                }
-                
-                if (details.whatGothamDoes?.length) {
-                    detailsHtml += `<div class="feed-section">
-                        <div class="feed-section-title">What Gotham Does</div>
-                        <ul>${details.whatGothamDoes.map(w => `<li>${w}</li>`).join('')}</ul>
-                    </div>`;
-                }
-                
-                if (details.customSteps?.length) {
-                    detailsHtml += `<div class="feed-section">
-                        <div class="feed-section-title">Custom Steps</div>
-                        <ul>${details.customSteps.map(s => `<li>${s}</li>`).join('')}</ul>
-                    </div>`;
-                }
-                
-                if (details.keyTrends?.length) {
-                    detailsHtml += `<div class="feed-section">
-                        <div class="feed-section-title">Key Trends</div>
-                        <ul>${details.keyTrends.map(t => `<li>${t}</li>`).join('')}</ul>
-                    </div>`;
-                }
-                
-                // SOS opportunity or differentiation insight
-                const insight = details.sosOpportunity || details.sosDifferentiation || details.approach;
-                if (insight) {
-                    detailsHtml += `<div class="feed-insight">
-                        <div class="feed-insight-label">💡 SOS Insight</div>
-                        ${insight}
-                    </div>`;
-                }
-                
-                if (details.actionItems?.length) {
-                    detailsHtml += `<div class="feed-actions">
-                        ${details.actionItems.map(a => `<button class="btn">${a}</button>`).join('')}
-                    </div>`;
-                }
-                
-                if (details.nextSteps?.length) {
-                    detailsHtml += `<div class="feed-section">
-                        <div class="feed-section-title">Next Steps</div>
-                        <ul>${details.nextSteps.map(s => `<li>${s}</li>`).join('')}</ul>
-                    </div>`;
-                }
-
-                return `
-                    <div class="feed-card" data-id="${brief.id}">
-                        <div class="feed-header" onclick="toggleBrief('${brief.id}')">
-                            <div class="feed-icon">${brief.icon}</div>
-                            <div class="feed-content">
-                                <div class="feed-title">${brief.title}</div>
-                                <div class="feed-summary">${brief.summary}</div>
-                                <div class="feed-meta">
-                                    <div class="feed-tags">
-                                        ${brief.tags.map(t => `<span class="feed-tag ${t}">${t}</span>`).join('')}
-                                    </div>
-                                    <div class="feed-author">
-                                        <div class="feed-author-avatar">${brief.author?.[0] || 'H'}</div>
-                                        ${brief.author}
-                                    </div>
-                                    <div class="feed-time">${timeAgo(brief.timestamp)}</div>
-                                </div>
-                            </div>
-                            <div class="feed-expand-icon">▼</div>
-                        </div>
-                        <div class="feed-details">
-                            ${detailsHtml}
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        // Toggle brief expansion
-        function toggleBrief(id) {
-            const card = document.querySelector(`.feed-card[data-id="${id}"]`);
-            if (card) {
-                card.classList.toggle('expanded');
-            }
-        }
-
-        // Toggle all briefs
-        function toggleAllBriefs() {
-            const cards = document.querySelectorAll('.feed-card');
-            const anyExpanded = [...cards].some(c => c.classList.contains('expanded'));
-            cards.forEach(c => {
-                if (anyExpanded) {
-                    c.classList.remove('expanded');
-                } else {
-                    c.classList.add('expanded');
-                }
-            });
-        }
-
-        // Render project cards
+        // Render projects
         function renderProjects() {
             const grid = document.getElementById('projects-grid');
-            const projects = tasksData.projects || {};
+            const projects = tasksData?.projects || {};
             
-            const projectColors = {
-                sos: '#5cb85c',
-                reforge: '#4a90d4',
-                harmony: '#d4a530',
-                grunt: '#2d5a2d',
-                context_graph: '#8b5cf6'
-            };
-
-            const projectIcons = {
-                sos: '🆘',
-                reforge: '💼',
-                harmony: '🎯',
-                grunt: '⚡',
-                context_graph: '🧠'
-            };
+            const icons = { sos: '🆘', reforge: '💼', harmony: '🎯', grunt: '⚡', context_graph: '🧠' };
 
             grid.innerHTML = Object.entries(projects).map(([slug, project]) => {
                 const tasks = project.tasks || [];
-                const p0 = tasks.filter(t => t.status !== 'done' && (project.priority === 'P0' || t.priority === 'P0')).length;
-                const p1 = tasks.filter(t => t.status !== 'done' && t.priority !== 'P0').length;
+                const p0 = tasks.filter(t => t.status !== 'done' && t.priority === 'P0').length;
+                const p1 = tasks.filter(t => t.status !== 'done' && t.priority === 'P1').length;
                 const done = tasks.filter(t => t.status === 'done').length;
 
                 return `
-                    <div class="project-card" onclick="showProject('${slug}')" style="--project-color: ${projectColors[slug] || '#4a8c4a'}">
+                    <div class="project-card" onclick="showProjectTasks('${slug}')">
                         <div class="project-header">
-                            <span class="project-icon">${projectIcons[slug] || '📁'}</span>
+                            <span class="project-icon">${icons[slug] || '📁'}</span>
                             <span class="project-name">${project.name}</span>
                         </div>
                         <div class="project-stats">
@@ -980,12 +835,172 @@
             }).join('');
         }
 
-        // Render task list
+        function showProjectTasks(slug) {
+            currentTaskProject = slug;
+            showPage('tasks');
+            document.querySelectorAll('#task-project-filters .filter-tab').forEach(t => {
+                t.classList.toggle('active', t.dataset.project === slug);
+            });
+            renderTasks();
+        }
+
+        // Render briefs (intelligence)
+        function renderBriefs() {
+            const fullContainer = document.getElementById('feed-container');
+            const recentContainer = document.getElementById('recent-briefs');
+            let briefs = briefsData?.briefs || [];
+            
+            // Update intel count badge
+            document.getElementById('intel-count').textContent = briefs.length;
+
+            // Filter by project
+            if (currentIntelProject !== 'all') {
+                briefs = briefs.filter(b => {
+                    const tags = b.tags || [];
+                    if (currentIntelProject === 'general') {
+                        return !tags.includes('sos') && !tags.includes('reforge') && !tags.includes('harmony');
+                    }
+                    return tags.includes(currentIntelProject);
+                });
+            }
+
+            // Filter by type
+            if (currentIntelType !== 'all') {
+                briefs = briefs.filter(b => b.type === currentIntelType || (b.tags || []).includes(currentIntelType));
+            }
+
+            // Sort by timestamp
+            briefs = [...briefs].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+            const renderBrief = brief => {
+                const details = brief.details || {};
+                let detailsHtml = '';
+
+                if (details.source) {
+                    let sourceHtml = details.sourceUrl 
+                        ? `<a href="${details.sourceUrl}" target="_blank" style="color: var(--blue); text-decoration: none;">${details.source} ↗</a>`
+                        : details.source;
+                    
+                    let additionalHtml = '';
+                    if (details.additionalSources?.length) {
+                        additionalHtml = '<div style="margin-top: 8px; font-size: 0.8rem;">' +
+                            details.additionalSources.map(s => 
+                                `<a href="${s.url}" target="_blank" style="color: var(--text-secondary); text-decoration: none; display: block; margin-top: 4px;">${s.name} ↗</a>`
+                            ).join('') + '</div>';
+                    }
+                    
+                    detailsHtml += `<div class="feed-section">
+                        <div class="feed-section-title">Sources</div>
+                        <div style="font-size: 0.875rem;">${sourceHtml}${additionalHtml}</div>
+                    </div>`;
+                }
+
+                if (details.keyFacts?.length) {
+                    detailsHtml += `<div class="feed-section">
+                        <div class="feed-section-title">Key Facts</div>
+                        <ul>${details.keyFacts.map(f => `<li>${f}</li>`).join('')}</ul>
+                    </div>`;
+                }
+
+                if (details.quote) {
+                    detailsHtml += `<div class="feed-quote">"${details.quote}"</div>`;
+                }
+
+                ['theirWeakness', 'whatGothamDoes', 'customSteps', 'keyTrends', 'nextSteps'].forEach(key => {
+                    if (details[key]?.length) {
+                        const titles = {
+                            theirWeakness: 'Their Weakness',
+                            whatGothamDoes: 'What Gotham Does',
+                            customSteps: 'Custom Steps',
+                            keyTrends: 'Key Trends',
+                            nextSteps: 'Next Steps'
+                        };
+                        detailsHtml += `<div class="feed-section">
+                            <div class="feed-section-title">${titles[key]}</div>
+                            <ul>${details[key].map(x => `<li>${x}</li>`).join('')}</ul>
+                        </div>`;
+                    }
+                });
+
+                const insight = details.sosOpportunity || details.sosDifferentiation || details.approach;
+                if (insight) {
+                    detailsHtml += `<div class="feed-insight">
+                        <div class="feed-insight-label">💡 SOS Insight</div>
+                        ${insight}
+                    </div>`;
+                }
+
+                if (details.actionItems?.length) {
+                    detailsHtml += `<div class="feed-actions">
+                        ${details.actionItems.map(a => `<button class="btn">${a}</button>`).join('')}
+                    </div>`;
+                }
+
+                return `
+                    <div class="feed-card" data-id="${brief.id}">
+                        <div class="feed-header" onclick="toggleBrief('${brief.id}')">
+                            <div class="feed-icon">${brief.icon}</div>
+                            <div class="feed-content">
+                                <div class="feed-title">${brief.title}</div>
+                                <div class="feed-summary">${brief.summary}</div>
+                                <div class="feed-meta">
+                                    <div class="feed-tags">
+                                        ${(brief.tags || []).map(t => `<span class="feed-tag ${t}">${t}</span>`).join('')}
+                                    </div>
+                                    <div class="feed-author">
+                                        <div class="feed-author-avatar">${brief.author?.[0] || 'H'}</div>
+                                        ${brief.author || 'Henry'}
+                                    </div>
+                                    <div class="feed-time">${timeAgo(brief.timestamp)}</div>
+                                </div>
+                            </div>
+                            <div class="feed-expand-icon">▼</div>
+                        </div>
+                        <div class="feed-details">${detailsHtml}</div>
+                    </div>
+                `;
+            };
+
+            fullContainer.innerHTML = briefs.map(renderBrief).join('');
+            recentContainer.innerHTML = briefs.slice(0, 3).map(renderBrief).join('');
+        }
+
+        function toggleBrief(id) {
+            document.querySelectorAll(`.feed-card[data-id="${id}"]`).forEach(card => {
+                card.classList.toggle('expanded');
+            });
+        }
+
+        function toggleAllBriefs() {
+            const cards = document.querySelectorAll('#feed-container .feed-card');
+            const anyExpanded = [...cards].some(c => c.classList.contains('expanded'));
+            cards.forEach(c => c.classList.toggle('expanded', !anyExpanded));
+        }
+
+        // Intel filters
+        document.getElementById('intel-filters').addEventListener('click', e => {
+            if (e.target.classList.contains('filter-tab')) {
+                document.querySelectorAll('#intel-filters .filter-tab').forEach(t => t.classList.remove('active'));
+                e.target.classList.add('active');
+                currentIntelProject = e.target.dataset.project;
+                renderBriefs();
+            }
+        });
+
+        document.getElementById('intel-type-filters').addEventListener('click', e => {
+            if (e.target.classList.contains('filter-tab')) {
+                document.querySelectorAll('#intel-type-filters .filter-tab').forEach(t => t.classList.remove('active'));
+                e.target.classList.add('active');
+                currentIntelType = e.target.dataset.type;
+                renderBriefs();
+            }
+        });
+
+        // Render tasks
         function renderTasks() {
             const list = document.getElementById('task-list');
-            const projects = tasksData.projects || {};
+            const projects = tasksData?.projects || {};
             
-            // Flatten all tasks
             let allTasks = [];
             Object.entries(projects).forEach(([slug, project]) => {
                 (project.tasks || []).forEach(task => {
@@ -993,17 +1008,17 @@
                 });
             });
 
-            // Filter
-            if (currentFilter !== 'all') {
-                allTasks = allTasks.filter(t => t.status === currentFilter);
+            // Filter by project
+            if (currentTaskProject !== 'all') {
+                allTasks = allTasks.filter(t => t.projectSlug === currentTaskProject);
             }
 
-            // Filter by project if selected
-            if (currentProject) {
-                allTasks = allTasks.filter(t => t.projectSlug === currentProject);
+            // Filter by status
+            if (currentTaskFilter !== 'all') {
+                allTasks = allTasks.filter(t => t.status === currentTaskFilter);
             }
 
-            // Sort by priority then status
+            // Sort
             const priorityOrder = { P0: 0, P1: 1, P2: 2, P3: 3 };
             const statusOrder = { pending: 0, in_progress: 1, blocked: 2, done: 3 };
             allTasks.sort((a, b) => {
@@ -1023,114 +1038,100 @@
                             ${task.notes ? `<span>${task.notes}</span>` : ''}
                         </div>
                     </div>
-                    <div class="task-assignee">
-                        <div class="assignee-avatar">H</div>
-                    </div>
+                    <div class="task-assignee">H</div>
                 </div>
-            `).join('');
+            `).join('') || '<div style="color: var(--text-secondary); padding: 20px;">No tasks found</div>';
 
             // Update urgent count
-            const urgentCount = allTasks.filter(t => 
-                t.status !== 'done' && (t.priority === 'P0' || t.priority === 'P1')
-            ).length;
-            document.getElementById('urgent-tasks').textContent = urgentCount;
+            const urgentCount = Object.values(tasksData?.projects || {}).reduce((sum, p) => {
+                return sum + (p.tasks || []).filter(t => t.status !== 'done' && (t.priority === 'P0' || t.priority === 'P1')).length;
+            }, 0);
+            document.getElementById('urgent-tasks-dash').textContent = urgentCount;
         }
 
-        // Update metrics
-        function updateMetrics() {
-            if (tasksData.pipeline?.reforge) {
-                // Metrics already set in HTML for now
+        // Task filters
+        document.getElementById('task-project-filters').addEventListener('click', e => {
+            if (e.target.classList.contains('filter-tab')) {
+                document.querySelectorAll('#task-project-filters .filter-tab').forEach(t => t.classList.remove('active'));
+                e.target.classList.add('active');
+                currentTaskProject = e.target.dataset.project;
+                renderTasks();
             }
-        }
+        });
 
-        // Show project detail
-        function showProject(slug) {
-            currentProject = slug;
-            document.getElementById('all-projects-view').style.display = 'none';
-            document.getElementById('project-detail-view').classList.add('active');
-            
-            const project = tasksData.projects[slug];
-            const content = document.getElementById('project-detail-content');
-            
-            // Reforge has pipeline
-            let pipelineHtml = '';
-            if (slug === 'reforge') {
-                pipelineHtml = `
-                    <div class="section-header">
-                        <div class="section-title">Pipeline ($311K Active)</div>
-                    </div>
-                    <table class="pipeline-table">
-                        <thead>
-                            <tr>
-                                <th>Account</th>
-                                <th>Amount</th>
-                                <th>Product</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Neo Financial</td><td class="deal-amount">$60K</td><td>IA + Research</td><td>Pricing sent</td></tr>
-                            <tr><td>EvenUp</td><td class="deal-amount">$50K</td><td>IA</td><td>In pilot</td></tr>
-                            <tr><td>E&Y</td><td class="deal-amount">$30K</td><td>IA + Research</td><td>Discovery</td></tr>
-                            <tr><td>Fox Local</td><td class="deal-amount">$27K</td><td>IA + R + Build</td><td>Budget 2-4 weeks</td></tr>
-                            <tr><td>DreamHost</td><td class="deal-amount">$25K</td><td>IA</td><td>In pilot</td></tr>
-                            <tr><td>Ecovadis</td><td class="deal-amount">$18K</td><td>Build + IA + Research</td><td>Starting pilot</td></tr>
-                        </tbody>
-                    </table>
-                    <br><br>
-                `;
+        document.getElementById('task-status-filters').addEventListener('click', e => {
+            if (e.target.classList.contains('filter-tab')) {
+                document.querySelectorAll('#task-status-filters .filter-tab').forEach(t => t.classList.remove('active'));
+                e.target.classList.add('active');
+                currentTaskFilter = e.target.dataset.filter;
+                renderTasks();
             }
+        });
 
-            content.innerHTML = `
-                <h2 style="margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
-                    <span style="font-size: 2rem;">${slug === 'sos' ? '🆘' : slug === 'reforge' ? '💼' : slug === 'harmony' ? '🎯' : slug === 'grunt' ? '⚡' : '🧠'}</span>
-                    ${project.name}
-                </h2>
-                ${pipelineHtml}
-                <div class="section-header">
-                    <div class="section-title">Tasks</div>
-                </div>
-            `;
-
-            // Re-render tasks filtered by project
-            renderTasks();
-            content.appendChild(document.getElementById('task-list').cloneNode(true));
-        }
-
-        // Show all projects
-        function showAllProjects() {
-            currentProject = null;
-            document.getElementById('all-projects-view').style.display = 'block';
-            document.getElementById('project-detail-view').classList.remove('active');
-            renderTasks();
-        }
-
-        // Toggle task done
         function toggleTask(id, event) {
             event.stopPropagation();
-            // Would update DB in real implementation
             const item = event.target.closest('.task-item');
             item.classList.toggle('done');
         }
 
-        // Add task
         function addTask() {
             const title = prompt('Task title:');
-            if (title) {
-                // Would add to DB in real implementation
-                alert('Task creation will be connected to Supabase');
-            }
+            if (title) alert('Task creation will be connected to Supabase');
         }
 
-        // Filter handling
-        document.querySelectorAll('.filter-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                currentFilter = tab.dataset.filter;
-                renderTasks();
-            });
-        });
+        // Render costs
+        function renderCosts() {
+            const grid = document.getElementById('costs-grid');
+            const costs = costsData || {};
+            
+            let html = '';
+            
+            if (costs.today !== undefined) {
+                document.getElementById('costs-today').textContent = `$${costs.today.toFixed(2)}`;
+                html += `
+                    <div class="cost-card">
+                        <h3>Today</h3>
+                        <div class="cost-value ${costs.today > 5 ? 'warning' : ''}">$${costs.today.toFixed(2)}</div>
+                    </div>
+                `;
+            }
+
+            if (costs.yesterday !== undefined) {
+                html += `
+                    <div class="cost-card">
+                        <h3>Yesterday</h3>
+                        <div class="cost-value">$${costs.yesterday.toFixed(2)}</div>
+                    </div>
+                `;
+            }
+
+            if (costs.thisMonth !== undefined) {
+                html += `
+                    <div class="cost-card">
+                        <h3>This Month</h3>
+                        <div class="cost-value ${costs.thisMonth > 50 ? 'danger' : ''}">$${costs.thisMonth.toFixed(2)}</div>
+                        ${costs.lastMonth !== undefined ? `<div class="cost-detail">Last month: $${costs.lastMonth.toFixed(2)}</div>` : ''}
+                    </div>
+                `;
+            }
+
+            if (costs.byModel) {
+                html += `
+                    <div class="cost-card">
+                        <h3>By Model (This Month)</h3>
+                        ${Object.entries(costs.byModel).map(([model, val]) => 
+                            `<div class="cost-detail">${model}: $${val.toFixed(2)}</div>`
+                        ).join('')}
+                    </div>
+                `;
+            }
+
+            grid.innerHTML = html || '<div class="cost-card"><h3>No Data</h3><div class="cost-value">-</div></div>';
+        }
+
+        function updateMetrics() {
+            // Additional metric updates can go here
+        }
 
         // Initialize
         loadData();

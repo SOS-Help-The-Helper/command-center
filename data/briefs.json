@@ -6,7 +6,7 @@
       "icon": "💰",
       "title": "$17B FEMA Aid Held Up - States Scrambling",
       "summary": "States facing delays, denials, cancellations of federal disaster funds. Budget pressures mounting. New Mexico added $30M emergency fund due to slower FEMA reimbursements.",
-      "tags": ["market", "opportunity", "urgent"],
+      "tags": ["market", "opportunity", "urgent", "sos"],
       "author": "Henry",
       "timestamp": "2026-02-02T04:40:00Z",
       "details": {
@@ -46,7 +46,7 @@
       "icon": "🎯",
       "title": "FEMA Being Gutted - States On Their Own",
       "summary": "Trump admin cutting CORE staff (40% of FEMA workforce). States will need alternative coordination tools. Perfect timing for SOS.",
-      "tags": ["competitive", "opportunity", "urgent"],
+      "tags": ["competitive", "opportunity", "urgent", "sos"],
       "author": "Henry",
       "timestamp": "2026-02-02T04:10:00Z",
       "details": {
@@ -88,7 +88,7 @@
       "icon": "⚔️",
       "title": "Palantir at $970M Federal Contracts",
       "summary": "Palantir doubled federal contracts in 2025. They're the surveillance play - SOS is the coordination play. Different buyers, different values.",
-      "tags": ["competitive", "palantir"],
+      "tags": ["competitive", "palantir", "sos"],
       "author": "Henry",
       "timestamp": "2026-02-02T04:10:00Z",
       "details": {
@@ -134,7 +134,7 @@
       "icon": "📊",
       "title": "Emergency Management Market: $1.1T+ Opportunity",
       "summary": "Homeland Security & Emergency Management market at $1.1 trillion. North America leads, key trend is 'integrated disaster response platforms'.",
-      "tags": ["market", "opportunity"],
+      "tags": ["market", "opportunity", "sos"],
       "author": "Henry",
       "timestamp": "2026-02-02T04:10:00Z",
       "details": {
@@ -168,7 +168,7 @@
       "icon": "🔧",
       "title": "Slack Integration Architecture Mapped",
       "summary": "Studied Slack platform docs. Custom workflow steps via Bolt JS for SOS integration. Can expose 'Create Need', 'Log Resource', 'Match Request' as steps.",
-      "tags": ["technical", "slack", "sos"],
+      "tags": ["technical", "sos"],
       "author": "Henry",
       "timestamp": "2026-02-02T04:15:00Z",
       "details": {
