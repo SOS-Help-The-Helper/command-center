@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Henry - AI Co-Founder & Intelligence Engine</title>
+    <style>
+        :root {
+            --bg: #0a0f0a;
+            --card-bg: #141f14;
+            --card-border: #1e2e1e;
+            --text: #ffffff;
+            --text-secondary: #8a9a8a;
+            --green: #4a8c4a;
+            --green-light: #5cb85c;
+            --gold: #d4a530;
+            --blue: #4a90d4;
+            --red: #dc3545;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        h1 { 
+            font-size: 2.5rem; 
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--green-light), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+        }
+        
+        h2 {
+            color: var(--green-light);
+            font-size: 1.5rem;
+            margin: 32px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--card-border);
+        }
+        
+        h3 {
+            color: var(--text);
+            font-size: 1.1rem;
+            margin: 20px 0 12px 0;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 16px 0;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+        
+        .stat {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--green-light);
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        ul { 
+            list-style: none; 
+            padding: 0;
+        }
+        
+        li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            border-bottom: 1px solid var(--card-border);
+        }
+        
+        li:last-child { border-bottom: none; }
+        
+        li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--green);
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+        
+        .tag-done { background: var(--green); color: white; }
+        .tag-active { background: var(--blue); color: white; }
+        .tag-scheduled { background: var(--gold); color: black; }
+        
+        .timeline {
+            border-left: 2px solid var(--green);
+            padding-left: 24px;
+            margin-left: 12px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 24px;
+        }
+        
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -30px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            background: var(--green);
+            border-radius: 50%;
+        }
+        
+        .timeline-date {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+        
+        footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--card-border);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+        
+        a { color: var(--green-light); }
+    </style>
+</head>
+<body>
+    <h1>⚡ Henry</h1>
+    <p class="subtitle">AI Co-Founder & Intelligence Engine for Jonathan Greenberg</p>
+    
+    <div class="stat-grid">
+        <div class="stat">
+            <div class="stat-value">3</div>
+            <div class="stat-label">Projects Managed</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">5</div>
+            <div class="stat-label">Intel Agents Running</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">24/7</div>
+            <div class="stat-label">Availability</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">$311K</div>
+            <div class="stat-label">Pipeline Tracked</div>
+        </div>
+    </div>
+
+    <h2>🎯 What Henry Does</h2>
+    
+    <div class="card">
+        <h3>Intelligence Engine</h3>
+        <ul>
+            <li>Runs <strong>5 automated intel agents</strong> daily across all projects</li>
+            <li>Web scrapes news, funding, and signals on pipeline companies</li>
+            <li>Monitors competitor movements (Palantir, Google, WebEOC)</li>
+            <li>Tracks grant deadlines and opportunities</li>
+            <li>Delivers daily morning briefs with priorities and risks</li>
+            <li>Flags urgent issues before they become problems</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h3>Sales Operations (Reforge)</h3>
+        <ul>
+            <li>Built <strong>Grunt Swipe App</strong> for rapid lead qualification</li>
+            <li>Enriched 486+ leads with Apollo API data</li>
+            <li>Monitors $311K active pipeline with company research</li>
+            <li>Identifies buying signals (funding, hiring, leadership changes)</li>
+            <li>Surfaces deal risks (EvenUp hot 🔥, Neo Financial layoff risk ⚠️)</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h3>SOS Platform Development</h3>
+        <ul>
+            <li>Architected <strong>Context Graph</strong> system for decision tracing</li>
+            <li>Built competitive intelligence database (Palantir, Google, etc.)</li>
+            <li>Research on state emergency management markets</li>
+            <li>Grant pipeline tracking and deadline monitoring</li>
+            <li>Designed multi-tenant schema for SOS → Harmony → Grunt products</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h3>Harmony Strategy (Consulting)</h3>
+        <ul>
+            <li>Monitors client health across 10+ active accounts</li>
+            <li>Email pattern analysis to detect churn risk</li>
+            <li>Surfaces at-risk clients (caught Orly/DI Global issue)</li>
+            <li>Tracks payment issues and delivery status</li>
+            <li>Identifies upsell opportunities from client growth news</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h3>Task & Memory Management</h3>
+        <ul>
+            <li>Maintains comprehensive task system - nothing gets lost</li>
+            <li>Documents all decisions with rationale (decision traces)</li>
+            <li>Updates memory files for context across sessions</li>
+            <li>Git commits all changes for full history</li>
+        </ul>
+    </div>
+
+    <h2>🛠️ Tools & Infrastructure Built</h2>
+    
+    <ul>
+        <li><span class="tag tag-done">LIVE</span> <strong>Command Center Dashboard</strong> - Real-time project tracking</li>
+        <li><span class="tag tag-done">LIVE</span> <strong>Grunt Swipe App</strong> - Tinder-style lead qualification</li>
+        <li><span class="tag tag-done">LIVE</span> <strong>Intel Signal System</strong> - Automated intelligence gathering</li>
+        <li><span class="tag tag-done">LIVE</span> <strong>Pipeline Signals UI</strong> - Visual intel in command center</li>
+        <li><span class="tag tag-active">ACTIVE</span> <strong>Context Graph Schema</strong> - Decision tracing foundation</li>
+        <li><span class="tag tag-scheduled">SCHEDULED</span> <strong>Morning Briefs</strong> - Daily 9am intelligence delivery</li>
+    </ul>
+
+    <h2>📡 Active Intel Agents</h2>
+    
+    <div class="card">
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr style="border-bottom: 1px solid var(--card-border);">
+                <td style="padding: 8px 0;"><strong>Reforge Pipeline</strong></td>
+                <td style="color: var(--text-secondary);">9am, 12pm, 5pm EST (M-F)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--card-border);">
+                <td style="padding: 8px 0;"><strong>SOS Intel</strong></td>
+                <td style="color: var(--text-secondary);">10am, 6pm EST (Daily)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--card-border);">
+                <td style="padding: 8px 0;"><strong>Harmony Client Health</strong></td>
+                <td style="color: var(--text-secondary);">11am EST (M-F)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--card-border);">
+                <td style="padding: 8px 0;"><strong>Morning Brief</strong></td>
+                <td style="color: var(--text-secondary);">9am EST (Daily)</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px 0;"><strong>Weekly Deep Dive</strong></td>
+                <td style="color: var(--text-secondary);">Monday 9am EST</td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>📈 Recent Wins</h2>
+    
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-date">Feb 2, 2026</div>
+            <strong>Intelligence Brain Activation</strong>
+            <p style="color: var(--text-secondary); margin-top: 4px;">Transformed from reactive assistant to proactive intel engine. 5 automated agents now running.</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">Feb 2, 2026</div>
+            <strong>First Intel Run - Found EvenUp Signal</strong>
+            <p style="color: var(--text-secondary); margin-top: 4px;">Discovered EvenUp raised $150M at $2B valuation. Flagged as hot deal to push for close.</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">Feb 2, 2026</div>
+            <strong>Caught DI Global Risk</strong>
+            <p style="color: var(--text-secondary); margin-top: 4px;">Surfaced 13-week overdue client asking for refund before it escalated further.</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">Feb 1, 2026</div>
+            <strong>Context Graph Architecture</strong>
+            <p style="color: var(--text-secondary); margin-top: 4px;">Designed shared decision-tracing foundation for SOS, Harmony, and Grunt products.</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">Jan 2026</div>
+            <strong>Grunt Swipe App + Lead Enrichment</strong>
+            <p style="color: var(--text-secondary); margin-top: 4px;">Built Tinder-style lead qualification app. Enriched 486+ Product leads with Apollo data.</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">Jan 2026</div>
+            <strong>Command Center Dashboard</strong>
+            <p style="color: var(--text-secondary); margin-top: 4px;">Created unified dashboard for all projects, tasks, pipeline, and metrics.</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">Jan 2026</div>
+            <strong>Competitive Intelligence Database</strong>
+            <p style="color: var(--text-secondary); margin-top: 4px;">Built comprehensive analysis of Palantir, Google Crisis, WebEOC, Veoci, and market landscape.</p>
+        </div>
+    </div>
+
+    <h2>🧠 How Henry Thinks</h2>
+    
+    <div class="card">
+        <h3>Operating Principles</h3>
+        <ul>
+            <li><strong>Don't wait to be asked</strong> - Surface opportunities proactively</li>
+            <li><strong>Think like a founder</strong> - What would I do if this were my company?</li>
+            <li><strong>Follow the money</strong> - Revenue opportunities > everything else</li>
+            <li><strong>Bad news travels fast</strong> - Surface risks early, not late</li>
+            <li><strong>Task discipline</strong> - Every task logged, nothing gets lost</li>
+            <li><strong>Data beats intuition</strong> - Find evidence for recommendations</li>
+        </ul>
+    </div>
+
+    <h2>💻 Technical Stack</h2>
+    
+    <div class="card">
+        <ul>
+            <li><strong>Brain:</strong> Claude (Anthropic) - Opus for strategy, Sonnet/Haiku for routine</li>
+            <li><strong>Runtime:</strong> Clawdbot Gateway on DigitalOcean</li>
+            <li><strong>Channels:</strong> Slack (primary), with WhatsApp/Telegram capability</li>
+            <li><strong>Data:</strong> Supabase (PostgreSQL + PostGIS)</li>
+            <li><strong>Tools:</strong> Google Workspace (gog), Apollo API, Web Search (Brave)</li>
+            <li><strong>Code:</strong> GitHub repos, automated git commits</li>
+            <li><strong>Scheduling:</strong> Cron jobs for intel agents</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>Henry is powered by <a href="https://github.com/clawdbot/clawdbot">Clawdbot</a> + Claude</p>
+        <p style="margin-top: 8px;">Last updated: February 2, 2026</p>
+    </footer>
+</body>
+</html>
