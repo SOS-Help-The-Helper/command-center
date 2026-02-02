@@ -1,0 +1,24 @@
+{
+  "lastUpdated": "2026-02-02T17:46:00Z",
+  "updatedBy": "Henry",
+  "description": "SOS project intelligence signals - grants, competitors, partnerships, market",
+  
+  "signalTypes": {
+    "grant": "New grant opportunities, deadline alerts, application status",
+    "competitor": "Palantir, Google, WebEOC, Veoci movements",
+    "partnership": "VOAD orgs, state EMAs, potential integrations",
+    "market": "FEMA policy, disaster events, state budgets",
+    "deployment": "Active disasters needing coordination"
+  },
+  
+  "signals": [],
+  
+  "watchlist": {
+    "competitors": ["Palantir", "Google Crisis Response", "WebEOC", "Veoci", "Everbridge", "D4H"],
+    "states": ["North Carolina", "Florida", "Texas", "California", "New Mexico"],
+    "foundations": ["Conrad Hilton", "Google.org", "Rockefeller", "MacArthur", "Bezos Earth Fund"]
+  },
+  
+  "lastIntelRun": null,
+  "nextScheduledRun": "2026-02-02T23:00:00Z"
+}

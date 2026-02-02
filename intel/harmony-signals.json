@@ -1,0 +1,36 @@
+{
+  "lastUpdated": "2026-02-02T17:46:00Z",
+  "updatedBy": "Henry",
+  "description": "Harmony Strategy client intelligence - health, upsells, risks",
+  
+  "signalTypes": {
+    "client_health": "Response patterns, satisfaction signals",
+    "risk": "Payment issues, delivery delays, frustration",
+    "upsell": "Client growth news, expansion opportunities",
+    "lead": "New business opportunities, referrals"
+  },
+  
+  "clients": [
+    {"name": "Litmos", "status": "active", "priority": "high"},
+    {"name": "Endurant/MCC", "status": "active", "priority": "high"},
+    {"name": "DI Global (Orly)", "status": "at_risk", "priority": "urgent", "issue": "13 weeks overdue, asking for refund"},
+    {"name": "IES", "status": "active", "priority": "medium"},
+    {"name": "InventWood", "status": "quiet", "priority": "low"},
+    {"name": "TSLE", "status": "active", "priority": "medium"},
+    {"name": "divdat", "status": "active", "priority": "medium"}
+  ],
+  
+  "signals": [
+    {
+      "timestamp": "2026-02-02T17:46:00Z",
+      "type": "risk",
+      "client": "DI Global (Orly)",
+      "priority": "🚨 CRITICAL",
+      "summary": "13 weeks since payment, no deliverables. Client sent ACH details for refund on Jan 29. Relationship salvageable if we deliver this week.",
+      "action": "Deliver contact import + dashboards within 48 hours or process refund"
+    }
+  ],
+  
+  "lastIntelRun": "2026-02-02T17:46:00Z",
+  "nextScheduledRun": "2026-02-03T16:00:00Z"
+}
