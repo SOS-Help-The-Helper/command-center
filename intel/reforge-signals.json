@@ -1,12 +1,49 @@
 {
-  "lastUpdated": "2026-02-03T15:03:00Z",
-  "runType": "scheduled_intel",
+  "lastUpdated": "2026-02-04T22:00:00Z",
+  "runType": "scheduled_intel_5pm",
   "summary": {
     "highPriority": 2,
-    "newSignals": 5,
+    "newSignals": 3,
     "alertsRequiringAction": 1
   },
+  "gongSync": {
+    "lastCheck": "2026-02-04T22:00:00Z",
+    "userId": "5554254575986670152",
+    "newCallsSinceYesterday": 0,
+    "note": "No new calls for Jonathan since Feb 3. Last call was Jan 30."
+  },
   "signals": [
+    {
+      "timestamp": "2026-02-04T22:00:00Z",
+      "type": "pipeline_intel",
+      "company": "EvenUp",
+      "dealValue": 50000,
+      "stage": "Pilot (Trial)",
+      "signal": "MAJOR: EvenUp raised $150M in 2025, launched Communication Agents + Next-Gen AI Drafts Suite (Jan 30), revenue kickoff event last week, actively hiring. Company in aggressive growth mode.",
+      "urgency": "high",
+      "recommendation": "Re-engage IMMEDIATELY. 105+ days stalled on $50K is unacceptable for a company spending this aggressively. They're buying tools.",
+      "source": "web_research_5pm"
+    },
+    {
+      "timestamp": "2026-02-04T22:00:00Z",
+      "type": "pipeline_intel",
+      "company": "DreamHost",
+      "signal": "Won Bronze Stevie Award (Feb 3) for 'Best Use of AI in Customer Service'. Company actively investing in AI capabilities.",
+      "urgency": "low",
+      "recommendation": "Positive signal if in pipeline - company is healthy and innovating.",
+      "source": "web_research_5pm"
+    },
+    {
+      "timestamp": "2026-02-04T22:00:00Z",
+      "type": "pipeline_intel",
+      "company": "EcoVadis",
+      "dealValue": 18000,
+      "stage": "Pilot Starting",
+      "signal": "Won Microsoft Local Partner Award FY25 (AI Transformation - Scale Category, Dec 2025). Hosted World Tour NY 2025, 6000+ companies assessed in 2025. Stable, growing.",
+      "urgency": "low",
+      "recommendation": "Proceed with pilot. Strong company fundamentals.",
+      "source": "web_research_5pm"
+    },
     {
       "timestamp": "2026-02-03T15:03:00Z",
       "type": "positive_reply",

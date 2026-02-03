@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-02T17:46:00Z",
+  "lastUpdated": "2026-02-04T22:00:00Z",
   "updatedBy": "Henry",
   "description": "Harmony Strategy client intelligence - health, upsells, risks",
   
@@ -11,7 +11,7 @@
   },
   
   "clients": [
-    {"name": "Litmos", "status": "active", "priority": "high"},
+    {"name": "Litmos", "status": "active", "priority": "high", "lastInvoice": "Invoice #2 ($30k) sent Feb 4, due Mar 1"},
     {"name": "Endurant/MCC", "status": "active", "priority": "high"},
     {"name": "DI Global (Orly)", "status": "at_risk", "priority": "urgent", "issue": "13 weeks overdue, asking for refund"},
     {"name": "IES", "status": "active", "priority": "medium"},
@@ -22,6 +22,14 @@
   
   "signals": [
     {
+      "timestamp": "2026-02-04T22:00:00Z",
+      "type": "client_health",
+      "client": "Litmos",
+      "priority": "normal",
+      "summary": "Invoice #2 ($30k) sent Feb 4, due Mar 1. No negative news signals found in web search - Litmos remains positioned well in LMS market comparisons.",
+      "action": "Monitor for payment confirmation by Mar 1"
+    },
+    {
       "timestamp": "2026-02-02T17:46:00Z",
       "type": "risk",
       "client": "DI Global (Orly)",
@@ -31,6 +39,6 @@
     }
   ],
   
-  "lastIntelRun": "2026-02-02T17:46:00Z",
-  "nextScheduledRun": "2026-02-03T16:00:00Z"
+  "lastIntelRun": "2026-02-04T22:00:00Z",
+  "nextScheduledRun": "2026-02-05T17:00:00Z"
 }
