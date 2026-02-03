@@ -1,7 +1,5 @@
 import { serve } from 'https://deno.land/std@0.168.0/http/server.ts'
 
-const SLACK_WEBHOOK_URL = Deno.env.get('SLACK_WEBHOOK_URL')
-
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
@@ -13,11 +11,21 @@ serve(async (req) => {
   }
 
   try {
+    const SLACK_WEBHOOK_URL = Deno.env.get('SLACK_WEBHOOK_URL')
+    
+    if (!SLACK_WEBHOOK_URL) {
+      console.error('SLACK_WEBHOOK_URL not configured')
+      return new Response(
+        JSON.stringify({ success: false, error: 'Webhook not configured' }),
+        { headers: { ...corsHeaders, 'Content-Type': 'application/json' }, status: 500 }
+      )
+    }
+
     const { type, message } = await req.json()
     
     const emoji = type === 'quick_sos' ? '🆘' : '💬'
     const slackMessage = {
-      text: `${emoji} *KC needs you!*`,
+      text: `${emoji} *KC needs you!*\n\n${message || 'Quick SOS - check in with her!'}`,
       blocks: [
         {
           type: 'section',
@@ -31,19 +39,28 @@ serve(async (req) => {
           elements: [
             {
               type: 'mrkdwn',
-              text: `_Sent from Baby G at ${new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })}_`
+              text: `_Sent from Baby G at ${new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: 'America/New_York' })}_`
             }
           ]
         }
       ]
     }
 
-    if (SLACK_WEBHOOK_URL) {
-      await fetch(SLACK_WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(slackMessage)
-      })
+    console.log('Sending to Slack webhook...')
+    const slackResponse = await fetch(SLACK_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(slackMessage)
+    })
+    
+    const slackResult = await slackResponse.text()
+    console.log('Slack response:', slackResult)
+
+    if (slackResult !== 'ok') {
+      return new Response(
+        JSON.stringify({ success: false, error: slackResult }),
+        { headers: { ...corsHeaders, 'Content-Type': 'application/json' }, status: 500 }
+      )
     }
 
     return new Response(
