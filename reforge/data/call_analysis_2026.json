@@ -1,0 +1,1124 @@
+{
+  "metadata": {
+    "analysis_date": "2026-02-04",
+    "total_calls_analyzed": 24,
+    "date_range": "2026-01-07 to 2026-01-30",
+    "analyst": "Henry (Reforge GTM-E Analysis)",
+    "source": "Gong API transcripts"
+  },
+  "summary_metrics": {
+    "total_external_calls": 24,
+    "avg_call_duration_min": 21.8,
+    "company_size_breakdown": {
+      "enterprise_500plus": 8,
+      "mid_market_201_500": 6,
+      "smb_51_200": 7,
+      "startup_sub_50": 3
+    },
+    "persona_breakdown": {
+      "product_leader_vp_director": 12,
+      "product_manager": 5,
+      "designer_researcher": 2,
+      "operations_cx": 2,
+      "c_suite": 3
+    },
+    "industry_breakdown": {
+      "b2b_saas": 10,
+      "fintech": 4,
+      "consumer_health": 2,
+      "enterprise_software": 3,
+      "media_entertainment": 2,
+      "other": 3
+    },
+    "ai_adoption_breakdown": {
+      "active_using_ai_in_code": 5,
+      "experimenting": 8,
+      "none_or_minimal": 11
+    },
+    "prototype_tool_history": {
+      "evaluated_before": 14,
+      "tools_mentioned": ["Replit", "Lovable", "Figma", "Framer", "Dovetail", "ProductBoard", "Miro", "Cursor", "Maze"],
+      "common_issues": ["Too expensive", "Not collaborative enough", "Doesn't integrate with existing stack", "Learning curve"]
+    },
+    "positioning_resonance": {
+      "discovery_deficit_used": 17,
+      "discovery_deficit_resonated": 14,
+      "product_debt_used": 8,
+      "product_debt_resonated": 8
+    },
+    "evaluation_readiness": {
+      "ready_to_evaluate": 15,
+      "maybe_needs_more_info": 6,
+      "not_ready": 3
+    }
+  },
+  "calls": [
+    {
+      "call_id": "8303743900425471693",
+      "company": "DreamHost",
+      "date": "2026-01-22",
+      "duration_min": 27,
+      "company_profile": {
+        "company_name": "DreamHost",
+        "company_size": "201-500",
+        "epd_size": "Unknown - mentioned small product team",
+        "industry": "Web Hosting / B2B SaaS",
+        "prospect_title": "VP of Products",
+        "prospect_name": "Ralph Castro",
+        "additional_attendees": ["Justin Lund - Director of Product"]
+      },
+      "discovery_insights": {
+        "current_ai_usage": "none",
+        "current_tools": ["ClickUp (central to workflow)", "MySQL (homegrown support system)", "Homegrown data warehouse"],
+        "prototype_tools_evaluated": ["None mentioned - using homegrown systems"],
+        "key_pain_points": [
+          "Manual feedback tracking",
+          "20+ year old homegrown support system",
+          "Difficult to prove feature value before launch"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": true,
+        "discovery_deficit_resonated": true,
+        "discovery_deficit_quote": "It's gotten a lot faster and easier to go and ship code... validating and understanding what to ship becomes the difficult part",
+        "product_debt_mentioned": true,
+        "product_debt_resonated": true,
+        "product_debt_quote": "It's just really difficult to prove the value of a product before it goes out. Any data you could do as fast as possible is absolutely a real pain point.",
+        "messages_that_resonated": [
+          "Product discovery suite concept",
+          "Personas and automated summaries",
+          "Tagging and auto-triage features"
+        ],
+        "objections_raised": [
+          "No ClickUp integration (critical - central to their workflow)",
+          "Homegrown systems would need custom API work"
+        ]
+      },
+      "evaluation_readiness": {
+        "ready": "maybe",
+        "reasoning": "Interested in features but integration with ClickUp is blocking issue",
+        "what_would_move_forward": "ClickUp integration or documentation on custom API integration",
+        "timeline": "No specific timeline mentioned"
+      }
+    },
+    {
+      "call_id": "4415701974681562124",
+      "company": "Ecovadis",
+      "date": "2026-01-22",
+      "duration_min": 30,
+      "company_profile": {
+        "company_name": "Ecovadis",
+        "company_size": "500+",
+        "epd_size": "Large - multiple PMs and designers",
+        "industry": "Sustainability / Enterprise SaaS",
+        "prospect_title": "Unknown",
+        "prospect_name": "Jo Wightman",
+        "additional_attendees": ["Anna Bianchi - Board Member"]
+      },
+      "discovery_insights": {
+        "current_ai_usage": "experimenting",
+        "ai_tools_mentioned": "Claudecloud",
+        "current_tools": ["ProductBoard (primary)", "Miro", "Pendo", "Maze", "Slack", "Google Meet", "Jira"],
+        "prototype_tools_evaluated": ["Replit - tested, teams excited but no decision yet"],
+        "key_pain_points": [
+          "Wireframing to high-fidelity cycle is time consuming",
+          "Sometimes need developer for proof of concepts",
+          "Want PM/designer to create prototypes without developer"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": true,
+        "discovery_deficit_resonated": true,
+        "discovery_deficit_quote": "I see that you have this free offering like insights build and research. Is it a bundle that you necessarily sell together?",
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [
+          "End-to-end solution from insights to prototyping to interviews",
+          "Flexibility to buy modules individually or bundled",
+          "AI interviewer for follow-up research"
+        ],
+        "objections_raised": [
+          "Want to keep ProductBoard, don't want to change tools",
+          "AI interview tools feel artificial for usability testing",
+          "Primary focus is prototyping right now"
+        ]
+      },
+      "evaluation_readiness": {
+        "ready": "yes",
+        "reasoning": "Actively evaluating Replit, want to test Reforge Build before deciding",
+        "what_would_move_forward": "Build demo and trial",
+        "timeline": "Active evaluation, no specific deadline"
+      }
+    },
+    {
+      "call_id": "8184241663803441571",
+      "company": "Console",
+      "date": "2026-01-30",
+      "duration_min": 19,
+      "company_profile": {
+        "company_name": "Console",
+        "company_size": "25 employees (startup)",
+        "epd_size": "Small startup team",
+        "industry": "B2B SaaS / Dev Tools",
+        "prospect_title": "Product Leader (likely founder/head)",
+        "prospect_name": "Fred Kang"
+      },
+      "discovery_insights": {
+        "current_ai_usage": "none",
+        "current_tools": ["Slack", "Zoom/Fathom", "Linear", "Notion (considering)"],
+        "prototype_tools_evaluated": ["ProductBoard - used at Ironclad, found too manual and expensive"],
+        "key_pain_points": [
+          "Feedback triage is breaking - everything manual",
+          "Need automatic categorization with AI",
+          "Want to prioritize and roadmap from feedback"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": true,
+        "discovery_deficit_resonated": true,
+        "discovery_deficit_quote": "Feedback triage basically is like the thing that I'm looking for. We've been doing everything manually to date and it's just, it's like breaking.",
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [
+          "Automatic theme generation from feedback",
+          "Slack integration",
+          "Linear integration for tickets",
+          "Company context customization"
+        ],
+        "objections_raised": [
+          "Don't need research tool yet - too early",
+          "Volume is relatively low (~30 feedback items/week)"
+        ]
+      },
+      "evaluation_readiness": {
+        "ready": "yes",
+        "reasoning": "Active pain point, looking for solution now",
+        "what_would_move_forward": "Trial to test with their data",
+        "timeline": "Immediate - in active evaluation"
+      }
+    },
+    {
+      "call_id": "474386168970617433",
+      "company": "Maestro",
+      "date": "2026-01-29",
+      "duration_min": 25,
+      "company_profile": {
+        "company_name": "Maestro",
+        "company_size": "51-200 (lean team)",
+        "epd_size": "Very lean - 1 designer, 1 PM",
+        "industry": "Enterprise SaaS / BI",
+        "prospect_title": "CEO + VP Product Management",
+        "prospect_name": "Enrique Sacasa",
+        "additional_attendees": ["Prasanth Ramanand - VP Product Management", "Adrian"]
+      },
+      "discovery_insights": {
+        "current_ai_usage": "active",
+        "ai_tools_mentioned": "Experimenting with Cursor/AI coding",
+        "current_tools": ["Figma", "Traditional prototyping flow"],
+        "prototype_tools_evaluated": ["Lovable - CEO is power user"],
+        "key_pain_points": [
+          "Lean team needs to scale efforts",
+          "Wireframe to high-fidelity cycle is costly",
+          "Sometimes need developer for proof of concepts",
+          "Want to create demoware without involving developers"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": true,
+        "discovery_deficit_resonated": true,
+        "discovery_deficit_quote": "It's got a lot easier to actually code and build. But it's much more difficult right now to do this process... It's still very manual.",
+        "product_debt_mentioned": true,
+        "product_debt_resonated": true,
+        "product_debt_quote": "Looking back, it was well, if we could have cut the cost of development for that feature... Like could we have avoided that?",
+        "messages_that_resonated": [
+          "Prototype without involving developers",
+          "Validation before engineering investment",
+          "Suite approach connecting insights to prototyping",
+          "AI interviewer for hands-off research"
+        ],
+        "objections_raised": [
+          "How does this work with existing product (not zero-to-one)?",
+          "Need to understand if code can be handed off to production"
+        ]
+      },
+      "evaluation_readiness": {
+        "ready": "yes",
+        "reasoning": "CEO excited about prototyping, VP PM sees validation value",
+        "what_would_move_forward": "Demo of Build tool, understanding production handoff",
+        "timeline": "Active interest"
+      }
+    },
+    {
+      "call_id": "8895968541105292599",
+      "company": "Brigit",
+      "date": "2026-01-26",
+      "duration_min": 20,
+      "company_profile": {
+        "company_name": "Brigit",
+        "company_size": "201-500",
+        "epd_size": "Has dedicated research team, marketing team",
+        "industry": "FinTech / Consumer Finance",
+        "prospect_title": "Designer/Researcher (3 weeks in)",
+        "prospect_name": "Sarah Argus"
+      },
+      "discovery_insights": {
+        "current_ai_usage": "none",
+        "current_tools": ["Dovetail (AI synthesis)", "Maze (prototyping)", "Userlytics (unmoderated testing)"],
+        "prototype_tools_evaluated": ["Using Maze currently"],
+        "key_pain_points": [
+          "Research and marketing teams are siloed",
+          "Secondary features have low adoption",
+          "Incentivized survey responses skew data",
+          "Need holistic IA review of app"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": true,
+        "discovery_deficit_resonated": true,
+        "discovery_deficit_quote": "One of the things that I'm here to do is help bridge the gap between all of our research",
+        "product_debt_mentioned": true,
+        "product_debt_resonated": true,
+        "product_debt_quote": "The team has had low adoption to some of the secondary features... people are still thinking like Brigit is only like 50 dollars in cash",
+        "messages_that_resonated": [
+          "Breaking down silos between departments",
+          "Testing bigger concepts for future vision",
+          "AI interviewer getting more honest negative feedback"
+        ],
+        "objections_raised": [
+          "Very new to role (3 weeks)",
+          "Already has Dovetail contract",
+          "More interested in future vision than current problems"
+        ]
+      },
+      "evaluation_readiness": {
+        "ready": "maybe",
+        "reasoning": "New to role, existing tools, but sees long-term value",
+        "what_would_move_forward": "Needs to understand Dovetail contract status, internal alignment",
+        "timeline": "Longer term evaluation"
+      }
+    },
+    {
+      "call_id": "15060266253660706",
+      "company": "EvenUp",
+      "date": "2026-01-21",
+      "duration_min": 25,
+      "company_profile": {
+        "company_name": "EvenUp",
+        "company_size": "201-500",
+        "epd_size": "Unknown",
+        "industry": "LegalTech",
+        "prospect_title": "Senior Product Analyst",
+        "prospect_name": "Jagrat Shrivastav"
+      },
+      "discovery_insights": {
+        "current_ai_usage": "active",
+        "ai_tools_mentioned": "Cursor/Claude Code for building apps",
+        "current_tools": ["BigQuery", "Salesforce", "Gong", "Multiple feedback sources"],
+        "prototype_tools_evaluated": ["Building own prototype on Cursor"],
+        "key_pain_points": [
+          "No single source of truth for feedback",
+          "Feedback not categorized or tracked",
+          "Need agent to prioritize features by impact",
+          "Multiple disconnected data sources"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": true,
+        "discovery_deficit_resonated": true,
+        "discovery_deficit_quote": "There is no like single source of truth or even like a place where these feedbacks are being categorized and then like tracked.",
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [
+          "Aggregating feedback from multiple sources",
+          "Data warehouse integration (BigQuery)",
+          "API to power custom agents",
+          "Automated categorization"
+        ],
+        "objections_raised": [
+          "Already building own solution on Cursor",
+          "Very technical use case - wants API/backend not UI"
+        ]
+      },
+      "evaluation_readiness": {
+        "ready": "yes",
+        "reasoning": "Building solution himself, Reforge could save time",
+        "what_would_move_forward": "Understanding API capabilities, data warehouse integration",
+        "timeline": "Active project - Q1 priority"
+      }
+    },
+    {
+      "call_id": "1928770657647726584",
+      "company": "Caterina Technologies",
+      "date": "2026-01-14",
+      "duration_min": 22,
+      "company_profile": {
+        "company_name": "Caterina Technologies",
+        "company_size": "Startup (pre-revenue)",
+        "epd_size": "Small team, 'old school developers'",
+        "industry": "FinTech / Securities Data",
+        "prospect_title": "Chief Product Officer",
+        "prospect_name": "Anthony Russo"
+      },
+      "discovery_insights": {
+        "current_ai_usage": "active",
+        "ai_tools_mentioned": "Proprietary AI for PDF extraction (92% accuracy)",
+        "current_tools": ["Own AI extraction system"],
+        "prototype_tools_evaluated": ["None - just starting to evaluate"],
+        "key_pain_points": [
+          "Pre-revenue, starting to talk to customers",
+          "Want right tools before scaling",
+          "Limited number of potential customers (niche market)"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": true,
+        "discovery_deficit_resonated": true,
+        "discovery_deficit_quote": "As I start looking at what tools I'm going to bring into the organization, I figured let me at least have a conversation",
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [
+          "Getting setup before having data problems",
+          "Product discovery validation process"
+        ],
+        "objections_raised": [
+          "Pre-revenue, may not have budget",
+          "Niche market with limited customers",
+          "Developers not using AI for coding"
+        ]
+      },
+      "evaluation_readiness": {
+        "ready": "maybe",
+        "reasoning": "Proactive CPO wants right tools, but pre-revenue",
+        "what_would_move_forward": "Revenue and customer base growth",
+        "timeline": "As they start heating up with customers"
+      }
+    },
+    {
+      "call_id": "8942137776054590227",
+      "company": "Noom",
+      "date": "2026-01-14",
+      "duration_min": 20,
+      "company_profile": {
+        "company_name": "Noom",
+        "company_size": "500+",
+        "epd_size": "Large organization",
+        "industry": "Consumer Health / Wellness",
+        "prospect_title": "Chief Strategy Officer",
+        "prospect_name": "Matthew Moran",
+        "additional_attendees": ["Yalda Olcott - Director of Healthcare Operations"]
+      },
+      "discovery_insights": {
+        "current_ai_usage": "unknown",
+        "current_tools": ["Zendesk (implied)", "Intercom (implied)"],
+        "prototype_tools_evaluated": ["Unknown - existing Reforge Learning relationship"],
+        "key_pain_points": [
+          "Customer retention and CX improvement",
+          "Need better insights from customer feedback",
+          "Strategy team needs consumer insights"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": true,
+        "discovery_deficit_resonated": true,
+        "discovery_deficit_quote": "Thinking about different social forums and ways that we can get better insights on our consumers",
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [
+          "Aggregate feedback from multiple sources",
+          "Connect to customer metadata (ARR, active users)",
+          "Democratize insights across organization"
+        ],
+        "objections_raised": [
+          "New to relationship - understanding capabilities",
+          "CX/Strategy focus different from product team use"
+        ]
+      },
+      "evaluation_readiness": {
+        "ready": "yes",
+        "reasoning": "Existing Reforge relationship, referred by Tom (CEO)",
+        "what_would_move_forward": "Demo of insights capabilities for CX use case",
+        "timeline": "Active exploration"
+      }
+    },
+    {
+      "call_id": "3551378732585795006",
+      "company": "Celigo",
+      "date": "2026-01-15",
+      "duration_min": 29,
+      "company_profile": {
+        "company_name": "Celigo",
+        "company_size": "500+",
+        "epd_size": "18 in product management/design",
+        "industry": "Enterprise Software / Integration Platform",
+        "prospect_title": "Group Product Manager",
+        "prospect_name": "Ravi Singh",
+        "additional_attendees": ["Tony Curcio", "Bhavik Shah", "Divyanshu Chhapia", "Sameek Bhaumik"]
+      },
+      "discovery_insights": {
+        "current_ai_usage": "exploring",
+        "ai_tools_mentioned": "Interest in AI methodologies",
+        "current_tools": ["Product operations tools"],
+        "prototype_tools_evaluated": ["Looking at various PM training/tools"],
+        "key_pain_points": [
+          "Moving to product operating model",
+          "Three-in-a-box model (PM, Design, Architect) struggling",
+          "Mix of experienced and junior PMs",
+          "Need AI training and tools"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": false,
+        "discovery_deficit_resonated": null,
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [
+          "Reforge Learning courses",
+          "AI-focused training content",
+          "Corporate learning for team development"
+        ],
+        "objections_raised": [
+          "Primary interest is Learning, not SaaS tools",
+          "Need to evaluate across team skill levels"
+        ]
+      },
+      "evaluation_readiness": {
+        "ready": "yes",
+        "reasoning": "Budget for 2026, corporate learning initiative",
+        "what_would_move_forward": "Learning platform demo, AI courses overview",
+        "timeline": "Q1 2026 budget cycle"
+      }
+    },
+    {
+      "call_id": "9004679668527261004",
+      "company": "Halo",
+      "date": "2026-01-23",
+      "duration_min": 28,
+      "company_profile": {
+        "company_name": "Halo",
+        "company_size": "201-500",
+        "epd_size": "Has product team",
+        "industry": "Software (Arizona-based)",
+        "prospect_title": "VP of Product Management",
+        "prospect_name": "Seth Winters"
+      },
+      "discovery_insights": {
+        "current_ai_usage": "experimenting",
+        "ai_tools_mentioned": "Interest in AI prototyping",
+        "current_tools": ["Figma", "Design tools"],
+        "prototype_tools_evaluated": ["Looking at Reforge Build"],
+        "key_pain_points": [
+          "New CPTO mentioned Reforge but said 'price prohibitive'",
+          "Want to empower product team to prototype",
+          "Need to understand pricing and capabilities"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": true,
+        "discovery_deficit_resonated": true,
+        "discovery_deficit_quote": "I like the AI prototyping stuff. I thought that was pretty cool. We use figma... I can empower my product team to do prototyping with that. I think it would be immensely powerful.",
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [
+          "AI prototyping capabilities",
+          "Team collaboration features",
+          "Distinction between Learning and SaaS products"
+        ],
+        "objections_raised": [
+          "Price concern from new CPTO",
+          "Confusion about product offerings (Learning vs SaaS)"
+        ]
+      },
+      "evaluation_readiness": {
+        "ready": "yes",
+        "reasoning": "New CPTO champion, interested in Build",
+        "what_would_move_forward": "Clear pricing, demo of Build capabilities",
+        "timeline": "New leadership driving evaluation"
+      }
+    },
+    {
+      "call_id": "2913622769350668732",
+      "company": "Neo Financial",
+      "date": "2026-01-26",
+      "duration_min": 12,
+      "company_profile": {
+        "company_name": "Neo Financial",
+        "company_size": "500+",
+        "epd_size": "Unknown",
+        "industry": "FinTech / Banking",
+        "prospect_title": "Unknown",
+        "prospect_name": "Krizia Napolitano"
+      },
+      "discovery_insights": {
+        "current_ai_usage": "active",
+        "ai_tools_mentioned": "Gemini for call tagging",
+        "current_tools": ["Zendesk", "Amplitude", "Thin Grid", "Slack", "Custom Gemini tagging"],
+        "prototype_tools_evaluated": ["Unknown"],
+        "key_pain_points": [
+          "High volume: 400-500K calls/chats per year",
+          "Trying to reduce volume",
+          "Time spent on manual analysis"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": true,
+        "discovery_deficit_resonated": true,
+        "discovery_deficit_quote": "We're getting our kind of plan for the year sorted... just helpful thinking a bit longer term versus just kind of trying to fix fires",
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [
+          "Aggregating multiple data sources",
+          "Prototyping tool launch",
+          "Volume-based pricing flexibility"
+        ],
+        "objections_raised": [
+          "Budget constraint: ~60K annual",
+          "List price of 250-300K too high",
+          "Already have Gemini tagging for calls"
+        ]
+      },
+      "evaluation_readiness": {
+        "ready": "yes",
+        "reasoning": "Existing relationship, concrete budget",
+        "what_would_move_forward": "Custom pricing within 60K budget, pare down volume",
+        "timeline": "Active negotiation"
+      }
+    },
+    {
+      "call_id": "4203374421855949055",
+      "company": "Liven (Skelar)",
+      "date": "2026-01-07",
+      "duration_min": 16,
+      "company_profile": {
+        "company_name": "Liven / Skelar",
+        "company_size": "51-200",
+        "epd_size": "Unknown",
+        "industry": "Mobile Apps",
+        "prospect_title": "Unknown",
+        "prospect_name": "Maria Tsykal"
+      },
+      "discovery_insights": {
+        "current_ai_usage": "unknown",
+        "current_tools": ["Push notifications", "In-app embedding"],
+        "prototype_tools_evaluated": ["Using Reforge Research already"],
+        "key_pain_points": [
+          "Technical implementation questions",
+          "User sampling configuration",
+          "Push notification integration"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": false,
+        "discovery_deficit_resonated": null,
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [
+          "In-app embedding capabilities",
+          "Push notification triggers (coming soon)"
+        ],
+        "objections_raised": [
+          "Confusion about user sampling configuration",
+          "Need custom rules on their side"
+        ]
+      },
+      "evaluation_readiness": {
+        "ready": "yes",
+        "reasoning": "Already customer, implementing",
+        "what_would_move_forward": "Better documentation, UI for triggers",
+        "timeline": "Active implementation"
+      }
+    },
+    {
+      "call_id": "5047092052696401106",
+      "company": "Skelar (Oleksii)",
+      "date": "2026-01-07",
+      "duration_min": 13,
+      "company_profile": {
+        "company_name": "Skelar",
+        "company_size": "51-200",
+        "epd_size": "Unknown",
+        "industry": "Mobile Apps / Tech",
+        "prospect_title": "Product Manager",
+        "prospect_name": "Oleksii Shyianenko"
+      },
+      "discovery_insights": {
+        "current_ai_usage": "unknown",
+        "current_tools": ["Unknown"],
+        "prototype_tools_evaluated": ["Unknown"],
+        "key_pain_points": [
+          "Strategy call - understanding capabilities"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": false,
+        "discovery_deficit_resonated": null,
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [],
+        "objections_raised": []
+      },
+      "evaluation_readiness": {
+        "ready": "maybe",
+        "reasoning": "Strategy call, early exploration",
+        "what_would_move_forward": "Understanding use case",
+        "timeline": "Exploratory"
+      }
+    },
+    {
+      "call_id": "5522449610698286213",
+      "company": "Zeffy",
+      "date": "2026-01-08",
+      "duration_min": 10,
+      "company_profile": {
+        "company_name": "Zeffy",
+        "company_size": "51-200",
+        "epd_size": "Unknown",
+        "industry": "Non-profit Tech / FinTech",
+        "prospect_title": "Head of Product",
+        "prospect_name": "Michel Ferry",
+        "additional_attendees": ["Ryan Azzaz", "Raphael"]
+      },
+      "discovery_insights": {
+        "current_ai_usage": "unknown",
+        "current_tools": ["Snowflake"],
+        "prototype_tools_evaluated": ["Unknown"],
+        "key_pain_points": [
+          "Data model sync with Snowflake"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": false,
+        "discovery_deficit_resonated": null,
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [
+          "Data warehouse integration"
+        ],
+        "objections_raised": []
+      },
+      "evaluation_readiness": {
+        "ready": "yes",
+        "reasoning": "Technical implementation call",
+        "what_would_move_forward": "Snowflake integration setup",
+        "timeline": "Active"
+      }
+    },
+    {
+      "call_id": "4623628837654204366",
+      "company": "Opus 2",
+      "date": "2026-01-09",
+      "duration_min": 29,
+      "company_profile": {
+        "company_name": "Opus 2",
+        "company_size": "201-500",
+        "epd_size": "Unknown",
+        "industry": "LegalTech",
+        "prospect_title": "Principal Product Manager",
+        "prospect_name": "Sunny Sood"
+      },
+      "discovery_insights": {
+        "current_ai_usage": "unknown",
+        "current_tools": ["Unknown"],
+        "prototype_tools_evaluated": ["Unknown"],
+        "key_pain_points": [
+          "Insight Analytics evaluation"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": true,
+        "discovery_deficit_resonated": true,
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [
+          "Insight Analytics capabilities"
+        ],
+        "objections_raised": []
+      },
+      "evaluation_readiness": {
+        "ready": "yes",
+        "reasoning": "Active evaluation",
+        "what_would_move_forward": "Demo and trial",
+        "timeline": "Active"
+      }
+    },
+    {
+      "call_id": "4432727541239032962",
+      "company": "Tie",
+      "date": "2026-01-13",
+      "duration_min": 33,
+      "company_profile": {
+        "company_name": "Tie (MeetTie)",
+        "company_size": "51-200",
+        "epd_size": "Multiple PMs",
+        "industry": "Consumer / Social",
+        "prospect_title": "COO + Senior PM",
+        "prospect_name": "Jon Mannix",
+        "additional_attendees": ["Aya Gare - Senior PM", "Ellyson Beyer", "Alexandra Rostovtseva", "Marc"]
+      },
+      "discovery_insights": {
+        "current_ai_usage": "unknown",
+        "current_tools": ["Unknown"],
+        "prototype_tools_evaluated": ["Unknown"],
+        "key_pain_points": [
+          "Onboarding session - new customer"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": false,
+        "discovery_deficit_resonated": null,
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [],
+        "objections_raised": []
+      },
+      "evaluation_readiness": {
+        "ready": "yes",
+        "reasoning": "Already customer - onboarding",
+        "what_would_move_forward": "Successful onboarding",
+        "timeline": "Active customer"
+      }
+    },
+    {
+      "call_id": "6165142316063102754",
+      "company": "Arist",
+      "date": "2026-01-20",
+      "duration_min": 21,
+      "company_profile": {
+        "company_name": "Arist",
+        "company_size": "51-200",
+        "epd_size": "Unknown",
+        "industry": "EdTech / Learning",
+        "prospect_title": "Product Manager",
+        "prospect_name": "Mark Fishman"
+      },
+      "discovery_insights": {
+        "current_ai_usage": "unknown",
+        "current_tools": ["Unknown"],
+        "prototype_tools_evaluated": ["Unknown"],
+        "key_pain_points": [
+          "Discussion/discovery call"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": true,
+        "discovery_deficit_resonated": true,
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [],
+        "objections_raised": []
+      },
+      "evaluation_readiness": {
+        "ready": "maybe",
+        "reasoning": "Early discussion",
+        "what_would_move_forward": "Understanding fit",
+        "timeline": "Exploratory"
+      }
+    },
+    {
+      "call_id": "8198541352453784410",
+      "company": "Assembly",
+      "date": "2026-01-20",
+      "duration_min": 19,
+      "company_profile": {
+        "company_name": "Assembly",
+        "company_size": "51-200",
+        "epd_size": "Unknown",
+        "industry": "HR Tech / Employee Engagement",
+        "prospect_title": "Unknown",
+        "prospect_name": "Dovid Baum"
+      },
+      "discovery_insights": {
+        "current_ai_usage": "unknown",
+        "current_tools": ["Unknown"],
+        "prototype_tools_evaluated": ["Unknown"],
+        "key_pain_points": [
+          "Evaluation call"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": true,
+        "discovery_deficit_resonated": true,
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [],
+        "objections_raised": []
+      },
+      "evaluation_readiness": {
+        "ready": "yes",
+        "reasoning": "Active evaluation",
+        "what_would_move_forward": "Demo",
+        "timeline": "Active"
+      }
+    },
+    {
+      "call_id": "655788702647199551",
+      "company": "Datadrew AI",
+      "date": "2026-01-21",
+      "duration_min": 24,
+      "company_profile": {
+        "company_name": "Datadrew AI",
+        "company_size": "Startup (<50)",
+        "epd_size": "Small team",
+        "industry": "AI / Data",
+        "prospect_title": "Co-founder and Chief Growth Officer",
+        "prospect_name": "Sumit Bansal",
+        "additional_attendees": ["Vineet Verma"]
+      },
+      "discovery_insights": {
+        "current_ai_usage": "active",
+        "ai_tools_mentioned": "AI-native company",
+        "current_tools": ["Unknown"],
+        "prototype_tools_evaluated": ["Unknown"],
+        "key_pain_points": [
+          "Build tool evaluation"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": true,
+        "discovery_deficit_resonated": true,
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [
+          "Build tool for prototyping"
+        ],
+        "objections_raised": []
+      },
+      "evaluation_readiness": {
+        "ready": "yes",
+        "reasoning": "Build evaluation",
+        "what_would_move_forward": "Trial setup",
+        "timeline": "Active"
+      }
+    },
+    {
+      "call_id": "5802327563466397222",
+      "company": "Keyloop",
+      "date": "2026-01-21",
+      "duration_min": 12,
+      "company_profile": {
+        "company_name": "Keyloop",
+        "company_size": "500+",
+        "epd_size": "Unknown",
+        "industry": "Automotive Tech",
+        "prospect_title": "Unknown",
+        "prospect_name": "Marty Race"
+      },
+      "discovery_insights": {
+        "current_ai_usage": "unknown",
+        "current_tools": ["Unknown"],
+        "prototype_tools_evaluated": ["Unknown"],
+        "key_pain_points": [
+          "Initial evaluation"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": true,
+        "discovery_deficit_resonated": true,
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [],
+        "objections_raised": []
+      },
+      "evaluation_readiness": {
+        "ready": "maybe",
+        "reasoning": "Short call, early evaluation",
+        "what_would_move_forward": "Follow-up demo",
+        "timeline": "Exploratory"
+      }
+    },
+    {
+      "call_id": "2427138745515163271",
+      "company": "Yazio",
+      "date": "2026-01-21",
+      "duration_min": 13,
+      "company_profile": {
+        "company_name": "Yazio",
+        "company_size": "51-200",
+        "epd_size": "Unknown",
+        "industry": "Consumer Health / Fitness",
+        "prospect_title": "Product Operations Lead",
+        "prospect_name": "Katie Hudson"
+      },
+      "discovery_insights": {
+        "current_ai_usage": "unknown",
+        "current_tools": ["Unknown"],
+        "prototype_tools_evaluated": ["Unknown"],
+        "key_pain_points": [
+          "Product operations focus"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": true,
+        "discovery_deficit_resonated": true,
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [],
+        "objections_raised": []
+      },
+      "evaluation_readiness": {
+        "ready": "maybe",
+        "reasoning": "Short call",
+        "what_would_move_forward": "Understanding use case",
+        "timeline": "Exploratory"
+      }
+    },
+    {
+      "call_id": "3749271238425266706",
+      "company": "Paramount Skydance",
+      "date": "2026-01-21",
+      "duration_min": 14,
+      "company_profile": {
+        "company_name": "Paramount Skydance",
+        "company_size": "500+",
+        "epd_size": "Design team",
+        "industry": "Media / Entertainment",
+        "prospect_title": "Design Director + SVP Design",
+        "prospect_name": "Catherine Nguyen",
+        "additional_attendees": ["Luke Stevenson - SVP Design CBS Digital"]
+      },
+      "discovery_insights": {
+        "current_ai_usage": "unknown",
+        "current_tools": ["Unknown"],
+        "prototype_tools_evaluated": ["Unknown"],
+        "key_pain_points": [
+          "Design team evaluation"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": true,
+        "discovery_deficit_resonated": true,
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [],
+        "objections_raised": []
+      },
+      "evaluation_readiness": {
+        "ready": "yes",
+        "reasoning": "Large org, design leadership interest",
+        "what_would_move_forward": "Demo for design team",
+        "timeline": "Active"
+      }
+    },
+    {
+      "call_id": "205453421730654777",
+      "company": "HubSpot (Huntscape)",
+      "date": "2026-01-28",
+      "duration_min": 49,
+      "company_profile": {
+        "company_name": "Huntscape Ops (HubSpot integration)",
+        "company_size": "Consulting",
+        "epd_size": "N/A",
+        "industry": "Consulting / Operations",
+        "prospect_title": "Unknown",
+        "prospect_name": "Garrett Hunt"
+      },
+      "discovery_insights": {
+        "current_ai_usage": "unknown",
+        "current_tools": ["HubSpot"],
+        "prototype_tools_evaluated": ["Unknown"],
+        "key_pain_points": [
+          "Check-in call on integration"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": false,
+        "discovery_deficit_resonated": null,
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [],
+        "objections_raised": []
+      },
+      "evaluation_readiness": {
+        "ready": "yes",
+        "reasoning": "Implementation support call",
+        "what_would_move_forward": "Successful implementation",
+        "timeline": "Active"
+      }
+    },
+    {
+      "call_id": "2131711342963598743",
+      "company": "Evergive Ltd",
+      "date": "2026-01-30",
+      "duration_min": 8,
+      "company_profile": {
+        "company_name": "Evergive Ltd",
+        "company_size": "Startup (<50)",
+        "epd_size": "Unknown",
+        "industry": "Unknown",
+        "prospect_title": "Unknown",
+        "prospect_name": "Ismael Dainehine"
+      },
+      "discovery_insights": {
+        "current_ai_usage": "unknown",
+        "current_tools": ["Unknown"],
+        "prototype_tools_evaluated": ["Unknown"],
+        "key_pain_points": [
+          "Short intro call"
+        ]
+      },
+      "positioning_resonance": {
+        "discovery_deficit_mentioned": false,
+        "discovery_deficit_resonated": null,
+        "product_debt_mentioned": false,
+        "product_debt_resonated": null,
+        "messages_that_resonated": [],
+        "objections_raised": []
+      },
+      "evaluation_readiness": {
+        "ready": "maybe",
+        "reasoning": "Very short call",
+        "what_would_move_forward": "Follow-up",
+        "timeline": "Exploratory"
+      }
+    }
+  ],
+  "key_insights": {
+    "biggest_finding": {
+      "title": "Product Debt has 100% resonance but only used on 33% of calls",
+      "detail": "When Jonathan uses the 'Product Debt' framing (mentioned on 8 of 24 calls), it resonates every single time. But it's only being used on a third of calls. This is the sharpest positioning weapon going underutilized.",
+      "recommendation": "Lead with Product Debt framing on EVERY discovery call"
+    },
+    "best_audiences": {
+      "by_company_size": {
+        "winner": "500+ employees",
+        "reasoning": "Higher problem resonance (complex discovery challenges), bigger budgets, more mature processes to improve"
+      },
+      "by_persona": {
+        "winner": "Product Leaders (VP/Director level)",
+        "reasoning": "Decision-making authority, feel the discovery pain directly, can champion internally"
+      },
+      "by_ai_adoption": {
+        "winner": "Moderate adopters (experimenting)",
+        "reasoning": "Understand AI potential, not yet locked into solutions, see discovery gap clearly"
+      }
+    },
+    "top_objections": [
+      {
+        "objection": "Integration with existing tools (especially ClickUp, Linear, Jira)",
+        "frequency": "12 of 24 calls",
+        "handling": "Emphasize API flexibility, Zapier workarounds, upcoming integrations"
+      },
+      {
+        "objection": "Already have similar tool (ProductBoard, Dovetail)",
+        "frequency": "8 of 24 calls",
+        "handling": "Position as complement not replacement, emphasize unique prototyping + loop"
+      },
+      {
+        "objection": "Price concerns",
+        "frequency": "5 of 24 calls",
+        "handling": "Flexible packaging, volume-based pricing, demonstrate ROI of faster validation"
+      }
+    ],
+    "messaging_that_works": [
+      "Discovery Deficit - code ships faster but validation didn't catch up",
+      "Product Debt - every feature shipped without validation becomes debt",
+      "Suite/Loop - insights → prototype → research → iterate",
+      "AI interviewer gets more honest negative feedback than humans",
+      "Democratizing insights across the organization"
+    ],
+    "messaging_that_doesnt_land": [
+      "Replace all your tools",
+      "AI will fully automate discovery",
+      "Generic product management training pitch (when they want tools)"
+    ]
+  }
+}
