@@ -1,0 +1,230 @@
+[
+  {
+    "competitor": "Figma",
+    "prospect_mentions": 40,
+    "calls": [
+      "EcoVadis x Reforge Build",
+      "Reforge Strategy Call | Scott Lietzke",
+      "Keyloop x Reforge",
+      "Reforge Strategy Call | Tim Barker",
+      "Caterina Technologies: Reforge",
+      "Reforge Strategy Call | Dhanish Athif",
+      "YAZIO x Reforge Build",
+      "Reforge Strategy Call | MARIA PIPINI",
+      "Debora Domass and Jonathan Greenberg",
+      "Little Spoon x Reforge Build",
+      "Adam Meadows and Jonathan Greenberg",
+      "Assembly: Reforge",
+      "Viafoura x Reforge Build",
+      "Opus 2 : Reforge Insight Analytics",
+      "HiveMQ x Reforge Build"
+    ],
+    "sample_quotes": [
+      "We have figma tools.",
+      "It's usually, I mean, usually typically we've just done like figma, right?",
+      "I think mostly we're using like the built in capabilities in figma, but\u2026 mainly because like we don't have to like, they're giving it away for free basically right now.",
+      "We have used figma, we have used magic patterns.",
+      "So far, I mean, I think figma, again, we have, you know, our assets are there."
+    ]
+  },
+  {
+    "competitor": "Amplitude",
+    "prospect_mentions": 32,
+    "calls": [
+      "Voicemod: Reforge [Pilot Followup]",
+      "Zeffy + Reforge | Trial",
+      "Reforge Strategy Call | Albert Pitera",
+      "Reforge Strategy Call | Tim Barker",
+      "Infragistics: Reforge",
+      "TransferGo: Reforge",
+      "Neo Financial: Reforge",
+      "Reforge Strategy Call | Dhanish Athif",
+      "Office Timeline: Reforge",
+      "Reforge x TransferGo | Trial Setup",
+      "Zeffy x Reforge | Onboarding"
+    ],
+    "sample_quotes": [
+      "I saw you had amplitude on here.",
+      "Or I saw like I said amplitude's connected?",
+      "And with that, that's connected to amplitude.",
+      "But, just to make sure, so you are saying, let's so connect reforge to Iterable, the same way that the lcm like, sorry, these two not to Iterable to amplitude.",
+      "Iterable is another tool that is connected to amplitude."
+    ]
+  },
+  {
+    "competitor": "ProductBoard",
+    "prospect_mentions": 15,
+    "calls": [
+      "TaskRay: Reforge",
+      "DreamHost.com: Reforge",
+      "Reforge Insights Demo",
+      "Tie x Reforge | Onboarding",
+      "Rydoo: Reforge",
+      "tapClicks : Reforge Insight Analytics",
+      "HiveMQ x Reforge Build"
+    ],
+    "sample_quotes": [
+      "I mean, I was in this kind of we are already using kind of a similar product by product board, but I'm looking for maybe a different tool.",
+      "We just send everything for product board and process there.",
+      "So I think a bit, sometimes this challenge that we have with product board is about exporting the data or basically they lock the data in a way to make it harder.",
+      "Product board, product board.",
+      "We have one product manager using product board to kind of collect all that information on his roadmap."
+    ]
+  },
+  {
+    "competitor": "Replit",
+    "prospect_mentions": 14,
+    "calls": [
+      "Vivaldi Group x Reforge Build",
+      "EcoVadis x Reforge Build",
+      "Reforge Strategy Call | Tim Barker",
+      "Reforge Strategy Call | Albert Pitera",
+      "HiveMQ x Reforge Build"
+    ],
+    "sample_quotes": [
+      "And then it goes back into this\u2026 replit bolt lovable, like they don't do that.",
+      "The thought in my mind here was not, yes, we can go and build something out with replit and prototype and stuff like this.",
+      "I mean, we have been using replit but only for the, you know, for the quick prototyping and just the.",
+      "And other than playing around with, and having done hackathons and replit and stuff, et cetera.",
+      "We've tested replit already and we were wondering because we already have reforge learning as you said, and we have some team members who have tried because they are involved in an AI course."
+    ]
+  },
+  {
+    "competitor": "UserTesting",
+    "prospect_mentions": 10,
+    "calls": [
+      "Reforge Strategy Call | Albert Pitera",
+      "Lakeview Loan Servicing, LLC: Reforge",
+      "EY Customer Intelligence | Reforge",
+      "YAZIO x Reforge Build",
+      "Backroads: Reforge",
+      "Muse group: Reforge",
+      "OLX x Reforge | Research Trial Insights"
+    ],
+    "sample_quotes": [
+      "My team once in a while, collects\u2026 feedback on design prototypes using a usertesting.",
+      "We call it unmoderated interviews on user testing.",
+      "So, I was like, I've done the research, the reforge, I guess product management courses a while back, and I just saw that email about some of the user testing features\u2026 that you have now.",
+      "And then, you know, on occasion we'll use usertesting com to do some research there.",
+      "So, so my role is I look after the business testing center which is our team that manages and evaluates all of the end user testing for our new products throughout assurance here at ey and obviously, lots of other testing happens with the product teams beforehand, but I look after all the end users and I, as part of that collect feedback during the testing phase."
+    ]
+  },
+  {
+    "competitor": "Pendo",
+    "prospect_mentions": 7,
+    "calls": [
+      "Infragistics: Reforge",
+      "Transfr: Reforge",
+      "Opus 2 : Reforge Insight Analytics"
+    ],
+    "sample_quotes": [
+      "I know they use Pendo.",
+      "Is Pendo a connector.",
+      "Pendo is definitely a hodgepodge tool.",
+      "We're using Pendo for analytics and it's like web based analytics.",
+      "So how do we every nine days passively survey both those that are logging into our web product, but also they don't log into the web product that's the part that's really nice about Pendo."
+    ]
+  },
+  {
+    "competitor": "Mixpanel",
+    "prospect_mentions": 6,
+    "calls": [
+      "Lakeview Loan Servicing, LLC: Reforge",
+      "Comfy x Reforge | Onboarding",
+      "HiveMQ x Reforge Build",
+      "Reforge Strategy Call | Robin Huang"
+    ],
+    "sample_quotes": [
+      "So you essentially, I just want to repeat from all the different tools that we're looking at on the previous screen\u2026 you would just pull the information that all of the, so we have Mixpanel, for example, I know for a fact, I'm not sure exactly which tools like marketing and maybe like HR work with\u2026 do.",
+      "I will find out and we'll definitely use Mixpanel for analytics.",
+      "dovetail mix panel\u2026 yeah.",
+      "If I click to add a new workflow, we can also add Mixpanel, like, what do the workflows do?",
+      "If I click to the feedback from external cohorts, and I click plus, you can connect to Mixpanel."
+    ]
+  },
+  {
+    "competitor": "Dovetail",
+    "prospect_mentions": 5,
+    "calls": [
+      "inTruth: Reforge",
+      "Voicemod: Reforge",
+      "HiveMQ x Reforge Build"
+    ],
+    "sample_quotes": [
+      "It's either we use middle, we use dovetail figjam as well.",
+      "Given that they are using dovetail et cetera, like, right?",
+      "You can see the value in a full integrated solution from, you know, and then, and multi source data source is really interesting because, yeah, that was the other thing I didn't like about dovetail.",
+      "It's just like even within dovetail interviews is just really painful to try to consolidate and follow the pattern, right?",
+      "dovetail mix panel\u2026 yeah."
+    ]
+  },
+  {
+    "competitor": "Miro",
+    "prospect_mentions": 3,
+    "calls": [
+      "Keyloop x Reforge | Insights + Research",
+      "Reforge Chat",
+      "Keyloop x Reforge"
+    ],
+    "sample_quotes": [
+      "Yeah, Miro.",
+      "I think for insights we need to understand the order of magnitude in terms of pricing and that might end up kind of just completely ruling out the conversation or it could end up that then we go a more of a longer winded conversation because we do have other people that we're talking to particularly in that context, for example, Miro and their insights offering.",
+      "We've used Miro prototype and a few other products as well."
+    ]
+  },
+  {
+    "competitor": "Sprig",
+    "prospect_mentions": 2,
+    "calls": [
+      "Lakeview Loan Servicing, LLC: Reforge"
+    ],
+    "sample_quotes": [
+      "The company I was referring to is sprig.",
+      "So those tools that are there's sprig there's, the sprig."
+    ]
+  },
+  {
+    "competitor": "Heap",
+    "prospect_mentions": 2,
+    "calls": [
+      "WIN Reality: Reforge",
+      "Reforge Strategy Call | Jeremy Netka"
+    ],
+    "sample_quotes": [
+      "I don't use cheap sample and we put a tremendous amount of trap questions and other quality insurance techniques into making sure that we're talking to real people who give us the best opinions they can.",
+      "We use a tool called iterate for that, which is a really nice, very lightweight and cheap user survey tool."
+    ]
+  },
+  {
+    "competitor": "Hotjar",
+    "prospect_mentions": 1,
+    "calls": [
+      "DreamHost.com: Reforge"
+    ],
+    "sample_quotes": [
+      "We do run regular surveys with hotjar, so whether in our control panel or email or anything like that."
+    ]
+  },
+  {
+    "competitor": "Maze",
+    "prospect_mentions": 1,
+    "calls": [
+      "Voicemod: Reforge"
+    ],
+    "sample_quotes": [
+      "And then we have the ad hoc ones which are, the most demanding ones I'll say\u2026 then and then qualitatively speaking, we basically recruit users and talk, but we also use maze to validate\u2026 designs."
+    ]
+  },
+  {
+    "competitor": "Enterpret",
+    "prospect_mentions": 0,
+    "calls": [],
+    "sample_quotes": []
+  },
+  {
+    "competitor": "FullStory",
+    "prospect_mentions": 0,
+    "calls": [],
+    "sample_quotes": []
+  }
+]
