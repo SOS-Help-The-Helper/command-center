@@ -1,0 +1,91 @@
+{
+  "syncTime": "2026-02-03T15:10:00Z",
+  "source": "Gmail (browser extension)",
+  "period": "Last 7 days",
+  "signals": [
+    {
+      "type": "hot",
+      "contact": "Dominique Pelser",
+      "company": "iKhokha",
+      "email": "Dom@ikhokha.com",
+      "signal": "Excited about deck, renewal call Feb 12",
+      "quote": "Thank you for this, I am really excited. The deck looks great!",
+      "lastActivity": "2026-02-03T06:13:00Z",
+      "action": "Close the renewal"
+    },
+    {
+      "type": "hot",
+      "contact": "Prasanth Ramanand",
+      "company": "Maestro",
+      "email": "prasanth@go-maestro.com",
+      "signal": "Internal decision mode, viewed Gong call",
+      "quote": "We will discuss internally and get back on the next steps timing",
+      "lastActivity": "2026-02-02T20:00:00Z",
+      "action": "Follow up mid-week if no response"
+    },
+    {
+      "type": "new_lead",
+      "contact": "Cory Feinberg",
+      "company": "Unknown",
+      "signal": "Product org interest",
+      "quote": "I am curious about how my product org may be able to utilize Reforge, I will grab some time with you next week.",
+      "lastActivity": "2026-02-02T22:33:00Z",
+      "action": "Meeting next week"
+    },
+    {
+      "type": "follow_up",
+      "contact": "Balaji Ramakrishnan",
+      "company": "Unknown",
+      "signal": "Traveling, wants to meet following week",
+      "quote": "I am currently traveling and will be back home next week. Can we meet the following week?",
+      "lastActivity": "2026-02-02T21:13:00Z",
+      "action": "Schedule for week of Feb 10"
+    }
+  ],
+  "meetings_confirmed": [
+    {
+      "date": "2026-02-04",
+      "time": "11:00 AM EST",
+      "contact": "Bohuslav Benuch (for Anton Moritz)",
+      "type": "Strategy Call",
+      "status": "tentative"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "12:45 PM EST",
+      "contact": "Nathan Busscher",
+      "company": "Delos Ventures",
+      "type": "Reforge Build",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-02-05",
+      "time": "12:00 PM EST",
+      "contact": "Raphael Menachem",
+      "company": "Isracard",
+      "type": "Strategy Call",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "10:30 AM EST",
+      "contact": "johnny bengtsson",
+      "type": "Discovery",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-02-10",
+      "time": "TBD",
+      "contact": "Maya Oded",
+      "company": "Elsevier",
+      "type": "Discovery",
+      "status": "confirmed"
+    }
+  ],
+  "summary": {
+    "hot_deals": 2,
+    "new_leads": 1,
+    "meetings_this_week": 4,
+    "needs_follow_up": 1
+  }
+}

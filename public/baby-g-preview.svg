@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="pinkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b9d"/>
+      <stop offset="100%" style="stop-color:#c44569"/>
+    </linearGradient>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff0f5"/>
+      <stop offset="100%" style="stop-color:#faf8f5"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="60" fill="#ff6b9d" opacity="0.1"/>
+  <circle cx="1100" cy="530" r="80" fill="#ff6b9d" opacity="0.1"/>
+  <circle cx="1050" cy="120" r="40" fill="#c44569" opacity="0.08"/>
+  <circle cx="150" cy="500" r="50" fill="#c44569" opacity="0.08"/>
+  
+  <!-- Main content card -->
+  <rect x="200" y="115" width="800" height="400" rx="40" fill="white" filter="drop-shadow(0 8px 32px rgba(0,0,0,0.1))"/>
+  
+  <!-- Baby emoji -->
+  <text x="600" y="250" font-size="120" text-anchor="middle" dominant-baseline="middle">👶</text>
+  
+  <!-- Title -->
+  <text x="600" y="360" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif" font-size="64" font-weight="700" text-anchor="middle" fill="url(#pinkGradient)">Baby G</text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="420" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="28" text-anchor="middle" fill="#6e6e73">KC &amp; Jonathan's Journey</text>
+  
+  <!-- Hearts decoration -->
+  <text x="420" y="480" font-size="32" text-anchor="middle">💕</text>
+  <text x="600" y="485" font-size="24" text-anchor="middle">🤍</text>
+  <text x="780" y="480" font-size="32" text-anchor="middle">💕</text>
+</svg>

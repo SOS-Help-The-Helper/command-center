@@ -1,0 +1,208 @@
+{
+  "syncTime": "2026-02-03T15:20:00Z",
+  "source": "Gmail (browser extension) - FULL CONTEXT",
+  "philosophy": "EAT - Evaluate, Act, Track",
+  "period": "Last 7 days",
+  
+  "deals": {
+    "hot": [
+      {
+        "company": "iKhokha",
+        "contact": {
+          "name": "Dominique Pelser",
+          "title": "Learning Manager",
+          "email": "Dom@ikhokha.com",
+          "whatsapp": "082 303 1740",
+          "phone": "087 222 7000",
+          "address": "3rd Floor Ridgeview Building, 1 Nokwe Avenue, Umhlanga Ridge, 4319"
+        },
+        "signal": "Extremely excited about renewal deck",
+        "quote": "Thank you for this, I am really excited. The deck looks great!",
+        "lastActivity": "2026-02-03T06:13:00Z",
+        "timeline": [
+          {"date": "Jan 21", "action": "Laeka sent renewal outreach (AI-native teams, 4 new SaaS products)"},
+          {"date": "Jan 29", "action": "Laeka handoff - leaving Reforge, Jonathan takes over"},
+          {"date": "Jan 29", "action": "Jonathan intro - asked about SaaS tools interest"},
+          {"date": "Jan 30", "action": "Dom replied: 'Reforge has proven to be a value add and I really want to see how we can maximise value'"},
+          {"date": "Feb 2", "action": "Jonathan sent Why Reforge deck"},
+          {"date": "Feb 3 1:13 AM", "action": "Dom: 'Thank you for this, I am really excited. The deck looks great!'"}
+        ],
+        "nextStep": "Feb 12 renewal call",
+        "action": "SHOULD CLOSE - Strong engagement"
+      },
+      {
+        "company": "Maestro",
+        "contact": {
+          "name": "Prasanth Ramanand",
+          "title": "CEO",
+          "email": "prasanth@go-maestro.com",
+          "phone": "412.527.9477"
+        },
+        "signal": "Internal decision mode + viewed Gong call",
+        "quote": "Thanks Jonathan We will discuss internally and get back on the next steps timing",
+        "lastActivity": "2026-02-02T20:00:00Z",
+        "additionalSignal": "Gong notification: 'Maestro x Reforge Build' call was viewed Feb 2 4:54 PM",
+        "timeline": [
+          {"date": "Jan 29", "action": "25 min Maestro x Reforge Build call"},
+          {"date": "Feb 2 4:54 PM", "action": "Prasanth viewed the Gong recording"},
+          {"date": "Feb 2 8:00 PM", "action": "Prasanth: 'Will discuss internally and get back on next steps'"}
+        ],
+        "nextStep": "Follow up Wed/Thu if no response",
+        "action": "Decision mode - viewed recording = engaged. Push mid-week."
+      }
+    ],
+    "new_leads": [
+      {
+        "company": "SafeLease",
+        "contact": {
+          "name": "Cory Feinberg",
+          "title": "Chief of Staff",
+          "email": "cory@safelease.com",
+          "phone": "818.634.0041",
+          "linkedin": "https://www.linkedin.com/company/safelease",
+          "website": "safelease.com"
+        },
+        "signal": "Product org interest - positive response to cold outreach",
+        "quote": "Hi Jonathan, I am curious about how my product org may be able to utilize Reforge, I will grab some time with you next week.",
+        "lastActivity": "2026-02-02T22:33:00Z",
+        "timeline": [
+          {"date": "Feb 2 10:25 AM", "action": "Jonathan cold outreach - product validation angle"},
+          {"date": "Feb 2 10:33 PM", "action": "Cory replied - interested, will book time next week"}
+        ],
+        "nextStep": "Wait for Cory to book, or follow up Fri if no booking",
+        "action": "NEW LEAD - Wait for meeting request"
+      },
+      {
+        "company": "Unknown (India-based)",
+        "contact": {
+          "name": "Balaji Ramakrishnan",
+          "email": "unknown"
+        },
+        "signal": "Traveling, wants to meet following week",
+        "quote": "Hi Jonathan, Thank you for reaching out. I am currently traveling and will be back home next week. Can we meet the following week?",
+        "lastActivity": "2026-02-02T21:13:00Z",
+        "timeline": [
+          {"date": "Feb 2 9:05 PM", "action": "Jonathan outreach"},
+          {"date": "Feb 2 9:13 PM", "action": "Balaji: traveling, wants to meet week of Feb 10"}
+        ],
+        "nextStep": "Schedule for week of Feb 10",
+        "action": "Send calendar link for Feb 10 week"
+      }
+    ]
+  },
+  
+  "meetings_confirmed": [
+    {
+      "date": "2026-02-04",
+      "time": "11:00 AM EST",
+      "contact": "Bohuslav Benuch (for Anton Moritz)",
+      "type": "Reforge Strategy Call",
+      "status": "tentative (Maybe response)"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "12:45 PM EST",
+      "contact": "Nathan Busscher",
+      "company": "Delos Ventures",
+      "type": "Reforge Build",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-02-05",
+      "time": "12:00 PM EST",
+      "contact": "Raphael Menachem",
+      "company": "Isracard",
+      "email": "rmenachem@isracard.co.il",
+      "type": "Reforge Strategy Call",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "10:30 AM EST",
+      "contact": "Johnny Bengtsson",
+      "type": "Discovery",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-02-10",
+      "time": "TBD",
+      "contact": "Maya Oded",
+      "company": "Elsevier",
+      "location": "Amsterdam, Netherlands",
+      "type": "Reforge Discovery",
+      "status": "confirmed"
+    }
+  ],
+  
+  "internal_reforge": [
+    {
+      "type": "team_departure",
+      "note": "Laeka Brenninkmeyer leaving Reforge in a few weeks (as of Jan 29)",
+      "impact": "Jonathan inherited her accounts including iKhokha"
+    },
+    {
+      "type": "product_updates",
+      "accounts_with_updates": ["NYT Games", "Muse", "GDx", "TaskRay", "DreamHost", "Comfy", "Tie", "Office Timeline", "Rapidmail", "Fox", "Litmos"],
+      "note": "Weekly customer update emails for Reforge Insights accounts"
+    },
+    {
+      "type": "weekly_insights",
+      "reports": ["Reforge SaaS", "GDx", "TaskRay", "DreamHost", "Comfy", "Tie", "Office Timeline", "Rapidmail", "Fox", "Litmos"],
+      "date": "2026-02-02",
+      "note": "Weekly feedback reports from Reforge Insights"
+    }
+  ],
+  
+  "learning_resources": [
+    {
+      "source": "Help Scout",
+      "title": "What empathy in support actually looks like",
+      "topic": "Actions and phrases that show empathy, unifying phone + email support",
+      "date": "2026-02-02"
+    },
+    {
+      "source": "Clay",
+      "title": "Quality of life improvements",
+      "topic": "Product roundup and upcoming events",
+      "date": "2026-02-02"
+    },
+    {
+      "source": "Notion",
+      "title": "Let AI take the notes next meeting",
+      "topic": "AI meeting summaries feature",
+      "date": "2026-02-02"
+    },
+    {
+      "source": "Apollo",
+      "title": "10-minute guide to launching an AI-powered outbound engine",
+      "topic": "Lookalike accounts, meetings booked +20%",
+      "date": "2026-02-02"
+    }
+  ],
+  
+  "engagement_signals": [
+    {
+      "type": "gong_view",
+      "call": "Maestro x Reforge Build",
+      "viewedBy": "Prasanth Ramanand",
+      "viewedAt": "2026-02-02T16:54:00Z",
+      "callDetails": "Jan 29, 2026 • 25 minutes • Jonathan Greenberg + Prasanth Ramanand + 1 more"
+    }
+  ],
+  
+  "summary": {
+    "hot_deals": 2,
+    "new_leads": 2,
+    "meetings_this_week": 5,
+    "needs_follow_up": 2,
+    "total_threads_scanned": 47
+  },
+  
+  "actions_required": [
+    {"priority": "HIGH", "action": "iKhokha - Prep for Feb 12 renewal call, should close"},
+    {"priority": "HIGH", "action": "Maestro - Follow up Wed/Thu if no response (internal decision mode)"},
+    {"priority": "MEDIUM", "action": "Cory Feinberg/SafeLease - Wait for meeting booking, follow up Fri if none"},
+    {"priority": "MEDIUM", "action": "Balaji Ramakrishnan - Send calendar link for week of Feb 10"},
+    {"priority": "LOW", "action": "Anton Moritz - Tentative meeting Feb 4, may need confirmation"}
+  ]
+}
