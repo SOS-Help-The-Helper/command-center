@@ -2,7 +2,6 @@
   "updated_at": "2026-02-03T06:00:00Z",
   "updated_by": "Henry",
   "version": "2.0",
-  
   "summary": {
     "total_tasks": 89,
     "urgent": 12,
@@ -10,7 +9,6 @@
     "this_week": 31,
     "blocked": 4
   },
-
   "projects": {
     "sos": {
       "name": "SOS Platform",
@@ -30,74 +28,336 @@
           "name": "Product Development",
           "emoji": "🔧",
           "tasks": [
-            {"id": "sos-prod-1", "title": "Set Helene slack_channel_id for match announcements", "status": "ready", "priority": "high", "due": "2026-02-03", "notes": "Blocking Aid Arena testing"},
-            {"id": "sos-prod-2", "title": "Set up cron jobs (matching every 15min, canvas refresh 5min)", "status": "ready", "priority": "high", "due": "2026-02-03", "notes": "Match engine needs scheduled runs"},
-            {"id": "sos-prod-3", "title": "Configure Slack app shortcuts in dashboard", "status": "pending", "priority": "medium", "notes": "Global shortcuts coded, need Slack config"},
-            {"id": "sos-prod-4", "title": "Run context graph schema migration", "status": "ready", "priority": "high", "file": "projects/SOS/db/context_graph_schema.sql", "notes": "Creates decision_traces + extensions"},
-            {"id": "sos-prod-5", "title": "Generate embeddings on decision traces", "status": "pending", "priority": "medium", "notes": "For precedent search - needs pgvector"},
-            {"id": "sos-prod-6", "title": "Build find similar decisions vector query", "status": "pending", "priority": "medium", "notes": "Vector similarity search"},
-            {"id": "sos-prod-7", "title": "OAuth scope verification (canvases:write)", "status": "pending", "priority": "low", "notes": "May need Slack app permission update"},
-            {"id": "sos-prod-8", "title": "Verify all 7 category schemas complete", "status": "done", "completed_at": "2026-02-01", "notes": "Housing, Food, Medical, Transport, Supplies, Volunteer, Financial"},
-            {"id": "sos-prod-9", "title": "Voice intake integration (Twilio/Retell)", "status": "future", "priority": "low", "notes": "Phase 2 - voice for survivors"},
-            {"id": "sos-prod-10", "title": "SMS intake integration", "status": "future", "priority": "low", "notes": "Phase 2 - text-based intake"}
+            {
+              "id": "sos-prod-1",
+              "title": "Set Helene slack_channel_id for match announcements",
+              "status": "ready",
+              "priority": "high",
+              "due": "2026-02-03",
+              "notes": "Blocking Aid Arena testing"
+            },
+            {
+              "id": "sos-prod-2",
+              "title": "Set up cron jobs (matching every 15min, canvas refresh 5min)",
+              "status": "ready",
+              "priority": "high",
+              "due": "2026-02-03",
+              "notes": "Match engine needs scheduled runs"
+            },
+            {
+              "id": "sos-prod-3",
+              "title": "Configure Slack app shortcuts in dashboard",
+              "status": "pending",
+              "priority": "medium",
+              "notes": "Global shortcuts coded, need Slack config"
+            },
+            {
+              "id": "sos-prod-4",
+              "title": "Run context graph schema migration",
+              "status": "ready",
+              "priority": "high",
+              "file": "projects/SOS/db/context_graph_schema.sql",
+              "notes": "Creates decision_traces + extensions"
+            },
+            {
+              "id": "sos-prod-5",
+              "title": "Generate embeddings on decision traces",
+              "status": "pending",
+              "priority": "medium",
+              "notes": "For precedent search - needs pgvector"
+            },
+            {
+              "id": "sos-prod-6",
+              "title": "Build find similar decisions vector query",
+              "status": "pending",
+              "priority": "medium",
+              "notes": "Vector similarity search"
+            },
+            {
+              "id": "sos-prod-7",
+              "title": "OAuth scope verification (canvases:write)",
+              "status": "pending",
+              "priority": "low",
+              "notes": "May need Slack app permission update"
+            },
+            {
+              "id": "sos-prod-8",
+              "title": "Verify all 7 category schemas complete",
+              "status": "done",
+              "completed_at": "2026-02-01",
+              "notes": "Housing, Food, Medical, Transport, Supplies, Volunteer, Financial"
+            },
+            {
+              "id": "sos-prod-9",
+              "title": "Voice intake integration (Twilio/Retell)",
+              "status": "future",
+              "priority": "low",
+              "notes": "Phase 2 - voice for survivors"
+            },
+            {
+              "id": "sos-prod-10",
+              "title": "SMS intake integration",
+              "status": "future",
+              "priority": "low",
+              "notes": "Phase 2 - text-based intake"
+            }
           ]
         },
         "grant_pipeline": {
           "name": "Grant Applications",
           "emoji": "💰",
           "tasks": [
-            {"id": "sos-grant-1", "title": "EDA Industry Transformation Grant - DEADLINE March 3", "status": "urgent", "priority": "urgent", "due": "2026-03-03", "amount": "$250K-500K", "notes": "Strong fit for disaster tech innovation"},
-            {"id": "sos-grant-2", "title": "Climate Resilience Fund - CSCI Grant", "status": "ready", "priority": "high", "due": "2026-03-12", "amount": "Up to $115K", "notes": "Partner with community for CSCI"},
-            {"id": "sos-grant-3", "title": "Hilton Foundation - Disaster Relief LOI", "status": "ready", "priority": "high", "due": "Rolling", "amount": "$1M-5M", "notes": "Perfect alignment - disaster coordination innovation"},
-            {"id": "sos-grant-4", "title": "Google.org Crisis Response LOI", "status": "ready", "priority": "high", "due": "Rolling", "amount": "$2M-5M", "notes": "Tech focus perfect for SOS"},
-            {"id": "sos-grant-5", "title": "Bezos Earth Fund AI Challenge - Phase II", "status": "pending", "priority": "medium", "due": "TBD 2026", "amount": "$1M+", "notes": "AI component aligns"},
-            {"id": "sos-grant-6", "title": "Rockefeller Foundation - Climate Resilience", "status": "pending", "priority": "medium", "due": "Rolling", "amount": "$5M-50M", "notes": "$50M Adaptation Fund"},
-            {"id": "sos-grant-7", "title": "Skoll Award for Social Entrepreneurship", "status": "future", "priority": "low", "due": "Q4 2026", "amount": "$1M-1.5M", "notes": "After MVP proven"},
-            {"id": "sos-grant-8", "title": "FEMA EMPG - State Partnership Pitch", "status": "pending", "priority": "medium", "due": "Rolling", "amount": "$319M program", "notes": "Position as eligible tech expense"},
-            {"id": "sos-grant-9", "title": "Walmart Foundation - Disaster Preparedness", "status": "ready", "priority": "medium", "due": "Rolling", "amount": "$500K-2M", "notes": "Partner with established org"},
-            {"id": "sos-grant-10", "title": "WFP Innovation Accelerator Application", "status": "pending", "priority": "medium", "due": "Rolling cohorts", "amount": "$100K + support", "notes": "Food distribution angle"}
+            {
+              "id": "sos-grant-1",
+              "title": "EDA Industry Transformation Grant - DEADLINE March 3",
+              "status": "urgent",
+              "priority": "urgent",
+              "due": "2026-03-03",
+              "amount": "$250K-500K",
+              "notes": "Strong fit for disaster tech innovation"
+            },
+            {
+              "id": "sos-grant-2",
+              "title": "Climate Resilience Fund - CSCI Grant",
+              "status": "ready",
+              "priority": "high",
+              "due": "2026-03-12",
+              "amount": "Up to $115K",
+              "notes": "Partner with community for CSCI"
+            },
+            {
+              "id": "sos-grant-3",
+              "title": "Hilton Foundation - Disaster Relief LOI",
+              "status": "ready",
+              "priority": "high",
+              "due": "Rolling",
+              "amount": "$1M-5M",
+              "notes": "Perfect alignment - disaster coordination innovation"
+            },
+            {
+              "id": "sos-grant-4",
+              "title": "Google.org Crisis Response LOI",
+              "status": "ready",
+              "priority": "high",
+              "due": "Rolling",
+              "amount": "$2M-5M",
+              "notes": "Tech focus perfect for SOS"
+            },
+            {
+              "id": "sos-grant-5",
+              "title": "Bezos Earth Fund AI Challenge - Phase II",
+              "status": "pending",
+              "priority": "medium",
+              "due": "TBD 2026",
+              "amount": "$1M+",
+              "notes": "AI component aligns"
+            },
+            {
+              "id": "sos-grant-6",
+              "title": "Rockefeller Foundation - Climate Resilience",
+              "status": "pending",
+              "priority": "medium",
+              "due": "Rolling",
+              "amount": "$5M-50M",
+              "notes": "$50M Adaptation Fund"
+            },
+            {
+              "id": "sos-grant-7",
+              "title": "Skoll Award for Social Entrepreneurship",
+              "status": "future",
+              "priority": "low",
+              "due": "Q4 2026",
+              "amount": "$1M-1.5M",
+              "notes": "After MVP proven"
+            },
+            {
+              "id": "sos-grant-8",
+              "title": "FEMA EMPG - State Partnership Pitch",
+              "status": "pending",
+              "priority": "medium",
+              "due": "Rolling",
+              "amount": "$319M program",
+              "notes": "Position as eligible tech expense"
+            },
+            {
+              "id": "sos-grant-9",
+              "title": "Walmart Foundation - Disaster Preparedness",
+              "status": "ready",
+              "priority": "medium",
+              "due": "Rolling",
+              "amount": "$500K-2M",
+              "notes": "Partner with established org"
+            },
+            {
+              "id": "sos-grant-10",
+              "title": "WFP Innovation Accelerator Application",
+              "status": "pending",
+              "priority": "medium",
+              "due": "Rolling cohorts",
+              "amount": "$100K + support",
+              "notes": "Food distribution angle"
+            }
           ]
         },
         "partnership_outreach": {
           "name": "Partnership Development",
           "emoji": "🤝",
           "tasks": [
-            {"id": "sos-partner-1", "title": "Aid Arena (ConversaCorps) - PRIMARY PARTNER", "status": "blocked", "priority": "urgent", "contact": "Aid Arena team", "notes": "30K nonprofits. BLOCKED: Needs channel setup"},
-            {"id": "sos-partner-2", "title": "Greater Good - Supply warehouse integration", "status": "pending", "priority": "high", "notes": "Large nonprofit with supply chain"},
-            {"id": "sos-partner-3", "title": "Emergency RV - 3-way matching demo", "status": "pending", "priority": "high", "notes": "Survivor ↔ RV ↔ Driver matching"},
-            {"id": "sos-partner-4", "title": "Free Hot Meals - Food aggregation pilot", "status": "pending", "priority": "medium", "notes": "Aggregating food resources"},
-            {"id": "sos-partner-5", "title": "Endurant - Vendor lead generation", "status": "pending", "priority": "medium", "notes": "Showcase vendor marketplace"},
-            {"id": "sos-partner-6", "title": "Yancey County Government - Public sector pilot", "status": "pending", "priority": "high", "notes": "First government adoption"},
-            {"id": "sos-partner-7", "title": "NC Emergency Management - State pitch", "status": "future", "priority": "medium", "notes": "After Yancey proves model"},
-            {"id": "sos-partner-8", "title": "Start Network - Platform integration", "status": "future", "priority": "low", "notes": "Hilton grantee, tech partnership"}
+            {
+              "id": "sos-partner-1",
+              "title": "Aid Arena (ConversaCorps) - PRIMARY PARTNER",
+              "status": "blocked",
+              "priority": "urgent",
+              "contact": "Aid Arena team",
+              "notes": "30K nonprofits. BLOCKED: Needs channel setup"
+            },
+            {
+              "id": "sos-partner-2",
+              "title": "Greater Good - Supply warehouse integration",
+              "status": "pending",
+              "priority": "high",
+              "notes": "Large nonprofit with supply chain"
+            },
+            {
+              "id": "sos-partner-3",
+              "title": "Emergency RV - 3-way matching demo",
+              "status": "pending",
+              "priority": "high",
+              "notes": "Survivor ↔ RV ↔ Driver matching"
+            },
+            {
+              "id": "sos-partner-4",
+              "title": "Free Hot Meals - Food aggregation pilot",
+              "status": "pending",
+              "priority": "medium",
+              "notes": "Aggregating food resources"
+            },
+            {
+              "id": "sos-partner-5",
+              "title": "Endurant - Vendor lead generation",
+              "status": "pending",
+              "priority": "medium",
+              "notes": "Showcase vendor marketplace"
+            },
+            {
+              "id": "sos-partner-6",
+              "title": "Yancey County Government - Public sector pilot",
+              "status": "pending",
+              "priority": "high",
+              "notes": "First government adoption"
+            },
+            {
+              "id": "sos-partner-7",
+              "title": "NC Emergency Management - State pitch",
+              "status": "future",
+              "priority": "medium",
+              "notes": "After Yancey proves model"
+            },
+            {
+              "id": "sos-partner-8",
+              "title": "Start Network - Platform integration",
+              "status": "future",
+              "priority": "low",
+              "notes": "Hilton grantee, tech partnership"
+            }
           ]
         },
         "demo_preparation": {
           "name": "Demo & Pitch Prep",
           "emoji": "🎬",
           "tasks": [
-            {"id": "sos-demo-1", "title": "Create end-to-end demo video (survivor → match → resolution)", "status": "ready", "priority": "high", "notes": "Show full flow"},
-            {"id": "sos-demo-2", "title": "Build pitch deck for foundations", "status": "ready", "priority": "high", "notes": "Context graph story, Helene origin"},
-            {"id": "sos-demo-3", "title": "Create government pilot proposal template", "status": "pending", "priority": "medium", "notes": "For state/county pitches"},
-            {"id": "sos-demo-4", "title": "Vendor marketplace pitch deck", "status": "pending", "priority": "medium", "notes": "For disaster supply vendors"},
-            {"id": "sos-demo-5", "title": "Prepare Helene case study document", "status": "ready", "priority": "high", "notes": "4,000 missing persons scraped"},
-            {"id": "sos-demo-6", "title": "Screenshot/GIF library of key features", "status": "pending", "priority": "low", "notes": "For decks, website"}
+            {
+              "id": "sos-demo-1",
+              "title": "Create end-to-end demo video (survivor → match → resolution)",
+              "status": "ready",
+              "priority": "high",
+              "notes": "Show full flow"
+            },
+            {
+              "id": "sos-demo-2",
+              "title": "Build pitch deck for foundations",
+              "status": "ready",
+              "priority": "high",
+              "notes": "Context graph story, Helene origin"
+            },
+            {
+              "id": "sos-demo-3",
+              "title": "Create government pilot proposal template",
+              "status": "pending",
+              "priority": "medium",
+              "notes": "For state/county pitches"
+            },
+            {
+              "id": "sos-demo-4",
+              "title": "Vendor marketplace pitch deck",
+              "status": "pending",
+              "priority": "medium",
+              "notes": "For disaster supply vendors"
+            },
+            {
+              "id": "sos-demo-5",
+              "title": "Prepare Helene case study document",
+              "status": "ready",
+              "priority": "high",
+              "notes": "4,000 missing persons scraped"
+            },
+            {
+              "id": "sos-demo-6",
+              "title": "Screenshot/GIF library of key features",
+              "status": "pending",
+              "priority": "low",
+              "notes": "For decks, website"
+            }
           ]
         },
         "technical_milestones": {
           "name": "Technical Milestones",
           "emoji": "🎯",
           "tasks": [
-            {"id": "sos-tech-1", "title": "First real match completed via SOS", "status": "pending", "priority": "urgent", "metric": true, "notes": "CRITICAL: Proves system works"},
-            {"id": "sos-tech-2", "title": "100 decision traces captured", "status": "pending", "priority": "high", "metric": true, "notes": "Building the moat"},
-            {"id": "sos-tech-3", "title": "10 organizations using /sos command", "status": "pending", "priority": "high", "metric": true, "notes": "Adoption metric"},
-            {"id": "sos-tech-4", "title": "50 matches proposed by system", "status": "pending", "priority": "medium", "metric": true, "notes": "Matching engine works"},
-            {"id": "sos-tech-5", "title": "First AI-powered match recommendation", "status": "future", "priority": "medium", "metric": true, "notes": "ML on decision traces"}
+            {
+              "id": "sos-tech-1",
+              "title": "First real match completed via SOS",
+              "status": "pending",
+              "priority": "urgent",
+              "metric": true,
+              "notes": "CRITICAL: Proves system works"
+            },
+            {
+              "id": "sos-tech-2",
+              "title": "100 decision traces captured",
+              "status": "pending",
+              "priority": "high",
+              "metric": true,
+              "notes": "Building the moat"
+            },
+            {
+              "id": "sos-tech-3",
+              "title": "10 organizations using /sos command",
+              "status": "pending",
+              "priority": "high",
+              "metric": true,
+              "notes": "Adoption metric"
+            },
+            {
+              "id": "sos-tech-4",
+              "title": "50 matches proposed by system",
+              "status": "pending",
+              "priority": "medium",
+              "metric": true,
+              "notes": "Matching engine works"
+            },
+            {
+              "id": "sos-tech-5",
+              "title": "First AI-powered match recommendation",
+              "status": "future",
+              "priority": "medium",
+              "metric": true,
+              "notes": "ML on decision traces"
+            }
           ]
         }
       }
     },
-
     "reforge": {
       "name": "Reforge Sales",
       "emoji": "🚀",
@@ -125,62 +385,205 @@
           "name": "🔥 Urgent Deals",
           "emoji": "🔥",
           "tasks": [
-            {"id": "rf-urg-1", "title": "EvenUp - Re-engage $50K pilot (105 DAYS STALLED)", "status": "urgent", "priority": "urgent", "value": 50000, "contact": "Garrett Edel", "stage": "Pilot", "notes": "$2B valuation, actively expanding. Push NOW."},
-            {"id": "rf-urg-2", "title": "Muse Group - Push contract signature (61 days in contracting)", "status": "urgent", "priority": "urgent", "value": 15000, "contact": "Georgiy Krutous", "stage": "Contracting", "notes": "Budget approved. Deals die in contracting."},
-            {"id": "rf-urg-3", "title": "HaltH - Handle $15K pricing objection", "status": "urgent", "priority": "high", "value": 15000, "notes": "Offer monthly or smaller package?"},
-            {"id": "rf-urg-4", "title": "Book meeting: Lindsay (replied wanting to connect)", "status": "urgent", "priority": "high", "notes": "Hot lead - schedule ASAP"},
-            {"id": "rf-urg-5", "title": "Book meeting: Demeter/Juhi (replied wanting to connect)", "status": "urgent", "priority": "high", "notes": "Hot lead - schedule ASAP"}
+            {
+              "id": "rf-urg-1",
+              "title": "EvenUp - Re-engage $50K pilot (105 DAYS STALLED)",
+              "status": "urgent",
+              "priority": "urgent",
+              "value": 50000,
+              "contact": "Garrett Edel",
+              "stage": "Pilot",
+              "notes": "$2B valuation, actively expanding. Push NOW."
+            },
+            {
+              "id": "rf-urg-2",
+              "title": "Muse Group - Push contract signature (61 days in contracting)",
+              "status": "urgent",
+              "priority": "urgent",
+              "value": 15000,
+              "contact": "Georgiy Krutous",
+              "stage": "Contracting",
+              "notes": "Budget approved. Deals die in contracting."
+            },
+            {
+              "id": "rf-urg-3",
+              "title": "HaltH - Handle $15K pricing objection",
+              "status": "urgent",
+              "priority": "high",
+              "value": 15000,
+              "notes": "Offer monthly or smaller package?"
+            },
+            {
+              "id": "rf-urg-4",
+              "title": "Book meeting: Lindsay (replied wanting to connect)",
+              "status": "urgent",
+              "priority": "high",
+              "notes": "Hot lead - schedule ASAP"
+            },
+            {
+              "id": "rf-urg-5",
+              "title": "Book meeting: Demeter/Juhi (replied wanting to connect)",
+              "status": "urgent",
+              "priority": "high",
+              "notes": "Hot lead - schedule ASAP"
+            }
           ]
         },
         "meeting_prep": {
           "name": "📅 Meeting Prep",
           "emoji": "📅",
           "tasks": [
-            {"id": "rf-meet-1", "title": "Yazio pilot review - Feb 4, 10 AM EST", "status": "ready", "priority": "high", "due": "2026-02-04", "notes": "Review Gong call first. Prep renewal pitch."},
-            {"id": "rf-meet-2", "title": "Review all upcoming meetings in calendar", "status": "ready", "priority": "medium", "notes": "Check Gong, deal packets, HubSpot notes"}
+            {
+              "id": "rf-meet-1",
+              "title": "Yazio pilot review - Feb 4, 10 AM EST",
+              "status": "ready",
+              "priority": "high",
+              "due": "2026-02-04",
+              "notes": "Review Gong call first. Prep renewal pitch."
+            },
+            {
+              "id": "rf-meet-2",
+              "title": "Review all upcoming meetings in calendar",
+              "status": "ready",
+              "priority": "medium",
+              "notes": "Check Gong, deal packets, HubSpot notes"
+            }
           ]
         },
         "stalled_reengagement": {
           "name": "🧊 Stalled Deals",
           "emoji": "🧊",
           "tasks": [
-            {"id": "rf-stall-1", "title": "Pocket FM - Check in (28 days stalled, $15K)", "status": "ready", "priority": "high", "value": 15000, "contact": "Nish Shah", "notes": "Recently stalled"},
-            {"id": "rf-stall-2", "title": "Neo Financial - Push trial start ($60K pre-pilot)", "status": "ready", "priority": "high", "value": 60000, "notes": "$650M+ raised, #1 Canada's Top Growing"},
-            {"id": "rf-stall-3", "title": "EcoVadis - Monitor pilot progress ($18K)", "status": "ready", "priority": "medium", "value": 18000, "notes": "Pilot starting. Watch for Replit pressure."},
-            {"id": "rf-stall-4", "title": "Review all 141 stalled deals for re-engagement", "status": "pending", "priority": "medium", "notes": "$245K at risk. Use Grunt to triage."}
+            {
+              "id": "rf-stall-1",
+              "title": "Pocket FM - Check in (28 days stalled, $15K)",
+              "status": "ready",
+              "priority": "high",
+              "value": 15000,
+              "contact": "Nish Shah",
+              "notes": "Recently stalled"
+            },
+            {
+              "id": "rf-stall-2",
+              "title": "Neo Financial - Push trial start ($60K pre-pilot)",
+              "status": "ready",
+              "priority": "high",
+              "value": 60000,
+              "notes": "$650M+ raised, #1 Canada's Top Growing"
+            },
+            {
+              "id": "rf-stall-3",
+              "title": "EcoVadis - Monitor pilot progress ($18K)",
+              "status": "ready",
+              "priority": "medium",
+              "value": 18000,
+              "notes": "Pilot starting. Watch for Replit pressure."
+            },
+            {
+              "id": "rf-stall-4",
+              "title": "Review all 141 stalled deals for re-engagement",
+              "status": "pending",
+              "priority": "medium",
+              "notes": "$245K at risk. Use Grunt to triage."
+            }
           ]
         },
         "closed_lost_reactivation": {
           "name": "♻️ Closed Lost Revival",
           "emoji": "♻️",
           "tasks": [
-            {"id": "rf-cl-1", "title": "iRobot - Re-engage $80K closed lost", "status": "ready", "priority": "high", "value": 80000, "notes": "Large deal, worth another attempt"},
-            {"id": "rf-cl-2", "title": "WSFS Bank - Re-engage $56K closed lost", "status": "ready", "priority": "high", "value": 56000, "notes": "Financial services, good ICP"},
-            {"id": "rf-cl-3", "title": "Fox Local - Follow up on interest", "status": "ready", "priority": "medium", "notes": "Media company"},
-            {"id": "rf-cl-4", "title": "DreamHost - Follow up on interest", "status": "ready", "priority": "medium", "notes": "Tech company"}
+            {
+              "id": "rf-cl-1",
+              "title": "iRobot - Re-engage $80K closed lost",
+              "status": "ready",
+              "priority": "high",
+              "value": 80000,
+              "notes": "Large deal, worth another attempt"
+            },
+            {
+              "id": "rf-cl-2",
+              "title": "WSFS Bank - Re-engage $56K closed lost",
+              "status": "ready",
+              "priority": "high",
+              "value": 56000,
+              "notes": "Financial services, good ICP"
+            },
+            {
+              "id": "rf-cl-3",
+              "title": "Fox Local - Follow up on interest",
+              "status": "ready",
+              "priority": "medium",
+              "notes": "Media company"
+            },
+            {
+              "id": "rf-cl-4",
+              "title": "DreamHost - Follow up on interest",
+              "status": "ready",
+              "priority": "medium",
+              "notes": "Tech company"
+            }
           ]
         },
         "prospecting": {
           "name": "🎯 Prospecting",
           "emoji": "🎯",
           "tasks": [
-            {"id": "rf-pros-1", "title": "Qualify 486 Product leads in Grunt swipe app", "status": "ready", "priority": "high", "url": "https://sos-help-the-helper.github.io/reforge-swipe/", "notes": "Build pipeline systematically"},
-            {"id": "rf-pros-2", "title": "360Learning - Outreach to Sarah Celnik (VP Product)", "status": "ready", "priority": "medium", "notes": "New in role (3 months), L&D platform"},
-            {"id": "rf-pros-3", "title": "FriendliAI - Outreach to Ryan Pollock (VP GTM)", "status": "ready", "priority": "medium", "notes": "New GTM leader at AI company"}
+            {
+              "id": "rf-pros-1",
+              "title": "Qualify 486 Product leads in Grunt swipe app",
+              "status": "ready",
+              "priority": "high",
+              "url": "https://sos-help-the-helper.github.io/reforge-swipe/",
+              "notes": "Build pipeline systematically"
+            },
+            {
+              "id": "rf-pros-2",
+              "title": "360Learning - Outreach to Sarah Celnik (VP Product)",
+              "status": "ready",
+              "priority": "medium",
+              "notes": "New in role (3 months), L&D platform"
+            },
+            {
+              "id": "rf-pros-3",
+              "title": "FriendliAI - Outreach to Ryan Pollock (VP GTM)",
+              "status": "ready",
+              "priority": "medium",
+              "notes": "New GTM leader at AI company"
+            }
           ]
         },
         "quota_tracking": {
           "name": "📊 Quota & Metrics",
           "emoji": "📊",
           "tasks": [
-            {"id": "rf-quota-1", "title": "Q1 Meetings: 12/75 (16%)", "status": "tracking", "priority": "high", "notes": "Need 63 more. ~21/week pace.", "metric": true},
-            {"id": "rf-quota-2", "title": "Q1 ARR: $50.1K/$150K (33%)", "status": "tracking", "priority": "high", "notes": "EvenUp + Muse = $65K if closed.", "metric": true},
-            {"id": "rf-quota-3", "title": "Pipeline coverage: $320K for $100K gap", "status": "tracking", "priority": "medium", "notes": "3.2x coverage is healthy.", "metric": true}
+            {
+              "id": "rf-quota-1",
+              "title": "Q1 Meetings: 12/75 (16%)",
+              "status": "tracking",
+              "priority": "high",
+              "notes": "Need 63 more. ~21/week pace.",
+              "metric": true
+            },
+            {
+              "id": "rf-quota-2",
+              "title": "Q1 ARR: $50.1K/$150K (33%)",
+              "status": "tracking",
+              "priority": "high",
+              "notes": "EvenUp + Muse = $65K if closed.",
+              "metric": true
+            },
+            {
+              "id": "rf-quota-3",
+              "title": "Pipeline coverage: $320K for $100K gap",
+              "status": "tracking",
+              "priority": "medium",
+              "notes": "3.2x coverage is healthy.",
+              "metric": true
+            }
           ]
         }
       }
     },
-
     "harmony": {
       "name": "Harmony Strategy",
       "emoji": "🎯",
@@ -197,49 +600,144 @@
           "name": "🚨 Critical/At-Risk",
           "emoji": "🚨",
           "tasks": [
-            {"id": "har-crit-1", "title": "DI Global (Orly) - DELIVER OR REFUND (13 weeks overdue)", "status": "urgent", "priority": "urgent", "client": "DI Global", "value": 15000, "notes": "Refund requested Jan 29. Deliver within 48h OR process refund."},
-            {"id": "har-crit-2", "title": "Hubert Group - Pay invoice (PAST DUE)", "status": "urgent", "priority": "urgent", "notes": "Payment is past due. Handle immediately."}
+            {
+              "id": "har-crit-1",
+              "title": "DI Global (Orly) - DELIVER OR REFUND (13 weeks overdue)",
+              "status": "urgent",
+              "priority": "urgent",
+              "client": "DI Global",
+              "value": 15000,
+              "notes": "Refund requested Jan 29. Deliver within 48h OR process refund."
+            },
+            {
+              "id": "har-crit-2",
+              "title": "Hubert Group - Pay invoice (PAST DUE)",
+              "status": "urgent",
+              "priority": "urgent",
+              "notes": "Payment is past due. Handle immediately."
+            }
           ]
         },
         "active_delivery": {
           "name": "📦 Active Delivery",
           "emoji": "📦",
           "tasks": [
-            {"id": "har-del-1", "title": "Litmos - Monthly retainer delivery", "status": "active", "priority": "high", "client": "Litmos", "notes": "High-priority client"},
-            {"id": "har-del-2", "title": "Endurant/MCC - Check delivery status", "status": "ready", "priority": "high", "client": "Endurant/MCC", "notes": "Also potential SOS partner"},
-            {"id": "har-del-3", "title": "IES - Monitor engagement", "status": "active", "priority": "medium", "client": "IES", "notes": "Steady client"},
-            {"id": "har-del-4", "title": "TSLE - Monthly check-in", "status": "ready", "priority": "medium", "client": "TSLE", "notes": "Active client"},
-            {"id": "har-del-5", "title": "divdat - Monitor engagement", "status": "active", "priority": "medium", "client": "divdat", "notes": "Active client"}
+            {
+              "id": "har-del-1",
+              "title": "Litmos - Monthly retainer delivery",
+              "status": "active",
+              "priority": "high",
+              "client": "Litmos",
+              "notes": "High-priority client"
+            },
+            {
+              "id": "har-del-2",
+              "title": "Endurant/MCC - Check delivery status",
+              "status": "ready",
+              "priority": "high",
+              "client": "Endurant/MCC",
+              "notes": "Also potential SOS partner"
+            },
+            {
+              "id": "har-del-3",
+              "title": "IES - Monitor engagement",
+              "status": "active",
+              "priority": "medium",
+              "client": "IES",
+              "notes": "Steady client"
+            },
+            {
+              "id": "har-del-4",
+              "title": "TSLE - Monthly check-in",
+              "status": "ready",
+              "priority": "medium",
+              "client": "TSLE",
+              "notes": "Active client"
+            },
+            {
+              "id": "har-del-5",
+              "title": "divdat - Monitor engagement",
+              "status": "active",
+              "priority": "medium",
+              "client": "divdat",
+              "notes": "Active client"
+            }
           ]
         },
         "follow_ups": {
           "name": "📞 Follow-ups",
           "emoji": "📞",
           "tasks": [
-            {"id": "har-fu-1", "title": "InventWood - Confirm NetSuite call", "status": "ready", "priority": "high", "client": "InventWood", "notes": "Rescheduled from Feb 2 (ER)"},
-            {"id": "har-fu-2", "title": "Endurant - Follow up on canceled meeting", "status": "ready", "priority": "medium", "client": "Endurant", "notes": "Meeting canceled, reschedule"}
+            {
+              "id": "har-fu-1",
+              "title": "InventWood - Confirm NetSuite call",
+              "status": "ready",
+              "priority": "high",
+              "client": "InventWood",
+              "notes": "Rescheduled from Feb 2 (ER)"
+            },
+            {
+              "id": "har-fu-2",
+              "title": "Endurant - Follow up on canceled meeting",
+              "status": "ready",
+              "priority": "medium",
+              "client": "Endurant",
+              "notes": "Meeting canceled, reschedule"
+            }
           ]
         },
         "upsell_opportunities": {
           "name": "📈 Upsell/Expansion",
           "emoji": "📈",
           "tasks": [
-            {"id": "har-up-1", "title": "Litmos - Explore expansion opportunities", "status": "pending", "priority": "medium", "client": "Litmos", "notes": "High-engagement, potential expansion"},
-            {"id": "har-up-2", "title": "Endurant - SOS vendor marketplace pilot", "status": "pending", "priority": "medium", "client": "Endurant/MCC", "notes": "Cross-sell: Harmony → SOS"},
-            {"id": "har-up-3", "title": "InventWood - Check for additional project needs", "status": "pending", "priority": "low", "client": "InventWood", "notes": "Been quiet, may need re-engagement"}
+            {
+              "id": "har-up-1",
+              "title": "Litmos - Explore expansion opportunities",
+              "status": "pending",
+              "priority": "medium",
+              "client": "Litmos",
+              "notes": "High-engagement, potential expansion"
+            },
+            {
+              "id": "har-up-2",
+              "title": "Endurant - SOS vendor marketplace pilot",
+              "status": "pending",
+              "priority": "medium",
+              "client": "Endurant/MCC",
+              "notes": "Cross-sell: Harmony → SOS"
+            },
+            {
+              "id": "har-up-3",
+              "title": "InventWood - Check for additional project needs",
+              "status": "pending",
+              "priority": "low",
+              "client": "InventWood",
+              "notes": "Been quiet, may need re-engagement"
+            }
           ]
         },
         "operations": {
           "name": "⚙️ Operations",
           "emoji": "⚙️",
           "tasks": [
-            {"id": "har-ops-1", "title": "Review contractor margin optimization", "status": "pending", "priority": "medium", "notes": "Reduce margin loss on contractors"},
-            {"id": "har-ops-2", "title": "Monthly invoice reconciliation", "status": "pending", "priority": "low", "notes": "Track outstanding payments"}
+            {
+              "id": "har-ops-1",
+              "title": "Review contractor margin optimization",
+              "status": "pending",
+              "priority": "medium",
+              "notes": "Reduce margin loss on contractors"
+            },
+            {
+              "id": "har-ops-2",
+              "title": "Monthly invoice reconciliation",
+              "status": "pending",
+              "priority": "low",
+              "notes": "Track outstanding payments"
+            }
           ]
         }
       }
     },
-
     "context_graph": {
       "name": "Context Graph Foundation",
       "emoji": "🧠",
@@ -251,27 +749,87 @@
           "name": "Infrastructure",
           "emoji": "🔧",
           "tasks": [
-            {"id": "cg-1", "title": "Run context graph schema migration", "status": "ready", "priority": "high", "file": "projects/SOS/db/context_graph_schema.sql", "notes": "Creates decision_traces + extensions"},
-            {"id": "cg-2", "title": "Implement Grunt swipe → decision trace capture", "status": "in_progress", "priority": "high", "notes": "Two-tab UI: Leads + Opportunities"},
-            {"id": "cg-3", "title": "Add reasoning prompt to swipe UI", "status": "pending", "priority": "medium", "notes": "Quick feedback: why qualified/disqualified"},
-            {"id": "cg-4", "title": "Generate embeddings on decision traces", "status": "pending", "priority": "medium", "notes": "For precedent search"},
-            {"id": "cg-5", "title": "Build find similar decisions query", "status": "pending", "priority": "medium", "notes": "Vector similarity search"}
+            {
+              "id": "cg-1",
+              "title": "Run context graph schema migration",
+              "status": "ready",
+              "priority": "high",
+              "file": "projects/SOS/db/context_graph_schema.sql",
+              "notes": "Creates decision_traces + extensions"
+            },
+            {
+              "id": "cg-2",
+              "title": "Implement Grunt swipe → decision trace capture",
+              "status": "in_progress",
+              "priority": "high",
+              "notes": "Two-tab UI: Leads + Opportunities"
+            },
+            {
+              "id": "cg-3",
+              "title": "Add reasoning prompt to swipe UI",
+              "status": "pending",
+              "priority": "medium",
+              "notes": "Quick feedback: why qualified/disqualified"
+            },
+            {
+              "id": "cg-4",
+              "title": "Generate embeddings on decision traces",
+              "status": "pending",
+              "priority": "medium",
+              "notes": "For precedent search"
+            },
+            {
+              "id": "cg-5",
+              "title": "Build find similar decisions query",
+              "status": "pending",
+              "priority": "medium",
+              "notes": "Vector similarity search"
+            }
           ]
         },
         "integrations": {
           "name": "Data Integrations",
           "emoji": "🔗",
           "tasks": [
-            {"id": "cg-int-1", "title": "Daily Gong sync agent", "status": "done", "completed_at": "2026-02-02T21:42:00Z", "notes": "Cron: 7am EST daily"},
-            {"id": "cg-int-2", "title": "Pull all-time Gong calls", "status": "done", "completed_at": "2026-02-02T21:45:00Z", "notes": "110 calls (Sep 2025 - Jan 2026)"},
-            {"id": "cg-int-3", "title": "Import HubSpot deals export", "status": "done", "completed_at": "2026-02-02T21:50:00Z", "notes": "309 deals, ~$320K pipeline"},
-            {"id": "cg-int-4", "title": "Integrate scraped emails", "status": "pending", "priority": "medium", "notes": "Folder empty - need exports"},
-            {"id": "cg-int-5", "title": "Add Gong call context to decisions", "status": "pending", "priority": "medium", "notes": "Link transcripts to deals"}
+            {
+              "id": "cg-int-1",
+              "title": "Daily Gong sync agent",
+              "status": "done",
+              "completed_at": "2026-02-02T21:42:00Z",
+              "notes": "Cron: 7am EST daily"
+            },
+            {
+              "id": "cg-int-2",
+              "title": "Pull all-time Gong calls",
+              "status": "done",
+              "completed_at": "2026-02-02T21:45:00Z",
+              "notes": "110 calls (Sep 2025 - Jan 2026)"
+            },
+            {
+              "id": "cg-int-3",
+              "title": "Import HubSpot deals export",
+              "status": "done",
+              "completed_at": "2026-02-02T21:50:00Z",
+              "notes": "309 deals, ~$320K pipeline"
+            },
+            {
+              "id": "cg-int-4",
+              "title": "Integrate scraped emails",
+              "status": "pending",
+              "priority": "medium",
+              "notes": "Folder empty - need exports"
+            },
+            {
+              "id": "cg-int-5",
+              "title": "Add Gong call context to decisions",
+              "status": "pending",
+              "priority": "medium",
+              "notes": "Link transcripts to deals"
+            }
           ]
         }
       }
     },
-
     "intel_agents": {
       "name": "Intel Agents",
       "emoji": "🔍",
@@ -283,30 +841,122 @@
           "name": "Agent Setup",
           "emoji": "⚙️",
           "tasks": [
-            {"id": "intel-1", "title": "Test browser access to Gong/Gmail", "status": "done", "completed_at": "2026-02-02T21:30:00Z", "notes": "Browser relay working"},
-            {"id": "intel-2", "title": "Set up Reforge pipeline intel agent", "status": "done", "completed_at": "2026-02-02T17:36:00Z", "notes": "Cron: 9am, 12pm, 5pm EST M-F"},
-            {"id": "intel-3", "title": "Set up SOS intel agent", "status": "done", "completed_at": "2026-02-02T17:46:00Z", "notes": "Cron: 10am, 6pm EST daily"},
-            {"id": "intel-4", "title": "Set up Harmony intel agent", "status": "done", "completed_at": "2026-02-02T17:46:00Z", "notes": "Cron: 11am EST M-F"},
-            {"id": "intel-5", "title": "Set up morning brief", "status": "done", "completed_at": "2026-02-02T17:46:00Z", "notes": "Cron: 9am EST daily"},
-            {"id": "intel-6", "title": "Set up Gong API access", "status": "done", "completed_at": "2026-02-02T21:05:00Z", "notes": "Full API access. 5,270 org calls."}
+            {
+              "id": "intel-1",
+              "title": "Test browser access to Gong/Gmail",
+              "status": "done",
+              "completed_at": "2026-02-02T21:30:00Z",
+              "notes": "Browser relay working"
+            },
+            {
+              "id": "intel-2",
+              "title": "Set up Reforge pipeline intel agent",
+              "status": "done",
+              "completed_at": "2026-02-02T17:36:00Z",
+              "notes": "Cron: 9am, 12pm, 5pm EST M-F"
+            },
+            {
+              "id": "intel-3",
+              "title": "Set up SOS intel agent",
+              "status": "done",
+              "completed_at": "2026-02-02T17:46:00Z",
+              "notes": "Cron: 10am, 6pm EST daily"
+            },
+            {
+              "id": "intel-4",
+              "title": "Set up Harmony intel agent",
+              "status": "done",
+              "completed_at": "2026-02-02T17:46:00Z",
+              "notes": "Cron: 11am EST M-F"
+            },
+            {
+              "id": "intel-5",
+              "title": "Set up morning brief",
+              "status": "done",
+              "completed_at": "2026-02-02T17:46:00Z",
+              "notes": "Cron: 9am EST daily"
+            },
+            {
+              "id": "intel-6",
+              "title": "Set up Gong API access",
+              "status": "done",
+              "completed_at": "2026-02-02T21:05:00Z",
+              "notes": "Full API access. 5,270 org calls."
+            }
           ]
         }
       }
     }
   },
-
   "views": {
-    "today": {"name": "🔥 Today's Focus", "filter": {"priority": ["urgent"], "status": ["ready", "urgent"]}},
-    "this_week": {"name": "📅 This Week", "filter": {"due_before": "2026-02-09"}},
-    "blocked": {"name": "🚫 Blocked", "filter": {"status": ["blocked"]}},
-    "grants": {"name": "💰 Grant Pipeline", "filter": {"category": "grant_pipeline"}},
-    "pipeline": {"name": "💼 Sales Pipeline", "filter": {"project": "reforge"}}
+    "today": {
+      "name": "🔥 Today's Focus",
+      "filter": {
+        "priority": [
+          "urgent"
+        ],
+        "status": [
+          "ready",
+          "urgent"
+        ]
+      }
+    },
+    "this_week": {
+      "name": "📅 This Week",
+      "filter": {
+        "due_before": "2026-02-09"
+      }
+    },
+    "blocked": {
+      "name": "🚫 Blocked",
+      "filter": {
+        "status": [
+          "blocked"
+        ]
+      }
+    },
+    "grants": {
+      "name": "💰 Grant Pipeline",
+      "filter": {
+        "category": "grant_pipeline"
+      }
+    },
+    "pipeline": {
+      "name": "💼 Sales Pipeline",
+      "filter": {
+        "project": "reforge"
+      }
+    }
   },
-
   "context_sources": {
-    "gong": {"total_calls": 110, "date_range": "Sep 2025 - Jan 2026", "last_sync": "2026-02-02T21:45:00Z"},
-    "hubspot": {"total_deals": 309, "last_export": "2026-02-02T21:48:00Z"},
-    "email": {"access": "browser", "last_sync": "2026-02-02T21:35:00Z"},
-    "calendar": {"access": "browser", "last_sync": "2026-02-02T21:35:00Z"}
-  }
+    "gong": {
+      "total_calls": 110,
+      "date_range": "Sep 2025 - Jan 2026",
+      "last_sync": "2026-02-02T21:45:00Z"
+    },
+    "hubspot": {
+      "total_deals": 309,
+      "last_export": "2026-02-02T21:48:00Z"
+    },
+    "email": {
+      "access": "browser",
+      "last_sync": "2026-02-02T21:35:00Z"
+    },
+    "calendar": {
+      "access": "browser",
+      "last_sync": "2026-02-02T21:35:00Z"
+    }
+  },
+  "tasks": [
+    {
+      "id": "1770145738",
+      "project": "reforge",
+      "task": "Post onboarding notes in #muse-reforge Slack channel",
+      "context": "Muse deal closed - $15k full suite. Need to share onboarding resources with Georgiy and team.",
+      "priority": "high",
+      "status": "pending",
+      "created": "2026-02-03T19:08:58Z",
+      "due": "2026-02-05"
+    }
+  ]
 }
