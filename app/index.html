@@ -52,6 +52,9 @@
 
         <!-- Main Tabs -->
         <div class="flex gap-2 mb-6 overflow-x-auto scrollbar-hide pb-2">
+            <button onclick="setMainTab('brief')" class="main-tab whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium transition" data-tab="brief">
+                ☀️ Morning Brief
+            </button>
             <button onclick="setMainTab('tasks')" class="main-tab whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium transition" data-tab="tasks">
                 📋 Tasks
             </button>
@@ -61,6 +64,42 @@
             <button onclick="setMainTab('metrics')" class="main-tab whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium transition" data-tab="metrics">
                 📈 Metrics
             </button>
+        </div>
+
+        <!-- MORNING BRIEF TAB -->
+        <div id="briefTab" class="tab-content hidden">
+            <div class="bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 rounded-xl p-6 mb-6">
+                <h2 class="text-xl font-bold flex items-center gap-2 mb-4">
+                    ☀️ Morning Brief - <span id="briefDate">Today</span>
+                </h2>
+                <div id="briefPriorities" class="space-y-4">
+                    <p class="text-gray-400">Loading brief...</p>
+                </div>
+            </div>
+
+            <!-- Calendar Section -->
+            <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-6 mb-6">
+                <h3 class="text-lg font-semibold mb-4">📅 This Week</h3>
+                <div id="briefCalendar" class="space-y-2">
+                    <p class="text-gray-400">Loading calendar...</p>
+                </div>
+            </div>
+
+            <!-- Fires Section -->
+            <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-6 mb-6">
+                <h3 class="text-lg font-semibold mb-4">🔥 Fires to Watch</h3>
+                <div id="briefFires" class="space-y-2">
+                    <p class="text-gray-400">Loading...</p>
+                </div>
+            </div>
+
+            <!-- Meeting Intel -->
+            <div class="bg-blue-500/10 border border-blue-500/30 rounded-xl p-6">
+                <h3 class="text-lg font-semibold mb-4">🔎 Meeting Intel</h3>
+                <div id="briefIntel" class="grid md:grid-cols-2 gap-4">
+                    <p class="text-gray-400">Loading...</p>
+                </div>
+            </div>
         </div>
 
         <!-- TASKS TAB -->
@@ -328,27 +367,94 @@
             running: 'text-green-400', completed: 'text-green-400', scheduled: 'text-green-400'
         };
 
+        let briefData = null;
+        
         async function loadData() {
             try {
-                const [tasksRes, agentsRes] = await Promise.all([
+                // Get today's date for brief
+                const today = new Date().toISOString().split('T')[0];
+                
+                const [tasksRes, agentsRes, briefRes] = await Promise.all([
                     fetch('../data/tasks.json'),
-                    fetch('../data/agents.json')
+                    fetch('../data/agents.json'),
+                    fetch(`../data/briefs/${today}.json`).catch(() => null)
                 ]);
                 
                 if (tasksRes.ok) tasksData = await tasksRes.json();
                 if (agentsRes.ok) agentsData = await agentsRes.json();
+                if (briefRes && briefRes.ok) briefData = await briefRes.json();
                 
                 updateStats();
                 renderTasks();
                 renderDeadlines();
                 renderAgents();
                 updateMetrics();
+                renderBrief();
                 
                 document.getElementById('lastUpdate').textContent = 
                     `Updated: ${new Date().toLocaleString()}`;
             } catch(e) {
                 console.error('Load error:', e);
             }
+        }
+        
+        function renderBrief() {
+            if (!briefData) {
+                document.getElementById('briefPriorities').innerHTML = '<p class="text-gray-400">No brief available for today</p>';
+                return;
+            }
+            
+            // Date
+            document.getElementById('briefDate').textContent = briefData.date;
+            
+            // Priorities
+            const prioritiesHtml = briefData.priorities.map(p => `
+                <div class="bg-gray-800/50 rounded-lg p-4 border-l-4 ${p.urgency === 'critical' ? 'border-red-500' : p.urgency === 'high' ? 'border-amber-500' : 'border-green-500'}">
+                    <div class="flex items-start justify-between">
+                        <h4 class="font-semibold text-lg">${p.rank}. ${p.title}</h4>
+                        ${p.revenue ? `<span class="text-green-400 text-sm">${p.revenue}</span>` : ''}
+                    </div>
+                    <p class="text-gray-400 text-sm mt-1">${p.context}</p>
+                    <div class="mt-3 space-y-1">
+                        ${p.actions.map(a => `<div class="flex items-center gap-2 text-sm"><span class="text-gray-500">☐</span> ${a}</div>`).join('')}
+                    </div>
+                    ${p.notes ? `<p class="text-xs text-gray-500 mt-2 italic">${p.notes}</p>` : ''}
+                </div>
+            `).join('');
+            document.getElementById('briefPriorities').innerHTML = prioritiesHtml;
+            
+            // Calendar
+            const calendarHtml = briefData.calendar.map(c => `
+                <div class="flex items-center gap-4 py-2 border-b border-gray-700/50">
+                    <div class="w-24 text-sm text-gray-400">${c.date.slice(5)} ${c.time}</div>
+                    <div class="flex-1">
+                        <span class="font-medium">${c.title}</span>
+                        ${c.company ? `<span class="text-blue-400 ml-2">${c.company}</span>` : ''}
+                    </div>
+                    ${c.value ? `<div class="text-green-400 text-sm">${c.value}</div>` : ''}
+                </div>
+            `).join('');
+            document.getElementById('briefCalendar').innerHTML = calendarHtml || '<p class="text-gray-400">No meetings</p>';
+            
+            // Fires
+            const firesHtml = briefData.fires.map(f => `
+                <div class="flex items-center gap-3 py-2">
+                    <span class="${f.urgency === 'high' ? 'text-red-400' : 'text-yellow-400'}">●</span>
+                    <span class="font-medium">${f.company}</span>
+                    <span class="text-gray-400 text-sm">— ${f.issue}</span>
+                </div>
+            `).join('');
+            document.getElementById('briefFires').innerHTML = firesHtml || '<p class="text-gray-400">No fires</p>';
+            
+            // Meeting Intel
+            const intelHtml = Object.entries(briefData.meetingIntel || {}).map(([company, intel]) => `
+                <div class="bg-gray-800/50 rounded-lg p-3">
+                    <h4 class="font-semibold text-blue-400">${company}</h4>
+                    ${intel.funding ? `<p class="text-xs text-green-400">💰 ${intel.funding}</p>` : ''}
+                    <p class="text-sm text-gray-400 mt-1">${intel.angle}</p>
+                </div>
+            `).join('');
+            document.getElementById('briefIntel').innerHTML = intelHtml || '<p class="text-gray-400">No intel</p>';
         }
 
         function setMainTab(tab) {
