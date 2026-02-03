@@ -1,0 +1,132 @@
+{
+  "date": "2026-02-03",
+  "type": "harmony_intel",
+  "generatedAt": "2026-02-03T16:00:00Z",
+  "summary": "1 CRITICAL (DI Global refund), 1 payment issue (Hubert), 1 major upsell (Litmos CEO). 5 clients healthy.",
+  "criticalActions": [
+    {
+      "priority": 1,
+      "client": "DI Global",
+      "action": "DECIDE: Deliver this week OR process $15K refund",
+      "deadline": "2026-02-04",
+      "context": "13 weeks overdue. Refund requested Jan 29. No middle ground."
+    },
+    {
+      "priority": 2,
+      "client": "Litmos",
+      "action": "Send congratulations to Michelle Benfer (now CEO)",
+      "deadline": "2026-02-05",
+      "context": "CEO since July 2025. Last contact Jan 27. Window closing. $15K+ expansion potential."
+    },
+    {
+      "priority": 3,
+      "client": "Hubert Group",
+      "action": "Payment follow-up on past due invoice",
+      "deadline": "2026-02-05",
+      "context": "Collections before it ages further"
+    },
+    {
+      "priority": 4,
+      "client": "Endurant",
+      "action": "Reschedule canceled meeting, gauge engagement",
+      "deadline": "2026-02-07",
+      "context": "Meeting canceled - need to verify client is still engaged"
+    }
+  ],
+  "clientHealthMatrix": {
+    "critical": [
+      {
+        "client": "DI Global",
+        "issue": "13 weeks overdue, refund requested",
+        "revenueAtRisk": "$15K"
+      }
+    ],
+    "atRisk": [
+      {
+        "client": "Hubert Group",
+        "issue": "Past due invoice"
+      },
+      {
+        "client": "Endurant",
+        "issue": "Canceled meeting - engagement unclear"
+      }
+    ],
+    "healthy": [
+      {
+        "client": "Litmos",
+        "signal": "Michelle Benfer promoted to CEO July 2025. New CLO + VP Product. UPSELL READY."
+      },
+      {
+        "client": "InventWood",
+        "signal": "$50M+ raised, Series A closed, SUPERWOOD launching. Growth mode."
+      },
+      {
+        "client": "IES Holdings",
+        "signal": "Q1 2026: $871M revenue. Acquired Gulf Island Fabrication for $192M."
+      },
+      {
+        "client": "DivDat",
+        "signal": "Network expanding - Detroit Water joined."
+      }
+    ],
+    "unknown": [
+      {
+        "client": "TSLE",
+        "note": "No recent signals. Check engagement status."
+      }
+    ]
+  },
+  "upsellOpportunities": [
+    {
+      "client": "Litmos",
+      "signal": "Champion → CEO",
+      "details": "Michelle Benfer appointed CEO July 2025. Also hired CLO (Dr. Jill Stefaniak) and VP Product (Dr. Jen Farthing) June 2025. Leadership expansion = budget authority.",
+      "potential": "$15K+ Reforge + Harmony expansion",
+      "action": "Congratulations message → Phase 2 conversation → Reforge bridge",
+      "urgency": "HIGH - 7 days since last contact"
+    },
+    {
+      "client": "InventWood",
+      "signal": "Series A + scale-up",
+      "details": "$15M Series A (April 2025), $50M+ total. Maryland manufacturing facility. SUPERWOOD launching.",
+      "potential": "Operational scaling support",
+      "action": "Check NetSuite call status. Position for growth support.",
+      "urgency": "MEDIUM"
+    },
+    {
+      "client": "IES Holdings",
+      "signal": "Major acquisition",
+      "details": "Acquired Gulf Island Fabrication for $192M in Jan 2026. Q1 revenue $871M, EPS $4.51.",
+      "potential": "Post-acquisition integration support",
+      "action": "Leverage momentum for expanded engagement",
+      "urgency": "MEDIUM"
+    }
+  ],
+  "deliveryStatus": {
+    "active": ["Litmos", "IES", "TSLE", "DivDat"],
+    "paused": ["Endurant (canceled meeting)"],
+    "overdue": ["DI Global (13 weeks)"]
+  },
+  "paymentIssues": [
+    {
+      "client": "DI Global",
+      "type": "Refund requested",
+      "amount": "$15K",
+      "severity": "critical"
+    },
+    {
+      "client": "Hubert Group",
+      "type": "Past due invoice",
+      "severity": "high"
+    }
+  ],
+  "calendarContext": {
+    "today": "2026-02-03",
+    "upcoming": [
+      "Wed 3pm: CX Ops | Customer Journey Documentation",
+      "Thu: ALLY DUE",
+      "SOS blocks scheduled"
+    ]
+  },
+  "bottomLine": "DI Global must be resolved TODAY - deliver or refund. Litmos is the big opportunity - Michelle is CEO, send congrats and explore Phase 2. Hubert needs payment chase. 5 clients are healthy with growth signals."
+}
