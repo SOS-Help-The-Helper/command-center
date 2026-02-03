@@ -954,9 +954,10 @@
       "task": "Post onboarding notes in #muse-reforge Slack channel",
       "context": "Muse deal closed - $15k full suite. Need to share onboarding resources with Georgiy and team.",
       "priority": "high",
-      "status": "pending",
+      "status": "in-progress",
       "created": "2026-02-03T19:08:58Z",
-      "due": "2026-02-05"
+      "due": "2026-02-05",
+      "notes": "See reforge/deals/muse-onboarding.md"
     }
   ]
 }
