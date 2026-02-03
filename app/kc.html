@@ -721,7 +721,7 @@
     </div>
 
     <script>
-        const WEBHOOK_URL = 'https://gateway.clawdbot.com/webhook/kc-sos';
+        const JONATHAN_PHONE = '7745032112';
         
         function openModal() {
             document.getElementById('modal').classList.add('active');
@@ -754,49 +754,19 @@
             document.getElementById('successView').classList.add('active');
         }
         
-        async function sendQuickSOS() {
-            try {
-                await fetch(WEBHOOK_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    mode: 'no-cors',
-                    body: JSON.stringify({
-                        type: 'quick_sos',
-                        message: '🆘 KC needs you! Quick SOS ping.',
-                        timestamp: new Date().toISOString()
-                    })
-                });
-            } catch (e) {
-                console.log('Webhook sent (no-cors)');
-            }
-            showSuccess();
+        function sendQuickSOS() {
+            // Open SMS with pre-filled message
+            window.location.href = `sms:${JONATHAN_PHONE}&body=${encodeURIComponent('🆘 I need you!')}`;
         }
         
-        async function sendCustomRequest() {
+        function sendCustomRequest() {
             const request = document.getElementById('customRequest').value;
             if (!request.trim()) {
                 alert('Please enter what you need!');
                 return;
             }
-            
-            try {
-                await fetch(WEBHOOK_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    mode: 'no-cors',
-                    body: JSON.stringify({
-                        type: 'custom_request',
-                        message: request,
-                        timestamp: new Date().toISOString(),
-                        addToTasks: true
-                    })
-                });
-            } catch (e) {
-                console.log('Webhook sent (no-cors)');
-            }
-            
-            document.getElementById('customRequest').value = '';
-            showSuccess();
+            // Open SMS with custom message
+            window.location.href = `sms:${JONATHAN_PHONE}&body=${encodeURIComponent(request)}`;
         }
         
         // Task checkbox toggle (visual only for now)
