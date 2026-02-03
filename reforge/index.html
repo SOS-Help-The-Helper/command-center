@@ -66,10 +66,27 @@
       animation: swipeRight 0.4s ease-out forwards;
     }
     @keyframes swipeLeft {
-      to { transform: translateX(-150%) rotate(-30deg); opacity: 0; }
+      0% { transform: translateX(0) rotate(0); opacity: 1; }
+      100% { transform: translateX(-150%) rotate(-20deg); opacity: 0; }
     }
     @keyframes swipeRight {
-      to { transform: translateX(150%) rotate(30deg); opacity: 0; }
+      0% { transform: translateX(0) rotate(0); opacity: 1; }
+      100% { transform: translateX(150%) rotate(20deg); opacity: 0; }
+    }
+    .animate-left {
+      animation: swipeLeft 0.4s ease-out forwards;
+    }
+    .animate-right {
+      animation: swipeRight 0.4s ease-out forwards;
+    }
+    
+    /* Card entrance animation */
+    @keyframes cardEnter {
+      0% { transform: scale(0.8) translateY(20px); opacity: 0; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    .card-enter {
+      animation: cardEnter 0.3s ease-out forwards;
     }
     
     /* Tinder-style card stack */
@@ -196,7 +213,7 @@
             <span>🎯</span> Lead Qualifier
           </a>
           <a href="#signals" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium" onclick="showSection('signals')">
-            <span>📡</span> Signals (Swiper)
+            <span>📡</span> Signals
           </a>
           <a href="#opportunities" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium" onclick="showSection('opportunities')">
             <span>💰</span> Opportunity Decisions
@@ -896,23 +913,15 @@
         <header class="mb-6">
           <div class="flex items-center justify-between">
             <div>
-              <h2 class="text-2xl font-bold text-gray-900 mb-2">Signals (Swiper)</h2>
-              <p class="text-reforge-muted">Swipe right to qualify leads, left to skip • Keyboard: A/← skip, D/→ qualify</p>
+              <h2 class="text-2xl font-bold text-gray-900 mb-2">Signals</h2>
+              <p class="text-reforge-muted">Swipe right to qualify, left to skip</p>
             </div>
             <div class="flex items-center gap-4">
               <div class="text-right">
                 <p class="text-sm text-reforge-muted">Progress</p>
                 <p class="text-lg font-bold"><span id="qualifiedCount" class="text-reforge-teal">0</span> qualified / <span id="reviewedCount" class="text-reforge-orange">0</span> reviewed</p>
               </div>
-              <div class="flex items-center gap-2">
-                <button onclick="exportQueue()" class="btn-secondary px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 relative">
-                  🔗 LinkedIn Queue
-                  <span id="queueBadge" class="absolute -top-2 -right-2 w-5 h-5 bg-reforge-orange text-white text-xs rounded-full items-center justify-center hidden">0</span>
-                </button>
-                <button onclick="exportQualifiedLeads()" class="btn-primary px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
-                  📥 Export Qualified
-                </button>
-              </div>
+              
             </div>
           </div>
         </header>
@@ -953,8 +962,7 @@
               </div>
             </div>
 
-            <!-- Keyboard hint -->
-            <p class="text-center text-sm text-reforge-muted mt-4">Keyboard: A/← skip • D/→ qualify</p>
+            
           </div>
 
           <!-- Sidebar -->
@@ -1694,7 +1702,7 @@ ${score.breakdown.map(b => `  ${b.points > 0 ? '+' : ''}${b.points} ${b.factor}:
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                 </a>
               </div>
-              <p class="text-reforge-muted text-sm">${lead.industry || 'Technology'}</p>
+              <p class="text-reforge-muted text-sm">${lead.industry || 'Technology'} · ${lead.employeeCount || lead.size || '—'} employees</p>
             </div>
             <div class="icp-score-ring">
               <div class="icp-score-ring-inner" style="color: ${scoreColor}">${lead.icp_score}</div>
@@ -1747,6 +1755,12 @@ ${score.breakdown.map(b => `  ${b.points > 0 ? '+' : ''}${b.points} ${b.factor}:
       
       document.getElementById('emptyState').classList.add('hidden');
       stack.innerHTML = remaining.map((lead, i) => renderCard(lead, currentIndex + i)).join('');
+      
+      // Add entrance animation to top card
+      const topCard = stack.querySelector('.swipe-card');
+      if (topCard) {
+        topCard.classList.add('card-enter');
+      }
       
       // Add drag handlers to top card
       const topCard = stack.querySelector('.swipe-card');
