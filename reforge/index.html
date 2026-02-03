@@ -1827,10 +1827,7 @@ ${score.breakdown.map(b => `  ${b.points > 0 ? '+' : ''}${b.points} ${b.factor}:
       document.getElementById('swipeRightIndicator').style.opacity = 0;
       
       // Clean up drag classes
-      const card = document.querySelector('.swipe-card');
-      if (card) {
-        card.classList.remove('dragging-left', 'dragging-right');
-      }
+      card.classList.remove('dragging-left', 'dragging-right');
       
       if (currentX < -100) {
         swipeLeft();
