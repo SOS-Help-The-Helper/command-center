@@ -4,7 +4,7 @@
     "company": "GoFundMe",
     "person": "Saurabh Pareek",
     "title": "Senior Director of Product Management",
-    "size": "Unknown",
+    "size": "1,300",
     "industry": "Crowdfunding Platform",
     "signals": [
       "\ud83c\udd95 Joined company: 3mo"
@@ -12,7 +12,8 @@
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/saurabh-pareek-6a810221/",
-    "website": "gofundme.com"
+    "website": "www.gofundme.com",
+    "employeeCount": 1300
   },
   {
     "id": 2,
@@ -34,7 +35,7 @@
     "company": "Sereact",
     "person": "Shivam Joshi",
     "title": "Product Director",
-    "size": "Unknown",
+    "size": "80",
     "industry": "AI Robotics",
     "signals": [
       "\ud83c\udd95 Joined company: 3mo"
@@ -42,21 +43,24 @@
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/shivamjoshi/",
-    "website": "sereact.ai"
+    "website": "www.sereact.ai",
+    "employeeCount": 80
   },
   {
     "id": 4,
     "company": "MOJO",
     "person": "Amr El-Shimi",
     "title": "Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "42",
+    "industry": "Health, Wellness & Fitness",
     "signals": [
       "\ud83c\udd95 Joined company: 3mo"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/elshimi/"
+    "linkedin": "https://www.linkedin.com/in/elshimi/",
+    "employeeCount": 42,
+    "website": "www.mojo.so"
   },
   {
     "id": 5,
@@ -77,8 +81,8 @@
     "company": "Sanas",
     "person": "Chris Featherstone",
     "title": "Sr. Director of Product Growth - Developer Experience",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "300",
+    "industry": "Information Technology & Services",
     "signals": [
       "\ud83c\udd95 New at company: 3mo"
     ],
@@ -86,43 +90,49 @@
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/chris-featherstone-6949817/",
     "roleMonths": 3,
-    "companyMonths": 3
+    "companyMonths": 3,
+    "employeeCount": 300,
+    "website": "www.sanas.ai"
   },
   {
     "id": 7,
     "company": "VulnCheck",
     "person": "Maggie McCann Radtke",
     "title": "Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "73",
+    "industry": "Computer & Network Security",
     "signals": [
       "\ud83c\udd95 Joined company: 3mo"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/maggie-mccann-radtke/"
+    "linkedin": "https://www.linkedin.com/in/maggie-mccann-radtke/",
+    "employeeCount": 73,
+    "website": "www.vulncheck.com"
   },
   {
     "id": 8,
     "company": "Go Icon",
     "person": "Sidrah Ismail",
     "title": "Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "45",
+    "industry": "Information Technology & Services",
     "signals": [
       "\ud83c\udd95 Joined company: 3mo"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/sidrah-ismail-7a5b0a18/"
+    "linkedin": "https://www.linkedin.com/in/sidrah-ismail-7a5b0a18/",
+    "employeeCount": 45,
+    "website": "www.goicon.com"
   },
   {
     "id": 9,
     "company": "Curinos",
     "person": "Robert Ellis",
     "title": "Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "500",
+    "industry": "Financial Services",
     "signals": [
       "\ud83c\udd95 New at company: 1mo"
     ],
@@ -130,21 +140,25 @@
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/robert-ellis-csm-cspo-a4b38014/",
     "roleMonths": 1,
-    "companyMonths": 1
+    "companyMonths": 1,
+    "employeeCount": 500,
+    "website": "www.curinos.com"
   },
   {
     "id": 10,
     "company": "Twisted X Global Brands",
     "person": "Joel Enderle",
     "title": "Sr. Director of Product Development",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "72",
+    "industry": "Apparel & Fashion",
     "signals": [
       "\ud83c\udd95 Joined company: 3mo"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/joelenderle/"
+    "linkedin": "https://www.linkedin.com/in/joelenderle/",
+    "employeeCount": 72,
+    "website": "www.twistedx.com"
   },
   {
     "id": 11,
@@ -165,42 +179,48 @@
     "company": "Vantage",
     "person": "Matt Kojalo",
     "title": "Director of Product, Growth & Diversification",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "130",
+    "industry": "E-Learning",
     "signals": [
       "\ud83c\udd95 Joined company: 3mo"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/matt-kojalo-5144/"
+    "linkedin": "https://www.linkedin.com/in/matt-kojalo-5144/",
+    "employeeCount": 130,
+    "website": "www.vantagelearning.com"
   },
   {
     "id": 13,
     "company": "Arango",
     "person": "Mark Milinkovich",
     "title": "Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "1",
+    "industry": "Design",
     "signals": [
       "\ud83c\udd95 Joined company: 3mo"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/markmilinkovich/"
+    "linkedin": "https://www.linkedin.com/in/markmilinkovich/",
+    "employeeCount": 1,
+    "website": "www.arango.com"
   },
   {
     "id": 14,
     "company": "Agiloft",
     "person": "Joshua Sangster",
     "title": "Director of Product Management, Integrations",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "340",
+    "industry": "Information Technology & Services",
     "signals": [
       "\ud83c\udd95 Joined company: 3mo"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/%e2%98%81-joshua-sangster-30aa0a19/"
+    "linkedin": "https://www.linkedin.com/in/%e2%98%81-joshua-sangster-30aa0a19/",
+    "employeeCount": 340,
+    "website": "www.agiloft.com"
   },
   {
     "id": 15,
@@ -221,28 +241,32 @@
     "company": "Virtualitics",
     "person": "Griffin Kao",
     "title": "Director of Product",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "140",
+    "industry": "Information Technology & Services",
     "signals": [
       "\ud83c\udd95 Joined company: 3mo"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/griffinkao/"
+    "linkedin": "https://www.linkedin.com/in/griffinkao/",
+    "employeeCount": 140,
+    "website": "www.virtualitics.com"
   },
   {
     "id": 17,
     "company": "RevolutionParts",
     "person": "Ernest Saco",
     "title": "Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "65",
+    "industry": "Information Technology & Services",
     "signals": [
       "\ud83c\udd95 Joined company: 3mo"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/ernest-saco-15614429/"
+    "linkedin": "https://www.linkedin.com/in/ernest-saco-15614429/",
+    "employeeCount": 65,
+    "website": "www.revolutionparts.com"
   },
   {
     "id": 18,
@@ -260,7 +284,8 @@
     "icp_score": 90,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/victoria-brown-845aa913/",
-    "website": "toolsgroup.com"
+    "website": "www.toolsgroup.com",
+    "employeeCount": 320
   },
   {
     "id": 19,
@@ -295,63 +320,71 @@
     "company": "Leapwork",
     "person": "Clinton Sprauve",
     "title": "Senior Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "310",
+    "industry": "Information Technology & Services",
     "signals": [
       "\ud83c\udd95 Joined company: 3mo"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/clinton-sprauve-a859221/"
+    "linkedin": "https://www.linkedin.com/in/clinton-sprauve-a859221/",
+    "employeeCount": 310,
+    "website": "www.leapwork.com"
   },
   {
     "id": 22,
     "company": "Seed Health",
     "person": "Angela Hatcher",
     "title": "Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "4",
+    "industry": "Research",
     "signals": [
       "\ud83c\udd95 Joined company: 3mo"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/angela-hatcher-ba9724124/"
+    "linkedin": "https://www.linkedin.com/in/angela-hatcher-ba9724124/",
+    "employeeCount": 4,
+    "website": "www.luca.bio"
   },
   {
     "id": 23,
     "company": "INNERGY",
     "person": "Clay S.",
     "title": "Director of Product: CADCAM",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "150",
+    "industry": "Information Technology & Services",
     "signals": [
       "\ud83c\udd95 Joined company: 3mo"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/cswayze/"
+    "linkedin": "https://www.linkedin.com/in/cswayze/",
+    "employeeCount": 150,
+    "website": "www.innergy.com"
   },
   {
     "id": 24,
     "company": "ProShop ERP",
     "person": "Laura Curk",
     "title": "Senior Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "110",
+    "industry": "Information Technology & Services",
     "signals": [
       "\ud83c\udd95 Joined company: 3mo"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/laura-curk-52702064/"
+    "linkedin": "https://www.linkedin.com/in/laura-curk-52702064/",
+    "employeeCount": 110,
+    "website": "www.proshoperp.com"
   },
   {
     "id": 25,
     "company": "GoFundMe",
     "person": "Madhuri Murlikrishnan",
     "title": "Director of Product Marketing",
-    "size": "Unknown",
+    "size": "1,300",
     "industry": "Crowdfunding Platform",
     "signals": [
       "\ud83c\udd95 Joined company: 3mo"
@@ -359,7 +392,8 @@
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/madhuri-murlikrishnan-1816581b/",
-    "website": "gofundme.com"
+    "website": "www.gofundme.com",
+    "employeeCount": 1300
   },
   {
     "id": 26,
@@ -380,14 +414,16 @@
     "company": "Userful",
     "person": "Rubesh Kumar",
     "title": "Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "110",
+    "industry": "Information Technology & Services",
     "signals": [
       "\ud83c\udd95 Joined company: 3mo"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/rubesh-kumar-n-1259a3158/"
+    "linkedin": "https://www.linkedin.com/in/rubesh-kumar-n-1259a3158/",
+    "employeeCount": 110,
+    "website": "www.userful.com"
   },
   {
     "id": 28,
