@@ -1,1 +1,184 @@
-{"activeAgents":0,"totalRuns":0,"recentSessions":6,"timestamp":"2026-02-02T00:22:07Z"}
+{
+  "updated_at": "2026-02-03T06:30:00Z",
+  "updated_by": "Henry",
+  
+  "summary": {
+    "active_agents": 2,
+    "completed_today": 2,
+    "scheduled_jobs": 4,
+    "total_runs_today": 8
+  },
+
+  "sub_agents": {
+    "active": [
+      {
+        "id": "command-center-build",
+        "name": "Command Center Build",
+        "project": "all",
+        "project_emoji": "⚡",
+        "purpose": "Building comprehensive task management across all projects",
+        "status": "running",
+        "started_at": "2026-02-03T06:00:00Z",
+        "parent_session": "agent:main:main",
+        "session_id": "agent:main:subagent:28e63b9f-9b64-4a71-8340-f6754546fc3b",
+        "output_location": "projects/command-center/data/tasks.json",
+        "progress": {
+          "tasks_created": 89,
+          "ui_updated": true,
+          "committed": true
+        }
+      }
+    ],
+    "completed": [
+      {
+        "id": "sos-grant-research",
+        "name": "SOS Grant Research",
+        "project": "sos",
+        "project_emoji": "🆘",
+        "purpose": "Finding and evaluating grant opportunities for SOS",
+        "status": "completed",
+        "started_at": "2026-02-03T01:00:00Z",
+        "completed_at": "2026-02-03T02:30:00Z",
+        "duration_min": 90,
+        "output_location": "projects/command-center/data/grants.json",
+        "results": {
+          "grants_found": 25,
+          "priority_grants": 5,
+          "deadlines_identified": 3
+        }
+      },
+      {
+        "id": "reforge-priorities",
+        "name": "Reforge Pipeline Analysis",
+        "project": "reforge",
+        "project_emoji": "🚀",
+        "purpose": "Deep analysis of Reforge pipeline, stalled deals, opportunities",
+        "status": "completed",
+        "started_at": "2026-02-03T01:00:00Z",
+        "completed_at": "2026-02-03T03:00:00Z",
+        "duration_min": 120,
+        "output_location": "projects/command-center/intel/reforge-signals.json",
+        "results": {
+          "deals_analyzed": 309,
+          "stalled_identified": 141,
+          "urgent_actions": 5,
+          "pipeline_at_risk": 245000
+        }
+      },
+      {
+        "id": "reforge-ai-leads",
+        "name": "AI Transformation Research",
+        "project": "reforge",
+        "project_emoji": "🚀",
+        "purpose": "Researching AI transformation companies for Reforge prospecting",
+        "status": "completed",
+        "started_at": "2026-02-03T03:00:00Z",
+        "completed_at": "2026-02-03T04:30:00Z",
+        "duration_min": 90,
+        "output_location": "projects/command-center/intel/ai-leads-research.json",
+        "results": {
+          "companies_researched": 50,
+          "high_fit_leads": 12,
+          "outreach_ready": 5
+        }
+      }
+    ]
+  },
+
+  "scheduled_agents": [
+    {
+      "id": "reforge-intel",
+      "name": "Reforge Pipeline Intel",
+      "project": "reforge",
+      "project_emoji": "🚀",
+      "purpose": "Monitor pipeline health, competitor signals, deal movement",
+      "schedule": "9am, 12pm, 5pm EST M-F",
+      "cron": "0 9,12,17 * * 1-5",
+      "timezone": "America/New_York",
+      "status": "scheduled",
+      "last_run": "2026-02-02T22:00:00Z",
+      "next_run": "2026-02-03T14:00:00Z",
+      "output_location": "projects/command-center/intel/reforge-signals.json",
+      "typical_duration_min": 15,
+      "checks": ["hubspot_deals", "email_replies", "calendar_meetings", "competitor_news"]
+    },
+    {
+      "id": "sos-intel",
+      "name": "SOS Intel Agent",
+      "project": "sos",
+      "project_emoji": "🆘",
+      "purpose": "Monitor grants, competitors (Palantir, Google), partner opportunities",
+      "schedule": "10am, 6pm EST daily",
+      "cron": "0 10,18 * * *",
+      "timezone": "America/New_York",
+      "status": "scheduled",
+      "last_run": "2026-02-02T23:00:00Z",
+      "next_run": "2026-02-03T15:00:00Z",
+      "output_location": "projects/command-center/intel/sos-signals.json",
+      "typical_duration_min": 20,
+      "checks": ["grant_deadlines", "competitor_news", "disaster_alerts", "partner_activity"]
+    },
+    {
+      "id": "harmony-intel",
+      "name": "Harmony Client Health",
+      "project": "harmony",
+      "project_emoji": "🎯",
+      "purpose": "Monitor client health, response patterns, at-risk signals",
+      "schedule": "11am EST M-F",
+      "cron": "0 11 * * 1-5",
+      "timezone": "America/New_York",
+      "status": "scheduled",
+      "last_run": "2026-02-02T16:00:00Z",
+      "next_run": "2026-02-03T16:00:00Z",
+      "output_location": "projects/command-center/intel/harmony-signals.json",
+      "typical_duration_min": 10,
+      "checks": ["client_emails", "invoice_status", "delivery_milestones", "upsell_signals"]
+    },
+    {
+      "id": "morning-brief",
+      "name": "Morning Brief",
+      "project": "all",
+      "project_emoji": "☀️",
+      "purpose": "Daily summary of priorities, calendar, urgent items across all projects",
+      "schedule": "7am EST daily",
+      "cron": "0 7 * * *",
+      "timezone": "America/New_York",
+      "status": "scheduled",
+      "last_run": "2026-02-02T12:00:00Z",
+      "next_run": "2026-02-03T12:00:00Z",
+      "output_location": "memory/briefs/",
+      "delivery": "slack_dm",
+      "typical_duration_min": 5,
+      "checks": ["calendar_today", "urgent_tasks", "email_urgent", "overnight_results"]
+    },
+    {
+      "id": "gong-sync",
+      "name": "Gong Call Sync",
+      "project": "context_graph",
+      "project_emoji": "🧠",
+      "purpose": "Sync new Gong calls to context graph for decision enrichment",
+      "schedule": "7am EST daily",
+      "cron": "0 7 * * *",
+      "timezone": "America/New_York",
+      "status": "scheduled",
+      "last_run": "2026-02-02T21:42:00Z",
+      "next_run": "2026-02-03T12:00:00Z",
+      "output_location": "projects/command-center/context/gong/",
+      "typical_duration_min": 10,
+      "checks": ["new_calls", "call_transcripts", "deal_associations"]
+    }
+  ],
+
+  "agent_stats": {
+    "total_runs_all_time": 47,
+    "runs_this_week": 23,
+    "avg_duration_min": 18,
+    "success_rate": 0.98,
+    "by_project": {
+      "reforge": {"runs": 15, "last_run": "2026-02-02T22:00:00Z"},
+      "sos": {"runs": 12, "last_run": "2026-02-03T02:30:00Z"},
+      "harmony": {"runs": 8, "last_run": "2026-02-02T16:00:00Z"},
+      "all": {"runs": 12, "last_run": "2026-02-03T06:00:00Z"}
+    }
+  }
+}
