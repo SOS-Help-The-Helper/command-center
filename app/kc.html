@@ -505,8 +505,8 @@
         <div class="due-date-card">
             <div class="due-date-label">Estimated Due Date</div>
             <div class="due-date">October 12, 2026</div>
-            <div class="weeks-along">~4 weeks along</div>
-            <div class="countdown">🗓️ 251 days to go!</div>
+            <div class="weeks-along" id="weeksAlong">~4 weeks along</div>
+            <div class="countdown" id="countdown">🗓️ Calculating...</div>
         </div>
 
         <!-- Tasks Card -->
@@ -624,6 +624,7 @@
                 <div class="appt-details">
                     <h4>Dr. Vicky Scott, DO</h4>
                     <p>AdventHealth • 35+ years • Board certified Integrative + OB-GYN</p>
+                    <a href="https://www.adventhealth.com/find-doctor/doctor/vicky-scott-do-facog-aclm-aihm-1063471167" target="_blank" class="book-link">View profile →</a>
                 </div>
             </div>
             <div class="appointment">
@@ -634,6 +635,7 @@
                 <div class="appt-details">
                     <h4>Laurel OB/GYN</h4>
                     <p>All-female • 40+ years • (828) 253-5381</p>
+                    <a href="https://www.laurelobgyn.com/" target="_blank" class="book-link">Visit website →</a>
                 </div>
             </div>
             <div class="appointment">
@@ -644,6 +646,7 @@
                 <div class="appt-details">
                     <h4>MAHEC Midwives</h4>
                     <p>Laurie Jenkins CNM • Natural birth friendly</p>
+                    <a href="https://mahec.net/patient-care/find_a_provider/133" target="_blank" class="book-link">View profile →</a>
                 </div>
             </div>
         </div>
@@ -789,6 +792,35 @@
                 this.closest('.task').classList.toggle('completed');
             });
         });
+        
+        // Dynamic countdown calculation
+        function updateCountdown() {
+            const dueDate = new Date('2026-10-12');
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            
+            const diffTime = dueDate - today;
+            const daysToGo = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            
+            // Calculate weeks along (assuming ~280 days total pregnancy)
+            const totalDays = 280;
+            const daysAlong = totalDays - daysToGo;
+            const weeksAlong = Math.floor(daysAlong / 7);
+            const daysExtra = daysAlong % 7;
+            
+            document.getElementById('countdown').textContent = `🗓️ ${daysToGo} days to go!`;
+            
+            if (weeksAlong >= 0) {
+                if (daysExtra > 0) {
+                    document.getElementById('weeksAlong').textContent = `${weeksAlong} weeks, ${daysExtra} days along`;
+                } else {
+                    document.getElementById('weeksAlong').textContent = `${weeksAlong} weeks along`;
+                }
+            }
+        }
+        
+        // Update on load
+        updateCountdown();
     </script>
 </body>
 </html>
