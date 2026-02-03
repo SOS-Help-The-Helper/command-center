@@ -1,0 +1,267 @@
+{
+  "briefDate": "2026-02-03",
+  "briefType": "reforge_intel",
+  "generatedAt": "2026-02-03T15:30:00Z",
+  
+  "summary": {
+    "headline": "Busy week ahead: 4 hot signals, 12 external meetings, 3 pilots in motion",
+    "urgentActions": [
+      "Follow up with Dominique (Laeka) - excited about renewal deck",
+      "Monitor Maestro - reviewing internally + viewed Gong recording",
+      "Await Cory booking - product org interest, will schedule next week",
+      "Schedule Balaji for week of Feb 10-14"
+    ]
+  },
+  
+  "dealSignals": {
+    "hot": [
+      {
+        "account": "Laeka / Dominique",
+        "type": "renewal_excitement",
+        "quote": "Hi Jonathan Thank you for this, I am really excited. The deck looks great!",
+        "timestamp": "2026-02-03 01:13 EST",
+        "recommendedAction": "Strike while iron is hot - follow up within 24h"
+      },
+      {
+        "account": "Maestro (Prasanth Ramanand)",
+        "type": "internal_discussion",
+        "quote": "We will discuss internally and get back on the next steps timing",
+        "timestamp": "2026-02-02 20:00 EST",
+        "additionalSignal": "Gong recording viewed after email",
+        "recommendedAction": "Wait 3-5 days then check in, reference they viewed the recording"
+      },
+      {
+        "account": "Cory",
+        "type": "inbound_interest",
+        "quote": "I am curious about how my product org may be able to utilize Reforge, I will grab some time with you next week.",
+        "timestamp": "2026-02-02 22:33 EST",
+        "recommendedAction": "Let them book, prepare product org use cases"
+      }
+    ],
+    "warm": [
+      {
+        "account": "Balaji Ramakrishnan",
+        "type": "delayed_interest",
+        "quote": "Currently traveling... Can we meet the following week?",
+        "timestamp": "2026-02-02 21:13 EST",
+        "recommendedAction": "Send calendar link for week of Feb 10-14"
+      }
+    ]
+  },
+  
+  "companyIntel": {
+    "todaysMeetings": [
+      {
+        "time": "10:15 EST",
+        "company": "WithGrowth",
+        "type": "discovery",
+        "intel": {
+          "description": "Data-driven growth hacking agency helping businesses scale",
+          "services": "Strategy development, growth marketing, customer acquisition",
+          "approach": "Rapid testing, performance tracking, low-cost strategies",
+          "website": "withgrowth.me",
+          "testimonial": "Tripled customer revenues for Aannab (COO Naila AlKhalawi)",
+          "prepTip": "Small agency - may be price sensitive. Focus on ROI and efficiency gains."
+        }
+      },
+      {
+        "time": "12:15 EST",
+        "company": "Canon Press",
+        "type": "discovery",
+        "intel": {
+          "description": "Christian publishing house in Moscow, Idaho",
+          "founded": "1988 by Doug Wilson",
+          "focus": "Christian literature, Reformation themes",
+          "connection": "Publishing ministry of Christ Church",
+          "size": "779 LinkedIn followers",
+          "website": "canonpress.com",
+          "prepTip": "Traditional publishing - may be interested in Research product for audience insights. Non-traditional tech buyer."
+        }
+      }
+    ],
+    "wednesdayMeetings": [
+      {
+        "time": "10:00 EST",
+        "company": "Yazio",
+        "type": "pilot",
+        "deal": "$15K Build",
+        "intel": {
+          "description": "Health and nutrition app for weight loss and healthy eating",
+          "users": "Millions in 150+ countries",
+          "features": "AI calorie tracking, food logging, meal planning, barcode scanner",
+          "rating": "Excellent on Trustpilot (3000+ reviews)",
+          "funding": "German company, growth stage",
+          "prepTip": "Consumer app with large user base - product feedback volume likely high. Build product fits well."
+        }
+      },
+      {
+        "time": "11:00 EST",
+        "company": "Strategy Call - Anton Moritz",
+        "type": "strategy",
+        "attendee": "Bohuslav Benuch (tentative)",
+        "intel": {
+          "antonMoritz": {
+            "current": "AILY LABS (6 months)",
+            "previous": "Zalando, N26 Group",
+            "focus": "Building & scaling AI-driven product & tech teams",
+            "insight": "Says AI teams require 'completely different approach' than traditional tech orgs",
+            "linkedin": "https://www.linkedin.com/in/antonmoritz/"
+          },
+          "prepTip": "AI transformation background - strong fit for Reforge. Can speak to team scaling challenges."
+        }
+      },
+      {
+        "time": "12:45 EST",
+        "company": "Delos Ventures",
+        "type": "build",
+        "attendee": "Nathan Busscher (confirmed)",
+        "intel": {
+          "note": "Multiple 'Delos' entities exist - likely Delos Capital (PE) or separate VC",
+          "delosCapital": "Lower-middle market PE firm, NYC",
+          "delosBiotech": "Biotech VC focused on inflammatory/immunology",
+          "prepTip": "Clarify which Delos - if VC, they may want to evaluate for portfolio companies"
+        }
+      },
+      {
+        "time": "14:00 EST",
+        "company": "Console",
+        "type": "pilot_config",
+        "deal": "$15K IA",
+        "intel": {
+          "description": "Free weekly developer tools newsletter - console.dev",
+          "content": "Reviews of devtools and beta releases",
+          "audience": "Developers evaluating new tools",
+          "twitter": "@consoledotdev",
+          "prepTip": "Developer-focused media company - feedback from developer audience could be valuable. Configure for dev tool reviews/feedback."
+        }
+      }
+    ],
+    "thursdayMeetings": [
+      {
+        "time": "10:00 EST",
+        "company": "Ecovadis",
+        "type": "pilot_kickoff",
+        "deal": "$18K Build + IA + Research",
+        "intel": {
+          "description": "Global leader in business sustainability ratings",
+          "scope": "180 territories, 200 industries, ESG performance assessment",
+          "useCase": "Supply chain sustainability, vendor ratings",
+          "competitive": "Compared to Replit in Build space",
+          "website": "ecovadis.com",
+          "prepTip": "ESG/sustainability focus - may have complex taxonomy needs. Note Replit competitive concern."
+        }
+      },
+      {
+        "time": "10:15 EST",
+        "company": "PiNCAMP",
+        "type": "discovery",
+        "intel": {
+          "description": "Camping booking platform by ADAC (German auto club)",
+          "reach": "14,500+ campsites across Europe",
+          "markets": "Germany, Netherlands (ANWB), Switzerland (TCS)",
+          "experience": "70+ years camping expertise across parent clubs",
+          "app": "PiNCAMP Camping by ADAC on iOS/Android",
+          "prepTip": "European travel/booking platform - likely interested in guest/user feedback analysis."
+        }
+      },
+      {
+        "time": "11:00 EST",
+        "company": "Numan",
+        "type": "discovery",
+        "intel": {
+          "description": "UK digital men's health platform",
+          "services": "Online consultations, Rx/OTC medications, supplements, diagnostics, screening",
+          "focus": "ED, weight loss, hair loss, testosterone, general men's health",
+          "funding": "$20M raised for expansion",
+          "features": "Personalized coaching, clinician chats, health tracking app",
+          "prepTip": "Healthcare SaaS - sensitive data considerations. Product feedback from male health users."
+        }
+      },
+      {
+        "time": "12:00 EST",
+        "company": "Isracard (Raphael Menachem)",
+        "type": "strategy",
+        "intel": {
+          "description": "Israel's leading credit card and financial technology company",
+          "subsidiaries": "Isracard LTD, Europay LTD, Aminit LTD, American Express Israel",
+          "services": "Credit card issuing, loans, credit services, flexible payments",
+          "ownership": "Formerly Bank HaPoalim, now independent",
+          "prepTip": "Large Israeli fintech - enterprise deal potential. Financial services compliance needs."
+        }
+      }
+    ],
+    "fridayMeetings": [
+      {
+        "time": "10:30 EST",
+        "company": "john Bengtsson intro",
+        "type": "intro",
+        "status": "Confirmed"
+      },
+      {
+        "time": "11:00 EST",
+        "company": "Skeps",
+        "type": "build",
+        "intel": {
+          "description": "Point-of-sale financing and BNPL platform for banks/lenders",
+          "value": "Enables banks to launch branded BNPL programs or grow unsecured lending",
+          "verticals": "Retail, healthcare, home improvement",
+          "partners": "First National Bank of Omaha, EXL",
+          "recognition": "Referenced by Federal Reserve Bank of Kansas City",
+          "prepTip": "B2B fintech serving banks - may need feedback from merchant/consumer touchpoints."
+        }
+      },
+      {
+        "time": "13:15 EST",
+        "company": "Fleetio",
+        "type": "discovery",
+        "intel": {
+          "description": "Fleet management software for vehicles, equipment, drivers",
+          "founded": "January 2012",
+          "scale": "Thousands of users managing hundreds of thousands of vehicles",
+          "features": "Maintenance tracking, fuel economy, scheduling, FMCSA compliance",
+          "verticals": "Trucking, logistics, any fleet operations",
+          "website": "fleetio.com",
+          "prepTip": "Established fleet SaaS - operational feedback from fleet managers and drivers."
+        }
+      }
+    ]
+  },
+  
+  "pipelineStatus": {
+    "active": {
+      "total": "$311K",
+      "keyDeals": [
+        {"account": "Neo Financial", "value": "$60K", "status": "Pricing sent", "nextAction": "Follow up"},
+        {"account": "EvenUp", "value": "$50K", "status": "In pilot, testing", "nextAction": "Monitor pilot progress"},
+        {"account": "E&Y", "value": "$30K", "status": "Discovery", "nextAction": "Continue discovery"},
+        {"account": "Fox Local", "value": "$27K", "status": "Budget approval 2-4 weeks", "nextAction": "Follow up"},
+        {"account": "DreamHost", "value": "$25K", "status": "In pilot", "champion": "Ralph"},
+        {"account": "Ecovadis", "value": "$18K", "status": "Starting pilot", "meeting": "Thu 10am kickoff"},
+        {"account": "Yazio", "value": "$15K", "status": "In pilot", "meeting": "Wed 10am"},
+        {"account": "Console", "value": "$15K", "status": "Active", "meeting": "Wed 2pm config"}
+      ]
+    },
+    "meetingsVsQuiet": {
+      "withMeetingsThisWeek": ["Yazio", "Console", "Ecovadis"],
+      "goneQuiet": ["Neo Financial", "Fox Local", "Muse", "Brigit", "Chalice", "Moma", "TaskRay"]
+    },
+    "reengageQueue": [
+      {"account": "iRobot", "value": "$80K", "status": "Lost to Enterpret", "action": "Reach out ASAP"},
+      {"account": "WSFS", "value": "$56K", "status": "Timing not right", "action": "Check Q1"},
+      {"account": "Boomi", "value": "$46K", "status": "Palay in talks", "action": "Coordinate with Palay"}
+    ]
+  },
+  
+  "weekSummary": {
+    "externalMeetings": 12,
+    "byType": {
+      "discovery": 5,
+      "pilot": 3,
+      "build": 2,
+      "strategy": 2
+    },
+    "pilotsInMotion": ["Yazio", "Ecovadis", "Console"],
+    "newOpportunities": ["withgrowth", "Canon Press", "PiNCAMP", "Numan", "Fleetio"],
+    "buildDeals": ["Delos Ventures", "Skeps"]
+  }
+}
