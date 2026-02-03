@@ -1,9 +1,81 @@
 {
-  "lastUpdated": "2026-02-03T14:50:00Z",
+  "lastUpdated": "2026-02-03T19:45:00Z",
   "updatedBy": "Henry",
   "description": "SOS project intelligence signals - grants, competitors, partnerships, market",
   
   "signals": [
+    {
+      "timestamp": "2026-02-03T19:45:00Z",
+      "type": "deployment",
+      "company": "Tennessee VOAD",
+      "signal": "Winter Storm Fern - NashvilleResponds.com launched as 'needs tracker' for Davidson County. Staffed by volunteers from Sycamore Church + Twin Lakes Telephone Cooperative. $570K+ in relief fund donations. EXACTLY SOS USE CASE.",
+      "urgency": "critical",
+      "recommendation": "IMMEDIATE: Contact Nashville VOAD about SOS pilot. They're doing manual needs tracking RIGHT NOW. Perfect deployment opportunity.",
+      "source": "WPLN, Tennessean, Nashville Chamber Jan 2026"
+    },
+    {
+      "timestamp": "2026-02-03T19:45:00Z",
+      "type": "partnership",
+      "company": "Team Rubicon",
+      "signal": "Running virtual EOC for Winter Storm Fern. Active QRFs in Tennessee (Hardin County), NYC. Partnering with Habitat for Humanity. Aviva Canada just gave them $250K. Volunteer-driven model aligns with SOS.",
+      "urgency": "high",
+      "recommendation": "Reach out to Team Rubicon about tech partnership. They coordinate volunteers - SOS coordinates community needs. Complementary.",
+      "source": "teamrubiconusa.org Jan-Feb 2026"
+    },
+    {
+      "timestamp": "2026-02-03T19:45:00Z",
+      "type": "partnership",
+      "company": "NE Tennessee VOAD",
+      "signal": "NEW chapter launching post-Helene. Quote: 'Dormancy is enemy of disaster resilience.' Looking to build capacity while Helene motivation is fresh.",
+      "urgency": "high",
+      "recommendation": "Perfect pilot partner - new chapter building from scratch. Offer SOS as founding tech platform.",
+      "source": "WCYB Jan 2026"
+    },
+    {
+      "timestamp": "2026-02-03T19:45:00Z",
+      "type": "competitor",
+      "company": "Palantir",
+      "signal": "Q4 2025 earnings (Feb 2): Revenue guidance $7.18-7.20B for 2026 (60%+ increase). DHS + HHS using Foundry. Army contract up to $10B. Growing scrutiny over surveillance work. CEO defending tech on earnings call.",
+      "urgency": "high",
+      "recommendation": "Palantir going hard on gov. SOS differentiation: community-agency bridge, not agency-to-agency surveillance. Privacy-first angle stronger than ever.",
+      "source": "Reuters, CNBC, The Hill Feb 2026"
+    },
+    {
+      "timestamp": "2026-02-03T19:45:00Z",
+      "type": "market",
+      "company": "FEMA",
+      "signal": "FEMA Review Council EXTENDED to March 25, 2026 (White House). 180+ employees signed 'Katrina Declaration' criticizing policy changes. $19B in disaster relief frozen per Dem reports. Court blocked grant changes as 'arbitrary and capricious'.",
+      "urgency": "high",
+      "recommendation": "Federal funding uncertainty = states need alternatives. Position SOS as state/local resilience tool not dependent on FEMA.",
+      "source": "White House, Democrats.org, Smart Cities Dive Jan-Feb 2026"
+    },
+    {
+      "timestamp": "2026-02-03T19:45:00Z",
+      "type": "grant",
+      "company": "FEMA Public Assistance",
+      "signal": "Tennessee: $9M in grants, NY: $56M approved. FEMA releasing $2.2B across 25 states. NC gets $200M+ for Helene. KY gets $114M for flooding.",
+      "urgency": "medium",
+      "recommendation": "States receiving FEMA money need efficient deployment tools. Target grantee states for SOS pilots.",
+      "source": "Tennessean, Fox News, InformNNY Jan-Feb 2026"
+    },
+    {
+      "timestamp": "2026-02-03T19:45:00Z",
+      "type": "market",
+      "company": "Industry",
+      "signal": "2025: US had billion-dollar disaster every 10 days. IRC: aid worker security incidents UP 33%. EU funding NIGHTINGALE project (AI + wearables for emergency care). States facing 'funding uncertainty' from federal changes.",
+      "urgency": "medium",
+      "recommendation": "Disaster frequency increasing = more deployment opportunities. Watch for state-level innovation as federal funding becomes uncertain.",
+      "source": "LAist, IRC, EU Home Affairs, Pew Jan-Feb 2026"
+    },
+    {
+      "timestamp": "2026-02-03T19:45:00Z",
+      "type": "competitor",
+      "company": "Google",
+      "signal": "Crisis Response still active: Person Finder, Public Alerts, Crisis Maps. WeatherNext 2 forecasting model launched Nov 2025. No new community coordination tools announced.",
+      "urgency": "low",
+      "recommendation": "Google focuses on information/mapping, not coordination. SOS occupies different space. Watch for Google.org grants.",
+      "source": "Google.org, blog.google Dec 2025"
+    },
     {
       "timestamp": "2026-02-03T14:00:00Z",
       "type": "competitor",
@@ -69,12 +141,37 @@
     }
   ],
   
+  "activeDisasters": [
+    {
+      "name": "Winter Storm Fern",
+      "location": "Tennessee, Kentucky, Mississippi, NYC",
+      "status": "active",
+      "sosOpportunity": "HIGH - Nashville VOAD running manual needs tracker, perfect pilot",
+      "contacts": ["Nashville VOAD", "TEMA", "Team Rubicon QRF"]
+    }
+  ],
+  
   "watchlist": {
     "competitors": ["Palantir", "Google Crisis Response", "WebEOC", "Veoci", "Everbridge", "D4H"],
-    "states": ["North Carolina", "Florida", "Texas", "California", "New Mexico"],
-    "foundations": ["Conrad Hilton", "Google.org", "Rockefeller", "MacArthur", "Bezos Earth Fund"]
+    "states": ["Tennessee", "North Carolina", "Florida", "Texas", "California", "New Mexico", "Kentucky"],
+    "foundations": ["Conrad Hilton", "Google.org", "Rockefeller", "MacArthur", "Bezos Earth Fund"],
+    "partners": ["Team Rubicon", "NE Tennessee VOAD", "Nashville VOAD", "Habitat for Humanity"]
   },
   
-  "lastIntelRun": "2026-02-03T14:00:00Z",
-  "nextScheduledRun": "2026-02-03T23:00:00Z"
+  "keyDeadlines": [
+    {
+      "name": "EDA Disaster Supplemental Grant",
+      "date": "2026-03-03",
+      "amount": "$250K-$500K",
+      "status": "needs_application"
+    },
+    {
+      "name": "FEMA Review Council Deadline",
+      "date": "2026-03-25",
+      "notes": "Policy changes likely after this date"
+    }
+  ],
+  
+  "lastIntelRun": "2026-02-03T19:45:00Z",
+  "nextScheduledRun": "2026-02-04T12:00:00Z"
 }
