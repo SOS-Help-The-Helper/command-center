@@ -1,0 +1,237 @@
+{
+  "date": "2026-02-03",
+  "type": "sos-intel",
+  "generatedAt": "2026-02-03T15:30:00Z",
+  "context": {
+    "event": "SOS Partner Walkthrough",
+    "time": "3:00 PM EST",
+    "calendar": "jonathan@harmonystrategy.com"
+  },
+  "executiveSummary": "Major winter storm (Jan 21-23) created real-time validation opportunity for SOS value prop. Multiple state emergencies declared. FEMA releasing billions but workforce cuts create tech opportunity. Palantir surging on gov contracts. Crisis Cleanup actively deployed - potential integration partner.",
+  
+  "grantIntelligence": {
+    "urgentDeadlines": [
+      {
+        "name": "EDA Disaster Supplemental",
+        "deadline": "2026-03-03",
+        "amount": "Up to $2M",
+        "fit": "HIGH",
+        "notes": "NC Helene-eligible. Nonprofits can apply. 80% federal match.",
+        "action": "Finalize application materials this month"
+      }
+    ],
+    "newFunding": [
+      {
+        "title": "FEMA $2.2B Disaster Relief",
+        "date": "2026-01-29",
+        "details": "Released to 25 states for infrastructure repairs, debris removal, emergency costs",
+        "source": "Fox News",
+        "relevance": "Shows federal money still flowing despite workforce cuts"
+      },
+      {
+        "title": "Tennessee Helene Grants",
+        "date": "2026-01-30",
+        "amount": "$9M",
+        "details": "For communities affected by Tropical Storm Helene",
+        "source": "Tennessean",
+        "relevance": "Tennessee active disaster state - potential pilot geography"
+      },
+      {
+        "title": "South Louisiana Hurricane Recovery",
+        "date": "2026-02-02",
+        "amount": "$326M",
+        "details": "Reimbursements to local government and nonprofit entities",
+        "source": "Rep. Clay Higgins",
+        "relevance": "Shows nonprofit reimbursement pathway"
+      },
+      {
+        "title": "NC Helene Additional Funding",
+        "date": "2026-01-14",
+        "amount": "$116M",
+        "details": "For state recovery and future prevention",
+        "source": "WRAL",
+        "relevance": "NC still receiving funding - EDA application viable"
+      }
+    ],
+    "policyWatch": {
+      "title": "Federal Disaster Funding Uncertainty",
+      "source": "Pew Charitable Trusts (Jan 15)",
+      "details": "Feds reevaluating: when states qualify, how funds delivered, amount of federal support",
+      "impact": "States may need tech solutions to do more with less federal support"
+    }
+  },
+
+  "competitorIntel": {
+    "palantir": {
+      "status": "aggressive_growth",
+      "lastUpdate": "2026-02-02",
+      "headlines": [
+        {
+          "title": "Palantir CEO defends surveillance tech as US government contracts boost sales",
+          "source": "Reuters",
+          "date": "2026-02-02",
+          "details": "Q4 revenue $1.41B exceeded estimates. Expects big jump in 2026 gov contract sales."
+        },
+        {
+          "title": "DHS $139.3M Contract Ongoing",
+          "source": "Wikipedia (updated Jan 2026)",
+          "details": "2022 investigative case management contract still active"
+        }
+      ],
+      "threatLevel": "HIGH",
+      "analysis": "Deep federal integration. Not direct SOS competitor but sets bar for gov tech credibility."
+    },
+    "webEOC": {
+      "status": "incumbent_vulnerable",
+      "lastUpdate": "2026-02-03",
+      "notes": "No new complaints found in search, but known frustration from prior research (duplicative data entry, switching costs)",
+      "opportunity": "Position SOS as complement/alternative for coordination layer"
+    },
+    "crisisCleanup": {
+      "status": "active_deployment",
+      "lastUpdate": "2026-02-03",
+      "headlines": [
+        {
+          "title": "Crisis Cleanup Hotline Active in Tennessee",
+          "date": "2026-02-02",
+          "details": "Hotline 844-965-1386 for winter storm victims. Active through Feb 13.",
+          "source": "NewsChannel5"
+        }
+      ],
+      "opportunity": "PARTNERSHIP POTENTIAL - they handle cleanup coordination, SOS handles broader resource matching",
+      "priority": "HIGH"
+    }
+  },
+
+  "partnershipSignals": {
+    "aidArena": {
+      "status": "BLOCKED",
+      "blocker": "Slack channel ID configuration",
+      "action": "Get channel ID from Aid Arena team, Henry runs SQL update",
+      "urgency": "HIGH - they're waiting"
+    },
+    "voadActivity": [
+      {
+        "title": "New VOAD Chapter in Northeast Tennessee",
+        "date": "2026-01-14",
+        "details": "Post-Helene formation. 'Dormancy is enemy of disaster resilience.'",
+        "source": "WCYB",
+        "opportunity": "New VOAD chapters = potential early adopters for SOS"
+      },
+      {
+        "title": "Nashville VOAD Prioritized for Winter Storm Fund",
+        "date": "2026-01-29",
+        "details": "Mayor announced VOAD orgs get funded first from recovery fund. Using Charity Tracker.",
+        "source": "WKRN",
+        "insight": "Charity Tracker in use - potential integration or competitor"
+      }
+    ],
+    "crisisCleanup": {
+      "status": "ACTIVELY COORDINATING",
+      "details": "Working with Tennessee VOAD, churches, community groups",
+      "partnership_angle": "They coordinate volunteers for cleanup; SOS matches broader resources. Complementary."
+    }
+  },
+
+  "marketSignals": {
+    "activeDisasters": [
+      {
+        "name": "Winter Storm (Jan 21-23)",
+        "states": ["Tennessee", "Georgia", "Arkansas", "Delaware", "North Carolina"],
+        "emergencyDeclarations": "Multiple state SOEs declared",
+        "federalResponse": "NASA DRCS activated, Crisis Cleanup deployed",
+        "sosRelevance": "Real-time coordination chaos validates SOS value prop"
+      }
+    ],
+    "femaChanges": [
+      {
+        "title": "FEMA Workforce Cuts",
+        "details": "41% cut to CORE disaster roles, 85% cut to surge staffing",
+        "source": "Washington Post, Forbes, CNN (Jan 2026)",
+        "impact": "Less federal capacity = states need tech force multipliers",
+        "sosAngle": "Position SOS as efficiency tool for reduced teams"
+      },
+      {
+        "title": "Wildland Fire Consolidation",
+        "details": "FY2026 plan to consolidate fire management across 5 agencies",
+        "source": "FireRescue1",
+        "impact": "Federal restructuring creates coordination gaps"
+      }
+    ],
+    "stateEmaActivity": [
+      {
+        "state": "Oregon",
+        "title": "Comprehensive Disaster Recovery Plan Adopted",
+        "date": "2026-01-27",
+        "details": "New plan emphasizes locally-driven recovery with state guidance/coordination",
+        "source": "KATU",
+        "relevance": "Oregon investing in coordination infrastructure"
+      },
+      {
+        "state": "New Mexico",
+        "title": "$30M to Contingency Fund",
+        "details": "Response to slower/smaller FEMA reimbursements",
+        "source": "Pew Trusts",
+        "relevance": "States preparing to self-fund more disaster response"
+      }
+    ],
+    "mediaSignals": [
+      {
+        "title": "Tech can avert catastrophic fires. What's missing is coordination",
+        "source": "LA Times (Jan 7)",
+        "summary": "Op-ed arguing tech solutions exist but coordination is the gap",
+        "sosValidation": "DIRECT VALIDATION of SOS value proposition"
+      },
+      {
+        "title": "Guardian: Trump has left US less prepared for disasters",
+        "source": "The Guardian (Jan 4)",
+        "summary": "FEMA/NOAA cuts leaving states with more responsibility",
+        "sosValidation": "Market tailwind - states need alternatives"
+      }
+    ]
+  },
+
+  "keyTalkingPoints": [
+    {
+      "point": "Winter storm proves coordination gap is real",
+      "evidence": "5+ states declared emergencies. Crisis Cleanup deployed. VOAD chapters forming. Media calling out 'coordination' as the missing piece.",
+      "use": "Partner walkthrough - validation of problem we're solving"
+    },
+    {
+      "point": "Federal capacity is shrinking",
+      "evidence": "FEMA cutting 41% of disaster roles. States allocating own funds (NM $30M). Pew report on funding uncertainty.",
+      "use": "Position SOS as force multiplier for stretched teams"
+    },
+    {
+      "point": "Money is still flowing",
+      "evidence": "$2.2B just released. $326M to LA. $116M to NC. $9M to TN.",
+      "use": "Grant funding available - EDA March 3 deadline is real opportunity"
+    },
+    {
+      "point": "Crisis Cleanup is a potential partner, not competitor",
+      "evidence": "They handle volunteer coordination for cleanup. We handle broader resource matching. Complementary.",
+      "use": "Partnership conversation if they come up"
+    }
+  ],
+
+  "immediateActions": [
+    {
+      "priority": 1,
+      "action": "Unblock Aid Arena",
+      "details": "Get Slack channel ID, run SQL update, test match announcements",
+      "owner": "Jonathan + Henry"
+    },
+    {
+      "priority": 2,
+      "action": "EDA Application Prep",
+      "details": "March 3 deadline. NC eligibility. Start drafting.",
+      "owner": "TBD"
+    },
+    {
+      "priority": 3,
+      "action": "Crisis Cleanup Research",
+      "details": "Explore partnership/integration potential",
+      "owner": "Henry"
+    }
+  ]
+}
