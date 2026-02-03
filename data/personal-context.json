@@ -1,0 +1,78 @@
+{
+  "lastUpdated": "2026-02-03T15:55:00Z",
+  "project": "personal",
+  
+  "activeProjects": [
+    {
+      "id": "pregnancy",
+      "name": "🎉 Pregnancy",
+      "status": "active",
+      "startDate": "2026-02-03",
+      "priority": "high",
+      "description": "Positive test! Finding OBGYN and planning.",
+      "tasks": [
+        {
+          "id": "obgyn-research",
+          "title": "Find OBGYN",
+          "status": "done",
+          "notes": "Researched holistic-friendly female OBGYNs"
+        },
+        {
+          "id": "obgyn-call-scott",
+          "title": "Call Dr. Vicky Scott (AdventHealth)",
+          "status": "todo",
+          "priority": "high",
+          "notes": "Board certified integrative + OB-GYN, 35+ years"
+        },
+        {
+          "id": "obgyn-call-laurel",
+          "title": "Call Laurel OB/GYN as backup",
+          "status": "todo",
+          "phone": "(828) 253-5381",
+          "notes": "All-female practice, 40+ years"
+        },
+        {
+          "id": "first-appointment",
+          "title": "Schedule first prenatal appointment",
+          "status": "todo"
+        }
+      ],
+      "research": {
+        "topRecommendation": {
+          "name": "Dr. Vicky Scott, DO",
+          "location": "AdventHealth South Asheville",
+          "credentials": "Board certified OB-GYN + Integrative/Holistic Medicine",
+          "experience": "35+ years in Asheville",
+          "approach": "Whole-person, lifestyle medicine, plant-based friendly"
+        },
+        "backups": [
+          {
+            "name": "Laurel OB/GYN",
+            "phone": "(828) 253-5381",
+            "notes": "All-female, 40+ years, delivers at Mission"
+          },
+          {
+            "name": "MAHEC OB/GYN Midwives",
+            "notes": "Laurie Jenkins CNM, natural birth friendly"
+          }
+        ]
+      }
+    },
+    {
+      "id": "credit-rebuild",
+      "name": "💳 Credit Rebuild",
+      "status": "queued",
+      "priority": "medium",
+      "description": "Spawning agents to help rebuild credit",
+      "tasks": []
+    }
+  ],
+  
+  "upcomingReminders": [
+    {
+      "date": "2026-02-05",
+      "item": "ALLY DUE",
+      "project": "personal"
+    }
+  ]
+}

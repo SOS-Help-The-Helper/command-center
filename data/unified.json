@@ -75,6 +75,22 @@
       ]
     },
     {
+      "id": "personal",
+      "name": "Personal",
+      "icon": "👨‍👩‍👧",
+      "description": "Personal life projects",
+      "focus": "life",
+      "color": "#e91e63",
+      "sections": [
+        "tasks",
+        "operations"
+      ],
+      "kpis": [
+        "active_items",
+        "completed"
+      ]
+    },
+    {
       "id": "grunt",
       "name": "Grunt",
       "icon": "\u26a1",
