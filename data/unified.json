@@ -808,13 +808,14 @@
       "projectId": "reforge",
       "title": "Muse Group - Push contract signature (61 days in contracting)",
       "priority": "P0",
-      "status": "todo",
+      "status": "done",
       "section": "Urgent Deals",
       "assigneeId": "henry",
       "createdBy": "jonathan",
       "createdAt": "2026-02-03T01:24:10.194082Z",
       "tags": [],
-      "notes": "Budget approved. Deals die in contracting."
+      "notes": "CLOSED WON! $15k full suite. Contract signed.",
+      "completedAt": "2026-02-03T18:45:00Z"
     },
     {
       "id": "t42",
@@ -1462,6 +1463,23 @@
       "tags": [],
       "notes": "Full API access. 5,270 org calls.",
       "completedAt": "2026-02-02T21:05:00Z"
+    },
+    {
+      "id": "t91",
+      "projectId": "reforge",
+      "title": "Post onboarding notes in #muse-reforge Slack channel",
+      "priority": "P1",
+      "status": "todo",
+      "section": "Onboarding",
+      "assigneeId": "jonathan",
+      "createdBy": "henry",
+      "createdAt": "2026-02-03T19:08:58Z",
+      "tags": [
+        "muse",
+        "onboarding"
+      ],
+      "notes": "See reforge/deals/muse-onboarding.md for full technical details. Sources: App Store (~3.5k/yr), Google Play (~5k/yr), Trustpilot (~144/yr) for Ultimate Guitar. $15k full suite deal.",
+      "dueDate": "2026-02-05"
     }
   ],
   "intel": {
