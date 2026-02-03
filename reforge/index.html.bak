@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reforge Command Center</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            reforge: {
+              orange: '#ED5624',
+              'orange-dark': '#C44A1E',
+              'orange-light': '#F0802E',
+              teal: '#57A499',
+              'teal-light': '#A0D5C2',
+              mustard: '#CEAA56',
+              'mustard-light': '#DDC977',
+              black: '#000000',
+              cream: '#EAEACF',
+              'off-white': '#F2F2F2',
+              muted: '#6B7280'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-bg { background: linear-gradient(180deg, #FAFAFA 0%, #F2F2F2 100%); }
+    .card { background: #FFFFFF; border: 1px solid #E5E7EB; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .card:hover { border-color: #ED5624; box-shadow: 0 4px 12px rgba(237,86,36,0.1); }
+    .nav-link { transition: all 0.2s; color: #374151; }
+    .nav-link:hover { background: rgba(237,86,36,0.05); color: #ED5624; }
+    .nav-link.active { background: rgba(237,86,36,0.1); border-left: 3px solid #ED5624; color: #ED5624; }
+    .btn-primary { background: #ED5624; color: white; }
+    .btn-primary:hover { background: #C44A1E; }
+    .btn-secondary { background: #57A499; color: white; }
+    .btn-secondary:hover { background: #4A8F85; }
+    .accent-teal { color: #57A499; }
+    .accent-mustard { color: #CEAA56; }
+  </style>
+</head>
+<body class="gradient-bg min-h-screen text-gray-900">
+  <div class="flex">
+    <!-- Sidebar Navigation -->
+    <nav class="w-64 min-h-screen bg-white border-r border-gray-200 fixed shadow-sm">
+      <div class="p-6">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-10 h-10 rounded-lg bg-reforge-orange flex items-center justify-center font-bold text-lg text-white">R</div>
+          <div>
+            <h1 class="font-semibold text-lg text-gray-900">Reforge</h1>
+            <p class="text-xs text-reforge-muted">Command Center</p>
+          </div>
+        </div>
+        
+        <div class="space-y-1">
+          <a href="#overview" class="nav-link active flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium" onclick="showSection('overview')">
+            <span>📊</span> Overview
+          </a>
+          <a href="#discovery" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium" onclick="showSection('discovery')">
+            <span>🔍</span> Discovery Validation
+          </a>
+          <a href="#pitch-deck" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium" onclick="showSection('pitch-deck')">
+            <span>📑</span> Pitch Deck Generator
+          </a>
+          <a href="#lead-qualifier" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium" onclick="showSection('lead-qualifier')">
+            <span>🎯</span> Lead Qualifier
+          </a>
+          <a href="#opportunities" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium" onclick="showSection('opportunities')">
+            <span>💰</span> Opportunity Decisions
+          </a>
+        </div>
+        
+        <div class="absolute bottom-6 left-6 right-6">
+          <div class="bg-reforge-cream rounded-lg p-4 border border-reforge-mustard/30">
+            <p class="text-xs text-gray-600 mb-1">Q1 2026 Progress</p>
+            <div class="flex items-center gap-2">
+              <div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full bg-reforge-orange rounded-full" style="width: 29%"></div>
+              </div>
+              <span class="text-xs font-semibold text-reforge-orange">29%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="ml-64 flex-1 p-8">
+      
+      <!-- Overview Section -->
+      <section id="overview" class="section">
+        <header class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-2">GTM-E Overview</h2>
+          <p class="text-reforge-muted">Q1 2026 • Product Discovery Agent Launch</p>
+        </header>
+
+        <!-- Key Metrics -->
+        <div class="grid grid-cols-4 gap-4 mb-8">
+          <div class="card rounded-xl p-5">
+            <p class="text-reforge-muted text-sm mb-1">Meetings Booked</p>
+            <div class="flex items-baseline gap-2">
+              <span class="text-3xl font-bold text-reforge-teal">20</span>
+              <span class="text-sm text-reforge-muted">/70</span>
+            </div>
+            <div class="mt-2 h-1.5 bg-gray-100 rounded-full">
+              <div class="h-full bg-reforge-teal rounded-full" style="width: 29%"></div>
+            </div>
+          </div>
+          
+          <div class="card rounded-xl p-5">
+            <p class="text-reforge-muted text-sm mb-1">Jonathan's Calls</p>
+            <div class="flex items-baseline gap-2">
+              <span class="text-3xl font-bold text-reforge-orange">20</span>
+              <span class="text-sm text-reforge-muted">Q1</span>
+            </div>
+            <p class="text-xs text-reforge-muted mt-2">~5/week average</p>
+          </div>
+          
+          <div class="card rounded-xl p-5">
+            <p class="text-reforge-muted text-sm mb-1">Signals Validated</p>
+            <div class="flex items-baseline gap-2">
+              <span class="text-3xl font-bold text-reforge-mustard">1</span>
+              <span class="text-sm text-reforge-muted">/3</span>
+            </div>
+            <div class="mt-2 h-1.5 bg-gray-100 rounded-full">
+              <div class="h-full bg-reforge-mustard rounded-full" style="width: 33%"></div>
+            </div>
+          </div>
+          
+          <div class="card rounded-xl p-5">
+            <p class="text-reforge-muted text-sm mb-1">Pipeline</p>
+            <div class="flex items-baseline gap-2">
+              <span class="text-3xl font-bold text-gray-900">$311K</span>
+            </div>
+            <p class="text-xs text-reforge-teal mt-2">↑ Active opportunities</p>
+          </div>
+        </div>
+
+        <!-- Two Column Layout -->
+        <div class="grid grid-cols-2 gap-6 mb-8">
+          <!-- Positioning Card -->
+          <div class="card rounded-xl p-6">
+            <h3 class="font-semibold mb-4 flex items-center gap-2 text-gray-900">
+              <span class="w-2 h-2 bg-reforge-orange rounded-full"></span>
+              Current Positioning
+            </h3>
+            <div class="space-y-4">
+              <div class="border-l-2 border-reforge-orange pl-3">
+                <p class="text-xs text-reforge-muted uppercase tracking-wide">Problem We Own</p>
+                <p class="font-semibold text-reforge-orange">The Discovery Deficit</p>
+              </div>
+              <div class="border-l-2 border-reforge-teal pl-3">
+                <p class="text-xs text-reforge-muted uppercase tracking-wide">Our Position</p>
+                <p class="font-semibold text-reforge-teal">Product Discovery Suite</p>
+              </div>
+              <div class="border-l-2 border-reforge-mustard pl-3">
+                <p class="text-xs text-reforge-muted uppercase tracking-wide">The Enemy</p>
+                <p class="font-semibold text-reforge-mustard">Product Debt</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Workstreams -->
+          <div class="card rounded-xl p-6">
+            <h3 class="font-semibold mb-4 flex items-center gap-2 text-gray-900">
+              <span class="w-2 h-2 bg-reforge-teal rounded-full"></span>
+              Q1 Workstreams
+            </h3>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                <div>
+                  <p class="font-medium text-sm text-gray-900">A: Messaging & Personalization</p>
+                  <p class="text-xs text-reforge-muted">Testing angles</p>
+                </div>
+                <span class="px-2 py-1 bg-reforge-mustard/20 text-reforge-mustard text-xs rounded-full font-medium">Active</span>
+              </div>
+              <div class="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                <div>
+                  <p class="font-medium text-sm text-gray-900">B: Audiences & Signals</p>
+                  <p class="text-xs text-reforge-muted">Signal experiments</p>
+                </div>
+                <span class="px-2 py-1 bg-reforge-teal/20 text-reforge-teal text-xs rounded-full font-medium">Live</span>
+              </div>
+              <div class="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                <div>
+                  <p class="font-medium text-sm text-gray-900">C: Infrastructure & AI</p>
+                  <p class="text-xs text-reforge-muted">Building agents</p>
+                </div>
+                <span class="px-2 py-1 bg-reforge-orange/20 text-reforge-orange text-xs rounded-full font-medium">Building</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Calls -->
+        <div class="card rounded-xl p-6">
+          <h3 class="font-semibold mb-4 text-gray-900">Recent Calls</h3>
+          <div class="grid grid-cols-2 gap-4" id="recentCalls">
+          </div>
+        </div>
+      </section>
+
+      <!-- Discovery Validation Section -->
+      <section id="discovery" class="section hidden">
+        <header class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-2">Discovery Validation</h2>
+          <p class="text-reforge-muted">Pitch resonance analysis from call transcripts</p>
+        </header>
+        
+        <div class="card rounded-xl p-6 mb-6" id="discoveryLoading">
+          <div class="flex items-center gap-3">
+            <div class="animate-spin w-5 h-5 border-2 border-reforge-orange border-t-transparent rounded-full"></div>
+            <p class="text-gray-700">Analyzing call transcripts... This may take a few minutes.</p>
+          </div>
+        </div>
+
+        <div id="discoveryContent" class="hidden"></div>
+      </section>
+
+      <!-- Pitch Deck Generator Section -->
+      <section id="pitch-deck" class="section hidden">
+        <header class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-2">Pitch Deck Generator</h2>
+          <p class="text-reforge-muted">Customize "Why Reforge" deck for each prospect</p>
+        </header>
+        
+        <div class="card rounded-xl p-6 mb-6">
+          <h3 class="font-semibold mb-4 text-gray-900">Generate Custom Deck</h3>
+          
+          <div class="grid grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm text-gray-700 mb-2 font-medium">Company Name</label>
+              <input type="text" id="deckCompany" placeholder="e.g., Acme Corp" 
+                class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:border-reforge-orange focus:ring-1 focus:ring-reforge-orange focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-sm text-gray-700 mb-2 font-medium">Buyer Persona</label>
+              <select id="deckPersona" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:border-reforge-orange focus:outline-none">
+                <option value="product-leader">Product Leader</option>
+                <option value="pm">Product Manager</option>
+                <option value="designer">Designer</option>
+                <option value="engineering-leader">Engineering Leader</option>
+                <option value="finance">Finance/Procurement</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm text-gray-700 mb-2 font-medium">Company Size</label>
+              <select id="deckSize" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:border-reforge-orange focus:outline-none">
+                <option value="51-200">51-200 employees</option>
+                <option value="201-500">201-500 employees</option>
+                <option value="500+">500+ employees</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm text-gray-700 mb-2 font-medium">Primary Pain Point</label>
+              <select id="deckPain" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:border-reforge-orange focus:outline-none">
+                <option value="discovery-deficit">Discovery can't keep up with engineering</option>
+                <option value="product-debt">Maintaining unused features</option>
+                <option value="validation-speed">Slow customer validation</option>
+                <option value="context-gathering">Manual context gathering</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="mt-6">
+            <label class="block text-sm text-gray-700 mb-2 font-medium">Additional Context (optional)</label>
+            <textarea id="deckContext" rows="3" placeholder="Any specific details about the company, their tech stack, recent news..."
+              class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:border-reforge-orange focus:outline-none resize-none"></textarea>
+          </div>
+          
+          <button onclick="generateDeck()" class="btn-primary mt-6 px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all">
+            🎨 Generate Custom Deck
+          </button>
+        </div>
+
+        <div id="deckResult" class="hidden card rounded-xl p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-semibold text-gray-900">Generated Deck</h3>
+            <div class="flex gap-2">
+              <button class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-gray-200 text-gray-700 font-medium">
+                📥 Download PDF
+              </button>
+              <button class="btn-secondary px-4 py-2 rounded-lg text-sm font-medium">
+                📤 Save to Drive
+              </button>
+            </div>
+          </div>
+          <div id="deckPreview" class="bg-gray-50 rounded-lg p-4 min-h-[300px]"></div>
+        </div>
+      </section>
+
+      <!-- Lead Qualifier Section -->
+      <section id="lead-qualifier" class="section hidden">
+        <header class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-2">Lead Qualifier</h2>
+          <p class="text-reforge-muted">Quick ICP fit assessment for inbound leads</p>
+        </header>
+        
+        <div class="grid grid-cols-3 gap-6">
+          <div class="col-span-2">
+            <div class="card rounded-xl p-6">
+              <h3 class="font-semibold mb-4 text-gray-900">Qualify a Lead</h3>
+              
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-sm text-gray-700 mb-2 font-medium">Company Name or LinkedIn URL</label>
+                  <input type="text" id="leadInput" placeholder="e.g., Acme Corp or linkedin.com/company/acme" 
+                    class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:border-reforge-orange focus:outline-none">
+                </div>
+                
+                <button onclick="qualifyLead()" class="btn-primary px-6 py-3 rounded-lg font-medium w-full">
+                  🎯 Analyze Lead
+                </button>
+              </div>
+            </div>
+
+            <div id="leadResult" class="hidden card rounded-xl p-6 mt-6">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-semibold text-gray-900">Qualification Result</h3>
+                <span id="leadScore" class="px-3 py-1 rounded-full text-sm font-medium"></span>
+              </div>
+              <div id="leadDetails"></div>
+            </div>
+          </div>
+
+          <div class="card rounded-xl p-6">
+            <h3 class="font-semibold mb-4 text-gray-900">ICP Criteria</h3>
+            <div class="space-y-3 text-sm">
+              <div class="flex items-start gap-2">
+                <span class="text-reforge-teal">✓</span>
+                <span class="text-gray-700">51-500 employees</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-reforge-teal">✓</span>
+                <span class="text-gray-700">Web-first B2B SaaS</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-reforge-teal">✓</span>
+                <span class="text-gray-700">AI coding tools adopted</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-reforge-teal">✓</span>
+                <span class="text-gray-700">Product-led growth</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-reforge-orange">✗</span>
+                <span class="text-gray-700">Mobile-first / hardware</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-reforge-orange">✗</span>
+                <span class="text-gray-700">Customer support-led eval</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Opportunity Decisions Section -->
+      <section id="opportunities" class="section hidden">
+        <header class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-2">Opportunity Decisions</h2>
+          <p class="text-reforge-muted">Track and decide on active pipeline</p>
+        </header>
+        
+        <div class="card rounded-xl p-6 mb-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-semibold text-gray-900">Active Pipeline: $311K</h3>
+            <div class="flex gap-2">
+              <button class="px-3 py-1 bg-gray-100 rounded-lg text-sm text-gray-700">All</button>
+              <button class="px-3 py-1 bg-reforge-orange/10 text-reforge-orange rounded-lg text-sm font-medium">Needs Decision</button>
+              <button class="px-3 py-1 bg-gray-100 rounded-lg text-sm text-gray-700">Stale</button>
+            </div>
+          </div>
+          
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="text-gray-500 border-b border-gray-200">
+                  <th class="text-left py-3 font-medium">Account</th>
+                  <th class="text-left py-3 font-medium">Product</th>
+                  <th class="text-right py-3 font-medium">Size</th>
+                  <th class="text-left py-3 font-medium">Status</th>
+                  <th class="text-left py-3 font-medium">Last Activity</th>
+                  <th class="text-right py-3 font-medium">Action</th>
+                </tr>
+              </thead>
+              <tbody id="opportunitiesTable"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6">
+          <div class="card rounded-xl p-6">
+            <h3 class="font-semibold mb-4 text-reforge-mustard">⚠️ Stale Opportunities</h3>
+            <p class="text-sm text-reforge-muted mb-4">No activity in 7+ days</p>
+            <div id="staleOpps" class="space-y-2"></div>
+          </div>
+          
+          <div class="card rounded-xl p-6">
+            <h3 class="font-semibold mb-4 text-reforge-orange">🔥 Hot Opportunities</h3>
+            <p class="text-sm text-reforge-muted mb-4">Needs immediate attention</p>
+            <div class="space-y-2">
+              <div class="bg-reforge-orange/5 border border-reforge-orange/30 rounded-lg p-3">
+                <div class="flex items-center justify-between">
+                  <span class="font-medium text-gray-900">EvenUp</span>
+                  <span class="text-sm text-gray-700">$50K</span>
+                </div>
+                <p class="text-xs text-reforge-muted mt-1">Pilot stalled 105+ days • Just raised $150M</p>
+                <p class="text-xs text-reforge-orange mt-2 font-medium">→ Re-engage while in momentum mode</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Navigation
+    function showSection(sectionId) {
+      document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      document.getElementById(sectionId).classList.remove('hidden');
+      document.querySelector(`[onclick="showSection('${sectionId}')"]`).classList.add('active');
+    }
+
+    // Data
+    const recentCalls = [
+      { date: 'Jan 30', company: 'Console', duration: '19min' },
+      { date: 'Jan 30', company: 'Evergive Ltd', duration: '8min' },
+      { date: 'Jan 29', company: 'Maestro', duration: '25min' },
+      { date: 'Jan 26', company: 'Brigit', duration: '20min' },
+      { date: 'Jan 22', company: 'DreamHost', duration: '27min' },
+      { date: 'Jan 22', company: 'Ecovadis', duration: '30min' },
+    ];
+
+    const pipeline = [
+      { account: 'Neo Financial', product: 'IA + Research', size: 60000, status: 'Pricing sent', lastActivity: 'Jan 28', urgent: false },
+      { account: 'EvenUp', product: 'IA', size: 50000, status: 'Pilot stalled', lastActivity: 'Jan 21', urgent: true },
+      { account: 'E&Y', product: 'IA + Research', size: 30000, status: 'Discovery', lastActivity: 'Jan 25', urgent: false },
+      { account: 'Fox Local', product: 'IA + Research + Build', size: 27000, status: 'Budget approval', lastActivity: 'Jan 20', urgent: false },
+      { account: 'DreamHost', product: 'IA', size: 25000, status: 'In pilot', lastActivity: 'Jan 22', urgent: false },
+      { account: 'Ecovadis', product: 'Build + IA', size: 18000, status: 'Starting pilot', lastActivity: 'Jan 22', urgent: false },
+    ];
+
+    const staleOpps = [
+      { company: 'Liven', lastCall: 'Jan 7', days: 27 },
+      { company: 'Opus 2', lastCall: 'Jan 9', days: 25 },
+      { company: 'Tie', lastCall: 'Jan 13', days: 21 },
+      { company: 'Caterina', lastCall: 'Jan 14', days: 20 },
+    ];
+
+    function populateUI() {
+      document.getElementById('recentCalls').innerHTML = recentCalls.map(c => `
+        <div class="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+          <div>
+            <p class="font-medium text-sm text-gray-900">${c.company}</p>
+            <p class="text-xs text-reforge-muted">${c.date} • ${c.duration}</p>
+          </div>
+          <a href="#" class="text-reforge-orange text-sm font-medium">View →</a>
+        </div>
+      `).join('');
+
+      document.getElementById('opportunitiesTable').innerHTML = pipeline.map(p => `
+        <tr class="border-b border-gray-100 ${p.urgent ? 'bg-reforge-orange/5' : ''}">
+          <td class="py-3 font-medium text-gray-900">${p.account}</td>
+          <td class="py-3 text-gray-600">${p.product}</td>
+          <td class="py-3 text-right text-gray-900">$${(p.size/1000).toFixed(0)}K</td>
+          <td class="py-3">
+            <span class="px-2 py-1 ${p.urgent ? 'bg-reforge-orange/20 text-reforge-orange' : 'bg-reforge-teal/20 text-reforge-teal'} text-xs rounded-full font-medium">${p.status}</span>
+          </td>
+          <td class="py-3 text-gray-600">${p.lastActivity}</td>
+          <td class="py-3 text-right">
+            <button class="text-reforge-orange hover:underline text-sm font-medium">Decide →</button>
+          </td>
+        </tr>
+      `).join('');
+
+      document.getElementById('staleOpps').innerHTML = staleOpps.map(o => `
+        <div class="flex items-center justify-between bg-reforge-mustard/10 rounded-lg p-3">
+          <div>
+            <p class="font-medium text-sm text-gray-900">${o.company}</p>
+            <p class="text-xs text-reforge-muted">Last call: ${o.lastCall} (${o.days} days ago)</p>
+          </div>
+          <button class="text-reforge-mustard text-sm font-medium">Follow up →</button>
+        </div>
+      `).join('');
+    }
+
+    function generateDeck() {
+      const company = document.getElementById('deckCompany').value;
+      if (!company) { alert('Please enter a company name'); return; }
+      document.getElementById('deckResult').classList.remove('hidden');
+      document.getElementById('deckPreview').innerHTML = `
+        <div class="text-center py-8">
+          <div class="animate-spin w-8 h-8 border-2 border-reforge-orange border-t-transparent rounded-full mx-auto mb-4"></div>
+          <p class="text-gray-700">Generating custom deck for ${company}...</p>
+        </div>
+      `;
+      setTimeout(() => {
+        document.getElementById('deckPreview').innerHTML = `
+          <div class="space-y-4">
+            <div class="bg-white rounded-lg p-4 border border-gray-200">
+              <p class="text-reforge-orange font-semibold mb-2">Slide 1: The Problem</p>
+              <p class="text-sm text-gray-600">Customized for ${company}...</p>
+            </div>
+            <div class="bg-white rounded-lg p-4 border border-gray-200">
+              <p class="text-reforge-orange font-semibold mb-2">Slide 2: The Discovery Deficit</p>
+              <p class="text-sm text-gray-600">AI accelerated engineering. Discovery didn't keep up.</p>
+            </div>
+            <p class="text-center text-gray-500 text-sm">+ 8 more slides customized for ${company}</p>
+          </div>
+        `;
+      }, 2000);
+    }
+
+    function qualifyLead() {
+      const input = document.getElementById('leadInput').value;
+      if (!input) { alert('Please enter a company name'); return; }
+      document.getElementById('leadResult').classList.remove('hidden');
+      document.getElementById('leadDetails').innerHTML = `<div class="flex items-center gap-3 py-4"><div class="animate-spin w-5 h-5 border-2 border-reforge-orange border-t-transparent rounded-full"></div><p class="text-gray-700">Analyzing...</p></div>`;
+      setTimeout(() => {
+        const score = Math.floor(Math.random() * 40) + 60;
+        const scoreClass = score >= 80 ? 'bg-reforge-teal/20 text-reforge-teal' : score >= 60 ? 'bg-reforge-mustard/20 text-reforge-mustard' : 'bg-reforge-orange/20 text-reforge-orange';
+        document.getElementById('leadScore').className = `px-3 py-1 rounded-full text-sm font-medium ${scoreClass}`;
+        document.getElementById('leadScore').textContent = `${score}% ICP Fit`;
+        document.getElementById('leadDetails').innerHTML = `
+          <div class="space-y-3">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs text-gray-500">Size</p><p class="font-medium text-gray-900">~150 ✓</p></div>
+              <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs text-gray-500">Industry</p><p class="font-medium text-gray-900">B2B SaaS ✓</p></div>
+            </div>
+            <div class="bg-reforge-teal/10 border border-reforge-teal/30 rounded-lg p-3">
+              <p class="text-reforge-teal font-medium text-sm">Recommended: Proceed to outreach</p>
+            </div>
+          </div>
+        `;
+      }, 1500);
+    }
+
+    populateUI();
+  </script>
+</body>
+</html>
