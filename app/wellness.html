@@ -376,29 +376,33 @@
         let formData = { sleep: null, energy: null, mood: null, symptoms: [], notes: '' };
         let currentCheckinType = 'morning';
 
-        // Check-in state management
-        function getCheckinState() {
-            const state = localStorage.getItem('wellness_checkin_state');
-            return state ? JSON.parse(state) : {};
-        }
-
-        function saveCheckinState(type) {
+        // Query Supabase for today's check-ins
+        async function getTodayCheckins() {
             const today = new Date().toISOString().split('T')[0];
-            const state = getCheckinState();
-            state[today] = state[today] || {};
-            state[today][type] = new Date().toISOString();
-            localStorage.setItem('wellness_checkin_state', JSON.stringify(state));
+            try {
+                const response = await fetch(
+                    `${SUPABASE_URL}/rest/v1/wellness_checkins?created_at=gte.${today}T00:00:00&created_at=lt.${today}T23:59:59&select=checkin_type,created_at`,
+                    {
+                        headers: {
+                            'apikey': SUPABASE_ANON_KEY,
+                            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+                        }
+                    }
+                );
+                const checkins = await response.json();
+                return {
+                    morning: checkins.some(c => c.checkin_type === 'morning'),
+                    evening: checkins.some(c => c.checkin_type === 'evening')
+                };
+            } catch (e) {
+                console.error('Error fetching checkins:', e);
+                return { morning: false, evening: false };
+            }
         }
 
-        function getTodayCheckins() {
-            const today = new Date().toISOString().split('T')[0];
-            const state = getCheckinState();
-            return state[today] || {};
-        }
-
-        function determineCheckinType() {
+        async function determineCheckinType() {
             const hour = new Date().getHours();
-            const todayCheckins = getTodayCheckins();
+            const todayCheckins = await getTodayCheckins();
             
             // Before noon = morning time
             if (hour < 12) {
@@ -419,8 +423,8 @@
             return { type: 'evening', completed: null };
         }
 
-        function updateUI() {
-            const { type, completed } = determineCheckinType();
+        async function updateUI() {
+            const { type, completed } = await determineCheckinType();
             const hour = new Date().getHours();
             
             const checkinView = document.getElementById('checkin-view');
@@ -539,9 +543,6 @@
                 const aiResponse = await getAIResponse(formData);
                 await saveCheckin(formData, aiResponse);
                 
-                // Mark as completed
-                saveCheckinState(currentCheckinType);
-                
                 document.getElementById('response-content').innerHTML = formatResponse(aiResponse);
                 loading.classList.remove('visible');
                 responseCard.classList.add('visible');
@@ -644,8 +645,12 @@
             return text.split('\n\n').map(p => `<p>${p}</p>`).join('');
         }
 
-        // Init
-        updateUI();
+        // Init - show loading then fetch state from Supabase
+        (async () => {
+            document.getElementById('checkin-view').style.opacity = '0.5';
+            await updateUI();
+            document.getElementById('checkin-view').style.opacity = '1';
+        })();
     </script>
 </body>
 </html>
