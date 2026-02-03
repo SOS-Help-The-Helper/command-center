@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-02-02T22:20:59.924439+00:00",
-  "updated_by": "Henry",
+  "updated_at": "2026-02-03T01:20:00.000000+00:00",
+  "updated_by": "Henry (Overnight Pipeline Analysis)",
   "projects": {
     "context_graph": {
       "name": "Context Graph Foundation",
@@ -16,7 +16,7 @@
         },
         {
           "id": "cg-2",
-          "title": "Implement Grunt swipe \u2192 decision trace capture",
+          "title": "Implement Grunt swipe → decision trace capture",
           "status": "in_progress",
           "notes": "Building two-tab UI: Leads + Opportunities"
         },
@@ -144,68 +144,111 @@
     },
     "reforge": {
       "name": "Reforge Sales",
-      "priority": "P1",
+      "priority": "P0",
       "status": "in_progress",
+      "analysis_date": "2026-02-03",
+      "total_active_pipeline": 311000,
+      "this_week_meetings_value": 63000,
+      "stalled_pipeline_value": 375000,
       "tasks": [
+        {
+          "id": "rf-imm-1",
+          "title": "TODAY: Prep Yazio pilot review (Feb 4 @ 3PM)",
+          "status": "urgent",
+          "value": 15000,
+          "deadline": "2026-02-04T15:00:00Z",
+          "notes": "Review Gong calls, prep closing questions. Meeting link: meet.google.com/zgb-dqsd-gsp"
+        },
+        {
+          "id": "rf-imm-2",
+          "title": "TODAY: Prep Console pilot config (Feb 4 @ 7PM)",
+          "status": "urgent",
+          "value": 15000,
+          "deadline": "2026-02-04T19:00:00Z",
+          "notes": "Integration setup checklist ready"
+        },
+        {
+          "id": "rf-imm-3",
+          "title": "COMPETITIVE: Ecovadis pilot kickoff (Feb 5 @ 3PM)",
+          "status": "urgent",
+          "value": 18000,
+          "deadline": "2026-02-05T15:00:00Z",
+          "competitor": "Replit",
+          "notes": "Prep competitive positioning vs Replit - emphasize IA differentiation"
+        },
+        {
+          "id": "rf-stall-1",
+          "title": "BREAKUP EMAIL: EvenUp - $50K stalled 105 days",
+          "status": "urgent",
+          "value": 50000,
+          "deadline": "2026-02-04T17:00:00Z",
+          "contact": "Garrett Edel",
+          "notes": "$1B valuation legaltech. Send: 'Closing file unless we hear back' with soft CTA"
+        },
+        {
+          "id": "rf-stall-2",
+          "title": "RE-ENGAGE: OLX - $150K decision pending",
+          "status": "urgent",
+          "value": 150000,
+          "deadline": "2026-02-03T18:00:00Z",
+          "notes": "MASSIVE deal. LinkedIn + email: check timeline, offer to address questions"
+        },
+        {
+          "id": "rf-stall-3",
+          "title": "RE-ENGAGE: ENEL - $100K Q1 play stalled",
+          "status": "high",
+          "value": 100000,
+          "deadline": "2026-02-04T17:00:00Z",
+          "notes": "Was supposed to reconnect Dec - never happened. New year check-in"
+        },
+        {
+          "id": "rf-fruit-1",
+          "title": "CLOSE: Muse - $15K budget approved",
+          "status": "urgent",
+          "value": 15000,
+          "deadline": "2026-02-03T17:00:00Z",
+          "contact": "Giorgy",
+          "notes": "Ask: 'Who on product team should I coordinate with to get started?'"
+        },
+        {
+          "id": "rf-fruit-2",
+          "title": "CLOSE: Fox Local - $27K budget approval due",
+          "status": "high",
+          "value": 27000,
+          "deadline": "2026-02-03T17:00:00Z",
+          "notes": "2-4 week window is NOW. Check budget approval status"
+        },
+        {
+          "id": "rf-fruit-3",
+          "title": "FOLLOW UP: DreamHost - $25K in pilot",
+          "status": "high",
+          "value": 25000,
+          "deadline": "2026-02-03T17:00:00Z",
+          "contact": "Ralph",
+          "notes": "'Follow up Monday' is TODAY. Message: 'How's pilot going?'"
+        },
+        {
+          "id": "rf-stall-4",
+          "title": "RE-ENGAGE: Neo Financial - $60K stuck on pricing",
+          "status": "high",
+          "value": 60000,
+          "deadline": "2026-02-04T17:00:00Z",
+          "notes": "MASSIVE potential. Offer call to walk through pricing/customize"
+        },
+        {
+          "id": "rf-comp-1",
+          "title": "CLOSED LOST: iRobot - $80K lost to Enterpret",
+          "status": "ready",
+          "value": 80000,
+          "deadline": "2026-02-07T17:00:00Z",
+          "notes": "6-month check-in: 'How's Enterpret working? Would love to stay in touch'"
+        },
         {
           "id": "rf-1",
           "title": "Qualify leads in Grunt swipe app",
           "status": "ready",
           "url": "https://sos-help-the-helper.github.io/reforge-swipe/",
           "notes": "486 Product leads ready"
-        },
-        {
-          "id": "rf-2",
-          "title": "Follow up: Fox Local, DreamHost, EvenUp",
-          "status": "ready",
-          "notes": "EvenUp HOT - $2B valuation, push to close"
-        },
-        {
-          "id": "rf-3",
-          "title": "Re-engage: iRobot ($80K), WSFS ($56K)",
-          "status": "ready",
-          "notes": "High-value closed lost"
-        },
-        {
-          "id": "rf-4",
-          "title": "Handle HaltH pricing objection",
-          "status": "urgent",
-          "notes": "$15K objection. Offer monthly or smaller package?",
-          "created_at": "2026-02-02T21:50:00Z"
-        },
-        {
-          "id": "rf-5",
-          "title": "Book meetings: Lindsay, Demeter/Juhi",
-          "status": "urgent",
-          "notes": "Both replied wanting to connect",
-          "created_at": "2026-02-02T21:50:00Z"
-        },
-        {
-          "id": "rf-6",
-          "title": "Prep Yazio pilot review (Feb 4)",
-          "status": "ready",
-          "notes": "Meeting 10 AM EST. Review Gong call first.",
-          "created_at": "2026-02-02T21:50:00Z"
-        },
-        {
-          "id": "rf-evenup",
-          "title": "Re-engage EvenUp - $50K pilot stalled 105 days",
-          "status": "urgent",
-          "contact": "Garrett Edel",
-          "notes": "Company hot - new AI products, $1B valuation, hiring"
-        },
-        {
-          "id": "rf-muse",
-          "title": "Push Muse Group contract - 61 days in contracting",
-          "status": "high",
-          "contact": "Georgiy Krutous",
-          "notes": "Budget approved, waiting signature"
-        },
-        {
-          "id": "rf-ui",
-          "title": "Test Decision Queue UI at localhost:8080",
-          "status": "ready",
-          "notes": "Decision logging + learning active"
         }
       ]
     },
@@ -270,9 +313,11 @@
   },
   "pipeline": {
     "reforge": {
-      "active": 320000,
+      "active": 311000,
       "won_2025": 50100,
       "closed_lost_reengageable": 508000,
+      "stalled_high_value": 375000,
+      "this_week_meetings": 63000,
       "stages": {
         "pilot": 96000,
         "pre_pilot": 155000,
@@ -298,10 +343,14 @@
     "calendar": {
       "access": "browser",
       "last_sync": "2026-02-02T21:35:00Z"
+    },
+    "reforge_priorities": {
+      "file": "data/reforge-priorities.json",
+      "last_analysis": "2026-02-03T01:15:00Z"
     }
   },
   "task_log": {
     "description": "All tasks from conversations are logged here. Nothing gets lost.",
-    "last_sync": "2026-02-02T21:50:00Z"
+    "last_sync": "2026-02-03T01:20:00Z"
   }
 }

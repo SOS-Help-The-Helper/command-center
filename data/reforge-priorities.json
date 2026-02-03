@@ -1,0 +1,422 @@
+{
+  "generated_at": "2026-02-03T01:15:00Z",
+  "analysis_period": "Week of Feb 3-7, 2026",
+  "total_active_pipeline": 311000,
+  "reengageable_pipeline": 508000,
+  
+  "priorities": {
+    "immediate_action": {
+      "description": "Deals needing action this week - meetings scheduled, proposals due",
+      "total_value": 63000,
+      "tasks": [
+        {
+          "id": "rf-imm-1",
+          "deal": "Yazio",
+          "value": 15000,
+          "product": "Build",
+          "priority_score": 95,
+          "reason": "Pilot review meeting Feb 4 @ 3PM EST",
+          "next_action": "Review Gong call history, prep pilot status summary, come ready with closing questions",
+          "owner": "Jonathan",
+          "deadline": "2026-02-04T15:00:00Z",
+          "meeting_link": "https://meet.google.com/zgb-dqsd-gsp"
+        },
+        {
+          "id": "rf-imm-2",
+          "deal": "Console",
+          "value": 15000,
+          "product": "IA",
+          "priority_score": 92,
+          "reason": "Pilot config meeting Feb 4 @ 7PM EST",
+          "next_action": "Prepare integration setup checklist, review their use case from prior calls",
+          "owner": "Jonathan",
+          "deadline": "2026-02-04T19:00:00Z",
+          "meeting_link": "https://meet.google.com/hyv-gfai-duk"
+        },
+        {
+          "id": "rf-imm-3",
+          "deal": "Ecovadis",
+          "value": 18000,
+          "product": "Build + IA + Research",
+          "priority_score": 90,
+          "reason": "Pilot kickoff Feb 5 @ 3PM EST - COMPETITIVE with Replit",
+          "next_action": "Prepare competitive positioning vs Replit, emphasize IA differentiation",
+          "owner": "Jonathan + Chun",
+          "deadline": "2026-02-05T15:00:00Z",
+          "competitive_threat": "Replit",
+          "meeting_link": "https://meet.google.com/dzv-nooa-nun"
+        },
+        {
+          "id": "rf-imm-4",
+          "deal": "Numan",
+          "value": null,
+          "product": "IA",
+          "priority_score": 85,
+          "reason": "Discovery meeting Feb 5 @ 4PM EST - new opportunity",
+          "next_action": "Research Numan (digital health, men's wellness), prepare discovery questions",
+          "owner": "Jonathan",
+          "deadline": "2026-02-05T16:00:00Z"
+        },
+        {
+          "id": "rf-imm-5",
+          "deal": "PiNCAMP",
+          "value": null,
+          "product": "IA",
+          "priority_score": 80,
+          "reason": "Meeting Feb 5 @ 3:15PM EST - ADAC Camping",
+          "next_action": "Research PiNCAMP/ADAC camping platform, European market positioning",
+          "owner": "Jonathan",
+          "deadline": "2026-02-05T15:15:00Z"
+        },
+        {
+          "id": "rf-imm-6",
+          "deal": "Skeps",
+          "value": null,
+          "product": "Build",
+          "priority_score": 75,
+          "reason": "Build meeting Feb 6 @ 4PM EST",
+          "next_action": "Prepare Build demo and use case examples",
+          "owner": "Jonathan",
+          "deadline": "2026-02-06T16:00:00Z"
+        },
+        {
+          "id": "rf-imm-7",
+          "deal": "Fleetio",
+          "value": null,
+          "product": "IA",
+          "priority_score": 70,
+          "reason": "Meeting Feb 6 @ 6:15PM EST",
+          "next_action": "Research Fleetio (fleet management SaaS), prep discovery",
+          "owner": "Jonathan",
+          "deadline": "2026-02-06T18:15:00Z"
+        }
+      ]
+    },
+    
+    "stalled_deals": {
+      "description": "High-value deals with no activity >30 days - need re-engagement",
+      "total_value": 375000,
+      "tasks": [
+        {
+          "id": "rf-stall-1",
+          "deal": "EvenUp",
+          "value": 50000,
+          "product": "IA",
+          "priority_score": 98,
+          "days_stalled": 105,
+          "reason": "$1B valuation, raised $235M, 8 product pods - MASSIVE potential but stalled",
+          "champion": "Garrett Edel (Dir Product), Jagrat (PM)",
+          "blocker": "HIPAA compliance concern, went dark during testing",
+          "next_action": "Send breakup email - 'closing file unless we hear back' with soft CTA to schedule 15min sync",
+          "owner": "Jonathan",
+          "deadline": "2026-02-04T17:00:00Z",
+          "decision_trace": "d884aeb5-3d6b-46d1-99db-e97424ac75cb"
+        },
+        {
+          "id": "rf-stall-2",
+          "deal": "OLX",
+          "value": 150000,
+          "product": "IA",
+          "priority_score": 95,
+          "days_stalled": "Unknown - 'decision coming next week' is stale",
+          "reason": "MASSIVE deal size - worth aggressive follow-up",
+          "next_action": "LinkedIn + email combo: 'Checking in on your timeline - happy to address any final questions'",
+          "owner": "Jonathan",
+          "deadline": "2026-02-03T18:00:00Z"
+        },
+        {
+          "id": "rf-stall-3",
+          "deal": "ENEL",
+          "value": 100000,
+          "product": "IA",
+          "priority_score": 92,
+          "days_stalled": 60,
+          "reason": "Q1 play, was supposed to reconnect first week of Dec - never happened",
+          "next_action": "New year check-in: 'As we discussed, Q1 timing - ready when you are'",
+          "owner": "Jonathan",
+          "deadline": "2026-02-04T17:00:00Z"
+        },
+        {
+          "id": "rf-stall-4",
+          "deal": "Neo Financial",
+          "value": 60000,
+          "product": "IA + Research",
+          "priority_score": 88,
+          "days_stalled": 45,
+          "reason": "Labeled 'MASSIVE potential' but stuck on pricing pre-trial",
+          "next_action": "Offer to jump on quick call to walk through pricing or customize package",
+          "owner": "Jonathan",
+          "deadline": "2026-02-04T17:00:00Z"
+        },
+        {
+          "id": "rf-stall-5",
+          "deal": "SevDesk",
+          "value": 50000,
+          "product": "Research + IA",
+          "priority_score": 85,
+          "days_stalled": 60,
+          "reason": "EOY eval passed, still in security review limbo",
+          "next_action": "Check in on security review status, offer to connect with your security team",
+          "owner": "Jonathan",
+          "deadline": "2026-02-05T17:00:00Z"
+        },
+        {
+          "id": "rf-stall-6",
+          "deal": "Team Blue",
+          "value": 30000,
+          "product": "IA + Build",
+          "priority_score": 75,
+          "reason": "January reconnect window - now in week 2",
+          "next_action": "Reach out: 'We had discussed reconnecting in January - still interested?'",
+          "owner": "Jonathan",
+          "deadline": "2026-02-05T17:00:00Z"
+        }
+      ]
+    },
+    
+    "competitive_threats": {
+      "description": "Deals where competitors are actively involved",
+      "total_value": 143000,
+      "tasks": [
+        {
+          "id": "rf-comp-1",
+          "deal": "Ecovadis",
+          "value": 18000,
+          "competitor": "Replit",
+          "threat_level": "high",
+          "priority_score": 90,
+          "reason": "Build competitive deal - Replit positioning on dev tools",
+          "next_action": "In pilot kickoff, emphasize product analytics + feedback loop that Replit lacks",
+          "owner": "Jonathan + Chun",
+          "deadline": "2026-02-05T15:00:00Z"
+        },
+        {
+          "id": "rf-comp-2",
+          "deal": "iRobot (Closed Lost)",
+          "value": 80000,
+          "competitor": "Enterpret",
+          "threat_level": "won_by_competitor",
+          "priority_score": 85,
+          "reason": "Lost RFP to Enterpret - re-engage opportunity",
+          "next_action": "Check in 6 months post-decision: 'How's Enterpret working? Would love to stay in touch'",
+          "owner": "Jonathan",
+          "deadline": "2026-02-07T17:00:00Z"
+        },
+        {
+          "id": "rf-comp-3",
+          "deal": "Brex (Closed Lost)",
+          "value": 45000,
+          "competitor": "Cycle",
+          "threat_level": "evaluated_competitor",
+          "priority_score": 70,
+          "reason": "CTO chose to evaluate Cycle last minute",
+          "next_action": "Follow up with James Wallis on Cycle experience",
+          "owner": "Jonathan",
+          "deadline": "2026-02-07T17:00:00Z"
+        },
+        {
+          "id": "rf-comp-4",
+          "deal": "Multiverse",
+          "value": null,
+          "competitor": "Enterpret (current)",
+          "threat_level": "displacement",
+          "priority_score": 65,
+          "reason": "They have Enterpret but asked about pricing - potential displacement",
+          "next_action": "Follow up on volume estimate to provide competitive quote",
+          "owner": "Jonathan",
+          "deadline": "2026-02-06T17:00:00Z"
+        }
+      ]
+    },
+    
+    "low_hanging_fruit": {
+      "description": "High intent signals, budget approved, ready to close",
+      "total_value": 67000,
+      "tasks": [
+        {
+          "id": "rf-fruit-1",
+          "deal": "Muse",
+          "value": 15000,
+          "product": "IA + Research",
+          "priority_score": 92,
+          "signal": "Budget APPROVED - just waiting on product team owner assignment",
+          "days_in_stage": 61,
+          "next_action": "Ask Giorgy directly: 'Who should I coordinate with on the product team to get started?'",
+          "owner": "Jonathan",
+          "deadline": "2026-02-03T17:00:00Z",
+          "decision_trace": "Contracting stage - push for signature"
+        },
+        {
+          "id": "rf-fruit-2",
+          "deal": "Fox Local",
+          "value": 27000,
+          "product": "IA + Research + Build",
+          "priority_score": 88,
+          "signal": "Budget approval 'in 2-4 weeks' - should be NOW",
+          "next_action": "Check in on budget approval status - offer to connect with finance if helpful",
+          "owner": "Jonathan",
+          "deadline": "2026-02-03T17:00:00Z"
+        },
+        {
+          "id": "rf-fruit-3",
+          "deal": "DreamHost",
+          "value": 25000,
+          "product": "IA",
+          "priority_score": 85,
+          "signal": "Great fit, Ralph in pilot - 'follow up on Monday' (that's today!)",
+          "next_action": "Message Ralph: 'How's the pilot going? Ready to discuss next steps?'",
+          "owner": "Jonathan",
+          "deadline": "2026-02-03T17:00:00Z"
+        },
+        {
+          "id": "rf-fruit-4",
+          "deal": "E&Y",
+          "value": 30000,
+          "product": "IA + Research",
+          "priority_score": 80,
+          "signal": "Beautiful use case, waiting on volume numbers for pricing",
+          "next_action": "Nudge for volume estimate: 'Even a rough range helps me get you accurate pricing'",
+          "owner": "Jonathan",
+          "deadline": "2026-02-04T17:00:00Z"
+        },
+        {
+          "id": "rf-fruit-5",
+          "deal": "Chalice",
+          "value": 15000,
+          "product": "IA",
+          "priority_score": 75,
+          "signal": "Solid interest, low volume concern",
+          "next_action": "Propose smaller package that matches their volume, show path to grow",
+          "owner": "Jonathan",
+          "deadline": "2026-02-05T17:00:00Z"
+        }
+      ]
+    },
+    
+    "strategic_accounts": {
+      "description": "High logo value, reference potential, market positioning",
+      "total_value": 260000,
+      "tasks": [
+        {
+          "id": "rf-strat-1",
+          "deal": "OLX",
+          "value": 150000,
+          "priority_score": 98,
+          "strategic_value": "Massive logo - global classifieds leader. Would be flagship customer.",
+          "reference_potential": "Excellent - well-known brand across markets",
+          "next_action": "Priority re-engagement (see stalled deals)",
+          "owner": "Jonathan",
+          "deadline": "2026-02-03T18:00:00Z"
+        },
+        {
+          "id": "rf-strat-2",
+          "deal": "ENEL",
+          "value": 100000,
+          "priority_score": 95,
+          "strategic_value": "Massive energy company - enterprise credibility",
+          "reference_potential": "Strong - non-SaaS enterprise validates IA broader",
+          "next_action": "Q1 re-engagement push",
+          "owner": "Jonathan",
+          "deadline": "2026-02-04T17:00:00Z"
+        },
+        {
+          "id": "rf-strat-3",
+          "deal": "Neo Financial",
+          "value": 60000,
+          "priority_score": 90,
+          "strategic_value": "Canadian neobank - fintech credibility",
+          "reference_potential": "Good - validates fintech vertical",
+          "next_action": "Push through pricing conversation",
+          "owner": "Jonathan",
+          "deadline": "2026-02-04T17:00:00Z"
+        },
+        {
+          "id": "rf-strat-4",
+          "deal": "EvenUp",
+          "value": 50000,
+          "priority_score": 88,
+          "strategic_value": "$1B valuation legaltech - hot company",
+          "reference_potential": "Excellent - AI-forward, high visibility",
+          "next_action": "Breakup email to force response",
+          "owner": "Jonathan",
+          "deadline": "2026-02-04T17:00:00Z"
+        },
+        {
+          "id": "rf-strat-5",
+          "deal": "E&Y",
+          "value": 30000,
+          "priority_score": 85,
+          "strategic_value": "Big 4 accounting firm - massive credibility",
+          "reference_potential": "Outstanding if public - enterprise validation",
+          "next_action": "Volume estimate follow-up",
+          "owner": "Jonathan",
+          "deadline": "2026-02-04T17:00:00Z"
+        }
+      ]
+    }
+  },
+  
+  "closed_lost_reengagement": {
+    "description": "High-value deals to re-engage",
+    "total_value": 508000,
+    "top_targets": [
+      {
+        "account": "iRobot",
+        "value": 80000,
+        "lost_to": "Enterpret",
+        "action": "6-month check-in on Enterpret satisfaction",
+        "timing": "This week"
+      },
+      {
+        "account": "WSFS",
+        "value": 56000,
+        "lost_reason": "Timing not right",
+        "action": "Q1 check-in with JP",
+        "timing": "This month"
+      },
+      {
+        "account": "Boomi",
+        "value": 46000,
+        "status": "Palay in talks",
+        "action": "Check with Palay on status",
+        "timing": "This week"
+      }
+    ]
+  },
+  
+  "week_summary": {
+    "meetings_scheduled": 7,
+    "total_meeting_pipeline_value": 63000,
+    "top_3_priorities": [
+      "EvenUp breakup email - $50K stalled 105 days",
+      "OLX re-engagement - $150K potential",
+      "Muse push to close - $15K budget approved"
+    ],
+    "risk_flags": [
+      "Ecovadis competitive with Replit - prepare positioning",
+      "5 major deals stalled >30 days totaling $375K",
+      "HIPAA blocker on EvenUp needs creative solution"
+    ]
+  },
+  
+  "decision_traces_reviewed": [
+    {
+      "id": "d884aeb5-3d6b-46d1-99db-e97424ac75cb",
+      "deal": "EvenUp",
+      "decision": "re-engage",
+      "reasoning": "High value deal with no forward momentum"
+    },
+    {
+      "id": "b0dc50f5-0047-4c86-8969-79d00ff171e1",
+      "deal": "Office Timeline",
+      "decision": "Try different contact",
+      "reasoning": "61 days stalled, original contact unresponsive"
+    },
+    {
+      "id": "541dac92-e7c3-42fc-917c-9fd2de8c9dd4",
+      "deal": "Litmos",
+      "decision": "Close lost",
+      "reasoning": "119 days stalled, no response"
+    }
+  ]
+}
