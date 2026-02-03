@@ -26394,7 +26394,7 @@ async function resetAllSwipes() {
 }
 
 async function init() {
-    await loadSwipesFromSupabase();
+    try { await loadSwipesFromSupabase(); } catch(e) { console.log("Supabase unavailable, using local data"); }
     // Filter out already-swiped prospects
     const swipedNames = new Set([...qualified, ...rejected].map(p => p.name));
     remaining = prospects.filter(p => !swipedNames.has(p.name));
