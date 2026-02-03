@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-02-04T22:00:00Z",
-  "runType": "scheduled_intel_5pm",
+  "lastUpdated": "2026-02-04T04:30:00Z",
+  "runType": "subagent_intel_refresh",
   "summary": {
-    "highPriority": 2,
-    "newSignals": 3,
-    "alertsRequiringAction": 1
+    "highPriority": 3,
+    "newSignals": 8,
+    "alertsRequiringAction": 2
   },
   "gongSync": {
     "lastCheck": "2026-02-04T22:00:00Z",
@@ -14,35 +14,90 @@
   },
   "signals": [
     {
-      "timestamp": "2026-02-04T22:00:00Z",
+      "timestamp": "2026-02-04T04:30:00Z",
+      "type": "funding_signal",
+      "company": "Neo Financial",
+      "dealValue": 60000,
+      "stage": "Pre-Pilot",
+      "signal": "BREAKING: Neo Financial raised $68.5M TODAY (Feb 4) at higher valuation than 2024. 100+ Canadian investors in oversubscribed round. Total funding now $650M+. Using proceeds for securitization program to fuel growth.",
+      "urgency": "high",
+      "recommendation": "IMMEDIATE RE-ENGAGE. Prior 'soft layoffs' concern is INVALIDATED - company just closed major round. Budget exists. Push hard for pilot commitment.",
+      "source": "web_research_subagent"
+    },
+    {
+      "timestamp": "2026-02-04T04:30:00Z",
       "type": "pipeline_intel",
       "company": "EvenUp",
       "dealValue": 50000,
       "stage": "Pilot (Trial)",
-      "signal": "MAJOR: EvenUp raised $150M in 2025, launched Communication Agents + Next-Gen AI Drafts Suite (Jan 30), revenue kickoff event last week, actively hiring. Company in aggressive growth mode.",
+      "signal": "CONFIRMED: EvenUp raised $150M in 2025, valued at $1B. Launched Communication Agents + Next-Gen AI Drafts Suite (Jan 30). Published AI adoption change management guide. Company in aggressive expansion mode.",
       "urgency": "high",
-      "recommendation": "Re-engage IMMEDIATELY. 105+ days stalled on $50K is unacceptable for a company spending this aggressively. They're buying tools.",
-      "source": "web_research_5pm"
+      "recommendation": "RE-ENGAGE GARRETT EDEL NOW. 105+ days stalled on $50K is unacceptable - they're spending aggressively on tools.",
+      "source": "web_research_subagent"
     },
     {
-      "timestamp": "2026-02-04T22:00:00Z",
-      "type": "pipeline_intel",
-      "company": "DreamHost",
-      "signal": "Won Bronze Stevie Award (Feb 3) for 'Best Use of AI in Customer Service'. Company actively investing in AI capabilities.",
-      "urgency": "low",
-      "recommendation": "Positive signal if in pipeline - company is healthy and innovating.",
-      "source": "web_research_5pm"
-    },
-    {
-      "timestamp": "2026-02-04T22:00:00Z",
+      "timestamp": "2026-02-04T04:30:00Z",
       "type": "pipeline_intel",
       "company": "EcoVadis",
       "dealValue": 18000,
       "stage": "Pilot Starting",
-      "signal": "Won Microsoft Local Partner Award FY25 (AI Transformation - Scale Category, Dec 2025). Hosted World Tour NY 2025, 6000+ companies assessed in 2025. Stable, growing.",
+      "signal": "Won Microsoft Local Partner Award FY25 (AI Transformation - Scale Category, Dec 2025). 6,000+ US companies assessed in 2025 alone (61% returning customers). $1B valuation (2022). Stable growth.",
       "urgency": "low",
-      "recommendation": "Proceed with pilot. Strong company fundamentals.",
-      "source": "web_research_5pm"
+      "recommendation": "Proceed with pilot. Strong company fundamentals, recognized AI leader in sustainability space.",
+      "source": "web_research_subagent"
+    },
+    {
+      "timestamp": "2026-02-04T04:30:00Z",
+      "type": "pipeline_intel",
+      "company": "DreamHost",
+      "signal": "Won Bronze Stevie Award (Feb 3) for 'Best Use of AI in Customer Service'. Company actively investing in AI capabilities, publishing AI browser comparisons.",
+      "urgency": "low",
+      "recommendation": "Positive signal - company healthy and innovating in AI.",
+      "source": "web_research_subagent"
+    },
+    {
+      "timestamp": "2026-02-04T04:30:00Z",
+      "type": "pipeline_intel",
+      "company": "Muse (InteraXon)",
+      "signal": "Muse headband mentioned at CES 2026 alongside competitors (Neurable, Naox, Elemind). Brain-sensing/neurofeedback market heating up with new entrants. Muse Athena is latest product.",
+      "urgency": "low",
+      "recommendation": "Industry competitive pressure increasing. If in discussions, understand their competitive positioning.",
+      "source": "web_research_subagent"
+    },
+    {
+      "timestamp": "2026-02-04T04:30:00Z",
+      "type": "competitive_intel",
+      "company": "ProductBoard (Competitor)",
+      "signal": "MAJOR: ProductBoard launched 'Spark' AI Product Management Agent (Jan 28). Positioning as 'complete product management command center' with MCP connectors, agentic execution. Direct competitor to Reforge product strategy positioning.",
+      "urgency": "high",
+      "recommendation": "COMPETITIVE THREAT. ProductBoard moving aggressively into AI-powered PM tooling. Impacts positioning in PM-focused deals. Need differentiation story.",
+      "source": "web_research_subagent"
+    },
+    {
+      "timestamp": "2026-02-04T04:30:00Z",
+      "type": "competitive_intel",
+      "company": "Enterpret (Competitor)",
+      "signal": "No new funding rounds found. Still positioned in customer feedback analytics. Competitor PostHog raised Sept 2025. Enterpret appears stable but not expanding aggressively.",
+      "urgency": "low",
+      "recommendation": "Enterpret not an immediate threat. Focus on ProductBoard and emerging AI agents in PM space.",
+      "source": "web_research_subagent"
+    },
+    {
+      "timestamp": "2026-02-04T04:30:00Z",
+      "type": "competitive_intel",
+      "company": "Dovetail (Competitor)",
+      "signal": "No significant news. Last funding was 2021 (AU$5M at AU$150M valuation). Company appears stagnant - no recent growth signals.",
+      "urgency": "low",
+      "recommendation": "Dovetail not a competitive threat. May be vulnerable to displacement.",
+      "source": "web_research_subagent"
+    },
+    {
+      "timestamp": "2026-02-04T04:30:00Z",
+      "type": "market_intel",
+      "signal": "Reddit/social: Users report replacing Canny+ProductBoard with cheaper alternatives like Featurebase (saving $300-500/mo). Tool consolidation trend. Legal tech funding hit $6B in 2025 with 79% AI-driven.",
+      "urgency": "medium",
+      "recommendation": "Price sensitivity growing. Reforge needs ROI-focused positioning vs point tool alternatives.",
+      "source": "social_intel_subagent"
     },
     {
       "timestamp": "2026-02-03T15:03:00Z",
@@ -101,61 +156,6 @@
       "source": "web_research"
     },
     {
-      "timestamp": "2026-02-03T14:00:00Z",
-      "type": "risk_signal",
-      "company": "Neo Financial",
-      "dealValue": 60000,
-      "stage": "Pre-Pilot",
-      "signal": "Reddit posts (Mar 2025) mention 'soft layoffs' at Neo Financial. Company denies 'structured layoffs' but admits 'driven efficiencies'.",
-      "urgency": "medium",
-      "recommendation": "Validate budget before investing more time. Ask direct questions about hiring freeze/budget availability.",
-      "source": "web_research"
-    },
-    {
-      "timestamp": "2026-02-03T14:00:00Z",
-      "type": "validation_signal",
-      "company": "Fleetio",
-      "dealValue": null,
-      "stage": "Discovery Thu",
-      "signal": "Fleetio very active - exhibiting at NAFA, GFX, Work Truck Week, CONEXPO in 2026. Publishing operational best practices content. Healthy growth signals.",
-      "urgency": "low",
-      "recommendation": "Solid prospect. Thu meeting should focus on their scaling challenges.",
-      "source": "web_research"
-    },
-    {
-      "timestamp": "2026-02-02T22:00:00Z",
-      "type": "deal_acceleration",
-      "company": "EvenUp",
-      "dealValue": 50000,
-      "stage": "Pilot (Trial)",
-      "signal": "EvenUp actively expanding - launched Communication Agents + Next-Gen AI Drafts Suite, presenting at National Trial Lawyers Summit 2026, actively hiring for revenue kickoff. $1B valuation company.",
-      "urgency": "high",
-      "recommendation": "Re-engage immediately. 105 days stalled on $50K pilot is too long for a company this hot. They're in growth mode and spending on tools.",
-      "source": "web_research"
-    },
-    {
-      "timestamp": "2026-02-02T22:00:00Z",
-      "type": "validation_signal",
-      "company": "Neo Financial",
-      "dealValue": 60000,
-      "stage": "Pre-Pilot",
-      "signal": "Neo Financial raised $650M+ total funding. Ranked #1 on Canada's Top Growing Companies 3 years running. Deloitte Enterprise Industry Leaders #1 (2025).",
-      "urgency": "medium",
-      "recommendation": "Strong company validation. Push for trial start - this is a high-quality logo worth pursuing.",
-      "source": "web_research"
-    },
-    {
-      "timestamp": "2026-02-02T22:00:00Z",
-      "type": "competitive_intel",
-      "company": "EcoVadis",
-      "dealValue": 18000,
-      "stage": "Pilot Starting",
-      "signal": "No specific recent news found. Company doing sustainability ratings - stable but no major funding/growth signals.",
-      "urgency": "low",
-      "recommendation": "Proceed with pilot as planned. Monitor for competitive pressure from Replit mentioned in notes.",
-      "source": "web_research"
-    },
-    {
       "timestamp": "2026-02-02T22:00:00Z",
       "type": "deal_stall_alert",
       "company": "Muse Group",
@@ -195,22 +195,21 @@
     "stalledPipelineValue": 245150,
     "urgentFollowUps": [
       {
+        "company": "Neo Financial",
+        "value": 60000,
+        "action": "RE-ENGAGE NOW - just raised $68.5M, budget risk invalidated"
+      },
+      {
         "company": "EvenUp",
         "value": 50000,
         "daysStalled": 105,
-        "action": "Re-engage Garrett Edel immediately"
+        "action": "Re-engage Garrett Edel immediately - $1B company spending aggressively"
       },
       {
         "company": "Muse Group",
         "value": 15000,
         "daysStalled": 61,
         "action": "Push Georgiy for contract"
-      },
-      {
-        "company": "Pocket FM",
-        "value": 15000,
-        "daysStalled": 28,
-        "action": "Check in with Nish Shah"
       }
     ]
   },
