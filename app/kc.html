@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Baby G">
+    <title>Baby G 👶</title>
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👶</text></svg>">
+    <style>
+        :root {
+            --bg: #faf8f5;
+            --card: #ffffff;
+            --text: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --pink: #ff6b9d;
+            --pink-light: #fff0f5;
+            --pink-gradient: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            --green: #34c759;
+            --blue: #007aff;
+            --orange: #ff9500;
+            --purple: #af52de;
+            --shadow: 0 2px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 120px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 40px 0 30px;
+        }
+
+        .baby-icon {
+            font-size: 64px;
+            margin-bottom: 12px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: var(--pink-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 17px;
+            margin-top: 4px;
+        }
+
+        /* Due Date Card */
+        .due-date-card {
+            background: var(--pink-gradient);
+            border-radius: 24px;
+            padding: 28px;
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .due-date-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .due-date {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 8px 0;
+        }
+
+        .weeks-along {
+            font-size: 17px;
+            opacity: 0.95;
+        }
+
+        .countdown {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            font-size: 15px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .card-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .card-title {
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        /* Task List */
+        .task {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .task:last-child { border-bottom: none; }
+
+        .task-checkbox {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid #d1d1d6;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .task-checkbox.done {
+            background: var(--green);
+            border-color: var(--green);
+        }
+
+        .task-checkbox.done::after {
+            content: '✓';
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .task-content {
+            flex: 1;
+        }
+
+        .task-title {
+            font-size: 16px;
+            color: var(--text);
+        }
+
+        .task.completed .task-title {
+            text-decoration: line-through;
+            color: var(--text-secondary);
+        }
+
+        .task-meta {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        /* Appointments */
+        .appointment {
+            display: flex;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .appointment:last-child { border-bottom: none; }
+
+        .appt-date {
+            background: var(--pink-light);
+            border-radius: 12px;
+            padding: 10px 14px;
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .appt-month {
+            font-size: 12px;
+            color: var(--pink);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .appt-day {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--pink);
+        }
+
+        .appt-details h4 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .appt-details p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Books */
+        .book {
+            display: flex;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .book:last-child { border-bottom: none; }
+
+        .book-cover {
+            width: 50px;
+            height: 70px;
+            background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .book-info h4 {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .book-info p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .book-link {
+            margin-top: 6px;
+            display: inline-block;
+            font-size: 13px;
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        /* SOS Button */
+        .sos-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px 20px 34px;
+            background: linear-gradient(to top, var(--bg) 70%, transparent);
+        }
+
+        .sos-btn {
+            width: 100%;
+            max-width: 460px;
+            margin: 0 auto;
+            display: block;
+            background: var(--pink-gradient);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            padding: 18px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(255, 107, 157, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .sos-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: none;
+            align-items: flex-end;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--card);
+            border-radius: 24px 24px 0 0;
+            width: 100%;
+            max-width: 500px;
+            padding: 24px 20px 40px;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        .modal-handle {
+            width: 36px;
+            height: 5px;
+            background: #d1d1d6;
+            border-radius: 3px;
+            margin: 0 auto 20px;
+        }
+
+        .modal h2 {
+            font-size: 22px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .modal p {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .modal-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .modal-option {
+            background: #f5f5f7;
+            border: none;
+            border-radius: 14px;
+            padding: 18px 20px;
+            text-align: left;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .modal-option:active {
+            background: #e8e8ed;
+        }
+
+        .modal-option h3 {
+            font-size: 17px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-option p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 6px 0 0;
+            text-align: left;
+        }
+
+        .modal-option.quick { border-left: 4px solid var(--pink); }
+        .modal-option.custom { border-left: 4px solid var(--purple); }
+
+        /* Custom Request Form */
+        .custom-form {
+            display: none;
+        }
+
+        .custom-form.active {
+            display: block;
+        }
+
+        .custom-form textarea {
+            width: 100%;
+            height: 120px;
+            border: 2px solid #e8e8ed;
+            border-radius: 14px;
+            padding: 16px;
+            font-size: 16px;
+            font-family: inherit;
+            resize: none;
+            margin-bottom: 16px;
+        }
+
+        .custom-form textarea:focus {
+            outline: none;
+            border-color: var(--pink);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--pink-gradient);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            padding: 16px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .cancel-btn {
+            width: 100%;
+            background: transparent;
+            color: var(--text-secondary);
+            border: none;
+            padding: 16px;
+            font-size: 17px;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .success-message.active {
+            display: block;
+        }
+
+        .success-icon {
+            font-size: 64px;
+            margin-bottom: 16px;
+        }
+
+        .success-message h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .success-message p {
+            color: var(--text-secondary);
+        }
+
+        /* Love note */
+        .love-note {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        .love-note .heart {
+            color: var(--pink);
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="baby-icon">👶</div>
+            <h1>Baby G</h1>
+            <p class="subtitle">KC & Jonathan's Journey</p>
+        </header>
+
+        <!-- Due Date Card -->
+        <div class="due-date-card">
+            <div class="due-date-label">Estimated Due Date</div>
+            <div class="due-date">October 12, 2026</div>
+            <div class="weeks-along">~4 weeks along</div>
+            <div class="countdown">🗓️ 251 days to go!</div>
+        </div>
+
+        <!-- Tasks Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon" style="background: #e8f5e9;">✅</div>
+                <div class="card-title">Jonathan's Tasks</div>
+            </div>
+            <div class="task completed">
+                <div class="task-checkbox done"></div>
+                <div class="task-content">
+                    <div class="task-title">Research OBGYNs</div>
+                    <div class="task-meta">Found holistic-friendly options ✓</div>
+                </div>
+            </div>
+            <div class="task">
+                <div class="task-checkbox"></div>
+                <div class="task-content">
+                    <div class="task-title">Call Dr. Vicky Scott</div>
+                    <div class="task-meta">AdventHealth • Integrative + OB-GYN</div>
+                </div>
+            </div>
+            <div class="task">
+                <div class="task-checkbox"></div>
+                <div class="task-content">
+                    <div class="task-title">Call Laurel OB/GYN (backup)</div>
+                    <div class="task-meta">(828) 253-5381 • All-female practice</div>
+                </div>
+            </div>
+            <div class="task">
+                <div class="task-checkbox"></div>
+                <div class="task-content">
+                    <div class="task-title">Schedule first prenatal visit</div>
+                    <div class="task-meta">Usually 8-10 weeks</div>
+                </div>
+            </div>
+            <div class="task">
+                <div class="task-checkbox"></div>
+                <div class="task-content">
+                    <div class="task-title">Start prenatal vitamins</div>
+                    <div class="task-meta">Folate is key! 🌿</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Appointments Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon" style="background: #fff0f5;">📅</div>
+                <div class="card-title">Upcoming Appointments</div>
+            </div>
+            <div class="appointment">
+                <div class="appt-date">
+                    <div class="appt-month">TBD</div>
+                    <div class="appt-day">--</div>
+                </div>
+                <div class="appt-details">
+                    <h4>First Prenatal Visit</h4>
+                    <p>Schedule after confirming OBGYN</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Books Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon" style="background: #e3f2fd;">📚</div>
+                <div class="card-title">Books to Read</div>
+            </div>
+            <div class="book">
+                <div class="book-cover">🤰</div>
+                <div class="book-info">
+                    <h4>Expecting Better</h4>
+                    <p>Emily Oster — Data-driven pregnancy guide</p>
+                    <a href="https://www.amazon.com/dp/0143125702" target="_blank" class="book-link">View on Amazon →</a>
+                </div>
+            </div>
+            <div class="book">
+                <div class="book-cover">🌱</div>
+                <div class="book-info">
+                    <h4>Ina May's Guide to Childbirth</h4>
+                    <p>Ina May Gaskin — Natural birth classic</p>
+                    <a href="https://www.amazon.com/dp/0553381156" target="_blank" class="book-link">View on Amazon →</a>
+                </div>
+            </div>
+            <div class="book">
+                <div class="book-cover">🧒</div>
+                <div class="book-info">
+                    <h4>The Whole-Brain Child</h4>
+                    <p>Daniel J. Siegel — Child development</p>
+                    <a href="https://www.amazon.com/dp/0553386697" target="_blank" class="book-link">View on Amazon →</a>
+                </div>
+            </div>
+            <div class="book">
+                <div class="book-cover">👶</div>
+                <div class="book-info">
+                    <h4>Cribsheet</h4>
+                    <p>Emily Oster — Data on babies (0-2 years)</p>
+                    <a href="https://www.amazon.com/dp/0525559256" target="_blank" class="book-link">View on Amazon →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- OBGYN Options Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon" style="background: #fce4ec;">👩‍⚕️</div>
+                <div class="card-title">OBGYN Options</div>
+            </div>
+            <div class="appointment">
+                <div class="appt-date" style="background: #e8f5e9;">
+                    <div class="appt-month" style="color: var(--green);">TOP</div>
+                    <div class="appt-day" style="color: var(--green);">★</div>
+                </div>
+                <div class="appt-details">
+                    <h4>Dr. Vicky Scott, DO</h4>
+                    <p>AdventHealth • 35+ years • Board certified Integrative + OB-GYN</p>
+                </div>
+            </div>
+            <div class="appointment">
+                <div class="appt-date">
+                    <div class="appt-month">#2</div>
+                    <div class="appt-day">📞</div>
+                </div>
+                <div class="appt-details">
+                    <h4>Laurel OB/GYN</h4>
+                    <p>All-female • 40+ years • (828) 253-5381</p>
+                </div>
+            </div>
+            <div class="appointment">
+                <div class="appt-date">
+                    <div class="appt-month">#3</div>
+                    <div class="appt-day">🤱</div>
+                </div>
+                <div class="appt-details">
+                    <h4>MAHEC Midwives</h4>
+                    <p>Laurie Jenkins CNM • Natural birth friendly</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="love-note">
+            <div class="heart">💕</div>
+            <p>Made with love by Jonathan<br>I've got us covered! 💪</p>
+        </div>
+    </div>
+
+    <!-- SOS Button -->
+    <div class="sos-container">
+        <button class="sos-btn" onclick="openModal()">
+            🆘 Need Jonathan's Help?
+        </button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modal" onclick="closeIfOverlay(event)">
+        <div class="modal">
+            <div class="modal-handle"></div>
+            
+            <div id="optionsView">
+                <h2>How can I help? 💕</h2>
+                <p>Jonathan will be notified immediately</p>
+                
+                <div class="modal-options">
+                    <button class="modal-option quick" onclick="sendQuickSOS()">
+                        <h3>⚡ Quick SOS</h3>
+                        <p>Ping Jonathan right now — he'll check in ASAP</p>
+                    </button>
+                    <button class="modal-option custom" onclick="showCustomForm()">
+                        <h3>✏️ Custom Request</h3>
+                        <p>Tell him what you need — it'll be added to his task list</p>
+                    </button>
+                </div>
+                
+                <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+            </div>
+            
+            <div id="customForm" class="custom-form">
+                <h2>What do you need? 💭</h2>
+                <p>This will be added to Jonathan's task list</p>
+                
+                <textarea id="customRequest" placeholder="e.g., Can you pick up ginger tea? I'm feeling nauseous..."></textarea>
+                
+                <button class="submit-btn" onclick="sendCustomRequest()">Send to Jonathan</button>
+                <button class="cancel-btn" onclick="backToOptions()">Back</button>
+            </div>
+            
+            <div id="successView" class="success-message">
+                <div class="success-icon">💕</div>
+                <h3>Sent!</h3>
+                <p>Jonathan has been notified and will help soon!</p>
+                <button class="cancel-btn" onclick="closeModal()">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const WEBHOOK_URL = 'https://gateway.clawdbot.com/webhook/kc-sos';
+        
+        function openModal() {
+            document.getElementById('modal').classList.add('active');
+            document.getElementById('optionsView').style.display = 'block';
+            document.getElementById('customForm').classList.remove('active');
+            document.getElementById('successView').classList.remove('active');
+        }
+        
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+        
+        function closeIfOverlay(e) {
+            if (e.target.id === 'modal') closeModal();
+        }
+        
+        function showCustomForm() {
+            document.getElementById('optionsView').style.display = 'none';
+            document.getElementById('customForm').classList.add('active');
+        }
+        
+        function backToOptions() {
+            document.getElementById('customForm').classList.remove('active');
+            document.getElementById('optionsView').style.display = 'block';
+        }
+        
+        function showSuccess() {
+            document.getElementById('optionsView').style.display = 'none';
+            document.getElementById('customForm').classList.remove('active');
+            document.getElementById('successView').classList.add('active');
+        }
+        
+        async function sendQuickSOS() {
+            try {
+                await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    mode: 'no-cors',
+                    body: JSON.stringify({
+                        type: 'quick_sos',
+                        message: '🆘 KC needs you! Quick SOS ping.',
+                        timestamp: new Date().toISOString()
+                    })
+                });
+            } catch (e) {
+                console.log('Webhook sent (no-cors)');
+            }
+            showSuccess();
+        }
+        
+        async function sendCustomRequest() {
+            const request = document.getElementById('customRequest').value;
+            if (!request.trim()) {
+                alert('Please enter what you need!');
+                return;
+            }
+            
+            try {
+                await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    mode: 'no-cors',
+                    body: JSON.stringify({
+                        type: 'custom_request',
+                        message: request,
+                        timestamp: new Date().toISOString(),
+                        addToTasks: true
+                    })
+                });
+            } catch (e) {
+                console.log('Webhook sent (no-cors)');
+            }
+            
+            document.getElementById('customRequest').value = '';
+            showSuccess();
+        }
+        
+        // Task checkbox toggle (visual only for now)
+        document.querySelectorAll('.task-checkbox:not(.done)').forEach(cb => {
+            cb.addEventListener('click', function() {
+                this.classList.toggle('done');
+                this.closest('.task').classList.toggle('completed');
+            });
+        });
+    </script>
+</body>
+</html>
