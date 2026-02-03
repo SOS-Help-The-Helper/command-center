@@ -841,6 +841,11 @@
                 { priority: 'P0', title: 'Complete per-project views', why: 'In progress - polishing UX.', section: 'tasks' },
                 { priority: 'P2', title: 'Add cost tracking dashboard', why: 'Better visibility into API spend.', section: 'costs' },
                 { priority: 'P2', title: 'Document capability integrations', why: 'Keep tools reference updated.', section: 'capabilities' }
+            ],
+            henry: [
+                { priority: 'P0', title: 'Review Intel Signals', why: '9 new Reforge signals, 3 added today.', section: 'intelligence' },
+                { priority: 'P1', title: 'Check Agent Status', why: '6 agents running on schedule.', section: 'agents' },
+                { priority: 'P2', title: 'View Recent Work', why: '4 tasks completed today.', section: 'work' }
             ]
         };
 
@@ -986,7 +991,8 @@
                 sos: { splash: renderSOSSplash, grants: renderSOSGrants, partners: renderSOSPartners, intelligence: renderIntelPage, tasks: renderTasksPage },
                 reforge: { splash: renderReforgeSplash, pipeline: renderReforgePipeline, leads: renderReforgeLeads, tasks: renderTasksPage, intelligence: renderIntelPage },
                 harmony: { splash: renderHarmonySplash, clients: renderHarmonyClients, tasks: renderTasksPage, intelligence: renderIntelPage },
-                grunt: { splash: renderGruntSplash, capabilities: renderGruntCapabilities, costs: renderGruntCosts, tasks: renderTasksPage, intelligence: renderIntelPage }
+                grunt: { splash: renderGruntSplash, capabilities: renderGruntCapabilities, costs: renderGruntCosts, tasks: renderTasksPage, intelligence: renderIntelPage },
+                henry: { splash: renderHenrySplash, agents: renderHenryAgents, work: renderHenryWork, intelligence: renderIntelPage }
             };
 
             const projectRenderers = renderers[currentProject] || renderers.founder;
@@ -1477,6 +1483,107 @@
                             <tr><td>2026-01-29</td><td class="deal-amount">$8.41</td></tr>
                         </tbody>
                     </table>
+                </div>
+            `;
+        }
+
+        // ============ HENRY VIEW ============
+        function renderHenrySplash() {
+            const henry = data?.henry || {};
+            const stats = henry.todayStats || {};
+            const recentWork = henry.recentWork || [];
+            const agents = henry.scheduledAgents || [];
+            
+            return `
+                ${renderActionBox('henry')}
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">Status</div>
+                        <div class="metric-value" style="color: var(--green-bright);">● Online</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Tokens Today</div>
+                        <div class="metric-value">${(stats.tokens/1000).toFixed(0)}K</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Cost Today</div>
+                        <div class="metric-value">$${stats.cost?.toFixed(2) || '0.00'}</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Tasks Done</div>
+                        <div class="metric-value">${stats.tasksCompleted || 0}</div>
+                    </div>
+                </div>
+                <div class="section-header" style="margin-top: 24px;">
+                    <div class="section-title">🤖 Active Agents (${agents.length})</div>
+                </div>
+                <div class="card">
+                    ${agents.map(a => `
+                        <div style="display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--card-border);">
+                            <div style="flex: 1;">
+                                <div style="font-weight: 600;">${a.name}</div>
+                                <div style="font-size: 0.8rem; color: var(--text-secondary);">${a.schedule}</div>
+                            </div>
+                            <span class="deal-stage stage-closed">${a.status}</span>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="section-header" style="margin-top: 24px;">
+                    <div class="section-title">📝 Recent Work</div>
+                </div>
+                <div class="card">
+                    ${recentWork.map(w => `
+                        <div style="display: flex; padding: 12px 0; border-bottom: 1px solid var(--card-border);">
+                            <div style="width: 60px; font-size: 0.8rem; color: var(--text-dim);">${w.time}</div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 500;">${w.title}</div>
+                                <div style="font-size: 0.85rem; color: var(--text-secondary);">${w.detail}</div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+        
+        function renderHenryAgents() {
+            const henry = data?.henry || {};
+            const agents = henry.scheduledAgents || [];
+            
+            return `
+                <div class="section-header"><div class="section-title">🤖 Scheduled Agents</div></div>
+                <div class="card">
+                    ${agents.map(a => `
+                        <div style="display: flex; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--card-border);">
+                            <div style="font-size: 1.5rem; margin-right: 16px;">
+                                ${a.name.includes('Morning') ? '🌅' : a.name.includes('Reforge') ? '🔍' : a.name.includes('SOS') ? '🆘' : a.name.includes('Harmony') ? '🎯' : '🎙️'}
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 600; font-size: 1.1rem;">${a.name}</div>
+                                <div style="font-size: 0.9rem; color: var(--text-secondary);">${a.schedule}</div>
+                            </div>
+                            <span class="deal-stage stage-closed">${a.status}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+        
+        function renderHenryWork() {
+            const henry = data?.henry || {};
+            const recentWork = henry.recentWork || [];
+            
+            return `
+                <div class="section-header"><div class="section-title">📝 Work History</div></div>
+                <div class="card">
+                    ${recentWork.map(w => `
+                        <div style="display: flex; padding: 16px 0; border-bottom: 1px solid var(--card-border);">
+                            <div style="width: 70px; font-size: 0.85rem; color: var(--green-bright); font-weight: 500;">${w.time}</div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 600;">${w.title}</div>
+                                <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 4px;">${w.detail}</div>
+                            </div>
+                        </div>
+                    `).join('')}
                 </div>
             `;
         }

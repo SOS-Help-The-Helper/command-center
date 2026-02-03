@@ -1,6 +1,6 @@
 {
   "version": "1.1.0",
-  "lastUpdated": "2026-02-03T01:24:10.194235Z",
+  "lastUpdated": "2026-02-03T14:50:52.331325Z",
   "contributors": [
     {
       "id": "jonathan",
@@ -91,6 +91,26 @@
         "api_costs",
         "uptime",
         "capabilities"
+      ]
+    },
+    {
+      "id": "henry",
+      "name": "Henry",
+      "icon": "\u26a1",
+      "description": "AI Operating System",
+      "focus": "operations",
+      "color": "#5cb85c",
+      "sections": [
+        "overview",
+        "agents",
+        "intel",
+        "work"
+      ],
+      "kpis": [
+        "tokens_today",
+        "cost_today",
+        "tasks_completed",
+        "agent_runs"
       ]
     }
   ],
@@ -1428,522 +1448,78 @@
       "completedAt": "2026-02-02T21:05:00Z"
     }
   ],
-  "intel": [
-    {
-      "id": "i0",
-      "projectIds": [
-        "reforge"
-      ],
-      "type": "strategy",
-      "icon": "\ud83c\udfaf",
-      "title": "Lead Qualification Strategy",
-      "summary": "486 Product leads ready for qualification via Grunt swipe app. Focus on ICP fit: mid-market companies with complex data challenges.",
-      "tags": [
-        "strategy",
-        "sales"
-      ],
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T06:00:00Z",
-      "sources": [
+  "intel": {
+    "lastUpdated": "2026-02-03T14:50:52.331515Z",
+    "reforge": {
+      "signalCount": 9,
+      "latestSignals": [
         {
-          "name": "Reforge Swipe App",
-          "url": "https://sos-help-the-helper.github.io/reforge-swipe/"
-        }
-      ],
-      "details": {
-        "keyFacts": [
-          "486 Product leads available",
-          "Focus: IA + Research bundles",
-          "High-value re-engagement: iRobot ($80K), WSFS ($56K)"
-        ],
-        "approach": "Use Grunt swipe app for rapid lead qualification. Prioritize companies showing intent signals."
-      }
-    },
-    {
-      "id": "i1",
-      "projectIds": [
-        "sos"
-      ],
-      "type": "market",
-      "icon": "\ud83d\udcb0",
-      "title": "$17B FEMA Aid Held Up - States Scrambling",
-      "summary": "States facing delays, denials, cancellations of federal disaster funds. Budget pressures mounting.",
-      "tags": [
-        "market",
-        "opportunity",
-        "urgent"
-      ],
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T04:40:00Z",
-      "sources": [
-        {
-          "name": "Pew Charitable Trusts",
-          "url": "https://www.pew.org/en/research-and-analysis/articles/2026/01/15/uncertainty-surrounding-federal-disaster-funding-looms-over-state-budgets"
-        }
-      ],
-      "details": {
-        "keyFacts": [
-          "$17 billion in FEMA aid to states currently held up",
-          "States facing delays, denials, or cancellations",
-          "New Mexico added $30M to contingency fund"
-        ],
-        "sosOpportunity": "States need to own their disaster coordination capacity. SOS sells directly to state emergency management."
-      }
-    },
-    {
-      "id": "i2",
-      "projectIds": [
-        "sos"
-      ],
-      "type": "competitive",
-      "icon": "\ud83c\udfaf",
-      "title": "FEMA Being Gutted - States On Their Own",
-      "summary": "Trump admin cutting CORE staff (40% of FEMA workforce). States need alternatives.",
-      "tags": [
-        "competitive",
-        "opportunity",
-        "urgent"
-      ],
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T04:10:00Z",
-      "sources": [
-        {
-          "name": "CNN Exclusive",
-          "url": "https://www.cnn.com/2026/01/01/politics/dhs-cutting-fema-disaster-response-staff"
-        }
-      ],
-      "details": {
-        "keyFacts": [
-          "50+ CORE workers terminated on New Year's Eve",
-          "CORE = 40% of FEMA workforce (~8,000 people)",
-          "GAO: Agency already 35% below target staffing"
-        ],
-        "sosOpportunity": "FEMA becoming unreliable. SOS positioning: Community-first coordination that works WITH states."
-      }
-    },
-    {
-      "id": "i3",
-      "projectIds": [
-        "sos"
-      ],
-      "type": "competitive",
-      "icon": "\u2694\ufe0f",
-      "title": "Palantir at $970M Federal Contracts",
-      "summary": "Palantir doubled federal contracts in 2025. Surveillance play vs SOS coordination play.",
-      "tags": [
-        "competitive",
-        "palantir"
-      ],
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T04:10:00Z",
-      "sources": [
-        {
-          "name": "The Hill",
-          "url": "https://thehill.com/policy/technology/5667232-palantir-trump-administration-surveillance/"
-        }
-      ],
-      "details": {
-        "keyFacts": [
-          "Federal contracts nearly doubled to $970.5M in 2025",
-          "ICE alone: $200M+ for Investigative Case Management"
-        ],
-        "sosDifferentiation": "Palantir = surveillance. SOS = coordination. Different buyers, different values."
-      }
-    },
-    {
-      "id": "i4",
-      "projectIds": [
-        "sos"
-      ],
-      "type": "market",
-      "icon": "\ud83d\udcca",
-      "title": "Emergency Management Market: $1.1T+",
-      "summary": "Homeland Security & Emergency Management market at $1.1 trillion by 2030.",
-      "tags": [
-        "market",
-        "opportunity"
-      ],
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T04:10:00Z",
-      "sources": [
-        {
-          "name": "GlobeNewswire",
-          "url": "https://www.globenewswire.com/news-release/2026/01/20/3222046/28124/en/Homeland-Security-and-Emergency-Management-Market-Report-2026-1-110-Bn-Opportunities-Trends-Competitive-Landscape-Strategies-and-Forecasts-2020-2025-2025-2030F-2035F.html"
-        }
-      ],
-      "details": {
-        "marketSize": "$1,110+ billion",
-        "keyTrends": [
-          "Integrated disaster response platforms",
-          "AI adoption",
-          "Cloud-based coordination"
-        ]
-      }
-    },
-    {
-      "id": "i5",
-      "projectIds": [
-        "sos",
-        "grunt"
-      ],
-      "type": "technical",
-      "icon": "\ud83d\udd27",
-      "title": "Slack Integration Architecture Mapped",
-      "summary": "Custom workflow steps via Bolt JS for SOS integration.",
-      "tags": [
-        "technical"
-      ],
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T04:15:00Z",
-      "sources": [
-        {
-          "name": "Slack Platform Docs",
-          "url": "https://api.slack.com/automation/functions/custom-bolt"
-        }
-      ],
-      "details": {
-        "approach": "Bolt JS (self-hosted) over Deno SDK",
-        "customSteps": [
-          "Create Need",
-          "Log Resource",
-          "Match Request"
-        ]
-      }
-    },
-    {
-      "id": "i6",
-      "projectIds": [
-        "sos"
-      ],
-      "type": "funding",
-      "icon": "\ud83c\udf81",
-      "title": "25 Grant Opportunities Identified",
-      "summary": "Comprehensive grant research complete. Top 5: Hilton Foundation, FEMA EMPG, Google.org, Bezos AI Challenge, EDA Disaster Supplemental.",
-      "tags": [
-        "funding",
-        "grants",
-        "opportunity"
-      ],
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T05:45:00Z",
-      "sources": [
-        {
-          "name": "SOS Grants Database",
-          "url": "file:///grants.json"
-        }
-      ],
-      "details": {
-        "totalOpportunities": 25,
-        "priorityGrants": [
-          "Hilton Foundation - Disaster Relief & Recovery (9/10 fit)",
-          "FEMA EMPG - $319.5M to states (9/10 fit)",
-          "Google.org - Crisis Response (8/10 fit)",
-          "Bezos Earth Fund AI Challenge (8/10 fit)",
-          "EDA Disaster Supplemental (8/10 fit, March 2026 deadline)"
-        ],
-        "immediateActions": [
-          "Draft Hilton Foundation LOI",
-          "Prepare EDA application by March 3",
-          "Request Google.org introduction"
-        ]
-      }
-    },
-    {
-      "id": "i7",
-      "projectIds": [
-        "sos"
-      ],
-      "type": "competitive",
-      "icon": "\ud83c\udfc6",
-      "title": "WebEOC Dissatisfaction Creates Opening",
-      "summary": "Emergency managers frustrated with WebEOC cost and complexity. Reddit: 'expensive and slow compared to Veoci'.",
-      "tags": [
-        "competitive",
-        "opportunity",
-        "sales"
-      ],
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T05:45:00Z",
-      "sources": [
-        {
-          "name": "Reddit r/EmergencyManagement",
-          "url": "https://www.reddit.com/r/EmergencyManagement/comments/1aly2nn/incident_management_softwareplatform/"
-        }
-      ],
-      "details": {
-        "painPoints": [
-          "WebEOC is expensive ($50K-$200K+ annual)",
-          "Slow to modify and customize",
-          "Poor mobile experience",
-          "Legacy architecture"
-        ],
-        "sosOpportunity": "Position as modern, affordable WebEOC alternative with community coordination features."
-      }
-    },
-    {
-      "id": "i8",
-      "projectIds": [
-        "sos"
-      ],
-      "type": "competitive",
-      "icon": "\ud83c\udf10",
-      "title": "Google Crisis Response = Awareness, Not Coordination",
-      "summary": "Google provides consumer alerts (SOS, FloodHub, WeatherNext) but doesn't coordinate responders. Complementary, not competitive.",
-      "tags": [
-        "competitive",
-        "google",
-        "partnership"
-      ],
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T05:45:00Z",
-      "sources": [
-        {
-          "name": "Google Crisis Response",
-          "url": "https://crisisresponse.google/how-we-help"
-        }
-      ],
-      "details": {
-        "googleCapabilities": [
-          "SOS Alerts",
-          "FloodHub forecasting",
-          "WeatherNext AI",
-          "Android earthquake alerts"
-        ],
-        "googleGap": "No coordination platform for responders/organizations",
-        "sosOpportunity": "Integrate Google alerts as input; SOS provides coordination layer"
-      }
-    },
-    {
-      "id": "i9",
-      "projectIds": [
-        "sos"
-      ],
-      "type": "market",
-      "icon": "\ud83d\udcc8",
-      "title": "EM Software Market Growing 11% CAGR",
-      "summary": "Emergency Management Software market: $408M (2025) \u2192 $964M (2033). Crisis Management: $9.79B \u2192 $13.96B.",
-      "tags": [
-        "market",
-        "growth"
-      ],
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T05:45:00Z",
-      "sources": [
-        {
-          "name": "Global Growth Insights",
-          "url": "https://www.globalgrowthinsights.com/market-reports/emergency-management-software-market-105680"
+          "timestamp": "2026-02-03T14:00:00Z",
+          "type": "event_opportunity",
+          "company": "Ecovadis",
+          "dealValue": 18000,
+          "stage": "Pilot Starting",
+          "signal": "Ecovadis hosting Sustain 2026 event Mar 2-3 in Paris. Major procurement/sustainability leaders attending. Company actively publishing thought leadership.",
+          "urgency": "medium",
+          "recommendation": "Use Sustain 2026 as conversation point in Wed pilot kickoff. Ask who's attending, offer to connect.",
+          "source": "web_research"
         },
         {
-          "name": "Coherent Market Insights",
-          "url": "https://www.coherentmarketinsights.com/industry-reports/crisis-management-software-market"
-        }
-      ],
-      "details": {
-        "emergencyMgmtSoftware": {
-          "2025": "$408M",
-          "2033": "$964M",
-          "cagr": "11.3%"
+          "timestamp": "2026-02-03T14:00:00Z",
+          "type": "risk_signal",
+          "company": "Neo Financial",
+          "dealValue": 60000,
+          "stage": "Pre-Pilot",
+          "signal": "Reddit posts (Mar 2025) mention 'soft layoffs' at Neo Financial. Company denies 'structured layoffs' but admits 'driven efficiencies'.",
+          "urgency": "medium",
+          "recommendation": "Validate budget before investing more time. Ask direct questions about hiring freeze/budget availability.",
+          "source": "web_research"
         },
-        "crisisMgmtSoftware": {
-          "2025": "$9.79B",
-          "2032": "$13.96B",
-          "cagr": "5.2%"
+        {
+          "timestamp": "2026-02-03T14:00:00Z",
+          "type": "validation_signal",
+          "company": "Fleetio",
+          "dealValue": null,
+          "stage": "Discovery Thu",
+          "signal": "Fleetio very active - exhibiting at NAFA, GFX, Work Truck Week, CONEXPO in 2026. Publishing operational best practices content. Healthy growth signals.",
+          "urgency": "low",
+          "recommendation": "Solid prospect. Thu meeting should focus on their scaling challenges.",
+          "source": "web_research"
         },
-        "keyDrivers": [
-          "Increasing disaster frequency",
-          "AI adoption",
-          "Cloud migration",
-          "FEMA uncertainty"
-        ]
-      }
-    },
-    {
-      "id": "i10",
-      "projectIds": [
-        "sos"
-      ],
-      "type": "market",
-      "icon": "\ud83c\udfaf",
-      "title": "SOS Addressable Market: $87M-$450M ARR",
-      "summary": "Conservative TAM $87M ARR across state/county/municipal EMAs + NGOs. Initial target: $5M ARR (10 states).",
-      "tags": [
-        "market",
-        "tam",
-        "strategy"
-      ],
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T05:45:00Z",
-      "sources": [
         {
-          "name": "SOS Market Research",
-          "url": "file:///market-research.json"
-        }
-      ],
-      "details": {
-        "segments": {
-          "stateEMAs": "50 states \u00d7 $100K-$500K = $5M-$25M",
-          "countyEMAs": "3,000+ \u00d7 $10K-$50K = $30M-$150M",
-          "municipalEMAs": "10,000+ \u00d7 $5K-$25K = $50M-$250M",
-          "voadNGOs": "500+ \u00d7 $5K-$50K = $2.5M-$25M"
+          "timestamp": "2026-02-02T22:00:00Z",
+          "type": "deal_acceleration",
+          "company": "EvenUp",
+          "dealValue": 50000,
+          "stage": "Pilot (Trial)",
+          "signal": "EvenUp actively expanding - launched Communication Agents + Next-Gen AI Drafts Suite, presenting at National Trial Lawyers Summit 2026, actively hiring for revenue kickoff. $1B valuation company.",
+          "urgency": "high",
+          "recommendation": "Re-engage immediately. 105 days stalled on $50K pilot is too long for a company this hot. They're in growth mode and spending on tools.",
+          "source": "web_research"
         },
-        "initialTarget": "10 state EMAs at $500K avg = $5M ARR"
-      }
-    },
-    {
-      "id": "i11",
-      "projectIds": [
-        "sos"
-      ],
-      "type": "strategy",
-      "icon": "\ud83d\udca1",
-      "title": "Community Coordination = Blue Ocean",
-      "summary": "No competitor serves community-agency coordination well. All focus agency-to-agency. Major differentiation opportunity.",
-      "tags": [
-        "strategy",
-        "differentiation",
-        "competitive"
-      ],
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T05:45:00Z",
-      "sources": [
         {
-          "name": "SOS Competitive Analysis",
-          "url": "file:///competitive-analysis.json"
+          "timestamp": "2026-02-02T22:00:00Z",
+          "type": "validation_signal",
+          "company": "Neo Financial",
+          "dealValue": 60000,
+          "stage": "Pre-Pilot",
+          "signal": "Neo Financial raised $650M+ total funding. Ranked #1 on Canada's Top Growing Companies 3 years running. Deloitte Enterprise Industry Leaders #1 (2025).",
+          "urgency": "medium",
+          "recommendation": "Strong company validation. Push for trial start - this is a high-quality logo worth pursuing.",
+          "source": "web_research"
         }
       ],
-      "details": {
-        "competitorFocus": {
-          "palantir": "Government agencies (surveillance)",
-          "webEOC": "EOC operations (agency staff)",
-          "veoci": "Agency workflows",
-          "everbridge": "Enterprise notification",
-          "google": "Consumer awareness"
-        },
-        "sosOpportunity": "Bridge communities/volunteers with official emergency management. No one does this well."
+      "summary": {
+        "highPriority": 2,
+        "newSignals": 3,
+        "alertsRequiringAction": 1
       }
     },
-    {
-      "id": "i12",
-      "projectIds": [
-        "sos"
-      ],
-      "type": "strategy",
-      "icon": "\ud83d\ude80",
-      "title": "AI Recommendations for Product Roadmap",
-      "summary": "Key features to prioritize: AI matching (core), Slack integration (adoption), community-agency bridge (differentiation).",
-      "tags": [
-        "strategy",
-        "product",
-        "roadmap"
-      ],
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T05:45:00Z",
-      "sources": [
-        {
-          "name": "SOS Product Roadmap",
-          "url": "file:///product-roadmap-suggestions.json"
-        }
-      ],
-      "details": {
-        "p0Features": [
-          "AI-powered needs/resource matching",
-          "Slack-first integration",
-          "Community-agency coordination bridge"
-        ],
-        "p1Features": [
-          "Real-time situational dashboard",
-          "Mobile-native field app",
-          "Volunteer management"
-        ],
-        "competitiveMoats": [
-          "Community network effect",
-          "AI training data from responses",
-          "Mission alignment with funders"
-        ]
-      }
-    },
-    {
-      "id": "i13",
-      "projectIds": [
-        "harmony"
-      ],
-      "type": "strategy",
-      "icon": "\ud83d\udcbc",
-      "title": "RevOps Consulting Positioning",
-      "summary": "Harmony Strategy differentiates through AI-augmented consulting. Lower overhead with Henry assistance = higher margins.",
-      "tags": [
-        "strategy",
-        "competitive"
-      ],
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T06:00:00Z",
-      "sources": [],
-      "details": {
-        "keyFacts": [
-          "2 active clients",
-          "Target margin: 60%",
-          "AI-augmented delivery reduces labor costs"
-        ],
-        "approach": "Position as boutique GTM consulting with AI-powered research and execution support."
-      }
-    },
-    {
-      "id": "i14",
-      "projectIds": [
-        "grunt"
-      ],
-      "type": "technical",
-      "icon": "\u26a1",
-      "title": "Command Center Architecture",
-      "summary": "Static site hosted on GitHub Pages. Data-driven via JSON files. No backend needed = zero hosting costs.",
-      "tags": [
-        "technical",
-        "architecture"
-      ],
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T06:00:00Z",
-      "sources": [
-        {
-          "name": "Command Center",
-          "url": "https://sos-help-the-helper.github.io/command-center/"
-        }
-      ],
-      "details": {
-        "keyFacts": [
-          "Pure static HTML/JS/CSS",
-          "GitHub Pages hosting (free)",
-          "JSON data files for easy updates",
-          "No authentication (internal tool)"
-        ],
-        "approach": "Keep it simple. Update JSON files to add data. GitHub Actions can automate data syncs."
-      }
-    },
-    {
-      "id": "i15",
-      "projectIds": [
-        "grunt"
-      ],
-      "type": "market",
-      "icon": "\ud83d\udcb5",
-      "title": "API Cost Analysis",
-      "summary": "Monthly API costs averaging ~$300-400. Anthropic Claude as primary model. Prompt caching significantly reduces costs.",
-      "tags": [
-        "market",
-        "costs"
-      ],
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T06:00:00Z",
-      "sources": [],
-      "details": {
-        "keyFacts": [
-          "MTD: $315.68",
-          "277M+ cache read tokens",
-          "Cache hits save ~90% on repeated context"
-        ],
-        "approach": "Monitor costs daily. Optimize prompts. Use caching aggressively."
-      }
+    "sos": {
+      "signalCount": 0,
+      "latestSignals": []
     }
-  ],
+  },
   "activity": [
     {
       "id": "a1",
@@ -2214,5 +1790,245 @@
       "rationale": "Google provides awareness, SOS provides coordination. Complementary. Google.org already funds this space.",
       "action": "Map integration points, request intro"
     }
-  ]
+  ],
+  "henry": {
+    "status": "online",
+    "lastActive": "2026-02-03T14:50:52.331579Z",
+    "todayStats": {
+      "tokens": 65000,
+      "cost": 0.82,
+      "tasksCompleted": 4,
+      "agentRuns": 6
+    },
+    "scheduledAgents": [
+      {
+        "name": "Morning Brief",
+        "schedule": "Daily 9 AM EST",
+        "status": "active"
+      },
+      {
+        "name": "Reforge Intel",
+        "schedule": "3x daily M-F",
+        "status": "active"
+      },
+      {
+        "name": "SOS Intel",
+        "schedule": "2x daily",
+        "status": "active"
+      },
+      {
+        "name": "Harmony Health",
+        "schedule": "Daily 11 AM M-F",
+        "status": "active"
+      },
+      {
+        "name": "Gong Sync",
+        "schedule": "Daily 7 AM",
+        "status": "active"
+      }
+    ],
+    "recentWork": [
+      {
+        "time": "9:26 AM",
+        "title": "Intel Run Complete",
+        "detail": "3 new signals: Ecovadis, Neo, Fleetio"
+      },
+      {
+        "time": "9:14 AM",
+        "title": "Attention to Detail Audit",
+        "detail": "Found 12 errors, 8 unverified claims"
+      },
+      {
+        "time": "9:00 AM",
+        "title": "Morning Brief Delivered",
+        "detail": "3 priorities, 7 meetings this week"
+      },
+      {
+        "time": "2:00 AM",
+        "title": "Gong Sync",
+        "detail": "Flagged 7 stale deals"
+      }
+    ]
+  },
+  "todayBrief": {
+    "date": "2026-02-03",
+    "generatedAt": "2026-02-03T07:00:00Z",
+    "priorities": [
+      {
+        "rank": 1,
+        "title": "LITMOS - Your Champion Is Now CEO",
+        "urgency": "high",
+        "context": "Michelle Benfer appointed CEO July 2025. Last contact Jan 27 (7 days ago). Momentum at risk.",
+        "actions": [
+          "Send congratulations/reconnect message to Michelle",
+          "Reference Harmony work, ask about Phase 2",
+          "Bridge to Reforge Insights conversation"
+        ],
+        "revenue": "$15K Reforge + Harmony expansion",
+        "notes": "CEO sponsor for both deals. Success \u2192 opens FP portfolio."
+      },
+      {
+        "rank": 2,
+        "title": "DI Global - Resolve or Refund (48h)",
+        "urgency": "critical",
+        "context": "$15K at risk, 13 weeks overdue, refund requested Jan 29",
+        "actions": [
+          "Clarify original SOW/scope",
+          "Decide: deliver this week OR process refund",
+          "No middle ground"
+        ],
+        "revenue": "$15K at risk",
+        "notes": "Client trust and cash flow both on the line"
+      },
+      {
+        "rank": 3,
+        "title": "SOS MVP - Remove One Blocker",
+        "urgency": "medium",
+        "context": "75% complete. Aid Arena waiting. Need Slack channel ID.",
+        "actions": [
+          "Get Aid Arena Slack channel ID",
+          "Henry runs SQL update",
+          "Test match announcements"
+        ],
+        "revenue": "$275K June milestone",
+        "notes": "Core matching works. Just need config."
+      }
+    ],
+    "calendar": [
+      {
+        "date": "2026-02-03",
+        "time": "08:00",
+        "title": "Weekly Pipeline Sync - Insights",
+        "company": null,
+        "value": null
+      },
+      {
+        "date": "2026-02-03",
+        "time": "10:00",
+        "title": "Weekly SaaS Pipeline Call Review",
+        "company": null,
+        "value": null
+      },
+      {
+        "date": "2026-02-04",
+        "time": "15:00",
+        "title": "Yazio Pilot Review",
+        "company": "Yazio",
+        "value": "$15K"
+      },
+      {
+        "date": "2026-02-04",
+        "time": "19:00",
+        "title": "Console Pilot Config",
+        "company": "Console",
+        "value": "$15K"
+      },
+      {
+        "date": "2026-02-05",
+        "time": "15:00",
+        "title": "Ecovadis Pilot Kickoff",
+        "company": "Ecovadis",
+        "value": "$18K"
+      },
+      {
+        "date": "2026-02-05",
+        "time": "15:15",
+        "title": "PiNCAMP Discovery",
+        "company": "PiNCAMP",
+        "value": null
+      },
+      {
+        "date": "2026-02-05",
+        "time": "16:00",
+        "title": "Numan Discovery",
+        "company": "Numan",
+        "value": null
+      },
+      {
+        "date": "2026-02-06",
+        "time": "09:00",
+        "title": "EPD Team Weekly",
+        "company": null,
+        "value": null
+      },
+      {
+        "date": "2026-02-06",
+        "time": "11:00",
+        "title": "All-company Q&A",
+        "company": null,
+        "value": null
+      },
+      {
+        "date": "2026-02-06",
+        "time": "16:00",
+        "title": "Skeps Build Meeting",
+        "company": "Skeps",
+        "value": null
+      },
+      {
+        "date": "2026-02-06",
+        "time": "18:15",
+        "title": "Fleetio Insights Discovery",
+        "company": "Fleetio",
+        "value": null
+      }
+    ],
+    "projectHealth": {
+      "reforge": {
+        "status": "yellow",
+        "quotaProgress": 0.33,
+        "note": "33% Q1 quota ($50K of $150K ARR)"
+      },
+      "harmony": {
+        "status": "yellow",
+        "activeRevenue": 45000,
+        "atRisk": 15000,
+        "note": "$45K active, $15K at risk"
+      },
+      "sos": {
+        "status": "green",
+        "mvpProgress": 0.75,
+        "note": "75% MVP, Aid Arena testing once channel configured"
+      }
+    },
+    "fires": [
+      {
+        "company": "EvenUp",
+        "issue": "$50K pilot, 105 days stalled",
+        "urgency": "high"
+      },
+      {
+        "company": "Muse Group",
+        "issue": "$15K, 61 days in contracting",
+        "urgency": "high"
+      },
+      {
+        "company": "HubSpot",
+        "issue": "Card payment failed Jan 31",
+        "urgency": "medium"
+      },
+      {
+        "company": "Anthropic",
+        "issue": "API access turned off",
+        "urgency": "medium"
+      }
+    ],
+    "meetingIntel": {
+      "Ecovadis": {
+        "funding": null,
+        "headcount": null,
+        "angle": "Sustainability ratings, 49K+ ratings 2024. Competitive with Replit."
+      },
+      "Numan": {
+        "funding": "$60M July 2025",
+        "headcount": null,
+        "angle": "UK men's health, 150% growth, 650K+ patients"
+      },
+      "Fleetio": {
+        "funding": "$624M March 2025",
+        "headcount": null,
+        "angle": "$1.5B unicorn, fleet management, record H1 2025"
+      }
+    }
+  }
 }
