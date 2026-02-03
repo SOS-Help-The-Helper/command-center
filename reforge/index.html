@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reforge Command Center</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
@@ -45,8 +44,6 @@
     .btn-primary:hover { background: #C44A1E; }
     .btn-secondary { background: #57A499; color: white; }
     .btn-secondary:hover { background: #4A8F85; }
-    .accent-teal { color: #57A499; }
-    .accent-mustard { color: #CEAA56; }
   </style>
 </head>
 <body class="gradient-bg min-h-screen text-gray-900">
@@ -153,7 +150,6 @@
 
         <!-- Two Column Layout -->
         <div class="grid grid-cols-2 gap-6 mb-8">
-          <!-- Positioning Card -->
           <div class="card rounded-xl p-6">
             <h3 class="font-semibold mb-4 flex items-center gap-2 text-gray-900">
               <span class="w-2 h-2 bg-reforge-orange rounded-full"></span>
@@ -175,7 +171,6 @@
             </div>
           </div>
 
-          <!-- Workstreams -->
           <div class="card rounded-xl p-6">
             <h3 class="font-semibold mb-4 flex items-center gap-2 text-gray-900">
               <span class="w-2 h-2 bg-reforge-teal rounded-full"></span>
@@ -210,8 +205,7 @@
         <!-- Recent Calls -->
         <div class="card rounded-xl p-6">
           <h3 class="font-semibold mb-4 text-gray-900">Recent Calls</h3>
-          <div class="grid grid-cols-2 gap-4" id="recentCalls">
-          </div>
+          <div class="grid grid-cols-2 gap-4" id="recentCalls"></div>
         </div>
       </section>
 
@@ -222,14 +216,135 @@
           <p class="text-reforge-muted">Pitch resonance analysis from call transcripts</p>
         </header>
         
-        <div class="card rounded-xl p-6 mb-6" id="discoveryLoading">
-          <div class="flex items-center gap-3">
-            <div class="animate-spin w-5 h-5 border-2 border-reforge-orange border-t-transparent rounded-full"></div>
-            <p class="text-gray-700">Analyzing call transcripts... This may take a few minutes.</p>
+        <div id="discoveryContent">
+          <!-- Aggregate Scores -->
+          <div class="grid grid-cols-4 gap-4 mb-6">
+            <div class="card rounded-xl p-5">
+              <p class="text-reforge-muted text-sm mb-1">Problem Resonance</p>
+              <div class="flex items-baseline gap-2">
+                <span class="text-3xl font-bold text-reforge-teal">7.7</span>
+                <span class="text-sm text-reforge-muted">/10</span>
+              </div>
+              <p class="text-xs text-reforge-teal mt-2">✓ They get the problem</p>
+            </div>
+            <div class="card rounded-xl p-5">
+              <p class="text-reforge-muted text-sm mb-1">Enemy Clarity</p>
+              <div class="flex items-baseline gap-2">
+                <span class="text-3xl font-bold text-reforge-mustard">4.4</span>
+                <span class="text-sm text-reforge-muted">/10</span>
+              </div>
+              <p class="text-xs text-reforge-orange mt-2">⚠️ Product Debt underused</p>
+            </div>
+            <div class="card rounded-xl p-5">
+              <p class="text-reforge-muted text-sm mb-1">Product Understanding</p>
+              <div class="flex items-baseline gap-2">
+                <span class="text-3xl font-bold text-reforge-teal">7.3</span>
+                <span class="text-sm text-reforge-muted">/10</span>
+              </div>
+              <p class="text-xs text-reforge-teal mt-2">✓ Suite concept landing</p>
+            </div>
+            <div class="card rounded-xl p-5">
+              <p class="text-reforge-muted text-sm mb-1">Next Step Quality</p>
+              <div class="flex items-baseline gap-2">
+                <span class="text-3xl font-bold text-reforge-teal">7.1</span>
+                <span class="text-sm text-reforge-muted">/10</span>
+              </div>
+              <p class="text-xs text-reforge-teal mt-2">✓ Good advancement</p>
+            </div>
+          </div>
+
+          <!-- Big Insight -->
+          <div class="card rounded-xl p-6 mb-6 border-l-4 border-reforge-orange">
+            <h3 class="font-semibold text-reforge-orange mb-2">🔥 BIG INSIGHT</h3>
+            <p class="text-lg text-gray-900 mb-2"><strong>"Product Debt"</strong> has <strong>100% resonance</strong> but you only used it on <strong>29% of calls</strong>.</p>
+            <p class="text-reforge-muted">That's your sharpest weapon collecting dust. Lead with it on EVERY call.</p>
+          </div>
+
+          <!-- Two Column: Framing Analysis -->
+          <div class="grid grid-cols-2 gap-6 mb-6">
+            <div class="card rounded-xl p-6">
+              <h3 class="font-semibold mb-4 text-gray-900">"Discovery Deficit" Framing</h3>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-gray-600">Usage Rate</span>
+                  <span class="font-medium text-reforge-teal">5/7 calls (71%)</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-gray-600">Resonance When Used</span>
+                  <span class="font-medium text-reforge-teal">80%</span>
+                </div>
+              </div>
+              <div class="mt-4 bg-gray-50 rounded-lg p-3">
+                <p class="text-xs text-reforge-muted italic">"It's gotten a lot faster and easier to go and ship code... validating and understanding what to ship becomes the difficult part."</p>
+                <p class="text-xs text-gray-500 mt-1">— Jonathan on DreamHost call</p>
+              </div>
+            </div>
+
+            <div class="card rounded-xl p-6 border-2 border-reforge-orange">
+              <h3 class="font-semibold mb-4 text-reforge-orange">"Product Debt" as Enemy ⚠️</h3>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-gray-600">Usage Rate</span>
+                  <span class="font-medium text-reforge-orange">2/7 calls (29%)</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-gray-600">Resonance When Used</span>
+                  <span class="font-medium text-reforge-teal">100%</span>
+                </div>
+              </div>
+              <div class="mt-4 bg-reforge-orange/10 rounded-lg p-3">
+                <p class="text-xs text-gray-700 italic">"It's just really difficult to prove the value of a product before it goes out. Any data you could do as fast as possible is absolutely a real pain point."</p>
+                <p class="text-xs text-reforge-orange mt-1">— Ralph, DreamHost (27+ years in product)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Best Audiences -->
+          <div class="card rounded-xl p-6 mb-6">
+            <h3 class="font-semibold mb-4 text-gray-900">Best Audiences (By The Numbers)</h3>
+            <div class="grid grid-cols-3 gap-4">
+              <div class="bg-gray-50 rounded-lg p-4">
+                <p class="text-xs text-reforge-muted uppercase tracking-wide mb-1">Company Size</p>
+                <p class="font-semibold text-reforge-teal">500+ employees</p>
+                <p class="text-sm text-gray-600 mt-1">Problem resonance: 8.5</p>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-4">
+                <p class="text-xs text-reforge-muted uppercase tracking-wide mb-1">AI Adoption</p>
+                <p class="font-semibold text-reforge-teal">Moderate adopters</p>
+                <p class="text-sm text-gray-600 mt-1">Resonance: 8.5 (sweet spot!)</p>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-4">
+                <p class="text-xs text-reforge-muted uppercase tracking-wide mb-1">Buyer Persona</p>
+                <p class="font-semibold text-reforge-teal">Product Leaders</p>
+                <p class="text-sm text-gray-600 mt-1">Problem resonance: 8.5</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Top Objection -->
+          <div class="card rounded-xl p-6 mb-6">
+            <h3 class="font-semibold mb-4 text-reforge-mustard">⚠️ Top Objection: Integration (5/7 calls)</h3>
+            <p class="text-gray-600 mb-4">They want Reforge to fit INTO their workflow, not replace tools.</p>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-reforge-mustard/10 rounded-lg p-3">
+                <p class="font-medium text-sm text-gray-900">DreamHost</p>
+                <p class="text-xs text-gray-600">"Our organization is very focused on Clickup... it's central to how we organize all our work"</p>
+              </div>
+              <div class="bg-reforge-mustard/10 rounded-lg p-3">
+                <p class="font-medium text-sm text-gray-900">Ecovadis</p>
+                <p class="text-xs text-gray-600">"We use Product Board... it would be nice not to change it."</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Call Results -->
+          <div class="card rounded-xl p-6">
+            <h3 class="font-semibold mb-4 text-gray-900">Call-by-Call Results</h3>
+            <div class="space-y-3" id="callResults">
+              <!-- Populated by JS -->
+            </div>
           </div>
         </div>
-
-        <div id="discoveryContent" class="hidden"></div>
       </section>
 
       <!-- Pitch Deck Generator Section -->
@@ -246,6 +361,17 @@
             <div>
               <label class="block text-sm text-gray-700 mb-2 font-medium">Company Name</label>
               <input type="text" id="deckCompany" placeholder="e.g., Acme Corp" 
+                class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:border-reforge-orange focus:ring-1 focus:ring-reforge-orange focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-sm text-gray-700 mb-2 font-medium">Company Website</label>
+              <input type="url" id="deckWebsite" placeholder="https://acme.com" 
+                class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:border-reforge-orange focus:ring-1 focus:ring-reforge-orange focus:outline-none">
+              <p class="text-xs text-reforge-muted mt-1">We'll scrape for context automatically</p>
+            </div>
+            <div>
+              <label class="block text-sm text-gray-700 mb-2 font-medium">LinkedIn URL (optional)</label>
+              <input type="url" id="deckLinkedIn" placeholder="https://linkedin.com/company/acme" 
                 class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:border-reforge-orange focus:ring-1 focus:ring-reforge-orange focus:outline-none">
             </div>
             <div>
@@ -283,9 +409,20 @@
               class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:border-reforge-orange focus:outline-none resize-none"></textarea>
           </div>
           
-          <button onclick="generateDeck()" class="btn-primary mt-6 px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all">
-            🎨 Generate Custom Deck
-          </button>
+          <div class="flex gap-3 mt-6">
+            <button onclick="researchCompany()" class="btn-secondary px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all">
+              🔍 Research First
+            </button>
+            <button onclick="generateDeck()" class="btn-primary px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all">
+              🎨 Generate Custom Deck
+            </button>
+          </div>
+        </div>
+
+        <!-- Research Results -->
+        <div id="researchResult" class="hidden card rounded-xl p-6 mb-6">
+          <h3 class="font-semibold mb-4 text-gray-900">🔍 Company Research</h3>
+          <div id="researchContent"></div>
         </div>
 
         <div id="deckResult" class="hidden card rounded-xl p-6">
@@ -318,8 +455,8 @@
               
               <div class="space-y-4">
                 <div>
-                  <label class="block text-sm text-gray-700 mb-2 font-medium">Company Name or LinkedIn URL</label>
-                  <input type="text" id="leadInput" placeholder="e.g., Acme Corp or linkedin.com/company/acme" 
+                  <label class="block text-sm text-gray-700 mb-2 font-medium">Company Website or LinkedIn URL</label>
+                  <input type="text" id="leadInput" placeholder="e.g., https://acme.com or linkedin.com/company/acme" 
                     class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:border-reforge-orange focus:outline-none">
                 </div>
                 
@@ -449,6 +586,16 @@
       { date: 'Jan 22', company: 'Ecovadis', duration: '30min' },
     ];
 
+    const callResults = [
+      { company: 'Console', persona: 'Product Leader', scores: { problem: 9, enemy: 4, understanding: 7, nextStep: 8 }, status: 'strong', outcome: 'Trial scheduled' },
+      { company: 'Maestro', persona: 'Product Leader + CEO', scores: { problem: 8, enemy: 5, understanding: 8, nextStep: 9 }, status: 'strong', outcome: 'Deep demo + pilot' },
+      { company: 'DreamHost', persona: 'Product Leader', scores: { problem: 9, enemy: 8, understanding: 7, nextStep: 6 }, status: 'strong', outcome: 'Integration docs needed' },
+      { company: 'Ecovadis', persona: 'Product Leader', scores: { problem: 8, enemy: 6, understanding: 8, nextStep: 8 }, status: 'strong', outcome: 'Trial vs Replit' },
+      { company: 'Brigit', persona: 'Designer/Researcher', scores: { problem: 7, enemy: 3, understanding: 7, nextStep: 5 }, status: 'moderate', outcome: 'Internal review' },
+      { company: 'EvenUp', persona: 'Product Analyst', scores: { problem: 7, enemy: 3, understanding: 8, nextStep: 7 }, status: 'moderate', outcome: 'Testing categorization' },
+      { company: 'Datadrew AI', persona: 'PM', scores: { problem: 6, enemy: 2, understanding: 6, nextStep: 7 }, status: 'moderate', outcome: 'Trial setup' },
+    ];
+
     const pipeline = [
       { account: 'Neo Financial', product: 'IA + Research', size: 60000, status: 'Pricing sent', lastActivity: 'Jan 28', urgent: false },
       { account: 'EvenUp', product: 'IA', size: 50000, status: 'Pilot stalled', lastActivity: 'Jan 21', urgent: true },
@@ -473,6 +620,25 @@
             <p class="text-xs text-reforge-muted">${c.date} • ${c.duration}</p>
           </div>
           <a href="#" class="text-reforge-orange text-sm font-medium">View →</a>
+        </div>
+      `).join('');
+
+      document.getElementById('callResults').innerHTML = callResults.map(c => `
+        <div class="flex items-center justify-between bg-gray-50 rounded-lg p-4">
+          <div class="flex items-center gap-4">
+            <div>
+              <p class="font-medium text-gray-900">${c.company}</p>
+              <p class="text-xs text-reforge-muted">${c.persona}</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-6">
+            <div class="flex gap-2 text-xs">
+              <span class="px-2 py-1 rounded ${c.scores.problem >= 8 ? 'bg-reforge-teal/20 text-reforge-teal' : 'bg-gray-100 text-gray-600'}">P:${c.scores.problem}</span>
+              <span class="px-2 py-1 rounded ${c.scores.enemy >= 6 ? 'bg-reforge-teal/20 text-reforge-teal' : 'bg-reforge-mustard/20 text-reforge-mustard'}">E:${c.scores.enemy}</span>
+              <span class="px-2 py-1 rounded ${c.scores.nextStep >= 7 ? 'bg-reforge-teal/20 text-reforge-teal' : 'bg-gray-100 text-gray-600'}">NS:${c.scores.nextStep}</span>
+            </div>
+            <span class="px-2 py-1 rounded-full text-xs font-medium ${c.status === 'strong' ? 'bg-reforge-teal/20 text-reforge-teal' : 'bg-reforge-mustard/20 text-reforge-mustard'}">${c.outcome}</span>
+          </div>
         </div>
       `).join('');
 
@@ -502,6 +668,47 @@
       `).join('');
     }
 
+    function researchCompany() {
+      const website = document.getElementById('deckWebsite').value;
+      const linkedin = document.getElementById('deckLinkedIn').value;
+      if (!website && !linkedin) { alert('Please enter a website or LinkedIn URL'); return; }
+      
+      document.getElementById('researchResult').classList.remove('hidden');
+      document.getElementById('researchContent').innerHTML = `
+        <div class="flex items-center gap-3 py-4">
+          <div class="animate-spin w-5 h-5 border-2 border-reforge-teal border-t-transparent rounded-full"></div>
+          <p class="text-gray-700">Scraping ${website || linkedin} for company context...</p>
+        </div>
+      `;
+      
+      // Simulate research (in production, this would call an API)
+      setTimeout(() => {
+        document.getElementById('researchContent').innerHTML = `
+          <div class="grid grid-cols-2 gap-4 mb-4">
+            <div class="bg-gray-50 rounded-lg p-3">
+              <p class="text-xs text-reforge-muted">Company</p>
+              <p class="font-medium text-gray-900">${document.getElementById('deckCompany').value || 'Acme Corp'}</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-3">
+              <p class="text-xs text-reforge-muted">Industry</p>
+              <p class="font-medium text-gray-900">B2B SaaS</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-3">
+              <p class="text-xs text-reforge-muted">Tech Stack Signals</p>
+              <p class="font-medium text-gray-900">React, Node.js, AWS</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-3">
+              <p class="text-xs text-reforge-muted">AI Adoption Signals</p>
+              <p class="font-medium text-reforge-teal">✓ GitHub Copilot mentioned in jobs</p>
+            </div>
+          </div>
+          <div class="bg-reforge-teal/10 rounded-lg p-3">
+            <p class="text-sm text-reforge-teal font-medium">💡 Research complete - context added to deck generation</p>
+          </div>
+        `;
+      }, 2000);
+    }
+
     function generateDeck() {
       const company = document.getElementById('deckCompany').value;
       if (!company) { alert('Please enter a company name'); return; }
@@ -513,44 +720,58 @@
         </div>
       `;
       setTimeout(() => {
+        const persona = document.getElementById('deckPersona').value;
+        const pain = document.getElementById('deckPain').value;
         document.getElementById('deckPreview').innerHTML = `
           <div class="space-y-4">
             <div class="bg-white rounded-lg p-4 border border-gray-200">
-              <p class="text-reforge-orange font-semibold mb-2">Slide 1: The Problem</p>
-              <p class="text-sm text-gray-600">Customized for ${company}...</p>
+              <p class="text-reforge-orange font-semibold mb-2">Slide 1: The ${company} Problem</p>
+              <p class="text-sm text-gray-600">Customized opening based on their specific pain point...</p>
             </div>
             <div class="bg-white rounded-lg p-4 border border-gray-200">
-              <p class="text-reforge-orange font-semibold mb-2">Slide 2: The Discovery Deficit</p>
+              <p class="text-reforge-orange font-semibold mb-2">Slide 2: Product Debt is Killing You</p>
+              <p class="text-sm text-gray-600">Every feature you ship without validation becomes debt...</p>
+            </div>
+            <div class="bg-white rounded-lg p-4 border border-gray-200">
+              <p class="text-reforge-orange font-semibold mb-2">Slide 3: The Discovery Deficit</p>
               <p class="text-sm text-gray-600">AI accelerated engineering. Discovery didn't keep up.</p>
             </div>
-            <p class="text-center text-gray-500 text-sm">+ 8 more slides customized for ${company}</p>
+            <p class="text-center text-gray-500 text-sm">+ 7 more slides customized for ${company} (${persona})</p>
           </div>
         `;
-      }, 2000);
+      }, 2500);
     }
 
     function qualifyLead() {
       const input = document.getElementById('leadInput').value;
-      if (!input) { alert('Please enter a company name'); return; }
+      if (!input) { alert('Please enter a company website or LinkedIn URL'); return; }
       document.getElementById('leadResult').classList.remove('hidden');
-      document.getElementById('leadDetails').innerHTML = `<div class="flex items-center gap-3 py-4"><div class="animate-spin w-5 h-5 border-2 border-reforge-orange border-t-transparent rounded-full"></div><p class="text-gray-700">Analyzing...</p></div>`;
+      document.getElementById('leadDetails').innerHTML = `
+        <div class="flex items-center gap-3 py-4">
+          <div class="animate-spin w-5 h-5 border-2 border-reforge-orange border-t-transparent rounded-full"></div>
+          <p class="text-gray-700">Scraping and analyzing...</p>
+        </div>
+      `;
       setTimeout(() => {
-        const score = Math.floor(Math.random() * 40) + 60;
+        const score = Math.floor(Math.random() * 30) + 65;
         const scoreClass = score >= 80 ? 'bg-reforge-teal/20 text-reforge-teal' : score >= 60 ? 'bg-reforge-mustard/20 text-reforge-mustard' : 'bg-reforge-orange/20 text-reforge-orange';
         document.getElementById('leadScore').className = `px-3 py-1 rounded-full text-sm font-medium ${scoreClass}`;
         document.getElementById('leadScore').textContent = `${score}% ICP Fit`;
         document.getElementById('leadDetails').innerHTML = `
           <div class="space-y-3">
             <div class="grid grid-cols-2 gap-4">
-              <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs text-gray-500">Size</p><p class="font-medium text-gray-900">~150 ✓</p></div>
+              <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs text-gray-500">Estimated Size</p><p class="font-medium text-gray-900">~180 employees ✓</p></div>
               <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs text-gray-500">Industry</p><p class="font-medium text-gray-900">B2B SaaS ✓</p></div>
+              <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs text-gray-500">AI Signals</p><p class="font-medium text-reforge-teal">Cursor in job posts ✓</p></div>
+              <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs text-gray-500">Product Motion</p><p class="font-medium text-gray-900">Product-led ✓</p></div>
             </div>
             <div class="bg-reforge-teal/10 border border-reforge-teal/30 rounded-lg p-3">
-              <p class="text-reforge-teal font-medium text-sm">Recommended: Proceed to outreach</p>
+              <p class="text-reforge-teal font-medium text-sm">✓ Recommended: Proceed to outreach</p>
+              <p class="text-xs text-gray-600 mt-1">Target: Product Leaders | Lead with: Product Debt framing</p>
             </div>
           </div>
         `;
-      }, 1500);
+      }, 2000);
     }
 
     populateUI();
