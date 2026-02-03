@@ -11,7 +11,7 @@
     {
       "id": "henry",
       "name": "Henry",
-      "avatar": "\u26a1",
+      "avatar": "⚡",
       "role": "ai"
     }
   ],
@@ -19,7 +19,7 @@
     {
       "id": "sos",
       "name": "SOS",
-      "icon": "\ud83c\udd98",
+      "icon": "🆘",
       "description": "Disaster coordination platform",
       "focus": "product",
       "color": "#5cb85c",
@@ -39,7 +39,7 @@
     {
       "id": "reforge",
       "name": "Reforge",
-      "icon": "\ud83d\udcbc",
+      "icon": "💼",
       "description": "Enterprise sales role",
       "focus": "sales",
       "color": "#4a90d4",
@@ -58,7 +58,7 @@
     {
       "id": "harmony",
       "name": "Harmony Strategy",
-      "icon": "\ud83c\udfaf",
+      "icon": "🎯",
       "description": "GTM consulting practice",
       "focus": "operations",
       "color": "#d4a530",
@@ -93,7 +93,7 @@
     {
       "id": "grunt",
       "name": "Grunt",
-      "icon": "\u26a1",
+      "icon": "⚡",
       "description": "AI operations & capabilities",
       "focus": "meta",
       "color": "#8b5cf6",
@@ -112,7 +112,7 @@
     {
       "id": "henry",
       "name": "Henry",
-      "icon": "\u26a1",
+      "icon": "⚡",
       "description": "AI Operating System",
       "focus": "operations",
       "color": "#5cb85c",
@@ -580,7 +580,7 @@
       "createdBy": "jonathan",
       "createdAt": "2026-02-03T01:24:10.194026Z",
       "tags": [],
-      "notes": "Survivor \u2194 RV \u2194 Driver matching"
+      "notes": "Survivor ↔ RV ↔ Driver matching"
     },
     {
       "id": "t24",
@@ -650,7 +650,7 @@
     {
       "id": "t29",
       "projectId": "sos",
-      "title": "Create end-to-end demo video (survivor \u2192 match \u2192 resolution)",
+      "title": "Create end-to-end demo video (survivor → match → resolution)",
       "priority": "P1",
       "status": "todo",
       "section": "Demo Preparation",
@@ -1205,7 +1205,7 @@
       "createdBy": "jonathan",
       "createdAt": "2026-02-03T01:24:10.194172Z",
       "tags": [],
-      "notes": "Cross-sell: Harmony \u2192 SOS"
+      "notes": "Cross-sell: Harmony → SOS"
     },
     {
       "id": "t72",
@@ -1262,7 +1262,7 @@
     {
       "id": "t76",
       "projectId": "grunt",
-      "title": "Implement Grunt swipe \u2192 decision trace capture",
+      "title": "Implement Grunt swipe → decision trace capture",
       "priority": "P1",
       "status": "in_progress",
       "section": "Infrastructure",
@@ -1927,7 +1927,7 @@
           "Bridge to Reforge Insights conversation"
         ],
         "revenue": "$15K Reforge + Harmony expansion",
-        "notes": "CEO sponsor for both deals. Success \u2192 opens FP portfolio."
+        "notes": "CEO sponsor for both deals. Success → opens FP portfolio."
       },
       {
         "rank": 2,
@@ -2092,5 +2092,27 @@
         "angle": "$1.5B unicorn, fleet management, record H1 2025"
       }
     }
-  }
+  },
+  "harmony_billing": [
+    {
+      "id": "inv-001",
+      "client": "Litmos",
+      "invoiceNumber": 1,
+      "amount": 30000,
+      "status": "paid",
+      "sentDate": "2026-01-01",
+      "dueDate": "2026-02-01",
+      "paidDate": "2026-01-28"
+    },
+    {
+      "id": "inv-002",
+      "client": "Litmos",
+      "invoiceNumber": 2,
+      "amount": 30000,
+      "status": "sent",
+      "sentDate": "2026-02-03",
+      "dueDate": "2026-03-01",
+      "paidDate": null
+    }
+  ]
 }
