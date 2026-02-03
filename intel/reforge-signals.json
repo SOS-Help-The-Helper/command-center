@@ -1,12 +1,45 @@
 {
-  "lastUpdated": "2026-02-02T22:00:00Z",
+  "lastUpdated": "2026-02-03T14:00:00Z",
   "runType": "scheduled_intel",
   "summary": {
     "highPriority": 2,
-    "newSignals": 6,
+    "newSignals": 3,
     "alertsRequiringAction": 1
   },
   "signals": [
+    {
+      "timestamp": "2026-02-03T14:00:00Z",
+      "type": "event_opportunity",
+      "company": "Ecovadis",
+      "dealValue": 18000,
+      "stage": "Pilot Starting",
+      "signal": "Ecovadis hosting Sustain 2026 event Mar 2-3 in Paris. Major procurement/sustainability leaders attending. Company actively publishing thought leadership.",
+      "urgency": "medium",
+      "recommendation": "Use Sustain 2026 as conversation point in Wed pilot kickoff. Ask who's attending, offer to connect.",
+      "source": "web_research"
+    },
+    {
+      "timestamp": "2026-02-03T14:00:00Z",
+      "type": "risk_signal",
+      "company": "Neo Financial",
+      "dealValue": 60000,
+      "stage": "Pre-Pilot",
+      "signal": "Reddit posts (Mar 2025) mention 'soft layoffs' at Neo Financial. Company denies 'structured layoffs' but admits 'driven efficiencies'.",
+      "urgency": "medium",
+      "recommendation": "Validate budget before investing more time. Ask direct questions about hiring freeze/budget availability.",
+      "source": "web_research"
+    },
+    {
+      "timestamp": "2026-02-03T14:00:00Z",
+      "type": "validation_signal",
+      "company": "Fleetio",
+      "dealValue": null,
+      "stage": "Discovery Thu",
+      "signal": "Fleetio very active - exhibiting at NAFA, GFX, Work Truck Week, CONEXPO in 2026. Publishing operational best practices content. Healthy growth signals.",
+      "urgency": "low",
+      "recommendation": "Solid prospect. Thu meeting should focus on their scaling challenges.",
+      "source": "web_research"
+    },
     {
       "timestamp": "2026-02-02T22:00:00Z",
       "type": "deal_acceleration",
