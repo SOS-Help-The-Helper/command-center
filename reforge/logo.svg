@@ -1,5 +1,6 @@
-<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Reforge logo - two curved flame/wave shapes -->
-  <path d="M20 8C14 8 10 14 12 20C14 26 20 28 26 24C32 20 30 12 24 10C22 9 20 8 20 8Z" fill="currentColor"/>
-  <path d="M28 16C24 14 20 16 18 20C16 24 18 30 24 32C30 34 34 28 32 22C31 19 29 17 28 16Z" fill="currentColor"/>
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bottom-left crescent wave -->
+  <path d="M20 78 Q8 68 12 52 Q16 40 32 36 Q42 34 46 42 Q50 50 42 58 Q34 66 24 74 Q22 76 20 78Z" fill="currentColor"/>
+  <!-- Top-right larger crescent wave -->  
+  <path d="M38 56 Q28 44 36 28 Q44 14 64 16 Q82 18 86 36 Q90 52 76 64 Q62 74 46 66 Q42 64 38 56Z" fill="currentColor"/>
 </svg>

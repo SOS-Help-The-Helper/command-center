@@ -1,0 +1,4 @@
+<svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M28 72 C18 62, 20 45, 38 42 C48 40, 52 48, 46 56 C40 64, 32 70, 28 72Z" fill="#000"/>
+  <path d="M42 58 C34 48, 38 30, 56 26 C74 22, 82 36, 78 54 C74 68, 56 72, 42 58Z" fill="#000"/>
+</svg>
