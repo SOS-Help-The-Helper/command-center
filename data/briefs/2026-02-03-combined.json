@@ -1,0 +1,128 @@
+{
+  "date": "2026-02-03",
+  "dayOfWeek": "Tuesday",
+  "lastUpdated": "2026-02-03T15:35:00Z",
+  "dataSource": {
+    "reforgeEmail": "browser_extension",
+    "reforgeCalendar": "browser_extension", 
+    "harmonyCalendar": "gog_cli",
+    "harmonyEmail": "gog_cli",
+    "intelAgents": "spawned"
+  },
+  
+  "urgentSignals": [
+    {
+      "type": "hot_lead",
+      "project": "reforge",
+      "company": "Dominique (Laeka)",
+      "signal": "Excited about renewal deck - 'The deck looks great!'",
+      "action": "Strike while hot - send follow-up to close",
+      "timestamp": "2026-02-03T01:13:00-05:00"
+    },
+    {
+      "type": "meeting_today",
+      "project": "sos",
+      "event": "SOS Partner Walkthrough",
+      "time": "15:00-17:00 EST",
+      "action": "Prepare for partner walkthrough at 3pm"
+    },
+    {
+      "type": "client_risk",
+      "project": "harmony",
+      "company": "DI Global",
+      "signal": "13 weeks overdue, refund requested",
+      "action": "Resolve or refund within 48h"
+    },
+    {
+      "type": "deadline",
+      "project": "harmony",
+      "item": "ALLY DUE TOMORROW",
+      "date": "2026-02-05"
+    }
+  ],
+  
+  "todayMeetings": {
+    "reforge": [
+      {"time": "10:15-10:45 EST", "title": "withgrowth: Reforge", "type": "discovery"},
+      {"time": "12:15-12:45 EST", "title": "Canon Press: Reforge", "type": "discovery"},
+      {"time": "13:00-13:45 EST", "title": "Weekly SaaS Pipeline Call Review", "type": "internal"},
+      {"time": "16:30-17:00 EST", "title": "Weekly Pipeline Sync - Insights", "type": "internal"}
+    ],
+    "harmony": [
+      {"time": "14:00-14:25 EST", "title": "JG <> JG Chat", "type": "internal"},
+      {"time": "15:00-17:00 EST", "title": "SOS Partner Walkthrough", "type": "sos_critical"}
+    ],
+    "personal": [
+      {"time": "18:00-22:00 EST", "title": "Date Night", "type": "personal"}
+    ]
+  },
+  
+  "weekOverview": {
+    "reforge": {
+      "totalMeetings": 23,
+      "byType": {
+        "discovery": 7,
+        "strategy": 2,
+        "build": 3,
+        "pilot": 3,
+        "internal": 5
+      },
+      "keyMeetings": [
+        {"date": "Wed 2/4", "company": "Yazio", "type": "Pilot", "value": "$15K"},
+        {"date": "Wed 2/4", "company": "Delos Ventures", "type": "Build"},
+        {"date": "Wed 2/4", "company": "Console", "type": "Pilot Config", "value": "$15K"},
+        {"date": "Thu 2/5", "company": "Ecovadis", "type": "Pilot Kickoff", "value": "$18K"},
+        {"date": "Thu 2/5", "company": "Raphael Menachem (Isracard)", "type": "Strategy"}
+      ]
+    },
+    "harmony": {
+      "keyItems": [
+        {"date": "Wed 2/4", "item": "CX Ops | Customer Journey Documentation"},
+        {"date": "Thu 2/5", "item": "ALLY DUE"},
+        {"date": "Wed 2/4", "item": "Call KCs parents"}
+      ]
+    },
+    "sos": {
+      "blocks": 2,
+      "items": [
+        {"date": "Tue 2/3", "item": "Partner Walkthrough 3pm"},
+        {"date": "Wed 2/4", "item": "SOS block 5:30pm"}
+      ]
+    }
+  },
+  
+  "emailActionItems": [
+    {
+      "from": "Dominique (Laeka)",
+      "subject": "Re: Reforge Renewal",
+      "status": "HOT",
+      "action": "Follow up on enthusiasm, push to close"
+    },
+    {
+      "from": "Cory",
+      "subject": "Is this worth building?",
+      "status": "warm",
+      "action": "Await scheduling for next week"
+    },
+    {
+      "from": "Balaji Ramakrishnan",
+      "subject": "Is this worth building?",
+      "status": "warm",
+      "action": "Schedule for following week (traveling)"
+    },
+    {
+      "from": "Prasanth (Maestro)",
+      "subject": "Next Steps - Build Demo",
+      "status": "pending_internal",
+      "action": "Await internal discussion outcome"
+    }
+  ],
+  
+  "calendarAcceptances": [
+    {"person": "johnny bengtsson", "event": "Fri Feb 6 10:30am"},
+    {"person": "Bohuslav Benuch", "event": "Wed Feb 4 11am (tentative)"},
+    {"person": "Maya (Elsevier)", "event": "Elsevier: Reforge"},
+    {"person": "Raphael Menachem", "event": "Thu Feb 5 12pm"},
+    {"person": "Nathan Busscher (Delos Ventures)", "event": "Wed Feb 4 12:45pm"}
+  ]
+}
