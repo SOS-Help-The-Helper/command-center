@@ -1,0 +1,18 @@
+{
+  "queue": [],
+  "connected": [],
+  "limits": {
+    "dailyMax": 20,
+    "weeklyMax": 100,
+    "minDelaySeconds": 60,
+    "maxDelaySeconds": 300
+  },
+  "stats": {
+    "todayCount": 0,
+    "weekCount": 0,
+    "lastConnectTime": null,
+    "lastResetDate": null,
+    "lastWeekReset": null
+  },
+  "defaultMessage": "Hi {{firstName}}, I noticed you recently joined {{company}} as {{title}}. I work with product leaders on discovery and customer research - would love to connect and learn more about your work!"
+}

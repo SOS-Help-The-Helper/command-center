@@ -904,9 +904,15 @@
                 <p class="text-sm text-reforge-muted">Progress</p>
                 <p class="text-lg font-bold"><span id="qualifiedCount" class="text-reforge-teal">0</span> qualified / <span id="reviewedCount" class="text-reforge-orange">0</span> reviewed</p>
               </div>
-              <button onclick="exportQualifiedLeads()" class="btn-secondary px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
-                📥 Export Qualified
-              </button>
+              <div class="flex items-center gap-2">
+                <button onclick="exportQueue()" class="btn-secondary px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 relative">
+                  🔗 LinkedIn Queue
+                  <span id="queueBadge" class="absolute -top-2 -right-2 w-5 h-5 bg-reforge-orange text-white text-xs rounded-full items-center justify-center hidden">0</span>
+                </button>
+                <button onclick="exportQualifiedLeads()" class="btn-primary px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
+                  📥 Export Qualified
+                </button>
+              </div>
             </div>
           </div>
         </header>
@@ -1648,6 +1654,7 @@ ${score.breakdown.map(b => `  ${b.points > 0 ? '+' : ''}${b.points} ${b.factor}:
         sampleLeads = data;
         leads = [...sampleLeads];
         renderCards();
+        updateQueueBadge();
       })
       .catch(e => {
         console.error('Failed to load leads:', e);
@@ -1856,13 +1863,52 @@ ${score.breakdown.map(b => `  ${b.points > 0 ? '+' : ''}${b.points} ${b.factor}:
       if (!card || currentIndex >= leads.length) return;
       
       card.classList.add('animate-right');
-      qualifiedLeads.push(leads[currentIndex]);
+      const lead = leads[currentIndex];
+      qualifiedLeads.push(lead);
+      
+      // Add to LinkedIn connection queue in localStorage
+      const queue = JSON.parse(localStorage.getItem('linkedinQueue') || '[]');
+      queue.push({
+        ...lead,
+        queuedAt: new Date().toISOString(),
+        status: 'pending'
+      });
+      localStorage.setItem('linkedinQueue', JSON.stringify(queue));
+      
       updateRecentQualified();
+      updateQueueBadge();
       
       setTimeout(() => {
         currentIndex++;
         renderCards();
       }, 350);
+    }
+    
+    function updateQueueBadge() {
+      const queue = JSON.parse(localStorage.getItem('linkedinQueue') || '[]');
+      const pending = queue.filter(l => l.status === 'pending').length;
+      const badge = document.getElementById('queueBadge');
+      if (badge) {
+        badge.textContent = pending;
+        badge.style.display = pending > 0 ? 'flex' : 'none';
+      }
+    }
+    
+    function exportQueue() {
+      const queue = JSON.parse(localStorage.getItem('linkedinQueue') || '[]');
+      const blob = new Blob([JSON.stringify(queue, null, 2)], {type: 'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'linkedin_queue_' + new Date().toISOString().split('T')[0] + '.json';
+      a.click();
+    }
+    
+    function clearQueue() {
+      if (confirm('Clear all queued LinkedIn connections?')) {
+        localStorage.setItem('linkedinQueue', '[]');
+        updateQueueBadge();
+      }
     }
 
     function updateStats() {
