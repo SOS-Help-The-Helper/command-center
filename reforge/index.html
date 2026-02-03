@@ -71,6 +71,66 @@
     @keyframes swipeRight {
       to { transform: translateX(150%) rotate(30deg); opacity: 0; }
     }
+    
+    /* Tinder-style card stack */
+    .card-stack-item {
+      position: absolute;
+      width: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: grab;
+    }
+    .card-stack-item:active {
+      cursor: grabbing;
+    }
+    .card-stack-item:nth-child(1) {
+      z-index: 3;
+      transform: scale(1);
+    }
+    .card-stack-item:nth-child(2) {
+      z-index: 2;
+      transform: scale(0.95) translateY(10px);
+      filter: brightness(0.97);
+    }
+    .card-stack-item:nth-child(3) {
+      z-index: 1;
+      transform: scale(0.9) translateY(20px);
+      filter: brightness(0.94);
+    }
+    
+    /* Swipe overlays */
+    .swipe-card .swipe-overlay {
+      position: absolute;
+      top: 20px;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-size: 24px;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.2s;
+      z-index: 10;
+    }
+    .swipe-card .swipe-overlay.nope {
+      left: 20px;
+      background: #fff;
+      color: var(--reforge-orange);
+      border: 3px solid var(--reforge-orange);
+      transform: rotate(-15deg);
+    }
+    .swipe-card .swipe-overlay.like {
+      right: 20px;
+      background: #fff;
+      color: var(--reforge-teal);
+      border: 3px solid var(--reforge-teal);
+      transform: rotate(15deg);
+    }
+    
+    /* Dragging states */
+    .swipe-card.dragging-left .swipe-overlay.nope {
+      opacity: 1;
+    }
+    .swipe-card.dragging-right .swipe-overlay.like {
+      opacity: 1;
+    }
     .card-stack-item {
       position: absolute;
       width: 100%;
@@ -896,12 +956,13 @@
             <div class="card rounded-xl p-5">
               <h3 class="font-semibold mb-3 text-gray-900 text-sm">ICP Criteria</h3>
               <div class="space-y-2 text-xs">
-                <div class="flex items-start gap-2"><span class="text-reforge-teal">✓</span><span>51-500+ employees</span></div>
-                <div class="flex items-start gap-2"><span class="text-reforge-teal">✓</span><span>B2B SaaS / Dev Tools</span></div>
-                <div class="flex items-start gap-2"><span class="text-reforge-teal">✓</span><span>AI coding tools adopted</span></div>
-                <div class="flex items-start gap-2"><span class="text-reforge-teal">✓</span><span>Product-led growth</span></div>
-                <div class="flex items-start gap-2"><span class="text-reforge-orange">✗</span><span>Hardware / Mobile-first</span></div>
+                <div class="flex items-start gap-2"><span class="text-reforge-teal">✓</span><span>50-1,000 employees</span></div>
+                <div class="flex items-start gap-2"><span class="text-reforge-teal">✓</span><span>B2B / B2C / B2B2C</span></div>
+                <div class="flex items-start gap-2"><span class="text-reforge-teal">✓</span><span>Web app (not mobile-only)</span></div>
+                <div class="flex items-start gap-2"><span class="text-reforge-teal">✓</span><span>Product team hiring</span></div>
+                <div class="flex items-start gap-2"><span class="text-reforge-orange">✗</span><span>Hardware companies</span></div>
               </div>
+              <p class="text-xs text-reforge-muted mt-3 pt-3 border-t border-gray-100">Signals from: Apollo, LinkedIn, job posts</p>
             </div>
             
             <div class="card rounded-xl p-5">
@@ -1709,6 +1770,14 @@ ${score.breakdown.map(b => `  ${b.points > 0 ? '+' : ''}${b.points} ${b.factor}:
       const card = document.querySelector('.swipe-card.swiping');
       if (!card) return;
       
+      // Show SKIP/QUALIFY overlays based on drag direction
+      card.classList.remove('dragging-left', 'dragging-right');
+      if (currentX < -30) {
+        card.classList.add('dragging-left');
+      } else if (currentX > 30) {
+        card.classList.add('dragging-right');
+      }
+      
       const rotation = currentX * 0.05;
       card.style.transform = `translateX(${currentX}px) rotate(${rotation}deg)`;
       
@@ -1749,6 +1818,12 @@ ${score.breakdown.map(b => `  ${b.points > 0 ? '+' : ''}${b.points} ${b.factor}:
       card.classList.remove('swiping');
       document.getElementById('swipeLeftIndicator').style.opacity = 0;
       document.getElementById('swipeRightIndicator').style.opacity = 0;
+      
+      // Clean up drag classes
+      const card = document.querySelector('.swipe-card');
+      if (card) {
+        card.classList.remove('dragging-left', 'dragging-right');
+      }
       
       if (currentX < -100) {
         swipeLeft();
