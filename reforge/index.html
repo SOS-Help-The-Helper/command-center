@@ -887,25 +887,8 @@
               </div>
             </div>
 
-            <!-- Action Buttons -->
-            <!-- BUTTONS BELOW -->
-            <div id="actionButtons" class="flex items-center justify-center gap-6 mt-4 py-4 bg-red-500 rounded-lg" style="background: red !important; padding: 20px;">
-              <button onclick="swipeLeft()" class="w-16 h-16 rounded-full bg-white border-2 border-reforge-orange hover:bg-reforge-orange/10 flex items-center justify-center transition-all shadow-lg hover:shadow-xl active:scale-95">
-                <span class="text-3xl text-reforge-orange">✗</span>
-              </button>
-              <div class="text-center text-sm text-reforge-muted">
-                <p>← A or ←</p>
-                <p class="font-medium">Skip</p>
-              </div>
-              <div class="w-px h-12 bg-gray-200"></div>
-              <div class="text-center text-sm text-reforge-muted">
-                <p>D or → →</p>
-                <p class="font-medium">Qualify</p>
-              </div>
-              <button onclick="swipeRight()" class="w-16 h-16 rounded-full bg-white border-2 border-reforge-teal hover:bg-reforge-teal/10 flex items-center justify-center transition-all shadow-lg hover:shadow-xl active:scale-95">
-                <span class="text-3xl text-reforge-teal">✓</span>
-              </button>
-            </div>
+            <!-- Keyboard hint -->
+            <p class="text-center text-sm text-reforge-muted mt-4">Keyboard: A/← skip • D/→ qualify</p>
           </div>
 
           <!-- Sidebar -->
@@ -1629,15 +1612,21 @@ ${score.breakdown.map(b => `  ${b.points > 0 ? '+' : ''}${b.points} ${b.factor}:
     function renderCard(lead, index) {
       const scoreColor = getScoreColor(lead.icp_score);
       const signals = lead.signals || [];
+      const companyDomain = lead.website || (lead.company ? lead.company.toLowerCase().replace(/[^a-z0-9]/g, '') + '.com' : '');
       return `
         <div class="swipe-card card-stack-item p-6" data-index="${index}" style="--score: ${lead.icp_score}; --score-color: ${scoreColor}">
-          <div class="swipe-overlay nope">NOPE</div>
-          <div class="swipe-overlay like">LIKE</div>
+          <div class="swipe-overlay nope">SKIP</div>
+          <div class="swipe-overlay like">QUALIFY</div>
           
           <div class="flex items-start justify-between mb-4">
             <div>
-              <h3 class="text-xl font-bold text-gray-900">${lead.company}</h3>
-              <p class="text-reforge-muted">${lead.industry || 'Tech'}</p>
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold text-gray-900">${lead.company}</h3>
+                <a href="https://${companyDomain}" target="_blank" class="text-reforge-muted hover:text-reforge-teal" title="Visit website">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+              </div>
+              <p class="text-reforge-muted text-sm">${lead.industry || 'Technology'}</p>
             </div>
             <div class="icp-score-ring">
               <div class="icp-score-ring-inner" style="color: ${scoreColor}">${lead.icp_score}</div>
@@ -1646,11 +1635,14 @@ ${score.breakdown.map(b => `  ${b.points > 0 ? '+' : ''}${b.points} ${b.factor}:
           
           <div class="bg-gray-50 rounded-lg p-4 mb-4">
             <div class="flex items-center gap-3 mb-3">
-              <div class="w-10 h-10 rounded-full bg-reforge-teal/20 flex items-center justify-center text-lg">
+              <div class="w-10 h-10 rounded-full bg-reforge-teal/20 flex items-center justify-center text-lg font-medium">
                 ${(lead.person || 'U').charAt(0)}
               </div>
               <div>
-                <p class="font-semibold text-gray-900">${lead.person || 'Unknown'}</p>
+                <div class="flex items-center gap-2">
+                  <p class="font-semibold text-gray-900">${lead.person || 'Unknown'}</p>
+                  ${lead.linkedin ? `<a href="${lead.linkedin}" target="_blank" class="text-reforge-teal hover:text-reforge-teal/70"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>` : ''}
+                </div>
                 <p class="text-sm text-reforge-muted">${lead.title || 'Product Leader'}</p>
               </div>
             </div>
@@ -1662,12 +1654,14 @@ ${score.breakdown.map(b => `  ${b.points > 0 ? '+' : ''}${b.points} ${b.factor}:
             </div>
           </div>
           
-          ${lead.linkedin ? `
-          <a href="${lead.linkedin}" target="_blank" class="text-sm text-reforge-teal hover:underline mb-3 block">View LinkedIn →</a>
-          ` : ''}
-          
-          <div class="border-t border-gray-100 pt-4">
-            <p class="text-sm text-gray-600"><span class="font-medium">Assessment:</span> ${lead.summary || 'Qualified lead'}</p>
+          <!-- Action buttons integrated into card -->
+          <div class="flex items-center justify-center gap-4 pt-2 border-t border-gray-100">
+            <button onclick="event.stopPropagation(); swipeLeft()" class="flex-1 py-3 px-4 rounded-lg border-2 border-reforge-orange text-reforge-orange font-medium hover:bg-reforge-orange/10 transition-all flex items-center justify-center gap-2">
+              <span class="text-xl">✗</span> Skip
+            </button>
+            <button onclick="event.stopPropagation(); swipeRight()" class="flex-1 py-3 px-4 rounded-lg bg-reforge-teal text-white font-medium hover:bg-reforge-teal/90 transition-all flex items-center justify-center gap-2">
+              <span class="text-xl">✓</span> Qualify
+            </button>
           </div>
         </div>
       `;
