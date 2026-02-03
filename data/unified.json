@@ -1,341 +1,1454 @@
 {
   "version": "1.1.0",
-  "lastUpdated": "2026-02-02T05:45:00Z",
-  
+  "lastUpdated": "2026-02-03T01:24:10.194235Z",
   "contributors": [
-    { "id": "jonathan", "name": "Jonathan", "avatar": "J", "role": "founder" },
-    { "id": "henry", "name": "Henry", "avatar": "⚡", "role": "ai" }
+    {
+      "id": "jonathan",
+      "name": "Jonathan",
+      "avatar": "J",
+      "role": "founder"
+    },
+    {
+      "id": "henry",
+      "name": "Henry",
+      "avatar": "\u26a1",
+      "role": "ai"
+    }
   ],
-  
   "projects": [
     {
       "id": "sos",
       "name": "SOS",
-      "icon": "🆘",
+      "icon": "\ud83c\udd98",
       "description": "Disaster coordination platform",
       "focus": "product",
       "color": "#5cb85c",
-      "sections": ["product", "intelligence", "tasks", "operations", "growth"],
-      "kpis": ["mvp_progress", "grants_submitted", "partnerships"]
+      "sections": [
+        "product",
+        "intelligence",
+        "tasks",
+        "operations",
+        "growth"
+      ],
+      "kpis": [
+        "mvp_progress",
+        "grants_submitted",
+        "partnerships"
+      ]
     },
     {
       "id": "reforge",
       "name": "Reforge",
-      "icon": "💼",
+      "icon": "\ud83d\udcbc",
       "description": "Enterprise sales role",
       "focus": "sales",
       "color": "#4a90d4",
-      "sections": ["sales", "tasks", "operations", "intelligence"],
-      "kpis": ["pipeline_value", "quota_attainment", "deals_closed"]
+      "sections": [
+        "sales",
+        "tasks",
+        "operations",
+        "intelligence"
+      ],
+      "kpis": [
+        "pipeline_value",
+        "quota_attainment",
+        "deals_closed"
+      ]
     },
     {
       "id": "harmony",
       "name": "Harmony Strategy",
-      "icon": "🎯",
+      "icon": "\ud83c\udfaf",
       "description": "GTM consulting practice",
       "focus": "operations",
       "color": "#d4a530",
-      "sections": ["sales", "operations", "tasks", "growth"],
-      "kpis": ["revenue", "margin", "active_clients"]
+      "sections": [
+        "sales",
+        "operations",
+        "tasks",
+        "growth"
+      ],
+      "kpis": [
+        "revenue",
+        "margin",
+        "active_clients"
+      ]
     },
     {
       "id": "grunt",
       "name": "Grunt",
-      "icon": "⚡",
+      "icon": "\u26a1",
       "description": "AI operations & capabilities",
       "focus": "meta",
       "color": "#8b5cf6",
-      "sections": ["product", "operations", "intelligence", "tasks"],
-      "kpis": ["api_costs", "uptime", "capabilities"]
+      "sections": [
+        "product",
+        "operations",
+        "intelligence",
+        "tasks"
+      ],
+      "kpis": [
+        "api_costs",
+        "uptime",
+        "capabilities"
+      ]
     }
   ],
-  
   "metrics": [
-    { "id": "m1", "projectId": "reforge", "section": "sales", "name": "Pipeline Value", "value": 311000, "format": "currency", "trend": "up", "target": 500000 },
-    { "id": "m2", "projectId": "reforge", "section": "sales", "name": "Won 2025", "value": 50000, "format": "currency", "trend": "flat" },
-    { "id": "m3", "projectId": "reforge", "section": "sales", "name": "Re-engageable", "value": 508000, "format": "currency", "trend": "flat" },
-    { "id": "m4", "projectId": "reforge", "section": "sales", "name": "Quota Attainment", "value": 21, "format": "percent", "trend": "up", "target": 100 },
-    
-    { "id": "m5", "projectId": "sos", "section": "product", "name": "MVP Progress", "value": 35, "format": "percent", "trend": "up", "target": 100 },
-    { "id": "m6", "projectId": "sos", "section": "growth", "name": "Grants Researched", "value": 25, "format": "number", "trend": "up", "target": 20 },
-    { "id": "m7", "projectId": "sos", "section": "growth", "name": "Funding Raised", "value": 60000, "format": "currency", "trend": "flat", "target": 1800000 },
-    { "id": "m14", "projectId": "sos", "section": "intelligence", "name": "Intel Items", "value": 12, "format": "number", "trend": "up" },
-    { "id": "m15", "projectId": "sos", "section": "growth", "name": "TAM Identified", "value": 450, "format": "currency", "trend": "up", "notes": "millions ARR high estimate" },
-    
-    { "id": "m8", "projectId": "harmony", "section": "sales", "name": "Active Clients", "value": 2, "format": "number" },
-    { "id": "m9", "projectId": "harmony", "section": "operations", "name": "Avg Margin", "value": 45, "format": "percent", "target": 60 },
-    { "id": "m10", "projectId": "harmony", "section": "sales", "name": "2025 Revenue", "value": 15000, "format": "currency", "target": 100000 },
-    
-    { "id": "m11", "projectId": "grunt", "section": "operations", "name": "API Costs (MTD)", "value": 47.50, "format": "currency" },
-    { "id": "m12", "projectId": "grunt", "section": "operations", "name": "Uptime", "value": 99.9, "format": "percent" },
-    { "id": "m13", "projectId": "grunt", "section": "product", "name": "Active Skills", "value": 12, "format": "number" }
+    {
+      "id": "m1",
+      "projectId": "reforge",
+      "section": "sales",
+      "name": "Pipeline Value",
+      "value": 311000,
+      "format": "currency",
+      "trend": "up",
+      "target": 500000
+    },
+    {
+      "id": "m2",
+      "projectId": "reforge",
+      "section": "sales",
+      "name": "Won 2025",
+      "value": 50000,
+      "format": "currency",
+      "trend": "flat"
+    },
+    {
+      "id": "m3",
+      "projectId": "reforge",
+      "section": "sales",
+      "name": "Re-engageable",
+      "value": 508000,
+      "format": "currency",
+      "trend": "flat"
+    },
+    {
+      "id": "m4",
+      "projectId": "reforge",
+      "section": "sales",
+      "name": "Quota Attainment",
+      "value": 21,
+      "format": "percent",
+      "trend": "up",
+      "target": 100
+    },
+    {
+      "id": "m5",
+      "projectId": "sos",
+      "section": "product",
+      "name": "MVP Progress",
+      "value": 75,
+      "format": "percent",
+      "trend": "up",
+      "target": 100
+    },
+    {
+      "id": "m6",
+      "projectId": "sos",
+      "section": "growth",
+      "name": "Grants Researched",
+      "value": 25,
+      "format": "number",
+      "trend": "up",
+      "target": 20
+    },
+    {
+      "id": "m7",
+      "projectId": "sos",
+      "section": "growth",
+      "name": "Funding Raised",
+      "value": 60000,
+      "format": "currency",
+      "trend": "flat",
+      "target": 1800000
+    },
+    {
+      "id": "m14",
+      "projectId": "sos",
+      "section": "intelligence",
+      "name": "Intel Items",
+      "value": 12,
+      "format": "number",
+      "trend": "up"
+    },
+    {
+      "id": "m15",
+      "projectId": "sos",
+      "section": "growth",
+      "name": "TAM Identified",
+      "value": 450,
+      "format": "currency",
+      "trend": "up",
+      "notes": "millions ARR high estimate"
+    },
+    {
+      "id": "m8",
+      "projectId": "harmony",
+      "section": "sales",
+      "name": "Active Clients",
+      "value": 2,
+      "format": "number"
+    },
+    {
+      "id": "m9",
+      "projectId": "harmony",
+      "section": "operations",
+      "name": "Avg Margin",
+      "value": 45,
+      "format": "percent",
+      "target": 60
+    },
+    {
+      "id": "m10",
+      "projectId": "harmony",
+      "section": "sales",
+      "name": "2025 Revenue",
+      "value": 15000,
+      "format": "currency",
+      "target": 100000
+    },
+    {
+      "id": "m11",
+      "projectId": "grunt",
+      "section": "operations",
+      "name": "API Costs (MTD)",
+      "value": 47.5,
+      "format": "currency"
+    },
+    {
+      "id": "m12",
+      "projectId": "grunt",
+      "section": "operations",
+      "name": "Uptime",
+      "value": 99.9,
+      "format": "percent"
+    },
+    {
+      "id": "m13",
+      "projectId": "grunt",
+      "section": "product",
+      "name": "Active Skills",
+      "value": 12,
+      "format": "number"
+    }
   ],
-  
   "tasks": [
     {
       "id": "t1",
       "projectId": "sos",
-      "title": "Complete Supabase schema migration",
-      "priority": "P0",
-      "status": "in_progress",
-      "section": "product",
+      "title": "Set Helene slack_channel_id for match announcements",
+      "priority": "P1",
+      "status": "todo",
+      "section": "Product Development",
       "assigneeId": "henry",
       "createdBy": "jonathan",
-      "createdAt": "2026-02-01T20:00:00Z",
-      "tags": ["technical", "database"]
+      "createdAt": "2026-02-03T01:24:10.193909Z",
+      "tags": [],
+      "notes": "Blocking Aid Arena testing",
+      "dueDate": "2026-02-03"
     },
     {
       "id": "t2",
       "projectId": "sos",
-      "title": "Research 20+ foundation grant opportunities",
-      "priority": "P0",
-      "status": "done",
-      "section": "growth",
+      "title": "Set up cron jobs (matching every 15min, canvas refresh 5min)",
+      "priority": "P1",
+      "status": "todo",
+      "section": "Product Development",
       "assigneeId": "henry",
       "createdBy": "jonathan",
-      "createdAt": "2026-02-01T20:00:00Z",
-      "completedAt": "2026-02-02T05:45:00Z",
-      "tags": ["grants", "funding"],
-      "notes": "25 grants researched, saved to grants.json with full details"
+      "createdAt": "2026-02-03T01:24:10.193926Z",
+      "tags": [],
+      "notes": "Match engine needs scheduled runs",
+      "dueDate": "2026-02-03"
     },
     {
       "id": "t3",
       "projectId": "sos",
-      "title": "Build Slack integration prototype",
-      "priority": "P1",
+      "title": "Configure Slack app shortcuts in dashboard",
+      "priority": "P2",
       "status": "pending",
-      "section": "product",
+      "section": "Product Development",
       "assigneeId": "henry",
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T04:15:00Z",
-      "tags": ["integration", "slack"]
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.193931Z",
+      "tags": [],
+      "notes": "Global shortcuts coded, need Slack config"
     },
     {
       "id": "t4",
-      "projectId": "reforge",
-      "title": "Follow up with Neo Financial",
-      "priority": "P0",
-      "status": "pending",
-      "section": "sales",
-      "assigneeId": "jonathan",
+      "projectId": "sos",
+      "title": "Run context graph schema migration",
+      "priority": "P1",
+      "status": "todo",
+      "section": "Product Development",
+      "assigneeId": "henry",
       "createdBy": "jonathan",
-      "createdAt": "2026-02-01T10:00:00Z",
-      "tags": ["deal", "follow-up"]
+      "createdAt": "2026-02-03T01:24:10.193935Z",
+      "tags": [],
+      "notes": "Creates decision_traces + extensions"
     },
     {
       "id": "t5",
-      "projectId": "reforge",
-      "title": "Build prospecting automation",
-      "priority": "P1",
+      "projectId": "sos",
+      "title": "Generate embeddings on decision traces",
+      "priority": "P2",
       "status": "pending",
-      "section": "operations",
+      "section": "Product Development",
       "assigneeId": "henry",
       "createdBy": "jonathan",
-      "createdAt": "2026-02-01T20:00:00Z",
-      "tags": ["automation", "prospecting"]
+      "createdAt": "2026-02-03T01:24:10.193937Z",
+      "tags": [],
+      "notes": "For precedent search - needs pgvector"
     },
     {
       "id": "t6",
-      "projectId": "harmony",
-      "title": "Review contractor margins",
-      "priority": "P1",
+      "projectId": "sos",
+      "title": "Build find similar decisions vector query",
+      "priority": "P2",
       "status": "pending",
-      "section": "operations",
-      "assigneeId": "jonathan",
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T03:00:00Z",
-      "tags": ["finance", "contractors"]
+      "section": "Product Development",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.193943Z",
+      "tags": [],
+      "notes": "Vector similarity search"
     },
     {
       "id": "t7",
-      "projectId": "grunt",
-      "title": "Build command center navigation",
-      "priority": "P0",
-      "status": "done",
-      "section": "product",
+      "projectId": "sos",
+      "title": "OAuth scope verification (canvases:write)",
+      "priority": "P3",
+      "status": "pending",
+      "section": "Product Development",
       "assigneeId": "henry",
       "createdBy": "jonathan",
-      "createdAt": "2026-02-02T05:00:00Z",
-      "tags": ["ui", "command-center"]
+      "createdAt": "2026-02-03T01:24:10.193946Z",
+      "tags": [],
+      "notes": "May need Slack app permission update"
     },
     {
       "id": "t8",
-      "projectId": "grunt",
-      "title": "Add verifiable source links to intel",
-      "priority": "P0",
+      "projectId": "sos",
+      "title": "Verify all 7 category schemas complete",
+      "priority": "P2",
       "status": "done",
-      "section": "product",
+      "section": "Product Development",
       "assigneeId": "henry",
       "createdBy": "jonathan",
-      "createdAt": "2026-02-02T04:58:00Z",
-      "tags": ["ui", "intel"]
+      "createdAt": "2026-02-03T01:24:10.193949Z",
+      "tags": [],
+      "notes": "Housing, Food, Medical, Transport, Supplies, Volunteer, Financial",
+      "completedAt": "2026-02-01"
     },
     {
       "id": "t9",
       "projectId": "sos",
-      "title": "Draft Hilton Foundation LOI",
-      "priority": "P0",
-      "status": "pending",
-      "section": "growth",
-      "assigneeId": "jonathan",
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T05:45:00Z",
-      "tags": ["grants", "funding", "hilton"],
-      "notes": "Top-ranked grant opportunity. Perfect mission alignment for disaster coordination innovation."
+      "title": "Voice intake integration (Twilio/Retell)",
+      "priority": "P3",
+      "status": "backlog",
+      "section": "Product Development",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.193976Z",
+      "tags": [],
+      "notes": "Phase 2 - voice for survivors"
     },
     {
       "id": "t10",
       "projectId": "sos",
-      "title": "Prepare EDA Disaster Supplemental application",
-      "priority": "P1",
-      "status": "pending",
-      "section": "growth",
-      "assigneeId": "jonathan",
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T05:45:00Z",
-      "dueDate": "2026-03-03",
-      "tags": ["grants", "funding", "federal"],
-      "notes": "Deadline March 3, 2026. Industry Transformation path ideal for SOS."
+      "title": "SMS intake integration",
+      "priority": "P3",
+      "status": "backlog",
+      "section": "Product Development",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.193980Z",
+      "tags": [],
+      "notes": "Phase 2 - text-based intake"
     },
     {
       "id": "t11",
       "projectId": "sos",
-      "title": "Reach out to Google.org contact",
-      "priority": "P1",
-      "status": "pending",
-      "section": "growth",
-      "assigneeId": "jonathan",
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T05:45:00Z",
-      "tags": ["grants", "funding", "google"],
-      "notes": "Google.org crisis response team funds tech-enabled disaster coordination. Request intro."
+      "title": "EDA Industry Transformation Grant - DEADLINE March 3",
+      "priority": "P0",
+      "status": "todo",
+      "section": "Grant Pipeline",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.193987Z",
+      "tags": [],
+      "notes": "Strong fit for disaster tech innovation",
+      "dueDate": "2026-03-03"
     },
     {
       "id": "t12",
       "projectId": "sos",
-      "title": "Contact 3 state EMAs for pilot conversations",
-      "priority": "P0",
-      "status": "pending",
-      "section": "growth",
-      "assigneeId": "jonathan",
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T05:45:00Z",
-      "tags": ["sales", "partnerships", "states"],
-      "notes": "Target: California (CalOES), Texas (TDEM), New Mexico ($30M contingency fund). WebEOC pain point angle."
+      "title": "Climate Resilience Fund - CSCI Grant",
+      "priority": "P1",
+      "status": "todo",
+      "section": "Grant Pipeline",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.193990Z",
+      "tags": [],
+      "notes": "Partner with community for CSCI",
+      "dueDate": "2026-03-12"
     },
     {
       "id": "t13",
       "projectId": "sos",
-      "title": "Build AI matching prototype",
+      "title": "Hilton Foundation - Disaster Relief LOI",
       "priority": "P1",
-      "status": "pending",
-      "section": "product",
+      "status": "todo",
+      "section": "Grant Pipeline",
       "assigneeId": "henry",
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T05:45:00Z",
-      "tags": ["technical", "ai", "matching"],
-      "notes": "Core differentiator per competitive analysis. Every major funder prioritizing AI."
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.193992Z",
+      "tags": [],
+      "notes": "Perfect alignment - disaster coordination innovation",
+      "dueDate": "Rolling"
     },
     {
       "id": "t14",
       "projectId": "sos",
-      "title": "Review competitive intel and refine positioning",
+      "title": "Google.org Crisis Response LOI",
       "priority": "P1",
-      "status": "pending",
-      "section": "intelligence",
-      "assigneeId": "jonathan",
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T05:45:00Z",
-      "tags": ["strategy", "competitive"],
-      "notes": "Full competitive analysis in intel/competitive-analysis.json. Key insight: community coordination is blue ocean."
+      "status": "todo",
+      "section": "Grant Pipeline",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.193995Z",
+      "tags": [],
+      "notes": "Tech focus perfect for SOS",
+      "dueDate": "Rolling"
     },
     {
       "id": "t15",
-      "projectId": "reforge",
-      "title": "Qualify 50 leads via Grunt swipe",
-      "priority": "P1",
+      "projectId": "sos",
+      "title": "Bezos Earth Fund AI Challenge - Phase II",
+      "priority": "P2",
       "status": "pending",
-      "section": "sales",
-      "assigneeId": "jonathan",
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T06:00:00Z",
-      "tags": ["qualification", "leads"]
+      "section": "Grant Pipeline",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.193998Z",
+      "tags": [],
+      "notes": "AI component aligns",
+      "dueDate": "TBD 2026"
     },
     {
       "id": "t16",
-      "projectId": "reforge",
-      "title": "Re-engage iRobot ($80K closed lost)",
-      "priority": "P1",
+      "projectId": "sos",
+      "title": "Rockefeller Foundation - Climate Resilience",
+      "priority": "P2",
       "status": "pending",
-      "section": "sales",
-      "assigneeId": "jonathan",
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T06:00:00Z",
-      "tags": ["deal", "re-engagement"]
+      "section": "Grant Pipeline",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194006Z",
+      "tags": [],
+      "notes": "$50M Adaptation Fund",
+      "dueDate": "Rolling"
     },
     {
       "id": "t17",
-      "projectId": "harmony",
-      "title": "Invoice Client A for February",
-      "priority": "P1",
-      "status": "pending",
-      "section": "operations",
-      "assigneeId": "jonathan",
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T06:00:00Z",
-      "tags": ["finance", "invoicing"]
+      "projectId": "sos",
+      "title": "Skoll Award for Social Entrepreneurship",
+      "priority": "P3",
+      "status": "backlog",
+      "section": "Grant Pipeline",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194011Z",
+      "tags": [],
+      "notes": "After MVP proven",
+      "dueDate": "Q4 2026"
     },
     {
       "id": "t18",
-      "projectId": "harmony",
-      "title": "Scope Client B RevOps project",
-      "priority": "P1",
+      "projectId": "sos",
+      "title": "FEMA EMPG - State Partnership Pitch",
+      "priority": "P2",
       "status": "pending",
-      "section": "sales",
-      "assigneeId": "jonathan",
-      "createdBy": "henry",
-      "createdAt": "2026-02-02T06:00:00Z",
-      "tags": ["scoping", "new-work"]
+      "section": "Grant Pipeline",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194013Z",
+      "tags": [],
+      "notes": "Position as eligible tech expense",
+      "dueDate": "Rolling"
     },
     {
       "id": "t19",
-      "projectId": "grunt",
-      "title": "Implement per-project command center views",
-      "priority": "P0",
-      "status": "in_progress",
-      "section": "product",
+      "projectId": "sos",
+      "title": "Walmart Foundation - Disaster Preparedness",
+      "priority": "P2",
+      "status": "todo",
+      "section": "Grant Pipeline",
       "assigneeId": "henry",
       "createdBy": "jonathan",
-      "createdAt": "2026-02-02T06:00:00Z",
-      "tags": ["ui", "command-center"]
+      "createdAt": "2026-02-03T01:24:10.194016Z",
+      "tags": [],
+      "notes": "Partner with established org",
+      "dueDate": "Rolling"
     },
     {
       "id": "t20",
-      "projectId": "grunt",
-      "title": "Add cost tracking dashboard",
+      "projectId": "sos",
+      "title": "WFP Innovation Accelerator Application",
       "priority": "P2",
       "status": "pending",
-      "section": "operations",
+      "section": "Grant Pipeline",
       "assigneeId": "henry",
       "createdBy": "jonathan",
-      "createdAt": "2026-02-02T06:00:00Z",
-      "tags": ["monitoring", "costs"]
+      "createdAt": "2026-02-03T01:24:10.194018Z",
+      "tags": [],
+      "notes": "Food distribution angle",
+      "dueDate": "Rolling cohorts"
+    },
+    {
+      "id": "t21",
+      "projectId": "sos",
+      "title": "Aid Arena (ConversaCorps) - PRIMARY PARTNER",
+      "priority": "P0",
+      "status": "blocked",
+      "section": "Partnership Outreach",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194021Z",
+      "tags": [],
+      "notes": "30K nonprofits. BLOCKED: Needs channel setup"
+    },
+    {
+      "id": "t22",
+      "projectId": "sos",
+      "title": "Greater Good - Supply warehouse integration",
+      "priority": "P1",
+      "status": "pending",
+      "section": "Partnership Outreach",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194023Z",
+      "tags": [],
+      "notes": "Large nonprofit with supply chain"
+    },
+    {
+      "id": "t23",
+      "projectId": "sos",
+      "title": "Emergency RV - 3-way matching demo",
+      "priority": "P1",
+      "status": "pending",
+      "section": "Partnership Outreach",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194026Z",
+      "tags": [],
+      "notes": "Survivor \u2194 RV \u2194 Driver matching"
+    },
+    {
+      "id": "t24",
+      "projectId": "sos",
+      "title": "Free Hot Meals - Food aggregation pilot",
+      "priority": "P2",
+      "status": "pending",
+      "section": "Partnership Outreach",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194028Z",
+      "tags": [],
+      "notes": "Aggregating food resources"
+    },
+    {
+      "id": "t25",
+      "projectId": "sos",
+      "title": "Endurant - Vendor lead generation",
+      "priority": "P2",
+      "status": "pending",
+      "section": "Partnership Outreach",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194030Z",
+      "tags": [],
+      "notes": "Showcase vendor marketplace"
+    },
+    {
+      "id": "t26",
+      "projectId": "sos",
+      "title": "Yancey County Government - Public sector pilot",
+      "priority": "P1",
+      "status": "pending",
+      "section": "Partnership Outreach",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194038Z",
+      "tags": [],
+      "notes": "First government adoption"
+    },
+    {
+      "id": "t27",
+      "projectId": "sos",
+      "title": "NC Emergency Management - State pitch",
+      "priority": "P2",
+      "status": "backlog",
+      "section": "Partnership Outreach",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194040Z",
+      "tags": [],
+      "notes": "After Yancey proves model"
+    },
+    {
+      "id": "t28",
+      "projectId": "sos",
+      "title": "Start Network - Platform integration",
+      "priority": "P3",
+      "status": "backlog",
+      "section": "Partnership Outreach",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194043Z",
+      "tags": [],
+      "notes": "Hilton grantee, tech partnership"
+    },
+    {
+      "id": "t29",
+      "projectId": "sos",
+      "title": "Create end-to-end demo video (survivor \u2192 match \u2192 resolution)",
+      "priority": "P1",
+      "status": "todo",
+      "section": "Demo Preparation",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194046Z",
+      "tags": [],
+      "notes": "Show full flow"
+    },
+    {
+      "id": "t30",
+      "projectId": "sos",
+      "title": "Build pitch deck for foundations",
+      "priority": "P1",
+      "status": "todo",
+      "section": "Demo Preparation",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194048Z",
+      "tags": [],
+      "notes": "Context graph story, Helene origin"
+    },
+    {
+      "id": "t31",
+      "projectId": "sos",
+      "title": "Create government pilot proposal template",
+      "priority": "P2",
+      "status": "pending",
+      "section": "Demo Preparation",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194050Z",
+      "tags": [],
+      "notes": "For state/county pitches"
+    },
+    {
+      "id": "t32",
+      "projectId": "sos",
+      "title": "Vendor marketplace pitch deck",
+      "priority": "P2",
+      "status": "pending",
+      "section": "Demo Preparation",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194053Z",
+      "tags": [],
+      "notes": "For disaster supply vendors"
+    },
+    {
+      "id": "t33",
+      "projectId": "sos",
+      "title": "Prepare Helene case study document",
+      "priority": "P1",
+      "status": "todo",
+      "section": "Demo Preparation",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194058Z",
+      "tags": [],
+      "notes": "4,000 missing persons scraped"
+    },
+    {
+      "id": "t34",
+      "projectId": "sos",
+      "title": "Screenshot/GIF library of key features",
+      "priority": "P3",
+      "status": "pending",
+      "section": "Demo Preparation",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194061Z",
+      "tags": [],
+      "notes": "For decks, website"
+    },
+    {
+      "id": "t35",
+      "projectId": "sos",
+      "title": "First real match completed via SOS",
+      "priority": "P0",
+      "status": "pending",
+      "section": "Technical Milestones",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194063Z",
+      "tags": [],
+      "notes": "CRITICAL: Proves system works"
+    },
+    {
+      "id": "t36",
+      "projectId": "sos",
+      "title": "100 decision traces captured",
+      "priority": "P1",
+      "status": "pending",
+      "section": "Technical Milestones",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194068Z",
+      "tags": [],
+      "notes": "Building the moat"
+    },
+    {
+      "id": "t37",
+      "projectId": "sos",
+      "title": "10 organizations using /sos command",
+      "priority": "P1",
+      "status": "pending",
+      "section": "Technical Milestones",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194071Z",
+      "tags": [],
+      "notes": "Adoption metric"
+    },
+    {
+      "id": "t38",
+      "projectId": "sos",
+      "title": "50 matches proposed by system",
+      "priority": "P2",
+      "status": "pending",
+      "section": "Technical Milestones",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194073Z",
+      "tags": [],
+      "notes": "Matching engine works"
+    },
+    {
+      "id": "t39",
+      "projectId": "sos",
+      "title": "First AI-powered match recommendation",
+      "priority": "P2",
+      "status": "backlog",
+      "section": "Technical Milestones",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194076Z",
+      "tags": [],
+      "notes": "ML on decision traces"
+    },
+    {
+      "id": "t40",
+      "projectId": "reforge",
+      "title": "EvenUp - Re-engage $50K pilot (105 DAYS STALLED)",
+      "priority": "P0",
+      "status": "todo",
+      "section": "Urgent Deals",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194080Z",
+      "tags": [],
+      "notes": "$2B valuation, actively expanding. Push NOW."
+    },
+    {
+      "id": "t41",
+      "projectId": "reforge",
+      "title": "Muse Group - Push contract signature (61 days in contracting)",
+      "priority": "P0",
+      "status": "todo",
+      "section": "Urgent Deals",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194082Z",
+      "tags": [],
+      "notes": "Budget approved. Deals die in contracting."
+    },
+    {
+      "id": "t42",
+      "projectId": "reforge",
+      "title": "HaltH - Handle $15K pricing objection",
+      "priority": "P1",
+      "status": "todo",
+      "section": "Urgent Deals",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194085Z",
+      "tags": [],
+      "notes": "Offer monthly or smaller package?"
+    },
+    {
+      "id": "t43",
+      "projectId": "reforge",
+      "title": "Book meeting: Lindsay (replied wanting to connect)",
+      "priority": "P1",
+      "status": "todo",
+      "section": "Urgent Deals",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194087Z",
+      "tags": [],
+      "notes": "Hot lead - schedule ASAP"
+    },
+    {
+      "id": "t44",
+      "projectId": "reforge",
+      "title": "Book meeting: Demeter/Juhi (replied wanting to connect)",
+      "priority": "P1",
+      "status": "todo",
+      "section": "Urgent Deals",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194090Z",
+      "tags": [],
+      "notes": "Hot lead - schedule ASAP"
+    },
+    {
+      "id": "t45",
+      "projectId": "reforge",
+      "title": "Yazio pilot review - Feb 4, 10 AM EST",
+      "priority": "P1",
+      "status": "todo",
+      "section": "Meeting Prep",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194092Z",
+      "tags": [],
+      "notes": "Review Gong call first. Prep renewal pitch.",
+      "dueDate": "2026-02-04"
+    },
+    {
+      "id": "t46",
+      "projectId": "reforge",
+      "title": "Review all upcoming meetings in calendar",
+      "priority": "P2",
+      "status": "todo",
+      "section": "Meeting Prep",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194097Z",
+      "tags": [],
+      "notes": "Check Gong, deal packets, HubSpot notes"
+    },
+    {
+      "id": "t47",
+      "projectId": "reforge",
+      "title": "Pocket FM - Check in (28 days stalled, $15K)",
+      "priority": "P1",
+      "status": "todo",
+      "section": "Stalled Reengagement",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194100Z",
+      "tags": [],
+      "notes": "Recently stalled"
+    },
+    {
+      "id": "t48",
+      "projectId": "reforge",
+      "title": "Neo Financial - Push trial start ($60K pre-pilot)",
+      "priority": "P1",
+      "status": "todo",
+      "section": "Stalled Reengagement",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194103Z",
+      "tags": [],
+      "notes": "$650M+ raised, #1 Canada's Top Growing"
+    },
+    {
+      "id": "t49",
+      "projectId": "reforge",
+      "title": "EcoVadis - Monitor pilot progress ($18K)",
+      "priority": "P2",
+      "status": "todo",
+      "section": "Stalled Reengagement",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194105Z",
+      "tags": [],
+      "notes": "Pilot starting. Watch for Replit pressure."
+    },
+    {
+      "id": "t50",
+      "projectId": "reforge",
+      "title": "Review all 141 stalled deals for re-engagement",
+      "priority": "P2",
+      "status": "pending",
+      "section": "Stalled Reengagement",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194107Z",
+      "tags": [],
+      "notes": "$245K at risk. Use Grunt to triage."
+    },
+    {
+      "id": "t51",
+      "projectId": "reforge",
+      "title": "iRobot - Re-engage $80K closed lost",
+      "priority": "P1",
+      "status": "todo",
+      "section": "Closed Lost Reactivation",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194110Z",
+      "tags": [],
+      "notes": "Large deal, worth another attempt"
+    },
+    {
+      "id": "t52",
+      "projectId": "reforge",
+      "title": "WSFS Bank - Re-engage $56K closed lost",
+      "priority": "P1",
+      "status": "todo",
+      "section": "Closed Lost Reactivation",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194112Z",
+      "tags": [],
+      "notes": "Financial services, good ICP"
+    },
+    {
+      "id": "t53",
+      "projectId": "reforge",
+      "title": "Fox Local - Follow up on interest",
+      "priority": "P2",
+      "status": "todo",
+      "section": "Closed Lost Reactivation",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194115Z",
+      "tags": [],
+      "notes": "Media company"
+    },
+    {
+      "id": "t54",
+      "projectId": "reforge",
+      "title": "DreamHost - Follow up on interest",
+      "priority": "P2",
+      "status": "todo",
+      "section": "Closed Lost Reactivation",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194118Z",
+      "tags": [],
+      "notes": "Tech company"
+    },
+    {
+      "id": "t55",
+      "projectId": "reforge",
+      "title": "Qualify 486 Product leads in Grunt swipe app",
+      "priority": "P1",
+      "status": "todo",
+      "section": "Prospecting",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194120Z",
+      "tags": [],
+      "notes": "Build pipeline systematically"
+    },
+    {
+      "id": "t56",
+      "projectId": "reforge",
+      "title": "360Learning - Outreach to Sarah Celnik (VP Product)",
+      "priority": "P2",
+      "status": "todo",
+      "section": "Prospecting",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194128Z",
+      "tags": [],
+      "notes": "New in role (3 months), L&D platform"
+    },
+    {
+      "id": "t57",
+      "projectId": "reforge",
+      "title": "FriendliAI - Outreach to Ryan Pollock (VP GTM)",
+      "priority": "P2",
+      "status": "todo",
+      "section": "Prospecting",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194130Z",
+      "tags": [],
+      "notes": "New GTM leader at AI company"
+    },
+    {
+      "id": "t58",
+      "projectId": "reforge",
+      "title": "Q1 Meetings: 12/75 (16%)",
+      "priority": "P1",
+      "status": "tracking",
+      "section": "Quota Tracking",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194133Z",
+      "tags": [],
+      "notes": "Need 63 more. ~21/week pace."
+    },
+    {
+      "id": "t59",
+      "projectId": "reforge",
+      "title": "Q1 ARR: $50.1K/$150K (33%)",
+      "priority": "P1",
+      "status": "tracking",
+      "section": "Quota Tracking",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194135Z",
+      "tags": [],
+      "notes": "EvenUp + Muse = $65K if closed."
+    },
+    {
+      "id": "t60",
+      "projectId": "reforge",
+      "title": "Pipeline coverage: $320K for $100K gap",
+      "priority": "P2",
+      "status": "tracking",
+      "section": "Quota Tracking",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194138Z",
+      "tags": [],
+      "notes": "3.2x coverage is healthy."
+    },
+    {
+      "id": "t61",
+      "projectId": "harmony",
+      "title": "DI Global (Orly) - DELIVER OR REFUND (13 weeks overdue)",
+      "priority": "P0",
+      "status": "todo",
+      "section": "Critical Clients",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194142Z",
+      "tags": [],
+      "notes": "Refund requested Jan 29. Deliver within 48h OR process refund."
+    },
+    {
+      "id": "t62",
+      "projectId": "harmony",
+      "title": "Hubert Group - Pay invoice (PAST DUE)",
+      "priority": "P0",
+      "status": "todo",
+      "section": "Critical Clients",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194144Z",
+      "tags": [],
+      "notes": "Payment is past due. Handle immediately."
+    },
+    {
+      "id": "t63",
+      "projectId": "harmony",
+      "title": "Litmos - Monthly retainer delivery",
+      "priority": "P1",
+      "status": "active",
+      "section": "Active Delivery",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194147Z",
+      "tags": [],
+      "notes": "High-priority client"
+    },
+    {
+      "id": "t64",
+      "projectId": "harmony",
+      "title": "Endurant/MCC - Check delivery status",
+      "priority": "P1",
+      "status": "todo",
+      "section": "Active Delivery",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194152Z",
+      "tags": [],
+      "notes": "Also potential SOS partner"
+    },
+    {
+      "id": "t65",
+      "projectId": "harmony",
+      "title": "IES - Monitor engagement",
+      "priority": "P2",
+      "status": "active",
+      "section": "Active Delivery",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194155Z",
+      "tags": [],
+      "notes": "Steady client"
+    },
+    {
+      "id": "t66",
+      "projectId": "harmony",
+      "title": "TSLE - Monthly check-in",
+      "priority": "P2",
+      "status": "todo",
+      "section": "Active Delivery",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194160Z",
+      "tags": [],
+      "notes": "Active client"
+    },
+    {
+      "id": "t67",
+      "projectId": "harmony",
+      "title": "divdat - Monitor engagement",
+      "priority": "P2",
+      "status": "active",
+      "section": "Active Delivery",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194162Z",
+      "tags": [],
+      "notes": "Active client"
+    },
+    {
+      "id": "t68",
+      "projectId": "harmony",
+      "title": "InventWood - Confirm NetSuite call",
+      "priority": "P1",
+      "status": "todo",
+      "section": "Follow Ups",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194165Z",
+      "tags": [],
+      "notes": "Rescheduled from Feb 2 (ER)"
+    },
+    {
+      "id": "t69",
+      "projectId": "harmony",
+      "title": "Endurant - Follow up on canceled meeting",
+      "priority": "P2",
+      "status": "todo",
+      "section": "Follow Ups",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194167Z",
+      "tags": [],
+      "notes": "Meeting canceled, reschedule"
+    },
+    {
+      "id": "t70",
+      "projectId": "harmony",
+      "title": "Litmos - Explore expansion opportunities",
+      "priority": "P2",
+      "status": "pending",
+      "section": "Upsell Opportunities",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194170Z",
+      "tags": [],
+      "notes": "High-engagement, potential expansion"
+    },
+    {
+      "id": "t71",
+      "projectId": "harmony",
+      "title": "Endurant - SOS vendor marketplace pilot",
+      "priority": "P2",
+      "status": "pending",
+      "section": "Upsell Opportunities",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194172Z",
+      "tags": [],
+      "notes": "Cross-sell: Harmony \u2192 SOS"
+    },
+    {
+      "id": "t72",
+      "projectId": "harmony",
+      "title": "InventWood - Check for additional project needs",
+      "priority": "P3",
+      "status": "pending",
+      "section": "Upsell Opportunities",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194174Z",
+      "tags": [],
+      "notes": "Been quiet, may need re-engagement"
+    },
+    {
+      "id": "t73",
+      "projectId": "harmony",
+      "title": "Review contractor margin optimization",
+      "priority": "P2",
+      "status": "pending",
+      "section": "Operations",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194177Z",
+      "tags": [],
+      "notes": "Reduce margin loss on contractors"
+    },
+    {
+      "id": "t74",
+      "projectId": "harmony",
+      "title": "Monthly invoice reconciliation",
+      "priority": "P3",
+      "status": "pending",
+      "section": "Operations",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194179Z",
+      "tags": [],
+      "notes": "Track outstanding payments"
+    },
+    {
+      "id": "t75",
+      "projectId": "grunt",
+      "title": "Run context graph schema migration",
+      "priority": "P1",
+      "status": "todo",
+      "section": "Infrastructure",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194182Z",
+      "tags": [],
+      "notes": "Creates decision_traces + extensions"
+    },
+    {
+      "id": "t76",
+      "projectId": "grunt",
+      "title": "Implement Grunt swipe \u2192 decision trace capture",
+      "priority": "P1",
+      "status": "in_progress",
+      "section": "Infrastructure",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194188Z",
+      "tags": [],
+      "notes": "Two-tab UI: Leads + Opportunities"
+    },
+    {
+      "id": "t77",
+      "projectId": "grunt",
+      "title": "Add reasoning prompt to swipe UI",
+      "priority": "P2",
+      "status": "pending",
+      "section": "Infrastructure",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194193Z",
+      "tags": [],
+      "notes": "Quick feedback: why qualified/disqualified"
+    },
+    {
+      "id": "t78",
+      "projectId": "grunt",
+      "title": "Generate embeddings on decision traces",
+      "priority": "P2",
+      "status": "pending",
+      "section": "Infrastructure",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194196Z",
+      "tags": [],
+      "notes": "For precedent search"
+    },
+    {
+      "id": "t79",
+      "projectId": "grunt",
+      "title": "Build find similar decisions query",
+      "priority": "P2",
+      "status": "pending",
+      "section": "Infrastructure",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194198Z",
+      "tags": [],
+      "notes": "Vector similarity search"
+    },
+    {
+      "id": "t80",
+      "projectId": "grunt",
+      "title": "Daily Gong sync agent",
+      "priority": "P2",
+      "status": "done",
+      "section": "Integrations",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194200Z",
+      "tags": [],
+      "notes": "Cron: 7am EST daily",
+      "completedAt": "2026-02-02T21:42:00Z"
+    },
+    {
+      "id": "t81",
+      "projectId": "grunt",
+      "title": "Pull all-time Gong calls",
+      "priority": "P2",
+      "status": "done",
+      "section": "Integrations",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194203Z",
+      "tags": [],
+      "notes": "110 calls (Sep 2025 - Jan 2026)",
+      "completedAt": "2026-02-02T21:45:00Z"
+    },
+    {
+      "id": "t82",
+      "projectId": "grunt",
+      "title": "Import HubSpot deals export",
+      "priority": "P2",
+      "status": "done",
+      "section": "Integrations",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194205Z",
+      "tags": [],
+      "notes": "309 deals, ~$320K pipeline",
+      "completedAt": "2026-02-02T21:50:00Z"
+    },
+    {
+      "id": "t83",
+      "projectId": "grunt",
+      "title": "Integrate scraped emails",
+      "priority": "P2",
+      "status": "pending",
+      "section": "Integrations",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194208Z",
+      "tags": [],
+      "notes": "Folder empty - need exports"
+    },
+    {
+      "id": "t84",
+      "projectId": "grunt",
+      "title": "Add Gong call context to decisions",
+      "priority": "P2",
+      "status": "pending",
+      "section": "Integrations",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194210Z",
+      "tags": [],
+      "notes": "Link transcripts to deals"
+    },
+    {
+      "id": "t85",
+      "projectId": "grunt",
+      "title": "Test browser access to Gong/Gmail",
+      "priority": "P2",
+      "status": "done",
+      "section": "Setup",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194213Z",
+      "tags": [],
+      "notes": "Browser relay working",
+      "completedAt": "2026-02-02T21:30:00Z"
+    },
+    {
+      "id": "t86",
+      "projectId": "grunt",
+      "title": "Set up Reforge pipeline intel agent",
+      "priority": "P2",
+      "status": "done",
+      "section": "Setup",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194219Z",
+      "tags": [],
+      "notes": "Cron: 9am, 12pm, 5pm EST M-F",
+      "completedAt": "2026-02-02T17:36:00Z"
+    },
+    {
+      "id": "t87",
+      "projectId": "grunt",
+      "title": "Set up SOS intel agent",
+      "priority": "P2",
+      "status": "done",
+      "section": "Setup",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194221Z",
+      "tags": [],
+      "notes": "Cron: 10am, 6pm EST daily",
+      "completedAt": "2026-02-02T17:46:00Z"
+    },
+    {
+      "id": "t88",
+      "projectId": "grunt",
+      "title": "Set up Harmony intel agent",
+      "priority": "P2",
+      "status": "done",
+      "section": "Setup",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194223Z",
+      "tags": [],
+      "notes": "Cron: 11am EST M-F",
+      "completedAt": "2026-02-02T17:46:00Z"
+    },
+    {
+      "id": "t89",
+      "projectId": "grunt",
+      "title": "Set up morning brief",
+      "priority": "P2",
+      "status": "done",
+      "section": "Setup",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194225Z",
+      "tags": [],
+      "notes": "Cron: 9am EST daily",
+      "completedAt": "2026-02-02T17:46:00Z"
+    },
+    {
+      "id": "t90",
+      "projectId": "grunt",
+      "title": "Set up Gong API access",
+      "priority": "P2",
+      "status": "done",
+      "section": "Setup",
+      "assigneeId": "henry",
+      "createdBy": "jonathan",
+      "createdAt": "2026-02-03T01:24:10.194228Z",
+      "tags": [],
+      "notes": "Full API access. 5,270 org calls.",
+      "completedAt": "2026-02-02T21:05:00Z"
     }
   ],
-  
   "intel": [
     {
       "id": "i0",
-      "projectIds": ["reforge"],
+      "projectIds": [
+        "reforge"
+      ],
       "type": "strategy",
-      "icon": "🎯",
+      "icon": "\ud83c\udfaf",
       "title": "Lead Qualification Strategy",
       "summary": "486 Product leads ready for qualification via Grunt swipe app. Focus on ICP fit: mid-market companies with complex data challenges.",
-      "tags": ["strategy", "sales"],
+      "tags": [
+        "strategy",
+        "sales"
+      ],
       "createdBy": "henry",
       "createdAt": "2026-02-02T06:00:00Z",
       "sources": [
-        { "name": "Reforge Swipe App", "url": "https://sos-help-the-helper.github.io/reforge-swipe/" }
+        {
+          "name": "Reforge Swipe App",
+          "url": "https://sos-help-the-helper.github.io/reforge-swipe/"
+        }
       ],
       "details": {
         "keyFacts": [
@@ -348,16 +1461,25 @@
     },
     {
       "id": "i1",
-      "projectIds": ["sos"],
+      "projectIds": [
+        "sos"
+      ],
       "type": "market",
-      "icon": "💰",
+      "icon": "\ud83d\udcb0",
       "title": "$17B FEMA Aid Held Up - States Scrambling",
       "summary": "States facing delays, denials, cancellations of federal disaster funds. Budget pressures mounting.",
-      "tags": ["market", "opportunity", "urgent"],
+      "tags": [
+        "market",
+        "opportunity",
+        "urgent"
+      ],
       "createdBy": "henry",
       "createdAt": "2026-02-02T04:40:00Z",
       "sources": [
-        { "name": "Pew Charitable Trusts", "url": "https://www.pew.org/en/research-and-analysis/articles/2026/01/15/uncertainty-surrounding-federal-disaster-funding-looms-over-state-budgets" }
+        {
+          "name": "Pew Charitable Trusts",
+          "url": "https://www.pew.org/en/research-and-analysis/articles/2026/01/15/uncertainty-surrounding-federal-disaster-funding-looms-over-state-budgets"
+        }
       ],
       "details": {
         "keyFacts": [
@@ -370,16 +1492,25 @@
     },
     {
       "id": "i2",
-      "projectIds": ["sos"],
+      "projectIds": [
+        "sos"
+      ],
       "type": "competitive",
-      "icon": "🎯",
+      "icon": "\ud83c\udfaf",
       "title": "FEMA Being Gutted - States On Their Own",
       "summary": "Trump admin cutting CORE staff (40% of FEMA workforce). States need alternatives.",
-      "tags": ["competitive", "opportunity", "urgent"],
+      "tags": [
+        "competitive",
+        "opportunity",
+        "urgent"
+      ],
       "createdBy": "henry",
       "createdAt": "2026-02-02T04:10:00Z",
       "sources": [
-        { "name": "CNN Exclusive", "url": "https://www.cnn.com/2026/01/01/politics/dhs-cutting-fema-disaster-response-staff" }
+        {
+          "name": "CNN Exclusive",
+          "url": "https://www.cnn.com/2026/01/01/politics/dhs-cutting-fema-disaster-response-staff"
+        }
       ],
       "details": {
         "keyFacts": [
@@ -392,16 +1523,24 @@
     },
     {
       "id": "i3",
-      "projectIds": ["sos"],
+      "projectIds": [
+        "sos"
+      ],
       "type": "competitive",
-      "icon": "⚔️",
+      "icon": "\u2694\ufe0f",
       "title": "Palantir at $970M Federal Contracts",
       "summary": "Palantir doubled federal contracts in 2025. Surveillance play vs SOS coordination play.",
-      "tags": ["competitive", "palantir"],
+      "tags": [
+        "competitive",
+        "palantir"
+      ],
       "createdBy": "henry",
       "createdAt": "2026-02-02T04:10:00Z",
       "sources": [
-        { "name": "The Hill", "url": "https://thehill.com/policy/technology/5667232-palantir-trump-administration-surveillance/" }
+        {
+          "name": "The Hill",
+          "url": "https://thehill.com/policy/technology/5667232-palantir-trump-administration-surveillance/"
+        }
       ],
       "details": {
         "keyFacts": [
@@ -413,52 +1552,85 @@
     },
     {
       "id": "i4",
-      "projectIds": ["sos"],
+      "projectIds": [
+        "sos"
+      ],
       "type": "market",
-      "icon": "📊",
+      "icon": "\ud83d\udcca",
       "title": "Emergency Management Market: $1.1T+",
       "summary": "Homeland Security & Emergency Management market at $1.1 trillion by 2030.",
-      "tags": ["market", "opportunity"],
+      "tags": [
+        "market",
+        "opportunity"
+      ],
       "createdBy": "henry",
       "createdAt": "2026-02-02T04:10:00Z",
       "sources": [
-        { "name": "GlobeNewswire", "url": "https://www.globenewswire.com/news-release/2026/01/20/3222046/28124/en/Homeland-Security-and-Emergency-Management-Market-Report-2026-1-110-Bn-Opportunities-Trends-Competitive-Landscape-Strategies-and-Forecasts-2020-2025-2025-2030F-2035F.html" }
+        {
+          "name": "GlobeNewswire",
+          "url": "https://www.globenewswire.com/news-release/2026/01/20/3222046/28124/en/Homeland-Security-and-Emergency-Management-Market-Report-2026-1-110-Bn-Opportunities-Trends-Competitive-Landscape-Strategies-and-Forecasts-2020-2025-2025-2030F-2035F.html"
+        }
       ],
       "details": {
         "marketSize": "$1,110+ billion",
-        "keyTrends": ["Integrated disaster response platforms", "AI adoption", "Cloud-based coordination"]
+        "keyTrends": [
+          "Integrated disaster response platforms",
+          "AI adoption",
+          "Cloud-based coordination"
+        ]
       }
     },
     {
       "id": "i5",
-      "projectIds": ["sos", "grunt"],
+      "projectIds": [
+        "sos",
+        "grunt"
+      ],
       "type": "technical",
-      "icon": "🔧",
+      "icon": "\ud83d\udd27",
       "title": "Slack Integration Architecture Mapped",
       "summary": "Custom workflow steps via Bolt JS for SOS integration.",
-      "tags": ["technical"],
+      "tags": [
+        "technical"
+      ],
       "createdBy": "henry",
       "createdAt": "2026-02-02T04:15:00Z",
       "sources": [
-        { "name": "Slack Platform Docs", "url": "https://api.slack.com/automation/functions/custom-bolt" }
+        {
+          "name": "Slack Platform Docs",
+          "url": "https://api.slack.com/automation/functions/custom-bolt"
+        }
       ],
       "details": {
         "approach": "Bolt JS (self-hosted) over Deno SDK",
-        "customSteps": ["Create Need", "Log Resource", "Match Request"]
+        "customSteps": [
+          "Create Need",
+          "Log Resource",
+          "Match Request"
+        ]
       }
     },
     {
       "id": "i6",
-      "projectIds": ["sos"],
+      "projectIds": [
+        "sos"
+      ],
       "type": "funding",
-      "icon": "🎁",
+      "icon": "\ud83c\udf81",
       "title": "25 Grant Opportunities Identified",
       "summary": "Comprehensive grant research complete. Top 5: Hilton Foundation, FEMA EMPG, Google.org, Bezos AI Challenge, EDA Disaster Supplemental.",
-      "tags": ["funding", "grants", "opportunity"],
+      "tags": [
+        "funding",
+        "grants",
+        "opportunity"
+      ],
       "createdBy": "henry",
       "createdAt": "2026-02-02T05:45:00Z",
       "sources": [
-        { "name": "SOS Grants Database", "url": "file:///grants.json" }
+        {
+          "name": "SOS Grants Database",
+          "url": "file:///grants.json"
+        }
       ],
       "details": {
         "totalOpportunities": 25,
@@ -478,16 +1650,25 @@
     },
     {
       "id": "i7",
-      "projectIds": ["sos"],
+      "projectIds": [
+        "sos"
+      ],
       "type": "competitive",
-      "icon": "🏆",
+      "icon": "\ud83c\udfc6",
       "title": "WebEOC Dissatisfaction Creates Opening",
       "summary": "Emergency managers frustrated with WebEOC cost and complexity. Reddit: 'expensive and slow compared to Veoci'.",
-      "tags": ["competitive", "opportunity", "sales"],
+      "tags": [
+        "competitive",
+        "opportunity",
+        "sales"
+      ],
       "createdBy": "henry",
       "createdAt": "2026-02-02T05:45:00Z",
       "sources": [
-        { "name": "Reddit r/EmergencyManagement", "url": "https://www.reddit.com/r/EmergencyManagement/comments/1aly2nn/incident_management_softwareplatform/" }
+        {
+          "name": "Reddit r/EmergencyManagement",
+          "url": "https://www.reddit.com/r/EmergencyManagement/comments/1aly2nn/incident_management_softwareplatform/"
+        }
       ],
       "details": {
         "painPoints": [
@@ -501,78 +1682,134 @@
     },
     {
       "id": "i8",
-      "projectIds": ["sos"],
+      "projectIds": [
+        "sos"
+      ],
       "type": "competitive",
-      "icon": "🌐",
+      "icon": "\ud83c\udf10",
       "title": "Google Crisis Response = Awareness, Not Coordination",
       "summary": "Google provides consumer alerts (SOS, FloodHub, WeatherNext) but doesn't coordinate responders. Complementary, not competitive.",
-      "tags": ["competitive", "google", "partnership"],
+      "tags": [
+        "competitive",
+        "google",
+        "partnership"
+      ],
       "createdBy": "henry",
       "createdAt": "2026-02-02T05:45:00Z",
       "sources": [
-        { "name": "Google Crisis Response", "url": "https://crisisresponse.google/how-we-help" }
+        {
+          "name": "Google Crisis Response",
+          "url": "https://crisisresponse.google/how-we-help"
+        }
       ],
       "details": {
-        "googleCapabilities": ["SOS Alerts", "FloodHub forecasting", "WeatherNext AI", "Android earthquake alerts"],
+        "googleCapabilities": [
+          "SOS Alerts",
+          "FloodHub forecasting",
+          "WeatherNext AI",
+          "Android earthquake alerts"
+        ],
         "googleGap": "No coordination platform for responders/organizations",
         "sosOpportunity": "Integrate Google alerts as input; SOS provides coordination layer"
       }
     },
     {
       "id": "i9",
-      "projectIds": ["sos"],
+      "projectIds": [
+        "sos"
+      ],
       "type": "market",
-      "icon": "📈",
+      "icon": "\ud83d\udcc8",
       "title": "EM Software Market Growing 11% CAGR",
-      "summary": "Emergency Management Software market: $408M (2025) → $964M (2033). Crisis Management: $9.79B → $13.96B.",
-      "tags": ["market", "growth"],
+      "summary": "Emergency Management Software market: $408M (2025) \u2192 $964M (2033). Crisis Management: $9.79B \u2192 $13.96B.",
+      "tags": [
+        "market",
+        "growth"
+      ],
       "createdBy": "henry",
       "createdAt": "2026-02-02T05:45:00Z",
       "sources": [
-        { "name": "Global Growth Insights", "url": "https://www.globalgrowthinsights.com/market-reports/emergency-management-software-market-105680" },
-        { "name": "Coherent Market Insights", "url": "https://www.coherentmarketinsights.com/industry-reports/crisis-management-software-market" }
+        {
+          "name": "Global Growth Insights",
+          "url": "https://www.globalgrowthinsights.com/market-reports/emergency-management-software-market-105680"
+        },
+        {
+          "name": "Coherent Market Insights",
+          "url": "https://www.coherentmarketinsights.com/industry-reports/crisis-management-software-market"
+        }
       ],
       "details": {
-        "emergencyMgmtSoftware": { "2025": "$408M", "2033": "$964M", "cagr": "11.3%" },
-        "crisisMgmtSoftware": { "2025": "$9.79B", "2032": "$13.96B", "cagr": "5.2%" },
-        "keyDrivers": ["Increasing disaster frequency", "AI adoption", "Cloud migration", "FEMA uncertainty"]
+        "emergencyMgmtSoftware": {
+          "2025": "$408M",
+          "2033": "$964M",
+          "cagr": "11.3%"
+        },
+        "crisisMgmtSoftware": {
+          "2025": "$9.79B",
+          "2032": "$13.96B",
+          "cagr": "5.2%"
+        },
+        "keyDrivers": [
+          "Increasing disaster frequency",
+          "AI adoption",
+          "Cloud migration",
+          "FEMA uncertainty"
+        ]
       }
     },
     {
       "id": "i10",
-      "projectIds": ["sos"],
+      "projectIds": [
+        "sos"
+      ],
       "type": "market",
-      "icon": "🎯",
+      "icon": "\ud83c\udfaf",
       "title": "SOS Addressable Market: $87M-$450M ARR",
       "summary": "Conservative TAM $87M ARR across state/county/municipal EMAs + NGOs. Initial target: $5M ARR (10 states).",
-      "tags": ["market", "tam", "strategy"],
+      "tags": [
+        "market",
+        "tam",
+        "strategy"
+      ],
       "createdBy": "henry",
       "createdAt": "2026-02-02T05:45:00Z",
       "sources": [
-        { "name": "SOS Market Research", "url": "file:///market-research.json" }
+        {
+          "name": "SOS Market Research",
+          "url": "file:///market-research.json"
+        }
       ],
       "details": {
         "segments": {
-          "stateEMAs": "50 states × $100K-$500K = $5M-$25M",
-          "countyEMAs": "3,000+ × $10K-$50K = $30M-$150M",
-          "municipalEMAs": "10,000+ × $5K-$25K = $50M-$250M",
-          "voadNGOs": "500+ × $5K-$50K = $2.5M-$25M"
+          "stateEMAs": "50 states \u00d7 $100K-$500K = $5M-$25M",
+          "countyEMAs": "3,000+ \u00d7 $10K-$50K = $30M-$150M",
+          "municipalEMAs": "10,000+ \u00d7 $5K-$25K = $50M-$250M",
+          "voadNGOs": "500+ \u00d7 $5K-$50K = $2.5M-$25M"
         },
         "initialTarget": "10 state EMAs at $500K avg = $5M ARR"
       }
     },
     {
       "id": "i11",
-      "projectIds": ["sos"],
+      "projectIds": [
+        "sos"
+      ],
       "type": "strategy",
-      "icon": "💡",
+      "icon": "\ud83d\udca1",
       "title": "Community Coordination = Blue Ocean",
       "summary": "No competitor serves community-agency coordination well. All focus agency-to-agency. Major differentiation opportunity.",
-      "tags": ["strategy", "differentiation", "competitive"],
+      "tags": [
+        "strategy",
+        "differentiation",
+        "competitive"
+      ],
       "createdBy": "henry",
       "createdAt": "2026-02-02T05:45:00Z",
       "sources": [
-        { "name": "SOS Competitive Analysis", "url": "file:///competitive-analysis.json" }
+        {
+          "name": "SOS Competitive Analysis",
+          "url": "file:///competitive-analysis.json"
+        }
       ],
       "details": {
         "competitorFocus": {
@@ -587,16 +1824,25 @@
     },
     {
       "id": "i12",
-      "projectIds": ["sos"],
+      "projectIds": [
+        "sos"
+      ],
       "type": "strategy",
-      "icon": "🚀",
+      "icon": "\ud83d\ude80",
       "title": "AI Recommendations for Product Roadmap",
       "summary": "Key features to prioritize: AI matching (core), Slack integration (adoption), community-agency bridge (differentiation).",
-      "tags": ["strategy", "product", "roadmap"],
+      "tags": [
+        "strategy",
+        "product",
+        "roadmap"
+      ],
       "createdBy": "henry",
       "createdAt": "2026-02-02T05:45:00Z",
       "sources": [
-        { "name": "SOS Product Roadmap", "url": "file:///product-roadmap-suggestions.json" }
+        {
+          "name": "SOS Product Roadmap",
+          "url": "file:///product-roadmap-suggestions.json"
+        }
       ],
       "details": {
         "p0Features": [
@@ -618,12 +1864,17 @@
     },
     {
       "id": "i13",
-      "projectIds": ["harmony"],
+      "projectIds": [
+        "harmony"
+      ],
       "type": "strategy",
-      "icon": "💼",
+      "icon": "\ud83d\udcbc",
       "title": "RevOps Consulting Positioning",
       "summary": "Harmony Strategy differentiates through AI-augmented consulting. Lower overhead with Henry assistance = higher margins.",
-      "tags": ["strategy", "competitive"],
+      "tags": [
+        "strategy",
+        "competitive"
+      ],
       "createdBy": "henry",
       "createdAt": "2026-02-02T06:00:00Z",
       "sources": [],
@@ -638,16 +1889,24 @@
     },
     {
       "id": "i14",
-      "projectIds": ["grunt"],
+      "projectIds": [
+        "grunt"
+      ],
       "type": "technical",
-      "icon": "⚡",
+      "icon": "\u26a1",
       "title": "Command Center Architecture",
       "summary": "Static site hosted on GitHub Pages. Data-driven via JSON files. No backend needed = zero hosting costs.",
-      "tags": ["technical", "architecture"],
+      "tags": [
+        "technical",
+        "architecture"
+      ],
       "createdBy": "henry",
       "createdAt": "2026-02-02T06:00:00Z",
       "sources": [
-        { "name": "Command Center", "url": "https://sos-help-the-helper.github.io/command-center/" }
+        {
+          "name": "Command Center",
+          "url": "https://sos-help-the-helper.github.io/command-center/"
+        }
       ],
       "details": {
         "keyFacts": [
@@ -661,12 +1920,17 @@
     },
     {
       "id": "i15",
-      "projectIds": ["grunt"],
+      "projectIds": [
+        "grunt"
+      ],
       "type": "market",
-      "icon": "💵",
+      "icon": "\ud83d\udcb5",
       "title": "API Cost Analysis",
       "summary": "Monthly API costs averaging ~$300-400. Anthropic Claude as primary model. Prompt caching significantly reduces costs.",
-      "tags": ["market", "costs"],
+      "tags": [
+        "market",
+        "costs"
+      ],
       "createdBy": "henry",
       "createdAt": "2026-02-02T06:00:00Z",
       "sources": [],
@@ -680,48 +1944,240 @@
       }
     }
   ],
-  
   "activity": [
-    { "id": "a1", "type": "intel_added", "contributorId": "henry", "projectId": "sos", "timestamp": "2026-02-02T04:40:00Z", "summary": "Added intel: $17B FEMA Aid Held Up", "targetId": "i1" },
-    { "id": "a2", "type": "task_completed", "contributorId": "henry", "projectId": "grunt", "timestamp": "2026-02-02T05:10:00Z", "summary": "Completed: Build command center navigation", "targetId": "t7" },
-    { "id": "a3", "type": "task_completed", "contributorId": "henry", "projectId": "grunt", "timestamp": "2026-02-02T05:00:00Z", "summary": "Completed: Add verifiable source links", "targetId": "t8" },
-    { "id": "a4", "type": "task_completed", "contributorId": "henry", "projectId": "sos", "timestamp": "2026-02-02T05:45:00Z", "summary": "Completed: Research 25 foundation grant opportunities", "targetId": "t2" },
-    { "id": "a5", "type": "intel_added", "contributorId": "henry", "projectId": "sos", "timestamp": "2026-02-02T05:45:00Z", "summary": "Added intel: 25 Grant Opportunities Identified", "targetId": "i6" },
-    { "id": "a6", "type": "intel_added", "contributorId": "henry", "projectId": "sos", "timestamp": "2026-02-02T05:45:00Z", "summary": "Added intel: WebEOC Dissatisfaction Creates Opening", "targetId": "i7" },
-    { "id": "a7", "type": "intel_added", "contributorId": "henry", "projectId": "sos", "timestamp": "2026-02-02T05:45:00Z", "summary": "Added intel: Community Coordination = Blue Ocean", "targetId": "i11" },
-    { "id": "a8", "type": "intel_added", "contributorId": "henry", "projectId": "sos", "timestamp": "2026-02-02T05:45:00Z", "summary": "Added intel: Market research & competitive analysis", "targetId": "i9" },
-    { "id": "a9", "type": "task_created", "contributorId": "henry", "projectId": "sos", "timestamp": "2026-02-02T05:45:00Z", "summary": "Created: Draft Hilton Foundation LOI", "targetId": "t9" },
-    { "id": "a10", "type": "task_created", "contributorId": "henry", "projectId": "sos", "timestamp": "2026-02-02T05:45:00Z", "summary": "Created: Contact 3 state EMAs for pilot", "targetId": "t12" },
-    { "id": "a11", "type": "intel_added", "contributorId": "henry", "projectId": "grunt", "timestamp": "2026-02-02T06:00:00Z", "summary": "Added intel: Command Center Architecture", "targetId": "i14" },
-    { "id": "a12", "type": "intel_added", "contributorId": "henry", "projectId": "harmony", "timestamp": "2026-02-02T06:00:00Z", "summary": "Added intel: RevOps Consulting Positioning", "targetId": "i13" },
-    { "id": "a13", "type": "task_created", "contributorId": "henry", "projectId": "grunt", "timestamp": "2026-02-02T06:00:00Z", "summary": "Created: Implement per-project command center views", "targetId": "t19" }
+    {
+      "id": "a1",
+      "type": "intel_added",
+      "contributorId": "henry",
+      "projectId": "sos",
+      "timestamp": "2026-02-02T04:40:00Z",
+      "summary": "Added intel: $17B FEMA Aid Held Up",
+      "targetId": "i1"
+    },
+    {
+      "id": "a2",
+      "type": "task_completed",
+      "contributorId": "henry",
+      "projectId": "grunt",
+      "timestamp": "2026-02-02T05:10:00Z",
+      "summary": "Completed: Build command center navigation",
+      "targetId": "t7"
+    },
+    {
+      "id": "a3",
+      "type": "task_completed",
+      "contributorId": "henry",
+      "projectId": "grunt",
+      "timestamp": "2026-02-02T05:00:00Z",
+      "summary": "Completed: Add verifiable source links",
+      "targetId": "t8"
+    },
+    {
+      "id": "a4",
+      "type": "task_completed",
+      "contributorId": "henry",
+      "projectId": "sos",
+      "timestamp": "2026-02-02T05:45:00Z",
+      "summary": "Completed: Research 25 foundation grant opportunities",
+      "targetId": "t2"
+    },
+    {
+      "id": "a5",
+      "type": "intel_added",
+      "contributorId": "henry",
+      "projectId": "sos",
+      "timestamp": "2026-02-02T05:45:00Z",
+      "summary": "Added intel: 25 Grant Opportunities Identified",
+      "targetId": "i6"
+    },
+    {
+      "id": "a6",
+      "type": "intel_added",
+      "contributorId": "henry",
+      "projectId": "sos",
+      "timestamp": "2026-02-02T05:45:00Z",
+      "summary": "Added intel: WebEOC Dissatisfaction Creates Opening",
+      "targetId": "i7"
+    },
+    {
+      "id": "a7",
+      "type": "intel_added",
+      "contributorId": "henry",
+      "projectId": "sos",
+      "timestamp": "2026-02-02T05:45:00Z",
+      "summary": "Added intel: Community Coordination = Blue Ocean",
+      "targetId": "i11"
+    },
+    {
+      "id": "a8",
+      "type": "intel_added",
+      "contributorId": "henry",
+      "projectId": "sos",
+      "timestamp": "2026-02-02T05:45:00Z",
+      "summary": "Added intel: Market research & competitive analysis",
+      "targetId": "i9"
+    },
+    {
+      "id": "a9",
+      "type": "task_created",
+      "contributorId": "henry",
+      "projectId": "sos",
+      "timestamp": "2026-02-02T05:45:00Z",
+      "summary": "Created: Draft Hilton Foundation LOI",
+      "targetId": "t9"
+    },
+    {
+      "id": "a10",
+      "type": "task_created",
+      "contributorId": "henry",
+      "projectId": "sos",
+      "timestamp": "2026-02-02T05:45:00Z",
+      "summary": "Created: Contact 3 state EMAs for pilot",
+      "targetId": "t12"
+    },
+    {
+      "id": "a11",
+      "type": "intel_added",
+      "contributorId": "henry",
+      "projectId": "grunt",
+      "timestamp": "2026-02-02T06:00:00Z",
+      "summary": "Added intel: Command Center Architecture",
+      "targetId": "i14"
+    },
+    {
+      "id": "a12",
+      "type": "intel_added",
+      "contributorId": "henry",
+      "projectId": "harmony",
+      "timestamp": "2026-02-02T06:00:00Z",
+      "summary": "Added intel: RevOps Consulting Positioning",
+      "targetId": "i13"
+    },
+    {
+      "id": "a13",
+      "type": "task_created",
+      "contributorId": "henry",
+      "projectId": "grunt",
+      "timestamp": "2026-02-02T06:00:00Z",
+      "summary": "Created: Implement per-project command center views",
+      "targetId": "t19"
+    }
   ],
-  
   "pipelines": {
     "reforge": [
-      { "account": "Neo Financial", "amount": 60000, "product": "IA + Research", "status": "Pricing sent", "nextStep": "Follow up" },
-      { "account": "EvenUp", "amount": 50000, "product": "IA", "status": "In pilot", "nextStep": "Check progress" },
-      { "account": "E&Y", "amount": 30000, "product": "IA + Research", "status": "Discovery", "nextStep": "Schedule call" },
-      { "account": "Fox Local", "amount": 27000, "product": "IA + R + Build", "status": "Budget 2-4 weeks", "nextStep": "Wait" },
-      { "account": "DreamHost", "amount": 25000, "product": "IA", "status": "In pilot", "nextStep": "Check progress" },
-      { "account": "Ecovadis", "amount": 18000, "product": "Build + IA + Research", "status": "Starting pilot", "nextStep": "Onboard" }
+      {
+        "account": "Neo Financial",
+        "amount": 60000,
+        "product": "IA + Research",
+        "status": "Pricing sent",
+        "nextStep": "Follow up"
+      },
+      {
+        "account": "EvenUp",
+        "amount": 50000,
+        "product": "IA",
+        "status": "In pilot",
+        "nextStep": "Check progress"
+      },
+      {
+        "account": "E&Y",
+        "amount": 30000,
+        "product": "IA + Research",
+        "status": "Discovery",
+        "nextStep": "Schedule call"
+      },
+      {
+        "account": "Fox Local",
+        "amount": 27000,
+        "product": "IA + R + Build",
+        "status": "Budget 2-4 weeks",
+        "nextStep": "Wait"
+      },
+      {
+        "account": "DreamHost",
+        "amount": 25000,
+        "product": "IA",
+        "status": "In pilot",
+        "nextStep": "Check progress"
+      },
+      {
+        "account": "Ecovadis",
+        "amount": 18000,
+        "product": "Build + IA + Research",
+        "status": "Starting pilot",
+        "nextStep": "Onboard"
+      }
     ],
     "sos_grants": [
-      { "name": "Hilton Foundation", "status": "To Apply", "fitScore": 9, "deadline": "Rolling", "amount": "TBD" },
-      { "name": "EDA Disaster Supplemental", "status": "To Apply", "fitScore": 8, "deadline": "March 3, 2026", "amount": "$250K-$500K" },
-      { "name": "Google.org", "status": "To Contact", "fitScore": 8, "deadline": "Rolling", "amount": "$2M-$5M" },
-      { "name": "Bezos AI Challenge", "status": "To Apply", "fitScore": 8, "deadline": "Phase II TBD", "amount": "$1M+" },
-      { "name": "Climate Resilience Fund", "status": "To Apply", "fitScore": 8, "deadline": "March 12, 2026", "amount": "Up to $115K" }
+      {
+        "name": "Hilton Foundation",
+        "status": "To Apply",
+        "fitScore": 9,
+        "deadline": "Rolling",
+        "amount": "TBD"
+      },
+      {
+        "name": "EDA Disaster Supplemental",
+        "status": "To Apply",
+        "fitScore": 8,
+        "deadline": "March 3, 2026",
+        "amount": "$250K-$500K"
+      },
+      {
+        "name": "Google.org",
+        "status": "To Contact",
+        "fitScore": 8,
+        "deadline": "Rolling",
+        "amount": "$2M-$5M"
+      },
+      {
+        "name": "Bezos AI Challenge",
+        "status": "To Apply",
+        "fitScore": 8,
+        "deadline": "Phase II TBD",
+        "amount": "$1M+"
+      },
+      {
+        "name": "Climate Resilience Fund",
+        "status": "To Apply",
+        "fitScore": 8,
+        "deadline": "March 12, 2026",
+        "amount": "Up to $115K"
+      }
     ],
     "sos_state_targets": [
-      { "state": "California", "agency": "CalOES", "status": "To Contact", "opportunity": "Wildfire coordination" },
-      { "state": "Texas", "agency": "TDEM", "status": "To Contact", "opportunity": "Largest state budget" },
-      { "state": "New Mexico", "agency": "DHSEM", "status": "To Contact", "opportunity": "$30M contingency fund" },
-      { "state": "Florida", "agency": "FDEM", "status": "To Research", "opportunity": "Hurricane response" },
-      { "state": "North Carolina", "agency": "NCEM", "status": "To Research", "opportunity": "Active grant programs" }
+      {
+        "state": "California",
+        "agency": "CalOES",
+        "status": "To Contact",
+        "opportunity": "Wildfire coordination"
+      },
+      {
+        "state": "Texas",
+        "agency": "TDEM",
+        "status": "To Contact",
+        "opportunity": "Largest state budget"
+      },
+      {
+        "state": "New Mexico",
+        "agency": "DHSEM",
+        "status": "To Contact",
+        "opportunity": "$30M contingency fund"
+      },
+      {
+        "state": "Florida",
+        "agency": "FDEM",
+        "status": "To Research",
+        "opportunity": "Hurricane response"
+      },
+      {
+        "state": "North Carolina",
+        "agency": "NCEM",
+        "status": "To Research",
+        "opportunity": "Active grant programs"
+      }
     ]
   },
-  
   "aiRecommendations": [
     {
       "priority": "HIGH",
