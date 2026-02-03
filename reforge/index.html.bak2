@@ -712,13 +712,13 @@
         </div>
       </section>
 
-      <!-- Lead Qualifier Section - Apollo Enrichment -->
+      <!-- Lead Qualifier Section - Tinder-Style Swiper -->
       <section id="lead-qualifier" class="section hidden">
         <header class="mb-6">
           <div class="flex items-center justify-between">
             <div>
               <h2 class="text-2xl font-bold text-gray-900 mb-2">Lead Qualifier</h2>
-              <p class="text-reforge-muted">Enrich leads with Apollo API • Real-time company intelligence</p>
+              <p class="text-reforge-muted">Enrich leads with Apollo API • Swipe right to qualify, left to skip</p>
             </div>
             <div class="flex items-center gap-4">
               <div class="text-right">
@@ -818,7 +818,7 @@
 
           <div class="flex gap-3 pt-4 border-t border-gray-100">
             <button onclick="addEnrichedToSwiper()" class="btn-secondary px-4 py-2 rounded-lg text-sm font-medium">
-              ✅ Save Lead
+              ➕ Add to Swiper Queue
             </button>
             <button onclick="copyEnrichedData()" class="px-4 py-2 bg-gray-100 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-200">
               📋 Copy Data
@@ -837,6 +837,119 @@
           </div>
         </div>
 
+        <div class="grid grid-cols-4 gap-6">
+          <!-- Swiper Area -->
+          <div class="col-span-3">
+            <div class="relative h-[520px] flex items-center justify-center">
+              <!-- Card Stack -->
+              <div id="cardStack" class="relative w-full max-w-lg">
+                <!-- Cards rendered here by JS -->
+              </div>
+              
+              <!-- Swipe Indicators -->
+              <div id="swipeLeftIndicator" class="absolute left-4 top-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-200">
+                <div class="w-20 h-20 rounded-full bg-reforge-orange/20 flex items-center justify-center">
+                  <span class="text-4xl">✗</span>
+                </div>
+              </div>
+              <div id="swipeRightIndicator" class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-200">
+                <div class="w-20 h-20 rounded-full bg-reforge-teal/20 flex items-center justify-center">
+                  <span class="text-4xl">✓</span>
+                </div>
+              </div>
+              
+              <!-- Empty State -->
+              <div id="emptyState" class="hidden absolute inset-0 flex items-center justify-center">
+                <div class="text-center">
+                  <div class="w-24 h-24 bg-reforge-teal/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-5xl">🎉</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">All Done!</h3>
+                  <p class="text-reforge-muted mb-4">You've reviewed all <span id="totalLeads">50</span> leads</p>
+                  <button onclick="resetSwiper()" class="btn-primary px-6 py-3 rounded-lg font-medium">
+                    🔄 Start Over
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center justify-center gap-6 mt-4">
+              <button onclick="swipeLeft()" class="w-16 h-16 rounded-full bg-white border-2 border-reforge-orange hover:bg-reforge-orange/10 flex items-center justify-center transition-all shadow-lg hover:shadow-xl active:scale-95">
+                <span class="text-3xl text-reforge-orange">✗</span>
+              </button>
+              <div class="text-center text-sm text-reforge-muted">
+                <p>← A or ←</p>
+                <p class="font-medium">Skip</p>
+              </div>
+              <div class="w-px h-12 bg-gray-200"></div>
+              <div class="text-center text-sm text-reforge-muted">
+                <p>D or → →</p>
+                <p class="font-medium">Qualify</p>
+              </div>
+              <button onclick="swipeRight()" class="w-16 h-16 rounded-full bg-white border-2 border-reforge-teal hover:bg-reforge-teal/10 flex items-center justify-center transition-all shadow-lg hover:shadow-xl active:scale-95">
+                <span class="text-3xl text-reforge-teal">✓</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="space-y-4">
+            <!-- ICP Criteria -->
+            <div class="card rounded-xl p-5">
+              <h3 class="font-semibold mb-3 text-gray-900 text-sm">ICP Criteria</h3>
+              <div class="space-y-2 text-xs">
+                <div class="flex items-start gap-2">
+                  <span class="text-reforge-teal">✓</span>
+                  <span class="text-gray-700">51-500+ employees</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-reforge-teal">✓</span>
+                  <span class="text-gray-700">B2B SaaS / Dev Tools</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-reforge-teal">✓</span>
+                  <span class="text-gray-700">AI coding tools adopted</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-reforge-teal">✓</span>
+                  <span class="text-gray-700">Product-led growth</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-reforge-orange">✗</span>
+                  <span class="text-gray-700">Hardware / Mobile-first</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Recent Qualified -->
+            <div class="card rounded-xl p-5">
+              <h3 class="font-semibold mb-3 text-gray-900 text-sm">Recently Qualified</h3>
+              <div id="recentQualified" class="space-y-2 max-h-64 overflow-y-auto">
+                <p class="text-xs text-reforge-muted italic">None yet—start swiping!</p>
+              </div>
+            </div>
+            
+            <!-- Stats -->
+            <div class="card rounded-xl p-5">
+              <h3 class="font-semibold mb-3 text-gray-900 text-sm">Session Stats</h3>
+              <div class="space-y-2 text-sm">
+                <div class="flex justify-between">
+                  <span class="text-reforge-muted">Qualify Rate</span>
+                  <span id="qualifyRate" class="font-medium text-gray-900">—</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-reforge-muted">Avg ICP Score</span>
+                  <span id="avgScore" class="font-medium text-gray-900">—</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-reforge-muted">Remaining</span>
+                  <span id="remainingCount" class="font-medium text-gray-900">50</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- Opportunity Decisions Section -->
