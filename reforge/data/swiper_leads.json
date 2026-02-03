@@ -4,31 +4,35 @@
     "company": "GoFundMe",
     "person": "Saurabh Pareek",
     "title": "Senior Director of Product Management",
-    "size": "1,300",
+    "size": "1300",
     "industry": "Crowdfunding Platform",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 1300 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/saurabh-pareek-6a810221/",
-    "website": "www.gofundme.com",
-    "employeeCount": 1300
+    "website": "gofundme.com",
+    "funding": 2000000,
+    "founded_year": 2010
   },
   {
     "id": 2,
     "company": "The Lifetime Value Co.",
     "person": "Nuo Xu",
     "title": "Associate Director of Product Management",
-    "size": "Unknown",
+    "size": "1",
     "industry": "Consumer Insights",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 1 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/heidixucreative/",
-    "website": "ltv.co"
+    "website": "ltv.co",
+    "founded_year": 2020
   },
   {
     "id": 3,
@@ -38,43 +42,48 @@
     "size": "80",
     "industry": "AI Robotics",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 80 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/shivamjoshi/",
-    "website": "www.sereact.ai",
-    "employeeCount": 80
+    "website": "sereact.ai",
+    "funding": 32500000
   },
   {
     "id": 4,
     "company": "MOJO",
     "person": "Amr El-Shimi",
     "title": "Director of Product Management",
-    "size": "42",
-    "industry": "Health, Wellness & Fitness",
+    "size": "110",
+    "industry": "marketing & advertising",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 110 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/elshimi/",
-    "employeeCount": 42,
-    "website": "www.mojo.so"
+    "website": "http://www.mojosuper.market",
+    "founded_year": 2018
   },
   {
     "id": 5,
     "company": "Pancreatic Cancer Action Network",
     "person": "Dr. Cedrick Holmes DSL, PMP",
     "title": "Senior Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "290",
+    "industry": "nonprofit organization management",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 290 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/cedrick-holmes-ms-csm-pmp-15a7086/"
+    "linkedin": "https://www.linkedin.com/in/cedrick-holmes-ms-csm-pmp-15a7086/",
+    "website": "http://www.pancan.org",
+    "founded_year": 1999
   },
   {
     "id": 6,
@@ -82,17 +91,19 @@
     "person": "Chris Featherstone",
     "title": "Sr. Director of Product Growth - Developer Experience",
     "size": "300",
-    "industry": "Information Technology & Services",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 New at company: 3mo"
+      "\ud83c\udd95 New at company: 3mo",
+      "\ud83d\udc65 300 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/chris-featherstone-6949817/",
     "roleMonths": 3,
     "companyMonths": 3,
-    "employeeCount": 300,
-    "website": "www.sanas.ai"
+    "website": "http://www.sanas.ai",
+    "funding": 117200000,
+    "founded_year": 2020
   },
   {
     "id": 7,
@@ -100,15 +111,17 @@
     "person": "Maggie McCann Radtke",
     "title": "Director of Product Marketing",
     "size": "73",
-    "industry": "Computer & Network Security",
+    "industry": "computer & network security",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 73 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/maggie-mccann-radtke/",
-    "employeeCount": 73,
-    "website": "www.vulncheck.com"
+    "website": "http://www.vulncheck.com",
+    "funding": 19950000,
+    "founded_year": 2021
   },
   {
     "id": 8,
@@ -116,15 +129,15 @@
     "person": "Sidrah Ismail",
     "title": "Director of Product Management",
     "size": "45",
-    "industry": "Information Technology & Services",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 45 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/sidrah-ismail-7a5b0a18/",
-    "employeeCount": 45,
-    "website": "www.goicon.com"
+    "website": "http://www.goicon.com"
   },
   {
     "id": 9,
@@ -132,17 +145,18 @@
     "person": "Robert Ellis",
     "title": "Director of Product Management",
     "size": "500",
-    "industry": "Financial Services",
+    "industry": "financial services",
     "signals": [
-      "\ud83c\udd95 New at company: 1mo"
+      "\ud83c\udd95 New at company: 1mo",
+      "\ud83d\udc65 500 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/robert-ellis-csm-cspo-a4b38014/",
     "roleMonths": 1,
     "companyMonths": 1,
-    "employeeCount": 500,
-    "website": "www.curinos.com"
+    "website": "http://www.curinos.com",
+    "founded_year": 2021
   },
   {
     "id": 10,
@@ -150,61 +164,69 @@
     "person": "Joel Enderle",
     "title": "Sr. Director of Product Development",
     "size": "72",
-    "industry": "Apparel & Fashion",
+    "industry": "apparel & fashion",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 72 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/joelenderle/",
-    "employeeCount": 72,
-    "website": "www.twistedx.com"
+    "website": "http://www.twistedx.com",
+    "founded_year": 2005
   },
   {
     "id": 11,
     "company": "Xage Security",
     "person": "Michael T.",
     "title": "Senior Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "110",
+    "industry": "computer & network security",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 110 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/michaelctsai/"
+    "linkedin": "https://www.linkedin.com/in/michaelctsai/",
+    "website": "http://www.xage.com",
+    "funding": 66000000,
+    "founded_year": 2017
   },
   {
     "id": 12,
     "company": "Vantage",
     "person": "Matt Kojalo",
     "title": "Director of Product, Growth & Diversification",
-    "size": "130",
-    "industry": "E-Learning",
+    "size": "1500",
+    "industry": "financial services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 1500 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/matt-kojalo-5144/",
-    "employeeCount": 130,
-    "website": "www.vantagelearning.com"
+    "website": "http://www.vantagemarkets.com",
+    "founded_year": 2009
   },
   {
     "id": 13,
     "company": "Arango",
     "person": "Mark Milinkovich",
     "title": "Director of Product Marketing",
-    "size": "1",
-    "industry": "Design",
+    "size": "110",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 110 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/markmilinkovich/",
-    "employeeCount": 1,
-    "website": "www.arango.com"
+    "website": "http://www.arango.ai",
+    "funding": 58488379,
+    "founded_year": 2015
   },
   {
     "id": 14,
@@ -212,29 +234,35 @@
     "person": "Joshua Sangster",
     "title": "Director of Product Management, Integrations",
     "size": "340",
-    "industry": "Information Technology & Services",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 340 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/%e2%98%81-joshua-sangster-30aa0a19/",
-    "employeeCount": 340,
-    "website": "www.agiloft.com"
+    "website": "http://www.agiloft.com",
+    "funding": 45000000,
+    "founded_year": 1991
   },
   {
     "id": 15,
     "company": "Snorkel AI",
     "person": "Kevin Olivieri",
     "title": "Sr. Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "890",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 890 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/kevinjolivieri/"
+    "linkedin": "https://www.linkedin.com/in/kevinjolivieri/",
+    "website": "http://www.snorkel.ai",
+    "funding": 238000000,
+    "founded_year": 2019
   },
   {
     "id": 16,
@@ -242,15 +270,17 @@
     "person": "Griffin Kao",
     "title": "Director of Product",
     "size": "140",
-    "industry": "Information Technology & Services",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 140 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/griffinkao/",
-    "employeeCount": 140,
-    "website": "www.virtualitics.com"
+    "website": "http://www.virtualitics.com",
+    "funding": 84400000,
+    "founded_year": 2016
   },
   {
     "id": 17,
@@ -258,15 +288,16 @@
     "person": "Ernest Saco",
     "title": "Director of Product Management",
     "size": "65",
-    "industry": "Information Technology & Services",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 65 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/ernest-saco-15614429/",
-    "employeeCount": 65,
-    "website": "www.revolutionparts.com"
+    "website": "http://www.revolutionparts.com",
+    "founded_year": 2013
   },
   {
     "id": 18,
@@ -284,36 +315,42 @@
     "icp_score": 90,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/victoria-brown-845aa913/",
-    "website": "www.toolsgroup.com",
-    "employeeCount": 320
+    "website": "toolsgroup.com"
   },
   {
     "id": 19,
     "company": "b\u00f6hme",
     "person": "Colleen Burns",
     "title": "Senior Director of Product Development and Supply Chain Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "250",
+    "industry": "apparel & fashion",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 250 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/colleen-burns-a792453/"
+    "linkedin": "https://www.linkedin.com/in/colleen-burns-a792453/",
+    "website": "http://www.bohme.com",
+    "funding": 3700000,
+    "founded_year": 2007
   },
   {
     "id": 20,
     "company": "BESTMIX Software",
     "person": "Geert Vanvaerenbergh",
     "title": "Director of Product Strategy \u2013 Food ERP",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "140",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 140 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/geertvanvaerenbergh/"
+    "linkedin": "https://www.linkedin.com/in/geertvanvaerenbergh/",
+    "website": "http://www.bestmix.com",
+    "founded_year": 1974
   },
   {
     "id": 21,
@@ -321,47 +358,51 @@
     "person": "Clinton Sprauve",
     "title": "Senior Director of Product Marketing",
     "size": "310",
-    "industry": "Information Technology & Services",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 310 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/clinton-sprauve-a859221/",
-    "employeeCount": 310,
-    "website": "www.leapwork.com"
+    "website": "http://www.leapwork.com",
+    "funding": 72000000,
+    "founded_year": 2015
   },
   {
     "id": 22,
     "company": "Seed Health",
     "person": "Angela Hatcher",
     "title": "Director of Product Marketing",
-    "size": "4",
-    "industry": "Research",
+    "size": "250",
+    "industry": "biotechnology",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 250 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/angela-hatcher-ba9724124/",
-    "employeeCount": 4,
-    "website": "www.luca.bio"
+    "website": "http://www.seed.com",
+    "funding": 40000000,
+    "founded_year": 2016
   },
   {
     "id": 23,
     "company": "INNERGY",
     "person": "Clay S.",
     "title": "Director of Product: CADCAM",
-    "size": "150",
-    "industry": "Information Technology & Services",
+    "size": "470",
+    "industry": "oil & energy",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 470 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/cswayze/",
-    "employeeCount": 150,
-    "website": "www.innergy.com"
+    "website": "http://www.innergy.com.co"
   },
   {
     "id": 24,
@@ -369,31 +410,35 @@
     "person": "Laura Curk",
     "title": "Senior Director of Product Marketing",
     "size": "110",
-    "industry": "Information Technology & Services",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 110 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/laura-curk-52702064/",
-    "employeeCount": 110,
-    "website": "www.proshoperp.com"
+    "website": "http://www.proshoperp.com",
+    "funding": 32000000,
+    "founded_year": 2016
   },
   {
     "id": 25,
     "company": "GoFundMe",
     "person": "Madhuri Murlikrishnan",
     "title": "Director of Product Marketing",
-    "size": "1,300",
+    "size": "1300",
     "industry": "Crowdfunding Platform",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 1300 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/madhuri-murlikrishnan-1816581b/",
-    "website": "www.gofundme.com",
-    "employeeCount": 1300
+    "website": "gofundme.com",
+    "funding": 2000000,
+    "founded_year": 2010
   },
   {
     "id": 26,
@@ -415,827 +460,1036 @@
     "person": "Rubesh Kumar",
     "title": "Director of Product Management",
     "size": "110",
-    "industry": "Information Technology & Services",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 110 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
     "linkedin": "https://www.linkedin.com/in/rubesh-kumar-n-1259a3158/",
-    "employeeCount": 110,
-    "website": "www.userful.com"
+    "website": "http://www.userful.com",
+    "funding": 12530000,
+    "founded_year": 2015
   },
   {
     "id": 28,
     "company": "iDbase Software",
     "person": "Matthew Olugbemi",
     "title": "Director of Product and Growth",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "16",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 16 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/matthew-olugbemi-0b448747/"
+    "linkedin": "https://www.linkedin.com/in/matthew-olugbemi-0b448747/",
+    "website": "http://www.idbasesoftware.com",
+    "founded_year": 2010
   },
   {
     "id": 29,
     "company": "Lila Sciences",
     "person": "Jing Ong",
     "title": "Director of Product Management - Applied AI",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "290",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 290 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/ongjing/"
+    "linkedin": "https://www.linkedin.com/in/ongjing/",
+    "website": "http://www.lila.ai",
+    "funding": 435000000
   },
   {
     "id": 30,
     "company": "Render",
     "person": "Brooke Chen",
     "title": "Director of Product",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "130",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 130 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/brooke-chen/"
+    "linkedin": "https://www.linkedin.com/in/brooke-chen/",
+    "website": "http://www.render.com",
+    "funding": 163550000,
+    "founded_year": 2018
   },
   {
     "id": 31,
     "company": "C the Signs",
     "person": "Lauren Fragoza",
     "title": "Director of Product - US",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "37",
+    "industry": "hospital & health care",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 37 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/laurenfragoza/"
+    "linkedin": "https://www.linkedin.com/in/laurenfragoza/",
+    "website": "http://www.cthesigns.com",
+    "funding": 14600000,
+    "founded_year": 2017
   },
   {
     "id": 32,
     "company": "Nelly Solutions",
     "person": "Carlotta Riesser",
     "title": "Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "150",
+    "industry": "financial services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 150 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/carlottariesser/"
+    "linkedin": "https://www.linkedin.com/in/carlottariesser/",
+    "website": "http://www.getnelly.de",
+    "funding": 130900000,
+    "founded_year": 2021
   },
   {
     "id": 33,
     "company": "Betterworks",
     "person": "Cassie Fulton Flores",
     "title": "Sr. Director of Product Marketing + Content",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "210",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 210 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/cassiefultonflores/"
+    "linkedin": "https://www.linkedin.com/in/cassiefultonflores/",
+    "website": "http://www.betterworks.com",
+    "funding": 152300000,
+    "founded_year": 2013
   },
   {
     "id": 34,
     "company": "Wayve",
     "person": "Daniella Gutlansky",
     "title": "Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "840",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 840 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/daniella-gutlansky/"
+    "linkedin": "https://www.linkedin.com/in/daniella-gutlansky/",
+    "website": "http://www.wayve.ai",
+    "funding": 1794380000,
+    "founded_year": 2017
   },
   {
     "id": 35,
     "company": "Stocktwits",
     "person": "Nick Eltjes",
     "title": "Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "130",
+    "industry": "financial services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 130 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/neltjes/"
+    "linkedin": "https://www.linkedin.com/in/neltjes/",
+    "website": "http://www.stocktwits.com",
+    "funding": 51200000,
+    "founded_year": 2008
   },
   {
     "id": 36,
     "company": "Aviro360",
     "person": "Matt Brekken",
     "title": "Director of Product Engineering",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "39",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 39 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/mbrekken/"
+    "linkedin": "https://www.linkedin.com/in/mbrekken/",
+    "website": "http://www.aviro360.com",
+    "founded_year": 2025
   },
   {
     "id": 37,
     "company": "JobNimbus",
     "person": "Ryan Quackenbush",
     "title": "Director of Product",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "220",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 220 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/rquackenbush/"
+    "linkedin": "https://www.linkedin.com/in/rquackenbush/",
+    "website": "http://www.jobnimbus.com",
+    "funding": 383000000,
+    "founded_year": 2011
   },
   {
     "id": 38,
     "company": "Bitmovin",
     "person": "Alex Zambelli",
     "title": "Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "160",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 160 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/alex-zambelli-5037ab5/"
+    "linkedin": "https://www.linkedin.com/in/alex-zambelli-5037ab5/",
+    "website": "http://www.bitmovin.com",
+    "funding": 70500000,
+    "founded_year": 2013
   },
   {
     "id": 39,
     "company": "Moda Operandi, Inc",
     "person": "Lauren Mirynowski",
     "title": "Senior Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "370",
+    "industry": "apparel & fashion",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 370 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/lauren-mirynowski-8a540114/"
+    "linkedin": "https://www.linkedin.com/in/lauren-mirynowski-8a540114/",
+    "website": "http://www.modaoperandi.com",
+    "funding": 407240000,
+    "founded_year": 2010
   },
   {
     "id": 40,
     "company": "Donorbox",
     "person": "Dan Godfrey",
     "title": "Director of Product Engineering",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "120",
+    "industry": "fund-raising",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 120 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/daniel-godfrey-ba0b6419/"
+    "linkedin": "https://www.linkedin.com/in/daniel-godfrey-ba0b6419/",
+    "website": "http://www.donorbox.org",
+    "founded_year": 2014
   },
   {
     "id": 41,
     "company": "Isovalent",
     "person": "Christiaan Kuun",
     "title": "Senior Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "160",
+    "industry": "computer & network security",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 160 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/christiaan-kuun-4303132/"
+    "linkedin": "https://www.linkedin.com/in/christiaan-kuun-4303132/",
+    "website": "http://www.isovalent.com",
+    "funding": 69000000,
+    "founded_year": 2017
   },
   {
     "id": 42,
     "company": "Naehas",
     "person": "Vighnesh Subramanyan",
     "title": "Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "200",
+    "industry": "financial services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 200 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/vighnesh-subramanyan-a762aa33/"
+    "linkedin": "https://www.linkedin.com/in/vighnesh-subramanyan-a762aa33/",
+    "website": "http://www.naehas.com",
+    "funding": 970000,
+    "founded_year": 2006
   },
   {
     "id": 43,
     "company": "Ovivio NL",
     "person": "Ruud Adriaans",
     "title": "Director of Product",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "140",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 140 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/ruud-adriaans/"
+    "linkedin": "https://www.linkedin.com/in/ruud-adriaans/",
+    "website": "http://www.kidskonnect.nl",
+    "founded_year": 2019
   },
   {
     "id": 44,
     "company": "Ottimate",
     "person": "Jason Boyles",
     "title": "Senior Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "270",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 270 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/jason-boyles-cx/"
+    "linkedin": "https://www.linkedin.com/in/jason-boyles-cx/",
+    "website": "http://www.ottimate.com",
+    "funding": 320130000,
+    "founded_year": 2014
   },
   {
     "id": 45,
     "company": "Tennis Channel",
     "person": "Tatiana C.",
     "title": "Director of Product Design",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "390",
+    "industry": "media production",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 390 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/tatianachilcovsky/"
+    "linkedin": "https://www.linkedin.com/in/tatianachilcovsky/",
+    "website": "http://www.tnns.ch",
+    "founded_year": 2003
   },
   {
     "id": 46,
     "company": "Underdog",
     "person": "Harry Raymond",
     "title": "Director of Product",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "760",
+    "industry": "sports",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 760 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/hraymond/"
+    "linkedin": "https://www.linkedin.com/in/hraymond/",
+    "website": "http://www.underdogfantasy.com",
+    "funding": 115000000,
+    "founded_year": 2020
   },
   {
     "id": 47,
     "company": "Jama Software",
     "person": "Mindy N.",
     "title": "Sr. Director of Product Design",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "300",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 300 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/mindynies/"
+    "linkedin": "https://www.linkedin.com/in/mindynies/",
+    "website": "http://www.jamasoftware.com",
+    "funding": 1436110000,
+    "founded_year": 2007
   },
   {
     "id": 48,
     "company": "Hallmark Media",
     "person": "Justin Parkinson",
     "title": "Director of Product, Hallmark+",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "610",
+    "industry": "entertainment",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 610 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/justin-parkinson/"
+    "linkedin": "https://www.linkedin.com/in/justin-parkinson/",
+    "website": "http://www.hallmarkmedia.com",
+    "founded_year": 2001
   },
   {
     "id": 49,
     "company": "Granum",
     "person": "Ryan K. Rinaldi",
     "title": "Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "17",
+    "industry": "farming",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 17 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/ryan-k-rinaldi-3a439574/"
+    "linkedin": "https://www.linkedin.com/in/ryan-k-rinaldi-3a439574/",
+    "website": "http://www.granumfoundation.org",
+    "founded_year": 2024
   },
   {
     "id": 50,
     "company": "Edwards Lifesciences IHFM",
     "person": "Jay Radcliffe",
     "title": "Director of Product Security",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "110",
+    "industry": "medical devices",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 110 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/jradcliffe02/"
+    "linkedin": "https://www.linkedin.com/in/jradcliffe02/",
+    "website": "http://www.endotronix.com",
+    "funding": 206650000,
+    "founded_year": 2007
   },
   {
     "id": 51,
     "company": "Carewell",
     "person": "Eric T.",
     "title": "Sr Director of Product, Care Services",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "360",
+    "industry": "retail",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 360 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/erictabarly/"
+    "linkedin": "https://www.linkedin.com/in/erictabarly/",
+    "website": "http://www.carewell.com",
+    "funding": 54700000,
+    "founded_year": 2017
   },
   {
     "id": 52,
     "company": "NewStore",
     "person": "Mitun Pandey",
     "title": "Director of Product Operations",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "180",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 180 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/mitunpandey/"
+    "linkedin": "https://www.linkedin.com/in/mitunpandey/",
+    "website": "http://www.newstore.com",
+    "funding": 185590000,
+    "founded_year": 2015
   },
   {
     "id": 53,
     "company": "Nile",
     "person": "Brian Strachman",
     "title": "Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "280",
+    "industry": "real estate",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 280 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/strachman/"
+    "linkedin": "https://www.linkedin.com/in/strachman/",
+    "website": "http://www.nile-developments.com"
   },
   {
     "id": 54,
     "company": "Change.org",
     "person": "Nava Friedman",
     "title": "Director of Product, Elections",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "330",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 330 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/nava-friedman-a1a59187/"
+    "linkedin": "https://www.linkedin.com/in/nava-friedman-a1a59187/",
+    "website": "http://www.change.org",
+    "funding": 72030000,
+    "founded_year": 2007
   },
   {
     "id": 55,
     "company": "The N2 Company",
     "person": "Bernadette Gabaree",
     "title": "Senior Director of Product Growth",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "1400",
+    "industry": "media production",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 1400 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/behayes/"
+    "linkedin": "https://www.linkedin.com/in/behayes/",
+    "website": "http://www.n2co.com",
+    "founded_year": 2004
   },
   {
     "id": 56,
     "company": "Zenarate",
     "person": "Daniel Urban",
     "title": "Senior Director of Product Management - AI Agents",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "150",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 150 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/daniel-t-urban/"
+    "linkedin": "https://www.linkedin.com/in/daniel-t-urban/",
+    "website": "http://www.zenarate.com",
+    "funding": 15260000,
+    "founded_year": 2018
   },
   {
     "id": 57,
     "company": "Paragonix Technologies, Inc.",
     "person": "Pratik Patel",
     "title": "Senior Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "160",
+    "industry": "medical devices",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 160 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/pratik-patel-88477016/"
+    "linkedin": "https://www.linkedin.com/in/pratik-patel-88477016/",
+    "website": "http://www.paragonixtechnologies.com",
+    "funding": 287060000,
+    "founded_year": 2010
   },
   {
     "id": 58,
     "company": "JobNimbus",
     "person": "Ryan Walker",
     "title": "Senior Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "220",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 220 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/walkerryan/"
+    "linkedin": "https://www.linkedin.com/in/walkerryan/",
+    "website": "http://www.jobnimbus.com",
+    "funding": 383000000,
+    "founded_year": 2011
   },
   {
     "id": 59,
     "company": "Twin Health",
     "person": "Pauline Tordeur",
     "title": "Senior Director of Product",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "710",
+    "industry": "hospital & health care",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 710 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/pauline-tordeur/"
+    "linkedin": "https://www.linkedin.com/in/pauline-tordeur/",
+    "website": "http://www.twinhealth.com",
+    "funding": 286500000,
+    "founded_year": 2018
   },
   {
     "id": 60,
     "company": "Brio Water Technology",
     "person": "Jamie Dachisen, MBA",
     "title": "Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "61",
+    "industry": "wholesale",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 61 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/jamie-dachisen-7a867a1b/"
+    "linkedin": "https://www.linkedin.com/in/jamie-dachisen-7a867a1b/",
+    "website": "http://www.briowater.com",
+    "founded_year": 1992
   },
   {
     "id": 61,
     "company": "Spectralink Corporation",
     "person": "Anand Gupta",
     "title": "Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "250",
+    "industry": "telecommunications",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 250 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/anand-gupta-886712/"
+    "linkedin": "https://www.linkedin.com/in/anand-gupta-886712/",
+    "website": "http://www.spectralink.com",
+    "founded_year": 1990
   },
   {
     "id": 62,
     "company": "Mark43",
     "person": "Tony Slokar",
     "title": "Director of Product - Platform",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "290",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 290 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/antony-slokar-13524316/"
+    "linkedin": "https://www.linkedin.com/in/antony-slokar-13524316/",
+    "website": "http://www.mark43.com",
+    "funding": 347140000,
+    "founded_year": 2012
   },
   {
     "id": 63,
     "company": "Solutions Metrix",
     "person": "Sofie-Anh Duranceau",
     "title": "Director of Product",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "270",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 270 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/sofieanhduranceau/"
+    "linkedin": "https://www.linkedin.com/in/sofieanhduranceau/",
+    "website": "http://www.metrixit.com",
+    "founded_year": 2017
   },
   {
     "id": 64,
     "company": "Movius",
     "person": "Zahin Rejuan",
     "title": "Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "320",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 320 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/zahin-rejuan-99130b124/"
+    "linkedin": "https://www.linkedin.com/in/zahin-rejuan-99130b124/",
+    "website": "http://www.movius.ai",
+    "funding": 190128285,
+    "founded_year": 2007
   },
   {
     "id": 65,
     "company": "Visier Inc.",
     "person": "Elissa (Eli) Riddell",
     "title": "Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "570",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 570 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/elissariddell/"
+    "linkedin": "https://www.linkedin.com/in/elissariddell/",
+    "website": "http://www.visier.com",
+    "funding": 261500000,
+    "founded_year": 2010
   },
   {
     "id": 66,
     "company": "ServiceTrade",
     "person": "Shavonne Williams",
     "title": "Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "200",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 200 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/shavonnewilliams/"
+    "linkedin": "https://www.linkedin.com/in/shavonnewilliams/",
+    "website": "http://www.servicetrade.com",
+    "funding": 119799999,
+    "founded_year": 2012
   },
   {
     "id": 67,
     "company": "AllTrails",
     "person": "Beverly Chung",
     "title": "Senior Director of Product",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "380",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 380 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/beverly-chung-2363261/"
+    "linkedin": "https://www.linkedin.com/in/beverly-chung-2363261/",
+    "website": "http://www.alltrails.com",
+    "funding": 818840000,
+    "founded_year": 2010
   },
   {
     "id": 68,
     "company": "Riverside Insights",
     "person": "Tommy Day",
     "title": "Director of Product, Platform",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "300",
+    "industry": "education management",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 300 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/tommy-day-7239977/"
+    "linkedin": "https://www.linkedin.com/in/tommy-day-7239977/",
+    "website": "http://www.riversideinsights.com",
+    "founded_year": 2018
   },
   {
     "id": 69,
     "company": "TechWolf",
     "person": "Colin Tierney",
     "title": "Director of Product",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "140",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 140 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/colin-tierney-80b44060/"
+    "linkedin": "https://www.linkedin.com/in/colin-tierney-80b44060/",
+    "website": "http://www.techwolf.ai",
+    "funding": 55970000,
+    "founded_year": 2018
   },
   {
     "id": 70,
     "company": "Zendrop",
     "person": "Joshua Imel",
     "title": "Director of Product",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "97",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 97 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/joshua-imel-132a7559/"
+    "linkedin": "https://www.linkedin.com/in/joshua-imel-132a7559/",
+    "website": "http://www.zendrop.com",
+    "founded_year": 2019
   },
   {
     "id": 71,
     "company": "Top Employers Institute",
     "person": "Gaurav Gandhi",
     "title": "Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "420",
+    "industry": "human resources",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 420 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/gauravcgandhi/"
+    "linkedin": "https://www.linkedin.com/in/gauravcgandhi/",
+    "website": "http://www.top-employers.com",
+    "founded_year": 1991
   },
   {
     "id": 72,
     "company": "MultiSensor AI",
     "person": "James Newman",
     "title": "Senior Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "41",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 41 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/james-newmanjr/"
+    "linkedin": "https://www.linkedin.com/in/james-newmanjr/",
+    "website": "http://www.multisensorai.com",
+    "founded_year": 1995
   },
   {
     "id": 73,
     "company": "360 Privacy",
     "person": "Jaymie (Testa) Falconi",
     "title": "Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "110",
+    "industry": "computer & network security",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 110 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/jaymiefalconi/"
+    "linkedin": "https://www.linkedin.com/in/jaymiefalconi/",
+    "website": "http://www.360privacy.io",
+    "funding": 36000000,
+    "founded_year": 2019
   },
   {
     "id": 74,
     "company": "Brodie Sports Group",
     "person": "Adam Brace",
     "title": "Director of Product Design",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "63",
+    "industry": "sports",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 63 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/adam-brace-a42a0525/"
+    "linkedin": "https://www.linkedin.com/in/adam-brace-a42a0525/",
+    "website": "http://www.brodierec.com",
+    "founded_year": 2019
   },
   {
     "id": 75,
     "company": "Sleeper",
     "person": "Jack Caporuscio",
     "title": "Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "190",
+    "industry": "sports",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 190 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/jack-caporuscio-3a4bb8133/"
+    "linkedin": "https://www.linkedin.com/in/jack-caporuscio-3a4bb8133/",
+    "website": "http://www.sleeper.com",
+    "funding": 67300000,
+    "founded_year": 2014
   },
   {
     "id": 76,
     "company": "LiveFlow",
     "person": "Corey Landers",
     "title": "Director of Product Design, Brand & Creative",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "51",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 51 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/corey-landers-30820522/"
+    "linkedin": "https://www.linkedin.com/in/corey-landers-30820522/",
+    "website": "http://www.liveflow.com",
+    "funding": 20930000,
+    "founded_year": 2021
   },
   {
     "id": 77,
     "company": "Onbe",
     "person": "Dipesh Mehta",
     "title": "Senior Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "330",
+    "industry": "financial services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 330 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/dipesh-mehta-53257480/"
+    "linkedin": "https://www.linkedin.com/in/dipesh-mehta-53257480/",
+    "website": "http://www.onbe.com",
+    "founded_year": 2020
   },
   {
     "id": 78,
     "company": "Opensend",
     "person": "Katie McKeever",
     "title": "Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "43",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 43 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/katherine-mckeever/"
+    "linkedin": "https://www.linkedin.com/in/katherine-mckeever/",
+    "website": "http://www.opensend.com",
+    "founded_year": 2022
   },
   {
     "id": 79,
     "company": "Propelus",
     "person": "Trish O'Malley",
     "title": "Sr Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "270",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 270 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/trishomalley/"
+    "linkedin": "https://www.linkedin.com/in/trishomalley/",
+    "website": "http://www.propelus.com",
+    "founded_year": 2003
   },
   {
     "id": 80,
     "company": "Ghost",
     "person": "Nonie K.",
     "title": "Director of Product Design",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "780",
+    "industry": "animation",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 780 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/noniekimpitak/"
+    "linkedin": "https://www.linkedin.com/in/noniekimpitak/",
+    "website": "http://www.ghostvfx.com",
+    "founded_year": 1999
   },
   {
     "id": 81,
     "company": "Altana",
     "person": "Joyce Gordon",
     "title": "Senior Director of Product",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "290",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 290 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/joyce-gordon-7a428971/"
+    "linkedin": "https://www.linkedin.com/in/joyce-gordon-7a428971/",
+    "website": "http://www.altana.ai",
+    "funding": 323500000,
+    "founded_year": 2018
   },
   {
     "id": 82,
     "company": "PerfectServe",
     "person": "Sidharth Grover",
     "title": "Director of Product, AI",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "340",
+    "industry": "hospital & health care",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 340 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/sidharth-grover/"
+    "linkedin": "https://www.linkedin.com/in/sidharth-grover/",
+    "website": "http://www.perfectserve.com",
+    "funding": 35900000,
+    "founded_year": 1997
   },
   {
     "id": 83,
     "company": "Gevo, Inc.",
     "person": "Cheryl Sansonetti",
     "title": "Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "130",
+    "industry": "renewables & environment",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 130 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/cheryl-sansonetti-aa111b5/"
+    "linkedin": "https://www.linkedin.com/in/cheryl-sansonetti-aa111b5/",
+    "website": "http://www.gevo.com",
+    "founded_year": 2005
   },
   {
     "id": 84,
     "company": "Strider Technologies",
     "person": "Elizabeth G.",
     "title": "Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "290",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 290 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/elizabeth-giuffrida/"
+    "linkedin": "https://www.linkedin.com/in/elizabeth-giuffrida/",
+    "website": "http://www.striderintel.com",
+    "funding": 114000000,
+    "founded_year": 2019
   },
   {
     "id": 85,
     "company": "Flex",
     "person": "Doug Meyer",
     "title": "Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "148000",
+    "industry": "electrical/electronic manufacturing",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 148000 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/doug-meyer-37715533/"
+    "linkedin": "https://www.linkedin.com/in/doug-meyer-37715533/",
+    "website": "http://www.flex.com",
+    "founded_year": 1969
   },
   {
     "id": 86,
@@ -1256,70 +1510,88 @@
     "company": "Deepgram",
     "person": "Jonathan Remulla",
     "title": "Director of Product Design",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "270",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 270 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/supafrenz/"
+    "linkedin": "https://www.linkedin.com/in/supafrenz/",
+    "website": "http://www.deepgram.com",
+    "funding": 233330000,
+    "founded_year": 2015
   },
   {
     "id": 88,
     "company": "gearUP",
     "person": "Michelle Billingsley CPC, ELI-MP",
     "title": "Senior Director of Product and Merchandising",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "160",
+    "industry": "sports",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 160 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/michelle-billingsley-cpc-eli-mp-03bb5188/"
+    "linkedin": "https://www.linkedin.com/in/michelle-billingsley-cpc-eli-mp-03bb5188/",
+    "website": "http://www.gearupwithus.com",
+    "funding": 14199999,
+    "founded_year": 2010
   },
   {
     "id": 89,
     "company": "LI-COR",
     "person": "Taylor Thomas",
     "title": "Director of Product Management - LI-COR Products",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "230",
+    "industry": "research",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 230 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/taylor-thomas-807744229/"
+    "linkedin": "https://www.linkedin.com/in/taylor-thomas-807744229/",
+    "website": "http://www.licorbio.com",
+    "founded_year": 1971
   },
   {
     "id": 90,
     "company": "Trulioo",
     "person": "Matt Davis",
     "title": "Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "420",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 420 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/mattdaviscanada/"
+    "linkedin": "https://www.linkedin.com/in/mattdaviscanada/",
+    "website": "http://www.trulioo.com",
+    "funding": 478538130,
+    "founded_year": 2011
   },
   {
     "id": 91,
     "company": "Doppel",
     "person": "Alvin Lin",
     "title": "Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "400",
+    "industry": "pharmaceuticals",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 400 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/alvin-lin-5986072a/"
+    "linkedin": "https://www.linkedin.com/in/alvin-lin-5986072a/",
+    "website": "http://www.doppel.it",
+    "founded_year": 1994
   },
   {
     "id": 92,
@@ -1340,111 +1612,142 @@
     "company": "Qventus, Inc",
     "person": "Danielle Brown",
     "title": "Director of Product Management",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "290",
+    "industry": "hospital & health care",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 290 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/anamericanlady/"
+    "linkedin": "https://www.linkedin.com/in/anamericanlady/",
+    "website": "http://www.qventus.com",
+    "funding": 196130000,
+    "founded_year": 2012
   },
   {
     "id": 94,
     "company": "XBOW",
     "person": "Natalie Jones",
     "title": "Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "150",
+    "industry": "computer & network security",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 150 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/natalie-jones-54b28a31/"
+    "linkedin": "https://www.linkedin.com/in/natalie-jones-54b28a31/",
+    "website": "http://www.xbow.com",
+    "funding": 117000000,
+    "founded_year": 2024
   },
   {
     "id": 95,
     "company": "Govini",
     "person": "Madeline T. Jordan",
     "title": "Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "300",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 300 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/madeline-t-jordan/"
+    "linkedin": "https://www.linkedin.com/in/madeline-t-jordan/",
+    "website": "http://www.govini.com",
+    "funding": 174500000,
+    "founded_year": 2011
   },
   {
     "id": 96,
     "company": "AppViewX",
     "person": "Chaitanya Challa",
     "title": "Director of Product Management, AI Platform and NHI",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "560",
+    "industry": "computer & network security",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 560 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/chaitanya-challa-71605025/"
+    "linkedin": "https://www.linkedin.com/in/chaitanya-challa-71605025/",
+    "website": "http://www.appviewx.com",
+    "funding": 57350000,
+    "founded_year": 2008
   },
   {
     "id": 97,
     "company": "Nanosonics",
     "person": "Neil McLellan",
     "title": "Global Director of Product - Connectivity",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "470",
+    "industry": "medical devices",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 470 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/neil-mclellan-mba-a21b6210/"
+    "linkedin": "https://www.linkedin.com/in/neil-mclellan-mba-a21b6210/",
+    "website": "http://www.nanosonics.com.au",
+    "founded_year": 2000
   },
   {
     "id": 98,
     "company": "Adaptive Security",
     "person": "Jonathan Grossman",
     "title": "Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "74",
+    "industry": "computer & network security",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 74 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/jonathan-grossman-96ab651b6/"
+    "linkedin": "https://www.linkedin.com/in/jonathan-grossman-96ab651b6/",
+    "website": "http://www.adaptivesecurity.com",
+    "funding": 55000000,
+    "founded_year": 2024
   },
   {
     "id": 99,
     "company": "Albert Invent",
     "person": "Kyle Williams",
     "title": "Director of Product - AI & Core Apps",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "170",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 170 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/kyle-williams-21a82028#:~:text=Experience/"
+    "linkedin": "https://www.linkedin.com/in/kyle-williams-21a82028#:~:text=Experience/",
+    "website": "http://www.albertinvent.com",
+    "funding": 30000000,
+    "founded_year": 2022
   },
   {
     "id": 100,
     "company": "MinIO",
     "person": "James G.",
     "title": "Sr. Director of Product Marketing",
-    "size": "Unknown",
-    "industry": "B2B SaaS",
+    "size": "200",
+    "industry": "information technology & services",
     "signals": [
-      "\ud83c\udd95 Joined company: 3mo"
+      "\ud83c\udd95 Joined company: 3mo",
+      "\ud83d\udc65 200 employees"
     ],
     "icp_score": 70,
     "summary": "New hire: 3mo",
-    "linkedin": "https://www.linkedin.com/in/jamesgallegos89/"
+    "linkedin": "https://www.linkedin.com/in/jamesgallegos89/",
+    "website": "http://www.min.io",
+    "funding": 126300000,
+    "founded_year": 2014
   }
 ]
