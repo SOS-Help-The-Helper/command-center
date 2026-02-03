@@ -1,13 +1,14 @@
 {
-  "lastUpdated": "2026-02-04T22:00:00Z",
-  "updatedBy": "Henry",
+  "lastUpdated": "2026-02-07T17:30:00Z",
+  "updatedBy": "Henry (intel refresh)",
   "description": "Harmony Strategy client intelligence - health, upsells, risks",
   
   "signalTypes": {
     "client_health": "Response patterns, satisfaction signals",
     "risk": "Payment issues, delivery delays, frustration",
     "upsell": "Client growth news, expansion opportunities",
-    "lead": "New business opportunities, referrals"
+    "lead": "New business opportunities, referrals",
+    "market": "Industry trends affecting demand"
   },
   
   "clients": [
@@ -22,23 +23,119 @@
   
   "signals": [
     {
-      "timestamp": "2026-02-04T22:00:00Z",
+      "timestamp": "2026-02-07T17:30:00Z",
       "type": "client_health",
       "client": "Litmos",
-      "priority": "normal",
-      "summary": "Invoice #2 ($30k) sent Feb 4, due Mar 1. No negative news signals found in web search - Litmos remains positioned well in LMS market comparisons.",
-      "action": "Monitor for payment confirmation by Mar 1"
+      "priority": "positive",
+      "summary": "Litmos featured positively in multiple 2026 LMS industry reports. TalentedLearning named them among 'major North American vendors making great strides' leveraging AI for localization and business processes. CypherLearning highlights their 'mobile-first LMS for distributed teams.'",
+      "source": "talentedlearning.com, cypherlearning.com",
+      "action": "Share positive industry coverage with Litmos team - reinforces partnership value"
     },
     {
-      "timestamp": "2026-02-02T17:46:00Z",
+      "timestamp": "2026-02-07T17:30:00Z",
+      "type": "market",
+      "client": "divdat",
+      "priority": "opportunity",
+      "summary": "Kiosk industry reports '2026 as scale year for unattended payments' - standardized enterprise solutions emerging. Payments modernization trends accelerating.",
+      "source": "kioskindustry.org, paymentsdive.com",
+      "action": "Position HubSpot CMS migration as part of divdat's growth story - website is customer-facing brand"
+    },
+    {
+      "timestamp": "2026-02-07T17:30:00Z",
+      "type": "market",
+      "client": "Endurant/MCC",
+      "priority": "neutral",
+      "summary": "Memphis construction sector active - Building Memphis awards 2026 announced, continued infrastructure investment. No specific Endurant/MCC news found.",
+      "source": "bizjournals.com/memphis",
+      "action": "Monitor Memphis Business Journal for Endurant/MCC mentions"
+    },
+    {
+      "timestamp": "2026-02-07T17:30:00Z",
       "type": "risk",
       "client": "DI Global (Orly)",
       "priority": "🚨 CRITICAL",
       "summary": "13 weeks since payment, no deliverables. Client sent ACH details for refund on Jan 29. Relationship salvageable if we deliver this week.",
       "action": "Deliver contact import + dashboards within 48 hours or process refund"
+    },
+    {
+      "timestamp": "2026-02-04T22:00:00Z",
+      "type": "client_health",
+      "client": "Litmos",
+      "priority": "normal",
+      "summary": "Invoice #2 ($30k) sent Feb 4, due Mar 1.",
+      "action": "Monitor for payment confirmation by Mar 1"
     }
   ],
   
-  "lastIntelRun": "2026-02-04T22:00:00Z",
-  "nextScheduledRun": "2026-02-05T17:00:00Z"
+  "marketIntel": {
+    "hubspotEcosystem": [
+      {
+        "timestamp": "2026-02-07T17:30:00Z",
+        "headline": "Periti Digital (HubSpot Elite Partner) expands to US",
+        "summary": "HubSpot Elite Partner opened first US location in Cambridge Innovation Center, citing 'growing demand for CRM and AI solutions.' Top-3 ranked global HubSpot partner.",
+        "source": "prweb.com",
+        "implication": "More competition in US market, but validates demand. Harmony can differentiate on SMB focus and personal service."
+      },
+      {
+        "timestamp": "2026-02-07T17:30:00Z",
+        "headline": "HubSpot launches $20/month starter plan amid AI competition",
+        "summary": "HubSpot responding to AI-driven alternatives with low-cost starter pack. Q4 2025 earnings on Feb 11, 2026. Growth expected to slow in FY2026 vs 2025.",
+        "source": "simplywall.st, barchart.com",
+        "implication": "More SMBs entering HubSpot ecosystem = more implementation demand. Partner opportunity in SMB segment."
+      },
+      {
+        "timestamp": "2026-02-07T17:30:00Z",
+        "headline": "HubSpot releases new buyer intent signals",
+        "summary": "Five new buyer intent signals now available: C-level hires, product launches, strategic partnerships, mergers. Available on company records, workflows, lists, and scoring.",
+        "source": "community.hubspot.com",
+        "implication": "New feature to highlight in client trainings. Upsell opportunity for clients not using intent data."
+      },
+      {
+        "timestamp": "2026-02-07T17:30:00Z",
+        "headline": "HubSpot MCP Auth apps beta - agentic platform integrations",
+        "summary": "New MCP Auth apps UI simplifies integrations between agentic AI platforms and HubSpot. Automatic permission management.",
+        "source": "profound.ly",
+        "implication": "AI/agent integrations becoming first-class. Positioning opportunity for tech-forward clients."
+      },
+      {
+        "timestamp": "2026-02-07T17:30:00Z",
+        "headline": "Elite HubSpot partner pricing benchmarks",
+        "summary": "Elite partners charge $12K-$60K for enterprise implementations, $3K-$12K+ monthly retainers. Implementation timelines 60-90 days average.",
+        "source": "integrate.io",
+        "implication": "Market rate validation for Harmony pricing. Room to position competitively for mid-market."
+      }
+    ],
+    "gtmTrends": [
+      {
+        "timestamp": "2026-02-07T17:30:00Z",
+        "headline": "PE firms prioritizing GTM readiness earlier in diligence",
+        "summary": "2026 GTM outlook: CAC efficiency pressure, declining win rates, AI-driven productivity acceleration. PE firms will evaluate GTM readiness pre-acquisition.",
+        "source": "demandrevenue.com",
+        "implication": "Lead source: PE portfolio companies needing GTM audits. Position Harmony for pre-deal and post-acquisition work."
+      },
+      {
+        "timestamp": "2026-02-07T17:30:00Z",
+        "headline": "75% of B2B buyers prefer rep-free sales experience",
+        "summary": "Self-service buying dominant trend. GTM teams 'vibe coding their own tooling.' Pricing model shifts accelerating in 2026.",
+        "source": "thegtmnewsletter.substack.com, viamrkting.com",
+        "implication": "Clients need better self-service journeys. HubSpot CMS + automation positioning for PLG motions."
+      }
+    ]
+  },
+  
+  "leadSources": {
+    "identified": [
+      "PE portfolio companies needing GTM audits (demandrevenue.com insight)",
+      "SMBs entering HubSpot via $20 starter plan needing implementation help",
+      "Companies adopting AI/agentic tools needing HubSpot integration"
+    ],
+    "toExplore": [
+      "HubSpot partner directory for referral opportunities",
+      "Memphis Business Journal for local construction/energy leads",
+      "Kiosk/payments industry companies (divdat adjacent)"
+    ]
+  },
+  
+  "lastIntelRun": "2026-02-07T17:30:00Z",
+  "nextScheduledRun": "2026-02-10T17:00:00Z"
 }
