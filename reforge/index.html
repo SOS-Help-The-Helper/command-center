@@ -1653,6 +1653,39 @@ ${score.breakdown.map(b => `  ${b.points > 0 ? '+' : ''}${b.points} ${b.factor}:
     }
 
     // ========== LEAD QUALIFIER SWIPER ==========
+    
+    // Supabase config for real-time queue
+    const SUPABASE_URL = 'https://rtduqguwhkczexnoawej.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ0ZHVxZ3V3aGtjemV4bm9hd2VqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc2NjMxOTIsImV4cCI6MjA1MzIzOTE5Mn0.lLiwJZh0WwWoVw1F4HZLmcxfOYvRCShI4cNNeyaBHaQ';
+    
+    async function queueForLinkedIn(lead) {
+      try {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/linkedin_queue`, {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({
+            lead_data: lead,
+            status: 'pending'
+          })
+        });
+        if (response.ok) {
+          console.log('Lead queued in Supabase:', lead.person);
+          return true;
+        } else {
+          console.error('Failed to queue lead:', await response.text());
+          return false;
+        }
+      } catch (err) {
+        console.error('Queue error:', err);
+        return false;
+      }
+    }
+
     let sampleLeads = [];
     
     // Load leads from JSON file
@@ -1872,7 +1905,10 @@ ${score.breakdown.map(b => `  ${b.points > 0 ? '+' : ''}${b.points} ${b.factor}:
       const lead = leads[currentIndex];
       qualifiedLeads.push(lead);
       
-      // Add to LinkedIn connection queue in localStorage
+      // Add to LinkedIn connection queue (Supabase + localStorage backup)
+      queueForLinkedIn(lead);
+      
+      // Also save to localStorage as backup
       const queue = JSON.parse(localStorage.getItem('linkedinQueue') || '[]');
       queue.push({
         ...lead,
