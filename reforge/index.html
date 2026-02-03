@@ -1756,15 +1756,10 @@ ${score.breakdown.map(b => `  ${b.points > 0 ? '+' : ''}${b.points} ${b.factor}:
       document.getElementById('emptyState').classList.add('hidden');
       stack.innerHTML = remaining.map((lead, i) => renderCard(lead, currentIndex + i)).join('');
       
-      // Add entrance animation to top card
+      // Add entrance animation and drag handlers to top card
       const topCard = stack.querySelector('.swipe-card');
       if (topCard) {
         topCard.classList.add('card-enter');
-      }
-      
-      // Add drag handlers to top card
-      const topCard = stack.querySelector('.swipe-card');
-      if (topCard) {
         topCard.addEventListener('mousedown', startDrag);
         topCard.addEventListener('touchstart', startDrag, { passive: true });
       }
