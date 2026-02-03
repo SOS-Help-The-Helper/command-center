@@ -3,550 +3,535 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Command Center - Decision Queue</title>
+    <title>Command Center - Jonathan Greenberg</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+        @keyframes glow { 0%, 100% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.5); } 50% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.8); } }
         .card-enter { animation: slideIn 0.3s ease-out; }
-        .priority-high { border-left: 4px solid #ef4444; }
-        .priority-medium { border-left: 4px solid #f59e0b; }
+        .pulse { animation: pulse 2s infinite; }
+        .glow-urgent { animation: glow 2s infinite; }
+        .priority-urgent { border-left: 4px solid #ef4444; background: linear-gradient(90deg, rgba(239,68,68,0.1) 0%, transparent 100%); }
+        .priority-high { border-left: 4px solid #f59e0b; }
+        .priority-medium { border-left: 4px solid #3b82f6; }
         .priority-low { border-left: 4px solid #6b7280; }
-        .glow-green { box-shadow: 0 0 20px rgba(34, 197, 94, 0.3); }
-        body { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); }
+        body { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); min-height: 100vh; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        .stat-card { backdrop-filter: blur(10px); }
     </style>
 </head>
-<body class="text-gray-100 min-h-screen">
+<body class="text-gray-100">
     <div id="app" class="max-w-7xl mx-auto p-4 md:p-6">
+        
         <!-- Header -->
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
             <div>
                 <h1 class="text-2xl md:text-3xl font-bold flex items-center gap-3">
                     <span class="text-3xl">⚡</span> Command Center
                 </h1>
-                <p class="text-gray-400 text-sm mt-1">Decisions train your AI. Every choice makes recommendations smarter.</p>
+                <p class="text-gray-400 text-sm mt-1">Full visibility across SOS, Reforge, and Harmony</p>
             </div>
-            <div class="flex gap-2 items-center">
-                <div id="stats" class="text-sm text-gray-400 mr-4"></div>
-                <button onclick="showDecisionLog()" class="px-3 py-2 bg-purple-600/30 hover:bg-purple-600/50 rounded-lg text-sm border border-purple-500/30">
-                    📊 Decision Log
+            <div class="flex gap-2 items-center flex-wrap">
+                <span id="lastUpdate" class="text-xs text-gray-500 mr-2"></span>
+                <button onclick="setView('today')" class="view-btn px-3 py-1.5 bg-red-600/30 hover:bg-red-600/50 rounded-lg text-sm border border-red-500/30">
+                    🔥 Today
                 </button>
-                <button onclick="refreshData()" class="px-3 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm">
-                    ↻ Refresh
+                <button onclick="setView('all')" class="view-btn px-3 py-1.5 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm">
+                    All Tasks
+                </button>
+                <button onclick="window.location='decision-queue.html'" class="px-3 py-1.5 bg-purple-600/30 hover:bg-purple-600/50 rounded-lg text-sm border border-purple-500/30">
+                    📊 Decision Queue
                 </button>
             </div>
         </div>
 
-        <!-- Quick Stats -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-            <div class="bg-red-500/20 border border-red-500/30 rounded-lg p-4">
-                <div id="highCount" class="text-2xl font-bold text-red-400">-</div>
-                <div class="text-xs text-gray-400">High Priority</div>
+        <!-- Top Stats Row -->
+        <div class="grid grid-cols-2 md:grid-cols-6 gap-3 mb-6">
+            <div class="stat-card bg-red-500/20 border border-red-500/30 rounded-lg p-3 text-center">
+                <div id="urgentCount" class="text-2xl font-bold text-red-400">-</div>
+                <div class="text-xs text-gray-400">🔥 Urgent</div>
             </div>
-            <div class="bg-yellow-500/20 border border-yellow-500/30 rounded-lg p-4">
-                <div id="mediumCount" class="text-2xl font-bold text-yellow-400">-</div>
-                <div class="text-xs text-gray-400">Medium Priority</div>
+            <div class="stat-card bg-yellow-500/20 border border-yellow-500/30 rounded-lg p-3 text-center">
+                <div id="highCount" class="text-2xl font-bold text-yellow-400">-</div>
+                <div class="text-xs text-gray-400">⚠️ High</div>
             </div>
-            <div class="bg-green-500/20 border border-green-500/30 rounded-lg p-4">
-                <div id="resolvedCount" class="text-2xl font-bold text-green-400">-</div>
-                <div class="text-xs text-gray-400">Resolved Today</div>
+            <div class="stat-card bg-green-500/20 border border-green-500/30 rounded-lg p-3 text-center">
+                <div id="doneCount" class="text-2xl font-bold text-green-400">-</div>
+                <div class="text-xs text-gray-400">✅ Done</div>
             </div>
-            <div class="bg-blue-500/20 border border-blue-500/30 rounded-lg p-4">
+            <div class="stat-card bg-blue-500/20 border border-blue-500/30 rounded-lg p-3 text-center">
                 <div id="pipelineValue" class="text-2xl font-bold text-blue-400">-</div>
-                <div class="text-xs text-gray-400">Pipeline at Risk</div>
+                <div class="text-xs text-gray-400">💰 Pipeline</div>
+            </div>
+            <div class="stat-card bg-purple-500/20 border border-purple-500/30 rounded-lg p-3 text-center">
+                <div id="grantsCount" class="text-2xl font-bold text-purple-400">-</div>
+                <div class="text-xs text-gray-400">📋 Grants</div>
+            </div>
+            <div class="stat-card bg-cyan-500/20 border border-cyan-500/30 rounded-lg p-3 text-center">
+                <div id="quotaPct" class="text-2xl font-bold text-cyan-400">-</div>
+                <div class="text-xs text-gray-400">📈 Q1 Quota</div>
             </div>
         </div>
 
-        <!-- Filters -->
-        <div class="flex gap-3 mb-6 flex-wrap bg-gray-800/50 rounded-lg p-3">
-            <select id="filterType" onchange="filterDecisions()" class="bg-gray-700 border border-gray-600 rounded px-3 py-2 text-sm">
-                <option value="">All Types</option>
-            </select>
-            <select id="filterPriority" onchange="filterDecisions()" class="bg-gray-700 border border-gray-600 rounded px-3 py-2 text-sm">
-                <option value="">All Priorities</option>
-                <option value="high">🔴 High</option>
-                <option value="medium">🟡 Medium</option>
-                <option value="low">⚪ Low</option>
-            </select>
-            <input type="text" id="searchBox" onkeyup="filterDecisions()" placeholder="Search..." 
-                   class="bg-gray-700 border border-gray-600 rounded px-3 py-2 text-sm flex-1 min-w-[200px]">
-            <label class="flex items-center gap-2 text-sm text-gray-400 cursor-pointer">
-                <input type="checkbox" id="hideResolved" onchange="filterDecisions()" class="rounded bg-gray-700">
-                Hide resolved
-            </label>
+        <!-- Project Tabs -->
+        <div class="flex gap-2 mb-4 overflow-x-auto scrollbar-hide pb-2">
+            <button onclick="filterProject('')" class="project-btn whitespace-nowrap px-4 py-2 bg-gradient-to-r from-gray-700 to-gray-800 rounded-lg text-sm font-medium border border-gray-600" data-project="">
+                🌐 All Projects
+            </button>
+            <button onclick="filterProject('sos')" class="project-btn whitespace-nowrap px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-sm border border-gray-700" data-project="sos">
+                🆘 SOS
+            </button>
+            <button onclick="filterProject('reforge')" class="project-btn whitespace-nowrap px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-sm border border-gray-700" data-project="reforge">
+                🚀 Reforge
+            </button>
+            <button onclick="filterProject('harmony')" class="project-btn whitespace-nowrap px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-sm border border-gray-700" data-project="harmony">
+                🎯 Harmony
+            </button>
+            <button onclick="filterProject('context_graph')" class="project-btn whitespace-nowrap px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-sm border border-gray-700" data-project="context_graph">
+                🧠 Context Graph
+            </button>
         </div>
 
-        <!-- Main Content Grid -->
+        <!-- Main Content -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <!-- Decision Cards (2 cols) -->
-            <div class="lg:col-span-2">
-                <div id="decisionList" class="space-y-3"></div>
-                <div id="emptyState" class="hidden text-center py-16 bg-gray-800/30 rounded-lg">
-                    <div class="text-6xl mb-4">🎉</div>
-                    <h2 class="text-xl font-semibold">All caught up!</h2>
-                    <p class="text-gray-400">No decisions need your attention right now.</p>
+            
+            <!-- Left Column: Urgent + High Priority -->
+            <div class="lg:col-span-2 space-y-4">
+                
+                <!-- Urgent Tasks -->
+                <div id="urgentSection" class="bg-gray-800/50 border border-red-500/30 rounded-xl p-4">
+                    <h2 class="text-lg font-bold flex items-center gap-2 mb-3 text-red-400">
+                        <span class="pulse">🔥</span> Urgent - Do Today
+                    </h2>
+                    <div id="urgentTasks" class="space-y-2"></div>
                 </div>
+
+                <!-- High Priority -->
+                <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-4">
+                    <h2 class="text-lg font-bold flex items-center gap-2 mb-3 text-yellow-400">
+                        ⚠️ High Priority
+                    </h2>
+                    <div id="highTasks" class="space-y-2"></div>
+                </div>
+
+                <!-- All Other Tasks (collapsible by category) -->
+                <div id="categorySections"></div>
             </div>
 
-            <!-- Sidebar (1 col) -->
+            <!-- Right Column: Metrics & Quick Actions -->
             <div class="space-y-4">
-                <!-- AI Recommendation -->
-                <div id="aiPanel" class="bg-gradient-to-br from-purple-900/30 to-blue-900/30 border border-purple-500/30 rounded-lg p-4">
-                    <h3 class="font-semibold flex items-center gap-2 mb-3">
-                        <span>🧠</span> AI Recommendation
+                
+                <!-- Reforge Quota Tracker -->
+                <div class="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-blue-500/30 rounded-xl p-4">
+                    <h3 class="font-bold flex items-center gap-2 mb-3">
+                        🚀 Reforge Q1 Progress
                     </h3>
-                    <div id="aiRecommendation" class="text-sm text-gray-300">
-                        Select a decision to see AI recommendations based on your past choices.
-                    </div>
-                </div>
-
-                <!-- Recent Decisions -->
-                <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-4">
-                    <h3 class="font-semibold flex items-center gap-2 mb-3">
-                        <span>📋</span> Recent Decisions
-                    </h3>
-                    <div id="recentDecisions" class="space-y-2 text-sm max-h-64 overflow-y-auto">
-                        <div class="text-gray-500">Loading...</div>
-                    </div>
-                </div>
-
-                <!-- Learning Stats -->
-                <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-4">
-                    <h3 class="font-semibold flex items-center gap-2 mb-3">
-                        <span>📈</span> Learning Stats
-                    </h3>
-                    <div id="learningStats" class="space-y-2 text-sm">
-                        <div class="flex justify-between">
-                            <span class="text-gray-400">Total decisions logged</span>
-                            <span id="totalDecisions">0</span>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Meetings</span>
+                                <span id="meetingsProgress">-/-</span>
+                            </div>
+                            <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+                                <div id="meetingsBar" class="h-full bg-blue-500 rounded-full transition-all" style="width: 0%"></div>
+                            </div>
                         </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-400">Most common action</span>
-                            <span id="commonAction">-</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-400">Avg decisions/day</span>
-                            <span id="avgDecisions">-</span>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>ARR</span>
+                                <span id="arrProgress">-/-</span>
+                            </div>
+                            <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+                                <div id="arrBar" class="h-full bg-green-500 rounded-full transition-all" style="width: 0%"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Decision Log Modal -->
-    <div id="logModal" class="fixed inset-0 bg-black/70 hidden z-50 flex items-center justify-center p-4">
-        <div class="bg-gray-800 rounded-xl max-w-4xl w-full max-h-[80vh] overflow-hidden">
-            <div class="flex justify-between items-center p-4 border-b border-gray-700">
-                <h2 class="text-xl font-bold">Decision Log - Training Data</h2>
-                <button onclick="closeLogModal()" class="text-gray-400 hover:text-white text-xl">&times;</button>
-            </div>
-            <div class="p-4 overflow-y-auto max-h-[60vh]">
-                <div id="logContent" class="space-y-3"></div>
-            </div>
-            <div class="p-4 border-t border-gray-700 flex justify-between">
-                <button onclick="exportLog()" class="px-4 py-2 bg-green-600 hover:bg-green-500 rounded-lg text-sm">
-                    📥 Export as JSON
-                </button>
-                <button onclick="clearLog()" class="px-4 py-2 bg-red-600/50 hover:bg-red-600 rounded-lg text-sm">
-                    🗑️ Clear Log
-                </button>
+                <!-- SOS Progress -->
+                <div class="bg-gradient-to-br from-red-900/30 to-orange-900/30 border border-red-500/30 rounded-xl p-4">
+                    <h3 class="font-bold flex items-center gap-2 mb-3">
+                        🆘 SOS MVP Progress
+                    </h3>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">MVP Completion</span>
+                            <span id="mvpCompletion" class="font-bold">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Partners Active</span>
+                            <span id="partnersActive">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Grants in Pipeline</span>
+                            <span id="grantsPipeline">-</span>
+                        </div>
+                        <div class="flex justify-between text-yellow-400">
+                            <span>June Milestone</span>
+                            <span>$275K</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Harmony Status -->
+                <div class="bg-gradient-to-br from-purple-900/30 to-pink-900/30 border border-purple-500/30 rounded-xl p-4">
+                    <h3 class="font-bold flex items-center gap-2 mb-3">
+                        🎯 Harmony Status
+                    </h3>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Active Retainers</span>
+                            <span id="harmonyRetainers">-</span>
+                        </div>
+                        <div class="flex justify-between text-red-400">
+                            <span>At Risk</span>
+                            <span id="harmonyAtRisk">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Outstanding</span>
+                            <span id="harmonyOutstanding">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Deadlines -->
+                <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-4">
+                    <h3 class="font-bold flex items-center gap-2 mb-3">
+                        📅 Upcoming Deadlines
+                    </h3>
+                    <div id="deadlines" class="space-y-2 text-sm max-h-48 overflow-y-auto"></div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-4">
+                    <h3 class="font-bold flex items-center gap-2 mb-3">
+                        ⚡ Quick Actions
+                    </h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="https://sos-help-the-helper.github.io/reforge-swipe/" target="_blank" 
+                           class="px-3 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm text-center transition">
+                            🎯 Grunt Swipe
+                        </a>
+                        <a href="decision-queue.html" 
+                           class="px-3 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm text-center transition">
+                            📊 Decisions
+                        </a>
+                        <button onclick="exportTasks()" 
+                           class="px-3 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm text-center transition">
+                            📥 Export
+                        </button>
+                        <button onclick="refreshData()" 
+                           class="px-3 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm text-center transition">
+                            🔄 Refresh
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        let allDecisions = [];
-        let currentDecision = null;
-        const STORAGE_KEYS = {
-            resolved: 'cc_resolved',
-            log: 'cc_decisionLog',
-            notes: 'cc_notes'
+        let tasksData = null;
+        let currentProject = '';
+        let currentView = 'today';
+
+        const priorityOrder = { urgent: 0, high: 1, medium: 2, low: 3 };
+        const statusColors = {
+            urgent: 'text-red-400',
+            ready: 'text-green-400',
+            'in_progress': 'text-blue-400',
+            pending: 'text-yellow-400',
+            blocked: 'text-orange-400',
+            done: 'text-gray-500',
+            future: 'text-gray-600',
+            tracking: 'text-cyan-400',
+            active: 'text-green-400'
         };
 
-        const typeLabels = {
-            'pricing_visit_no_followup': '💰 Pricing Visit',
-            'trial_expiring': '⏰ Trial Expiring',
-            'email_engagement_no_reply': '📧 Email Engaged',
-            'stalled_deal': '🧊 Stalled Deal',
-            'renewal_approaching': '🔄 Renewal Due',
-            'intent_signal': '🎯 Intent Signal',
-            'no_show_pattern': '👻 No-Show',
-            'sequence_ended_no_response': '📬 Sequence Ended',
-            'follow_up': '📞 Follow Up',
-            'pricing_objection': '💵 Pricing Issue'
-        };
-
-        function getResolved() { return JSON.parse(localStorage.getItem(STORAGE_KEYS.resolved) || '[]'); }
-        function getLog() { return JSON.parse(localStorage.getItem(STORAGE_KEYS.log) || '[]'); }
-        function getNotes() { return JSON.parse(localStorage.getItem(STORAGE_KEYS.notes) || '{}'); }
-
-        async function loadDecisions() {
+        async function loadTasks() {
             try {
-                // Try multiple sources
-                let decisions = [];
+                const r = await fetch('/data/tasks.json');
+                if (!r.ok) throw new Error('Failed to load tasks');
+                tasksData = await r.json();
                 
-                try {
-                    const r1 = await fetch('/data/decisions-queue.json');
-                    if (r1.ok) decisions = decisions.concat(await r1.json());
-                } catch(e) {}
-                
-                try {
-                    const r2 = await fetch('/src/data/decisions.json');
-                    if (r2.ok) {
-                        const d2 = await r2.json();
-                        if (d2.pendingDecisions) decisions = decisions.concat(d2.pendingDecisions);
-                    }
-                } catch(e) {}
-
-                // Filter out noise
-                allDecisions = decisions.filter(d => d.type !== 'unworked_high_priority');
-                
-                populateFilters();
-                filterDecisions();
                 updateStats();
-                updateRecentDecisions();
-                updateLearningStats();
-            } catch (e) {
+                renderTasks();
+                renderDeadlines();
+                
+                document.getElementById('lastUpdate').textContent = 
+                    `Updated: ${new Date(tasksData.updated_at).toLocaleString()}`;
+            } catch(e) {
                 console.error('Load error:', e);
+                document.getElementById('urgentTasks').innerHTML = 
+                    '<div class="text-red-400">Failed to load tasks. Check server.</div>';
             }
         }
 
-        function populateFilters() {
-            const types = [...new Set(allDecisions.map(d => d.type))];
-            const select = document.getElementById('filterType');
-            select.innerHTML = '<option value="">All Types</option>';
-            types.forEach(t => {
-                const label = typeLabels[t] || t;
-                select.innerHTML += `<option value="${t}">${label}</option>`;
-            });
+        function updateStats() {
+            const allTasks = getAllTasks();
+            const urgent = allTasks.filter(t => t.priority === 'urgent' && t.status !== 'done').length;
+            const high = allTasks.filter(t => t.priority === 'high' && t.status !== 'done').length;
+            const done = allTasks.filter(t => t.status === 'done').length;
+            
+            document.getElementById('urgentCount').textContent = urgent;
+            document.getElementById('highCount').textContent = high;
+            document.getElementById('doneCount').textContent = done;
+            
+            // Reforge pipeline
+            const pipeline = tasksData.projects.reforge?.pipeline;
+            if (pipeline) {
+                document.getElementById('pipelineValue').textContent = `$${(pipeline.total_active/1000).toFixed(0)}K`;
+            }
+            
+            // Grants count
+            const grants = tasksData.projects.sos?.categories?.grant_pipeline?.tasks || [];
+            const activeGrants = grants.filter(g => g.status !== 'future' && g.status !== 'done').length;
+            document.getElementById('grantsCount').textContent = activeGrants;
+            
+            // Quota
+            const quota = tasksData.projects.reforge?.quota;
+            if (quota) {
+                document.getElementById('quotaPct').textContent = `${quota.arr_pct}%`;
+                document.getElementById('meetingsProgress').textContent = `${quota.current_meetings}/${quota.q1_target_meetings}`;
+                document.getElementById('arrProgress').textContent = `$${(quota.current_arr/1000).toFixed(0)}K/$${(quota.q1_target_arr/1000).toFixed(0)}K`;
+                document.getElementById('meetingsBar').style.width = `${quota.meetings_pct}%`;
+                document.getElementById('arrBar').style.width = `${quota.arr_pct}%`;
+            }
+            
+            // SOS metrics
+            const sosMetrics = tasksData.projects.sos?.metrics;
+            if (sosMetrics) {
+                document.getElementById('mvpCompletion').textContent = `${sosMetrics.mvp_completion}%`;
+                document.getElementById('partnersActive').textContent = `${sosMetrics.partners_active}/${sosMetrics.partners_active + sosMetrics.partners_pending}`;
+                document.getElementById('grantsPipeline').textContent = sosMetrics.grants_pipeline;
+            }
+            
+            // Harmony
+            const harmonyRev = tasksData.projects.harmony?.revenue;
+            if (harmonyRev) {
+                document.getElementById('harmonyRetainers').textContent = `$${(harmonyRev.active_retainers/1000).toFixed(0)}K`;
+                document.getElementById('harmonyAtRisk').textContent = `$${(harmonyRev.at_risk/1000).toFixed(0)}K`;
+                document.getElementById('harmonyOutstanding').textContent = `$${(harmonyRev.outstanding_invoices/1000).toFixed(1)}K`;
+            }
         }
 
-        function filterDecisions() {
-            const typeFilter = document.getElementById('filterType').value;
-            const priorityFilter = document.getElementById('filterPriority').value;
-            const searchTerm = document.getElementById('searchBox').value.toLowerCase();
-            const hideResolved = document.getElementById('hideResolved').checked;
-            const resolved = getResolved();
-
-            let filtered = allDecisions.filter(d => {
-                const id = d.contact_id || d.id;
-                if (typeFilter && d.type !== typeFilter) return false;
-                if (priorityFilter && d.priority !== priorityFilter) return false;
-                if (searchTerm) {
-                    const searchable = `${d.contact || ''} ${d.company || ''} ${d.email || ''}`.toLowerCase();
-                    if (!searchable.includes(searchTerm)) return false;
+        function getAllTasks() {
+            const tasks = [];
+            for (const [projKey, proj] of Object.entries(tasksData.projects)) {
+                if (!proj.categories) continue;
+                for (const [catKey, cat] of Object.entries(proj.categories)) {
+                    for (const task of (cat.tasks || [])) {
+                        tasks.push({
+                            ...task,
+                            projectKey: projKey,
+                            projectName: proj.name,
+                            projectEmoji: proj.emoji,
+                            categoryKey: catKey,
+                            categoryName: cat.name
+                        });
+                    }
                 }
-                if (hideResolved && resolved.includes(id)) return false;
-                return true;
-            });
-
-            renderDecisions(filtered);
-            window.filteredDecisions = filtered;
+            }
+            return tasks;
         }
 
-        function renderDecisions(decisions) {
-            const container = document.getElementById('decisionList');
-            const emptyState = document.getElementById('emptyState');
-            const resolved = getResolved();
-            const notes = getNotes();
-
-            if (decisions.length === 0) {
-                container.innerHTML = '';
-                emptyState.classList.remove('hidden');
-                return;
+        function filterTasks(tasks) {
+            let filtered = tasks;
+            
+            // Project filter
+            if (currentProject) {
+                filtered = filtered.filter(t => t.projectKey === currentProject);
             }
+            
+            // View filter
+            if (currentView === 'today') {
+                filtered = filtered.filter(t => 
+                    (t.priority === 'urgent' || t.priority === 'high') && 
+                    t.status !== 'done' && t.status !== 'future'
+                );
+            }
+            
+            return filtered;
+        }
 
-            emptyState.classList.add('hidden');
+        function renderTasks() {
+            const allTasks = getAllTasks();
+            const filtered = filterTasks(allTasks);
+            
+            // Sort by priority
+            filtered.sort((a, b) => {
+                const pa = priorityOrder[a.priority] ?? 99;
+                const pb = priorityOrder[b.priority] ?? 99;
+                return pa - pb;
+            });
+            
+            // Urgent tasks
+            const urgent = filtered.filter(t => t.priority === 'urgent' && t.status !== 'done');
+            document.getElementById('urgentTasks').innerHTML = urgent.length > 0 
+                ? urgent.map(t => renderTaskCard(t, true)).join('')
+                : '<div class="text-gray-500 text-sm">No urgent tasks! 🎉</div>';
+            
+            // Show/hide urgent section
+            document.getElementById('urgentSection').style.display = urgent.length > 0 ? 'block' : 'none';
+            
+            // High priority tasks
+            const high = filtered.filter(t => t.priority === 'high' && t.status !== 'done');
+            document.getElementById('highTasks').innerHTML = high.length > 0
+                ? high.map(t => renderTaskCard(t)).join('')
+                : '<div class="text-gray-500 text-sm">No high priority tasks pending</div>';
+            
+            // Category sections (medium/low only, grouped)
+            if (currentView === 'all') {
+                const others = filtered.filter(t => 
+                    t.priority !== 'urgent' && t.priority !== 'high' && t.status !== 'done'
+                );
+                renderCategorySections(others);
+            } else {
+                document.getElementById('categorySections').innerHTML = '';
+            }
+        }
 
-            container.innerHTML = decisions.map((d, idx) => {
-                const id = d.contact_id || d.id;
-                const isResolved = resolved.includes(id);
-                const note = notes[id] || '';
-                const typeLabel = typeLabels[d.type] || d.type;
-                const options = d.options || d.suggestedActions?.map(a => a.label) || ['Pursue', 'Defer', 'Close'];
-
-                return `
-                    <div class="card-enter bg-gray-800/70 rounded-lg p-4 priority-${d.priority} cursor-pointer hover:bg-gray-800 transition ${isResolved ? 'opacity-40' : ''}" 
-                         data-id="${id}" onclick="selectDecision(${idx})">
-                        <div class="flex justify-between items-start mb-2">
-                            <div class="flex items-center gap-2">
-                                <span class="px-2 py-0.5 text-xs rounded ${d.priority === 'high' ? 'bg-red-500/30 text-red-400' : d.priority === 'medium' ? 'bg-yellow-500/30 text-yellow-400' : 'bg-gray-500/30 text-gray-400'}">
-                                    ${d.priority?.toUpperCase() || 'MEDIUM'}
-                                </span>
-                                <span class="text-xs text-gray-500">${typeLabel}</span>
+        function renderTaskCard(task, isUrgent = false) {
+            const statusClass = statusColors[task.status] || 'text-gray-400';
+            const priorityClass = `priority-${task.priority || 'medium'}`;
+            const urgentClass = isUrgent ? 'glow-urgent' : '';
+            
+            const valueDisplay = task.value ? `<span class="text-green-400 font-bold">$${task.value.toLocaleString()}</span>` : '';
+            const dueDisplay = task.due ? `<span class="text-yellow-400 text-xs">📅 ${task.due}</span>` : '';
+            const contactDisplay = task.contact ? `<span class="text-gray-500 text-xs">👤 ${task.contact}</span>` : '';
+            
+            return `
+                <div class="card-enter bg-gray-900/50 rounded-lg p-3 ${priorityClass} ${urgentClass} hover:bg-gray-800/50 transition cursor-pointer"
+                     onclick="toggleTaskDetails('${task.id}')">
+                    <div class="flex justify-between items-start gap-2">
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <span class="text-xs">${task.projectEmoji || '📋'}</span>
+                                <span class="font-medium text-sm truncate">${task.title}</span>
                             </div>
-                            ${isResolved ? '<span class="text-green-500 text-xs">✓ Resolved</span>' : ''}
+                            <div class="flex items-center gap-2 mt-1 flex-wrap">
+                                <span class="px-1.5 py-0.5 rounded text-xs ${statusClass} bg-gray-800">${task.status}</span>
+                                ${dueDisplay}
+                                ${contactDisplay}
+                            </div>
                         </div>
-                        
-                        <div class="flex justify-between items-start mb-1">
-                            <h3 class="font-semibold">${d.question || d.context || 'Decision needed'}</h3>
-                            ${d.deal_value ? `<span class="text-green-400 font-bold">$${d.deal_value.toLocaleString()}</span>` : ''}
-                        </div>
-                        ${d.calendar_context ? `<div class="text-xs ${d.has_upcoming_meeting ? 'text-yellow-400 font-semibold' : 'text-gray-500'} mb-2">${d.calendar_context}</div>` : ''}
-                        <p class="text-sm text-gray-400 mb-3">${d.signal || d.company || ''}</p>
-                        
-                        <div class="flex flex-wrap gap-2">
-                            ${options.map(opt => `
-                                <button onclick="event.stopPropagation(); makeDecision('${id}', '${typeof opt === 'string' ? opt : opt.label}', ${idx})" 
-                                        class="px-3 py-1.5 bg-gray-700 hover:bg-gray-600 rounded text-sm transition">
-                                    ${typeof opt === 'string' ? opt : opt.label}
-                                </button>
-                            `).join('')}
-                        </div>
-                        
-                        ${d.packet_context ? `<div class="mt-2 p-2 bg-gray-700/50 rounded text-xs text-gray-400 max-h-20 overflow-hidden hover:max-h-none transition-all">📋 ${d.packet_context.substring(0, 200)}...</div>` : ''}
-                        ${note ? `<div class="mt-2 text-xs text-gray-500 italic">📝 ${note}</div>` : ''}
+                        ${valueDisplay}
                     </div>
-                `;
-            }).join('');
-        }
-
-        function selectDecision(idx) {
-            currentDecision = window.filteredDecisions[idx];
-            showAIRecommendation(currentDecision);
-        }
-
-        function showAIRecommendation(decision) {
-            const log = getLog();
-            const similar = log.filter(l => l.type === decision.type);
-            const panel = document.getElementById('aiRecommendation');
-            
-            if (similar.length === 0) {
-                panel.innerHTML = `
-                    <p class="mb-2">No past decisions of this type yet.</p>
-                    <p class="text-gray-500 text-xs">Your choice will train future recommendations.</p>
-                `;
-                return;
-            }
-
-            // Count actions
-            const actionCounts = {};
-            similar.forEach(s => {
-                actionCounts[s.action] = (actionCounts[s.action] || 0) + 1;
-            });
-            
-            const sorted = Object.entries(actionCounts).sort((a,b) => b[1] - a[1]);
-            const topAction = sorted[0];
-            const confidence = Math.round((topAction[1] / similar.length) * 100);
-
-            panel.innerHTML = `
-                <p class="mb-2"><strong>Recommended:</strong> ${topAction[0]}</p>
-                <p class="text-gray-400 text-xs mb-2">Based on ${similar.length} similar decisions (${confidence}% chose this)</p>
-                <div class="text-xs space-y-1">
-                    ${sorted.slice(0, 3).map(([action, count]) => `
-                        <div class="flex justify-between">
-                            <span>${action}</span>
-                            <span class="text-gray-500">${count}x</span>
-                        </div>
-                    `).join('')}
+                    <div id="details-${task.id}" class="hidden mt-2 pt-2 border-t border-gray-700 text-sm text-gray-400">
+                        ${task.notes || 'No additional details'}
+                        ${task.file ? `<div class="mt-1 text-xs text-blue-400">📁 ${task.file}</div>` : ''}
+                        ${task.url ? `<a href="${task.url}" target="_blank" class="mt-1 text-xs text-blue-400 block">🔗 Open link</a>` : ''}
+                    </div>
                 </div>
             `;
         }
 
-        async function makeDecision(id, action, idx) {
-            const decision = window.filteredDecisions[idx];
-            
-            const logEntry = {
-                id,
-                type: decision.type,
-                company: decision.company,
-                contact: decision.contact,
-                email: decision.email,
-                question: decision.question || decision.context,
-                signal: decision.signal,
-                action,
-                timestamp: new Date().toISOString()
-            };
-
-            // Log locally
-            const log = getLog();
-            log.push(logEntry);
-            localStorage.setItem(STORAGE_KEYS.log, JSON.stringify(log));
-
-            // Save to Supabase
-            const SUPABASE_URL = 'https://rtduqguwhkczexnoawej.supabase.co';
-            const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ0ZHVxZ3V3aGtjemV4bm9hd2VqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MTY2ODU4MCwiZXhwIjoyMDY3MjQ0NTgwfQ.yb3g5H0gB5kEaT9Z4JV5z-9hOSLZXKHWmBNUprtNlso';
-            
-            try {
-                await fetch(`${SUPABASE_URL}/rest/v1/decision_traces`, {
-                    method: 'POST',
-                    headers: {
-                        'apikey': SUPABASE_KEY,
-                        'Authorization': `Bearer ${SUPABASE_KEY}`,
-                        'Content-Type': 'application/json',
-                        'Prefer': 'return=minimal'
-                    },
-                    body: JSON.stringify({
-                        entity_type: 'reforge_deal',
-                        decision_type: decision.type || 'pipeline_triage',
-                        decision_outcome: action,
-                        actor_type: 'user',
-                        context: {
-                            company: decision.company,
-                            contact: decision.contact,
-                            deal_value: decision.deal_value,
-                            signal: decision.signal,
-                            question: decision.question
-                        },
-                        factors: {
-                            has_meeting: decision.has_upcoming_meeting || false,
-                            calendar_context: decision.calendar_context,
-                            packet_context: decision.packet_context?.substring(0, 200)
-                        },
-                        reasoning: `User chose: ${action}`
-                    })
-                });
-                console.log('✅ Saved to Supabase');
-            } catch(e) {
-                console.log('Supabase save failed:', e);
+        function renderCategorySections(tasks) {
+            // Group by project then category
+            const grouped = {};
+            for (const task of tasks) {
+                const key = `${task.projectKey}-${task.categoryKey}`;
+                if (!grouped[key]) {
+                    grouped[key] = {
+                        projectName: task.projectName,
+                        projectEmoji: task.projectEmoji,
+                        categoryName: task.categoryName,
+                        tasks: []
+                    };
+                }
+                grouped[key].tasks.push(task);
             }
             
-            // Also save to backend for local persistence
-            try {
-                await fetch('/api/decision', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(logEntry)
-                });
-            } catch(e) {
-                console.log('Backend save skipped:', e);
-            }
-
-            // Mark resolved
-            const resolved = getResolved();
-            if (!resolved.includes(id)) {
-                resolved.push(id);
-                localStorage.setItem(STORAGE_KEYS.resolved, JSON.stringify(resolved));
-            }
-
-            // Visual feedback
-            const card = document.querySelector(`[data-id="${id}"]`);
-            if (card) {
-                card.style.transition = 'all 0.3s';
-                card.style.transform = 'translateX(50px)';
-                card.style.opacity = '0';
-                setTimeout(() => {
-                    filterDecisions();
-                    updateStats();
-                    updateRecentDecisions();
-                    updateLearningStats();
-                }, 300);
-            }
-
-            showToast(`✓ ${action}`);
-        }
-
-        function updateStats() {
-            const resolved = getResolved();
-            const todayLog = getLog().filter(l => l.timestamp?.startsWith(new Date().toISOString().split('T')[0]));
-            
-            const high = allDecisions.filter(d => d.priority === 'high' && !resolved.includes(d.contact_id || d.id)).length;
-            const medium = allDecisions.filter(d => d.priority === 'medium' && !resolved.includes(d.contact_id || d.id)).length;
-            
-            document.getElementById('highCount').textContent = high;
-            document.getElementById('mediumCount').textContent = medium;
-            document.getElementById('resolvedCount').textContent = todayLog.length;
-            document.getElementById('pipelineValue').textContent = '$245K'; // From earlier analysis
-            
-            document.getElementById('stats').innerHTML = `${allDecisions.length - resolved.filter(id => allDecisions.some(d => (d.contact_id || d.id) === id)).length} pending`;
-        }
-
-        function updateRecentDecisions() {
-            const log = getLog().slice(-10).reverse();
-            const container = document.getElementById('recentDecisions');
-            
-            if (log.length === 0) {
-                container.innerHTML = '<div class="text-gray-500">No decisions yet</div>';
-                return;
-            }
-
-            container.innerHTML = log.map(l => `
-                <div class="flex justify-between items-center py-1 border-b border-gray-700/50">
-                    <div>
-                        <div class="font-medium text-xs">${l.company || 'Unknown'}</div>
-                        <div class="text-gray-500 text-xs">${l.action}</div>
+            const html = Object.entries(grouped).map(([key, group]) => `
+                <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-4 mt-4">
+                    <h3 class="font-bold flex items-center gap-2 mb-3 text-gray-300">
+                        ${group.projectEmoji} ${group.projectName} / ${group.categoryName}
+                        <span class="text-xs text-gray-500">(${group.tasks.length})</span>
+                    </h3>
+                    <div class="space-y-2">
+                        ${group.tasks.map(t => renderTaskCard(t)).join('')}
                     </div>
-                    <div class="text-xs text-gray-600">${new Date(l.timestamp).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}</div>
                 </div>
             `).join('');
+            
+            document.getElementById('categorySections').innerHTML = html;
         }
 
-        function updateLearningStats() {
-            const log = getLog();
-            document.getElementById('totalDecisions').textContent = log.length;
+        function renderDeadlines() {
+            const allTasks = getAllTasks();
+            const withDue = allTasks
+                .filter(t => t.due && t.status !== 'done')
+                .sort((a, b) => new Date(a.due) - new Date(b.due))
+                .slice(0, 8);
             
-            if (log.length > 0) {
-                const actionCounts = {};
-                log.forEach(l => { actionCounts[l.action] = (actionCounts[l.action] || 0) + 1; });
-                const top = Object.entries(actionCounts).sort((a,b) => b[1] - a[1])[0];
-                document.getElementById('commonAction').textContent = top ? top[0].substring(0, 15) : '-';
+            const html = withDue.map(t => {
+                const dueDate = new Date(t.due);
+                const today = new Date();
+                const diffDays = Math.ceil((dueDate - today) / (1000 * 60 * 60 * 24));
+                const urgencyClass = diffDays <= 1 ? 'text-red-400' : diffDays <= 7 ? 'text-yellow-400' : 'text-gray-400';
                 
-                // Avg per day
-                const days = new Set(log.map(l => l.timestamp?.split('T')[0])).size || 1;
-                document.getElementById('avgDecisions').textContent = (log.length / days).toFixed(1);
+                return `
+                    <div class="flex justify-between items-center py-1 border-b border-gray-700/50">
+                        <span class="truncate text-xs">${t.projectEmoji} ${t.title.substring(0, 35)}...</span>
+                        <span class="text-xs ${urgencyClass} whitespace-nowrap ml-2">${t.due}</span>
+                    </div>
+                `;
+            }).join('');
+            
+            document.getElementById('deadlines').innerHTML = html || '<div class="text-gray-500 text-sm">No upcoming deadlines</div>';
+        }
+
+        function toggleTaskDetails(taskId) {
+            const details = document.getElementById(`details-${taskId}`);
+            if (details) {
+                details.classList.toggle('hidden');
             }
         }
 
-        function showDecisionLog() {
-            const log = getLog().reverse();
-            const container = document.getElementById('logContent');
+        function filterProject(projectKey) {
+            currentProject = projectKey;
             
-            container.innerHTML = log.map(l => `
-                <div class="bg-gray-700/50 rounded p-3">
-                    <div class="flex justify-between">
-                        <span class="font-semibold">${l.company || 'Unknown'}</span>
-                        <span class="text-xs text-gray-500">${new Date(l.timestamp).toLocaleString()}</span>
-                    </div>
-                    <div class="text-sm text-gray-400 mt-1">${l.question || l.type}</div>
-                    <div class="text-sm text-green-400 mt-1">→ ${l.action}</div>
-                </div>
-            `).join('') || '<div class="text-gray-500">No decisions logged yet</div>';
+            // Update button states
+            document.querySelectorAll('.project-btn').forEach(btn => {
+                const isActive = btn.dataset.project === projectKey;
+                btn.className = btn.className.replace(/bg-gradient-to-r from-gray-700 to-gray-800|bg-gray-800/g, '');
+                btn.className += isActive ? ' bg-gradient-to-r from-gray-700 to-gray-800' : ' bg-gray-800';
+            });
             
-            document.getElementById('logModal').classList.remove('hidden');
+            renderTasks();
         }
 
-        function closeLogModal() {
-            document.getElementById('logModal').classList.add('hidden');
+        function setView(view) {
+            currentView = view;
+            
+            // Update button states
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.classList.remove('bg-red-600/50', 'border-red-400');
+            });
+            
+            renderTasks();
         }
 
-        function exportLog() {
-            const log = getLog();
-            const blob = new Blob([JSON.stringify(log, null, 2)], {type: 'application/json'});
+        function exportTasks() {
+            const blob = new Blob([JSON.stringify(tasksData, null, 2)], {type: 'application/json'});
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `decision-log-${new Date().toISOString().split('T')[0]}.json`;
+            a.download = `command-center-tasks-${new Date().toISOString().split('T')[0]}.json`;
             a.click();
         }
 
-        function clearLog() {
-            if (confirm('Clear all decision history? This cannot be undone.')) {
-                localStorage.removeItem(STORAGE_KEYS.log);
-                localStorage.removeItem(STORAGE_KEYS.resolved);
-                closeLogModal();
-                filterDecisions();
-                updateStats();
-                updateRecentDecisions();
-                updateLearningStats();
-            }
-        }
-
-        function showToast(msg) {
-            const toast = document.createElement('div');
-            toast.className = 'fixed bottom-4 right-4 bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg z-50';
-            toast.textContent = msg;
-            document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 2000);
-        }
-
         function refreshData() {
-            loadDecisions();
-            showToast('Refreshed');
+            loadTasks();
         }
 
         // Init
-        loadDecisions();
+        loadTasks();
+        
+        // Auto-refresh every 5 minutes
+        setInterval(loadTasks, 5 * 60 * 1000);
     </script>
 </body>
 </html>

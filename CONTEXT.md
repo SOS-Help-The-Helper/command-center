@@ -1,69 +1,111 @@
 # Command Center - Project Context
 
 ## What It Is
-Pipeline decision queue for Reforge sales. Surfaces decisions that need Jonathan's input, learns from choices to improve recommendations.
+Unified command center for Jonathan's three workstreams: SOS, Reforge, and Harmony Strategy.
+- **Task Tracking**: Full visibility across all projects with priority sorting
+- **Decision Queue**: Pipeline decisions for Reforge (321 decisions, sorted by urgency)
+- **Intel Agents**: Proactive monitoring via cron jobs
+- **Metrics Dashboard**: Quota tracking, pipeline health, milestone progress
 
-## Current State (2026-02-02)
+## Current State (2026-02-03)
 - **UI**: Live at `localhost:8080/app/`
-- **Server**: `server.py` - serves UI + API for decision logging
-- **321 decisions** queued, sorted by urgency
+- **89 tasks** across all projects
+- **12 urgent** items needing immediate attention
+- **25 grants** in SOS pipeline
+- **$320K** Reforge pipeline active
 
-## Data Sources
-| Source | Records | Notes |
-|--------|---------|-------|
-| HubSpot Contacts | 5,514 | 693 fields each |
-| HubSpot Deals | 307 | Jonathan's pipeline |
-| Deal Packets | 104 | Google Takeout .docx files |
-| Calendar | 886 events | From Takeout ICS |
+## Architecture
 
-## Sort Logic (per Jonathan)
-1. **High value ($10K+) + NO meeting** = needs decision NOW
+### Views
+1. **Command Center** (`/app/index.html`) - Full task dashboard
+2. **Decision Queue** (`/app/decision-queue.html`) - Pipeline triage UI
+3. **Server** (`server.py`) - HTTP server + API for decision logging
+
+### Data Structure
+```
+/data/
+  tasks.json             - All tasks (89 items, 6 projects)
+  decisions-queue.json   - Pipeline decisions (321 items)
+  decision-log.json      - User decision history
+  hubspot-*.json         - CRM data (5,514 contacts, 307 deals)
+  grants.json            - Grant opportunities (25 items)
+  *-signals.json         - Intel from monitoring agents
+```
+
+## Projects Tracked
+
+### 🆘 SOS (P0)
+- **June 2026**: $275K milestone deadline
+- **MVP**: 75% complete
+- **Partners**: 1 active (Aid Arena), 5 pending
+- **Grants**: 25 in pipeline, March 3 EDA deadline
+
+Key Categories:
+- Product Development (10 tasks)
+- Grant Pipeline (10 tasks)
+- Partnership Outreach (8 tasks)
+- Demo Preparation (6 tasks)
+- Technical Milestones (5 tasks)
+
+### 🚀 Reforge (P1)
+- **Q1 Quota**: $150K ARR, 75 meetings
+- **Current**: $50.1K ARR (33%), 12 meetings (16%)
+- **Pipeline**: $320K active, $245K at risk
+
+Key Categories:
+- Urgent Deals (5 tasks)
+- Meeting Prep (2 tasks)
+- Stalled Reengagement (4 tasks)
+- Closed Lost Revival (4 tasks)
+- Prospecting (3 tasks)
+
+### 🎯 Harmony (P2)
+- **Revenue**: $45K active retainers
+- **At Risk**: $15K (DI Global critical)
+- **Outstanding**: $8.5K invoices
+
+Key Categories:
+- Critical/At-Risk (2 tasks)
+- Active Delivery (5 tasks)
+- Follow-ups (2 tasks)
+- Upsell Opportunities (3 tasks)
+
+### 🧠 Context Graph Foundation (P0)
+Infrastructure powering all three products - decision traces, embeddings, similarity search.
+
+## Decision Queue Logic (per Jonathan)
+1. **High value ($10K+) + NO meeting** = needs decision NOW (bleeding)
 2. High value + has meeting = has momentum
 3. Lower value + no meeting
 4. Lower value + has meeting
 
-## Decision Types
-- `stalled_deal` - No activity in 14+ days on active deal
-- `pricing_visit_no_followup` - Hit pricing page, no outreach
-- `trial_expiring` - Trial ending soon
-- `no_show_pattern` - Books meetings but doesn't show
-- `sequence_ended_no_response` - Finished sequence, no reply
-- `renewal_approaching` - Renewal coming up
+## Intel Agents (Cron)
+| Agent | Schedule | Focus |
+|-------|----------|-------|
+| Reforge | 9am, 12pm, 5pm EST M-F | Pipeline, competitors, signals |
+| SOS | 10am, 6pm EST daily | Grants, partners, competitors |
+| Harmony | 11am EST M-F | Client health, risks |
+| Morning Brief | 9am EST daily | Daily summary |
 
-## Files
+## Files That Matter
 ```
-/app/index.html          - Main UI
-/server.py               - HTTP server + API
-/data/
-  decisions-queue.json   - All decisions (sorted)
-  decision-log.json      - User decisions (for learning)
-  hubspot-contacts.json  - Contact data
-  hubspot-deals.json     - Deal data  
-  deal-packets.json      - Extracted from Takeout docs
-  calendar-events.json   - From Takeout ICS
-  tasks.json             - Task tracking
-/scripts/
-  parse-hubspot-exports.py - Generates decisions from HubSpot
+/app/index.html          - Command Center UI
+/app/decision-queue.html - Decision Queue UI
+/data/tasks.json         - Task database
+/data/grants.json        - Grant opportunities
+/intel/*.json            - Signal files from agents
+/server.py               - HTTP server
 ```
 
-## Learning System
-Every decision logged with:
-- Contact/company/deal context
-- Signal that triggered it
-- Action chosen
-- Timestamp
-
-AI recommendations show: "For similar decisions, you chose X 70% of the time"
+## Urgent Items Right Now
+1. **EvenUp** - $50K pilot, 105 days stalled (Reforge)
+2. **DI Global (Orly)** - 13 weeks overdue, refund pending (Harmony)
+3. **Muse Group** - $15K, 61 days in contracting (Reforge)
+4. **EDA Grant** - March 3 deadline (SOS)
+5. **Aid Arena** - Blocked on channel setup (SOS)
 
 ## Next Steps
-- [ ] Integrate scraped emails (folder currently empty)
-- [ ] Add Gong call context to decisions
-- [ ] Auto-refresh when HubSpot data changes
-- [ ] Mobile-friendly UI
-- [ ] Push notifications for urgent decisions
-
-## Key Metrics
-- **$245K** pipeline at risk (stalled deals)
-- **$50K** EvenUp deal = top priority (105 days stalled)
-- **13** decisions have upcoming meetings
-- **49** decisions have deal packet context
+- [ ] Start Command Center server: `python3 server.py`
+- [ ] Review urgent tasks in UI
+- [ ] Process stalled deals in Decision Queue
+- [ ] Submit EDA grant application before March 3
