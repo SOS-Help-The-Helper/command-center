@@ -1983,7 +1983,7 @@ ${score.breakdown.map(b => `  ${b.points > 0 ? '+' : ''}${b.points} ${b.factor}:
     // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
       // Only respond when lead-qualifier section is visible
-      if (document.getElementById('lead-qualifier').classList.contains('hidden')) return;
+      if (document.getElementById('signals').classList.contains('hidden')) return;
       
       if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
         swipeLeft();
@@ -2002,6 +2002,18 @@ ${score.breakdown.map(b => `  ${b.points > 0 ? '+' : ''}${b.points} ${b.factor}:
     };
 
     populateUI();
+    
+    // Handle URL hash navigation
+    function handleHash() {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && document.getElementById(hash)) {
+        showSection(hash);
+      }
+    }
+    
+    // Run on load and hash change
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
   </script>
 </body>
 </html>
