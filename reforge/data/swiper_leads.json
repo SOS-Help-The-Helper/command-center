@@ -1,0 +1,1405 @@
+[
+  {
+    "id": 1,
+    "company": "GoFundMe",
+    "person": "Saurabh Pareek",
+    "title": "Senior Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/saurabh-pareek-6a810221/"
+  },
+  {
+    "id": 2,
+    "company": "The Lifetime Value Co.",
+    "person": "Nuo Xu",
+    "title": "Associate Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/heidixucreative/"
+  },
+  {
+    "id": 3,
+    "company": "Sereact",
+    "person": "Shivam Joshi",
+    "title": "Product Director",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/shivamjoshi/"
+  },
+  {
+    "id": 4,
+    "company": "MOJO",
+    "person": "Amr El-Shimi",
+    "title": "Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/elshimi/"
+  },
+  {
+    "id": 5,
+    "company": "Pancreatic Cancer Action Network",
+    "person": "Dr. Cedrick Holmes DSL, PMP",
+    "title": "Senior Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/cedrick-holmes-ms-csm-pmp-15a7086/"
+  },
+  {
+    "id": 6,
+    "company": "Sanas",
+    "person": "Chris Featherstone",
+    "title": "Sr. Director of Product Growth - Developer Experience",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/chris-featherstone-6949817/"
+  },
+  {
+    "id": 7,
+    "company": "VulnCheck",
+    "person": "Maggie McCann Radtke",
+    "title": "Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/maggie-mccann-radtke/"
+  },
+  {
+    "id": 8,
+    "company": "Go Icon",
+    "person": "Sidrah Ismail",
+    "title": "Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/sidrah-ismail-7a5b0a18/"
+  },
+  {
+    "id": 9,
+    "company": "Curinos",
+    "person": "Robert Ellis",
+    "title": "Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/robert-ellis-csm-cspo-a4b38014/"
+  },
+  {
+    "id": 10,
+    "company": "Twisted X Global Brands",
+    "person": "Joel Enderle",
+    "title": "Sr. Director of Product Development",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/joelenderle/"
+  },
+  {
+    "id": 11,
+    "company": "Xage Security",
+    "person": "Michael T.",
+    "title": "Senior Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/michaelctsai/"
+  },
+  {
+    "id": 12,
+    "company": "Vantage",
+    "person": "Matt Kojalo",
+    "title": "Director of Product, Growth & Diversification",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/matt-kojalo-5144/"
+  },
+  {
+    "id": 13,
+    "company": "Arango",
+    "person": "Mark Milinkovich",
+    "title": "Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/markmilinkovich/"
+  },
+  {
+    "id": 14,
+    "company": "Agiloft",
+    "person": "Joshua Sangster",
+    "title": "Director of Product Management, Integrations",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/%e2%98%81-joshua-sangster-30aa0a19/"
+  },
+  {
+    "id": 15,
+    "company": "Snorkel AI",
+    "person": "Kevin Olivieri",
+    "title": "Sr. Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/kevinjolivieri/"
+  },
+  {
+    "id": 16,
+    "company": "Virtualitics",
+    "person": "Griffin Kao",
+    "title": "Director of Product",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/griffinkao/"
+  },
+  {
+    "id": 17,
+    "company": "RevolutionParts",
+    "person": "Ernest Saco",
+    "title": "Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/ernest-saco-15614429/"
+  },
+  {
+    "id": 18,
+    "company": "ToolsGroup",
+    "person": "Victoria Brown",
+    "title": "Director of Product Management",
+    "size": "320",
+    "industry": "information technology & services",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo",
+      "\ud83d\udc65 320 employees",
+      "\ud83d\udcc8 Merger / Acquisition",
+      "\ud83d\udcb5 35.1M revenue"
+    ],
+    "icp_score": 90,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/victoria-brown-845aa913/"
+  },
+  {
+    "id": 19,
+    "company": "b\u00f6hme",
+    "person": "Colleen Burns",
+    "title": "Senior Director of Product Development and Supply Chain Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/colleen-burns-a792453/"
+  },
+  {
+    "id": 20,
+    "company": "BESTMIX Software",
+    "person": "Geert Vanvaerenbergh",
+    "title": "Director of Product Strategy \u2013 Food ERP",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/geertvanvaerenbergh/"
+  },
+  {
+    "id": 21,
+    "company": "Leapwork",
+    "person": "Clinton Sprauve",
+    "title": "Senior Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/clinton-sprauve-a859221/"
+  },
+  {
+    "id": 22,
+    "company": "Seed Health",
+    "person": "Angela Hatcher",
+    "title": "Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/angela-hatcher-ba9724124/"
+  },
+  {
+    "id": 23,
+    "company": "INNERGY",
+    "person": "Clay S.",
+    "title": "Director of Product: CADCAM",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/cswayze/"
+  },
+  {
+    "id": 24,
+    "company": "ProShop ERP",
+    "person": "Laura Curk",
+    "title": "Senior Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/laura-curk-52702064/"
+  },
+  {
+    "id": 25,
+    "company": "GoFundMe",
+    "person": "Madhuri Murlikrishnan",
+    "title": "Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/madhuri-murlikrishnan-1816581b/"
+  },
+  {
+    "id": 26,
+    "company": "Santa Monica Studio",
+    "person": "Lani Lum",
+    "title": "Director of Product Development",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/lplum/"
+  },
+  {
+    "id": 27,
+    "company": "Userful",
+    "person": "Rubesh Kumar",
+    "title": "Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/rubesh-kumar-n-1259a3158/"
+  },
+  {
+    "id": 28,
+    "company": "iDbase Software",
+    "person": "Matthew Olugbemi",
+    "title": "Director of Product and Growth",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/matthew-olugbemi-0b448747/"
+  },
+  {
+    "id": 29,
+    "company": "Lila Sciences",
+    "person": "Jing Ong",
+    "title": "Director of Product Management - Applied AI",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/ongjing/"
+  },
+  {
+    "id": 30,
+    "company": "Render",
+    "person": "Brooke Chen",
+    "title": "Director of Product",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/brooke-chen/"
+  },
+  {
+    "id": 31,
+    "company": "C the Signs",
+    "person": "Lauren Fragoza",
+    "title": "Director of Product - US",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/laurenfragoza/"
+  },
+  {
+    "id": 32,
+    "company": "Nelly Solutions",
+    "person": "Carlotta Riesser",
+    "title": "Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/carlottariesser/"
+  },
+  {
+    "id": 33,
+    "company": "Betterworks",
+    "person": "Cassie Fulton Flores",
+    "title": "Sr. Director of Product Marketing + Content",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/cassiefultonflores/"
+  },
+  {
+    "id": 34,
+    "company": "Wayve",
+    "person": "Daniella Gutlansky",
+    "title": "Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/daniella-gutlansky/"
+  },
+  {
+    "id": 35,
+    "company": "Stocktwits",
+    "person": "Nick Eltjes",
+    "title": "Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/neltjes/"
+  },
+  {
+    "id": 36,
+    "company": "Aviro360",
+    "person": "Matt Brekken",
+    "title": "Director of Product Engineering",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/mbrekken/"
+  },
+  {
+    "id": 37,
+    "company": "JobNimbus",
+    "person": "Ryan Quackenbush",
+    "title": "Director of Product",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/rquackenbush/"
+  },
+  {
+    "id": 38,
+    "company": "Bitmovin",
+    "person": "Alex Zambelli",
+    "title": "Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/alex-zambelli-5037ab5/"
+  },
+  {
+    "id": 39,
+    "company": "Moda Operandi, Inc",
+    "person": "Lauren Mirynowski",
+    "title": "Senior Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/lauren-mirynowski-8a540114/"
+  },
+  {
+    "id": 40,
+    "company": "Donorbox",
+    "person": "Dan Godfrey",
+    "title": "Director of Product Engineering",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/daniel-godfrey-ba0b6419/"
+  },
+  {
+    "id": 41,
+    "company": "Isovalent",
+    "person": "Christiaan Kuun",
+    "title": "Senior Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/christiaan-kuun-4303132/"
+  },
+  {
+    "id": 42,
+    "company": "Naehas",
+    "person": "Vighnesh Subramanyan",
+    "title": "Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/vighnesh-subramanyan-a762aa33/"
+  },
+  {
+    "id": 43,
+    "company": "Ovivio NL",
+    "person": "Ruud Adriaans",
+    "title": "Director of Product",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/ruud-adriaans/"
+  },
+  {
+    "id": 44,
+    "company": "Ottimate",
+    "person": "Jason Boyles",
+    "title": "Senior Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/jason-boyles-cx/"
+  },
+  {
+    "id": 45,
+    "company": "Tennis Channel",
+    "person": "Tatiana C.",
+    "title": "Director of Product Design",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/tatianachilcovsky/"
+  },
+  {
+    "id": 46,
+    "company": "Underdog",
+    "person": "Harry Raymond",
+    "title": "Director of Product",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/hraymond/"
+  },
+  {
+    "id": 47,
+    "company": "Jama Software",
+    "person": "Mindy N.",
+    "title": "Sr. Director of Product Design",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/mindynies/"
+  },
+  {
+    "id": 48,
+    "company": "Hallmark Media",
+    "person": "Justin Parkinson",
+    "title": "Director of Product, Hallmark+",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/justin-parkinson/"
+  },
+  {
+    "id": 49,
+    "company": "Granum",
+    "person": "Ryan K. Rinaldi",
+    "title": "Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/ryan-k-rinaldi-3a439574/"
+  },
+  {
+    "id": 50,
+    "company": "Edwards Lifesciences IHFM",
+    "person": "Jay Radcliffe",
+    "title": "Director of Product Security",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/jradcliffe02/"
+  },
+  {
+    "id": 51,
+    "company": "Carewell",
+    "person": "Eric T.",
+    "title": "Sr Director of Product, Care Services",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/erictabarly/"
+  },
+  {
+    "id": 52,
+    "company": "NewStore",
+    "person": "Mitun Pandey",
+    "title": "Director of Product Operations",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/mitunpandey/"
+  },
+  {
+    "id": 53,
+    "company": "Nile",
+    "person": "Brian Strachman",
+    "title": "Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/strachman/"
+  },
+  {
+    "id": 54,
+    "company": "Change.org",
+    "person": "Nava Friedman",
+    "title": "Director of Product, Elections",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/nava-friedman-a1a59187/"
+  },
+  {
+    "id": 55,
+    "company": "The N2 Company",
+    "person": "Bernadette Gabaree",
+    "title": "Senior Director of Product Growth",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/behayes/"
+  },
+  {
+    "id": 56,
+    "company": "Zenarate",
+    "person": "Daniel Urban",
+    "title": "Senior Director of Product Management - AI Agents",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/daniel-t-urban/"
+  },
+  {
+    "id": 57,
+    "company": "Paragonix Technologies, Inc.",
+    "person": "Pratik Patel",
+    "title": "Senior Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/pratik-patel-88477016/"
+  },
+  {
+    "id": 58,
+    "company": "JobNimbus",
+    "person": "Ryan Walker",
+    "title": "Senior Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/walkerryan/"
+  },
+  {
+    "id": 59,
+    "company": "Twin Health",
+    "person": "Pauline Tordeur",
+    "title": "Senior Director of Product",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/pauline-tordeur/"
+  },
+  {
+    "id": 60,
+    "company": "Brio Water Technology",
+    "person": "Jamie Dachisen, MBA",
+    "title": "Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/jamie-dachisen-7a867a1b/"
+  },
+  {
+    "id": 61,
+    "company": "Spectralink Corporation",
+    "person": "Anand Gupta",
+    "title": "Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/anand-gupta-886712/"
+  },
+  {
+    "id": 62,
+    "company": "Mark43",
+    "person": "Tony Slokar",
+    "title": "Director of Product - Platform",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/antony-slokar-13524316/"
+  },
+  {
+    "id": 63,
+    "company": "Solutions Metrix",
+    "person": "Sofie-Anh Duranceau",
+    "title": "Director of Product",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/sofieanhduranceau/"
+  },
+  {
+    "id": 64,
+    "company": "Movius",
+    "person": "Zahin Rejuan",
+    "title": "Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/zahin-rejuan-99130b124/"
+  },
+  {
+    "id": 65,
+    "company": "Visier Inc.",
+    "person": "Elissa (Eli) Riddell",
+    "title": "Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/elissariddell/"
+  },
+  {
+    "id": 66,
+    "company": "ServiceTrade",
+    "person": "Shavonne Williams",
+    "title": "Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/shavonnewilliams/"
+  },
+  {
+    "id": 67,
+    "company": "AllTrails",
+    "person": "Beverly Chung",
+    "title": "Senior Director of Product",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/beverly-chung-2363261/"
+  },
+  {
+    "id": 68,
+    "company": "Riverside Insights",
+    "person": "Tommy Day",
+    "title": "Director of Product, Platform",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/tommy-day-7239977/"
+  },
+  {
+    "id": 69,
+    "company": "TechWolf",
+    "person": "Colin Tierney",
+    "title": "Director of Product",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/colin-tierney-80b44060/"
+  },
+  {
+    "id": 70,
+    "company": "Zendrop",
+    "person": "Joshua Imel",
+    "title": "Director of Product",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/joshua-imel-132a7559/"
+  },
+  {
+    "id": 71,
+    "company": "Top Employers Institute",
+    "person": "Gaurav Gandhi",
+    "title": "Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/gauravcgandhi/"
+  },
+  {
+    "id": 72,
+    "company": "MultiSensor AI",
+    "person": "James Newman",
+    "title": "Senior Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/james-newmanjr/"
+  },
+  {
+    "id": 73,
+    "company": "360 Privacy",
+    "person": "Jaymie (Testa) Falconi",
+    "title": "Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/jaymiefalconi/"
+  },
+  {
+    "id": 74,
+    "company": "Brodie Sports Group",
+    "person": "Adam Brace",
+    "title": "Director of Product Design",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/adam-brace-a42a0525/"
+  },
+  {
+    "id": 75,
+    "company": "Sleeper",
+    "person": "Jack Caporuscio",
+    "title": "Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/jack-caporuscio-3a4bb8133/"
+  },
+  {
+    "id": 76,
+    "company": "LiveFlow",
+    "person": "Corey Landers",
+    "title": "Director of Product Design, Brand & Creative",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/corey-landers-30820522/"
+  },
+  {
+    "id": 77,
+    "company": "Onbe",
+    "person": "Dipesh Mehta",
+    "title": "Senior Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/dipesh-mehta-53257480/"
+  },
+  {
+    "id": 78,
+    "company": "Opensend",
+    "person": "Katie McKeever",
+    "title": "Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/katherine-mckeever/"
+  },
+  {
+    "id": 79,
+    "company": "Propelus",
+    "person": "Trish O'Malley",
+    "title": "Sr Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/trishomalley/"
+  },
+  {
+    "id": 80,
+    "company": "Ghost",
+    "person": "Nonie K.",
+    "title": "Director of Product Design",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/noniekimpitak/"
+  },
+  {
+    "id": 81,
+    "company": "Altana",
+    "person": "Joyce Gordon",
+    "title": "Senior Director of Product",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/joyce-gordon-7a428971/"
+  },
+  {
+    "id": 82,
+    "company": "PerfectServe",
+    "person": "Sidharth Grover",
+    "title": "Director of Product, AI",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/sidharth-grover/"
+  },
+  {
+    "id": 83,
+    "company": "Gevo, Inc.",
+    "person": "Cheryl Sansonetti",
+    "title": "Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/cheryl-sansonetti-aa111b5/"
+  },
+  {
+    "id": 84,
+    "company": "Strider Technologies",
+    "person": "Elizabeth G.",
+    "title": "Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/elizabeth-giuffrida/"
+  },
+  {
+    "id": 85,
+    "company": "Flex",
+    "person": "Doug Meyer",
+    "title": "Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/doug-meyer-37715533/"
+  },
+  {
+    "id": 86,
+    "company": "Alpaca",
+    "person": "Lori Hammer",
+    "title": "Director of Product Operations",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/lori-hammer-86970913/"
+  },
+  {
+    "id": 87,
+    "company": "Deepgram",
+    "person": "Jonathan Remulla",
+    "title": "Director of Product Design",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/supafrenz/"
+  },
+  {
+    "id": 88,
+    "company": "gearUP",
+    "person": "Michelle Billingsley CPC, ELI-MP",
+    "title": "Senior Director of Product and Merchandising",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/michelle-billingsley-cpc-eli-mp-03bb5188/"
+  },
+  {
+    "id": 89,
+    "company": "LI-COR",
+    "person": "Taylor Thomas",
+    "title": "Director of Product Management - LI-COR Products",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/taylor-thomas-807744229/"
+  },
+  {
+    "id": 90,
+    "company": "Trulioo",
+    "person": "Matt Davis",
+    "title": "Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/mattdaviscanada/"
+  },
+  {
+    "id": 91,
+    "company": "Doppel",
+    "person": "Alvin Lin",
+    "title": "Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/alvin-lin-5986072a/"
+  },
+  {
+    "id": 92,
+    "company": "Hyson",
+    "person": "Greg Kemenah, MBA",
+    "title": "Global Director of Product & Marketing- Force Motion Group, General Manager Hyson",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/greg-kemenah/"
+  },
+  {
+    "id": 93,
+    "company": "Qventus, Inc",
+    "person": "Danielle Brown",
+    "title": "Director of Product Management",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/anamericanlady/"
+  },
+  {
+    "id": 94,
+    "company": "XBOW",
+    "person": "Natalie Jones",
+    "title": "Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/natalie-jones-54b28a31/"
+  },
+  {
+    "id": 95,
+    "company": "Govini",
+    "person": "Madeline T. Jordan",
+    "title": "Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/madeline-t-jordan/"
+  },
+  {
+    "id": 96,
+    "company": "AppViewX",
+    "person": "Chaitanya Challa",
+    "title": "Director of Product Management, AI Platform and NHI",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/chaitanya-challa-71605025/"
+  },
+  {
+    "id": 97,
+    "company": "Nanosonics",
+    "person": "Neil McLellan",
+    "title": "Global Director of Product - Connectivity",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/neil-mclellan-mba-a21b6210/"
+  },
+  {
+    "id": 98,
+    "company": "Adaptive Security",
+    "person": "Jonathan Grossman",
+    "title": "Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/jonathan-grossman-96ab651b6/"
+  },
+  {
+    "id": 99,
+    "company": "Albert Invent",
+    "person": "Kyle Williams",
+    "title": "Director of Product - AI & Core Apps",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/kyle-williams-21a82028#:~:text=Experience/"
+  },
+  {
+    "id": 100,
+    "company": "MinIO",
+    "person": "James G.",
+    "title": "Sr. Director of Product Marketing",
+    "size": "Unknown",
+    "industry": "Tech",
+    "signals": [
+      "\ud83c\udd95 New role: 3mo"
+    ],
+    "icp_score": 70,
+    "summary": "Role: 3mo",
+    "linkedin": "https://www.linkedin.com/in/jamesgallegos89/"
+  }
+]
