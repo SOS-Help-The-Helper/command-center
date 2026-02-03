@@ -2,751 +2,497 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Command Center - Jonathan Greenberg</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Command Center</title>
     <style>
-        @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
-        @keyframes glow { 0%, 100% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.5); } 50% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.8); } }
-        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .card-enter { animation: slideIn 0.3s ease-out; }
-        .pulse { animation: pulse 2s infinite; }
-        .glow-urgent { animation: glow 2s infinite; }
-        .spin { animation: spin 2s linear infinite; }
-        .priority-urgent { border-left: 4px solid #ef4444; background: linear-gradient(90deg, rgba(239,68,68,0.1) 0%, transparent 100%); }
-        .priority-high { border-left: 4px solid #f59e0b; }
-        .priority-medium { border-left: 4px solid #4a8c4a; }
-        .priority-low { border-left: 4px solid #6b7280; }
-        body { background: #0a0f0a; min-height: 100vh; }
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-        .stat-card { backdrop-filter: blur(10px); }
-        .tab-active { background: linear-gradient(135deg, #4a8c4a 0%, #5cb85c 100%); }
+        :root {
+            --bg: #0a0f0a;
+            --card-bg: #141f14;
+            --card-border: #1e2e1e;
+            --text: #ffffff;
+            --text-secondary: #8a9a8a;
+            --text-dim: #5a6a5a;
+            --green: #2d5a2d;
+            --green-light: #4a8c4a;
+            --green-bright: #5cb85c;
+            --green-glow: rgba(92, 184, 92, 0.15);
+            --red: #c53030;
+            --red-soft: rgba(197, 48, 48, 0.15);
+            --gold: #d4a530;
+            --gold-soft: rgba(212, 165, 48, 0.15);
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 24px 20px 100px;
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        header h1 {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        
+        header .date {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-top: 4px;
+        }
+        
+        /* Section */
+        section {
+            margin-bottom: 32px;
+        }
+        
+        section h2 {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-dim);
+            margin-bottom: 12px;
+            padding-left: 4px;
+        }
+        
+        /* Priority Cards */
+        .priority-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 12px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .priority-card:active {
+            transform: scale(0.98);
+        }
+        
+        .priority-card.urgent {
+            border-left: 3px solid var(--red);
+            background: linear-gradient(90deg, var(--red-soft) 0%, var(--card-bg) 40%);
+        }
+        
+        .priority-card.high {
+            border-left: 3px solid var(--gold);
+            background: linear-gradient(90deg, var(--gold-soft) 0%, var(--card-bg) 40%);
+        }
+        
+        .priority-card .rank {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-dim);
+            margin-bottom: 6px;
+        }
+        
+        .priority-card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        
+        .priority-card .context {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        
+        .priority-card .action {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--green-bright);
+        }
+        
+        .priority-card .action::before {
+            content: "→";
+        }
+        
+        /* Meeting List */
+        .meeting {
+            display: flex;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+        
+        .meeting:last-child {
+            border-bottom: none;
+        }
+        
+        .meeting .time {
+            width: 60px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        
+        .meeting .details {
+            flex: 1;
+        }
+        
+        .meeting .title {
+            font-size: 15px;
+            font-weight: 500;
+        }
+        
+        .meeting .company {
+            font-size: 13px;
+            color: var(--green-bright);
+        }
+        
+        .meeting .value {
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+        
+        /* Stats Row */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+        
+        .stat {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+        
+        .stat .number {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--green-bright);
+        }
+        
+        .stat .number.warning {
+            color: var(--gold);
+        }
+        
+        .stat .number.danger {
+            color: var(--red);
+        }
+        
+        .stat .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-dim);
+            margin-top: 4px;
+        }
+        
+        /* Fire item */
+        .fire {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+        
+        .fire:last-child {
+            border-bottom: none;
+        }
+        
+        .fire .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--red);
+            margin-top: 6px;
+            flex-shrink: 0;
+        }
+        
+        .fire .dot.medium {
+            background: var(--gold);
+        }
+        
+        .fire .content {
+            flex: 1;
+        }
+        
+        .fire .company {
+            font-size: 15px;
+            font-weight: 500;
+        }
+        
+        .fire .issue {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        /* Nav */
+        nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg);
+            border-top: 1px solid var(--card-border);
+            padding: 12px 20px 28px;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-dim);
+            font-size: 10px;
+            gap: 4px;
+            transition: color 0.2s;
+        }
+        
+        nav a.active {
+            color: var(--green-bright);
+        }
+        
+        nav a .icon {
+            font-size: 22px;
+        }
+        
+        /* Empty state */
+        .empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-dim);
+        }
+        
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-dim);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .loading::after {
+            content: "...";
+            animation: pulse 1.5s infinite;
+        }
     </style>
 </head>
-<body class="text-gray-100">
-    <div id="app" class="max-w-7xl mx-auto p-4 md:p-6">
+<body>
+    <div class="container">
+        <header>
+            <h1>Good morning</h1>
+            <div class="date" id="dateDisplay">Loading...</div>
+        </header>
         
-        <!-- Header -->
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-            <div>
-                <h1 class="text-2xl md:text-3xl font-bold flex items-center gap-3">
-                    <span class="text-3xl">⚡</span> Command Center
-                </h1>
-                <p class="text-gray-400 text-sm mt-1">Full visibility across SOS, Reforge, Harmony & Agents</p>
+        <div class="stats">
+            <div class="stat">
+                <div class="number danger" id="urgentCount">-</div>
+                <div class="label">Urgent</div>
             </div>
-            <div class="flex gap-2 items-center flex-wrap">
-                <span id="lastUpdate" class="text-xs text-gray-500 mr-2"></span>
-                <button onclick="window.location='../'" class="px-3 py-1.5 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm">
-                    ← Command Center
-                </button>
-                <button onclick="window.location='decision-queue.html'" class="px-3 py-1.5 bg-green-600/30 hover:bg-green-600/50 rounded-lg text-sm border border-green-500/30">
-                    📊 Decisions
-                </button>
-                <button onclick="refreshData()" class="px-3 py-1.5 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm">
-                    🔄 Refresh
-                </button>
+            <div class="stat">
+                <div class="number" id="pipelineValue">-</div>
+                <div class="label">Pipeline</div>
+            </div>
+            <div class="stat">
+                <div class="number" id="meetingsToday">-</div>
+                <div class="label">Meetings</div>
             </div>
         </div>
-
-        <!-- Main Tabs -->
-        <div class="flex gap-2 mb-6 overflow-x-auto scrollbar-hide pb-2">
-            <button onclick="setMainTab('brief')" class="main-tab whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium transition" data-tab="brief">
-                ☀️ Morning Brief
-            </button>
-            <button onclick="setMainTab('tasks')" class="main-tab whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium transition" data-tab="tasks">
-                📋 Tasks
-            </button>
-            <button onclick="setMainTab('agents')" class="main-tab whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium transition" data-tab="agents">
-                🤖 Agents
-            </button>
-            <button onclick="setMainTab('metrics')" class="main-tab whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium transition" data-tab="metrics">
-                📈 Metrics
-            </button>
-        </div>
-
-        <!-- MORNING BRIEF TAB -->
-        <div id="briefTab" class="tab-content hidden">
-            <div class="bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 rounded-xl p-6 mb-6">
-                <h2 class="text-xl font-bold flex items-center gap-2 mb-4">
-                    ☀️ Morning Brief - <span id="briefDate">Today</span>
-                </h2>
-                <div id="briefPriorities" class="space-y-4">
-                    <p class="text-gray-400">Loading brief...</p>
-                </div>
-            </div>
-
-            <!-- Calendar Section -->
-            <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-6 mb-6">
-                <h3 class="text-lg font-semibold mb-4">📅 This Week</h3>
-                <div id="briefCalendar" class="space-y-2">
-                    <p class="text-gray-400">Loading calendar...</p>
-                </div>
-            </div>
-
-            <!-- Fires Section -->
-            <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-6 mb-6">
-                <h3 class="text-lg font-semibold mb-4">🔥 Fires to Watch</h3>
-                <div id="briefFires" class="space-y-2">
-                    <p class="text-gray-400">Loading...</p>
-                </div>
-            </div>
-
-            <!-- Meeting Intel -->
-            <div class="bg-blue-500/10 border border-blue-500/30 rounded-xl p-6">
-                <h3 class="text-lg font-semibold mb-4">🔎 Meeting Intel</h3>
-                <div id="briefIntel" class="grid md:grid-cols-2 gap-4">
-                    <p class="text-gray-400">Loading...</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- TASKS TAB -->
-        <div id="tasksTab" class="tab-content">
-            <!-- Top Stats Row -->
-            <div class="grid grid-cols-2 md:grid-cols-6 gap-3 mb-6">
-                <div class="stat-card bg-red-500/20 border border-red-500/30 rounded-lg p-3 text-center">
-                    <div id="urgentCount" class="text-2xl font-bold text-red-400">-</div>
-                    <div class="text-xs text-gray-400">🔥 Urgent</div>
-                </div>
-                <div class="stat-card bg-yellow-500/20 border border-yellow-500/30 rounded-lg p-3 text-center">
-                    <div id="highCount" class="text-2xl font-bold text-yellow-400">-</div>
-                    <div class="text-xs text-gray-400">⚠️ High</div>
-                </div>
-                <div class="stat-card bg-green-500/20 border border-green-500/30 rounded-lg p-3 text-center">
-                    <div id="doneCount" class="text-2xl font-bold text-green-400">-</div>
-                    <div class="text-xs text-gray-400">✅ Done</div>
-                </div>
-                <div class="stat-card bg-green-500/20 border border-green-500/30 rounded-lg p-3 text-center">
-                    <div id="pipelineValue" class="text-2xl font-bold text-green-400">-</div>
-                    <div class="text-xs text-gray-400">💰 Pipeline</div>
-                </div>
-                <div class="stat-card bg-green-500/20 border border-green-500/30 rounded-lg p-3 text-center">
-                    <div id="grantsCount" class="text-2xl font-bold text-green-400">-</div>
-                    <div class="text-xs text-gray-400">📋 Grants</div>
-                </div>
-                <div class="stat-card bg-cyan-500/20 border border-cyan-500/30 rounded-lg p-3 text-center">
-                    <div id="agentsActive" class="text-2xl font-bold text-cyan-400">-</div>
-                    <div class="text-xs text-gray-400">🤖 Agents</div>
-                </div>
-            </div>
-
-            <!-- Project Tabs -->
-            <div class="flex gap-2 mb-4 overflow-x-auto scrollbar-hide pb-2">
-                <button onclick="filterProject('')" class="project-btn whitespace-nowrap px-4 py-2 bg-gradient-to-r from-gray-700 to-gray-800 rounded-lg text-sm font-medium border border-gray-600" data-project="">
-                    🌐 All
-                </button>
-                <button onclick="filterProject('sos')" class="project-btn whitespace-nowrap px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-sm border border-gray-700" data-project="sos">
-                    🆘 SOS
-                </button>
-                <button onclick="filterProject('reforge')" class="project-btn whitespace-nowrap px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-sm border border-gray-700" data-project="reforge">
-                    🚀 Reforge
-                </button>
-                <button onclick="filterProject('harmony')" class="project-btn whitespace-nowrap px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-sm border border-gray-700" data-project="harmony">
-                    🎯 Harmony
-                </button>
-                <button onclick="filterProject('context_graph')" class="project-btn whitespace-nowrap px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-sm border border-gray-700" data-project="context_graph">
-                    🧠 Context
-                </button>
-            </div>
-
-            <!-- Main Content -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                
-                <!-- Left Column: Urgent + High Priority -->
-                <div class="lg:col-span-2 space-y-4">
-                    <!-- Urgent Tasks -->
-                    <div id="urgentSection" class="bg-gray-800/50 border border-red-500/30 rounded-xl p-4">
-                        <h2 class="text-lg font-bold flex items-center gap-2 mb-3 text-red-400">
-                            <span class="pulse">🔥</span> Urgent - Do Today
-                        </h2>
-                        <div id="urgentTasks" class="space-y-2"></div>
-                    </div>
-
-                    <!-- High Priority -->
-                    <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-4">
-                        <h2 class="text-lg font-bold flex items-center gap-2 mb-3 text-yellow-400">
-                            ⚠️ High Priority
-                        </h2>
-                        <div id="highTasks" class="space-y-2"></div>
-                    </div>
-
-                    <!-- All Other Tasks -->
-                    <div id="categorySections"></div>
-                </div>
-
-                <!-- Right Column: Metrics & Quick Actions -->
-                <div class="space-y-4">
-                    <!-- Reforge Quota -->
-                    <div class="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-green-500/30 rounded-xl p-4">
-                        <h3 class="font-bold flex items-center gap-2 mb-3">🚀 Reforge Q1</h3>
-                        <div class="space-y-3">
-                            <div>
-                                <div class="flex justify-between text-sm mb-1">
-                                    <span>Meetings</span>
-                                    <span id="meetingsProgress">-/-</span>
-                                </div>
-                                <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
-                                    <div id="meetingsBar" class="h-full bg-blue-500 rounded-full transition-all" style="width: 0%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-sm mb-1">
-                                    <span>ARR</span>
-                                    <span id="arrProgress">-/-</span>
-                                </div>
-                                <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
-                                    <div id="arrBar" class="h-full bg-green-500 rounded-full transition-all" style="width: 0%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SOS Progress -->
-                    <div class="bg-gradient-to-br from-red-900/30 to-orange-900/30 border border-red-500/30 rounded-xl p-4">
-                        <h3 class="font-bold flex items-center gap-2 mb-3">🆘 SOS MVP</h3>
-                        <div class="space-y-2 text-sm">
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">MVP Completion</span>
-                                <span id="mvpCompletion" class="font-bold">-</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">Partners</span>
-                                <span id="partnersActive">-</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">Grants Pipeline</span>
-                                <span id="grantsPipeline">-</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Upcoming Deadlines -->
-                    <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-4">
-                        <h3 class="font-bold flex items-center gap-2 mb-3">📅 Deadlines</h3>
-                        <div id="deadlines" class="space-y-2 text-sm max-h-48 overflow-y-auto"></div>
-                    </div>
-
-                    <!-- Quick Links -->
-                    <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-4">
-                        <h3 class="font-bold flex items-center gap-2 mb-3">⚡ Quick Actions</h3>
-                        <div class="grid grid-cols-2 gap-2">
-                            <a href="https://sos-help-the-helper.github.io/reforge-swipe/" target="_blank" 
-                               class="px-3 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm text-center transition">
-                                🎯 Grunt
-                            </a>
-                            <a href="decision-queue.html" 
-                               class="px-3 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm text-center transition">
-                                📊 Decisions
-                            </a>
-                            <button onclick="exportTasks()" 
-                               class="px-3 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm text-center transition">
-                                📥 Export
-                            </button>
-                            <button onclick="setMainTab('agents')" 
-                               class="px-3 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm text-center transition">
-                                🤖 Agents
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- AGENTS TAB -->
-        <div id="agentsTab" class="tab-content hidden">
-            <!-- Agent Stats Row -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-                <div class="stat-card bg-green-500/20 border border-green-500/30 rounded-lg p-4 text-center">
-                    <div id="activeAgentsCount" class="text-3xl font-bold text-green-400">-</div>
-                    <div class="text-xs text-gray-400">🟢 Running Now</div>
-                </div>
-                <div class="stat-card bg-green-500/20 border border-green-500/30 rounded-lg p-4 text-center">
-                    <div id="completedTodayCount" class="text-3xl font-bold text-green-400">-</div>
-                    <div class="text-xs text-gray-400">✅ Completed Today</div>
-                </div>
-                <div class="stat-card bg-green-500/20 border border-green-500/30 rounded-lg p-4 text-center">
-                    <div id="scheduledCount" class="text-3xl font-bold text-green-400">-</div>
-                    <div class="text-xs text-gray-400">⏰ Scheduled Jobs</div>
-                </div>
-                <div class="stat-card bg-cyan-500/20 border border-cyan-500/30 rounded-lg p-4 text-center">
-                    <div id="totalRunsToday" class="text-3xl font-bold text-cyan-400">-</div>
-                    <div class="text-xs text-gray-400">📊 Runs Today</div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <!-- Active Agents -->
-                <div class="bg-gray-800/50 border border-green-500/30 rounded-xl p-4">
-                    <h2 class="text-lg font-bold flex items-center gap-2 mb-4 text-green-400">
-                        <span class="spin">⚙️</span> Active Agents
-                    </h2>
-                    <div id="activeAgents" class="space-y-3"></div>
-                </div>
-
-                <!-- Scheduled Agents -->
-                <div class="bg-gray-800/50 border border-green-500/30 rounded-xl p-4">
-                    <h2 class="text-lg font-bold flex items-center gap-2 mb-4 text-green-400">
-                        ⏰ Scheduled Agents
-                    </h2>
-                    <div id="scheduledAgents" class="space-y-3"></div>
-                </div>
-            </div>
-
-            <!-- Completed Agents -->
-            <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-4 mt-6">
-                <h2 class="text-lg font-bold flex items-center gap-2 mb-4 text-green-400">
-                    ✅ Recently Completed
-                </h2>
-                <div id="completedAgents" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"></div>
-            </div>
-
-            <!-- Agent Stats by Project -->
-            <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-4 mt-6">
-                <h2 class="text-lg font-bold flex items-center gap-2 mb-4">
-                    📊 Agent Activity by Project
-                </h2>
-                <div id="agentStatsByProject" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
-            </div>
-        </div>
-
-        <!-- METRICS TAB -->
-        <div id="metricsTab" class="tab-content hidden">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Reforge Deep Metrics -->
-                <div class="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-green-500/30 rounded-xl p-4">
-                    <h3 class="font-bold text-lg mb-4">🚀 Reforge Pipeline</h3>
-                    <div class="space-y-3 text-sm">
-                        <div class="flex justify-between"><span class="text-gray-400">Active Pipeline</span><span class="text-green-400 font-bold" id="m-pipeline">-</span></div>
-                        <div class="flex justify-between"><span class="text-gray-400">Pilot Stage</span><span id="m-pilot">-</span></div>
-                        <div class="flex justify-between"><span class="text-gray-400">Pre-Pilot</span><span id="m-prepilot">-</span></div>
-                        <div class="flex justify-between"><span class="text-gray-400">Contracting</span><span id="m-contracting">-</span></div>
-                        <div class="flex justify-between text-red-400"><span>At Risk</span><span id="m-atrisk">-</span></div>
-                        <div class="flex justify-between text-yellow-400"><span>Reengageable CL</span><span id="m-closedlost">-</span></div>
-                    </div>
-                </div>
-
-                <!-- Harmony Metrics -->
-                <div class="bg-gradient-to-br from-green-900/30 to-green-800/30 border border-green-500/30 rounded-xl p-4">
-                    <h3 class="font-bold text-lg mb-4">🎯 Harmony Strategy</h3>
-                    <div class="space-y-3 text-sm">
-                        <div class="flex justify-between"><span class="text-gray-400">Annual Target</span><span id="m-htarget">-</span></div>
-                        <div class="flex justify-between"><span class="text-gray-400">Active Retainers</span><span class="text-green-400 font-bold" id="m-hretainers">-</span></div>
-                        <div class="flex justify-between text-red-400"><span>At Risk</span><span id="m-hrisk">-</span></div>
-                        <div class="flex justify-between text-yellow-400"><span>Outstanding</span><span id="m-houtstanding">-</span></div>
-                    </div>
-                </div>
-
-                <!-- SOS Metrics -->
-                <div class="bg-gradient-to-br from-red-900/30 to-orange-900/30 border border-red-500/30 rounded-xl p-4">
-                    <h3 class="font-bold text-lg mb-4">🆘 SOS Platform</h3>
-                    <div class="space-y-3 text-sm">
-                        <div class="flex justify-between"><span class="text-gray-400">MVP Progress</span><span class="text-green-400 font-bold" id="m-mvp">-</span></div>
-                        <div class="flex justify-between"><span class="text-gray-400">Partners Active</span><span id="m-partners">-</span></div>
-                        <div class="flex justify-between"><span class="text-gray-400">Partners Pending</span><span id="m-pending">-</span></div>
-                        <div class="flex justify-between"><span class="text-gray-400">Grants Pipeline</span><span id="m-grants">-</span></div>
-                        <div class="flex justify-between text-yellow-400"><span>June Milestone</span><span>$275K</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
+        <section id="prioritiesSection">
+            <h2>Today's Priorities</h2>
+            <div id="priorities" class="loading">Loading</div>
+        </section>
+        
+        <section id="meetingsSection">
+            <h2>Today's Meetings</h2>
+            <div id="meetings"></div>
+        </section>
+        
+        <section id="firesSection">
+            <h2>Fires to Watch</h2>
+            <div id="fires"></div>
+        </section>
     </div>
-
+    
+    <nav>
+        <a href="#" class="active" onclick="showView('today')">
+            <span class="icon">☀️</span>
+            Today
+        </a>
+        <a href="decision-queue.html">
+            <span class="icon">📊</span>
+            Decisions
+        </a>
+        <a href="../henry.html">
+            <span class="icon">⚡</span>
+            Henry
+        </a>
+    </nav>
+    
     <script>
-        let tasksData = null;
-        let agentsData = null;
-        let currentProject = '';
-        let currentTab = 'tasks';
-
-        const priorityOrder = { urgent: 0, high: 1, medium: 2, low: 3 };
-        const statusColors = {
-            urgent: 'text-red-400', ready: 'text-green-400', 'in_progress': 'text-green-400',
-            pending: 'text-yellow-400', blocked: 'text-orange-400', done: 'text-gray-500',
-            future: 'text-gray-600', tracking: 'text-cyan-400', active: 'text-green-400',
-            running: 'text-green-400', completed: 'text-green-400', scheduled: 'text-green-400'
-        };
-
         let briefData = null;
+        let tasksData = null;
         
         async function loadData() {
+            const today = new Date();
+            const dateStr = today.toISOString().split('T')[0];
+            
+            // Update header
+            document.getElementById('dateDisplay').textContent = today.toLocaleDateString('en-US', { 
+                weekday: 'long', month: 'long', day: 'numeric' 
+            });
+            
+            // Greeting based on time
+            const hour = today.getHours();
+            const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
+            document.querySelector('header h1').textContent = greeting;
+            
             try {
-                // Get today's date for brief
-                const today = new Date().toISOString().split('T')[0];
-                
-                const [tasksRes, agentsRes, briefRes] = await Promise.all([
-                    fetch('../data/tasks.json'),
-                    fetch('../data/agents.json'),
-                    fetch(`../data/briefs/${today}.json`).catch(() => null)
+                const [briefRes, tasksRes] = await Promise.all([
+                    fetch(`../data/briefs/${dateStr}.json`).catch(() => null),
+                    fetch('../data/tasks.json').catch(() => null)
                 ]);
                 
-                if (tasksRes.ok) tasksData = await tasksRes.json();
-                if (agentsRes.ok) agentsData = await agentsRes.json();
                 if (briefRes && briefRes.ok) briefData = await briefRes.json();
+                if (tasksRes && tasksRes.ok) tasksData = await tasksRes.json();
                 
+                renderPriorities();
+                renderMeetings();
+                renderFires();
                 updateStats();
-                renderTasks();
-                renderDeadlines();
-                renderAgents();
-                updateMetrics();
-                renderBrief();
-                
-                document.getElementById('lastUpdate').textContent = 
-                    `Updated: ${new Date().toLocaleString()}`;
             } catch(e) {
                 console.error('Load error:', e);
+                document.getElementById('priorities').innerHTML = '<div class="empty">Could not load brief</div>';
             }
         }
         
-        function renderBrief() {
-            if (!briefData) {
-                document.getElementById('briefPriorities').innerHTML = '<p class="text-gray-400">No brief available for today</p>';
+        function renderPriorities() {
+            const container = document.getElementById('priorities');
+            
+            if (!briefData || !briefData.priorities) {
+                container.innerHTML = '<div class="empty">No priorities set for today</div>';
                 return;
             }
             
-            // Date
-            document.getElementById('briefDate').textContent = briefData.date;
-            
-            // Priorities
-            const prioritiesHtml = briefData.priorities.map(p => `
-                <div class="bg-gray-800/50 rounded-lg p-4 border-l-4 ${p.urgency === 'critical' ? 'border-red-500' : p.urgency === 'high' ? 'border-amber-500' : 'border-green-500'}">
-                    <div class="flex items-start justify-between">
-                        <h4 class="font-semibold text-lg">${p.rank}. ${p.title}</h4>
-                        ${p.revenue ? `<span class="text-green-400 text-sm">${p.revenue}</span>` : ''}
-                    </div>
-                    <p class="text-gray-400 text-sm mt-1">${p.context}</p>
-                    <div class="mt-3 space-y-1">
-                        ${p.actions.map(a => `<div class="flex items-center gap-2 text-sm"><span class="text-gray-500">☐</span> ${a}</div>`).join('')}
-                    </div>
-                    ${p.notes ? `<p class="text-xs text-gray-500 mt-2 italic">${p.notes}</p>` : ''}
+            container.innerHTML = briefData.priorities.map(p => `
+                <div class="priority-card ${p.urgency === 'critical' ? 'urgent' : p.urgency === 'high' ? 'high' : ''}">
+                    <div class="rank">Priority ${p.rank}</div>
+                    <h3>${p.title}</h3>
+                    <div class="context">${p.context}</div>
+                    <div class="action">${p.actions[0]}</div>
                 </div>
             `).join('');
-            document.getElementById('briefPriorities').innerHTML = prioritiesHtml;
-            
-            // Calendar
-            const calendarHtml = briefData.calendar.map(c => `
-                <div class="flex items-center gap-4 py-2 border-b border-gray-700/50">
-                    <div class="w-24 text-sm text-gray-400">${c.date.slice(5)} ${c.time}</div>
-                    <div class="flex-1">
-                        <span class="font-medium">${c.title}</span>
-                        ${c.company ? `<span class="text-blue-400 ml-2">${c.company}</span>` : ''}
-                    </div>
-                    ${c.value ? `<div class="text-green-400 text-sm">${c.value}</div>` : ''}
-                </div>
-            `).join('');
-            document.getElementById('briefCalendar').innerHTML = calendarHtml || '<p class="text-gray-400">No meetings</p>';
-            
-            // Fires
-            const firesHtml = briefData.fires.map(f => `
-                <div class="flex items-center gap-3 py-2">
-                    <span class="${f.urgency === 'high' ? 'text-red-400' : 'text-yellow-400'}">●</span>
-                    <span class="font-medium">${f.company}</span>
-                    <span class="text-gray-400 text-sm">— ${f.issue}</span>
-                </div>
-            `).join('');
-            document.getElementById('briefFires').innerHTML = firesHtml || '<p class="text-gray-400">No fires</p>';
-            
-            // Meeting Intel
-            const intelHtml = Object.entries(briefData.meetingIntel || {}).map(([company, intel]) => `
-                <div class="bg-gray-800/50 rounded-lg p-3">
-                    <h4 class="font-semibold text-blue-400">${company}</h4>
-                    ${intel.funding ? `<p class="text-xs text-green-400">💰 ${intel.funding}</p>` : ''}
-                    <p class="text-sm text-gray-400 mt-1">${intel.angle}</p>
-                </div>
-            `).join('');
-            document.getElementById('briefIntel').innerHTML = intelHtml || '<p class="text-gray-400">No intel</p>';
         }
-
-        function setMainTab(tab) {
-            currentTab = tab;
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            document.getElementById(tab + 'Tab').classList.remove('hidden');
+        
+        function renderMeetings() {
+            const container = document.getElementById('meetings');
             
-            document.querySelectorAll('.main-tab').forEach(btn => {
-                btn.classList.remove('tab-active');
-                btn.classList.add('bg-gray-800', 'hover:bg-gray-700');
-            });
-            document.querySelector(`.main-tab[data-tab="${tab}"]`).classList.add('tab-active');
-            document.querySelector(`.main-tab[data-tab="${tab}"]`).classList.remove('bg-gray-800', 'hover:bg-gray-700');
+            if (!briefData || !briefData.calendar) {
+                container.innerHTML = '<div class="empty">No meetings today</div>';
+                return;
+            }
+            
+            const today = new Date().toISOString().split('T')[0];
+            const todayMeetings = briefData.calendar.filter(m => m.date === today);
+            
+            if (todayMeetings.length === 0) {
+                container.innerHTML = '<div class="empty">No meetings today</div>';
+                return;
+            }
+            
+            container.innerHTML = todayMeetings.map(m => `
+                <div class="meeting">
+                    <div class="time">${formatTime(m.time)}</div>
+                    <div class="details">
+                        <div class="title">${m.title}</div>
+                        ${m.company ? `<div class="company">${m.company}</div>` : ''}
+                    </div>
+                    ${m.value ? `<div class="value">${m.value}</div>` : ''}
+                </div>
+            `).join('');
         }
-
+        
+        function renderFires() {
+            const container = document.getElementById('fires');
+            
+            if (!briefData || !briefData.fires || briefData.fires.length === 0) {
+                container.innerHTML = '<div class="empty">No fires right now</div>';
+                return;
+            }
+            
+            container.innerHTML = briefData.fires.map(f => `
+                <div class="fire">
+                    <div class="dot ${f.urgency === 'medium' ? 'medium' : ''}"></div>
+                    <div class="content">
+                        <div class="company">${f.company}</div>
+                        <div class="issue">${f.issue}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
         function updateStats() {
-            if (!tasksData) return;
-            
-            const allTasks = getAllTasks();
-            const urgent = allTasks.filter(t => t.priority === 'urgent' && t.status !== 'done').length;
-            const high = allTasks.filter(t => t.priority === 'high' && t.status !== 'done').length;
-            const done = allTasks.filter(t => t.status === 'done').length;
-            
+            // Urgent count
+            let urgent = 0;
+            if (briefData && briefData.fires) {
+                urgent = briefData.fires.filter(f => f.urgency === 'high').length;
+            }
+            if (briefData && briefData.priorities) {
+                urgent += briefData.priorities.filter(p => p.urgency === 'critical').length;
+            }
             document.getElementById('urgentCount').textContent = urgent;
-            document.getElementById('highCount').textContent = high;
-            document.getElementById('doneCount').textContent = done;
             
             // Pipeline
-            const pipeline = tasksData.projects.reforge?.pipeline;
-            if (pipeline) {
-                document.getElementById('pipelineValue').textContent = `$${(pipeline.total_active/1000).toFixed(0)}K`;
+            if (briefData && briefData.projectHealth && briefData.projectHealth.reforge) {
+                const pct = Math.round(briefData.projectHealth.reforge.quotaProgress * 100);
+                document.getElementById('pipelineValue').textContent = pct + '%';
+            } else {
+                document.getElementById('pipelineValue').textContent = '-';
             }
             
-            // Grants
-            const grants = tasksData.projects.sos?.categories?.grant_pipeline?.tasks || [];
-            document.getElementById('grantsCount').textContent = grants.filter(g => g.status !== 'future' && g.status !== 'done').length;
-            
-            // Active agents
-            if (agentsData) {
-                const activeCount = (agentsData.sub_agents?.active?.length || 0) + (agentsData.scheduled_agents?.length || 0);
-                document.getElementById('agentsActive').textContent = activeCount;
-            }
-            
-            // Quota
-            const quota = tasksData.projects.reforge?.quota;
-            if (quota) {
-                document.getElementById('meetingsProgress').textContent = `${quota.current_meetings}/${quota.q1_target_meetings}`;
-                document.getElementById('arrProgress').textContent = `$${(quota.current_arr/1000).toFixed(0)}K/$${(quota.q1_target_arr/1000).toFixed(0)}K`;
-                document.getElementById('meetingsBar').style.width = `${quota.meetings_pct}%`;
-                document.getElementById('arrBar').style.width = `${quota.arr_pct}%`;
-            }
-            
-            // SOS
-            const sosMetrics = tasksData.projects.sos?.metrics;
-            if (sosMetrics) {
-                document.getElementById('mvpCompletion').textContent = `${sosMetrics.mvp_completion}%`;
-                document.getElementById('partnersActive').textContent = `${sosMetrics.partners_active}/${sosMetrics.partners_active + sosMetrics.partners_pending}`;
-                document.getElementById('grantsPipeline').textContent = sosMetrics.grants_pipeline;
+            // Today's meetings
+            if (briefData && briefData.calendar) {
+                const today = new Date().toISOString().split('T')[0];
+                const count = briefData.calendar.filter(m => m.date === today).length;
+                document.getElementById('meetingsToday').textContent = count;
             }
         }
-
-        function renderAgents() {
-            if (!agentsData) return;
-            
-            // Stats
-            document.getElementById('activeAgentsCount').textContent = agentsData.sub_agents?.active?.length || 0;
-            document.getElementById('completedTodayCount').textContent = agentsData.sub_agents?.completed?.length || 0;
-            document.getElementById('scheduledCount').textContent = agentsData.scheduled_agents?.length || 0;
-            document.getElementById('totalRunsToday').textContent = agentsData.summary?.total_runs_today || 0;
-            
-            // Active agents
-            const activeHtml = (agentsData.sub_agents?.active || []).map(agent => `
-                <div class="bg-gray-900/50 rounded-lg p-3 border-l-4 border-green-500">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <div class="font-medium flex items-center gap-2">
-                                <span class="spin text-green-400">⚙️</span>
-                                ${agent.name}
-                            </div>
-                            <div class="text-xs text-gray-500 mt-1">${agent.project_emoji} ${agent.project.toUpperCase()}</div>
-                        </div>
-                        <span class="px-2 py-0.5 text-xs rounded bg-green-500/30 text-green-400">RUNNING</span>
-                    </div>
-                    <div class="text-sm text-gray-400 mt-2">${agent.purpose}</div>
-                    <div class="text-xs text-gray-600 mt-2">
-                        Started: ${new Date(agent.started_at).toLocaleTimeString()}
-                    </div>
-                    <div class="text-xs text-gray-500 mt-1">📁 ${agent.output_location}</div>
-                </div>
-            `).join('') || '<div class="text-gray-500 text-sm">No agents running</div>';
-            document.getElementById('activeAgents').innerHTML = activeHtml;
-            
-            // Scheduled agents
-            const scheduledHtml = (agentsData.scheduled_agents || []).map(agent => `
-                <div class="bg-gray-900/50 rounded-lg p-3 border-l-4 border-green-500">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <div class="font-medium flex items-center gap-2">
-                                <span>⏰</span>
-                                ${agent.name}
-                            </div>
-                            <div class="text-xs text-gray-500 mt-1">${agent.project_emoji} ${agent.project.toUpperCase()}</div>
-                        </div>
-                        <span class="px-2 py-0.5 text-xs rounded bg-green-500/30 text-green-400">${agent.schedule}</span>
-                    </div>
-                    <div class="text-sm text-gray-400 mt-2">${agent.purpose}</div>
-                    <div class="flex justify-between text-xs text-gray-600 mt-2">
-                        <span>Last: ${agent.last_run ? new Date(agent.last_run).toLocaleString() : 'Never'}</span>
-                        <span class="text-green-400">Next: ${new Date(agent.next_run).toLocaleTimeString()}</span>
-                    </div>
-                    <div class="text-xs text-gray-500 mt-1">📁 ${agent.output_location}</div>
-                </div>
-            `).join('');
-            document.getElementById('scheduledAgents').innerHTML = scheduledHtml;
-            
-            // Completed agents
-            const completedHtml = (agentsData.sub_agents?.completed || []).map(agent => `
-                <div class="bg-gray-900/50 rounded-lg p-3 border-l-4 border-blue-500">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <div class="font-medium">${agent.project_emoji} ${agent.name}</div>
-                            <div class="text-xs text-gray-500">${agent.project.toUpperCase()}</div>
-                        </div>
-                        <span class="px-2 py-0.5 text-xs rounded bg-blue-500/30 text-green-400">✓ DONE</span>
-                    </div>
-                    <div class="text-sm text-gray-400 mt-2">${agent.purpose}</div>
-                    <div class="text-xs text-gray-600 mt-2">
-                        Duration: ${agent.duration_min}min
-                    </div>
-                    ${agent.results ? `
-                        <div class="text-xs text-gray-500 mt-2 bg-gray-800 rounded p-2">
-                            ${Object.entries(agent.results).map(([k,v]) => `<div>${k}: <span class="text-green-400">${v}</span></div>`).join('')}
-                        </div>
-                    ` : ''}
-                </div>
-            `).join('');
-            document.getElementById('completedAgents').innerHTML = completedHtml;
-            
-            // Stats by project
-            const statsByProject = agentsData.agent_stats?.by_project || {};
-            const projectStatsHtml = Object.entries(statsByProject).map(([proj, stats]) => `
-                <div class="bg-gray-900/50 rounded-lg p-3 text-center">
-                    <div class="text-2xl font-bold text-gray-300">${stats.runs}</div>
-                    <div class="text-xs text-gray-500">${proj.toUpperCase()} runs</div>
-                    <div class="text-xs text-gray-600 mt-1">Last: ${new Date(stats.last_run).toLocaleDateString()}</div>
-                </div>
-            `).join('');
-            document.getElementById('agentStatsByProject').innerHTML = projectStatsHtml;
+        
+        function formatTime(time) {
+            const [h, m] = time.split(':');
+            const hour = parseInt(h);
+            const ampm = hour >= 12 ? 'pm' : 'am';
+            const hour12 = hour % 12 || 12;
+            return `${hour12}:${m}${ampm}`;
         }
-
-        function updateMetrics() {
-            if (!tasksData) return;
-            
-            // Reforge
-            const p = tasksData.projects.reforge?.pipeline;
-            if (p) {
-                document.getElementById('m-pipeline').textContent = `$${(p.total_active/1000).toFixed(0)}K`;
-                document.getElementById('m-pilot').textContent = `$${(p.pilot/1000).toFixed(0)}K`;
-                document.getElementById('m-prepilot').textContent = `$${(p.pre_pilot/1000).toFixed(0)}K`;
-                document.getElementById('m-contracting').textContent = `$${(p.contracting/1000).toFixed(0)}K`;
-                document.getElementById('m-atrisk').textContent = `$${(p.at_risk/1000).toFixed(0)}K`;
-                document.getElementById('m-closedlost').textContent = `$${(p.closed_lost_reengageable/1000).toFixed(0)}K`;
-            }
-            
-            // Harmony
-            const h = tasksData.projects.harmony?.revenue;
-            if (h) {
-                document.getElementById('m-htarget').textContent = `$${(h.annual_target/1000).toFixed(0)}K`;
-                document.getElementById('m-hretainers').textContent = `$${(h.active_retainers/1000).toFixed(0)}K`;
-                document.getElementById('m-hrisk').textContent = `$${(h.at_risk/1000).toFixed(0)}K`;
-                document.getElementById('m-houtstanding').textContent = `$${(h.outstanding_invoices/1000).toFixed(1)}K`;
-            }
-            
-            // SOS
-            const s = tasksData.projects.sos?.metrics;
-            if (s) {
-                document.getElementById('m-mvp').textContent = `${s.mvp_completion}%`;
-                document.getElementById('m-partners').textContent = s.partners_active;
-                document.getElementById('m-pending').textContent = s.partners_pending;
-                document.getElementById('m-grants').textContent = s.grants_pipeline;
-            }
-        }
-
-        function getAllTasks() {
-            const tasks = [];
-            if (!tasksData?.projects) return tasks;
-            for (const [projKey, proj] of Object.entries(tasksData.projects)) {
-                if (!proj.categories) continue;
-                for (const [catKey, cat] of Object.entries(proj.categories)) {
-                    for (const task of (cat.tasks || [])) {
-                        tasks.push({...task, projectKey: projKey, projectName: proj.name, projectEmoji: proj.emoji, categoryKey: catKey, categoryName: cat.name});
-                    }
-                }
-            }
-            return tasks;
-        }
-
-        function filterTasks(tasks) {
-            let filtered = tasks;
-            if (currentProject) filtered = filtered.filter(t => t.projectKey === currentProject);
-            return filtered.filter(t => t.status !== 'done' && t.status !== 'future');
-        }
-
-        function renderTasks() {
-            const allTasks = getAllTasks();
-            const filtered = filterTasks(allTasks);
-            filtered.sort((a, b) => (priorityOrder[a.priority] ?? 99) - (priorityOrder[b.priority] ?? 99));
-            
-            const urgent = filtered.filter(t => t.priority === 'urgent');
-            document.getElementById('urgentTasks').innerHTML = urgent.length > 0 
-                ? urgent.map(t => renderTaskCard(t, true)).join('')
-                : '<div class="text-gray-500 text-sm">No urgent tasks! 🎉</div>';
-            document.getElementById('urgentSection').style.display = urgent.length > 0 ? 'block' : 'none';
-            
-            const high = filtered.filter(t => t.priority === 'high');
-            document.getElementById('highTasks').innerHTML = high.length > 0
-                ? high.map(t => renderTaskCard(t)).join('')
-                : '<div class="text-gray-500 text-sm">No high priority tasks</div>';
-        }
-
-        function renderTaskCard(task, isUrgent = false) {
-            const statusClass = statusColors[task.status] || 'text-gray-400';
-            const priorityClass = `priority-${task.priority || 'medium'}`;
-            const urgentClass = isUrgent ? 'glow-urgent' : '';
-            const valueDisplay = task.value ? `<span class="text-green-400 font-bold">$${task.value.toLocaleString()}</span>` : '';
-            const dueDisplay = task.due ? `<span class="text-yellow-400 text-xs">📅 ${task.due}</span>` : '';
-            const contactDisplay = task.contact ? `<span class="text-gray-500 text-xs">👤 ${task.contact}</span>` : '';
-            
-            return `
-                <div class="card-enter bg-gray-900/50 rounded-lg p-3 ${priorityClass} ${urgentClass} hover:bg-gray-800/50 transition cursor-pointer" onclick="toggleTaskDetails('${task.id}')">
-                    <div class="flex justify-between items-start gap-2">
-                        <div class="flex-1 min-w-0">
-                            <div class="flex items-center gap-2 flex-wrap">
-                                <span class="text-xs">${task.projectEmoji || '📋'}</span>
-                                <span class="font-medium text-sm truncate">${task.title}</span>
-                            </div>
-                            <div class="flex items-center gap-2 mt-1 flex-wrap">
-                                <span class="px-1.5 py-0.5 rounded text-xs ${statusClass} bg-gray-800">${task.status}</span>
-                                ${dueDisplay} ${contactDisplay}
-                            </div>
-                        </div>
-                        ${valueDisplay}
-                    </div>
-                    <div id="details-${task.id}" class="hidden mt-2 pt-2 border-t border-gray-700 text-sm text-gray-400">
-                        ${task.notes || 'No additional details'}
-                    </div>
-                </div>
-            `;
-        }
-
-        function renderDeadlines() {
-            const allTasks = getAllTasks();
-            const withDue = allTasks.filter(t => t.due && t.status !== 'done').sort((a, b) => new Date(a.due) - new Date(b.due)).slice(0, 8);
-            
-            const html = withDue.map(t => {
-                const diffDays = Math.ceil((new Date(t.due) - new Date()) / (1000 * 60 * 60 * 24));
-                const urgencyClass = diffDays <= 1 ? 'text-red-400' : diffDays <= 7 ? 'text-yellow-400' : 'text-gray-400';
-                return `<div class="flex justify-between items-center py-1 border-b border-gray-700/50">
-                    <span class="truncate text-xs">${t.projectEmoji} ${t.title.substring(0, 30)}...</span>
-                    <span class="text-xs ${urgencyClass} ml-2">${t.due}</span>
-                </div>`;
-            }).join('');
-            document.getElementById('deadlines').innerHTML = html || '<div class="text-gray-500 text-sm">No deadlines</div>';
-        }
-
-        function toggleTaskDetails(taskId) {
-            const el = document.getElementById(`details-${taskId}`);
-            if (el) el.classList.toggle('hidden');
-        }
-
-        function filterProject(projectKey) {
-            currentProject = projectKey;
-            document.querySelectorAll('.project-btn').forEach(btn => {
-                const isActive = btn.dataset.project === projectKey;
-                btn.className = btn.className.replace(/bg-gradient-to-r from-gray-700 to-gray-800|bg-gray-800/g, '');
-                btn.className += isActive ? ' bg-gradient-to-r from-gray-700 to-gray-800' : ' bg-gray-800';
-            });
-            renderTasks();
-        }
-
-        function exportTasks() {
-            const blob = new Blob([JSON.stringify(tasksData, null, 2)], {type: 'application/json'});
-            const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
-            a.download = `command-center-${new Date().toISOString().split('T')[0]}.json`; a.click();
-        }
-
-        function refreshData() { loadData(); }
-
-        // Init
+        
         loadData();
-        setMainTab('tasks');
-        setInterval(loadData, 5 * 60 * 1000);
     </script>
 </body>
 </html>
