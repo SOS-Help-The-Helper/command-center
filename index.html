@@ -817,6 +817,11 @@
                 { id: 'costs', icon: '💵', label: 'API Costs' },
                 { id: 'tasks', icon: '✅', label: 'Tasks' },
                 { id: 'intelligence', icon: '📡', label: 'Intel' }
+            ],
+            personal: [
+                { id: 'splash', icon: '🏠', label: 'Overview' },
+                { id: 'baby', icon: '👶', label: 'Baby G' },
+                { id: 'tasks', icon: '✅', label: 'Tasks' }
             ]
         };
 
@@ -992,7 +997,8 @@
                 reforge: { splash: renderReforgeSplash, pipeline: renderReforgePipeline, leads: renderReforgeLeads, tasks: renderTasksPage, intelligence: renderIntelPage },
                 harmony: { splash: renderHarmonySplash, clients: renderHarmonyClients, tasks: renderTasksPage, intelligence: renderIntelPage },
                 grunt: { splash: renderGruntSplash, capabilities: renderGruntCapabilities, costs: renderGruntCosts, tasks: renderTasksPage, intelligence: renderIntelPage },
-                henry: { splash: renderHenrySplash, agents: renderHenryAgents, work: renderHenryWork, intelligence: renderIntelPage }
+                henry: { splash: renderHenrySplash, agents: renderHenryAgents, work: renderHenryWork, intelligence: renderIntelPage },
+                personal: { splash: renderPersonalSplash, baby: renderBabyG, tasks: renderTasksPage }
             };
 
             const projectRenderers = renderers[currentProject] || renderers.founder;
@@ -1584,6 +1590,114 @@
                             </div>
                         </div>
                     `).join('')}
+                </div>
+            `;
+        }
+
+        // ============ PERSONAL VIEW ============
+        function renderPersonalSplash() {
+            // Calculate days until baby
+            const dueDate = new Date('2026-10-12');
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            const daysToGo = Math.ceil((dueDate - today) / (1000 * 60 * 60 * 24));
+            const weeksAlong = Math.floor((280 - daysToGo) / 7);
+            
+            return `
+                <div class="metrics-grid">
+                    <div class="metric-card" onclick="setSection('baby')" style="cursor: pointer; background: linear-gradient(135deg, #ff6b9d22 0%, #c4456922 100%);">
+                        <div class="metric-label">👶 Baby G</div>
+                        <div class="metric-value" style="color: #ff6b9d;">${daysToGo} days</div>
+                        <div style="font-size: 0.8rem; color: var(--text-secondary);">~${weeksAlong} weeks along</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">📋 Personal Tasks</div>
+                        <div class="metric-value">${(data?.tasks || []).filter(t => t.projectId === 'personal' && t.status !== 'done').length}</div>
+                    </div>
+                </div>
+                <div class="section-header" style="margin-top: 24px;">
+                    <div class="section-title">💕 Baby Center</div>
+                </div>
+                <div class="card" onclick="setSection('baby')" style="cursor: pointer;">
+                    <div style="display: flex; align-items: center; padding: 16px 0;">
+                        <div style="font-size: 2.5rem; margin-right: 20px;">👶</div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 700; font-size: 1.2rem; color: #ff6b9d;">Baby G Dashboard</div>
+                            <div style="color: var(--text-secondary);">Due October 12, 2026 • ${daysToGo} days to go!</div>
+                            <div style="margin-top: 8px; font-size: 0.9rem; color: var(--text-dim);">OBGYN research ✓ • Tasks tracking • Books list</div>
+                        </div>
+                        <div style="color: var(--text-dim);">→</div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function renderBabyG() {
+            const dueDate = new Date('2026-10-12');
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            const daysToGo = Math.ceil((dueDate - today) / (1000 * 60 * 60 * 24));
+            const daysAlong = 280 - daysToGo;
+            const weeksAlong = Math.floor(daysAlong / 7);
+            const daysExtra = daysAlong % 7;
+            
+            return `
+                <div style="text-align: center; padding: 20px 0;">
+                    <div style="font-size: 4rem;">👶</div>
+                    <div style="font-size: 1.5rem; font-weight: 700; background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 8px 0;">Baby G</div>
+                    <div style="color: var(--text-secondary);">KC & Jonathan's Journey</div>
+                </div>
+                
+                <div class="card" style="background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%); color: white; text-align: center; padding: 24px;">
+                    <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9;">Estimated Due Date</div>
+                    <div style="font-size: 1.5rem; font-weight: 700; margin: 8px 0;">October 12, 2026</div>
+                    <div style="font-size: 1rem; opacity: 0.95;">${weeksAlong} weeks${daysExtra > 0 ? `, ${daysExtra} days` : ''} along</div>
+                    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.3);">🗓️ ${daysToGo} days to go!</div>
+                </div>
+                
+                <div class="section-header" style="margin-top: 24px;">
+                    <div class="section-title">👩‍⚕️ OBGYN Options</div>
+                </div>
+                <div class="card">
+                    <div style="display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--card-border);">
+                        <div style="background: #e8f5e9; border-radius: 12px; padding: 10px 14px; text-align: center; min-width: 50px;">
+                            <div style="font-size: 0.7rem; color: var(--green-bright); font-weight: 600;">TOP</div>
+                            <div style="font-size: 1.2rem; color: var(--green-bright);">★</div>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600;">Dr. Vicky Scott, DO</div>
+                            <div style="font-size: 0.9rem; color: var(--text-secondary);">AdventHealth • 35+ years • Integrative + OB-GYN</div>
+                            <a href="https://www.adventhealth.com/find-doctor/doctor/vicky-scott-do-facog-aclm-aihm-1063471167" target="_blank" style="font-size: 0.85rem; color: #007aff;">View profile →</a>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--card-border);">
+                        <div style="background: #fff0f5; border-radius: 12px; padding: 10px 14px; text-align: center; min-width: 50px;">
+                            <div style="font-size: 0.7rem; color: #ff6b9d; font-weight: 600;">#2</div>
+                            <div style="font-size: 1.2rem;">📞</div>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600;">Laurel OB/GYN</div>
+                            <div style="font-size: 0.9rem; color: var(--text-secondary);">All-female • 40+ years • (828) 253-5381</div>
+                            <a href="https://www.laurelobgyn.com/" target="_blank" style="font-size: 0.85rem; color: #007aff;">Visit website →</a>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 14px; padding: 14px 0;">
+                        <div style="background: #fff0f5; border-radius: 12px; padding: 10px 14px; text-align: center; min-width: 50px;">
+                            <div style="font-size: 0.7rem; color: #ff6b9d; font-weight: 600;">#3</div>
+                            <div style="font-size: 1.2rem;">🤱</div>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600;">MAHEC Midwives</div>
+                            <div style="font-size: 0.9rem; color: var(--text-secondary);">Laurie Jenkins CNM • Natural birth friendly</div>
+                            <a href="https://mahec.net/patient-care/find_a_provider/133" target="_blank" style="font-size: 0.85rem; color: #007aff;">View profile →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 24px;">
+                    <a href="kc.html" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%); color: white; text-decoration: none; padding: 16px 32px; border-radius: 16px; font-weight: 600; font-size: 1rem;">
+                        Open KC's Baby Center →
+                    </a>
                 </div>
             `;
         }
