@@ -44,6 +44,64 @@
     .btn-primary:hover { background: #C44A1E; }
     .btn-secondary { background: #57A499; color: white; }
     .btn-secondary:hover { background: #4A8F85; }
+    
+    /* Swiper Card Styles */
+    .swipe-card {
+      position: absolute;
+      width: 100%;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      cursor: grab;
+      user-select: none;
+      transition: transform 0.1s ease-out;
+      touch-action: none;
+    }
+    .swipe-card:active { cursor: grabbing; }
+    .swipe-card.swiping { transition: none; }
+    .swipe-card.animate-left {
+      animation: swipeLeft 0.4s ease-out forwards;
+    }
+    .swipe-card.animate-right {
+      animation: swipeRight 0.4s ease-out forwards;
+    }
+    @keyframes swipeLeft {
+      to { transform: translateX(-150%) rotate(-30deg); opacity: 0; }
+    }
+    @keyframes swipeRight {
+      to { transform: translateX(150%) rotate(30deg); opacity: 0; }
+    }
+    .card-stack-item {
+      position: absolute;
+      width: 100%;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .card-stack-item:nth-child(1) { z-index: 3; }
+    .card-stack-item:nth-child(2) { z-index: 2; transform: scale(0.95) translateY(10px); opacity: 0.7; }
+    .card-stack-item:nth-child(3) { z-index: 1; transform: scale(0.9) translateY(20px); opacity: 0.4; }
+    .icp-score-ring {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: conic-gradient(var(--score-color) calc(var(--score) * 3.6deg), #e5e7eb 0deg);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .icp-score-ring-inner {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: white;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1.1rem;
+    }
+    .swipe-overlay {
+      position: absolute; top: 20px;
+      padding: 8px 20px; border-radius: 8px;
+      font-weight: 700; font-size: 1.5rem;
+      transform: rotate(-15deg);
+      opacity: 0; transition: opacity 0.2s;
+      pointer-events: none;
+    }
+    .swipe-overlay.nope { left: 20px; border: 4px solid #ED5624; color: #ED5624; }
+    .swipe-overlay.like { right: 20px; border: 4px solid #57A499; color: #57A499; transform: rotate(15deg); }
   </style>
 </head>
 <body class="gradient-bg min-h-screen text-gray-900">
@@ -441,66 +499,135 @@
         </div>
       </section>
 
-      <!-- Lead Qualifier Section -->
+      <!-- Lead Qualifier Section - Tinder-Style Swiper -->
       <section id="lead-qualifier" class="section hidden">
-        <header class="mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-2">Lead Qualifier</h2>
-          <p class="text-reforge-muted">Quick ICP fit assessment for inbound leads</p>
+        <header class="mb-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <h2 class="text-2xl font-bold text-gray-900 mb-2">Lead Qualifier</h2>
+              <p class="text-reforge-muted">Swipe right to qualify, left to skip • Use arrow keys or A/D</p>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="text-right">
+                <p class="text-sm text-reforge-muted">Progress</p>
+                <p class="text-lg font-bold"><span id="qualifiedCount" class="text-reforge-teal">0</span> qualified / <span id="reviewedCount" class="text-reforge-orange">0</span> reviewed</p>
+              </div>
+              <button onclick="exportQualifiedLeads()" class="btn-secondary px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
+                📥 Export Qualified
+              </button>
+            </div>
+          </div>
         </header>
-        
-        <div class="grid grid-cols-3 gap-6">
-          <div class="col-span-2">
-            <div class="card rounded-xl p-6">
-              <h3 class="font-semibold mb-4 text-gray-900">Qualify a Lead</h3>
+
+        <div class="grid grid-cols-4 gap-6">
+          <!-- Swiper Area -->
+          <div class="col-span-3">
+            <div class="relative h-[520px] flex items-center justify-center">
+              <!-- Card Stack -->
+              <div id="cardStack" class="relative w-full max-w-lg">
+                <!-- Cards rendered here by JS -->
+              </div>
               
-              <div class="space-y-4">
-                <div>
-                  <label class="block text-sm text-gray-700 mb-2 font-medium">Company Website or LinkedIn URL</label>
-                  <input type="text" id="leadInput" placeholder="e.g., https://acme.com or linkedin.com/company/acme" 
-                    class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:border-reforge-orange focus:outline-none">
+              <!-- Swipe Indicators -->
+              <div id="swipeLeftIndicator" class="absolute left-4 top-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-200">
+                <div class="w-20 h-20 rounded-full bg-reforge-orange/20 flex items-center justify-center">
+                  <span class="text-4xl">✗</span>
                 </div>
-                
-                <button onclick="qualifyLead()" class="btn-primary px-6 py-3 rounded-lg font-medium w-full">
-                  🎯 Analyze Lead
-                </button>
+              </div>
+              <div id="swipeRightIndicator" class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-200">
+                <div class="w-20 h-20 rounded-full bg-reforge-teal/20 flex items-center justify-center">
+                  <span class="text-4xl">✓</span>
+                </div>
+              </div>
+              
+              <!-- Empty State -->
+              <div id="emptyState" class="hidden absolute inset-0 flex items-center justify-center">
+                <div class="text-center">
+                  <div class="w-24 h-24 bg-reforge-teal/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-5xl">🎉</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">All Done!</h3>
+                  <p class="text-reforge-muted mb-4">You've reviewed all <span id="totalLeads">50</span> leads</p>
+                  <button onclick="resetSwiper()" class="btn-primary px-6 py-3 rounded-lg font-medium">
+                    🔄 Start Over
+                  </button>
+                </div>
               </div>
             </div>
 
-            <div id="leadResult" class="hidden card rounded-xl p-6 mt-6">
-              <div class="flex items-center justify-between mb-4">
-                <h3 class="font-semibold text-gray-900">Qualification Result</h3>
-                <span id="leadScore" class="px-3 py-1 rounded-full text-sm font-medium"></span>
+            <!-- Action Buttons -->
+            <div class="flex items-center justify-center gap-6 mt-4">
+              <button onclick="swipeLeft()" class="w-16 h-16 rounded-full bg-white border-2 border-reforge-orange hover:bg-reforge-orange/10 flex items-center justify-center transition-all shadow-lg hover:shadow-xl active:scale-95">
+                <span class="text-3xl text-reforge-orange">✗</span>
+              </button>
+              <div class="text-center text-sm text-reforge-muted">
+                <p>← A or ←</p>
+                <p class="font-medium">Skip</p>
               </div>
-              <div id="leadDetails"></div>
+              <div class="w-px h-12 bg-gray-200"></div>
+              <div class="text-center text-sm text-reforge-muted">
+                <p>D or → →</p>
+                <p class="font-medium">Qualify</p>
+              </div>
+              <button onclick="swipeRight()" class="w-16 h-16 rounded-full bg-white border-2 border-reforge-teal hover:bg-reforge-teal/10 flex items-center justify-center transition-all shadow-lg hover:shadow-xl active:scale-95">
+                <span class="text-3xl text-reforge-teal">✓</span>
+              </button>
             </div>
           </div>
 
-          <div class="card rounded-xl p-6">
-            <h3 class="font-semibold mb-4 text-gray-900">ICP Criteria</h3>
-            <div class="space-y-3 text-sm">
-              <div class="flex items-start gap-2">
-                <span class="text-reforge-teal">✓</span>
-                <span class="text-gray-700">51-500 employees</span>
+          <!-- Sidebar -->
+          <div class="space-y-4">
+            <!-- ICP Criteria -->
+            <div class="card rounded-xl p-5">
+              <h3 class="font-semibold mb-3 text-gray-900 text-sm">ICP Criteria</h3>
+              <div class="space-y-2 text-xs">
+                <div class="flex items-start gap-2">
+                  <span class="text-reforge-teal">✓</span>
+                  <span class="text-gray-700">51-500+ employees</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-reforge-teal">✓</span>
+                  <span class="text-gray-700">B2B SaaS / Dev Tools</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-reforge-teal">✓</span>
+                  <span class="text-gray-700">AI coding tools adopted</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-reforge-teal">✓</span>
+                  <span class="text-gray-700">Product-led growth</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-reforge-orange">✗</span>
+                  <span class="text-gray-700">Hardware / Mobile-first</span>
+                </div>
               </div>
-              <div class="flex items-start gap-2">
-                <span class="text-reforge-teal">✓</span>
-                <span class="text-gray-700">Web-first B2B SaaS</span>
+            </div>
+            
+            <!-- Recent Qualified -->
+            <div class="card rounded-xl p-5">
+              <h3 class="font-semibold mb-3 text-gray-900 text-sm">Recently Qualified</h3>
+              <div id="recentQualified" class="space-y-2 max-h-64 overflow-y-auto">
+                <p class="text-xs text-reforge-muted italic">None yet—start swiping!</p>
               </div>
-              <div class="flex items-start gap-2">
-                <span class="text-reforge-teal">✓</span>
-                <span class="text-gray-700">AI coding tools adopted</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="text-reforge-teal">✓</span>
-                <span class="text-gray-700">Product-led growth</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="text-reforge-orange">✗</span>
-                <span class="text-gray-700">Mobile-first / hardware</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="text-reforge-orange">✗</span>
-                <span class="text-gray-700">Customer support-led eval</span>
+            </div>
+            
+            <!-- Stats -->
+            <div class="card rounded-xl p-5">
+              <h3 class="font-semibold mb-3 text-gray-900 text-sm">Session Stats</h3>
+              <div class="space-y-2 text-sm">
+                <div class="flex justify-between">
+                  <span class="text-reforge-muted">Qualify Rate</span>
+                  <span id="qualifyRate" class="font-medium text-gray-900">—</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-reforge-muted">Avg ICP Score</span>
+                  <span id="avgScore" class="font-medium text-gray-900">—</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-reforge-muted">Remaining</span>
+                  <span id="remainingCount" class="font-medium text-gray-900">50</span>
+                </div>
               </div>
             </div>
           </div>
@@ -742,37 +869,338 @@
       }, 2500);
     }
 
-    function qualifyLead() {
-      const input = document.getElementById('leadInput').value;
-      if (!input) { alert('Please enter a company website or LinkedIn URL'); return; }
-      document.getElementById('leadResult').classList.remove('hidden');
-      document.getElementById('leadDetails').innerHTML = `
-        <div class="flex items-center gap-3 py-4">
-          <div class="animate-spin w-5 h-5 border-2 border-reforge-orange border-t-transparent rounded-full"></div>
-          <p class="text-gray-700">Scraping and analyzing...</p>
-        </div>
-      `;
-      setTimeout(() => {
-        const score = Math.floor(Math.random() * 30) + 65;
-        const scoreClass = score >= 80 ? 'bg-reforge-teal/20 text-reforge-teal' : score >= 60 ? 'bg-reforge-mustard/20 text-reforge-mustard' : 'bg-reforge-orange/20 text-reforge-orange';
-        document.getElementById('leadScore').className = `px-3 py-1 rounded-full text-sm font-medium ${scoreClass}`;
-        document.getElementById('leadScore').textContent = `${score}% ICP Fit`;
-        document.getElementById('leadDetails').innerHTML = `
-          <div class="space-y-3">
-            <div class="grid grid-cols-2 gap-4">
-              <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs text-gray-500">Estimated Size</p><p class="font-medium text-gray-900">~180 employees ✓</p></div>
-              <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs text-gray-500">Industry</p><p class="font-medium text-gray-900">B2B SaaS ✓</p></div>
-              <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs text-gray-500">AI Signals</p><p class="font-medium text-reforge-teal">Cursor in job posts ✓</p></div>
-              <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs text-gray-500">Product Motion</p><p class="font-medium text-gray-900">Product-led ✓</p></div>
+    // ========== LEAD QUALIFIER SWIPER ==========
+    const sampleLeads = [
+      {"id":1,"company":"Notion Labs","person":"Sarah Chen","title":"VP of Product","size":"500+","industry":"Productivity SaaS","ai_signals":["GitHub Copilot","AI writing features"],"icp_score":92,"summary":"Perfect ICP: AI-native company, product-led, discovery-focused culture"},
+      {"id":2,"company":"Figma","person":"Marcus Johnson","title":"Director of Product","size":"500+","industry":"Design Tools","ai_signals":["AI design features","Copilot mentions"],"icp_score":89,"summary":"Strong fit: Design-to-code workflow, heavy user research culture"},
+      {"id":3,"company":"Linear","person":"Emily Rodriguez","title":"Head of Product","size":"51-200","industry":"Dev Tools","ai_signals":["Cursor in job posts","AI roadmap"],"icp_score":94,"summary":"Excellent: Fast-moving dev tools, product-obsessed, AI-first"},
+      {"id":4,"company":"Retool","person":"David Kim","title":"Product Lead","size":"201-500","industry":"Internal Tools","ai_signals":["AI workflows","Copilot"],"icp_score":87,"summary":"Great fit: Builder audience, complex discovery needs"},
+      {"id":5,"company":"Amplitude","person":"Jessica Martinez","title":"Sr Product Manager","size":"500+","industry":"Analytics","ai_signals":["AI insights features"],"icp_score":85,"summary":"Good fit: Data-driven product culture, growth focus"},
+      {"id":6,"company":"Plaid","person":"Michael Brown","title":"Product Director","size":"500+","industry":"FinTech API","ai_signals":["ML models","API AI"],"icp_score":78,"summary":"Decent: API-first but heavy compliance burden"},
+      {"id":7,"company":"Webflow","person":"Amanda Lee","title":"VP Product","size":"201-500","industry":"No-Code","ai_signals":["AI site builder","Copilot"],"icp_score":91,"summary":"Strong: Visual builder, product-led, AI features shipping"},
+      {"id":8,"company":"Airtable","person":"Kevin Wilson","title":"Group PM","size":"500+","industry":"Productivity","ai_signals":["AI automations","LLM features"],"icp_score":88,"summary":"Good: Platform play, discovery complexity matches"},
+      {"id":9,"company":"Datadog","person":"Rachel Green","title":"Product Lead","size":"500+","industry":"Observability","ai_signals":["AI alerting","ML ops"],"icp_score":72,"summary":"Mixed: Enterprise sales motion, longer cycles"},
+      {"id":10,"company":"HashiCorp","person":"James Taylor","title":"Director Product","size":"500+","industry":"DevOps","ai_signals":["AI assist features"],"icp_score":68,"summary":"Moderate: Infrastructure focus, less consumer-style discovery"},
+      {"id":11,"company":"Vercel","person":"Lisa Anderson","title":"Head of Product","size":"201-500","industry":"Dev Platform","ai_signals":["v0 AI","Copilot native"],"icp_score":96,"summary":"Perfect: AI-native, developer audience, rapid iteration"},
+      {"id":12,"company":"Supabase","person":"Tom Harris","title":"Product Manager","size":"51-200","industry":"Backend Platform","ai_signals":["AI SQL","Vector DB"],"icp_score":93,"summary":"Excellent: Open source, fast shipping, AI infrastructure"},
+      {"id":13,"company":"PostHog","person":"Diana Clark","title":"VP Product","size":"51-200","industry":"Analytics","ai_signals":["AI insights"],"icp_score":90,"summary":"Strong: Product analytics focus, open source DNA"},
+      {"id":14,"company":"Loom","person":"Chris Martin","title":"Product Director","size":"201-500","industry":"Video Comms","ai_signals":["AI summaries","Transcription"],"icp_score":84,"summary":"Good: Async culture, AI features central to roadmap"},
+      {"id":15,"company":"Calendly","person":"Jennifer White","title":"Sr PM","size":"201-500","industry":"Scheduling","ai_signals":["AI scheduling"],"icp_score":76,"summary":"Decent: PLG but narrower product surface"},
+      {"id":16,"company":"Miro","person":"Alex Thompson","title":"Product Lead","size":"500+","industry":"Collaboration","ai_signals":["AI canvas","Copilot"],"icp_score":86,"summary":"Good: Visual collaboration, design thinking culture"},
+      {"id":17,"company":"Canva","person":"Nicole Garcia","title":"Director Product","size":"500+","industry":"Design","ai_signals":["Magic AI suite"],"icp_score":82,"summary":"Good: AI-forward, massive user base, complex discovery"},
+      {"id":18,"company":"Stripe","person":"Robert Jackson","title":"Group PM","size":"500+","industry":"Payments","ai_signals":["AI docs","Copilot"],"icp_score":74,"summary":"Mixed: Strong culture but heavy enterprise motion"},
+      {"id":19,"company":"Twilio","person":"Maria Rodriguez","title":"Product Director","size":"500+","industry":"Communications API","ai_signals":["AI voice"],"icp_score":69,"summary":"Moderate: API platform, developer audience but complex org"},
+      {"id":20,"company":"Shopify","person":"Steven Lee","title":"Sr Staff PM","size":"500+","industry":"E-commerce","ai_signals":["Sidekick AI","Magic"],"icp_score":83,"summary":"Good: AI-native features, massive merchant discovery needs"},
+      {"id":21,"company":"Atlassian","person":"Karen Miller","title":"Principal PM","size":"500+","industry":"Dev Tools","ai_signals":["AI across products"],"icp_score":71,"summary":"Mixed: Large org complexity, slower adoption cycles"},
+      {"id":22,"company":"HubSpot","person":"Brian Davis","title":"VP Product","size":"500+","industry":"CRM/Marketing","ai_signals":["AI content","ChatSpot"],"icp_score":77,"summary":"Decent: Marketing tech, AI features but sales-led motion"},
+      {"id":23,"company":"Intercom","person":"Amy Williams","title":"Product Director","size":"201-500","industry":"Customer Comms","ai_signals":["Fin AI agent"],"icp_score":88,"summary":"Strong: AI-first product, customer insights focus"},
+      {"id":24,"company":"Zapier","person":"Mark Johnson","title":"Head of Product","size":"201-500","industry":"Automation","ai_signals":["AI actions","Copilot"],"icp_score":85,"summary":"Good: Automation platform, AI integration focus"},
+      {"id":25,"company":"Asana","person":"Sandra Brown","title":"Group PM","size":"500+","industry":"Work Management","ai_signals":["AI features"],"icp_score":73,"summary":"Mixed: Enterprise motion, heavier integration focus"},
+      {"id":26,"company":"Segment","person":"Paul Martinez","title":"Product Lead","size":"201-500","industry":"CDP","ai_signals":["AI audiences"],"icp_score":79,"summary":"Decent: Data platform, complex but enterprise-y"},
+      {"id":27,"company":"dbt Labs","person":"Laura Chen","title":"Director Product","size":"201-500","industry":"Data Engineering","ai_signals":["AI modeling","Copilot"],"icp_score":91,"summary":"Strong: Developer-loved, data-native, AI roadmap"},
+      {"id":28,"company":"Snowflake","person":"Jeff Kim","title":"Principal PM","size":"500+","industry":"Data Cloud","ai_signals":["Cortex AI"],"icp_score":65,"summary":"Lower: Enterprise data, long sales cycles"},
+      {"id":29,"company":"MongoDB","person":"Ashley Wilson","title":"Product Director","size":"500+","industry":"Database","ai_signals":["Vector search","AI"],"icp_score":70,"summary":"Moderate: Developer audience but infrastructure focus"},
+      {"id":30,"company":"Cloudflare","person":"Ryan Taylor","title":"VP Product","size":"500+","industry":"Edge/Security","ai_signals":["AI gateway"],"icp_score":72,"summary":"Mixed: Infrastructure play, developer adjacent"},
+      {"id":31,"company":"Pitch","person":"Emma Anderson","title":"Head of Product","size":"51-200","industry":"Presentations","ai_signals":["AI slides"],"icp_score":87,"summary":"Good: Design focus, AI features, PLG motion"},
+      {"id":32,"company":"Coda","person":"Nathan Clark","title":"Product Lead","size":"51-200","industry":"Docs/Apps","ai_signals":["AI blocks","Copilot"],"icp_score":89,"summary":"Strong: Doc platform, AI-native features, product-led"},
+      {"id":33,"company":"Maze","person":"Sophie Martin","title":"VP Product","size":"51-200","industry":"User Research","ai_signals":["AI insights"],"icp_score":95,"summary":"Perfect: User research tool, discovery is core mission"},
+      {"id":34,"company":"Sprig","person":"Daniel Garcia","title":"Director Product","size":"51-200","industry":"User Insights","ai_signals":["AI analysis"],"icp_score":94,"summary":"Excellent: In-product research, AI insights core"},
+      {"id":35,"company":"Dovetail","person":"Olivia White","title":"Product Manager","size":"51-200","industry":"Research Repo","ai_signals":["AI tagging"],"icp_score":93,"summary":"Strong: Research tooling, discovery alignment perfect"},
+      {"id":36,"company":"Hotjar","person":"Lucas Thompson","title":"Sr PM","size":"201-500","industry":"Behavior Analytics","ai_signals":["AI heatmaps"],"icp_score":86,"summary":"Good: User behavior focus, PLG, discovery adjacent"},
+      {"id":37,"company":"FullStory","person":"Hannah Jackson","title":"Product Director","size":"201-500","industry":"DXI","ai_signals":["AI frustration detection"],"icp_score":84,"summary":"Good: User experience focus, AI features shipping"},
+      {"id":38,"company":"Mixpanel","person":"Jacob Rodriguez","title":"VP Product","size":"201-500","industry":"Product Analytics","ai_signals":["AI insights"],"icp_score":82,"summary":"Good: Product analytics, data-driven culture"},
+      {"id":39,"company":"LaunchDarkly","person":"Grace Lee","title":"Head of Product","size":"201-500","industry":"Feature Flags","ai_signals":["AI rollouts"],"icp_score":88,"summary":"Strong: Feature management, experimentation culture"},
+      {"id":40,"company":"Split.io","person":"Ethan Miller","title":"Product Lead","size":"51-200","industry":"Feature Delivery","ai_signals":["AI targeting"],"icp_score":85,"summary":"Good: Experimentation focus, product-led"},
+      {"id":41,"company":"Eppo","person":"Isabella Davis","title":"Director Product","size":"51-200","industry":"Experimentation","ai_signals":["AI experiments"],"icp_score":92,"summary":"Excellent: A/B testing focus, discovery-native"},
+      {"id":42,"company":"Statsig","person":"William Brown","title":"Product Manager","size":"51-200","industry":"Feature Platform","ai_signals":["AI metrics"],"icp_score":90,"summary":"Strong: Experimentation company, AI roadmap"},
+      {"id":43,"company":"Pendo","person":"Mia Wilson","title":"VP Product","size":"201-500","industry":"Product Experience","ai_signals":["AI analytics"],"icp_score":83,"summary":"Good: Product experience, discovery adjacent"},
+      {"id":44,"company":"Heap","person":"Alexander Taylor","title":"Group PM","size":"201-500","industry":"Auto-capture Analytics","ai_signals":["AI insights"],"icp_score":81,"summary":"Good: Behavioral data, auto-capture fits"},
+      {"id":45,"company":"Census","person":"Charlotte Anderson","title":"Head of Product","size":"51-200","industry":"Reverse ETL","ai_signals":["AI syncs"],"icp_score":78,"summary":"Decent: Data activation, technical audience"},
+      {"id":46,"company":"Hightouch","person":"Benjamin Clark","title":"Product Director","size":"51-200","industry":"Data Activation","ai_signals":["AI audiences"],"icp_score":80,"summary":"Good: CDP space, fast-moving team"},
+      {"id":47,"company":"Rudderstack","person":"Amelia Martin","title":"Product Lead","size":"51-200","industry":"CDP","ai_signals":["AI pipelines"],"icp_score":77,"summary":"Decent: Open source CDP, developer focus"},
+      {"id":48,"company":"Stytch","person":"Henry Garcia","title":"Sr PM","size":"51-200","industry":"Auth","ai_signals":["AI fraud detection"],"icp_score":75,"summary":"Decent: Auth API, developer audience"},
+      {"id":49,"company":"Clerk","person":"Victoria White","title":"Head of Product","size":"51-200","industry":"Auth","ai_signals":["AI security"],"icp_score":79,"summary":"Good: Developer auth, fast-moving, product-led"},
+      {"id":50,"company":"Neon","person":"Sebastian Thompson","title":"Product Manager","size":"51-200","industry":"Serverless DB","ai_signals":["AI SQL","Vector"],"icp_score":91,"summary":"Strong: Serverless Postgres, AI-native roadmap"}
+    ];
+
+    let leads = [...sampleLeads];
+    let currentIndex = 0;
+    let qualifiedLeads = [];
+    let skippedLeads = [];
+    let isDragging = false;
+    let startX = 0;
+    let currentX = 0;
+
+    function getScoreColor(score) {
+      if (score >= 85) return '#57A499';
+      if (score >= 70) return '#CEAA56';
+      return '#ED5624';
+    }
+
+    function renderCard(lead, index) {
+      const scoreColor = getScoreColor(lead.icp_score);
+      return `
+        <div class="swipe-card card-stack-item p-6" data-index="${index}" style="--score: ${lead.icp_score}; --score-color: ${scoreColor}">
+          <div class="swipe-overlay nope">NOPE</div>
+          <div class="swipe-overlay like">LIKE</div>
+          
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-gray-900">${lead.company}</h3>
+              <p class="text-reforge-muted">${lead.industry}</p>
             </div>
-            <div class="bg-reforge-teal/10 border border-reforge-teal/30 rounded-lg p-3">
-              <p class="text-reforge-teal font-medium text-sm">✓ Recommended: Proceed to outreach</p>
-              <p class="text-xs text-gray-600 mt-1">Target: Product Leaders | Lead with: Product Debt framing</p>
+            <div class="icp-score-ring">
+              <div class="icp-score-ring-inner" style="color: ${scoreColor}">${lead.icp_score}</div>
             </div>
           </div>
-        `;
-      }, 2000);
+          
+          <div class="bg-gray-50 rounded-lg p-4 mb-4">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-full bg-reforge-teal/20 flex items-center justify-center text-lg">
+                ${lead.person.charAt(0)}
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900">${lead.person}</p>
+                <p class="text-sm text-reforge-muted">${lead.title}</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 text-sm">
+              <div>
+                <p class="text-reforge-muted text-xs">Company Size</p>
+                <p class="font-medium text-gray-900">${lead.size} employees</p>
+              </div>
+              <div>
+                <p class="text-reforge-muted text-xs">AI Signals</p>
+                <p class="font-medium text-reforge-teal">${lead.ai_signals.length > 0 ? '✓ ' + lead.ai_signals[0] : 'None detected'}</p>
+              </div>
+            </div>
+          </div>
+          
+          ${lead.ai_signals.length > 1 ? `
+          <div class="flex flex-wrap gap-2 mb-4">
+            ${lead.ai_signals.map(s => `<span class="px-2 py-1 bg-reforge-teal/10 text-reforge-teal text-xs rounded-full">${s}</span>`).join('')}
+          </div>
+          ` : ''}
+          
+          <div class="border-t border-gray-100 pt-4">
+            <p class="text-sm text-gray-600"><span class="font-medium">Assessment:</span> ${lead.summary}</p>
+          </div>
+        </div>
+      `;
     }
+
+    function renderCards() {
+      const stack = document.getElementById('cardStack');
+      const remaining = leads.slice(currentIndex, currentIndex + 3);
+      
+      if (remaining.length === 0) {
+        stack.innerHTML = '';
+        document.getElementById('emptyState').classList.remove('hidden');
+        return;
+      }
+      
+      document.getElementById('emptyState').classList.add('hidden');
+      stack.innerHTML = remaining.map((lead, i) => renderCard(lead, currentIndex + i)).join('');
+      
+      // Add drag handlers to top card
+      const topCard = stack.querySelector('.swipe-card');
+      if (topCard) {
+        topCard.addEventListener('mousedown', startDrag);
+        topCard.addEventListener('touchstart', startDrag, { passive: true });
+      }
+      
+      updateStats();
+    }
+
+    function startDrag(e) {
+      isDragging = true;
+      startX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+      const card = e.currentTarget;
+      card.classList.add('swiping');
+      
+      document.addEventListener('mousemove', onDrag);
+      document.addEventListener('mouseup', endDrag);
+      document.addEventListener('touchmove', onDrag, { passive: true });
+      document.addEventListener('touchend', endDrag);
+    }
+
+    function onDrag(e) {
+      if (!isDragging) return;
+      currentX = (e.type === 'touchmove' ? e.touches[0].clientX : e.clientX) - startX;
+      
+      const card = document.querySelector('.swipe-card.swiping');
+      if (!card) return;
+      
+      const rotation = currentX * 0.05;
+      card.style.transform = `translateX(${currentX}px) rotate(${rotation}deg)`;
+      
+      // Update overlays
+      const nopeOverlay = card.querySelector('.swipe-overlay.nope');
+      const likeOverlay = card.querySelector('.swipe-overlay.like');
+      
+      if (currentX < -50) {
+        nopeOverlay.style.opacity = Math.min(1, Math.abs(currentX) / 150);
+        likeOverlay.style.opacity = 0;
+        document.getElementById('swipeLeftIndicator').style.opacity = Math.min(1, Math.abs(currentX) / 150);
+        document.getElementById('swipeRightIndicator').style.opacity = 0;
+      } else if (currentX > 50) {
+        likeOverlay.style.opacity = Math.min(1, currentX / 150);
+        nopeOverlay.style.opacity = 0;
+        document.getElementById('swipeRightIndicator').style.opacity = Math.min(1, currentX / 150);
+        document.getElementById('swipeLeftIndicator').style.opacity = 0;
+      } else {
+        nopeOverlay.style.opacity = 0;
+        likeOverlay.style.opacity = 0;
+        document.getElementById('swipeLeftIndicator').style.opacity = 0;
+        document.getElementById('swipeRightIndicator').style.opacity = 0;
+      }
+    }
+
+    function endDrag() {
+      if (!isDragging) return;
+      isDragging = false;
+      
+      document.removeEventListener('mousemove', onDrag);
+      document.removeEventListener('mouseup', endDrag);
+      document.removeEventListener('touchmove', onDrag);
+      document.removeEventListener('touchend', endDrag);
+      
+      const card = document.querySelector('.swipe-card.swiping');
+      if (!card) return;
+      
+      card.classList.remove('swiping');
+      document.getElementById('swipeLeftIndicator').style.opacity = 0;
+      document.getElementById('swipeRightIndicator').style.opacity = 0;
+      
+      if (currentX < -100) {
+        swipeLeft();
+      } else if (currentX > 100) {
+        swipeRight();
+      } else {
+        card.style.transform = '';
+        card.querySelector('.swipe-overlay.nope').style.opacity = 0;
+        card.querySelector('.swipe-overlay.like').style.opacity = 0;
+      }
+      
+      currentX = 0;
+    }
+
+    function swipeLeft() {
+      const card = document.querySelector('.swipe-card:first-child');
+      if (!card || currentIndex >= leads.length) return;
+      
+      card.classList.add('animate-left');
+      skippedLeads.push(leads[currentIndex]);
+      
+      setTimeout(() => {
+        currentIndex++;
+        renderCards();
+      }, 350);
+    }
+
+    function swipeRight() {
+      const card = document.querySelector('.swipe-card:first-child');
+      if (!card || currentIndex >= leads.length) return;
+      
+      card.classList.add('animate-right');
+      qualifiedLeads.push(leads[currentIndex]);
+      updateRecentQualified();
+      
+      setTimeout(() => {
+        currentIndex++;
+        renderCards();
+      }, 350);
+    }
+
+    function updateStats() {
+      const reviewed = qualifiedLeads.length + skippedLeads.length;
+      document.getElementById('qualifiedCount').textContent = qualifiedLeads.length;
+      document.getElementById('reviewedCount').textContent = reviewed;
+      document.getElementById('remainingCount').textContent = leads.length - currentIndex;
+      document.getElementById('totalLeads').textContent = leads.length;
+      
+      if (reviewed > 0) {
+        const rate = Math.round((qualifiedLeads.length / reviewed) * 100);
+        document.getElementById('qualifyRate').textContent = rate + '%';
+        
+        if (qualifiedLeads.length > 0) {
+          const avgScore = Math.round(qualifiedLeads.reduce((a, b) => a + b.icp_score, 0) / qualifiedLeads.length);
+          document.getElementById('avgScore').textContent = avgScore;
+        }
+      }
+    }
+
+    function updateRecentQualified() {
+      const container = document.getElementById('recentQualified');
+      const recent = qualifiedLeads.slice(-5).reverse();
+      
+      if (recent.length === 0) {
+        container.innerHTML = '<p class="text-xs text-reforge-muted italic">None yet—start swiping!</p>';
+        return;
+      }
+      
+      container.innerHTML = recent.map(lead => `
+        <div class="flex items-center justify-between bg-reforge-teal/10 rounded-lg p-2">
+          <div>
+            <p class="font-medium text-xs text-gray-900">${lead.company}</p>
+            <p class="text-xs text-reforge-muted">${lead.person}</p>
+          </div>
+          <span class="text-xs font-bold text-reforge-teal">${lead.icp_score}</span>
+        </div>
+      `).join('');
+    }
+
+    function exportQualifiedLeads() {
+      if (qualifiedLeads.length === 0) {
+        alert('No qualified leads to export yet!');
+        return;
+      }
+      
+      const headers = ['Company', 'Person', 'Title', 'Size', 'Industry', 'AI Signals', 'ICP Score', 'Summary'];
+      const rows = qualifiedLeads.map(l => [
+        l.company, l.person, l.title, l.size, l.industry, 
+        l.ai_signals.join('; '), l.icp_score, l.summary
+      ]);
+      
+      const csv = [headers, ...rows].map(r => r.map(c => `"${c}"`).join(',')).join('\n');
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `qualified_leads_${new Date().toISOString().split('T')[0]}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function resetSwiper() {
+      currentIndex = 0;
+      qualifiedLeads = [];
+      skippedLeads = [];
+      renderCards();
+      updateRecentQualified();
+    }
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+      // Only respond when lead-qualifier section is visible
+      if (document.getElementById('lead-qualifier').classList.contains('hidden')) return;
+      
+      if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
+        swipeLeft();
+      } else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
+        swipeRight();
+      }
+    });
+
+    // Initialize swiper when section is shown
+    const originalShowSection = showSection;
+    showSection = function(sectionId) {
+      originalShowSection(sectionId);
+      if (sectionId === 'lead-qualifier') {
+        renderCards();
+      }
+    };
 
     populateUI();
   </script>
