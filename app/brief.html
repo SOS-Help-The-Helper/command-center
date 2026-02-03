@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Morning Brief</title>
+    <style>
+        :root {
+            --bg: #0a0f0a;
+            --card-bg: #141f14;
+            --card-border: #1e2e1e;
+            --text: #ffffff;
+            --text-secondary: #8a9a8a;
+            --text-dim: #5a6a5a;
+            --green: #2d5a2d;
+            --green-light: #4a8c4a;
+            --green-bright: #5cb85c;
+            --green-glow: rgba(92, 184, 92, 0.15);
+            --red: #c53030;
+            --gold: #d4a530;
+            --blue: #4a90d4;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 24px 20px 100px;
+        }
+        
+        header {
+            margin-bottom: 32px;
+        }
+        
+        header h1 {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        
+        header .subtitle {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-top: 4px;
+        }
+        
+        section {
+            margin-bottom: 28px;
+        }
+        
+        section h2 {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-dim);
+            margin-bottom: 12px;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 12px;
+        }
+        
+        .card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        
+        .card .actions {
+            margin-top: 12px;
+        }
+        
+        .card .action-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+        
+        .card .action-item:last-child {
+            border-bottom: none;
+        }
+        
+        .card .action-item::before {
+            content: "○";
+            color: var(--text-dim);
+        }
+        
+        .meeting-item {
+            display: flex;
+            padding: 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            margin-bottom: 8px;
+        }
+        
+        .meeting-item .time {
+            width: 70px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--green-bright);
+        }
+        
+        .meeting-item .info {
+            flex: 1;
+        }
+        
+        .meeting-item .title {
+            font-size: 15px;
+            font-weight: 500;
+        }
+        
+        .meeting-item .company {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .meeting-item .value {
+            font-size: 13px;
+            color: var(--gold);
+            font-weight: 500;
+        }
+        
+        .intel-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .intel-item .company {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--blue);
+        }
+        
+        .intel-item .funding {
+            font-size: 12px;
+            color: var(--green-bright);
+            margin-top: 2px;
+        }
+        
+        .intel-item .angle {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 6px;
+        }
+        
+        nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg);
+            border-top: 1px solid var(--card-border);
+            padding: 12px 20px 28px;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-dim);
+            font-size: 10px;
+            gap: 4px;
+        }
+        
+        nav a.active {
+            color: var(--green-bright);
+        }
+        
+        nav a .icon {
+            font-size: 22px;
+        }
+        
+        .empty {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-dim);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Morning Brief</h1>
+            <div class="subtitle" id="dateDisplay">Loading...</div>
+        </header>
+        
+        <section>
+            <h2>🎯 Top 3 Priorities</h2>
+            <div id="priorities"></div>
+        </section>
+        
+        <section>
+            <h2>📅 This Week's Meetings</h2>
+            <div id="meetings"></div>
+        </section>
+        
+        <section>
+            <h2>🔎 Meeting Intel</h2>
+            <div id="intel"></div>
+        </section>
+    </div>
+    
+    <nav>
+        <a href="index.html">
+            <span class="icon">☀️</span>
+            Today
+        </a>
+        <a href="brief.html" class="active">
+            <span class="icon">📋</span>
+            Brief
+        </a>
+        <a href="intel.html">
+            <span class="icon">🔍</span>
+            Intel
+        </a>
+        <a href="decisions.html">
+            <span class="icon">🎯</span>
+            Decisions
+        </a>
+        <a href="henry.html">
+            <span class="icon">⚡</span>
+            Henry
+        </a>
+    </nav>
+    
+    <script>
+        async function loadData() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('dateDisplay').textContent = new Date().toLocaleDateString('en-US', { 
+                weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
+            });
+            
+            try {
+                const res = await fetch(`../data/briefs/${today}.json`);
+                if (!res.ok) throw new Error('No brief');
+                const data = await res.json();
+                
+                // Priorities
+                document.getElementById('priorities').innerHTML = data.priorities.map(p => `
+                    <div class="card">
+                        <h3>${p.rank}. ${p.title}</h3>
+                        <p>${p.context}</p>
+                        ${p.revenue ? `<div style="color: var(--green-bright); font-size: 13px; margin-bottom: 8px;">${p.revenue}</div>` : ''}
+                        <div class="actions">
+                            ${p.actions.map(a => `<div class="action-item">${a}</div>`).join('')}
+                        </div>
+                    </div>
+                `).join('');
+                
+                // Meetings
+                document.getElementById('meetings').innerHTML = data.calendar.map(m => `
+                    <div class="meeting-item">
+                        <div class="time">${formatTime(m.time)}</div>
+                        <div class="info">
+                            <div class="title">${m.title}</div>
+                            ${m.company ? `<div class="company">${m.company}</div>` : ''}
+                        </div>
+                        ${m.value ? `<div class="value">${m.value}</div>` : ''}
+                    </div>
+                `).join('');
+                
+                // Intel
+                const intelHtml = Object.entries(data.meetingIntel || {}).map(([company, intel]) => `
+                    <div class="intel-item">
+                        <div class="company">${company}</div>
+                        ${intel.funding ? `<div class="funding">💰 ${intel.funding}</div>` : ''}
+                        <div class="angle">${intel.angle}</div>
+                    </div>
+                `).join('');
+                document.getElementById('intel').innerHTML = intelHtml || '<div class="empty">No intel available</div>';
+                
+            } catch(e) {
+                document.getElementById('priorities').innerHTML = '<div class="empty">No brief available for today</div>';
+            }
+        }
+        
+        function formatTime(time) {
+            const [h, m] = time.split(':');
+            const hour = parseInt(h);
+            return `${hour % 12 || 12}:${m} ${hour >= 12 ? 'PM' : 'AM'}`;
+        }
+        
+        loadData();
+    </script>
+</body>
+</html>

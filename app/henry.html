@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Henry OS</title>
+    <style>
+        :root {
+            --bg: #0a0f0a;
+            --card-bg: #141f14;
+            --card-border: #1e2e1e;
+            --text: #ffffff;
+            --text-secondary: #8a9a8a;
+            --text-dim: #5a6a5a;
+            --green: #2d5a2d;
+            --green-light: #4a8c4a;
+            --green-bright: #5cb85c;
+            --green-glow: rgba(92, 184, 92, 0.15);
+            --red: #c53030;
+            --gold: #d4a530;
+            --blue: #4a90d4;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 24px 20px 100px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        header .avatar {
+            font-size: 48px;
+            margin-bottom: 8px;
+        }
+        
+        header h1 {
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        header .subtitle {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-top: 4px;
+        }
+        
+        header .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            padding: 6px 12px;
+            background: var(--green-glow);
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--green-bright);
+        }
+        
+        header .status::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: var(--green-bright);
+            border-radius: 50%;
+        }
+        
+        section {
+            margin-bottom: 28px;
+        }
+        
+        section h2 {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-dim);
+            margin-bottom: 12px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-card .number {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--green-bright);
+        }
+        
+        .stat-card .label {
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-top: 4px;
+        }
+        
+        .agent-item {
+            display: flex;
+            align-items: center;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .agent-item .icon {
+            font-size: 24px;
+            margin-right: 14px;
+        }
+        
+        .agent-item .info {
+            flex: 1;
+        }
+        
+        .agent-item .name {
+            font-size: 15px;
+            font-weight: 500;
+        }
+        
+        .agent-item .schedule {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .agent-item .status {
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            background: var(--green-glow);
+            color: var(--green-bright);
+        }
+        
+        .agent-item .status.pending {
+            background: rgba(212, 165, 48, 0.15);
+            color: var(--gold);
+        }
+        
+        .work-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+        
+        .work-item:last-child {
+            border-bottom: none;
+        }
+        
+        .work-item .time {
+            width: 50px;
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+        
+        .work-item .content {
+            flex: 1;
+        }
+        
+        .work-item .title {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .work-item .detail {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg);
+            border-top: 1px solid var(--card-border);
+            padding: 12px 20px 28px;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-dim);
+            font-size: 10px;
+            gap: 4px;
+        }
+        
+        nav a.active {
+            color: var(--green-bright);
+        }
+        
+        nav a .icon {
+            font-size: 22px;
+        }
+        
+        .empty {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-dim);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="avatar">⚡</div>
+            <h1>Henry</h1>
+            <div class="subtitle">Your AI Operating System</div>
+            <div class="status">Online</div>
+        </header>
+        
+        <section>
+            <h2>Usage Today</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number" id="tokensToday">-</div>
+                    <div class="label">Tokens</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number" id="costToday">-</div>
+                    <div class="label">Cost</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number" id="tasksCompleted">-</div>
+                    <div class="label">Tasks Done</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number" id="agentRuns">-</div>
+                    <div class="label">Agent Runs</div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Scheduled Agents</h2>
+            <div id="agents">
+                <div class="agent-item">
+                    <div class="icon">🌅</div>
+                    <div class="info">
+                        <div class="name">Morning Brief</div>
+                        <div class="schedule">Daily 9 AM EST</div>
+                    </div>
+                    <div class="status">Active</div>
+                </div>
+                <div class="agent-item">
+                    <div class="icon">🔍</div>
+                    <div class="info">
+                        <div class="name">Reforge Intel</div>
+                        <div class="schedule">3x daily M-F</div>
+                    </div>
+                    <div class="status">Active</div>
+                </div>
+                <div class="agent-item">
+                    <div class="icon">🆘</div>
+                    <div class="info">
+                        <div class="name">SOS Intel</div>
+                        <div class="schedule">2x daily</div>
+                    </div>
+                    <div class="status">Active</div>
+                </div>
+                <div class="agent-item">
+                    <div class="icon">🎯</div>
+                    <div class="info">
+                        <div class="name">Harmony Health</div>
+                        <div class="schedule">Daily 11 AM M-F</div>
+                    </div>
+                    <div class="status">Active</div>
+                </div>
+                <div class="agent-item">
+                    <div class="icon">🎙️</div>
+                    <div class="info">
+                        <div class="name">Gong Sync</div>
+                        <div class="schedule">Daily 7 AM</div>
+                    </div>
+                    <div class="status">Active</div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Recent Work</h2>
+            <div id="work">
+                <div class="work-item">
+                    <div class="time">9:26</div>
+                    <div class="content">
+                        <div class="title">Intel Run Complete</div>
+                        <div class="detail">3 new signals: Ecovadis, Neo, Fleetio</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <div class="time">9:14</div>
+                    <div class="content">
+                        <div class="title">Attention to Detail Audit</div>
+                        <div class="detail">Found 12 errors, 8 unverified claims</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <div class="time">9:00</div>
+                    <div class="content">
+                        <div class="title">Morning Brief Delivered</div>
+                        <div class="detail">3 priorities, 7 meetings this week</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <div class="time">2:00</div>
+                    <div class="content">
+                        <div class="title">Gong Sync</div>
+                        <div class="detail">Flagged 7 stale deals</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <nav>
+        <a href="index.html">
+            <span class="icon">☀️</span>
+            Today
+        </a>
+        <a href="brief.html">
+            <span class="icon">📋</span>
+            Brief
+        </a>
+        <a href="intel.html">
+            <span class="icon">🔍</span>
+            Intel
+        </a>
+        <a href="decisions.html">
+            <span class="icon">🎯</span>
+            Decisions
+        </a>
+        <a href="henry.html" class="active">
+            <span class="icon">⚡</span>
+            Henry
+        </a>
+    </nav>
+    
+    <script>
+        // TODO: Load real data from agents.json
+        document.getElementById('tokensToday').textContent = '65K';
+        document.getElementById('costToday').textContent = '$0.82';
+        document.getElementById('tasksCompleted').textContent = '4';
+        document.getElementById('agentRuns').textContent = '6';
+    </script>
+</body>
+</html>

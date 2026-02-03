@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Intelligence</title>
+    <style>
+        :root {
+            --bg: #0a0f0a;
+            --card-bg: #141f14;
+            --card-border: #1e2e1e;
+            --text: #ffffff;
+            --text-secondary: #8a9a8a;
+            --text-dim: #5a6a5a;
+            --green: #2d5a2d;
+            --green-light: #4a8c4a;
+            --green-bright: #5cb85c;
+            --red: #c53030;
+            --red-soft: rgba(197, 48, 48, 0.15);
+            --gold: #d4a530;
+            --gold-soft: rgba(212, 165, 48, 0.15);
+            --blue: #4a90d4;
+            --blue-soft: rgba(74, 144, 212, 0.15);
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 24px 20px 100px;
+        }
+        
+        header {
+            margin-bottom: 24px;
+        }
+        
+        header h1 {
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        header .subtitle {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-top: 4px;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+        
+        .tab {
+            padding: 8px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .tab.active {
+            background: var(--green);
+            border-color: var(--green-light);
+            color: var(--text);
+        }
+        
+        .signal {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+        
+        .signal.urgent {
+            border-left: 3px solid var(--red);
+            background: linear-gradient(90deg, var(--red-soft) 0%, var(--card-bg) 30%);
+        }
+        
+        .signal.opportunity {
+            border-left: 3px solid var(--green-bright);
+        }
+        
+        .signal.risk {
+            border-left: 3px solid var(--gold);
+            background: linear-gradient(90deg, var(--gold-soft) 0%, var(--card-bg) 30%);
+        }
+        
+        .signal .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        
+        .signal .company {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .signal .type {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: var(--card-border);
+            color: var(--text-secondary);
+        }
+        
+        .signal .content {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+        
+        .signal .recommendation {
+            font-size: 13px;
+            color: var(--green-bright);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .signal .recommendation::before {
+            content: "→";
+        }
+        
+        .signal .meta {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+        
+        nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg);
+            border-top: 1px solid var(--card-border);
+            padding: 12px 20px 28px;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-dim);
+            font-size: 10px;
+            gap: 4px;
+        }
+        
+        nav a.active {
+            color: var(--green-bright);
+        }
+        
+        nav a .icon {
+            font-size: 22px;
+        }
+        
+        .empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-dim);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 Intelligence</h1>
+            <div class="subtitle">Latest signals from your pipeline</div>
+        </header>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="filterSignals('all')">All</div>
+            <div class="tab" onclick="filterSignals('reforge')">Reforge</div>
+            <div class="tab" onclick="filterSignals('sos')">SOS</div>
+            <div class="tab" onclick="filterSignals('harmony')">Harmony</div>
+        </div>
+        
+        <div id="signals"></div>
+    </div>
+    
+    <nav>
+        <a href="index.html">
+            <span class="icon">☀️</span>
+            Today
+        </a>
+        <a href="brief.html">
+            <span class="icon">📋</span>
+            Brief
+        </a>
+        <a href="intel.html" class="active">
+            <span class="icon">🔍</span>
+            Intel
+        </a>
+        <a href="decisions.html">
+            <span class="icon">🎯</span>
+            Decisions
+        </a>
+        <a href="henry.html">
+            <span class="icon">⚡</span>
+            Henry
+        </a>
+    </nav>
+    
+    <script>
+        let allSignals = [];
+        let currentFilter = 'all';
+        
+        async function loadData() {
+            try {
+                const [reforgeRes, sosRes, harmonyRes] = await Promise.all([
+                    fetch('../intel/reforge-signals.json').catch(() => null),
+                    fetch('../intel/sos-signals.json').catch(() => null),
+                    fetch('../intel/harmony-signals.json').catch(() => null)
+                ]);
+                
+                if (reforgeRes && reforgeRes.ok) {
+                    const data = await reforgeRes.json();
+                    allSignals.push(...(data.signals || []).map(s => ({...s, source: 'reforge'})));
+                }
+                if (sosRes && sosRes.ok) {
+                    const data = await sosRes.json();
+                    allSignals.push(...(data.signals || []).map(s => ({...s, source: 'sos'})));
+                }
+                if (harmonyRes && harmonyRes.ok) {
+                    const data = await harmonyRes.json();
+                    allSignals.push(...(data.signals || []).map(s => ({...s, source: 'harmony'})));
+                }
+                
+                // Sort by timestamp desc
+                allSignals.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+                
+                renderSignals();
+            } catch(e) {
+                document.getElementById('signals').innerHTML = '<div class="empty">Could not load intelligence</div>';
+            }
+        }
+        
+        function filterSignals(filter) {
+            currentFilter = filter;
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            renderSignals();
+        }
+        
+        function renderSignals() {
+            const filtered = currentFilter === 'all' 
+                ? allSignals 
+                : allSignals.filter(s => s.source === currentFilter);
+            
+            if (filtered.length === 0) {
+                document.getElementById('signals').innerHTML = '<div class="empty">No signals yet</div>';
+                return;
+            }
+            
+            document.getElementById('signals').innerHTML = filtered.slice(0, 20).map(s => {
+                const urgencyClass = s.urgency === 'high' ? 'urgent' : 
+                                    s.type?.includes('risk') ? 'risk' : 
+                                    s.type?.includes('opportunity') || s.type?.includes('validation') ? 'opportunity' : '';
+                return `
+                    <div class="signal ${urgencyClass}">
+                        <div class="header">
+                            <div class="company">${s.company || 'Unknown'}</div>
+                            <div class="type">${s.type?.replace(/_/g, ' ') || 'signal'}</div>
+                        </div>
+                        <div class="content">${s.signal || ''}</div>
+                        ${s.recommendation ? `<div class="recommendation">${s.recommendation}</div>` : ''}
+                        <div class="meta">
+                            ${s.dealValue ? `<span>$${(s.dealValue/1000).toFixed(0)}K</span>` : ''}
+                            <span>${formatDate(s.timestamp)}</span>
+                            <span>${s.source}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function formatDate(ts) {
+            if (!ts) return '';
+            const d = new Date(ts);
+            return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        }
+        
+        loadData();
+    </script>
+</body>
+</html>

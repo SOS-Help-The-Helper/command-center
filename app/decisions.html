@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Decisions</title>
+    <style>
+        :root {
+            --bg: #0a0f0a;
+            --card-bg: #141f14;
+            --card-border: #1e2e1e;
+            --text: #ffffff;
+            --text-secondary: #8a9a8a;
+            --text-dim: #5a6a5a;
+            --green: #2d5a2d;
+            --green-light: #4a8c4a;
+            --green-bright: #5cb85c;
+            --red: #c53030;
+            --gold: #d4a530;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 24px 20px 100px;
+        }
+        
+        header {
+            margin-bottom: 24px;
+        }
+        
+        header h1 {
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        header .subtitle {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-top: 4px;
+        }
+        
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .stat {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+        
+        .stat .number {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--green-bright);
+        }
+        
+        .stat .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-dim);
+            margin-top: 4px;
+        }
+        
+        .decision {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 12px;
+        }
+        
+        .decision .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        
+        .decision .company {
+            font-size: 17px;
+            font-weight: 600;
+        }
+        
+        .decision .value {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--green-bright);
+        }
+        
+        .decision .context {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        
+        .decision .actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .decision .btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        
+        .decision .btn:active {
+            transform: scale(0.98);
+        }
+        
+        .decision .btn-primary {
+            background: var(--green);
+            color: var(--text);
+        }
+        
+        .decision .btn-secondary {
+            background: var(--card-border);
+            color: var(--text-secondary);
+        }
+        
+        .decision .btn-danger {
+            background: rgba(197, 48, 48, 0.2);
+            color: var(--red);
+        }
+        
+        nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg);
+            border-top: 1px solid var(--card-border);
+            padding: 12px 20px 28px;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-dim);
+            font-size: 10px;
+            gap: 4px;
+        }
+        
+        nav a.active {
+            color: var(--green-bright);
+        }
+        
+        nav a .icon {
+            font-size: 22px;
+        }
+        
+        .empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-dim);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Decisions</h1>
+            <div class="subtitle">Things that need your call</div>
+        </header>
+        
+        <div class="stats-row">
+            <div class="stat">
+                <div class="number" id="pendingCount">-</div>
+                <div class="label">Pending</div>
+            </div>
+            <div class="stat">
+                <div class="number" id="todayCount">-</div>
+                <div class="label">Today</div>
+            </div>
+            <div class="stat">
+                <div class="number" id="pipelineValue">-</div>
+                <div class="label">At Risk</div>
+            </div>
+        </div>
+        
+        <div id="decisions"></div>
+    </div>
+    
+    <nav>
+        <a href="index.html">
+            <span class="icon">☀️</span>
+            Today
+        </a>
+        <a href="brief.html">
+            <span class="icon">📋</span>
+            Brief
+        </a>
+        <a href="intel.html">
+            <span class="icon">🔍</span>
+            Intel
+        </a>
+        <a href="decisions.html" class="active">
+            <span class="icon">🎯</span>
+            Decisions
+        </a>
+        <a href="henry.html">
+            <span class="icon">⚡</span>
+            Henry
+        </a>
+    </nav>
+    
+    <script>
+        let decisions = [];
+        
+        async function loadData() {
+            try {
+                const res = await fetch('../data/decisions-queue.json');
+                if (!res.ok) throw new Error('No decisions');
+                decisions = await res.json();
+                
+                // Stats
+                document.getElementById('pendingCount').textContent = decisions.filter(d => !d.resolved).length;
+                document.getElementById('todayCount').textContent = decisions.filter(d => d.urgency === 'high').length;
+                
+                const atRisk = decisions.filter(d => !d.resolved).reduce((sum, d) => sum + (d.dealValue || 0), 0);
+                document.getElementById('pipelineValue').textContent = '$' + (atRisk/1000).toFixed(0) + 'K';
+                
+                renderDecisions();
+            } catch(e) {
+                // Show sample decisions if no data
+                document.getElementById('pendingCount').textContent = '0';
+                document.getElementById('todayCount').textContent = '0';
+                document.getElementById('pipelineValue').textContent = '$0';
+                document.getElementById('decisions').innerHTML = '<div class="empty">No pending decisions<br><small style="color: var(--text-dim)">Check back after intel runs</small></div>';
+            }
+        }
+        
+        function renderDecisions() {
+            const pending = decisions.filter(d => !d.resolved).slice(0, 10);
+            
+            if (pending.length === 0) {
+                document.getElementById('decisions').innerHTML = '<div class="empty">All caught up! 🎉</div>';
+                return;
+            }
+            
+            document.getElementById('decisions').innerHTML = pending.map(d => `
+                <div class="decision">
+                    <div class="header">
+                        <div class="company">${d.company || d.contact || 'Unknown'}</div>
+                        ${d.dealValue ? `<div class="value">$${(d.dealValue/1000).toFixed(0)}K</div>` : ''}
+                    </div>
+                    <div class="context">${d.signal || d.context || 'Needs attention'}</div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="decide('${d.id}', 'engage')">Engage</button>
+                        <button class="btn btn-secondary" onclick="decide('${d.id}', 'defer')">Defer</button>
+                        <button class="btn btn-danger" onclick="decide('${d.id}', 'pass')">Pass</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function decide(id, action) {
+            const decision = decisions.find(d => d.id === id);
+            if (decision) {
+                decision.resolved = true;
+                decision.action = action;
+                decision.decidedAt = new Date().toISOString();
+                renderDecisions();
+                
+                // TODO: Save to backend
+                console.log('Decision:', id, action);
+            }
+        }
+        
+        loadData();
+    </script>
+</body>
+</html>
