@@ -1,0 +1,56 @@
+{
+  "lastUpdated": "2026-02-03T15:30:00Z",
+  "source": "gog_cli",
+  "account": "jonathan@harmonystrategy.com",
+  
+  "calendar": {
+    "thisWeek": "Feb 3-9, 2026",
+    "events": [
+      {
+        "date": "2026-02-03",
+        "day": "Tuesday (TODAY)",
+        "meetings": [
+          {"time": "07:00-12:00 EST", "title": "Focus Time", "type": "block"},
+          {"time": "14:00-14:25 EST", "title": "JG <> JG Chat", "type": "internal"},
+          {"time": "15:00-17:00 EST", "title": "SOS Partner Walkthrough", "type": "sos_partnership"},
+          {"time": "18:00-22:00 EST", "title": "Date Night", "type": "personal"}
+        ]
+      },
+      {
+        "date": "2026-02-04",
+        "day": "Wednesday",
+        "meetings": [
+          {"time": "all_day", "title": "Call KCs parents", "type": "personal"},
+          {"time": "all_day", "title": "VIP Links", "type": "reminder"},
+          {"time": "07:00-12:00 EST", "title": "Focus Time", "type": "block"},
+          {"time": "15:00-16:00 EST", "title": "CX Ops | Customer Journey Documentation", "type": "harmony_client"},
+          {"time": "17:30-18:30 EST", "title": "SOS", "type": "sos"}
+        ]
+      },
+      {
+        "date": "2026-02-05",
+        "day": "Thursday",
+        "allDayReminders": ["ALLY DUE TOMORROW"]
+      }
+    ]
+  },
+  
+  "email": {
+    "lastChecked": "2026-02-03T15:25:00Z",
+    "account": "henry@harmonystrategy.com",
+    "recentThreads": [
+      {
+        "subject": "Re: Meeting - Need to Reschedule",
+        "date": "2026-02-03 01:15",
+        "type": "sent"
+      },
+      {
+        "from": "billing@linode.com",
+        "subject": "Linode.com: Payment Receipt [19541951]",
+        "date": "2026-02-01",
+        "type": "billing"
+      }
+    ],
+    "note": "Harmony inbox mostly admin/billing. Client comms likely in jonathan@harmonystrategy.com"
+  }
+}

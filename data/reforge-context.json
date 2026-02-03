@@ -1,0 +1,107 @@
+{
+  "lastUpdated": "2026-02-03T15:25:00Z",
+  "source": "browser_extension",
+  "account": "jonathan.greenberg@reforge.com",
+  
+  "calendar": {
+    "thisWeek": "Feb 1-7, 2026",
+    "events": [
+      {
+        "date": "2026-02-03",
+        "day": "Tuesday (TODAY)",
+        "meetings": [
+          {"time": "08:00-10:00 EST", "title": "Prospecting", "status": "block"},
+          {"time": "09:00-10:00 EST", "title": "For custom slides per company", "status": "block"},
+          {"time": "10:15-10:45 EST", "title": "withgrowth: Reforge", "status": "accepted", "type": "discovery"},
+          {"time": "12:15-12:45 EST", "title": "Canon Press: Reforge", "status": "accepted", "type": "discovery"},
+          {"time": "13:00-13:45 EST", "title": "Weekly SaaS Pipeline Call Review", "status": "accepted", "type": "internal"},
+          {"time": "16:30-17:00 EST", "title": "Weekly Pipeline Sync - Insights", "status": "accepted", "type": "internal"}
+        ]
+      },
+      {
+        "date": "2026-02-04",
+        "day": "Wednesday",
+        "meetings": [
+          {"time": "08:00-10:00 EST", "title": "Prospecting", "status": "block"},
+          {"time": "10:00-10:30 EST", "title": "Yazio | Reforge - Pilot", "status": "accepted", "type": "pilot", "company": "Yazio"},
+          {"time": "11:00-11:30 EST", "title": "Reforge Strategy Call | Anton Moritz", "status": "accepted", "attendee": "Bohuslav Benuch (tentative)", "type": "strategy"},
+          {"time": "12:45-13:15 EST", "title": "Delos Ventures x Reforge Build", "status": "accepted", "attendee": "Nathan Busscher", "type": "build"},
+          {"time": "13:30-14:00 EST", "title": "Tom <> JG", "status": "accepted", "type": "internal"},
+          {"time": "14:00-14:30 EST", "title": "Console || Reforge - Pilot Config", "status": "accepted", "type": "pilot", "company": "Console"},
+          {"time": "15:00-15:15 EST", "title": "Pushups!", "status": "needs_rsvp"},
+          {"time": "17:30-18:30 EST", "title": "Followups", "status": "block"}
+        ]
+      },
+      {
+        "date": "2026-02-05",
+        "day": "Thursday",
+        "meetings": [
+          {"time": "08:00-10:00 EST", "title": "Prospecting", "status": "block"},
+          {"time": "10:00-11:00 EST", "title": "Ecovadis + Reforge | Pilot Kickoff", "status": "accepted", "type": "pilot", "company": "Ecovadis"},
+          {"time": "10:15-10:45 EST", "title": "PiNCAMP: Reforge", "status": "accepted", "type": "discovery"},
+          {"time": "11:00-11:30 EST", "title": "Numan: Reforge", "status": "accepted", "type": "discovery"},
+          {"time": "12:00-12:30 EST", "title": "Reforge Strategy Call | Raphael Menachem", "status": "accepted", "type": "strategy", "company": "Isracard"}
+        ]
+      },
+      {
+        "date": "2026-02-06",
+        "day": "Friday",
+        "meetings": [
+          {"time": "08:00-10:00 EST", "title": "Prospecting", "status": "block"},
+          {"time": "10:30-10:45 EST", "title": "john Bengtsson and Jonathan Greenberg", "status": "accepted", "type": "intro"},
+          {"time": "11:00-11:30 EST", "title": "Skeps x Reforge Build", "status": "accepted", "type": "build"},
+          {"time": "12:00-13:00 EST", "title": "EPD Team Weekly", "status": "accepted", "type": "internal"},
+          {"time": "13:15-13:45 EST", "title": "Fleetio: Reforge", "status": "accepted", "type": "discovery"},
+          {"time": "15:30-16:00 EST", "title": "Work Hard Play Hard - Geoguesser", "status": "accepted", "type": "team"}
+        ]
+      }
+    ]
+  },
+  
+  "email": {
+    "lastChecked": "2026-02-03T15:20:00Z",
+    "unreadCount": 30,
+    "actionableThreads": [
+      {
+        "from": "Laeka / Dominique",
+        "subject": "Re: Reforge Renewal - New products, courses & pricing",
+        "preview": "Hi Jonathan Thank you for this, I am really excited. The deck looks great!",
+        "date": "2026-02-03 01:13 EST",
+        "priority": "high",
+        "action": "follow_up_on_excitement"
+      },
+      {
+        "from": "Cory",
+        "subject": "Is this worth building?",
+        "preview": "Hi Jonathan, I am curious about how my product org may be able to utilize Reforge, I will grab some time with you next week.",
+        "date": "2026-02-02 22:33 EST",
+        "priority": "high",
+        "action": "await_scheduling"
+      },
+      {
+        "from": "Ramakrishnan (Balaji)",
+        "subject": "Is this worth building?",
+        "preview": "Thank you for reaching out. I am currently traveling and will be back home next week. Can we meet the following week?",
+        "date": "2026-02-02 21:13 EST",
+        "priority": "medium",
+        "action": "schedule_following_week"
+      },
+      {
+        "from": "Prasanth Ramanand (Maestro)",
+        "subject": "Next Steps - Maestro x Reforge Build Demo",
+        "preview": "Thanks Jonathan We will discuss internally and get back on the next steps timing",
+        "date": "2026-02-02 20:00 EST",
+        "priority": "high",
+        "action": "await_internal_discussion",
+        "context": "Gong recording was viewed after this"
+      }
+    ],
+    "calendarAcceptances": [
+      {"from": "johnny bengtsson", "event": "Fri Feb 6 10:30am EST", "status": "accepted"},
+      {"from": "Bohuslav Benuch", "event": "Wed Feb 4 11am (Anton Moritz)", "status": "tentative"},
+      {"from": "Maya (Elsevier)", "event": "Elsevier: Reforge", "status": "accepted"},
+      {"from": "Raphael-Shay Menachem", "event": "Thu Feb 5 12pm EST", "status": "accepted"},
+      {"from": "Nathan Busscher", "event": "Wed Feb 4 12:45pm (Delos Ventures)", "status": "accepted"}
+    ]
+  }
+}
