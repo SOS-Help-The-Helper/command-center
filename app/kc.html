@@ -732,7 +732,8 @@
     </div>
 
     <script>
-        const JONATHAN_PHONE = '7745032112';
+        const SUPABASE_URL = 'https://rtduqguwhkczexnoawej.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ0ZHVxZ3V3aGtjemV4bm9hd2VqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE2Njg1ODAsImV4cCI6MjA2NzI0NDU4MH0.HmXbJtvmyPJzKRDCprw0dDJjVfvnIDNjMqL3RQlvJT4';
         
         function openModal() {
             document.getElementById('modal').classList.add('active');
@@ -765,19 +766,50 @@
             document.getElementById('successView').classList.add('active');
         }
         
-        function sendQuickSOS() {
-            // Open SMS with pre-filled message
-            window.location.href = `sms:${JONATHAN_PHONE}&body=${encodeURIComponent('🆘 I need you!')}`;
+        async function sendQuickSOS() {
+            try {
+                await fetch(`${SUPABASE_URL}/functions/v1/kc-sos`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+                    },
+                    body: JSON.stringify({
+                        type: 'quick_sos',
+                        message: '🆘 Quick SOS - KC needs you!'
+                    })
+                });
+            } catch (e) {
+                console.error('SOS error:', e);
+            }
+            showSuccess();
         }
         
-        function sendCustomRequest() {
+        async function sendCustomRequest() {
             const request = document.getElementById('customRequest').value;
             if (!request.trim()) {
                 alert('Please enter what you need!');
                 return;
             }
-            // Open SMS with custom message
-            window.location.href = `sms:${JONATHAN_PHONE}&body=${encodeURIComponent(request)}`;
+            
+            try {
+                await fetch(`${SUPABASE_URL}/functions/v1/kc-sos`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+                    },
+                    body: JSON.stringify({
+                        type: 'custom_request',
+                        message: request
+                    })
+                });
+            } catch (e) {
+                console.error('SOS error:', e);
+            }
+            
+            document.getElementById('customRequest').value = '';
+            showSuccess();
         }
         
         // Task checkbox toggle (visual only for now)
