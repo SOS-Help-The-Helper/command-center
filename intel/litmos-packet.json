@@ -1,0 +1,266 @@
+{
+  "company": "Litmos",
+  "domain": "litmos.com",
+  "lastUpdated": "2026-02-03T03:25:00Z",
+  "status": "PRIORITY_ACTION_NEEDED",
+  "alertLevel": "HIGH",
+  
+  "companyProfile": {
+    "description": "Corporate Learning Management System (LMS)",
+    "ownership": "Francisco Partners (PE) - acquired from SAP Dec 2022",
+    "customers": "4,000+ companies, 30M+ learners",
+    "coverage": "150 countries, 35 languages",
+    "founded": 2007,
+    "marketPosition": "#3 in LMS behind Docebo, Absorb",
+    "sweetSpot": "Mid-market, sub-1000 users, less sophisticated buyers",
+    "marketSize": "$462.6B by 2027 (corporate eLearning)"
+  },
+  
+  "leadership": {
+    "ceo": {
+      "name": "Michelle Benfer",
+      "appointedDate": "2025-07-23",
+      "previousRole": "GTM Operating Partner, Francisco Partners",
+      "background": "Former SVP Sales The Americas at HubSpot (5.5 years)",
+      "connectionToJonathan": "HIGH - former HubSpot colleague, 5 meetings, hinted at Operating Partner role"
+    },
+    "cfo": "Tara Baker",
+    "cro": "Mark Rosenthal",
+    "cco": "Todd Lefkowitz",
+    "svpMarketing": "Erica Light",
+    "clo": "Dr. Jill Stefaniak",
+    "vpProduct": "Dr. Jen Farthing"
+  },
+  
+  "deals": {
+    "reforge": {
+      "name": "Litmos | IA",
+      "hubspotId": "45416583272",
+      "product": "Insights",
+      "amount": 15000,
+      "stage": "Aligning Solution",
+      "targetCloseDate": "2026-07-31",
+      "created": "2025-10-07",
+      "owner": "Jonathan Greenberg",
+      "status": "STALLED",
+      "daysSinceActivity": 7,
+      "blockers": [
+        "Internal reorganization post CEO change",
+        "Data quality issues need resolution first",
+        "Budget uncertainty (PE-owned)"
+      ],
+      "accelerators": [
+        "Michelle is CEO - executive sponsor",
+        "Harmony work built trust",
+        "Clear pain points identified",
+        "High feedback volume = perfect Insights use case"
+      ]
+    },
+    "harmony": {
+      "name": "Customer Journey Documentation",
+      "status": "PHASE_1_COMPLETE",
+      "timeline": "Oct 2025 - Dec 2025",
+      "deliverables": [
+        "Stakeholder interviews (Sales, Marketing, CX, CS)",
+        "Technical audit (Salesforce, Pardot, Power BI)",
+        "Data quality assessment",
+        "Process gap analysis",
+        "Recommendations deck (presented Dec 1, 2025)"
+      ],
+      "phase2Potential": [
+        "Implementation of recommendations",
+        "Salesforce optimization",
+        "Marketing attribution setup",
+        "GONG integration",
+        "Expansion signal scoring"
+      ],
+      "lastMeeting": "2026-01-27"
+    }
+  },
+  
+  "contacts": {
+    "decisionMaker": {
+      "name": "Michelle Benfer",
+      "email": "michelle.benfer@litmos.com",
+      "altEmail": "michelle.benfer@franciscopartners.com",
+      "role": "CEO",
+      "meetingCount": 5,
+      "lastMeeting": "2025-12-01",
+      "priority": "P0",
+      "notes": "Former HubSpot, hinted at Operating Partner role for Jonathan"
+    },
+    "technicalChampion": {
+      "name": "Micheal Crook",
+      "email": "micheal.crook@litmos.com",
+      "role": "Head of Business Systems",
+      "meetingCount": 14,
+      "lastMeeting": "2026-01-27",
+      "priority": "P1",
+      "notes": "Very engaged, eager to expand scope, 15 years Salesforce"
+    },
+    "budgetHolder": {
+      "name": "Tara Baker",
+      "email": "tara.baker@litmos.com",
+      "role": "CFO",
+      "meetingCount": 1,
+      "priority": "P2",
+      "notes": "Limited engagement - needs relationship building"
+    },
+    "others": [
+      {
+        "name": "Ethan Warlick",
+        "email": "ethan.warlick@litmos.com",
+        "role": "Director Marketing Ops",
+        "meetingCount": 3
+      },
+      {
+        "name": "Erica Light",
+        "email": "erica.light@litmos.com",
+        "role": "SVP Marketing",
+        "meetingCount": 2,
+        "notes": "Flying blind on marketing data"
+      },
+      {
+        "name": "Colin Hegwood",
+        "email": "colin.hegwood@litmos.com",
+        "role": "Head of CX Ops",
+        "meetingCount": 2,
+        "notes": "Former HubSpotter"
+      },
+      {
+        "name": "Todd Lefkowitz",
+        "email": "todd.lefkowitz@litmos.com",
+        "role": "CCO",
+        "meetingCount": 2
+      },
+      {
+        "name": "Trent Schoonmaker",
+        "email": "trent.schoonmaker@litmos.com",
+        "role": "VP Sales Ops",
+        "meetingCount": 1
+      },
+      {
+        "name": "Dodge Walker",
+        "email": "dodge.walker@litmos.com",
+        "role": "Sales",
+        "meetingCount": 2
+      }
+    ]
+  },
+  
+  "engagementHistory": {
+    "totalMeetings": 18,
+    "firstMeeting": "2025-10-14",
+    "lastMeeting": "2026-01-27",
+    "meetingGapDays": 7,
+    "meetingsByType": {
+      "strategySync": 6,
+      "auditInterviews": 8,
+      "findingsPresentation": 1,
+      "kickoff": 2,
+      "other": 1
+    }
+  },
+  
+  "insights": {
+    "challenges": [
+      "Data quality issues - can't trust reports",
+      "Pardot underutilized, integration broken",
+      "Reps not logging activities",
+      "No expansion signal detection",
+      "Marketing attribution blind spots",
+      "Manual quoting process",
+      "SAP legacy customer churn"
+    ],
+    "opportunities": [
+      "Michelle as CEO = executive sponsor locked",
+      "Clear pain points = easy Insights pitch",
+      "Harmony trust = Reforge credibility",
+      "FP portfolio expansion potential",
+      "Operating Partner possibility mentioned"
+    ],
+    "competitiveIntel": {
+      "position": "#3 in LMS market",
+      "ahead": ["Docebo (#1)", "Absorb LMS (#2)"],
+      "behind": ["TalentLMS", "LinkedIn Learning", "Moodle"]
+    }
+  },
+  
+  "nextActions": [
+    {
+      "action": "Send congratulations/reconnect email to Michelle",
+      "owner": "Jonathan",
+      "dueDate": "2026-02-03",
+      "priority": "P0",
+      "status": "pending"
+    },
+    {
+      "action": "Schedule Michelle 1:1 call",
+      "owner": "Jonathan",
+      "dueDate": "2026-02-07",
+      "priority": "P0",
+      "status": "pending"
+    },
+    {
+      "action": "Prepare Harmony Phase 2 proposal",
+      "owner": "Jonathan + Mike Hubert",
+      "dueDate": "2026-02-10",
+      "priority": "P1",
+      "status": "pending"
+    },
+    {
+      "action": "Create Litmos-specific Insights demo",
+      "owner": "Jonathan",
+      "dueDate": "2026-02-14",
+      "priority": "P1",
+      "status": "pending"
+    },
+    {
+      "action": "Engage CFO Tara Baker",
+      "owner": "Jonathan",
+      "dueDate": "2026-02-14",
+      "priority": "P2",
+      "status": "pending"
+    }
+  ],
+  
+  "risks": [
+    {
+      "risk": "Michelle consumed by CEO fires",
+      "likelihood": "HIGH",
+      "impact": "HIGH",
+      "mitigation": "Stay visible, offer help"
+    },
+    {
+      "risk": "Budget freeze (PE pressure)",
+      "likelihood": "MEDIUM",
+      "impact": "HIGH",
+      "mitigation": "Emphasize ROI, pilot approach"
+    },
+    {
+      "risk": "Momentum loss from meeting gap",
+      "likelihood": "MEDIUM",
+      "impact": "MEDIUM",
+      "mitigation": "Reconnect this week"
+    }
+  ],
+  
+  "keyQuotes": {
+    "michelle_on_needs": "We don't really have a good way to see when accounts should be ready to talk to for upsell opportunities.",
+    "michelle_on_data": "How do we measure success? Like, how do we know how many meetings somebody should have?",
+    "michelle_on_changes": "VP of Sales Ops needs to go. We're hiring an SVP of Go to Market Ops ASAP.",
+    "jonathan_on_opportunity": "She was openly hinting at possibly trying to poach me from Reforge in like a year as Operating Partner for their companies."
+  },
+  
+  "timeline": {
+    "2022-12-06": "Francisco Partners acquires Litmos from SAP",
+    "2024-01-17": "Jeff Griggs appointed CRO",
+    "2025-07-23": "Michelle Benfer appointed CEO",
+    "2025-10-07": "Reforge deal created in HubSpot",
+    "2025-10-14": "First Litmos strategy meeting",
+    "2025-10-28": "Harmony kickoff with Michelle",
+    "2025-12-01": "Audit findings presented to Michelle",
+    "2026-01-27": "Most recent meeting",
+    "2026-02-03": "Today - 7 day gap, action needed"
+  }
+}

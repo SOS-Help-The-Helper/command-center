@@ -1,12 +1,57 @@
 {
-  "lastUpdated": "2026-02-03T14:00:00Z",
+  "lastUpdated": "2026-02-03T15:03:00Z",
   "runType": "scheduled_intel",
   "summary": {
     "highPriority": 2,
-    "newSignals": 3,
+    "newSignals": 5,
     "alertsRequiringAction": 1
   },
   "signals": [
+    {
+      "timestamp": "2026-02-03T15:03:00Z",
+      "type": "positive_reply",
+      "company": "Laeka (Dominique Pelser)",
+      "signal": "Renewal prospect excited: 'Really excited, deck looks great!' - positive buying signal",
+      "urgency": "high",
+      "recommendation": "Strike while hot - send calendar link for next steps call",
+      "source": "gmail_sync"
+    },
+    {
+      "timestamp": "2026-02-03T15:03:00Z",
+      "type": "decision_pending",
+      "company": "Maestro",
+      "signal": "Prasanth (CEO): 'Will discuss internally and get back on next steps timing' - in decision mode",
+      "urgency": "medium",
+      "recommendation": "Follow up in 2-3 days if no response. They're evaluating.",
+      "source": "gmail_sync"
+    },
+    {
+      "timestamp": "2026-02-03T15:03:00Z",
+      "type": "new_meeting",
+      "company": "SafeLease (Cory Feinberg)",
+      "signal": "New prospect booked Feb 10 - 'curious about how product org may utilize Reforge'",
+      "urgency": "low",
+      "recommendation": "Research SafeLease before meeting. Product org = potential multi-seat deal.",
+      "source": "gmail_sync"
+    },
+    {
+      "timestamp": "2026-02-03T15:03:00Z",
+      "type": "meeting_confirmed",
+      "company": "Elsevier",
+      "signal": "Maya Oded accepted meeting Feb 10 10:15 AM",
+      "urgency": "low",
+      "recommendation": "Elsevier is enterprise. Prep enterprise pitch.",
+      "source": "gmail_sync"
+    },
+    {
+      "timestamp": "2026-02-03T15:03:00Z",
+      "type": "stale_outreach",
+      "company": "Builder Chat Recipients",
+      "signal": "5-6 day old outreach with no replies: Ryna, Leslie, United, Akar, Justin",
+      "urgency": "low",
+      "recommendation": "Send bump email or move on. Cold outreach conversion is low.",
+      "source": "gmail_sync"
+    },
     {
       "timestamp": "2026-02-03T14:00:00Z",
       "type": "event_opportunity",
@@ -137,5 +182,6 @@
     "reforgeReplies": 0,
     "meetingConfirmations": 0,
     "note": "No new Reforge-related emails in last 2 days"
-  }
+  },
+  "lastGmailSync": "2026-02-03T15:03:00Z"
 }

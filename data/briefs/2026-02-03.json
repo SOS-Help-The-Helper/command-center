@@ -1,6 +1,6 @@
 {
   "date": "2026-02-03",
-  "generatedAt": "2026-02-03T07:00:00Z",
+  "generatedAt": "2026-02-03T15:03:00Z",
   "priorities": [
     {
       "rank": 1,
@@ -13,7 +13,7 @@
         "Bridge to Reforge Insights conversation"
       ],
       "revenue": "$15K Reforge + Harmony expansion",
-      "notes": "CEO sponsor for both deals. Success → opens FP portfolio."
+      "notes": "CEO sponsor for both deals. Success \u2192 opens FP portfolio."
     },
     {
       "rank": 2,
@@ -43,32 +43,125 @@
     }
   ],
   "calendar": [
-    {"date": "2026-02-03", "time": "08:00", "title": "Weekly Pipeline Sync - Insights", "company": null, "value": null},
-    {"date": "2026-02-03", "time": "10:00", "title": "Weekly SaaS Pipeline Call Review", "company": null, "value": null},
-    {"date": "2026-02-04", "time": "15:00", "title": "Yazio Pilot Review", "company": "Yazio", "value": "$15K"},
-    {"date": "2026-02-04", "time": "19:00", "title": "Console Pilot Config", "company": "Console", "value": "$15K"},
-    {"date": "2026-02-05", "time": "15:00", "title": "Ecovadis Pilot Kickoff", "company": "Ecovadis", "value": "$18K"},
-    {"date": "2026-02-05", "time": "15:15", "title": "PiNCAMP Discovery", "company": "PiNCAMP", "value": null},
-    {"date": "2026-02-05", "time": "16:00", "title": "Numan Discovery", "company": "Numan", "value": null},
-    {"date": "2026-02-06", "time": "09:00", "title": "EPD Team Weekly", "company": null, "value": null},
-    {"date": "2026-02-06", "time": "11:00", "title": "All-company Q&A", "company": null, "value": null},
-    {"date": "2026-02-06", "time": "16:00", "title": "Skeps Build Meeting", "company": "Skeps", "value": null},
-    {"date": "2026-02-06", "time": "18:15", "title": "Fleetio Insights Discovery", "company": "Fleetio", "value": null}
+    {
+      "date": "2026-02-03",
+      "time": "10:15",
+      "title": "WithGrowth Discovery",
+      "company": "WithGrowth",
+      "value": null
+    },
+    {
+      "date": "2026-02-03",
+      "time": "12:15",
+      "title": "Canon Press Insights",
+      "company": "Canon Press",
+      "value": null
+    },
+    {
+      "date": "2026-02-04",
+      "time": "11:00",
+      "title": "Anton Moritz Strategy Call",
+      "company": "Anton Moritz",
+      "value": null
+    },
+    {
+      "date": "2026-02-04",
+      "time": "15:00",
+      "title": "Yazio Pilot Review",
+      "company": "Yazio",
+      "value": "$15K"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "19:00",
+      "title": "Console Pilot Config",
+      "company": "Console",
+      "value": "$15K"
+    },
+    {
+      "date": "2026-02-05",
+      "time": "15:00",
+      "title": "Ecovadis Pilot Kickoff",
+      "company": "Ecovadis",
+      "value": "$18K"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "10:30",
+      "title": "john Bengtsson Meeting",
+      "company": null,
+      "value": null
+    },
+    {
+      "date": "2026-02-10",
+      "time": "10:15",
+      "title": "Elsevier Discovery",
+      "company": "Elsevier",
+      "value": null
+    },
+    {
+      "date": "2026-02-10",
+      "time": "13:15",
+      "title": "SafeLease (Cory Feinberg)",
+      "company": "SafeLease",
+      "value": null
+    }
   ],
   "projectHealth": {
-    "reforge": {"status": "yellow", "quotaProgress": 0.33, "note": "33% Q1 quota ($50K of $150K ARR)"},
-    "harmony": {"status": "yellow", "activeRevenue": 45000, "atRisk": 15000, "note": "$45K active, $15K at risk"},
-    "sos": {"status": "green", "mvpProgress": 0.75, "note": "75% MVP, Aid Arena testing once channel configured"}
+    "reforge": {
+      "status": "yellow",
+      "quotaProgress": 0.33,
+      "note": "33% Q1 quota ($50K of $150K ARR)"
+    },
+    "harmony": {
+      "status": "yellow",
+      "activeRevenue": 45000,
+      "atRisk": 15000,
+      "note": "$45K active, $15K at risk"
+    },
+    "sos": {
+      "status": "green",
+      "mvpProgress": 0.75,
+      "note": "75% MVP, Aid Arena testing once channel configured"
+    }
   },
   "fires": [
-    {"company": "EvenUp", "issue": "$50K pilot, 105 days stalled", "urgency": "high"},
-    {"company": "Muse Group", "issue": "$15K, 61 days in contracting", "urgency": "high"},
-    {"company": "HubSpot", "issue": "Card payment failed Jan 31", "urgency": "medium"},
-    {"company": "Anthropic", "issue": "API access turned off", "urgency": "medium"}
+    {
+      "company": "EvenUp",
+      "issue": "$50K pilot, 105 days stalled",
+      "urgency": "high"
+    },
+    {
+      "company": "Muse Group",
+      "issue": "$15K, 61 days in contracting",
+      "urgency": "high"
+    },
+    {
+      "company": "HubSpot",
+      "issue": "Card payment failed Jan 31",
+      "urgency": "medium"
+    },
+    {
+      "company": "Anthropic",
+      "issue": "API access turned off",
+      "urgency": "medium"
+    }
   ],
   "meetingIntel": {
-    "Ecovadis": {"funding": null, "headcount": null, "angle": "Sustainability ratings, 49K+ ratings 2024. Competitive with Replit."},
-    "Numan": {"funding": "$60M July 2025", "headcount": null, "angle": "UK men's health, 150% growth, 650K+ patients"},
-    "Fleetio": {"funding": "$624M March 2025", "headcount": null, "angle": "$1.5B unicorn, fleet management, record H1 2025"}
+    "Ecovadis": {
+      "funding": null,
+      "headcount": null,
+      "angle": "Sustainability ratings, 49K+ ratings 2024. Competitive with Replit."
+    },
+    "Numan": {
+      "funding": "$60M July 2025",
+      "headcount": null,
+      "angle": "UK men's health, 150% growth, 650K+ patients"
+    },
+    "Fleetio": {
+      "funding": "$624M March 2025",
+      "headcount": null,
+      "angle": "$1.5B unicorn, fleet management, record H1 2025"
+    }
   }
 }
