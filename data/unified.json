@@ -1,6 +1,6 @@
 {
   "version": "1.1.0",
-  "lastUpdated": "2026-02-03T14:50:52.331325Z",
+  "lastUpdated": "2026-02-03T14:50:00Z",
   "contributors": [
     {
       "id": "jonathan",
@@ -1516,8 +1516,54 @@
       }
     },
     "sos": {
-      "signalCount": 0,
-      "latestSignals": []
+      "signalCount": 7,
+      "latestSignals": [
+        {
+          "timestamp": "2026-02-03T14:00:00Z",
+          "type": "competitor",
+          "company": "Palantir",
+          "signal": "US gov revenue up 66% to $570M/quarter. Expecting $7.2B in 2026. Army contract worth $10B. Racing ahead in government space.",
+          "urgency": "high",
+          "recommendation": "Focus SOS on community coordination - Palantir focuses agency-to-agency, NOT community-agency bridge.",
+          "source": "Palantir Q4 2025 earnings"
+        },
+        {
+          "timestamp": "2026-02-03T14:00:00Z",
+          "type": "market",
+          "company": "FEMA",
+          "signal": "1,000+ workers being cut. Workforce went from ~29,000 to ~23,000. Creates opportunity for tech efficiency plays.",
+          "urgency": "medium",
+          "recommendation": "Position SOS as force multiplier for reduced FEMA workforce. Efficiency angle.",
+          "source": "NLIHC, Reuters, NPR Jan 2026"
+        },
+        {
+          "timestamp": "2026-02-02T22:00:00Z",
+          "type": "grant",
+          "company": "EDA",
+          "signal": "EDA Disaster Supplemental Grant deadline March 3, 2026. $250K-$500K available for disaster tech.",
+          "urgency": "high",
+          "recommendation": "Start application this week. Due in 4 weeks.",
+          "source": "SAM.gov"
+        },
+        {
+          "timestamp": "2026-02-02T22:00:00Z",
+          "type": "grant",
+          "company": "Hilton Foundation",
+          "signal": "Conrad Hilton Foundation - perfect mission alignment (9/10 fit). Rolling deadline. Focus on disaster resilience.",
+          "urgency": "high",
+          "recommendation": "Draft LOI this week.",
+          "source": "Foundation research"
+        },
+        {
+          "timestamp": "2026-02-02T17:00:00Z",
+          "type": "competitor",
+          "company": "WebEOC",
+          "signal": "Confirmed frustration in r/EmergencyManagement and DHS OIG reports. 'Duplicative data entry' problems. Expensive, slow.",
+          "urgency": "medium",
+          "recommendation": "Target WebEOC customers. They're frustrated with data entry burden.",
+          "source": "Reddit, DHS OIG"
+        }
+      ]
     }
   },
   "activity": [
