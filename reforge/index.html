@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reforge Command Center</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            reforge: {
+              purple: '#6B4EFF',
+              'purple-dark': '#5038E0',
+              'purple-light': '#8B73FF',
+              navy: '#1A1A2E',
+              'navy-light': '#252542',
+              slate: '#374151',
+              muted: '#9CA3AF'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-bg { background: linear-gradient(180deg, #1A1A2E 0%, #0F0F1A 100%); }
+    .card { background: rgba(37, 37, 66, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(107, 78, 255, 0.2); }
+    .card:hover { border-color: rgba(107, 78, 255, 0.4); }
+    .nav-link { transition: all 0.2s; }
+    .nav-link:hover { background: rgba(107, 78, 255, 0.1); }
+    .nav-link.active { background: rgba(107, 78, 255, 0.2); border-left: 3px solid #6B4EFF; }
+    .btn-primary { background: linear-gradient(135deg, #6B4EFF 0%, #5038E0 100%); }
+    .btn-primary:hover { background: linear-gradient(135deg, #7B5EFF 0%, #6048F0 100%); }
+    .glow { box-shadow: 0 0 30px rgba(107, 78, 255, 0.2); }
+  </style>
+</head>
+<body class="gradient-bg min-h-screen text-white">
+  <div class="flex">
+    <!-- Sidebar Navigation -->
+    <nav class="w-64 min-h-screen bg-reforge-navy border-r border-reforge-purple/20 fixed">
+      <div class="p-6">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-10 h-10 rounded-lg btn-primary flex items-center justify-center font-bold text-lg">R</div>
+          <div>
+            <h1 class="font-semibold text-lg">Reforge</h1>
+            <p class="text-xs text-reforge-muted">Command Center</p>
+          </div>
+        </div>
+        
+        <div class="space-y-1">
+          <a href="#overview" class="nav-link active flex items-center gap-3 px-4 py-3 rounded-lg text-sm" onclick="showSection('overview')">
+            <span>📊</span> Overview
+          </a>
+          <a href="#discovery" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg text-sm" onclick="showSection('discovery')">
+            <span>🔍</span> Discovery Validation
+          </a>
+          <a href="#pitch-deck" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg text-sm" onclick="showSection('pitch-deck')">
+            <span>📑</span> Pitch Deck Generator
+          </a>
+          <a href="#lead-qualifier" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg text-sm" onclick="showSection('lead-qualifier')">
+            <span>🎯</span> Lead Qualifier
+          </a>
+          <a href="#opportunities" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg text-sm" onclick="showSection('opportunities')">
+            <span>💰</span> Opportunity Decisions
+          </a>
+        </div>
+        
+        <div class="absolute bottom-6 left-6 right-6">
+          <div class="card rounded-lg p-4">
+            <p class="text-xs text-reforge-muted mb-1">Q1 2026 Progress</p>
+            <div class="flex items-center gap-2">
+              <div class="flex-1 h-2 bg-reforge-navy rounded-full overflow-hidden">
+                <div class="h-full bg-reforge-purple rounded-full" style="width: 29%"></div>
+              </div>
+              <span class="text-xs font-medium">29%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="ml-64 flex-1 p-8">
+      
+      <!-- Overview Section -->
+      <section id="overview" class="section">
+        <header class="mb-8">
+          <h2 class="text-2xl font-bold mb-2">GTM-E Overview</h2>
+          <p class="text-reforge-muted">Q1 2026 • Product Discovery Agent Launch</p>
+        </header>
+
+        <!-- Key Metrics -->
+        <div class="grid grid-cols-4 gap-4 mb-8">
+          <div class="card rounded-xl p-5 glow">
+            <p class="text-reforge-muted text-sm mb-1">Meetings Booked</p>
+            <div class="flex items-baseline gap-2">
+              <span class="text-3xl font-bold text-green-400">20</span>
+              <span class="text-sm text-reforge-muted">/70</span>
+            </div>
+            <div class="mt-2 h-1.5 bg-reforge-navy rounded-full">
+              <div class="h-full bg-green-500 rounded-full" style="width: 29%"></div>
+            </div>
+          </div>
+          
+          <div class="card rounded-xl p-5">
+            <p class="text-reforge-muted text-sm mb-1">Jonathan's Calls</p>
+            <div class="flex items-baseline gap-2">
+              <span class="text-3xl font-bold text-reforge-purple-light">20</span>
+              <span class="text-sm text-reforge-muted">Q1</span>
+            </div>
+            <p class="text-xs text-reforge-muted mt-2">~5/week average</p>
+          </div>
+          
+          <div class="card rounded-xl p-5">
+            <p class="text-reforge-muted text-sm mb-1">Signals Validated</p>
+            <div class="flex items-baseline gap-2">
+              <span class="text-3xl font-bold text-yellow-400">1</span>
+              <span class="text-sm text-reforge-muted">/3</span>
+            </div>
+            <div class="mt-2 h-1.5 bg-reforge-navy rounded-full">
+              <div class="h-full bg-yellow-500 rounded-full" style="width: 33%"></div>
+            </div>
+          </div>
+          
+          <div class="card rounded-xl p-5">
+            <p class="text-reforge-muted text-sm mb-1">Pipeline</p>
+            <div class="flex items-baseline gap-2">
+              <span class="text-3xl font-bold">$311K</span>
+            </div>
+            <p class="text-xs text-green-400 mt-2">↑ Active opportunities</p>
+          </div>
+        </div>
+
+        <!-- Two Column Layout -->
+        <div class="grid grid-cols-2 gap-6 mb-8">
+          <!-- Positioning Card -->
+          <div class="card rounded-xl p-6">
+            <h3 class="font-semibold mb-4 flex items-center gap-2">
+              <span class="w-2 h-2 bg-reforge-purple rounded-full"></span>
+              Current Positioning
+            </h3>
+            <div class="space-y-4">
+              <div class="border-l-2 border-red-500 pl-3">
+                <p class="text-xs text-reforge-muted uppercase tracking-wide">Problem We Own</p>
+                <p class="font-semibold text-red-400">The Discovery Deficit</p>
+              </div>
+              <div class="border-l-2 border-reforge-purple pl-3">
+                <p class="text-xs text-reforge-muted uppercase tracking-wide">Our Position</p>
+                <p class="font-semibold text-reforge-purple-light">Product Discovery Suite</p>
+              </div>
+              <div class="border-l-2 border-yellow-500 pl-3">
+                <p class="text-xs text-reforge-muted uppercase tracking-wide">The Enemy</p>
+                <p class="font-semibold text-yellow-400">Product Debt</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Workstreams -->
+          <div class="card rounded-xl p-6">
+            <h3 class="font-semibold mb-4 flex items-center gap-2">
+              <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+              Q1 Workstreams
+            </h3>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between bg-reforge-navy/50 rounded-lg p-3">
+                <div>
+                  <p class="font-medium text-sm">A: Messaging & Personalization</p>
+                  <p class="text-xs text-reforge-muted">Testing angles</p>
+                </div>
+                <span class="px-2 py-1 bg-yellow-500/20 text-yellow-400 text-xs rounded-full">Active</span>
+              </div>
+              <div class="flex items-center justify-between bg-reforge-navy/50 rounded-lg p-3">
+                <div>
+                  <p class="font-medium text-sm">B: Audiences & Signals</p>
+                  <p class="text-xs text-reforge-muted">Signal experiments</p>
+                </div>
+                <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Live</span>
+              </div>
+              <div class="flex items-center justify-between bg-reforge-navy/50 rounded-lg p-3">
+                <div>
+                  <p class="font-medium text-sm">C: Infrastructure & AI</p>
+                  <p class="text-xs text-reforge-muted">Building agents</p>
+                </div>
+                <span class="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full">Building</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Calls -->
+        <div class="card rounded-xl p-6">
+          <h3 class="font-semibold mb-4">Recent Calls</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-2" id="recentCalls">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Discovery Validation Section -->
+      <section id="discovery" class="section hidden">
+        <header class="mb-8">
+          <h2 class="text-2xl font-bold mb-2">Discovery Validation</h2>
+          <p class="text-reforge-muted">Pitch resonance analysis from call transcripts</p>
+        </header>
+        
+        <div class="card rounded-xl p-6 mb-6" id="discoveryLoading">
+          <div class="flex items-center gap-3">
+            <div class="animate-spin w-5 h-5 border-2 border-reforge-purple border-t-transparent rounded-full"></div>
+            <p>Analyzing call transcripts... This may take a few minutes.</p>
+          </div>
+        </div>
+
+        <div id="discoveryContent" class="hidden">
+          <!-- Will be populated with analysis results -->
+        </div>
+      </section>
+
+      <!-- Pitch Deck Generator Section -->
+      <section id="pitch-deck" class="section hidden">
+        <header class="mb-8">
+          <h2 class="text-2xl font-bold mb-2">Pitch Deck Generator</h2>
+          <p class="text-reforge-muted">Customize "Why Reforge" deck for each prospect</p>
+        </header>
+        
+        <div class="card rounded-xl p-6 mb-6">
+          <h3 class="font-semibold mb-4">Generate Custom Deck</h3>
+          
+          <div class="grid grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm text-reforge-muted mb-2">Company Name</label>
+              <input type="text" id="deckCompany" placeholder="e.g., Acme Corp" 
+                class="w-full bg-reforge-navy border border-reforge-purple/30 rounded-lg px-4 py-3 focus:border-reforge-purple focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-sm text-reforge-muted mb-2">Buyer Persona</label>
+              <select id="deckPersona" class="w-full bg-reforge-navy border border-reforge-purple/30 rounded-lg px-4 py-3 focus:border-reforge-purple focus:outline-none">
+                <option value="product-leader">Product Leader</option>
+                <option value="pm">Product Manager</option>
+                <option value="designer">Designer</option>
+                <option value="engineering-leader">Engineering Leader</option>
+                <option value="finance">Finance/Procurement</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm text-reforge-muted mb-2">Company Size</label>
+              <select id="deckSize" class="w-full bg-reforge-navy border border-reforge-purple/30 rounded-lg px-4 py-3 focus:border-reforge-purple focus:outline-none">
+                <option value="51-200">51-200 employees</option>
+                <option value="201-500">201-500 employees</option>
+                <option value="500+">500+ employees</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm text-reforge-muted mb-2">Primary Pain Point</label>
+              <select id="deckPain" class="w-full bg-reforge-navy border border-reforge-purple/30 rounded-lg px-4 py-3 focus:border-reforge-purple focus:outline-none">
+                <option value="discovery-deficit">Discovery can't keep up with engineering</option>
+                <option value="product-debt">Maintaining unused features</option>
+                <option value="validation-speed">Slow customer validation</option>
+                <option value="context-gathering">Manual context gathering</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="mt-6">
+            <label class="block text-sm text-reforge-muted mb-2">Additional Context (optional)</label>
+            <textarea id="deckContext" rows="3" placeholder="Any specific details about the company, their tech stack, recent news..."
+              class="w-full bg-reforge-navy border border-reforge-purple/30 rounded-lg px-4 py-3 focus:border-reforge-purple focus:outline-none resize-none"></textarea>
+          </div>
+          
+          <button onclick="generateDeck()" class="btn-primary mt-6 px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all">
+            🎨 Generate Custom Deck
+          </button>
+        </div>
+
+        <div id="deckResult" class="hidden card rounded-xl p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-semibold">Generated Deck</h3>
+            <div class="flex gap-2">
+              <button class="px-4 py-2 bg-reforge-navy rounded-lg text-sm hover:bg-reforge-navy-light">
+                📥 Download PDF
+              </button>
+              <button class="px-4 py-2 bg-green-600 rounded-lg text-sm hover:bg-green-700">
+                📤 Save to Drive
+              </button>
+            </div>
+          </div>
+          <div id="deckPreview" class="bg-reforge-navy rounded-lg p-4 min-h-[300px]">
+            <!-- Preview will appear here -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Lead Qualifier Section -->
+      <section id="lead-qualifier" class="section hidden">
+        <header class="mb-8">
+          <h2 class="text-2xl font-bold mb-2">Lead Qualifier</h2>
+          <p class="text-reforge-muted">Quick ICP fit assessment for inbound leads</p>
+        </header>
+        
+        <div class="grid grid-cols-3 gap-6">
+          <div class="col-span-2">
+            <div class="card rounded-xl p-6">
+              <h3 class="font-semibold mb-4">Qualify a Lead</h3>
+              
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-sm text-reforge-muted mb-2">Company Name or LinkedIn URL</label>
+                  <input type="text" id="leadInput" placeholder="e.g., Acme Corp or linkedin.com/company/acme" 
+                    class="w-full bg-reforge-navy border border-reforge-purple/30 rounded-lg px-4 py-3 focus:border-reforge-purple focus:outline-none">
+                </div>
+                
+                <button onclick="qualifyLead()" class="btn-primary px-6 py-3 rounded-lg font-medium w-full">
+                  🎯 Analyze Lead
+                </button>
+              </div>
+            </div>
+
+            <div id="leadResult" class="hidden card rounded-xl p-6 mt-6">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-semibold">Qualification Result</h3>
+                <span id="leadScore" class="px-3 py-1 rounded-full text-sm font-medium"></span>
+              </div>
+              <div id="leadDetails">
+                <!-- Results populated by JS -->
+              </div>
+            </div>
+          </div>
+
+          <div class="card rounded-xl p-6">
+            <h3 class="font-semibold mb-4">ICP Criteria</h3>
+            <div class="space-y-3 text-sm">
+              <div class="flex items-start gap-2">
+                <span class="text-green-400">✓</span>
+                <span>51-500 employees</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-green-400">✓</span>
+                <span>Web-first B2B SaaS</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-green-400">✓</span>
+                <span>AI coding tools adopted</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-green-400">✓</span>
+                <span>Product-led growth</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-red-400">✗</span>
+                <span>Mobile-first / hardware</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-red-400">✗</span>
+                <span>Customer support-led eval</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Opportunity Decisions Section -->
+      <section id="opportunities" class="section hidden">
+        <header class="mb-8">
+          <h2 class="text-2xl font-bold mb-2">Opportunity Decisions</h2>
+          <p class="text-reforge-muted">Track and decide on active pipeline</p>
+        </header>
+        
+        <div class="card rounded-xl p-6 mb-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-semibold">Active Pipeline: $311K</h3>
+            <div class="flex gap-2">
+              <button class="px-3 py-1 bg-reforge-navy rounded-lg text-sm">All</button>
+              <button class="px-3 py-1 bg-reforge-purple/20 text-reforge-purple-light rounded-lg text-sm">Needs Decision</button>
+              <button class="px-3 py-1 bg-reforge-navy rounded-lg text-sm">Stale</button>
+            </div>
+          </div>
+          
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="text-reforge-muted border-b border-reforge-purple/20">
+                  <th class="text-left py-3 font-medium">Account</th>
+                  <th class="text-left py-3 font-medium">Product</th>
+                  <th class="text-right py-3 font-medium">Size</th>
+                  <th class="text-left py-3 font-medium">Status</th>
+                  <th class="text-left py-3 font-medium">Last Activity</th>
+                  <th class="text-right py-3 font-medium">Action</th>
+                </tr>
+              </thead>
+              <tbody id="opportunitiesTable">
+                <!-- Populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6">
+          <div class="card rounded-xl p-6">
+            <h3 class="font-semibold mb-4 text-yellow-400">⚠️ Stale Opportunities</h3>
+            <p class="text-sm text-reforge-muted mb-4">No activity in 7+ days</p>
+            <div id="staleOpps" class="space-y-2">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+          
+          <div class="card rounded-xl p-6">
+            <h3 class="font-semibold mb-4 text-red-400">🔥 Hot Opportunities</h3>
+            <p class="text-sm text-reforge-muted mb-4">Needs immediate attention</p>
+            <div class="space-y-2">
+              <div class="bg-red-500/10 border border-red-500/30 rounded-lg p-3">
+                <div class="flex items-center justify-between">
+                  <span class="font-medium">EvenUp</span>
+                  <span class="text-sm">$50K</span>
+                </div>
+                <p class="text-xs text-reforge-muted mt-1">Pilot stalled 105+ days • Just raised $150M</p>
+                <p class="text-xs text-yellow-400 mt-2">→ Re-engage while in momentum mode</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Navigation
+    function showSection(sectionId) {
+      document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      document.getElementById(sectionId).classList.remove('hidden');
+      document.querySelector(`[onclick="showSection('${sectionId}')"]`).classList.add('active');
+    }
+
+    // Recent calls data
+    const recentCalls = [
+      { date: 'Jan 30', company: 'Console', duration: '19min', url: '#' },
+      { date: 'Jan 30', company: 'Evergive Ltd', duration: '8min', url: '#' },
+      { date: 'Jan 29', company: 'Maestro', duration: '25min', url: '#' },
+      { date: 'Jan 26', company: 'Brigit', duration: '20min', url: '#' },
+      { date: 'Jan 22', company: 'DreamHost', duration: '27min', url: '#' },
+      { date: 'Jan 22', company: 'Ecovadis', duration: '30min', url: '#' },
+    ];
+
+    // Pipeline data
+    const pipeline = [
+      { account: 'Neo Financial', product: 'IA + Research', size: 60000, status: 'Pricing sent', lastActivity: 'Jan 28', urgent: false },
+      { account: 'EvenUp', product: 'IA', size: 50000, status: 'Pilot stalled', lastActivity: 'Jan 21', urgent: true },
+      { account: 'E&Y', product: 'IA + Research', size: 30000, status: 'Discovery', lastActivity: 'Jan 25', urgent: false },
+      { account: 'Fox Local', product: 'IA + Research + Build', size: 27000, status: 'Budget approval', lastActivity: 'Jan 20', urgent: false },
+      { account: 'DreamHost', product: 'IA', size: 25000, status: 'In pilot', lastActivity: 'Jan 22', urgent: false },
+      { account: 'Ecovadis', product: 'Build + IA', size: 18000, status: 'Starting pilot', lastActivity: 'Jan 22', urgent: false },
+    ];
+
+    // Stale opportunities
+    const staleOpps = [
+      { company: 'Liven', lastCall: 'Jan 7', days: 27 },
+      { company: 'Opus 2', lastCall: 'Jan 9', days: 25 },
+      { company: 'Tie', lastCall: 'Jan 13', days: 21 },
+      { company: 'Caterina Technologies', lastCall: 'Jan 14', days: 20 },
+    ];
+
+    // Populate UI
+    function populateUI() {
+      // Recent calls
+      const callsHtml = recentCalls.map(c => `
+        <div class="flex items-center justify-between bg-reforge-navy/50 rounded-lg p-3">
+          <div>
+            <p class="font-medium text-sm">${c.company}</p>
+            <p class="text-xs text-reforge-muted">${c.date} • ${c.duration}</p>
+          </div>
+          <a href="${c.url}" class="text-reforge-purple text-sm">View →</a>
+        </div>
+      `).join('');
+      document.getElementById('recentCalls').innerHTML = callsHtml;
+
+      // Pipeline table
+      const pipelineHtml = pipeline.map(p => `
+        <tr class="border-b border-reforge-purple/10 ${p.urgent ? 'bg-red-500/5' : ''}">
+          <td class="py-3 font-medium">${p.account}</td>
+          <td class="py-3 text-reforge-muted">${p.product}</td>
+          <td class="py-3 text-right">$${(p.size/1000).toFixed(0)}K</td>
+          <td class="py-3">
+            <span class="px-2 py-1 ${p.urgent ? 'bg-red-500/20 text-red-400' : 'bg-reforge-purple/20 text-reforge-purple-light'} text-xs rounded-full">${p.status}</span>
+          </td>
+          <td class="py-3 text-reforge-muted">${p.lastActivity}</td>
+          <td class="py-3 text-right">
+            <button class="text-reforge-purple hover:text-reforge-purple-light text-sm">Decide →</button>
+          </td>
+        </tr>
+      `).join('');
+      document.getElementById('opportunitiesTable').innerHTML = pipelineHtml;
+
+      // Stale opps
+      const staleHtml = staleOpps.map(o => `
+        <div class="flex items-center justify-between bg-yellow-500/10 rounded-lg p-3">
+          <div>
+            <p class="font-medium text-sm">${o.company}</p>
+            <p class="text-xs text-reforge-muted">Last call: ${o.lastCall} (${o.days} days ago)</p>
+          </div>
+          <button class="text-yellow-400 text-sm">Follow up →</button>
+        </div>
+      `).join('');
+      document.getElementById('staleOpps').innerHTML = staleHtml;
+    }
+
+    // Pitch deck generator
+    function generateDeck() {
+      const company = document.getElementById('deckCompany').value;
+      const persona = document.getElementById('deckPersona').value;
+      const size = document.getElementById('deckSize').value;
+      const pain = document.getElementById('deckPain').value;
+      const context = document.getElementById('deckContext').value;
+
+      if (!company) {
+        alert('Please enter a company name');
+        return;
+      }
+
+      // Show result
+      document.getElementById('deckResult').classList.remove('hidden');
+      document.getElementById('deckPreview').innerHTML = `
+        <div class="text-center py-8">
+          <div class="animate-spin w-8 h-8 border-2 border-reforge-purple border-t-transparent rounded-full mx-auto mb-4"></div>
+          <p>Generating custom deck for ${company}...</p>
+          <p class="text-sm text-reforge-muted mt-2">Persona: ${persona} | Size: ${size}</p>
+        </div>
+      `;
+
+      // Simulate generation (replace with actual API call)
+      setTimeout(() => {
+        document.getElementById('deckPreview').innerHTML = `
+          <div class="space-y-4">
+            <div class="bg-reforge-navy-light rounded-lg p-4 border border-reforge-purple/30">
+              <p class="text-reforge-purple font-semibold mb-2">Slide 1: The Problem</p>
+              <p class="text-sm">Customized for ${company}'s ${persona} audience...</p>
+              <p class="text-xs text-reforge-muted mt-2">Primary pain: ${pain}</p>
+            </div>
+            <div class="bg-reforge-navy-light rounded-lg p-4 border border-reforge-purple/30">
+              <p class="text-reforge-purple font-semibold mb-2">Slide 2: The Discovery Deficit</p>
+              <p class="text-sm">AI accelerated engineering. Discovery didn't keep up.</p>
+            </div>
+            <div class="bg-reforge-navy-light rounded-lg p-4 border border-reforge-purple/30">
+              <p class="text-reforge-purple font-semibold mb-2">Slide 3: Product Debt Impact</p>
+              <p class="text-sm">Tailored for ${size} company challenges...</p>
+            </div>
+            <p class="text-center text-reforge-muted text-sm">+ 8 more slides customized for ${company}</p>
+          </div>
+        `;
+      }, 2000);
+    }
+
+    // Lead qualifier
+    function qualifyLead() {
+      const input = document.getElementById('leadInput').value;
+      if (!input) {
+        alert('Please enter a company name or LinkedIn URL');
+        return;
+      }
+
+      document.getElementById('leadResult').classList.remove('hidden');
+      document.getElementById('leadScore').className = 'px-3 py-1 rounded-full text-sm font-medium';
+      document.getElementById('leadDetails').innerHTML = `
+        <div class="flex items-center gap-3 py-4">
+          <div class="animate-spin w-5 h-5 border-2 border-reforge-purple border-t-transparent rounded-full"></div>
+          <p>Analyzing ${input}...</p>
+        </div>
+      `;
+
+      // Simulate analysis
+      setTimeout(() => {
+        const score = Math.floor(Math.random() * 40) + 60; // 60-100
+        const scoreClass = score >= 80 ? 'bg-green-500/20 text-green-400' : 
+                          score >= 60 ? 'bg-yellow-500/20 text-yellow-400' : 
+                          'bg-red-500/20 text-red-400';
+        
+        document.getElementById('leadScore').className = `px-3 py-1 rounded-full text-sm font-medium ${scoreClass}`;
+        document.getElementById('leadScore').textContent = `${score}% ICP Fit`;
+        
+        document.getElementById('leadDetails').innerHTML = `
+          <div class="space-y-3">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-reforge-navy/50 rounded-lg p-3">
+                <p class="text-xs text-reforge-muted">Company Size</p>
+                <p class="font-medium">~150 employees ✓</p>
+              </div>
+              <div class="bg-reforge-navy/50 rounded-lg p-3">
+                <p class="text-xs text-reforge-muted">Industry</p>
+                <p class="font-medium">B2B SaaS ✓</p>
+              </div>
+              <div class="bg-reforge-navy/50 rounded-lg p-3">
+                <p class="text-xs text-reforge-muted">AI Tools</p>
+                <p class="font-medium">Likely adopted ✓</p>
+              </div>
+              <div class="bg-reforge-navy/50 rounded-lg p-3">
+                <p class="text-xs text-reforge-muted">Platform</p>
+                <p class="font-medium">Web-first ✓</p>
+              </div>
+            </div>
+            <div class="bg-green-500/10 border border-green-500/30 rounded-lg p-3">
+              <p class="text-green-400 font-medium text-sm">Recommended: Proceed to outreach</p>
+              <p class="text-xs text-reforge-muted mt-1">Best angle: Discovery Deficit for Product Leaders</p>
+            </div>
+          </div>
+        `;
+      }, 1500);
+    }
+
+    // Initialize
+    populateUI();
+
+    // Check for discovery validation data
+    async function checkDiscoveryData() {
+      try {
+        const response = await fetch('../data/discovery_validation.json');
+        if (response.ok) {
+          const data = await response.json();
+          document.getElementById('discoveryLoading').classList.add('hidden');
+          document.getElementById('discoveryContent').classList.remove('hidden');
+          document.getElementById('discoveryContent').innerHTML = `
+            <div class="card rounded-xl p-6">
+              <h3 class="font-semibold mb-4">Pitch Resonance Analysis</h3>
+              <pre class="text-sm text-reforge-muted overflow-x-auto">${JSON.stringify(data, null, 2)}</pre>
+            </div>
+          `;
+        }
+      } catch (e) {
+        // Data not ready yet
+      }
+    }
+    
+    // Check every 30 seconds
+    setInterval(checkDiscoveryData, 30000);
+    checkDiscoveryData();
+  </script>
+</body>
+</html>
