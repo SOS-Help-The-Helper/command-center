@@ -968,21 +968,24 @@
               </div>
             </div>
             
-            <!-- Step 2: Details -->
+            <!-- Step 2: Details (dynamically updated based on category + type) -->
             <div class="form-step" data-step="2">
-              <h3 class="step-title">Tell us more about your situation</h3>
+              <h3 class="step-title" id="step2-title">Tell us more</h3>
               
               <div class="form-group">
                 <label class="form-label">Description</label>
-                <textarea class="form-textarea" id="description" placeholder="Describe your situation and what you need..." required></textarea>
+                <textarea class="form-textarea" id="description" placeholder="Describe your situation..." required></textarea>
               </div>
               
-              <div class="form-group">
-                <label class="form-label">Quantity / Number of People</label>
-                <input type="number" class="form-input" id="quantity" placeholder="e.g., 4 people" min="1">
+              <!-- Category-specific questions inserted here -->
+              <div id="category-questions"></div>
+              
+              <div class="form-group" id="quantity-group">
+                <label class="form-label" id="quantity-label">Quantity / Number of People</label>
+                <input type="number" class="form-input" id="quantity" placeholder="e.g., 4" min="1">
               </div>
               
-              <div class="form-group">
+              <div class="form-group" id="urgency-group">
                 <label class="form-label">Urgency Level</label>
                 <div class="urgency-grid">
                   <button type="button" class="urgency-btn critical" data-urgency="critical">🔴 Critical</button>
@@ -1304,6 +1307,105 @@
       document.getElementById('submit-btn').style.display = currentStep === 4 ? 'inline-flex' : 'none';
     }
     
+    // Update step 2 based on intake type and categories
+    function updateStep2Content() {
+      const isRequest = intakeType === 'need';
+      const cats = formData.categories;
+      
+      // Update title and description placeholder
+      document.getElementById('step2-title').textContent = isRequest 
+        ? 'Tell us more about your situation' 
+        : 'Tell us what you can provide';
+      
+      document.getElementById('description').placeholder = isRequest
+        ? 'Describe your situation and what you need...'
+        : 'Describe what you can offer and any conditions...';
+      
+      // Update quantity label based on category
+      const quantityLabel = document.getElementById('quantity-label');
+      const quantityInput = document.getElementById('quantity');
+      
+      if (cats.includes('housing')) {
+        quantityLabel.textContent = isRequest ? 'Number of People' : 'How many people can you accommodate?';
+        quantityInput.placeholder = 'e.g., 4';
+      } else if (cats.includes('food')) {
+        quantityLabel.textContent = isRequest ? 'Number of People to Feed' : 'Meals Available (per day)';
+        quantityInput.placeholder = isRequest ? 'e.g., 4' : 'e.g., 50';
+      } else if (cats.includes('supplies')) {
+        quantityLabel.textContent = isRequest ? 'Quantity Needed' : 'Quantity Available';
+        quantityInput.placeholder = 'e.g., 10';
+      } else {
+        quantityLabel.textContent = isRequest ? 'Number of People' : 'Capacity';
+        quantityInput.placeholder = 'e.g., 4';
+      }
+      
+      // Hide urgency for offers (resources don't have urgency)
+      document.getElementById('urgency-group').style.display = isRequest ? 'block' : 'none';
+      
+      // Add category-specific questions
+      let extraQuestions = '';
+      
+      if (cats.includes('housing')) {
+        extraQuestions += `
+          <div class="form-group">
+            <label class="form-label">${isRequest ? 'How long do you need housing?' : 'How long can you provide housing?'}</label>
+            <select class="form-select" id="housing-duration">
+              <option value="">Select timeframe</option>
+              <option value="days">A few days</option>
+              <option value="1-2weeks">1-2 weeks</option>
+              <option value="month">About a month</option>
+              <option value="longterm">Long-term (1+ months)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">${isRequest ? 'Do you have pets?' : 'Can you accommodate pets?'}</label>
+            <div style="display: flex; gap: 1rem;">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="pets" value="yes"> Yes
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="pets" value="no"> No
+              </label>
+            </div>
+          </div>
+        `;
+      }
+      
+      if (cats.includes('transport')) {
+        extraQuestions += `
+          <div class="form-group">
+            <label class="form-label">${isRequest ? 'Do you need wheelchair accessible transport?' : 'Is your vehicle wheelchair accessible?'}</label>
+            <div style="display: flex; gap: 1rem;">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="wheelchair" value="yes"> Yes
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="wheelchair" value="no"> No
+              </label>
+            </div>
+          </div>
+        `;
+      }
+      
+      if (cats.includes('medical')) {
+        extraQuestions += `
+          <div class="form-group">
+            <label class="form-label">${isRequest ? 'What type of medical need?' : 'What medical help can you provide?'}</label>
+            <select class="form-select" id="medical-type">
+              <option value="">Select type</option>
+              <option value="oxygen">Oxygen/Respiratory</option>
+              <option value="medication">Medication</option>
+              <option value="mobility">Mobility equipment</option>
+              <option value="firstaid">First aid/wound care</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        `;
+      }
+      
+      document.getElementById('category-questions').innerHTML = extraQuestions;
+    }
+    
     function nextStep() {
       // Validation
       if (currentStep === 1 && formData.categories.length === 0) {
@@ -1323,9 +1425,19 @@
       if (currentStep === 2) {
         formData.description = document.getElementById('description').value;
         formData.quantity = parseInt(document.getElementById('quantity').value) || 1;
+        // Save extra category-specific data
+        formData.housingDuration = document.getElementById('housing-duration')?.value || null;
+        formData.pets = document.querySelector('input[name="pets"]:checked')?.value || null;
+        formData.wheelchair = document.querySelector('input[name="wheelchair"]:checked')?.value || null;
+        formData.medicalType = document.getElementById('medical-type')?.value || null;
       }
       if (currentStep === 3) {
         formData.location = document.getElementById('location').value;
+      }
+      
+      // Update step 2 content when moving from step 1
+      if (currentStep === 1) {
+        updateStep2Content();
       }
       
       currentStep++;
