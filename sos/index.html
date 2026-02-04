@@ -1045,7 +1045,7 @@
       <!-- MAP VIEW -->
       <section id="map-view" class="view map-view">
         <div class="map-controls">
-          <select class="map-filter" id="category-filter">
+          <select class="map-filter" id="category-filter" onchange="loadMapData()">
             <option value="all">All Categories</option>
             <option value="housing">🏠 Housing</option>
             <option value="food">🍽️ Food</option>
@@ -1055,11 +1055,15 @@
             <option value="volunteer">🙋 Volunteer</option>
           </select>
           
-          <select class="map-filter" id="type-filter">
+          <select class="map-filter" id="type-filter" onchange="loadMapData()">
             <option value="all">All Types</option>
-            <option value="request">Requests Only</option>
-            <option value="resource">Resources Only</option>
+            <option value="request">🆘 Requests Only</option>
+            <option value="resource">🤝 Resources Only</option>
           </select>
+          
+          <button class="btn btn-outline" id="toggle-view-btn" onclick="toggleMapListView()" style="margin-left: auto;">
+            📋 List View
+          </button>
           
           <div class="map-legend">
             <div class="legend-item">
@@ -1073,6 +1077,9 @@
           </div>
         </div>
         <div id="map-container"></div>
+        <div id="list-container" style="display: none; padding: 1rem; overflow-y: auto; max-height: calc(100vh - 200px);">
+          <!-- List view populated by JS -->
+        </div>
       </section>
       
       <!-- DASHBOARD VIEW -->
@@ -1619,29 +1626,57 @@
       });
     }
     
+    let mapListView = false; // false = map, true = list
+    
+    function toggleMapListView() {
+      mapListView = !mapListView;
+      const btn = document.getElementById('toggle-view-btn');
+      const mapContainer = document.getElementById('map-container');
+      const listContainer = document.getElementById('list-container');
+      
+      if (mapListView) {
+        btn.innerHTML = '🗺️ Map View';
+        mapContainer.style.display = 'none';
+        listContainer.style.display = 'block';
+        loadListView();
+      } else {
+        btn.innerHTML = '📋 List View';
+        mapContainer.style.display = 'block';
+        listContainer.style.display = 'none';
+      }
+    }
+    
     async function loadMapData() {
       if (!map) return;
+      
+      // Get filter values
+      const categoryFilter = document.getElementById('category-filter').value;
+      const typeFilter = document.getElementById('type-filter').value;
       
       // Clear existing markers
       markers.forEach(m => m.remove());
       markers = [];
       
       try {
-        // Load requests
-        const { data: requests } = await db
-          .from('requests')
-          .select('*')
-          .eq('status', 'active')
-          .limit(100);
+        // Load requests (if not filtering to resources only)
+        let requests = [];
+        if (typeFilter !== 'resource') {
+          let query = db.from('requests').select('*').eq('status', 'active').eq('disaster_id', DISASTER_ID);
+          if (categoryFilter !== 'all') query = query.eq('need_type_id', categoryFilter);
+          const { data } = await query.limit(100);
+          requests = data || [];
+        }
         
-        // Load resources
-        const { data: resources } = await db
-          .from('resources')
-          .select('*')
-          .eq('status', 'active')
-          .limit(100);
+        // Load resources (if not filtering to requests only)
+        let resources = [];
+        if (typeFilter !== 'request') {
+          let query = db.from('resources').select('*').eq('status', 'active').eq('disaster_id', DISASTER_ID);
+          if (categoryFilter !== 'all') query = query.eq('resource_type_id', categoryFilter);
+          const { data } = await query.limit(100);
+          resources = data || [];
+        }
         
-        console.log('Map data:', { requests: requests?.length, resources: resources?.length });
+        console.log('Map data:', { requests: requests.length, resources: resources.length, filters: { categoryFilter, typeFilter } });
         
         // Add request markers (red)
         (requests || []).forEach(req => {
@@ -1665,12 +1700,16 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
           `;
           
-          const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`
+          const popup = new mapboxgl.Popup({ offset: 25, maxWidth: '280px' }).setHTML(`
             <div style="padding: 0.5rem;">
-              <strong style="color: var(--sos-red);">🆘 Need Help</strong>
-              <p style="margin: 0.5rem 0 0.25rem; font-weight: 500;">${req.title || 'Request'}</p>
-              <p style="margin: 0; font-size: 0.85rem; color: #666;">${req.location_description || 'WNC Area'}</p>
-              <span style="display: inline-block; margin-top: 0.5rem; padding: 0.125rem 0.5rem; background: ${getUrgencyColor(req.urgency)}; color: white; border-radius: 4px; font-size: 0.75rem;">${req.urgency || 'medium'}</span>
+              <strong style="color: var(--sos-red);">🆘 ${req.need_type_id || 'Need'}</strong>
+              <p style="margin: 0.5rem 0 0.25rem; font-weight: 500;">${req.contact_name || 'Anonymous'}</p>
+              <p style="margin: 0; font-size: 0.85rem; color: #666;">${req.title || req.description?.substring(0, 60) || 'Request'}</p>
+              <p style="margin: 0.25rem 0; font-size: 0.8rem; color: #888;">📍 ${req.location_description || 'WNC Area'}</p>
+              <div style="display: flex; gap: 0.5rem; align-items: center; margin-top: 0.5rem;">
+                <span style="padding: 0.125rem 0.5rem; background: ${getUrgencyColor(req.urgency)}; color: white; border-radius: 4px; font-size: 0.7rem;">${req.urgency || 'medium'}</span>
+                <button onclick="findMatchesFor('request', '${req.id}')" style="padding: 0.25rem 0.5rem; background: var(--sos-blue); border: none; border-radius: 4px; font-size: 0.7rem; cursor: pointer;">Find Matches</button>
+              </div>
             </div>
           `);
           
@@ -1703,12 +1742,16 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
           `;
           
-          const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`
+          const popup = new mapboxgl.Popup({ offset: 25, maxWidth: '280px' }).setHTML(`
             <div style="padding: 0.5rem;">
-              <strong style="color: var(--sos-navy);">🤝 Can Help</strong>
-              <p style="margin: 0.5rem 0 0.25rem; font-weight: 500;">${res.title || 'Resource'}</p>
-              <p style="margin: 0; font-size: 0.85rem; color: #666;">${res.location_description || 'WNC Area'}</p>
-              <span style="display: inline-block; margin-top: 0.5rem; padding: 0.125rem 0.5rem; background: var(--sos-green); color: white; border-radius: 4px; font-size: 0.75rem;">Available</span>
+              <strong style="color: var(--sos-navy);">🤝 ${res.resource_type_id || 'Resource'}</strong>
+              <p style="margin: 0.5rem 0 0.25rem; font-weight: 500;">${res.contact_name || 'Provider'}</p>
+              <p style="margin: 0; font-size: 0.85rem; color: #666;">${res.title || res.description?.substring(0, 60) || 'Resource'}</p>
+              <p style="margin: 0.25rem 0; font-size: 0.8rem; color: #888;">📍 ${res.location_description || 'WNC Area'}</p>
+              <div style="display: flex; gap: 0.5rem; align-items: center; margin-top: 0.5rem;">
+                <span style="padding: 0.125rem 0.5rem; background: var(--sos-green); color: white; border-radius: 4px; font-size: 0.7rem;">Available</span>
+                <button onclick="findMatchesFor('resource', '${res.id}')" style="padding: 0.25rem 0.5rem; background: var(--sos-blue); border: none; border-radius: 4px; font-size: 0.7rem; cursor: pointer;">Find Requests</button>
+              </div>
             </div>
           `);
           
@@ -1723,6 +1766,82 @@
       } catch (err) {
         console.error('Error loading map data:', err);
       }
+    }
+    
+    async function loadListView() {
+      const categoryFilter = document.getElementById('category-filter').value;
+      const typeFilter = document.getElementById('type-filter').value;
+      const container = document.getElementById('list-container');
+      
+      let html = '<div style="display: grid; gap: 1rem;">';
+      
+      try {
+        // Load requests
+        if (typeFilter !== 'resource') {
+          let query = db.from('requests').select('*').eq('status', 'active').eq('disaster_id', DISASTER_ID);
+          if (categoryFilter !== 'all') query = query.eq('need_type_id', categoryFilter);
+          const { data: requests } = await query.limit(50);
+          
+          (requests || []).forEach(req => {
+            html += `
+              <div style="background: white; border-radius: 8px; padding: 1rem; border-left: 4px solid var(--sos-red);">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                  <div>
+                    <span style="font-size: 0.75rem; color: var(--sos-red); font-weight: 600;">🆘 ${req.need_type_id?.toUpperCase() || 'REQUEST'}</span>
+                    <h4 style="margin: 0.25rem 0;">${req.contact_name || 'Anonymous'}</h4>
+                    <p style="margin: 0; font-size: 0.875rem; color: #666;">${req.title || req.description?.substring(0, 80) || ''}</p>
+                    <p style="margin: 0.25rem 0 0; font-size: 0.8rem; color: #888;">📍 ${req.location_description || 'WNC'}</p>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: end;">
+                    <span style="padding: 0.25rem 0.5rem; background: ${getUrgencyColor(req.urgency)}; color: white; border-radius: 4px; font-size: 0.7rem;">${req.urgency || 'medium'}</span>
+                    <button onclick="findMatchesFor('request', '${req.id}')" style="padding: 0.5rem 0.75rem; background: var(--sos-blue); border: none; border-radius: 6px; font-size: 0.8rem; cursor: pointer; white-space: nowrap;">Find Matches</button>
+                  </div>
+                </div>
+              </div>
+            `;
+          });
+        }
+        
+        // Load resources
+        if (typeFilter !== 'request') {
+          let query = db.from('resources').select('*').eq('status', 'active').eq('disaster_id', DISASTER_ID);
+          if (categoryFilter !== 'all') query = query.eq('resource_type_id', categoryFilter);
+          const { data: resources } = await query.limit(50);
+          
+          (resources || []).forEach(res => {
+            html += `
+              <div style="background: white; border-radius: 8px; padding: 1rem; border-left: 4px solid var(--sos-navy);">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                  <div>
+                    <span style="font-size: 0.75rem; color: var(--sos-navy); font-weight: 600;">🤝 ${res.resource_type_id?.toUpperCase() || 'RESOURCE'}</span>
+                    <h4 style="margin: 0.25rem 0;">${res.contact_name || 'Provider'}</h4>
+                    <p style="margin: 0; font-size: 0.875rem; color: #666;">${res.title || res.description?.substring(0, 80) || ''}</p>
+                    <p style="margin: 0.25rem 0 0; font-size: 0.8rem; color: #888;">📍 ${res.location_description || 'WNC'}</p>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: end;">
+                    <span style="padding: 0.25rem 0.5rem; background: var(--sos-green); color: white; border-radius: 4px; font-size: 0.7rem;">Available</span>
+                    <button onclick="findMatchesFor('resource', '${res.id}')" style="padding: 0.5rem 0.75rem; background: var(--sos-blue); border: none; border-radius: 6px; font-size: 0.8rem; cursor: pointer; white-space: nowrap;">Find Requests</button>
+                  </div>
+                </div>
+              </div>
+            `;
+          });
+        }
+        
+        html += '</div>';
+        container.innerHTML = html || '<p style="text-align: center; color: #666;">No results found</p>';
+        
+      } catch (err) {
+        console.error('List view error:', err);
+        container.innerHTML = '<p style="color: var(--sos-red);">Error loading data</p>';
+      }
+    }
+    
+    function findMatchesFor(type, id) {
+      // Navigate to partner dashboard with pre-selected item
+      // For now, show alert with match info
+      alert(`Finding matches for ${type} ${id}...\n\nIn production, this opens the match engine or partner dashboard.`);
+      // Could also: window.location.href = `partner.html?match=${type}&id=${id}`;
     }
     
     function getCategoryEmoji(category) {
