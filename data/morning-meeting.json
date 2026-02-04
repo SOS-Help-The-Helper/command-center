@@ -1,0 +1,145 @@
+{
+  "date": "2026-02-04",
+  "time": "06:30 EST",
+  "generated_by": "Henry",
+  "theme": "Crafted, not cobbled",
+  
+  "roll_call": {
+    "sos": {
+      "status": "🟢 MAJOR PROGRESS",
+      "overnight_wins": [
+        "GitHub Pages frontend DEPLOYED (individual + partner views)",
+        "PWA foundation complete (manifest, service worker, offline page)",
+        "Mobile responsiveness on all partner-v2 components",
+        "Disaster simulation in #aid-arena-test (18+ messages)",
+        "Demo data wired up (/demo and /partner routes work)",
+        "Security audit complete - 15 unprotected admin routes identified"
+      ],
+      "blockers": [
+        "Browser extension can't interact with tabs (workaround: manual testing)"
+      ],
+      "live_urls": {
+        "individual": "https://sos-help-the-helper.github.io/command-center/sos/",
+        "partner": "https://sos-help-the-helper.github.io/command-center/sos/partner.html",
+        "demo": "https://sos-help-the-helper.github.io/command-center/demo"
+      },
+      "todays_priority": "Jonathan reviews/tests full flow before any external demos"
+    },
+    "reforge": {
+      "status": "🟡 MEETING TODAY",
+      "upcoming": {
+        "meeting": "Yazio pilot review",
+        "time": "10:00 AM EST",
+        "prep_needed": "Review Gong call, prep renewal pitch"
+      },
+      "quota": {
+        "meetings": "12/75 (16%)",
+        "arr": "$50.1K/$150K (33%)"
+      },
+      "key_insight": "Product Debt has 100% resonance but only used on 29% of calls - use it EVERY call",
+      "todays_priority": "Nail Yazio meeting, then qualify leads in swiper"
+    },
+    "harmony": {
+      "status": "🔴 CRITICAL ITEMS",
+      "urgent": [
+        "DI Global (Orly) - 13 weeks overdue. DELIVER or process refund.",
+        "Hubert Group - Payment PAST DUE"
+      ],
+      "todays_priority": "Handle DI Global before it damages reputation"
+    },
+    "grants": {
+      "status": "🟡 DEADLINE APPROACHING",
+      "critical": {
+        "name": "EDA Disaster Supplemental",
+        "deadline": "March 3, 2026",
+        "amount": "Up to $2M",
+        "days_remaining": 27
+      },
+      "todays_priority": "Begin application prep if SOS demo goes well"
+    },
+    "intel": {
+      "status": "🟢 ACTIVE",
+      "critical_signals": [
+        "FEMA 50% staff cuts planned - opportunity for tech solutions",
+        "Winter storms hit TN/GA/NC - live validation of SOS value",
+        "Palantir Q4 $1.41B revenue, gov push intensifying"
+      ]
+    }
+  },
+  
+  "synergies_identified": [
+    {
+      "insight": "Harmony → SOS Pipeline",
+      "detail": "Endurant (Harmony client) also potential SOS vendor partner. Cross-sell opportunity.",
+      "action": "Discuss SOS vendor marketplace with Endurant during next Harmony touchpoint"
+    },
+    {
+      "insight": "Reforge Tactics → SOS Sales",
+      "detail": "Reforge's 'Product Debt' messaging resonates universally. Similar angle for SOS: 'Coordination Debt' - the cost of scattered systems",
+      "action": "Test 'Coordination Debt' framing in SOS partner conversations"
+    },
+    {
+      "insight": "Decision Traces Everywhere",
+      "detail": "Reforge deal decisions, SOS match decisions, Harmony client decisions - all feeding same context graph. Each project strengthens the others.",
+      "status": "Schema deployed, capturing in Grunt swiper"
+    }
+  ],
+  
+  "coordination_check": {
+    "overnight_builds": "Aligned - focused on SOS demo prep per Jonathan's request",
+    "conflicting_priorities": "Harmony DI Global is URGENT but SOS demo is TODAY. May need sequencing.",
+    "resource_allocation": "All energy on SOS until demo complete, then Harmony triage"
+  },
+  
+  "blockers_for_jonathan": [
+    {
+      "item": "SOS Demo Testing",
+      "urgency": "HIGH",
+      "decision": "Jonathan needs to test full flow end-to-end before showing externally",
+      "time_needed": "30-60 min"
+    },
+    {
+      "item": "DI Global Resolution",
+      "urgency": "CRITICAL",
+      "decision": "Deliver work OR process refund? 13 weeks is reputation-damaging territory.",
+      "time_needed": "15 min to decide, variable to execute"
+    },
+    {
+      "item": "Security Audit Actions",
+      "urgency": "MEDIUM",
+      "decision": "Found 15 unprotected admin routes. Need to add ProtectedRoute wrappers before production.",
+      "time_needed": "Can handle async - not blocking demo"
+    }
+  ],
+  
+  "todays_coordinated_priorities": [
+    {
+      "rank": 1,
+      "item": "SOS Demo Review",
+      "owner": "Jonathan",
+      "time": "First thing",
+      "notes": "Test individual intake + partner dashboard + map + matching"
+    },
+    {
+      "rank": 2,
+      "item": "Yazio Pilot Review Meeting",
+      "owner": "Jonathan",
+      "time": "10:00 AM EST",
+      "notes": "Henry preps deal context, Gong summary"
+    },
+    {
+      "rank": 3,
+      "item": "DI Global Decision",
+      "owner": "Jonathan",
+      "time": "After Yazio",
+      "notes": "Deliver or refund - can't stay in limbo"
+    },
+    {
+      "rank": 4,
+      "item": "Lead Qualification",
+      "owner": "Henry + Jonathan",
+      "time": "Afternoon",
+      "notes": "Use signals swiper, build pipeline for Q1 catch-up"
+    }
+  ]
+}

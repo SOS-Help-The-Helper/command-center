@@ -1380,6 +1380,18 @@
       if (cats.includes('housing')) {
         extraQuestions += `
           <div class="form-group">
+            <label class="form-label">${isRequest ? 'Housing type needed' : 'What type of housing can you offer?'}</label>
+            <select class="form-select" id="housing-subtype">
+              <option value="">Select type</option>
+              <option value="rv">🚐 RV/Camper</option>
+              <option value="shelter">🏕️ Emergency Shelter</option>
+              <option value="hotel">🏨 Hotel/Motel</option>
+              <option value="host_family">👨‍👩‍👧 Host Family/Spare Room</option>
+              <option value="rental">🏡 Temporary Rental</option>
+              <option value="repairs">🔧 Home Repairs Needed</option>
+            </select>
+          </div>
+          <div class="form-group">
             <label class="form-label">${isRequest ? 'How long do you need housing?' : 'How long can you provide housing?'}</label>
             <select class="form-select" id="housing-duration">
               <option value="">Select timeframe</option>
@@ -1389,16 +1401,33 @@
               <option value="longterm">Long-term (1+ months)</option>
             </select>
           </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label">Adults</label>
+              <input type="number" class="form-input" id="housing-adults" min="1" max="20" placeholder="1" value="1">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Children</label>
+              <input type="number" class="form-input" id="housing-children" min="0" max="20" placeholder="0" value="0">
+            </div>
+          </div>
           <div class="form-group">
             <label class="form-label">${isRequest ? 'Do you have pets?' : 'Can you accommodate pets?'}</label>
-            <div style="display: flex; gap: 1rem;">
-              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                <input type="radio" name="pets" value="yes"> Yes
-              </label>
-              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                <input type="radio" name="pets" value="no"> No
-              </label>
-            </div>
+            <select class="form-select" id="pets-type">
+              <option value="none">No pets</option>
+              <option value="dogs">Dog(s)</option>
+              <option value="cats">Cat(s)</option>
+              <option value="multiple">Multiple/Other pets</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">${isRequest ? 'Accessibility needs?' : 'Accessibility features?'}</label>
+            <select class="form-select" id="housing-accessibility">
+              <option value="none">No special needs</option>
+              <option value="wheelchair">Wheelchair accessible</option>
+              <option value="ground_floor">Ground floor only</option>
+              <option value="medical_equipment">Space for medical equipment</option>
+            </select>
           </div>
         `;
       }
@@ -1406,15 +1435,40 @@
       if (cats.includes('transport')) {
         extraQuestions += `
           <div class="form-group">
-            <label class="form-label">${isRequest ? 'Do you need wheelchair accessible transport?' : 'Is your vehicle wheelchair accessible?'}</label>
-            <div style="display: flex; gap: 1rem;">
-              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                <input type="radio" name="wheelchair" value="yes"> Yes
-              </label>
-              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                <input type="radio" name="wheelchair" value="no"> No
-              </label>
-            </div>
+            <label class="form-label">${isRequest ? 'What type of transport do you need?' : 'What can you offer?'}</label>
+            <select class="form-select" id="transport-subtype">
+              <option value="">Select type</option>
+              <option value="ride">🚐 Ride/Shuttle</option>
+              <option value="evacuation">🚨 Evacuation</option>
+              <option value="moving">📦 Help Moving Belongings</option>
+              <option value="vehicle_loan">🔑 Vehicle Loan</option>
+              <option value="fuel">⛽ Fuel/Gas Assistance</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">${isRequest ? 'When do you need transport?' : 'When are you available?'}</label>
+            <select class="form-select" id="transport-when">
+              <option value="">Select timing</option>
+              <option value="asap">As soon as possible</option>
+              <option value="today">Today</option>
+              <option value="tomorrow">Tomorrow</option>
+              <option value="this_week">This week</option>
+              <option value="flexible">Flexible</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">${isRequest ? 'Number of passengers' : 'Passenger capacity'}</label>
+            <input type="number" class="form-input" id="transport-passengers" min="1" max="50" placeholder="1">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Special requirements</label>
+            <select class="form-select" id="transport-special">
+              <option value="none">None</option>
+              <option value="wheelchair">Wheelchair accessible</option>
+              <option value="large_items">Large items / Cargo space</option>
+              <option value="child_seat">Car seat needed</option>
+              <option value="pets">Pets</option>
+            </select>
           </div>
         `;
       }
@@ -1425,12 +1479,88 @@
             <label class="form-label">${isRequest ? 'What type of medical need?' : 'What medical help can you provide?'}</label>
             <select class="form-select" id="medical-type">
               <option value="">Select type</option>
-              <option value="oxygen">Oxygen/Respiratory</option>
-              <option value="medication">Medication</option>
-              <option value="mobility">Mobility equipment</option>
-              <option value="firstaid">First aid/wound care</option>
-              <option value="other">Other</option>
+              <option value="first_aid">🩹 First Aid / Minor Injury</option>
+              <option value="prescriptions">💊 Prescription Refill</option>
+              <option value="equipment">🦽 Medical Equipment</option>
+              <option value="mental_health">🧠 Mental Health / Counseling</option>
+              <option value="transport_medical">🚑 Transport to Medical Facility</option>
+              <option value="chronic">Chronic Condition Care</option>
             </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">${isRequest ? 'Your mobility status' : 'Can you serve patients with limited mobility?'}</label>
+            <select class="form-select" id="medical-mobility">
+              <option value="mobile">Fully mobile</option>
+              <option value="limited">Limited mobility</option>
+              <option value="wheelchair">Wheelchair user</option>
+              <option value="bedridden">Cannot travel</option>
+            </select>
+          </div>
+        `;
+      }
+      
+      if (cats.includes('food')) {
+        extraQuestions += `
+          <div class="form-group">
+            <label class="form-label">${isRequest ? 'What type of food assistance?' : 'What can you provide?'}</label>
+            <select class="form-select" id="food-subtype">
+              <option value="">Select type</option>
+              <option value="hot_meals">🍲 Hot Meals</option>
+              <option value="groceries">🛒 Groceries</option>
+              <option value="baby_formula">🍼 Baby Formula/Food</option>
+              <option value="water">💧 Water/Drinks</option>
+              <option value="special_diet">🥗 Special Diet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">${isRequest ? 'How often do you need food?' : 'How often can you provide?'}</label>
+            <select class="form-select" id="food-frequency">
+              <option value="one_time">One-time / Emergency</option>
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="ongoing">Ongoing support</option>
+            </select>
+          </div>
+        `;
+      }
+      
+      if (cats.includes('supplies')) {
+        extraQuestions += `
+          <div class="form-group">
+            <label class="form-label">${isRequest ? 'What type of supplies?' : 'What supplies can you provide?'}</label>
+            <select class="form-select" id="supplies-subtype">
+              <option value="">Select type</option>
+              <option value="clothing">👕 Clothing</option>
+              <option value="hygiene">🧴 Hygiene/Toiletries</option>
+              <option value="baby">👶 Baby Supplies</option>
+              <option value="cleaning">🧹 Cleaning Supplies</option>
+              <option value="tools">🔨 Tools</option>
+              <option value="building">🪵 Building Materials</option>
+              <option value="furniture">🛋️ Furniture</option>
+            </select>
+          </div>
+        `;
+      }
+      
+      if (cats.includes('volunteer')) {
+        extraQuestions += `
+          <div class="form-group">
+            <label class="form-label">${isRequest ? 'What type of help do you need?' : 'What skills can you offer?'}</label>
+            <select class="form-select" id="volunteer-subtype">
+              <option value="">Select type</option>
+              <option value="debris">💪 Debris Removal / Cleanup</option>
+              <option value="tree">🪓 Tree/Chainsaw Work</option>
+              <option value="construction">🔨 Construction / Repairs</option>
+              <option value="electrical">⚡ Electrical Work</option>
+              <option value="plumbing">🔧 Plumbing</option>
+              <option value="childcare">👶 Childcare</option>
+              <option value="admin">📋 Admin / Coordination</option>
+              <option value="general">General Labor</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">${isRequest ? 'How many volunteers needed?' : 'How many people in your group?'}</label>
+            <input type="number" class="form-input" id="volunteer-count" min="1" max="100" placeholder="1">
           </div>
         `;
       }
@@ -1457,11 +1587,35 @@
       if (currentStep === 2) {
         formData.description = document.getElementById('description').value;
         formData.quantity = parseInt(document.getElementById('quantity').value) || 1;
-        // Save extra category-specific data
+        
+        // Housing-specific fields
+        formData.housingSubtype = document.getElementById('housing-subtype')?.value || null;
         formData.housingDuration = document.getElementById('housing-duration')?.value || null;
-        formData.pets = document.querySelector('input[name="pets"]:checked')?.value || null;
-        formData.wheelchair = document.querySelector('input[name="wheelchair"]:checked')?.value || null;
+        formData.housingAdults = parseInt(document.getElementById('housing-adults')?.value) || null;
+        formData.housingChildren = parseInt(document.getElementById('housing-children')?.value) || null;
+        formData.petsType = document.getElementById('pets-type')?.value || null;
+        formData.housingAccessibility = document.getElementById('housing-accessibility')?.value || null;
+        
+        // Transport-specific fields
+        formData.transportSubtype = document.getElementById('transport-subtype')?.value || null;
+        formData.transportWhen = document.getElementById('transport-when')?.value || null;
+        formData.transportPassengers = parseInt(document.getElementById('transport-passengers')?.value) || null;
+        formData.transportSpecial = document.getElementById('transport-special')?.value || null;
+        
+        // Medical-specific fields
         formData.medicalType = document.getElementById('medical-type')?.value || null;
+        formData.medicalMobility = document.getElementById('medical-mobility')?.value || null;
+        
+        // Food-specific fields
+        formData.foodSubtype = document.getElementById('food-subtype')?.value || null;
+        formData.foodFrequency = document.getElementById('food-frequency')?.value || null;
+        
+        // Supplies-specific fields
+        formData.suppliesSubtype = document.getElementById('supplies-subtype')?.value || null;
+        
+        // Volunteer-specific fields
+        formData.volunteerSubtype = document.getElementById('volunteer-subtype')?.value || null;
+        formData.volunteerCount = parseInt(document.getElementById('volunteer-count')?.value) || null;
       }
       if (currentStep === 3) {
         formData.location = document.getElementById('location').value;
