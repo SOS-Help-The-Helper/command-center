@@ -1133,7 +1133,7 @@
     let intakeType = 'need'; // 'need' or 'offer'
     let currentStep = 1;
     let formData = {
-      category: null,
+      categories: [], // Changed to array for multi-select
       description: '',
       quantity: 1,
       urgency: 'medium',
@@ -1185,14 +1185,31 @@
         tab.addEventListener('click', () => showView(tab.dataset.view));
       });
       
-      // Category button clicks - auto-advance to next step
+      // Category button clicks - multi-select toggle
       document.querySelectorAll('.category-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-          document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('selected'));
-          btn.classList.add('selected');
-          formData.category = btn.dataset.category;
-          // Auto-advance after brief visual feedback
-          setTimeout(() => nextStep(), 200);
+          const cat = btn.dataset.category;
+          btn.classList.toggle('selected');
+          
+          if (btn.classList.contains('selected')) {
+            if (!formData.categories.includes(cat)) {
+              formData.categories.push(cat);
+            }
+          } else {
+            formData.categories = formData.categories.filter(c => c !== cat);
+          }
+          
+          // Update Continue button state
+          const nextBtn = document.getElementById('next-btn');
+          if (formData.categories.length > 0) {
+            nextBtn.disabled = false;
+            nextBtn.textContent = formData.categories.length > 1 
+              ? `Continue with ${formData.categories.length} needs →` 
+              : 'Continue →';
+          } else {
+            nextBtn.disabled = true;
+            nextBtn.textContent = 'Select at least one →';
+          }
         });
       });
       
@@ -1216,7 +1233,7 @@
       intakeType = type;
       currentStep = 1;
       formData = {
-        category: null,
+        categories: [],
         description: '',
         quantity: 1,
         urgency: 'medium',
@@ -1228,6 +1245,11 @@
         contact_email: ''
       };
       
+      // Reset Continue button state for multi-select
+      const nextBtn = document.getElementById('next-btn');
+      nextBtn.disabled = true;
+      nextBtn.textContent = 'Select at least one →';
+      
       // Update header
       const header = document.getElementById('form-header');
       if (type === 'need') {
@@ -1236,14 +1258,14 @@
         header.querySelector('p').textContent = 'Tell us what you need and we\'ll connect you with resources';
         document.getElementById('submit-btn').className = 'btn btn-need';
         document.getElementById('submit-btn').textContent = 'Submit Request';
-        document.querySelector('.step-title').textContent = 'What type of help do you need?';
+        document.querySelector('.step-title').textContent = 'What type of help do you need? (select all that apply)';
       } else {
         header.className = 'form-header offer';
         header.querySelector('h1').textContent = 'Offer Help';
         header.querySelector('p').textContent = 'Share what you can provide to help your community';
         document.getElementById('submit-btn').className = 'btn btn-offer';
         document.getElementById('submit-btn').textContent = 'Submit Offer';
-        document.querySelector('.step-title').textContent = 'What type of help can you offer?';
+        document.querySelector('.step-title').textContent = 'What type of help can you offer? (select all that apply)';
       }
       
       // Reset form UI
@@ -1278,8 +1300,8 @@
     
     function nextStep() {
       // Validation
-      if (currentStep === 1 && !formData.category) {
-        showToast('Please select a category', 'error');
+      if (currentStep === 1 && formData.categories.length === 0) {
+        showToast('Please select at least one category', 'error');
         return;
       }
       if (currentStep === 2 && !document.getElementById('description').value.trim()) {
@@ -1356,49 +1378,51 @@
         
         console.log('Intake created:', data);
         
-        // Create request or resource
-        if (intakeType === 'need') {
-          const request = {
-            intake_id: data[0].id,
-            disaster_id: DISASTER_ID,
-            status: 'active',
-            need_type_id: formData.category,
-            title: `${formData.category}: ${formData.description.substring(0, 50)}`,
-            description: formData.description,
-            urgency: formData.urgency,
-            quantity_needed: formData.quantity,
-            location_description: formData.location,
-            contact_name: formData.contact_name,
-            contact_phone: formData.contact_phone,
-            contact_email: formData.contact_email,
-            intake_source: 'web'
-          };
-          
-          const { error: reqError } = await db
-            .from('requests')
-            .insert([request]);
-          
-          if (reqError) throw reqError;
-        } else {
-          const resource = {
-            intake_id: data[0].id,
-            disaster_id: DISASTER_ID,
-            status: 'active',
-            resource_type_id: formData.category,
-            title: `${formData.category}: ${formData.description.substring(0, 50)}`,
-            description: formData.description,
-            quantity_available: formData.quantity,
-            location_description: formData.location,
-            contact_name: formData.contact_name,
-            contact_phone: formData.contact_phone,
-            intake_source: 'web'
-          };
-          
-          const { error: resError } = await db
-            .from('resources')
-            .insert([resource]);
-          
-          if (resError) throw resError;
+        // Create request or resource for EACH selected category
+        for (const category of formData.categories) {
+          if (intakeType === 'need') {
+            const request = {
+              intake_id: data[0].id,
+              disaster_id: DISASTER_ID,
+              status: 'active',
+              need_type_id: category,
+              title: `${category}: ${formData.description.substring(0, 50)}`,
+              description: formData.description,
+              urgency: formData.urgency,
+              quantity_needed: formData.quantity,
+              location_description: formData.location,
+              contact_name: formData.contact_name,
+              contact_phone: formData.contact_phone,
+              contact_email: formData.contact_email,
+              intake_source: 'web'
+            };
+            
+            const { error: reqError } = await db
+              .from('requests')
+              .insert([request]);
+            
+            if (reqError) throw reqError;
+          } else {
+            const resource = {
+              intake_id: data[0].id,
+              disaster_id: DISASTER_ID,
+              status: 'active',
+              resource_type_id: category,
+              title: `${category}: ${formData.description.substring(0, 50)}`,
+              description: formData.description,
+              quantity_available: formData.quantity,
+              location_description: formData.location,
+              contact_name: formData.contact_name,
+              contact_phone: formData.contact_phone,
+              intake_source: 'web'
+            };
+            
+            const { error: resError } = await db
+              .from('resources')
+              .insert([resource]);
+            
+            if (resError) throw resError;
+          }
         }
         
         // Update intake status
