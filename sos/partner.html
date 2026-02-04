@@ -669,7 +669,7 @@
     const SUPABASE_URL = 'https://rtduqguwhkczexnoawej.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ0ZHVxZ3V3aGtjemV4bm9hd2VqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE2Njg1ODAsImV4cCI6MjA2NzI0NDU4MH0.1QZ5ofS-ND_OI71igPlxxMTyZJJRlATSSC0djccWR8o';
     
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     
     // ==================== DATA LOADING ====================
     async function loadData() {
@@ -683,10 +683,10 @@
     async function loadStats() {
       try {
         const [reqResult, resResult, pendingResult, completedResult] = await Promise.all([
-          supabase.from('requests').select('id', { count: 'exact' }).eq('status', 'active'),
-          supabase.from('resources').select('id', { count: 'exact' }).eq('status', 'active'),
-          supabase.from('matches').select('id', { count: 'exact' }).eq('status', 'proposed'),
-          supabase.from('matches').select('id', { count: 'exact' }).eq('status', 'completed')
+          db.from('requests').select('id', { count: 'exact' }).eq('status', 'active'),
+          db.from('resources').select('id', { count: 'exact' }).eq('status', 'active'),
+          db.from('matches').select('id', { count: 'exact' }).eq('status', 'proposed'),
+          db.from('matches').select('id', { count: 'exact' }).eq('status', 'completed')
         ]);
         
         document.getElementById('stat-requests').textContent = reqResult.count || 0;
@@ -826,7 +826,7 @@
     // ==================== ACTIONS ====================
     async function runMatching() {
       alert('Running auto-matching... (In production, this calls the match-engine edge function)');
-      // Would call: await supabase.functions.invoke('match-engine', { body: { disaster_id: 'helene-wnc-2024' } })
+      // Would call: await db.functions.invoke('match-engine', { body: { disaster_id: 'helene-wnc-2024' } })
       await loadData();
     }
     
