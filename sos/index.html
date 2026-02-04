@@ -1123,8 +1123,7 @@
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     
     // ==================== MAPBOX CONFIG ====================
-    // Placeholder - Jonathan will provide key
-    let MAPBOX_TOKEN = '';
+    const MAPBOX_TOKEN = 'pk.eyJ1Ijoic29zY29ubmVjdCIsImEiOiJjbThObWxtMXYwY2NpMmxwbnduaGVtZHpxIn0._Bf7tss1pTHIcSH0t_FaTQ';
     let map = null;
     
     // ==================== STATE ====================
@@ -1397,11 +1396,13 @@
     }
     
     // ==================== MAP ====================
+    let markers = [];
+    
     function initMap() {
       if (!MAPBOX_TOKEN) {
         document.getElementById('map-container').innerHTML = `
           <div style="height:100%;display:flex;align-items:center;justify-content:center;background:var(--sos-gray-200);">
-            <p style="color:var(--sos-gray-500);">Map requires Mapbox API key. Set MAPBOX_TOKEN in config.</p>
+            <p style="color:var(--sos-gray-500);">Map requires Mapbox API key.</p>
           </div>
         `;
         return;
@@ -1412,8 +1413,10 @@
         container: 'map-container',
         style: 'mapbox://styles/mapbox/light-v11',
         center: [-82.30, 35.92], // Burnsville, NC
-        zoom: 10
+        zoom: 9
       });
+      
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right');
       
       map.on('load', () => {
         loadMapData();
@@ -1422,6 +1425,10 @@
     
     async function loadMapData() {
       if (!map) return;
+      
+      // Clear existing markers
+      markers.forEach(m => m.remove());
+      markers = [];
       
       try {
         // Load requests
@@ -1438,14 +1445,103 @@
           .eq('status', 'active')
           .limit(100);
         
-        console.log('Map data:', { requests, resources });
+        console.log('Map data:', { requests: requests?.length, resources: resources?.length });
         
-        // Add markers (simplified - would need geocoding for real data)
-        // TODO: Add actual marker rendering with popups
+        // Add request markers (red)
+        (requests || []).forEach(req => {
+          // Use metadata lat/lng if available, otherwise generate near Burnsville
+          const lat = req.metadata?.lat || (35.92 + (Math.random() - 0.5) * 0.2);
+          const lng = req.metadata?.lng || (-82.30 + (Math.random() - 0.5) * 0.2);
+          
+          const el = document.createElement('div');
+          el.className = 'map-marker request';
+          el.innerHTML = getCategoryEmoji(req.need_type_id);
+          el.style.cssText = `
+            width: 36px; height: 36px;
+            background: var(--sos-red);
+            border: 3px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+          `;
+          
+          const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`
+            <div style="padding: 0.5rem;">
+              <strong style="color: var(--sos-red);">🆘 Need Help</strong>
+              <p style="margin: 0.5rem 0 0.25rem; font-weight: 500;">${req.title || 'Request'}</p>
+              <p style="margin: 0; font-size: 0.85rem; color: #666;">${req.location_description || 'WNC Area'}</p>
+              <span style="display: inline-block; margin-top: 0.5rem; padding: 0.125rem 0.5rem; background: ${getUrgencyColor(req.urgency)}; color: white; border-radius: 4px; font-size: 0.75rem;">${req.urgency || 'medium'}</span>
+            </div>
+          `);
+          
+          const marker = new mapboxgl.Marker(el)
+            .setLngLat([lng, lat])
+            .setPopup(popup)
+            .addTo(map);
+          
+          markers.push(marker);
+        });
+        
+        // Add resource markers (navy)
+        (resources || []).forEach(res => {
+          const lat = res.metadata?.lat || (35.92 + (Math.random() - 0.5) * 0.2);
+          const lng = res.metadata?.lng || (-82.30 + (Math.random() - 0.5) * 0.2);
+          
+          const el = document.createElement('div');
+          el.className = 'map-marker resource';
+          el.innerHTML = getCategoryEmoji(res.resource_type_id);
+          el.style.cssText = `
+            width: 36px; height: 36px;
+            background: var(--sos-navy);
+            border: 3px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+          `;
+          
+          const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`
+            <div style="padding: 0.5rem;">
+              <strong style="color: var(--sos-navy);">🤝 Can Help</strong>
+              <p style="margin: 0.5rem 0 0.25rem; font-weight: 500;">${res.title || 'Resource'}</p>
+              <p style="margin: 0; font-size: 0.85rem; color: #666;">${res.location_description || 'WNC Area'}</p>
+              <span style="display: inline-block; margin-top: 0.5rem; padding: 0.125rem 0.5rem; background: var(--sos-green); color: white; border-radius: 4px; font-size: 0.75rem;">Available</span>
+            </div>
+          `);
+          
+          const marker = new mapboxgl.Marker(el)
+            .setLngLat([lng, lat])
+            .setPopup(popup)
+            .addTo(map);
+          
+          markers.push(marker);
+        });
         
       } catch (err) {
         console.error('Error loading map data:', err);
       }
+    }
+    
+    function getCategoryEmoji(category) {
+      const emojis = {
+        housing: '🏠', food: '🍽️', medical: '🏥', transport: '🚗',
+        supplies: '📦', volunteer: '🙋', default: '📍'
+      };
+      return emojis[category] || emojis.default;
+    }
+    
+    function getUrgencyColor(urgency) {
+      const colors = {
+        critical: '#EF4E4B', high: '#F97316', medium: '#FFC107', low: '#34A853'
+      };
+      return colors[urgency] || colors.medium;
     }
     
     // ==================== DASHBOARD ====================
