@@ -132,11 +132,39 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 3rem 1.5rem;
+      padding: 2rem 1.5rem;
     }
     
     .home-view.active {
       display: flex;
+    }
+    
+    .live-stats-banner {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      background: var(--sos-navy);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      width: 100%;
+      max-width: 600px;
+    }
+    
+    .live-stat {
+      text-align: center;
+    }
+    
+    .live-stat-value {
+      display: block;
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+    
+    .live-stat-label {
+      font-size: 0.75rem;
+      opacity: 0.8;
     }
     
     .hero-section {
@@ -848,9 +876,26 @@
     <main class="main-content">
       <!-- HOME VIEW -->
       <section id="home-view" class="view home-view active">
+        <!-- Live Stats Banner -->
+        <div class="live-stats-banner" id="live-stats-banner">
+          <div class="live-stat">
+            <span class="live-stat-value" id="home-requests">-</span>
+            <span class="live-stat-label">People Seeking Help</span>
+          </div>
+          <div class="live-stat">
+            <span class="live-stat-value" id="home-resources">-</span>
+            <span class="live-stat-label">Resources Available</span>
+          </div>
+          <div class="live-stat">
+            <span class="live-stat-value" id="home-matches">-</span>
+            <span class="live-stat-label">Matches Made</span>
+          </div>
+        </div>
+        
         <div class="hero-section">
-          <h1>How can we help you today?</h1>
-          <p>SOS connects survivors with volunteers and resources during disasters. Get help or offer assistance in your community.</p>
+          <h1>Hurricane Helene Relief</h1>
+          <p style="color: var(--sos-red); font-weight: 500; margin-bottom: 0.5rem;">🔴 Active Disaster Response - Western North Carolina</p>
+          <p>SOS connects survivors with volunteers and resources. Get help or offer assistance in your community.</p>
         </div>
         
         <div class="action-cards">
@@ -1475,6 +1520,29 @@
     
     // ==================== INIT ====================
     console.log('SOS Frontend loaded');
+    
+    // Load live stats on home page
+    async function loadHomeStats() {
+      try {
+        const [reqResult, resResult, matchResult] = await Promise.all([
+          supabase.from('requests').select('id', { count: 'exact' }).eq('status', 'active'),
+          supabase.from('resources').select('id', { count: 'exact' }).eq('status', 'active'),
+          supabase.from('matches').select('id', { count: 'exact' })
+        ]);
+        
+        document.getElementById('home-requests').textContent = reqResult.count || 0;
+        document.getElementById('home-resources').textContent = resResult.count || 0;
+        document.getElementById('home-matches').textContent = matchResult.count || 0;
+      } catch (err) {
+        console.error('Stats error:', err);
+      }
+    }
+    
+    // Load stats on page load
+    loadHomeStats();
+    
+    // Refresh every 30 seconds
+    setInterval(loadHomeStats, 30000);
   </script>
 </body>
 </html>
