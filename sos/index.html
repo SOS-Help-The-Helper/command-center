@@ -1161,9 +1161,34 @@
       }
     }
     
-    // Nav tab clicks
-    document.querySelectorAll('.nav-tab').forEach(tab => {
-      tab.addEventListener('click', () => showView(tab.dataset.view));
+    // Nav tab clicks - wrapped in DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.addEventListener('click', () => showView(tab.dataset.view));
+      });
+      
+      // Category button clicks
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          formData.category = btn.dataset.category;
+        });
+      });
+      
+      // Urgency button clicks
+      document.querySelectorAll('.urgency-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.urgency-btn').forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          formData.urgency = btn.dataset.urgency;
+        });
+      });
+      
+      // Load initial stats
+      loadHomeStats();
+      
+      console.log('SOS Frontend initialized');
     });
     
     // ==================== INTAKE FORM ====================
@@ -1268,23 +1293,7 @@
       }
     }
     
-    // Category selection
-    document.querySelectorAll('.category-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
-        formData.category = btn.dataset.category;
-      });
-    });
-    
-    // Urgency selection
-    document.querySelectorAll('.urgency-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.urgency-btn').forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
-        formData.urgency = btn.dataset.urgency;
-      });
-    });
+    // Category and urgency selection - moved to DOMContentLoaded above
     
     // Form submission
     document.getElementById('intake-form').addEventListener('submit', async (e) => {
@@ -1614,10 +1623,7 @@
       }, 3000);
     }
     
-    // ==================== INIT ====================
-    console.log('SOS Frontend loaded');
-    
-    // Load live stats on home page
+    // ==================== LIVE STATS ====================
     async function loadHomeStats() {
       try {
         const [reqResult, resResult, matchResult] = await Promise.all([
@@ -1634,10 +1640,7 @@
       }
     }
     
-    // Load stats on page load
-    loadHomeStats();
-    
-    // Refresh every 30 seconds
+    // Refresh stats every 30 seconds
     setInterval(loadHomeStats, 30000);
   </script>
 </body>
