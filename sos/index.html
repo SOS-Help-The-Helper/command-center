@@ -18,6 +18,9 @@
   <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   
+  <!-- Google Places Autocomplete -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxoRMfrkeV9ah54d_U31oWClJdiy332lc&libraries=places"></script>
+  
   <style>
     :root {
       /* SOS Brand Colors - Per Brand Guide */
@@ -1233,6 +1236,28 @@
       
       // Load initial stats
       loadHomeStats();
+      
+      // Initialize Google Places Autocomplete
+      const locationInput = document.getElementById('location');
+      if (locationInput && window.google && window.google.maps) {
+        const autocomplete = new google.maps.places.Autocomplete(locationInput, {
+          types: ['geocode'],
+          componentRestrictions: { country: 'us' },
+          fields: ['formatted_address', 'geometry', 'name']
+        });
+        
+        autocomplete.addListener('place_changed', () => {
+          const place = autocomplete.getPlace();
+          if (place.geometry) {
+            formData.lat = place.geometry.location.lat();
+            formData.lng = place.geometry.location.lng();
+            formData.location = place.formatted_address || place.name;
+            locationInput.value = formData.location;
+            console.log('Location selected:', formData.location, formData.lat, formData.lng);
+          }
+        });
+        console.log('Google Places Autocomplete initialized');
+      }
       
       console.log('SOS Frontend initialized');
     });
