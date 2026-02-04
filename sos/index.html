@@ -6,10 +6,10 @@
   <title>SOS | Disaster Relief Coordination</title>
   <meta name="description" content="Connect survivors with resources during disasters">
   
-  <!-- Fonts -->
+  <!-- Fonts - Roboto per SOS Brand Guide -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   
   <!-- Mapbox -->
   <link href="https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css" rel="stylesheet">
@@ -20,14 +20,17 @@
   
   <style>
     :root {
-      /* SOS Brand Colors */
-      --sos-navy: #1A3850;
-      --sos-red: #EF4E4B;
+      /* SOS Brand Colors - Per Brand Guide */
+      --sos-navy: #1A3850;      /* Primary - Trust and reliability */
+      --sos-red: #EF4E4B;       /* Secondary - Urgency and importance */
       --sos-red-dark: #D43D3A;
-      --sos-blue: #4A90D9;
-      --sos-green: #34A853;
-      --sos-orange: #F59E0B;
+      --sos-blue: #89CFF0;      /* Tertiary - Calm, safety, hope (CTAs) */
+      --sos-blue-dark: #6BB5D8;
+      --sos-yellow: #FFC107;    /* Warning - Medium urgency */
+      --sos-green: #34A853;     /* Success states */
+      --sos-orange: #F97316;    /* High urgency */
       --sos-white: #FFFFFF;
+      --sos-light: #F9F9F9;     /* Light backgrounds */
       --sos-gray-100: #F7FAFC;
       --sos-gray-200: #EDF2F7;
       --sos-gray-300: #E2E8F0;
@@ -43,8 +46,8 @@
     }
     
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--sos-gray-100);
+      font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--sos-light);
       color: var(--sos-gray-900);
       min-height: 100vh;
     }
@@ -314,13 +317,13 @@
     }
     
     .category-btn:hover {
-      border-color: var(--sos-blue);
-      background: rgba(74,144,217,0.05);
+      border-color: var(--sos-navy);
+      background: rgba(26,56,80,0.05);
     }
     
     .category-btn.selected {
-      border-color: var(--sos-blue);
-      background: rgba(74,144,217,0.1);
+      border-color: var(--sos-navy);
+      background: rgba(26,56,80,0.1);
     }
     
     .category-btn .icon {
@@ -408,12 +411,12 @@
     }
     
     .urgency-btn.medium {
-      color: var(--sos-blue);
+      color: var(--sos-yellow);
     }
     .urgency-btn.medium.selected {
-      background: var(--sos-blue);
-      border-color: var(--sos-blue);
-      color: white;
+      background: var(--sos-yellow);
+      border-color: var(--sos-yellow);
+      color: var(--sos-navy);
     }
     
     /* Buttons */
@@ -433,11 +436,12 @@
     
     .btn-primary {
       background: var(--sos-blue);
-      color: white;
+      color: var(--sos-navy);
+      font-weight: 500;
     }
     
     .btn-primary:hover {
-      background: #3A7BC8;
+      background: var(--sos-blue-dark);
     }
     
     .btn-primary:disabled {

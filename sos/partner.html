@@ -5,23 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SOS Partner Dashboard | Coordinator View</title>
   
-  <!-- Fonts -->
+  <!-- Fonts - Roboto per SOS Brand Guide -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   
   <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   
   <style>
     :root {
-      --sos-navy: #1A3850;
-      --sos-red: #EF4E4B;
-      --sos-blue: #4A90D9;
-      --sos-green: #34A853;
-      --sos-orange: #F59E0B;
-      --sos-purple: #8B5CF6;
+      /* SOS Brand Colors - Per Brand Guide */
+      --sos-navy: #1A3850;      /* Primary - Trust and reliability */
+      --sos-red: #EF4E4B;       /* Secondary - Urgency and importance */
+      --sos-blue: #89CFF0;      /* Tertiary - Calm, safety, hope (CTAs) */
+      --sos-blue-dark: #6BB5D8;
+      --sos-yellow: #FFC107;    /* Warning - Medium urgency */
+      --sos-green: #34A853;     /* Success states */
+      --sos-orange: #F97316;    /* High urgency */
       --sos-white: #FFFFFF;
+      --sos-light: #F9F9F9;     /* Light backgrounds */
       --sos-gray-100: #F7FAFC;
       --sos-gray-200: #EDF2F7;
       --sos-gray-300: #E2E8F0;
@@ -37,8 +40,8 @@
     }
     
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--sos-gray-100);
+      font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--sos-light);
       color: var(--sos-gray-900);
       min-height: 100vh;
     }
@@ -167,11 +170,12 @@
     
     .btn-primary {
       background: var(--sos-blue);
-      color: white;
+      color: var(--sos-navy);
+      font-weight: 500;
     }
     
     .btn-primary:hover {
-      background: #3A7BC8;
+      background: var(--sos-blue-dark);
     }
     
     .btn-outline {
