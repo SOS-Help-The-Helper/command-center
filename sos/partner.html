@@ -747,11 +747,12 @@
       const container = document.getElementById('pending-matches');
       
       try {
+        // Fetch matches with full request details
         const { data: matches, error } = await db
           .from('matches')
           .select(`
             *,
-            request:request_id (id, title, description, contact_name, need_type_id)
+            request:request_id (id, title, description, contact_name, need_type_id, urgency, location_description, quantity_needed)
           `)
           .eq('status', 'proposed')
           .order('created_at', { ascending: false })
@@ -770,43 +771,62 @@
           return;
         }
         
+        // Fetch resources for all matches
+        const allResourceIds = matches.flatMap(m => m.resource_ids || []);
+        const { data: resources } = await db
+          .from('resources')
+          .select('*')
+          .in('id', allResourceIds);
+        
+        const resourceMap = {};
+        (resources || []).forEach(r => resourceMap[r.id] = r);
+        
         container.innerHTML = matches.map(match => {
           const isThreeWay = match.match_type === 'three_way';
-          const resourceCount = match.resource_ids?.length || 1;
+          const matchResources = (match.resource_ids || []).map(id => resourceMap[id]).filter(Boolean);
+          const primaryResource = matchResources[0];
+          
+          // Build decision trace / rationale
+          const rationale = match.metadata?.rationale || match.metadata?.match_reasons || [];
+          const rationaleText = Array.isArray(rationale) ? rationale.join(' • ') : 
+            (rationale || `Category match: ${match.request?.need_type_id} • Location: ${match.request?.location_description || 'WNC'}`);
           
           return `
           <div class="match-card ${isThreeWay ? 'three-way' : ''}">
             <div class="match-header">
               <div class="match-score">
-                ${isThreeWay ? '🔗 3-Way Match' : 'Match'}: <span class="score-value">${match.match_score || 70}%</span>
+                ${isThreeWay ? '🔗 3-Way Match' : '🔗 Match'}: <span class="score-value">${match.match_score || 85}%</span>
               </div>
-              <span class="match-status pending">${isThreeWay ? 'Emergency RV' : 'Pending'}</span>
+              <span class="match-status pending">${match.request?.urgency === 'critical' ? '🔴 Critical' : isThreeWay ? 'Emergency RV' : 'Pending'}</span>
             </div>
+            
+            <!-- Decision Trace / Why this match -->
+            <div class="match-rationale" style="background: var(--sos-gray-100); padding: 0.5rem 0.75rem; border-radius: 6px; margin: 0.75rem 0; font-size: 0.8rem; color: var(--sos-gray-700);">
+              <strong>Why:</strong> ${rationaleText}
+            </div>
+            
             <div class="match-parties" style="${isThreeWay ? 'flex-direction: column; gap: 0.5rem;' : ''}">
               <div class="match-party">
-                <div class="type">🆘 Survivor</div>
+                <div class="type">🆘 ${match.request?.need_type_id || 'Need'}</div>
                 <div class="name">${match.request?.contact_name || 'Unknown'}</div>
+                <div class="detail" style="font-size: 0.75rem; color: var(--sos-gray-500);">${match.request?.location_description || ''}</div>
               </div>
               ${isThreeWay ? `
-              <div style="display: flex; gap: 0.5rem; align-items: center;">
-                <span style="color: var(--sos-gray-400);">↓</span>
+              <div style="text-align: center; color: var(--sos-gray-400);">↓</div>
+              ${matchResources.map((res, i) => `
+              <div class="match-party" style="border-left: 3px solid ${i === 0 ? 'var(--sos-blue)' : 'var(--sos-green)'};">
+                <div class="type">${res?.metadata?.subtype === 'rv' ? '🚐 RV' : res?.metadata?.subtype === 'rv_driver' ? '🚗 Driver' : '🤝 Resource'}</div>
+                <div class="name">${res?.contact_name || 'Provider'}</div>
+                <div class="detail" style="font-size: 0.75rem; color: var(--sos-gray-500);">${res?.title || res?.description?.substring(0, 40) || ''}</div>
               </div>
-              <div class="match-party" style="border-left: 3px solid var(--sos-blue);">
-                <div class="type">🚐 RV</div>
-                <div class="name">RV Available</div>
-              </div>
-              <div style="display: flex; gap: 0.5rem; align-items: center;">
-                <span style="color: var(--sos-gray-400);">↓</span>
-              </div>
-              <div class="match-party" style="border-left: 3px solid var(--sos-green);">
-                <div class="type">🚗 Driver</div>
-                <div class="name">RV Driver</div>
-              </div>
+              ${i < matchResources.length - 1 ? '<div style="text-align: center; color: var(--sos-gray-400);">↓</div>' : ''}
+              `).join('')}
               ` : `
               <span class="match-arrow">→</span>
               <div class="match-party">
-                <div class="type">Resource</div>
-                <div class="name">Available Helper</div>
+                <div class="type">🤝 ${primaryResource?.resource_type_id || 'Resource'}</div>
+                <div class="name">${primaryResource?.contact_name || 'Provider'}</div>
+                <div class="detail" style="font-size: 0.75rem; color: var(--sos-gray-500);">${primaryResource?.title || ''}</div>
               </div>
               `}
             </div>
