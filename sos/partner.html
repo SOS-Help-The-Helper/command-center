@@ -342,6 +342,16 @@
       border-bottom: none;
     }
     
+    .match-card.three-way {
+      background: linear-gradient(135deg, rgba(137,207,240,0.1) 0%, rgba(52,168,83,0.1) 100%);
+      border: 1px solid var(--sos-blue);
+    }
+    
+    .match-card.three-way .match-status {
+      background: rgba(137,207,240,0.2);
+      color: var(--sos-navy);
+    }
+    
     .match-header {
       display: flex;
       align-items: center;
@@ -760,31 +770,52 @@
           return;
         }
         
-        container.innerHTML = matches.map(match => `
-          <div class="match-card">
+        container.innerHTML = matches.map(match => {
+          const isThreeWay = match.match_type === 'three_way';
+          const resourceCount = match.resource_ids?.length || 1;
+          
+          return `
+          <div class="match-card ${isThreeWay ? 'three-way' : ''}">
             <div class="match-header">
               <div class="match-score">
-                Match Score: <span class="score-value">${match.match_score || 70}%</span>
+                ${isThreeWay ? '🔗 3-Way Match' : 'Match'}: <span class="score-value">${match.match_score || 70}%</span>
               </div>
-              <span class="match-status pending">Pending</span>
+              <span class="match-status pending">${isThreeWay ? 'Emergency RV' : 'Pending'}</span>
             </div>
-            <div class="match-parties">
+            <div class="match-parties" style="${isThreeWay ? 'flex-direction: column; gap: 0.5rem;' : ''}">
               <div class="match-party">
-                <div class="type">Request</div>
+                <div class="type">🆘 Survivor</div>
                 <div class="name">${match.request?.contact_name || 'Unknown'}</div>
               </div>
+              ${isThreeWay ? `
+              <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <span style="color: var(--sos-gray-400);">↓</span>
+              </div>
+              <div class="match-party" style="border-left: 3px solid var(--sos-blue);">
+                <div class="type">🚐 RV</div>
+                <div class="name">RV Available</div>
+              </div>
+              <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <span style="color: var(--sos-gray-400);">↓</span>
+              </div>
+              <div class="match-party" style="border-left: 3px solid var(--sos-green);">
+                <div class="type">🚗 Driver</div>
+                <div class="name">RV Driver</div>
+              </div>
+              ` : `
               <span class="match-arrow">→</span>
               <div class="match-party">
                 <div class="type">Resource</div>
                 <div class="name">Available Helper</div>
               </div>
+              `}
             </div>
             <div class="match-actions">
               <button class="btn btn-outline" onclick="declineMatch('${match.id}')">Decline</button>
-              <button class="btn btn-primary" onclick="approveMatch('${match.id}')">Approve</button>
+              <button class="btn btn-primary" onclick="approveMatch('${match.id}')">${isThreeWay ? 'Coordinate All 3' : 'Approve'}</button>
             </div>
           </div>
-        `).join('');
+        `}).join('');
         
       } catch (err) {
         console.error('Matches error:', err);
