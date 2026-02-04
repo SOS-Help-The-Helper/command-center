@@ -534,44 +534,52 @@
       <nav class="sidebar-nav">
         <div class="nav-section">
           <div class="nav-section-title">Operations</div>
-          <div class="nav-item active">
+          <div class="nav-item active" onclick="filterView('all')" data-filter="all">
             <span class="icon">📋</span>
             <span>Triage Queue</span>
             <span class="badge" id="queue-count">0</span>
           </div>
-          <div class="nav-item">
+          <div class="nav-item" onclick="filterView('matches')" data-filter="matches">
             <span class="icon">🔗</span>
             <span>Matches</span>
           </div>
-          <div class="nav-item">
+          <div class="nav-item" onclick="window.location='index.html#map-view'">
             <span class="icon">🗺️</span>
             <span>Map View</span>
           </div>
         </div>
         
         <div class="nav-section">
-          <div class="nav-section-title">Resources</div>
-          <div class="nav-item">
+          <div class="nav-section-title">Filter by Category</div>
+          <div class="nav-item" onclick="filterView('housing')" data-filter="housing">
             <span class="icon">🏠</span>
             <span>Housing</span>
           </div>
-          <div class="nav-item">
+          <div class="nav-item" onclick="filterView('food')" data-filter="food">
             <span class="icon">🍽️</span>
             <span>Food</span>
           </div>
-          <div class="nav-item">
+          <div class="nav-item" onclick="filterView('supplies')" data-filter="supplies">
             <span class="icon">📦</span>
             <span>Supplies</span>
+          </div>
+          <div class="nav-item" onclick="filterView('medical')" data-filter="medical">
+            <span class="icon">🏥</span>
+            <span>Medical</span>
+          </div>
+          <div class="nav-item" onclick="filterView('transport')" data-filter="transport">
+            <span class="icon">🚗</span>
+            <span>Transport</span>
           </div>
         </div>
         
         <div class="nav-section">
           <div class="nav-section-title">Reports</div>
-          <div class="nav-item">
+          <div class="nav-item" onclick="showAnalytics()">
             <span class="icon">📊</span>
             <span>Analytics</span>
           </div>
-          <div class="nav-item">
+          <div class="nav-item" onclick="showDecisionLog()">
             <span class="icon">📜</span>
             <span>Decision Log</span>
           </div>
@@ -704,12 +712,19 @@
       const container = document.getElementById('triage-queue');
       
       try {
-        const { data: requests, error } = await db
+        let query = db
           .from('requests')
           .select('*')
-          .eq('status', 'active')
+          .eq('status', 'active');
+        
+        // Apply category filter if set
+        if (currentFilter && currentFilter !== 'all' && currentFilter !== 'matches') {
+          query = query.eq('need_type_id', currentFilter);
+        }
+        
+        const { data: requests, error } = await query
           .order('created_at', { ascending: false })
-          .limit(10);
+          .limit(20);
         
         if (error) throw error;
         
@@ -881,6 +896,38 @@
       } catch (err) {
         alert('Error: ' + err.message);
       }
+    }
+    
+    // ==================== NAVIGATION / FILTERING ====================
+    let currentFilter = 'all';
+    
+    function filterView(filter) {
+      currentFilter = filter;
+      
+      // Update active nav item
+      document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+        if (item.dataset.filter === filter) {
+          item.classList.add('active');
+        }
+      });
+      
+      // If matches view, scroll to matches section
+      if (filter === 'matches') {
+        document.getElementById('pending-matches').scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+      
+      // Reload triage queue with filter
+      loadTriageQueue();
+    }
+    
+    function showAnalytics() {
+      alert('📊 Analytics Dashboard\n\nComing soon! Will show:\n• Match success rates\n• Response times\n• Category breakdown\n• Geographic heatmaps');
+    }
+    
+    function showDecisionLog() {
+      alert('📜 Decision Log\n\nComing soon! Will show:\n• All match decisions with rationale\n• Audit trail for accountability\n• Export for reporting');
     }
     
     // ==================== HELPERS ====================
