@@ -1768,34 +1768,54 @@
       }
     }
     
+    // Clean text - decode URL encoding and clean up titles
+    function cleanText(text) {
+      if (!text) return '';
+      // Decode URL encoding
+      let decoded = text.replace(/\+/g, ' ');
+      try { decoded = decodeURIComponent(decoded); } catch(e) {}
+      // Remove category prefix if present (e.g., "housing: ")
+      decoded = decoded.replace(/^(housing|food|medical|transport|supplies|volunteer):\s*/i, '');
+      return decoded.trim();
+    }
+    
     async function loadListView() {
       const categoryFilter = document.getElementById('category-filter').value;
       const typeFilter = document.getElementById('type-filter').value;
       const container = document.getElementById('list-container');
       
-      let html = '<div style="display: grid; gap: 1rem;">';
+      let html = '<div style="display: grid; gap: 1rem; max-width: 800px; margin: 0 auto;">';
       
       try {
         // Load requests
         if (typeFilter !== 'resource') {
           let query = db.from('requests').select('*').eq('status', 'active').eq('disaster_id', DISASTER_ID);
           if (categoryFilter !== 'all') query = query.eq('need_type_id', categoryFilter);
-          const { data: requests } = await query.limit(50);
+          const { data: requests } = await query.order('created_at', { ascending: false }).limit(50);
           
           (requests || []).forEach(req => {
+            const title = cleanText(req.title || req.description?.substring(0, 80) || 'Request for help');
+            const location = cleanText(req.location_description || 'Western NC');
+            const name = req.contact_name || 'Community Member';
+            const category = req.need_type_id?.charAt(0).toUpperCase() + req.need_type_id?.slice(1) || 'Request';
+            
             html += `
-              <div style="background: white; border-radius: 8px; padding: 1rem; border-left: 4px solid var(--sos-red);">
-                <div style="display: flex; justify-content: space-between; align-items: start;">
-                  <div>
-                    <span style="font-size: 0.75rem; color: var(--sos-red); font-weight: 600;">🆘 ${req.need_type_id?.toUpperCase() || 'REQUEST'}</span>
-                    <h4 style="margin: 0.25rem 0;">${req.contact_name || 'Anonymous'}</h4>
-                    <p style="margin: 0; font-size: 0.875rem; color: #666;">${req.title || req.description?.substring(0, 80) || ''}</p>
-                    <p style="margin: 0.25rem 0 0; font-size: 0.8rem; color: #888;">📍 ${req.location_description || 'WNC'}</p>
+              <div style="background: white; border-radius: 16px; padding: 1.25rem 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='none';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.08)';">
+                <div style="display: flex; justify-content: space-between; align-items: start; gap: 1rem;">
+                  <div style="flex: 1; min-width: 0;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                      <span style="display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.7rem; color: white; background: var(--sos-red); padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 600;">
+                        🆘 ${category}
+                      </span>
+                      <span style="font-size: 0.7rem; color: white; background: ${getUrgencyColor(req.urgency)}; padding: 0.2rem 0.5rem; border-radius: 20px; text-transform: capitalize;">${req.urgency || 'medium'}</span>
+                    </div>
+                    <h4 style="margin: 0 0 0.25rem; font-size: 1rem; font-weight: 600; color: var(--sos-gray-900);">${name}</h4>
+                    <p style="margin: 0 0 0.5rem; font-size: 0.9rem; color: var(--sos-gray-700); line-height: 1.4;">${title}</p>
+                    <p style="margin: 0; font-size: 0.8rem; color: var(--sos-gray-500); display: flex; align-items: center; gap: 0.25rem;">
+                      <span>📍</span> ${location}
+                    </p>
                   </div>
-                  <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: end;">
-                    <span style="padding: 0.25rem 0.5rem; background: ${getUrgencyColor(req.urgency)}; color: white; border-radius: 4px; font-size: 0.7rem;">${req.urgency || 'medium'}</span>
-                    <button onclick="findMatchesFor('request', '${req.id}')" style="padding: 0.5rem 0.75rem; background: var(--sos-blue); border: none; border-radius: 6px; font-size: 0.8rem; cursor: pointer; white-space: nowrap;">Find Matches</button>
-                  </div>
+                  <button onclick="findMatchesFor('request', '${req.id}')" style="padding: 0.6rem 1rem; background: linear-gradient(135deg, var(--sos-blue) 0%, var(--sos-blue-dark) 100%); color: var(--sos-navy); border: none; border-radius: 8px; font-size: 0.8rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">Find Matches</button>
                 </div>
               </div>
             `;
@@ -1806,22 +1826,31 @@
         if (typeFilter !== 'request') {
           let query = db.from('resources').select('*').eq('status', 'active').eq('disaster_id', DISASTER_ID);
           if (categoryFilter !== 'all') query = query.eq('resource_type_id', categoryFilter);
-          const { data: resources } = await query.limit(50);
+          const { data: resources } = await query.order('created_at', { ascending: false }).limit(50);
           
           (resources || []).forEach(res => {
+            const title = cleanText(res.title || res.description?.substring(0, 80) || 'Resource available');
+            const location = cleanText(res.location_description || 'Western NC');
+            const name = res.contact_name || 'Community Helper';
+            const category = res.resource_type_id?.charAt(0).toUpperCase() + res.resource_type_id?.slice(1) || 'Resource';
+            
             html += `
-              <div style="background: white; border-radius: 8px; padding: 1rem; border-left: 4px solid var(--sos-navy);">
-                <div style="display: flex; justify-content: space-between; align-items: start;">
-                  <div>
-                    <span style="font-size: 0.75rem; color: var(--sos-navy); font-weight: 600;">🤝 ${res.resource_type_id?.toUpperCase() || 'RESOURCE'}</span>
-                    <h4 style="margin: 0.25rem 0;">${res.contact_name || 'Provider'}</h4>
-                    <p style="margin: 0; font-size: 0.875rem; color: #666;">${res.title || res.description?.substring(0, 80) || ''}</p>
-                    <p style="margin: 0.25rem 0 0; font-size: 0.8rem; color: #888;">📍 ${res.location_description || 'WNC'}</p>
+              <div style="background: white; border-radius: 16px; padding: 1.25rem 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='none';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.08)';">
+                <div style="display: flex; justify-content: space-between; align-items: start; gap: 1rem;">
+                  <div style="flex: 1; min-width: 0;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                      <span style="display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.7rem; color: white; background: var(--sos-navy); padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 600;">
+                        🤝 ${category}
+                      </span>
+                      <span style="font-size: 0.7rem; color: white; background: var(--sos-green); padding: 0.2rem 0.5rem; border-radius: 20px;">Available</span>
+                    </div>
+                    <h4 style="margin: 0 0 0.25rem; font-size: 1rem; font-weight: 600; color: var(--sos-gray-900);">${name}</h4>
+                    <p style="margin: 0 0 0.5rem; font-size: 0.9rem; color: var(--sos-gray-700); line-height: 1.4;">${title}</p>
+                    <p style="margin: 0; font-size: 0.8rem; color: var(--sos-gray-500); display: flex; align-items: center; gap: 0.25rem;">
+                      <span>📍</span> ${location}
+                    </p>
                   </div>
-                  <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: end;">
-                    <span style="padding: 0.25rem 0.5rem; background: var(--sos-green); color: white; border-radius: 4px; font-size: 0.7rem;">Available</span>
-                    <button onclick="findMatchesFor('resource', '${res.id}')" style="padding: 0.5rem 0.75rem; background: var(--sos-blue); border: none; border-radius: 6px; font-size: 0.8rem; cursor: pointer; white-space: nowrap;">Find Requests</button>
-                  </div>
+                  <button onclick="findMatchesFor('resource', '${res.id}')" style="padding: 0.6rem 1rem; background: linear-gradient(135deg, var(--sos-blue) 0%, var(--sos-blue-dark) 100%); color: var(--sos-navy); border: none; border-radius: 8px; font-size: 0.8rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">Find Requests</button>
                 </div>
               </div>
             `;
