@@ -1145,6 +1145,12 @@
       contact_email: ''
     };
     
+    // ==================== DISASTER TRACKING ====================
+    // Get disaster ID from URL param (?disaster=helene-wnc-2024) or default
+    const urlParams = new URLSearchParams(window.location.search);
+    const DISASTER_ID = urlParams.get('disaster') || 'helene-wnc-2024';
+    console.log('Active disaster:', DISASTER_ID);
+    
     // ==================== VIEW NAVIGATION ====================
     function showView(viewName) {
       document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
@@ -1154,6 +1160,16 @@
       document.querySelector(`[data-view="${viewName}"]`)?.classList.add('active');
       
       currentView = viewName;
+      
+      // Immersive mode for intake - hide nav
+      const navTabs = document.querySelector('.nav-tabs');
+      if (viewName === 'intake') {
+        navTabs.style.display = 'none';
+        document.body.style.background = 'linear-gradient(135deg, var(--sos-gray-100) 0%, var(--sos-white) 100%)';
+      } else {
+        navTabs.style.display = 'flex';
+        document.body.style.background = 'var(--sos-light)';
+      }
       
       if (viewName === 'map' && !map) {
         initMap();
@@ -1169,12 +1185,14 @@
         tab.addEventListener('click', () => showView(tab.dataset.view));
       });
       
-      // Category button clicks
+      // Category button clicks - auto-advance to next step
       document.querySelectorAll('.category-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('selected'));
           btn.classList.add('selected');
           formData.category = btn.dataset.category;
+          // Auto-advance after brief visual feedback
+          setTimeout(() => nextStep(), 200);
         });
       });
       
@@ -1326,7 +1344,7 @@
           contact_name: formData.contact_name,
           contact_phone: formData.contact_phone,
           contact_email: formData.contact_email,
-          disaster_id: 'helene-wnc-2024'
+          disaster_id: DISASTER_ID
         };
         
         const { data, error } = await db
@@ -1342,7 +1360,7 @@
         if (intakeType === 'need') {
           const request = {
             intake_id: data[0].id,
-            disaster_id: 'helene-wnc-2024',
+            disaster_id: DISASTER_ID,
             status: 'active',
             need_type_id: formData.category,
             title: `${formData.category}: ${formData.description.substring(0, 50)}`,
@@ -1364,7 +1382,7 @@
         } else {
           const resource = {
             intake_id: data[0].id,
-            disaster_id: 'helene-wnc-2024',
+            disaster_id: DISASTER_ID,
             status: 'active',
             resource_type_id: formData.category,
             title: `${formData.category}: ${formData.description.substring(0, 50)}`,
