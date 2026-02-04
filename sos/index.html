@@ -998,7 +998,7 @@
               </div>
             </div>
             
-            <!-- Step 3: Location -->
+            <!-- Step 3: Location & Disaster -->
             <div class="form-step" data-step="3">
               <h3 class="step-title">Where are you located?</h3>
               
@@ -1009,6 +1009,19 @@
               
               <div id="location-map" style="height: 80px; border-radius: 8px; margin-top: 1rem; background: var(--sos-gray-100); display: flex; align-items: center; justify-content: center; color: var(--sos-gray-500); font-size: 0.85rem;">
                 <span>📍 Location will be verified by our team</span>
+              </div>
+              
+              <div class="form-group" style="margin-top: 1.5rem;">
+                <label class="form-label">Which disaster is this related to?</label>
+                <select class="form-input" id="disaster_id" required>
+                  <option value="">Select a disaster...</option>
+                  <option value="helene-wnc-2024" data-regions="NC,TN,VA,SC,GA">🌀 Hurricane Helene - WNC (Oct 2024)</option>
+                  <option value="winter-storm-fern-2025" data-regions="NC,VA,TN,WV">❄️ Winter Storm Fern (Jan 2025)</option>
+                  <option value="midwest-floods-2025" data-regions="MO,IL,KY,IN,OH">🌊 Midwest Floods (Feb 2025)</option>
+                  <option value="ca-wildfires-2025" data-regions="CA">🔥 California Wildfires (Jan 2025)</option>
+                  <option value="other">📋 Other / Not Listed</option>
+                </select>
+                <p id="disaster-suggestion" style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--sos-gray-500);"></p>
               </div>
             </div>
             
@@ -1261,6 +1274,9 @@
             formData.location = place.formatted_address || place.name;
             locationInput.value = formData.location;
             console.log('Location selected:', formData.location, formData.lat, formData.lng);
+            
+            // Auto-suggest disaster based on location
+            suggestDisaster(formData.location);
           }
         });
         console.log('Google Places Autocomplete initialized');
@@ -1268,6 +1284,41 @@
       
       console.log('SOS Frontend initialized');
     });
+    
+    // ==================== DISASTER SUGGESTION ====================
+    function suggestDisaster(location) {
+      const disasterSelect = document.getElementById('disaster_id');
+      const suggestionEl = document.getElementById('disaster-suggestion');
+      if (!disasterSelect || !location) return;
+      
+      const locationUpper = location.toUpperCase();
+      let suggestedValue = '';
+      let suggestionText = '';
+      
+      // Check location against disaster regions
+      if (locationUpper.includes('NC') || locationUpper.includes('NORTH CAROLINA') || 
+          locationUpper.includes('ASHEVILLE') || locationUpper.includes('BURNSVILLE') ||
+          locationUpper.includes('BUNCOMBE') || locationUpper.includes('YANCEY')) {
+        suggestedValue = 'helene-wnc-2024';
+        suggestionText = '💡 Based on your location, this appears related to Hurricane Helene';
+      } else if (locationUpper.includes('CA') || locationUpper.includes('CALIFORNIA') ||
+                 locationUpper.includes('LOS ANGELES') || locationUpper.includes('MALIBU')) {
+        suggestedValue = 'ca-wildfires-2025';
+        suggestionText = '💡 Based on your location, this may be related to the California Wildfires';
+      } else if (locationUpper.includes('MO') || locationUpper.includes('MISSOURI') ||
+                 locationUpper.includes('IL') || locationUpper.includes('ILLINOIS') ||
+                 locationUpper.includes('KENTUCKY') || locationUpper.includes('KY')) {
+        suggestedValue = 'midwest-floods-2025';
+        suggestionText = '💡 Based on your location, this may be related to the Midwest Floods';
+      }
+      
+      if (suggestedValue) {
+        disasterSelect.value = suggestedValue;
+        suggestionEl.innerHTML = suggestionText;
+      } else {
+        suggestionEl.innerHTML = '';
+      }
+    }
     
     // ==================== INTAKE FORM ====================
     function showIntakeForm(type) {
@@ -1281,6 +1332,7 @@
         location: '',
         lat: null,
         lng: null,
+        disaster_id: '',
         contact_name: '',
         contact_phone: '',
         contact_email: ''
@@ -1582,6 +1634,10 @@
         showToast('Please enter a location', 'error');
         return;
       }
+      if (currentStep === 3 && !document.getElementById('disaster_id').value) {
+        showToast('Please select which disaster this relates to', 'error');
+        return;
+      }
       
       // Save step data
       if (currentStep === 2) {
@@ -1619,6 +1675,7 @@
       }
       if (currentStep === 3) {
         formData.location = document.getElementById('location').value;
+        formData.disaster_id = document.getElementById('disaster_id').value;
       }
       
       // Update step 2 content when moving from step 1
@@ -1660,7 +1717,8 @@
       submitBtn.innerHTML = '<span class="spinner"></span> Submitting...';
       
       try {
-        // Create intake record
+        // Create intake record - use form-selected disaster or URL param fallback
+        const selectedDisaster = formData.disaster_id || DISASTER_ID;
         const intake = {
           source: 'web',
           source_id: `web:${Date.now()}`,
@@ -1670,7 +1728,7 @@
           contact_name: formData.contact_name,
           contact_phone: formData.contact_phone,
           contact_email: formData.contact_email,
-          disaster_id: DISASTER_ID
+          disaster_id: selectedDisaster
         };
         
         const { data, error } = await db
@@ -1687,7 +1745,7 @@
           if (intakeType === 'need') {
             const request = {
               intake_id: data[0].id,
-              disaster_id: DISASTER_ID,
+              disaster_id: selectedDisaster,
               status: 'active',
               need_type_id: category,
               title: `${category}: ${formData.description.substring(0, 50)}`,
@@ -1709,7 +1767,7 @@
           } else {
             const resource = {
               intake_id: data[0].id,
-              disaster_id: DISASTER_ID,
+              disaster_id: selectedDisaster,
               status: 'active',
               resource_type_id: category,
               title: `${category}: ${formData.description.substring(0, 50)}`,
