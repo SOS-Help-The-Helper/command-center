@@ -114,29 +114,35 @@
     
     .main-content {
       flex: 1;
-      display: flex;
+      position: relative;
     }
     
     /* ==================== VIEW CONTAINERS ==================== */
     .view {
-      display: none;
+      display: none !important;
       width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--sos-light);
     }
     
     .view.active {
-      display: block;
+      display: block !important;
+      position: relative;
     }
     
     /* ==================== HOME VIEW ==================== */
     .home-view {
-      display: flex;
       flex-direction: column;
       align-items: center;
       padding: 2rem 1.5rem;
     }
     
     .home-view.active {
-      display: flex;
+      display: flex !important;
     }
     
     .live-stats-banner {
@@ -267,7 +273,7 @@
     }
     
     .intake-view.active {
-      display: block;
+      display: block !important;
     }
     
     .form-header {
@@ -549,7 +555,7 @@
     }
     
     .map-view.active {
-      display: flex;
+      display: flex !important;
     }
     
     #map-container {
