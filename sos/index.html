@@ -1329,7 +1329,7 @@
           disaster_id: 'helene-wnc-2024'
         };
         
-        const { data, error } = await supabase
+        const { data, error } = await db
           .from('intakes')
           .insert([intake])
           .select();
@@ -1356,7 +1356,7 @@
             intake_source: 'web'
           };
           
-          const { error: reqError } = await supabase
+          const { error: reqError } = await db
             .from('requests')
             .insert([request]);
           
@@ -1376,7 +1376,7 @@
             intake_source: 'web'
           };
           
-          const { error: resError } = await supabase
+          const { error: resError } = await db
             .from('resources')
             .insert([resource]);
           
@@ -1384,7 +1384,7 @@
         }
         
         // Update intake status
-        await supabase
+        await db
           .from('intakes')
           .update({ status: 'processed' })
           .eq('id', data[0].id);
@@ -1443,14 +1443,14 @@
       
       try {
         // Load requests
-        const { data: requests } = await supabase
+        const { data: requests } = await db
           .from('requests')
           .select('*')
           .eq('status', 'active')
           .limit(100);
         
         // Load resources
-        const { data: resources } = await supabase
+        const { data: resources } = await db
           .from('resources')
           .select('*')
           .eq('status', 'active')
@@ -1571,7 +1571,7 @@
         document.getElementById('stat-helped').textContent = (matchResult.count || 0) * 3; // estimate
         
         // Load recent activity
-        const { data: recentIntakes } = await supabase
+        const { data: recentIntakes } = await db
           .from('intakes')
           .select('*')
           .order('created_at', { ascending: false })

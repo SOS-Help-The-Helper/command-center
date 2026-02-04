@@ -704,7 +704,7 @@
       const container = document.getElementById('triage-queue');
       
       try {
-        const { data: requests, error } = await supabase
+        const { data: requests, error } = await db
           .from('requests')
           .select('*')
           .eq('status', 'active')
@@ -747,7 +747,7 @@
       const container = document.getElementById('pending-matches');
       
       try {
-        const { data: matches, error } = await supabase
+        const { data: matches, error } = await db
           .from('matches')
           .select(`
             *,
@@ -837,7 +837,7 @@
     
     async function approveMatch(id) {
       try {
-        await supabase
+        await db
           .from('matches')
           .update({ status: 'accepted' })
           .eq('id', id);
@@ -851,7 +851,7 @@
     
     async function declineMatch(id) {
       try {
-        await supabase
+        await db
           .from('matches')
           .update({ status: 'declined' })
           .eq('id', id);
