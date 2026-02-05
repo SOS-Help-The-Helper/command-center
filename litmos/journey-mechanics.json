@@ -1,0 +1,410 @@
+{
+  "metadata": {
+    "company": "Litmos",
+    "version": "2.0",
+    "lastUpdated": "2026-02-05T23:25:00Z",
+    "source": "Mike Crook Feb 4 call + Mark Rosenthal Feb 5 + Harmony Audit",
+    "author": "Henry (Harmony Strategy)"
+  },
+  "stages": [
+    {
+      "id": 1,
+      "name": "Marketing → Lead",
+      "owner": "Marketing (Erica Light)",
+      "duration": "Variable (hours to weeks)",
+      "systems": ["Pardot", "Salesforce", "Website", "Qualified"],
+      "trigger": {
+        "event": "Prospect engages with marketing content",
+        "sources": ["Website visit", "Content download", "Webinar signup", "Event attendance", "Outbound campaign response"]
+      },
+      "actors": [
+        {"role": "Prospect", "actions": ["Views content", "Fills form", "Engages with chatbot"]},
+        {"role": "Marketing Ops (Ethan Warlick)", "actions": ["Manages campaigns", "Sets lead scoring", "Monitors flow"]},
+        {"role": "Qualified chatbot", "actions": ["Captures intent", "Routes to SDR/AE"]}
+      ],
+      "steps": [
+        {"seq": 1, "action": "Prospect visits website or engages with campaign", "system": "Website/Pardot", "data": "UTM params, source"},
+        {"seq": 2, "action": "Pardot tracks engagement (email opens, clicks, page views)", "system": "Pardot", "data": "Engagement score"},
+        {"seq": 3, "action": "Prospect fills form or chats with Qualified", "system": "Pardot/Qualified", "data": "Contact info, company, use case"},
+        {"seq": 4, "action": "Lead created in Salesforce", "system": "Salesforce", "data": "Lead record"},
+        {"seq": 5, "action": "Lead scoring applied", "system": "Pardot", "data": "Score based on behavior + firmographics"},
+        {"seq": 6, "action": "MQL threshold reached → routed to Sales", "system": "Salesforce", "data": "Lead assignment"}
+      ],
+      "dataCollected": {
+        "contact": ["Name", "Email", "Phone", "Title"],
+        "company": ["Company name", "Size (# employees)", "Industry"],
+        "intent": ["Use case interest", "Timeline", "Budget range"],
+        "behavior": ["Pages viewed", "Content downloaded", "Email engagement"]
+      },
+      "outputs": {
+        "deliverable": "Marketing Qualified Lead (MQL)",
+        "nextStage": "Sales Process",
+        "handoffData": ["Contact record", "Engagement history", "Lead score", "Source/campaign"]
+      },
+      "painPoints": [
+        {
+          "issue": "Pardot underutilized",
+          "impact": "Marketing attribution blind spots",
+          "status": "Known - HubSpot migration considered"
+        },
+        {
+          "issue": "Lead routing breaks",
+          "impact": "Leads get stuck between Pardot ↔ Qualified ↔ Salesforce",
+          "status": "Being mapped"
+        }
+      ],
+      "metrics": {
+        "current": ["Lead volume", "MQL volume", "Conversion rate"],
+        "missing": ["Attribution accuracy", "Time to MQL", "Channel ROI"]
+      }
+    },
+    {
+      "id": 2,
+      "name": "Sales Process",
+      "owner": "Sales (Mark Rosenthal, CRO)",
+      "duration": "30-90 days typical",
+      "systems": ["Salesforce", "Gong", "LinkedIn Sales Nav"],
+      "trigger": {
+        "event": "MQL assigned to AE or SDR books meeting",
+        "sources": ["Pardot MQL", "Qualified chat", "SDR outbound", "Inbound request"]
+      },
+      "actors": [
+        {"role": "SDR", "actions": ["Qualifies inbound", "Books meetings", "Logs activities"]},
+        {"role": "Account Executive (AE)", "actions": ["Runs discovery", "Demos product", "Negotiates", "Closes"]},
+        {"role": "Sales Manager", "actions": ["Forecasts", "Coaches", "Approves discounts"]},
+        {"role": "Prospect", "actions": ["Attends calls", "Provides requirements", "Gets internal buy-in"]}
+      ],
+      "steps": [
+        {"seq": 1, "action": "SDR/AE receives lead assignment", "system": "Salesforce", "data": "Lead record"},
+        {"seq": 2, "action": "Discovery call scheduled", "system": "Calendar/Salesforce", "data": "Meeting booked"},
+        {"seq": 3, "action": "Discovery call conducted", "system": "Gong", "data": "Call recording, transcript, key moments"},
+        {"seq": 4, "action": "Lead converted to Opportunity + Contact + Account", "system": "Salesforce", "data": "Opportunity created"},
+        {"seq": 5, "action": "Demo delivered", "system": "Gong/Zoom", "data": "Demo recording"},
+        {"seq": 6, "action": "Proposal/pricing sent", "system": "Salesforce/DocuSign", "data": "Quote, contract terms"},
+        {"seq": 7, "action": "Negotiation (if needed)", "system": "Gong", "data": "Objection handling"},
+        {"seq": 8, "action": "Contract signed → Closed Won", "system": "DocuSign/Salesforce", "data": "Signed contract"},
+        {"seq": 9, "action": "Handoff notes written to Onboarding", "system": "Salesforce", "data": "Multi-line text field (PROBLEM!)"}
+      ],
+      "dataCollected": {
+        "opportunity": ["Deal size", "Product", "Term length", "Close date"],
+        "qualification": ["Use case", "# users", "Decision makers", "Timeline", "Budget"],
+        "competitive": ["Current solution", "Competitors evaluated"],
+        "conversations": ["Gong recordings", "Key objections", "Requirements discussed"]
+      },
+      "outputs": {
+        "deliverable": "Closed Won Opportunity",
+        "nextStage": "Onboarding",
+        "handoffData": ["Contract details", "Handoff notes (unstructured)", "Gong recordings (if found)"]
+      },
+      "painPoints": [
+        {
+          "issue": "Reps not logging activities",
+          "impact": "No visibility into sales motion, can't benchmark",
+          "status": "CRITICAL - Michelle aware"
+        },
+        {
+          "issue": "Handoff notes are unstructured text",
+          "impact": "Onboarding repeats discovery, customer frustrated",
+          "status": "CRITICAL - fixing with Gong→PlanHat"
+        },
+        {
+          "issue": "No documented sales process",
+          "impact": "Inconsistent experience, harder to train",
+          "status": "Being documented now"
+        }
+      ],
+      "metrics": {
+        "current": ["Close rate", "Deal size", "Cycle length"],
+        "missing": ["Activity metrics", "Meeting-to-close", "Discount frequency"]
+      }
+    },
+    {
+      "id": 3,
+      "name": "Onboarding",
+      "owner": "Customer Enablement (CEMs)",
+      "duration": "45-120 days depending on package",
+      "systems": ["Gainsight→PlanHat", "Salesforce", "Teams"],
+      "trigger": {
+        "event": "Opportunity marked Closed Won",
+        "sources": ["Salesforce automation"]
+      },
+      "actors": [
+        {"role": "Customer Enablement Manager (CEM)", "actions": ["Runs kickoff", "Manages implementation", "Delivers training", "Hands off to CSM"]},
+        {"role": "Customer Admin", "actions": ["Configures platform", "Attends training", "Manages go-live"]},
+        {"role": "Customer Executive Sponsor", "actions": ["Aligns on goals", "Removes blockers"]}
+      ],
+      "steps": [
+        {"seq": 1, "action": "Closed Won triggers onboarding workflow", "system": "Salesforce→Gainsight", "data": "Account, opportunity data"},
+        {"seq": 2, "action": "CEM assigned based on workload", "system": "Gainsight", "data": "CEM assignment"},
+        {"seq": 3, "action": "Kickoff call scheduled", "system": "Teams/Calendar", "data": "Meeting invite"},
+        {"seq": 4, "action": "Kickoff call - REPEATS SALES DISCOVERY 😬", "system": "Teams", "data": "Goals, use case, stakeholders (again)"},
+        {"seq": 5, "action": "Success Plan created", "system": "Gainsight→PlanHat", "data": "Goals, milestones, timeline"},
+        {"seq": 6, "action": "Configuration sessions (SSO, integrations)", "system": "Teams", "data": "Technical setup notes"},
+        {"seq": 7, "action": "Content setup & training", "system": "Teams/Litmos platform", "data": "Training completion"},
+        {"seq": 8, "action": "Go-live checkpoint", "system": "Gainsight", "data": "Go-live date confirmed"},
+        {"seq": 9, "action": "Handover meeting with CSM", "system": "Teams", "data": "Structured handover doc"},
+        {"seq": 10, "action": "CSM assigned, CEM exits", "system": "Gainsight→PlanHat", "data": "CSM assignment"}
+      ],
+      "packages": [
+        {"name": "Quick Start", "duration": "45 days", "complexity": "Low"},
+        {"name": "Pro", "duration": "90 days", "complexity": "Medium"},
+        {"name": "Enterprise", "duration": "120 days", "complexity": "High"}
+      ],
+      "dataCollected": {
+        "project": ["Timeline", "Milestones", "Blockers"],
+        "customer": ["Admin contacts", "Executive sponsor", "Use cases implemented"],
+        "technical": ["Integrations", "SSO config", "Content structure"],
+        "sentiment": ["Satisfaction at handover", "NPS if collected"]
+      },
+      "outputs": {
+        "deliverable": "Customer live on platform, handed to CSM",
+        "nextStage": "Customer Success",
+        "handoffData": ["Success Plan", "Go-live date", "Integrations list", "POCs", "Sentiment score", "Handover notes"]
+      },
+      "painPoints": [
+        {
+          "issue": "Kickoff repeats sales discovery",
+          "impact": "Wastes customer time, looks uncoordinated",
+          "status": "Fix: Gong→PlanHat integration"
+        },
+        {
+          "issue": "45-120 day ramp is long",
+          "impact": "Time to value delayed",
+          "status": "Accepted for now"
+        }
+      ],
+      "metrics": {
+        "current": ["Time to go-live", "Onboarding completion"],
+        "missing": ["Time to first value", "Customer effort score"]
+      }
+    },
+    {
+      "id": 4,
+      "name": "Customer Success",
+      "owner": "Customer Success (Todd Lefkowitz, CCO)",
+      "duration": "Ongoing (until churn or expansion)",
+      "systems": ["PlanHat", "Teams", "Pendo", "Salesforce"],
+      "trigger": {
+        "event": "Onboarding handoff complete",
+        "sources": ["Gainsight/PlanHat workflow"]
+      },
+      "segments": [
+        {
+          "name": "Named",
+          "criteria": ">$40K ARR",
+          "ratio": "35-50 accounts per CSM",
+          "engagement": "Monthly value meetings + Quarterly QBRs (live)",
+          "renewalOwner": "CSM"
+        },
+        {
+          "name": "Teamed",
+          "criteria": "$15K-$40K ARR",
+          "ratio": "800-1000 accounts shared by 7-8 CSMs",
+          "engagement": "QBR every 6 months (templated deck)",
+          "renewalOwner": "Renewal Specialist"
+        },
+        {
+          "name": "Digital",
+          "criteria": "<$15K ARR",
+          "ratio": "~1200 accounts managed by 4-5 reps (India)",
+          "engagement": "Monthly newsletters + AI-generated QBRs (PlanHat Guide)",
+          "renewalOwner": "Renewal Specialist"
+        }
+      ],
+      "actors": [
+        {"role": "CSM (Named)", "actions": ["Value meetings", "QBRs", "Renewals", "Expansion hand-raise"]},
+        {"role": "CSM (Teamed)", "actions": ["Pooled task assignment", "6-month QBRs", "Risk alerts"]},
+        {"role": "Digital Rep", "actions": ["Newsletter sends", "AI QBR delivery", "Reactive support"]},
+        {"role": "Customer", "actions": ["Uses product", "Attends QBRs", "Provides feedback"]}
+      ],
+      "steps": [
+        {"seq": 1, "action": "CSM assigned based on segment + workload", "system": "PlanHat", "data": "CSM assignment"},
+        {"seq": 2, "action": "Intro call with customer", "system": "Teams", "data": "Relationship established"},
+        {"seq": 3, "action": "Health score monitoring begins", "system": "PlanHat + Pendo (NEW)", "data": "Usage data, engagement signals"},
+        {"seq": 4, "action": "Value meetings (Named only)", "system": "Teams", "data": "Meeting notes, action items"},
+        {"seq": 5, "action": "QBRs delivered per segment cadence", "system": "Teams/PlanHat", "data": "QBR deck, outcomes"},
+        {"seq": 6, "action": "Risk alerts triggered if health drops", "system": "PlanHat", "data": "CTA created"},
+        {"seq": 7, "action": "Expansion signals monitored", "system": "Salesforce/Pendo", "data": "License utilization, usage patterns"},
+        {"seq": 8, "action": "180 days pre-renewal: Renewal process begins", "system": "PlanHat", "data": "Renewal opp created"}
+      ],
+      "dataCollected": {
+        "health": ["Health score", "Usage metrics (Pendo)", "Engagement score"],
+        "relationship": ["Meeting notes", "QBR outcomes", "NPS responses"],
+        "risk": ["At-risk flags", "Support tickets", "Churn indicators"],
+        "expansion": ["License utilization", "Feature requests", "New use case discussions"]
+      },
+      "outputs": {
+        "deliverable": "Healthy, engaged customer OR risk escalation OR expansion opportunity",
+        "nextStage": "Renewal OR Expansion",
+        "handoffData": ["Health score history", "Meeting notes", "Risk alerts", "Expansion signals"]
+      },
+      "painPoints": [
+        {
+          "issue": "No Gong for CS team",
+          "impact": "Can't capture conversation intelligence, missing signals",
+          "status": "$40K budget deferred to H2 2026"
+        },
+        {
+          "issue": "Teams transcripts manual copy to Gainsight",
+          "impact": "Incomplete records, CSM time wasted",
+          "status": "Exploring automation"
+        },
+        {
+          "issue": "Only expansion signal is license utilization",
+          "impact": "Missing upsell opportunities",
+          "status": "Pendo data coming online"
+        }
+      ],
+      "metrics": {
+        "current": ["GRR", "NRR", "Health scores", "QBR completion"],
+        "missing": ["CSM productivity", "Time to risk detection", "Expansion signal accuracy"]
+      }
+    },
+    {
+      "id": 5,
+      "name": "Renewal",
+      "owner": "CS (Named) or Renewal Specialists (Teamed/Digital)",
+      "duration": "180 days → Close",
+      "systems": ["PlanHat", "Salesforce", "DocuSign"],
+      "trigger": {
+        "event": "180 days before contract end date",
+        "sources": ["Automated PlanHat workflow"]
+      },
+      "actors": [
+        {"role": "CSM (Named)", "actions": ["Owns full renewal", "Negotiates", "Closes"]},
+        {"role": "Renewal Specialist (Teamed/Digital)", "actions": ["Executes renewal playbook", "Sends pricing", "Follows up"]},
+        {"role": "Customer", "actions": ["Reviews pricing", "Negotiates", "Signs"]}
+      ],
+      "timeline": [
+        {"day": -180, "action": "Automated email sent to customer", "system": "PlanHat"},
+        {"day": -90, "action": "Pricing sent", "system": "Salesforce/DocuSign"},
+        {"day": -60, "action": "Follow-up if no response", "system": "PlanHat CTA"},
+        {"day": -30, "action": "Final notice / escalation", "system": "PlanHat"},
+        {"day": 0, "action": "Renewal closed (auto or active)", "system": "Salesforce"}
+      ],
+      "types": [
+        {"name": "Auto-Renewal", "process": "No action = renewed at same terms", "applies": "Standard contracts"},
+        {"name": "Active Renewal", "process": "Signature required", "applies": "Large deals, negotiated terms"}
+      ],
+      "pricing": {
+        "multiYear": ["3yr: 2% discount", "2yr: 4% discount"],
+        "singleYear": "6% increase standard"
+      },
+      "dataCollected": {
+        "renewal": ["New ARR", "Term length", "Pricing changes", "Contract signed date"],
+        "churn": ["Churn reason (if churned)", "Competitive loss info"]
+      },
+      "outputs": {
+        "deliverable": "Renewed contract OR Churned",
+        "nextStage": "Customer Success (continues) OR Closed Lost",
+        "handoffData": ["Renewal terms", "Churn reason if applicable"]
+      },
+      "painPoints": [
+        {
+          "issue": "Manual quoting process",
+          "impact": "Slow, error-prone",
+          "status": "Being addressed"
+        }
+      ],
+      "metrics": {
+        "current": ["Renewal rate", "On-time renewal %", "Churn rate"],
+        "missing": ["Renewal velocity", "Discount frequency"]
+      }
+    },
+    {
+      "id": 6,
+      "name": "Expansion / Upsell",
+      "owner": "CSM + AE (depending on size)",
+      "duration": "Variable (weeks to months)",
+      "systems": ["Salesforce", "PlanHat", "Pendo", "Gong (Sales only)"],
+      "trigger": {
+        "event": "Expansion signal detected",
+        "sources": ["License utilization >100%", "Customer request", "CSM observation", "Pendo usage spike (coming)"]
+      },
+      "actors": [
+        {"role": "CSM", "actions": ["Identifies signal", "Creates CSQL or handles directly", "Facilitates handoff"]},
+        {"role": "AE", "actions": ["Qualifies large opportunities", "Runs sales process", "Closes"]},
+        {"role": "Customer", "actions": ["Requests expansion", "Evaluates new use cases"]}
+      ],
+      "routing": [
+        {"condition": "<50 seats expansion", "owner": "CSM handles directly", "note": "New for 2026"},
+        {"condition": "≥50 seats OR new use case", "owner": "CSM → CSQL → AE", "note": "Formal handoff process"}
+      ],
+      "steps": [
+        {"seq": 1, "action": "Expansion signal detected", "system": "PlanHat/Pendo/Salesforce", "data": "Utilization, request, observation"},
+        {"seq": 2, "action": "CSM validates opportunity", "system": "PlanHat", "data": "Opportunity assessment"},
+        {"seq": 3, "action": "If <50 seats: CSM quotes and closes", "system": "Salesforce", "data": "Opportunity created/closed"},
+        {"seq": 4, "action": "If ≥50 seats: CSQL created", "system": "Salesforce", "data": "CSQL record"},
+        {"seq": 5, "action": "AE accepts and runs sales process", "system": "Salesforce/Gong", "data": "Full sales cycle"},
+        {"seq": 6, "action": "Deal closed", "system": "Salesforce", "data": "Expansion revenue booked"}
+      ],
+      "signals": {
+        "current": ["License utilization >100%"],
+        "coming": ["Pendo feature usage patterns", "Gong conversation signals (if CS gets access)"]
+      },
+      "dataCollected": {
+        "opportunity": ["Expansion type (seats, use case)", "Deal size", "Sales cycle"],
+        "attribution": ["Signal source", "CSM credited"]
+      },
+      "outputs": {
+        "deliverable": "Expansion revenue OR Declined opportunity",
+        "nextStage": "Customer Success (continues)",
+        "handoffData": ["New contract terms", "Updated ARR"]
+      },
+      "painPoints": [
+        {
+          "issue": "Only signal is license utilization",
+          "impact": "Missing upsell opportunities, reactive not proactive",
+          "status": "Pendo integration in progress"
+        },
+        {
+          "issue": "No Gong for CS",
+          "impact": "Can't detect expansion signals from conversations",
+          "status": "$40K budget deferred"
+        }
+      ],
+      "metrics": {
+        "current": ["Expansion revenue", "CSQL conversion"],
+        "missing": ["Signal detection rate", "Time from signal to close"]
+      }
+    }
+  ],
+  "handoffs": [
+    {
+      "from": "Marketing",
+      "to": "Sales",
+      "status": "NEEDS_WORK",
+      "dataTransferred": ["Lead record", "Engagement score", "Source"],
+      "issues": ["Routing breaks", "Attribution gaps"]
+    },
+    {
+      "from": "Sales",
+      "to": "Onboarding",
+      "status": "CRITICAL",
+      "dataTransferred": ["Contract", "Unstructured notes only"],
+      "issues": ["Onboarding repeats discovery", "No Gong context passed"],
+      "fix": "Gong→PlanHat integration"
+    },
+    {
+      "from": "Onboarding",
+      "to": "Customer Success",
+      "status": "GOOD",
+      "dataTransferred": ["Success Plan", "Go-live date", "Integrations", "Sentiment"],
+      "issues": ["Gainsight→PlanHat migration in progress"]
+    },
+    {
+      "from": "Customer Success",
+      "to": "Renewal",
+      "status": "AUTOMATED",
+      "dataTransferred": ["Health score", "Meeting history", "Risk alerts"],
+      "issues": ["None major"]
+    },
+    {
+      "from": "Customer Success",
+      "to": "Expansion (AE)",
+      "status": "NEW_PROCESS",
+      "dataTransferred": ["CSQL record", "Customer context"],
+      "issues": ["CSQL process just formalized in 2026"]
+    }
+  ]
+}
