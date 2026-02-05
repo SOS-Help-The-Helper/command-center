@@ -7,80 +7,26 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         * { font-family: 'Inter', sans-serif; }
-        
-        :root {
-            --litmos-blue: #0066cc;
-            --litmos-dark: #1a1a2e;
-            --harmony-gold: #d4af37;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #0f0f1a 100%);
-            min-height: 100vh;
-        }
-        
-        .glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .stage-card {
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .stage-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 102, 204, 0.2);
-        }
-        
-        .stage-card.active {
-            border-color: #d4af37;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
-        }
-        
-        .flow-line {
-            position: absolute;
-            height: 2px;
-            background: linear-gradient(90deg, #0066cc, #d4af37);
-            top: 50%;
-            z-index: 0;
-        }
-        
-        .pain-point {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.6; }
-        }
-        
-        .metric-ring {
-            stroke-dasharray: 251.2;
-            stroke-dashoffset: 0;
-            transition: stroke-dashoffset 1s ease;
-        }
-        
-        .tab-active {
-            background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
-            color: white;
-        }
-        
-        .tooltip {
-            visibility: hidden;
-            opacity: 0;
-            transition: all 0.2s;
-        }
-        
-        .has-tooltip:hover .tooltip {
-            visibility: visible;
-            opacity: 1;
-        }
+        :root { --litmos-blue: #0066cc; --litmos-dark: #1a1a2e; --harmony-gold: #d4af37; }
+        body { background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #0f0f1a 100%); min-height: 100vh; }
+        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .stage-card { transition: all 0.3s ease; cursor: pointer; }
+        .stage-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0, 102, 204, 0.2); }
+        .pain-point { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+        .tab-active { background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%); color: white; }
+        .timeline-item { position: relative; padding-left: 30px; }
+        .timeline-item::before { content: ''; position: absolute; left: 0; top: 8px; width: 12px; height: 12px; border-radius: 50%; background: #0066cc; }
+        .timeline-item::after { content: ''; position: absolute; left: 5px; top: 20px; width: 2px; height: calc(100% + 10px); background: rgba(0,102,204,0.3); }
+        .timeline-item:last-child::after { display: none; }
+        .phase-1 .timeline-item::before { background: #8b5cf6; }
+        .phase-2 .timeline-item::before { background: #f59e0b; }
+        .phase-3 .timeline-item::before { background: #10b981; }
+        .scrollbar-thin::-webkit-scrollbar { width: 6px; }
+        .scrollbar-thin::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
+        .scrollbar-thin::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 3px; }
     </style>
 </head>
 <body class="text-white">
@@ -91,155 +37,450 @@
                 <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center font-bold text-xl">L</div>
                 <div>
                     <h1 class="text-xl font-semibold">Litmos RevOps Command Center</h1>
-                    <p class="text-xs text-gray-400">Powered by Harmony Strategy</p>
+                    <p class="text-xs text-gray-400">Powered by Harmony Strategy • 30 Calls Analyzed</p>
                 </div>
             </div>
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-6">
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-blue-400">30</div>
+                    <div class="text-xs text-gray-400">Calls</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-amber-400">114</div>
+                    <div class="text-xs text-gray-400">Days</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-green-400">$90K</div>
+                    <div class="text-xs text-gray-400">Contract</div>
+                </div>
+                <div class="w-px h-10 bg-white/10"></div>
                 <div class="text-right">
                     <div class="text-sm text-gray-400">Last Updated</div>
-                    <div class="text-sm font-medium">Feb 5, 2026 • 4:26 PM EST</div>
+                    <div class="text-sm font-medium">Feb 5, 2026</div>
                 </div>
-                <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-6 py-8">
+    <!-- Navigation Tabs -->
+    <nav class="max-w-7xl mx-auto px-6 py-4">
+        <div class="flex gap-2 flex-wrap">
+            <button onclick="showTab('overview')" id="tab-overview" class="tab-active px-4 py-2 rounded-lg text-sm font-medium transition-all">Overview</button>
+            <button onclick="showTab('timeline')" id="tab-timeline" class="glass px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10">Timeline (30 Calls)</button>
+            <button onclick="showTab('journey')" id="tab-journey" class="glass px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10">Customer Journey</button>
+            <button onclick="showTab('findings')" id="tab-findings" class="glass px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10">Key Findings</button>
+            <button onclick="showTab('stack')" id="tab-stack" class="glass px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10">Tech Stack</button>
+            <button onclick="showTab('team')" id="tab-team" class="glass px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10">Stakeholders</button>
+            <button onclick="showTab('actions')" id="tab-actions" class="glass px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10">Action Items</button>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 pb-12">
         
-        <!-- Key Metrics Bar -->
-        <div class="grid grid-cols-4 gap-4 mb-8">
-            <div class="glass rounded-xl p-4">
-                <div class="text-xs text-gray-400 uppercase tracking-wider mb-1">Customer Segments</div>
-                <div class="text-2xl font-bold text-blue-400">3 Tiers</div>
-                <div class="text-xs text-gray-500 mt-1">Named • Teamed • Digital</div>
+        <!-- Tab: Overview -->
+        <div id="content-overview" class="tab-content">
+            <!-- Key Metrics -->
+            <div class="grid grid-cols-6 gap-4 mb-8">
+                <div class="glass rounded-xl p-4">
+                    <div class="text-xs text-gray-400 uppercase tracking-wider mb-1">Engagement</div>
+                    <div class="text-2xl font-bold text-blue-400">Oct 14 - Feb 5</div>
+                    <div class="text-xs text-gray-500 mt-1">114 day engagement</div>
+                </div>
+                <div class="glass rounded-xl p-4">
+                    <div class="text-xs text-gray-400 uppercase tracking-wider mb-1">Contract Value</div>
+                    <div class="text-2xl font-bold text-green-400">$90,000</div>
+                    <div class="text-xs text-gray-500 mt-1">6 months committed</div>
+                </div>
+                <div class="glass rounded-xl p-4">
+                    <div class="text-xs text-gray-400 uppercase tracking-wider mb-1">Technical Debt</div>
+                    <div class="text-2xl font-bold text-red-400">30M lines</div>
+                    <div class="text-xs text-red-400 mt-1">⚠️ Legacy code</div>
+                </div>
+                <div class="glass rounded-xl p-4">
+                    <div class="text-xs text-gray-400 uppercase tracking-wider mb-1">Onboarding Ramp</div>
+                    <div class="text-2xl font-bold text-amber-400">45-120 days</div>
+                    <div class="text-xs text-red-400 mt-1">🔥 Critical pain</div>
+                </div>
+                <div class="glass rounded-xl p-4">
+                    <div class="text-xs text-gray-400 uppercase tracking-wider mb-1">Migrations</div>
+                    <div class="text-2xl font-bold text-purple-400">3 Active</div>
+                    <div class="text-xs text-gray-500 mt-1">GS→PlanHat, Pendo, HubSpot?</div>
+                </div>
+                <div class="glass rounded-xl p-4">
+                    <div class="text-xs text-gray-400 uppercase tracking-wider mb-1">Phase</div>
+                    <div class="text-2xl font-bold text-cyan-400">3 of 3</div>
+                    <div class="text-xs text-gray-500 mt-1">Implementation</div>
+                </div>
             </div>
-            <div class="glass rounded-xl p-4">
-                <div class="text-xs text-gray-400 uppercase tracking-wider mb-1">Onboarding Ramp</div>
-                <div class="text-2xl font-bold text-amber-400">45-120 days</div>
-                <div class="text-xs text-red-400 mt-1">⚠️ Pain Point Identified</div>
+
+            <!-- Engagement Phases -->
+            <h2 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                <span class="w-1 h-6 bg-blue-500 rounded-full"></span>
+                Engagement Phases
+            </h2>
+            <div class="grid grid-cols-3 gap-6 mb-8">
+                <div class="glass rounded-xl p-5 border-l-4 border-purple-500">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-lg font-semibold">Phase 1: Discovery</span>
+                        <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full">✓ Complete</span>
+                    </div>
+                    <div class="text-xs text-gray-400 mb-3">Oct 14 - Nov 28, 2025 • 16 calls</div>
+                    <ul class="text-sm text-gray-300 space-y-1">
+                        <li>• Initial engagement (Crook x Greenberg)</li>
+                        <li>• Stakeholder interviews (Sales, CS, Marketing, CX)</li>
+                        <li>• KPI wishlist development</li>
+                        <li>• SVP RevOps role discussion ($300K OTE)</li>
+                        <li>• Audit preparation</li>
+                    </ul>
+                </div>
+                <div class="glass rounded-xl p-5 border-l-4 border-amber-500">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-lg font-semibold">Phase 2: Audit & Planning</span>
+                        <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full">✓ Complete</span>
+                    </div>
+                    <div class="text-xs text-gray-400 mb-3">Dec 1 - Dec 31, 2025 • 7 calls</div>
+                    <ul class="text-sm text-gray-300 space-y-1">
+                        <li>• Audit findings presented to Michelle (CEO)</li>
+                        <li>• GTM audit with recommendations</li>
+                        <li>• 180-day roadmap established</li>
+                        <li>• Pardot vs HubSpot evaluation</li>
+                        <li>• $90K contract signed</li>
+                        <li>• Legal/compliance review</li>
+                    </ul>
+                </div>
+                <div class="glass rounded-xl p-5 border-l-4 border-green-500">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-lg font-semibold">Phase 3: Implementation</span>
+                        <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full">In Progress</span>
+                    </div>
+                    <div class="text-xs text-gray-400 mb-3">Jan 21 - Present • 7 calls</div>
+                    <ul class="text-sm text-gray-300 space-y-1">
+                        <li>• Customer journey documentation</li>
+                        <li>• Lead stage rollout (live Friday)</li>
+                        <li>• Marketing + Sales handoff audit</li>
+                        <li>• CX Ops mapping (Plan Hat migration)</li>
+                        <li>• Mark Rosenthal (new Head of Sales) engaged</li>
+                    </ul>
+                </div>
             </div>
-            <div class="glass rounded-xl p-4">
-                <div class="text-xs text-gray-400 uppercase tracking-wider mb-1">Tech Migrations</div>
-                <div class="text-2xl font-bold text-purple-400">2 Active</div>
-                <div class="text-xs text-gray-500 mt-1">Gainsight→PlanHat, Pendo</div>
+
+            <!-- Executive Summary -->
+            <h2 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                <span class="w-1 h-6 bg-amber-500 rounded-full"></span>
+                Executive Summary
+            </h2>
+            <div class="glass rounded-xl p-6 mb-8">
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="font-semibold text-green-400 mb-3">✓ Wins & Progress</h3>
+                        <ul class="text-sm text-gray-300 space-y-2">
+                            <li>• <strong>$90K contract secured</strong> (6 months, Dec 2025)</li>
+                            <li>• New lead stages going live <strong>Friday</strong></li>
+                            <li>• Mark Rosenthal (new Head of Sales) fully engaged</li>
+                            <li>• Customer journey documentation 80% complete</li>
+                            <li>• Plan Hat migration underway (replacing Gainsight)</li>
+                            <li>• Pendo integration started for health scoring</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-red-400 mb-3">⚠️ Critical Risks</h3>
+                        <ul class="text-sm text-gray-300 space-y-2">
+                            <li>• <strong>30M lines legacy code</strong> - 1-2yr migration horizon</li>
+                            <li>• 45-120 day onboarding ramp (unstructured handoffs)</li>
+                            <li>• Attribution gaps prevent channel ROI measurement</li>
+                            <li>• Pardot underutilized; HubSpot migration TBD</li>
+                            <li>• Salesforce cross-object reporting avoided</li>
+                            <li>• Leadership turnover creating process instability</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="glass rounded-xl p-4">
-                <div class="text-xs text-gray-400 uppercase tracking-wider mb-1">Audit Progress</div>
-                <div class="text-2xl font-bold text-green-400">Phase 2</div>
-                <div class="text-xs text-gray-500 mt-1">Journey Documentation</div>
+
+            <!-- Competitive Position -->
+            <h2 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                <span class="w-1 h-6 bg-purple-500 rounded-full"></span>
+                Market & Competitive Position
+            </h2>
+            <div class="glass rounded-xl p-6">
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="p-4 bg-white/5 rounded-lg text-center">
+                        <div class="text-3xl mb-2">🥇</div>
+                        <div class="font-semibold">Docebo</div>
+                        <div class="text-xs text-gray-400">Market leader</div>
+                    </div>
+                    <div class="p-4 bg-white/5 rounded-lg text-center">
+                        <div class="text-3xl mb-2">🥈</div>
+                        <div class="font-semibold">Absorb</div>
+                        <div class="text-xs text-gray-400">Strong competitor</div>
+                    </div>
+                    <div class="p-4 bg-amber-500/10 rounded-lg text-center border border-amber-500/30">
+                        <div class="text-3xl mb-2">🥉</div>
+                        <div class="font-semibold text-amber-400">Litmos</div>
+                        <div class="text-xs text-gray-400">Customer service differentiator</div>
+                    </div>
+                </div>
+                <div class="mt-4 p-4 bg-white/5 rounded-lg">
+                    <div class="text-sm"><strong>Competitive Advantage:</strong> Training Operations module is unique asset, but integration delays and legacy architecture limit enterprise readiness. Focus on competitive pricing and clear value messaging essential.</div>
+                </div>
             </div>
         </div>
 
-        <!-- Navigation Tabs -->
-        <div class="flex gap-2 mb-8">
-            <button onclick="showTab('journey')" id="tab-journey" class="tab-active px-4 py-2 rounded-lg text-sm font-medium transition-all">
-                Customer Journey
-            </button>
-            <button onclick="showTab('stack')" id="tab-stack" class="glass px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10">
-                Tech Stack
-            </button>
-            <button onclick="showTab('pain')" id="tab-pain" class="glass px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10">
-                Pain Points
-            </button>
-            <button onclick="showTab('team')" id="tab-team" class="glass px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10">
-                Stakeholders
-            </button>
-            <button onclick="showTab('actions')" id="tab-actions" class="glass px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10">
-                Action Items
-            </button>
+        <!-- Tab: Timeline -->
+        <div id="content-timeline" class="tab-content hidden">
+            <h2 class="text-lg font-semibold mb-6 flex items-center gap-2">
+                <span class="w-1 h-6 bg-blue-500 rounded-full"></span>
+                Complete Call Timeline (30 Calls)
+            </h2>
+            
+            <div class="grid grid-cols-3 gap-6">
+                <!-- Phase 1 -->
+                <div class="glass rounded-xl p-5 phase-1 max-h-[600px] overflow-y-auto scrollbar-thin">
+                    <h3 class="font-semibold mb-4 flex items-center gap-2 sticky top-0 bg-[#1a1a2e] py-2">
+                        <span class="w-3 h-3 rounded-full bg-purple-500"></span>
+                        Phase 1: Discovery
+                        <span class="text-xs text-gray-400 ml-auto">16 calls</span>
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="timeline-item">
+                            <div class="text-xs text-purple-400">Oct 14</div>
+                            <div class="font-medium">Litmos (Initial Contact)</div>
+                            <div class="text-xs text-gray-400">First introduction</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-purple-400">Oct 16</div>
+                            <div class="font-medium">Crook x Greenberg | Litmos Chat</div>
+                            <div class="text-xs text-gray-400">Relationship building</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-purple-400">Oct 28</div>
+                            <div class="font-medium">Litmos | Kickoff Sync</div>
+                            <div class="text-xs text-gray-400">7 stakeholders identified, 30-day sprint</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-purple-400">Oct 30</div>
+                            <div class="font-medium">Harmony x Litmos | Marketing Ops</div>
+                            <div class="text-xs text-gray-400">Marketing stack review</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-purple-400">Oct 31</div>
+                            <div class="font-medium">Litmos Strategy Sync</div>
+                            <div class="text-xs text-gray-400">Planning session</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-purple-400">Nov 3</div>
+                            <div class="font-medium">SVP RevOps Role Discussion (x2)</div>
+                            <div class="text-xs text-gray-400">$300K OTE position discussed</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-purple-400">Nov 4</div>
+                            <div class="font-medium">KPI Sync</div>
+                            <div class="text-xs text-gray-400">Metrics alignment</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-purple-400">Nov 7</div>
+                            <div class="font-medium">Litmos Sync</div>
+                            <div class="text-xs text-gray-400">Progress check</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-purple-400">Nov 10</div>
+                            <div class="font-medium">KPI Wishlist</div>
+                            <div class="text-xs text-gray-400">Core metrics definition</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-purple-400">Nov 12</div>
+                            <div class="font-medium">Harmony x Litmos | Marketing</div>
+                            <div class="text-xs text-gray-400">Campaign structure, Pardot gaps</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-purple-400">Nov 13</div>
+                            <div class="font-medium">Harmony x Litmos | CX</div>
+                            <div class="text-xs text-gray-400">Customer experience review</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-purple-400">Nov 14</div>
+                            <div class="font-medium">Litmos Sync + Sales Interview</div>
+                            <div class="text-xs text-gray-400">Qualification processes</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-purple-400">Nov 17</div>
+                            <div class="font-medium">Harmony x Litmos | Sales + CS</div>
+                            <div class="text-xs text-gray-400">Hunter-farmer model, lead scoring</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-purple-400">Nov 18</div>
+                            <div class="font-medium">Harmony x Litmos | CS + Sales Ops</div>
+                            <div class="text-xs text-gray-400">30M lines tech debt discovered</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-purple-400">Nov 28</div>
+                            <div class="font-medium">Litmos Sync</div>
+                            <div class="text-xs text-gray-400">Pre-audit alignment</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="glass rounded-xl p-5 phase-2 max-h-[600px] overflow-y-auto scrollbar-thin">
+                    <h3 class="font-semibold mb-4 flex items-center gap-2 sticky top-0 bg-[#1a1a2e] py-2">
+                        <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                        Phase 2: Audit & Planning
+                        <span class="text-xs text-gray-400 ml-auto">7 calls</span>
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="timeline-item">
+                            <div class="text-xs text-amber-400">Dec 1</div>
+                            <div class="font-medium">Litmos Audit | Findings</div>
+                            <div class="text-xs text-gray-400">180-day roadmap, Pardot vs HubSpot</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-amber-400">Dec 4</div>
+                            <div class="font-medium">GTM Audit | Findings, Recommendations</div>
+                            <div class="text-xs text-gray-400">Platform decisions</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-amber-400">Dec 8</div>
+                            <div class="font-medium">GTM Audit | Harmony</div>
+                            <div class="text-xs text-gray-400">Attribution issues, Pardot underutilization</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-amber-400">Dec 9</div>
+                            <div class="font-medium">Litmos Sync</div>
+                            <div class="text-xs text-gray-400">$90K contract, HubSpot migration preference</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-amber-400">Dec 22</div>
+                            <div class="font-medium">Legal Conversation</div>
+                            <div class="text-xs text-gray-400">Compliance, AI tools, phased approach</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-amber-400">Dec 31</div>
+                            <div class="font-medium">SOW + Go-Live</div>
+                            <div class="text-xs text-gray-400">Two-phase split, contract finalization</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="glass rounded-xl p-5 phase-3 max-h-[600px] overflow-y-auto scrollbar-thin">
+                    <h3 class="font-semibold mb-4 flex items-center gap-2 sticky top-0 bg-[#1a1a2e] py-2">
+                        <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                        Phase 3: Implementation
+                        <span class="text-xs text-gray-400 ml-auto">7 calls</span>
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="timeline-item">
+                            <div class="text-xs text-green-400">Jan 21</div>
+                            <div class="font-medium">Litmos Kickoff</div>
+                            <div class="text-xs text-gray-400">Phase 2 launch, workshops scheduled</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-green-400">Jan 27</div>
+                            <div class="font-medium">MOps | Customer Journey Documentation</div>
+                            <div class="text-xs text-gray-400">Lead handoffs, data quality, tech stack</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-green-400">Feb 4</div>
+                            <div class="font-medium">CX Ops | Customer Journey Documentation</div>
+                            <div class="text-xs text-gray-400">45-120 day ramp, Plan Hat, Pendo</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-green-400">Feb 5</div>
+                            <div class="font-medium">Marketing + Sales Ops | Handoff Audit</div>
+                            <div class="text-xs text-gray-400">Lead stages live Friday, attribution gaps</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-xs text-green-400">Feb 5</div>
+                            <div class="font-medium">Mark x Jonathan | GTM, Scale</div>
+                            <div class="text-xs text-gray-400">New Head of Sales engaged, BDR evolution</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 p-4 bg-green-500/10 rounded-lg border border-green-500/30">
+                        <div class="font-semibold text-green-400 mb-2">🎯 Current Focus</div>
+                        <ul class="text-xs space-y-1 text-gray-300">
+                            <li>• Complete customer journey documentation (draft early next week)</li>
+                            <li>• Lead stages go live Friday</li>
+                            <li>• Schedule Erica meeting (attribution)</li>
+                            <li>• Follow-up with Mark Rosenthal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Tab Content: Customer Journey -->
-        <div id="content-journey" class="tab-content">
+        <!-- Tab: Customer Journey -->
+        <div id="content-journey" class="tab-content hidden">
             <h2 class="text-lg font-semibold mb-6 flex items-center gap-2">
                 <span class="w-1 h-6 bg-blue-500 rounded-full"></span>
                 Customer Lifecycle Journey Map
             </h2>
             
             <!-- Journey Stages -->
-            <div class="relative mb-12">
-                <div class="grid grid-cols-6 gap-4 relative z-10">
-                    
-                    <!-- Stage 1: Lead Gen -->
-                    <div class="stage-card glass rounded-xl p-4 text-center" onclick="showStageDetail('lead')">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-purple-700 mx-auto mb-3 flex items-center justify-center">
-                            <i data-lucide="megaphone" class="w-6 h-6"></i>
-                        </div>
-                        <div class="font-semibold text-sm mb-1">Lead Generation</div>
-                        <div class="text-xs text-gray-400">Marketing → MQL</div>
-                        <div class="mt-3 pt-3 border-t border-white/10">
-                            <div class="text-xs text-amber-400">⚠️ Attribution gaps</div>
-                        </div>
+            <div class="grid grid-cols-6 gap-4 mb-8">
+                <div class="stage-card glass rounded-xl p-4 text-center">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-purple-700 mx-auto mb-3 flex items-center justify-center">
+                        <i data-lucide="megaphone" class="w-6 h-6"></i>
                     </div>
-                    
-                    <!-- Stage 2: Qualification -->
-                    <div class="stage-card glass rounded-xl p-4 text-center" onclick="showStageDetail('qual')">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 mx-auto mb-3 flex items-center justify-center">
-                            <i data-lucide="filter" class="w-6 h-6"></i>
-                        </div>
-                        <div class="font-semibold text-sm mb-1">Qualification</div>
-                        <div class="text-xs text-gray-400">MQL → SAL → SQL</div>
-                        <div class="mt-3 pt-3 border-t border-white/10">
-                            <div class="text-xs text-green-400">✓ New stages live Fri</div>
-                        </div>
+                    <div class="font-semibold text-sm mb-1">Lead Generation</div>
+                    <div class="text-xs text-gray-400">Marketing → MQL</div>
+                    <div class="mt-3 pt-3 border-t border-white/10">
+                        <div class="text-xs text-amber-400">⚠️ Attribution gaps</div>
                     </div>
-                    
-                    <!-- Stage 3: Sales -->
-                    <div class="stage-card glass rounded-xl p-4 text-center" onclick="showStageDetail('sales')">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-green-700 mx-auto mb-3 flex items-center justify-center">
-                            <i data-lucide="handshake" class="w-6 h-6"></i>
-                        </div>
-                        <div class="font-semibold text-sm mb-1">Sales</div>
-                        <div class="text-xs text-gray-400">Opportunity → Close</div>
-                        <div class="mt-3 pt-3 border-t border-white/10">
-                            <div class="text-xs text-blue-400">Mark leading</div>
-                        </div>
+                </div>
+                <div class="stage-card glass rounded-xl p-4 text-center border border-green-500/30">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 mx-auto mb-3 flex items-center justify-center">
+                        <i data-lucide="filter" class="w-6 h-6"></i>
                     </div>
-                    
-                    <!-- Stage 4: Onboarding -->
-                    <div class="stage-card glass rounded-xl p-4 text-center border-red-500/50" onclick="showStageDetail('onboard')">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-red-700 mx-auto mb-3 flex items-center justify-center pain-point">
-                            <i data-lucide="rocket" class="w-6 h-6"></i>
-                        </div>
-                        <div class="font-semibold text-sm mb-1">Onboarding</div>
-                        <div class="text-xs text-gray-400">45-120 day ramp</div>
-                        <div class="mt-3 pt-3 border-t border-white/10">
-                            <div class="text-xs text-red-400">🔥 Critical pain point</div>
-                        </div>
+                    <div class="font-semibold text-sm mb-1">Qualification</div>
+                    <div class="text-xs text-gray-400">MQL → SAL → SQL</div>
+                    <div class="mt-3 pt-3 border-t border-white/10">
+                        <div class="text-xs text-green-400">✓ New stages Friday</div>
                     </div>
-                    
-                    <!-- Stage 5: Adoption -->
-                    <div class="stage-card glass rounded-xl p-4 text-center" onclick="showStageDetail('adopt')">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-cyan-700 mx-auto mb-3 flex items-center justify-center">
-                            <i data-lucide="trending-up" class="w-6 h-6"></i>
-                        </div>
-                        <div class="font-semibold text-sm mb-1">Adoption</div>
-                        <div class="text-xs text-gray-400">Value Realization</div>
-                        <div class="mt-3 pt-3 border-t border-white/10">
-                            <div class="text-xs text-cyan-400">Pendo tracking</div>
-                        </div>
+                </div>
+                <div class="stage-card glass rounded-xl p-4 text-center">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-green-700 mx-auto mb-3 flex items-center justify-center">
+                        <i data-lucide="handshake" class="w-6 h-6"></i>
                     </div>
-                    
-                    <!-- Stage 6: Renewal/Expand -->
-                    <div class="stage-card glass rounded-xl p-4 text-center" onclick="showStageDetail('renew')">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 mx-auto mb-3 flex items-center justify-center">
-                            <i data-lucide="refresh-cw" class="w-6 h-6"></i>
-                        </div>
-                        <div class="font-semibold text-sm mb-1">Renewal & Expand</div>
-                        <div class="text-xs text-gray-400">180-day automation</div>
-                        <div class="mt-3 pt-3 border-t border-white/10">
-                            <div class="text-xs text-green-400">✓ Automated</div>
-                        </div>
+                    <div class="font-semibold text-sm mb-1">Sales</div>
+                    <div class="text-xs text-gray-400">Opportunity → Close</div>
+                    <div class="mt-3 pt-3 border-t border-white/10">
+                        <div class="text-xs text-blue-400">Mark Rosenthal leading</div>
+                    </div>
+                </div>
+                <div class="stage-card glass rounded-xl p-4 text-center border border-red-500/50">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-red-700 mx-auto mb-3 flex items-center justify-center pain-point">
+                        <i data-lucide="rocket" class="w-6 h-6"></i>
+                    </div>
+                    <div class="font-semibold text-sm mb-1">Onboarding</div>
+                    <div class="text-xs text-gray-400">45-120 day ramp</div>
+                    <div class="mt-3 pt-3 border-t border-white/10">
+                        <div class="text-xs text-red-400">🔥 Critical pain point</div>
+                    </div>
+                </div>
+                <div class="stage-card glass rounded-xl p-4 text-center">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-cyan-700 mx-auto mb-3 flex items-center justify-center">
+                        <i data-lucide="trending-up" class="w-6 h-6"></i>
+                    </div>
+                    <div class="font-semibold text-sm mb-1">Adoption</div>
+                    <div class="text-xs text-gray-400">Value Realization</div>
+                    <div class="mt-3 pt-3 border-t border-white/10">
+                        <div class="text-xs text-cyan-400">Pendo health scoring</div>
+                    </div>
+                </div>
+                <div class="stage-card glass rounded-xl p-4 text-center">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 mx-auto mb-3 flex items-center justify-center">
+                        <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+                    </div>
+                    <div class="font-semibold text-sm mb-1">Renewal & Expand</div>
+                    <div class="text-xs text-gray-400">180-day automation</div>
+                    <div class="mt-3 pt-3 border-t border-white/10">
+                        <div class="text-xs text-green-400">✓ Automated triggers</div>
                     </div>
                 </div>
             </div>
 
             <!-- Customer Segments -->
-            <h3 class="text-md font-semibold mb-4 flex items-center gap-2">
-                <span class="w-1 h-5 bg-amber-500 rounded-full"></span>
-                Customer Segments by ARR
-            </h3>
+            <h3 class="text-md font-semibold mb-4">Customer Segments by ARR</h3>
             <div class="grid grid-cols-3 gap-4 mb-8">
                 <div class="glass rounded-xl p-5 border-l-4 border-amber-500">
                     <div class="flex items-center justify-between mb-3">
@@ -247,10 +488,10 @@
                         <span class="text-xs bg-amber-500/20 text-amber-400 px-2 py-1 rounded-full">>$40K ARR</span>
                     </div>
                     <ul class="text-sm text-gray-300 space-y-2">
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Dedicated CSM</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Quarterly QBRs</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Monthly value meetings</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Teams Enterprise calls</li>
+                        <li>✓ Dedicated CSM</li>
+                        <li>✓ Quarterly QBRs</li>
+                        <li>✓ Monthly value meetings</li>
+                        <li>✓ Teams Enterprise calls</li>
                     </ul>
                 </div>
                 <div class="glass rounded-xl p-5 border-l-4 border-blue-500">
@@ -259,10 +500,10 @@
                         <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full">$15-40K ARR</span>
                     </div>
                     <ul class="text-sm text-gray-300 space-y-2">
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Pooled CSM team</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Semi-annual QBRs</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Renewal specialists</li>
-                        <li class="flex items-center gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400"></i> Limited proactive reach</li>
+                        <li>✓ Pooled CSM team</li>
+                        <li>✓ Semi-annual QBRs</li>
+                        <li>✓ Renewal specialists</li>
+                        <li>✗ Limited proactive reach</li>
                     </ul>
                 </div>
                 <div class="glass rounded-xl p-5 border-l-4 border-purple-500">
@@ -271,36 +512,190 @@
                         <span class="text-xs bg-purple-500/20 text-purple-400 px-2 py-1 rounded-full"><$15K ARR</span>
                     </div>
                     <ul class="text-sm text-gray-300 space-y-2">
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Digital-first engagement</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Async QBR content</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Automated renewals</li>
-                        <li class="flex items-center gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400"></i> Contact hygiene issues</li>
+                        <li>✓ Digital-first engagement</li>
+                        <li>✓ Async QBR content</li>
+                        <li>✓ Automated renewals</li>
+                        <li>✗ Contact hygiene issues</li>
                     </ul>
+                </div>
+            </div>
+
+            <!-- Handoff Pain Points -->
+            <h3 class="text-md font-semibold mb-4 text-red-400">🔥 Handoff Pain Points</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="glass rounded-xl p-5 border border-red-500/30">
+                    <div class="font-semibold mb-2">Sales → Onboarding</div>
+                    <div class="text-sm text-gray-300">Handoffs rely on <strong>unstructured notes</strong>, causing 45-120 day ramp-up. No standardized templates. Information lost in transition.</div>
+                    <div class="mt-3 text-xs text-amber-400">Plan Hat migration expected to improve</div>
+                </div>
+                <div class="glass rounded-xl p-5 border border-amber-500/30">
+                    <div class="font-semibold mb-2">Marketing → Sales</div>
+                    <div class="text-sm text-gray-300">Lead stagnation from unclear SLAs. Need dynamic lead/account scoring. AE ownership since Sept but adoption incomplete.</div>
+                    <div class="mt-3 text-xs text-green-400">New lead stages live Friday</div>
                 </div>
             </div>
         </div>
 
-        <!-- Tab Content: Tech Stack -->
+        <!-- Tab: Key Findings -->
+        <div id="content-findings" class="tab-content hidden">
+            <h2 class="text-lg font-semibold mb-6 flex items-center gap-2">
+                <span class="w-1 h-6 bg-red-500 rounded-full"></span>
+                Key Findings from 30 Calls
+            </h2>
+            
+            <div class="space-y-4">
+                <!-- Critical Finding 1 -->
+                <div class="glass rounded-xl p-5 border-l-4 border-red-500">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">🔥</span>
+                            <div>
+                                <div class="font-semibold">30 Million Lines of Legacy Code</div>
+                                <div class="text-xs text-gray-400">Source: CS Interview (Nov 18) - Todd Lefkowitz</div>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-red-500/20 text-red-400 px-3 py-1 rounded-full">Critical</span>
+                    </div>
+                    <div class="text-sm text-gray-300 mb-3">Product's legacy architecture hinders growth. Causes major performance issues and limits feature development. Training operations module (unique asset) faces integration delays. Migration is <strong>1-2 years away</strong> without budget increases.</div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-white/10 px-2 py-1 rounded">Enterprise readiness blocked</span>
+                        <span class="text-xs bg-white/10 px-2 py-1 rounded">Product roadmap constrained</span>
+                        <span class="text-xs bg-white/10 px-2 py-1 rounded">Escalate: Michelle (CEO)</span>
+                    </div>
+                </div>
+
+                <!-- Critical Finding 2 -->
+                <div class="glass rounded-xl p-5 border-l-4 border-red-500">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">🔥</span>
+                            <div>
+                                <div class="font-semibold">Onboarding Handoff Failure (45-120 Day Ramp)</div>
+                                <div class="text-xs text-gray-400">Source: CX Ops (Feb 4) - Colin Hegwood</div>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-red-500/20 text-red-400 px-3 py-1 rounded-full">Critical</span>
+                    </div>
+                    <div class="text-sm text-gray-300 mb-3">Handoffs rely on unstructured notes. No standardized templates exist for onboarding documentation. Plan Hat transition expected to improve efficiency through workflow automation and project management.</div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-white/10 px-2 py-1 rounded">Owner: Colin Hegwood</span>
+                        <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">Plan Hat solving</span>
+                    </div>
+                </div>
+
+                <!-- Finding 3 -->
+                <div class="glass rounded-xl p-5 border-l-4 border-amber-500">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">⚠️</span>
+                            <div>
+                                <div class="font-semibold">Attribution & Lead Source Gaps</div>
+                                <div class="text-xs text-gray-400">Sources: Marketing Interview, GTM Audit, Dec Findings</div>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full">High</span>
+                    </div>
+                    <div class="text-sm text-gray-300 mb-3">Current attribution too broad, limiting actionable insights. Need specific sources (Google Ads, etc.) for budget optimization. Multi-touch attribution models under consideration but not implemented.</div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-white/10 px-2 py-1 rounded">Owner: Erica Light</span>
+                        <span class="text-xs bg-amber-500/20 text-amber-400 px-2 py-1 rounded">Meeting scheduled</span>
+                    </div>
+                </div>
+
+                <!-- Finding 4 -->
+                <div class="glass rounded-xl p-5 border-l-4 border-amber-500">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">⚠️</span>
+                            <div>
+                                <div class="font-semibold">Pardot Underutilization / HubSpot Consideration</div>
+                                <div class="text-xs text-gray-400">Sources: GTM Audit, Dec Findings, Sync calls</div>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full">High</span>
+                    </div>
+                    <div class="text-sm text-gray-300 mb-3">Significant costs with Pardot but limited utilization. Team considering phased migration to HubSpot for better automation and efficiency. Strong preference noted in Dec 9 sync due to faster deployment and better integration.</div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-white/10 px-2 py-1 rounded">Budget impact: High</span>
+                        <span class="text-xs bg-white/10 px-2 py-1 rounded">Timeline: 2026 Q1 decision</span>
+                    </div>
+                </div>
+
+                <!-- Finding 5 -->
+                <div class="glass rounded-xl p-5 border-l-4 border-amber-500">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">⚠️</span>
+                            <div>
+                                <div class="font-semibold">Salesforce Data Quality & Reporting Limitations</div>
+                                <div class="text-xs text-gray-400">Sources: Sales Ops, MOps, multiple syncs</div>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full">High</span>
+                    </div>
+                    <div class="text-sm text-gray-300 mb-3">Legacy customizations hinder flexibility. Cross-object reporting avoided - team relies on Power BI. Over 200 unused fields identified for consolidation. Historical data inaccuracies impact forecasting (5-10% of critical metrics unreliable).</div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-white/10 px-2 py-1 rounded">Owner: Michael Crook</span>
+                        <span class="text-xs bg-white/10 px-2 py-1 rounded">Cleanup in progress</span>
+                    </div>
+                </div>
+
+                <!-- Finding 6 -->
+                <div class="glass rounded-xl p-5 border-l-4 border-purple-500">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">💼</span>
+                            <div>
+                                <div class="font-semibold">Leadership Turnover & Process Instability</div>
+                                <div class="text-xs text-gray-400">Sources: Sales Ops interview, multiple calls</div>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full">Strategic</span>
+                    </div>
+                    <div class="text-sm text-gray-300 mb-3">Frequent leadership changes have led to unreliable forecasting methods, inconsistent processes, and team fatigue. Mark Rosenthal (new Head of Sales) represents stability opportunity.</div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">Mark engaged Feb 5</span>
+                    </div>
+                </div>
+
+                <!-- Finding 7 -->
+                <div class="glass rounded-xl p-5 border-l-4 border-blue-500">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">💰</span>
+                            <div>
+                                <div class="font-semibold">SVP RevOps Role Discussed ($300K OTE)</div>
+                                <div class="text-xs text-gray-400">Source: Nov 3 calls</div>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full">Opportunity</span>
+                    </div>
+                    <div class="text-sm text-gray-300 mb-3">Proposal for new SVP of Go-To-Market Ops role to oversee marketing and sales processes. Jonathan identified as potential candidate given HubSpot migration expertise.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Tech Stack -->
         <div id="content-stack" class="tab-content hidden">
             <h2 class="text-lg font-semibold mb-6 flex items-center gap-2">
                 <span class="w-1 h-6 bg-purple-500 rounded-full"></span>
-                Current Tech Stack & Migrations
+                Tech Stack & Migrations
             </h2>
             
             <div class="grid grid-cols-2 gap-6">
                 <!-- Current Stack -->
                 <div class="glass rounded-xl p-6">
-                    <h3 class="font-semibold mb-4 text-green-400">✓ In Use</h3>
+                    <h3 class="font-semibold mb-4 text-green-400">✓ Current Stack</h3>
                     <div class="space-y-3">
                         <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                             <div class="flex items-center gap-3">
                                 <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-xs font-bold">SF</div>
                                 <div>
                                     <div class="font-medium">Salesforce</div>
-                                    <div class="text-xs text-gray-400">CRM • Source of Truth</div>
+                                    <div class="text-xs text-gray-400">CRM • Cross-object avoided</div>
                                 </div>
                             </div>
-                            <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">Active</span>
+                            <span class="text-xs bg-amber-500/20 text-amber-400 px-2 py-1 rounded">200+ unused fields</span>
                         </div>
                         <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                             <div class="flex items-center gap-3">
@@ -310,365 +705,359 @@
                                     <div class="text-xs text-gray-400">Marketing Automation</div>
                                 </div>
                             </div>
-                            <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">Active</span>
+                            <span class="text-xs bg-red-500/20 text-red-400 px-2 py-1 rounded">Underutilized</span>
                         </div>
                         <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                             <div class="flex items-center gap-3">
                                 <div class="w-10 h-10 rounded-lg bg-purple-600 flex items-center justify-center text-xs font-bold">G</div>
                                 <div>
                                     <div class="font-medium">Gong</div>
-                                    <div class="text-xs text-gray-400">Call Recording & Intel</div>
+                                    <div class="text-xs text-gray-400">Call Recording</div>
                                 </div>
                             </div>
-                            <span class="text-xs bg-amber-500/20 text-amber-400 px-2 py-1 rounded">Sales Only</span>
+                            <span class="text-xs bg-amber-500/20 text-amber-400 px-2 py-1 rounded">Sales only (cost)</span>
                         </div>
                         <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                             <div class="flex items-center gap-3">
                                 <div class="w-10 h-10 rounded-lg bg-yellow-600 flex items-center justify-center text-xs font-bold">PBI</div>
                                 <div>
                                     <div class="font-medium">Power BI</div>
-                                    <div class="text-xs text-gray-400">Reporting & Analytics</div>
+                                    <div class="text-xs text-gray-400">Reporting (replaces SF reports)</div>
                                 </div>
                             </div>
                             <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">Active</span>
                         </div>
+                        <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-teal-600 flex items-center justify-center text-xs font-bold">GS</div>
+                                <div>
+                                    <div class="font-medium">Gainsight</div>
+                                    <div class="text-xs text-gray-400">Customer Success</div>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-red-500/20 text-red-400 px-2 py-1 rounded">Migrating away</span>
+                        </div>
                     </div>
                 </div>
-                
+
                 <!-- Migrations -->
                 <div class="glass rounded-xl p-6">
-                    <h3 class="font-semibold mb-4 text-amber-400">⚡ Active Migrations</h3>
+                    <h3 class="font-semibold mb-4 text-amber-400">⚡ Active & Planned Migrations</h3>
                     <div class="space-y-3">
                         <div class="p-3 bg-white/5 rounded-lg border-l-4 border-amber-500">
                             <div class="flex items-center justify-between mb-2">
                                 <div class="font-medium">Gainsight → Plan Hat</div>
                                 <span class="text-xs bg-amber-500/20 text-amber-400 px-2 py-1 rounded">In Progress</span>
                             </div>
-                            <div class="text-xs text-gray-400">Customer Success Platform migration. Success plans, workflows, and automation being rebuilt.</div>
-                            <div class="mt-2 h-2 bg-white/10 rounded-full overflow-hidden">
-                                <div class="h-full bg-amber-500 rounded-full" style="width: 40%"></div>
-                            </div>
+                            <div class="text-xs text-gray-400">CS platform migration. Success plans, workflows, automation being rebuilt. Expected to solve onboarding handoff issues.</div>
                         </div>
                         <div class="p-3 bg-white/5 rounded-lg border-l-4 border-cyan-500">
                             <div class="flex items-center justify-between mb-2">
                                 <div class="font-medium">Gainsight PX → Pendo</div>
                                 <span class="text-xs bg-cyan-500/20 text-cyan-400 px-2 py-1 rounded">Just Started</span>
                             </div>
-                            <div class="text-xs text-gray-400">Product analytics for automated health scoring. Replacing manual usage checks.</div>
-                            <div class="mt-2 h-2 bg-white/10 rounded-full overflow-hidden">
-                                <div class="h-full bg-cyan-500 rounded-full" style="width: 15%"></div>
+                            <div class="text-xs text-gray-400">Product analytics for automated health scoring. Replacing manual usage checks. Will trigger at-risk customer alerts.</div>
+                        </div>
+                        <div class="p-3 bg-white/5 rounded-lg border-l-4 border-purple-500">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="font-medium">Pardot → HubSpot (TBD)</div>
+                                <span class="text-xs bg-purple-500/20 text-purple-400 px-2 py-1 rounded">Under Evaluation</span>
                             </div>
+                            <div class="text-xs text-gray-400">Strong preference noted. Faster deployment, better integration. Decision expected 2026 Q1. Jonathan has relevant expertise.</div>
                         </div>
                         <div class="p-3 bg-white/5 rounded-lg border-l-4 border-green-500">
                             <div class="flex items-center justify-between mb-2">
                                 <div class="font-medium">Chili Piper</div>
                                 <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">Planned</span>
                             </div>
-                            <div class="text-xs text-gray-400">Meeting scheduling with naming conventions and booking links to categorize meeting types.</div>
+                            <div class="text-xs text-gray-400">Meeting scheduling with naming conventions to categorize meeting types. Addresses Gong meeting type gap.</div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Data Flow Issues -->
-            <div class="glass rounded-xl p-6 mt-6">
-                <h3 class="font-semibold mb-4 text-red-400">⚠️ Data Flow Challenges</h3>
-                <div class="grid grid-cols-3 gap-4">
-                    <div class="p-4 bg-red-500/10 rounded-lg border border-red-500/30">
-                        <div class="font-medium mb-2">Cross-Object Reporting</div>
-                        <div class="text-xs text-gray-400">SF cross-object queries avoided. Heavy reliance on Power BI exports. No unified dashboard.</div>
-                    </div>
-                    <div class="p-4 bg-red-500/10 rounded-lg border border-red-500/30">
-                        <div class="font-medium mb-2">Manual Data Cleanup</div>
-                        <div class="text-xs text-gray-400">1 hour+ daily on form consolidation and attribution cleanup. Target: <15 min.</div>
-                    </div>
-                    <div class="p-4 bg-red-500/10 rounded-lg border border-red-500/30">
-                        <div class="font-medium mb-2">Tribal Knowledge</div>
-                        <div class="text-xs text-gray-400">Process documentation gaps. Dependencies on specific team members for routing logic.</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Tab Content: Pain Points -->
-        <div id="content-pain" class="tab-content hidden">
-            <h2 class="text-lg font-semibold mb-6 flex items-center gap-2">
-                <span class="w-1 h-6 bg-red-500 rounded-full"></span>
-                Identified Pain Points & Opportunities
-            </h2>
-            
-            <div class="space-y-4">
-                <div class="glass rounded-xl p-5 border-l-4 border-red-500">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="flex items-center gap-3">
-                            <span class="text-2xl">🔥</span>
-                            <div>
-                                <div class="font-semibold">Onboarding Handoff Failure</div>
-                                <div class="text-xs text-gray-400">Sales → Onboarding transition</div>
-                            </div>
-                        </div>
-                        <span class="text-xs bg-red-500/20 text-red-400 px-3 py-1 rounded-full">Critical</span>
-                    </div>
-                    <div class="text-sm text-gray-300 mb-3">Handoffs rely on unstructured notes, causing 45-120 day ramp-up time. No standardized templates. Information lost in transition.</div>
-                    <div class="flex gap-2">
-                        <span class="text-xs bg-white/10 px-2 py-1 rounded">Impact: High</span>
-                        <span class="text-xs bg-white/10 px-2 py-1 rounded">Owner: Colin Hegwood</span>
-                        <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">Plan Hat may solve</span>
-                    </div>
-                </div>
-                
-                <div class="glass rounded-xl p-5 border-l-4 border-amber-500">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="flex items-center gap-3">
-                            <span class="text-2xl">⚠️</span>
-                            <div>
-                                <div class="font-semibold">Attribution & Lead Source Gaps</div>
-                                <div class="text-xs text-gray-400">Marketing → Sales pipeline visibility</div>
-                            </div>
-                        </div>
-                        <span class="text-xs bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full">High</span>
-                    </div>
-                    <div class="text-sm text-gray-300 mb-3">Limited channel-level attribution. Multi-touch models not implemented. Can't measure ROI by channel. Lead source consolidation needed.</div>
-                    <div class="flex gap-2">
-                        <span class="text-xs bg-white/10 px-2 py-1 rounded">Impact: High</span>
-                        <span class="text-xs bg-white/10 px-2 py-1 rounded">Owner: Erica Light</span>
-                        <span class="text-xs bg-amber-500/20 text-amber-400 px-2 py-1 rounded">Meeting scheduled</span>
-                    </div>
-                </div>
-                
-                <div class="glass rounded-xl p-5 border-l-4 border-amber-500">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="flex items-center gap-3">
-                            <span class="text-2xl">⚠️</span>
-                            <div>
-                                <div class="font-semibold">Lead Routing Complexity</div>
-                                <div class="text-xs text-gray-400">Marketing Ops → Sales assignment</div>
-                            </div>
-                        </div>
-                        <span class="text-xs bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full">High</span>
-                    </div>
-                    <div class="text-sm text-gray-300 mb-3">Multiple routing paths (partner leads, region-based, round robin). Manual maintenance for team changes. Fractured systems require intervention.</div>
-                    <div class="flex gap-2">
-                        <span class="text-xs bg-white/10 px-2 py-1 rounded">Impact: Medium</span>
-                        <span class="text-xs bg-white/10 px-2 py-1 rounded">Owner: Ethan Warlick</span>
-                    </div>
-                </div>
-                
-                <div class="glass rounded-xl p-5 border-l-4 border-purple-500">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="flex items-center gap-3">
-                            <span class="text-2xl">🏗️</span>
-                            <div>
-                                <div class="font-semibold">Legacy Technical Architecture</div>
-                                <div class="text-xs text-gray-400">Product & Engineering</div>
-                            </div>
-                        </div>
-                        <span class="text-xs bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full">Strategic</span>
-                    </div>
-                    <div class="text-sm text-gray-300 mb-3">Monolithic platform architecture creating technical debt. Limits development agility and product innovation. Sales reps confident in product but concerned about roadmap.</div>
-                    <div class="flex gap-2">
-                        <span class="text-xs bg-white/10 px-2 py-1 rounded">Impact: Long-term</span>
-                        <span class="text-xs bg-white/10 px-2 py-1 rounded">Escalate: Michelle (CEO)</span>
-                    </div>
-                </div>
-                
-                <div class="glass rounded-xl p-5 border-l-4 border-blue-500">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="flex items-center gap-3">
-                            <span class="text-2xl">💰</span>
-                            <div>
-                                <div class="font-semibold">Gong Not Extended to CS</div>
-                                <div class="text-xs text-gray-400">Customer Success visibility</div>
-                            </div>
-                        </div>
-                        <span class="text-xs bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full">Budget</span>
-                    </div>
-                    <div class="text-sm text-gray-300 mb-3">Cost constraints prevent Gong rollout to CSMs. Planned reassessment for 2027 after foundational changes stabilize.</div>
-                    <div class="flex gap-2">
-                        <span class="text-xs bg-white/10 px-2 py-1 rounded">Impact: Medium</span>
-                        <span class="text-xs bg-white/10 px-2 py-1 rounded">Timeline: 2027</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tab Content: Stakeholders -->
+        <!-- Tab: Stakeholders -->
         <div id="content-team" class="tab-content hidden">
             <h2 class="text-lg font-semibold mb-6 flex items-center gap-2">
                 <span class="w-1 h-6 bg-green-500 rounded-full"></span>
-                Key Stakeholders
+                Complete Stakeholder Map
             </h2>
             
-            <div class="grid grid-cols-3 gap-4">
-                <div class="glass rounded-xl p-5">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-lg font-bold">M</div>
+            <div class="grid grid-cols-4 gap-4">
+                <!-- Executive -->
+                <div class="glass rounded-xl p-4">
+                    <div class="text-xs text-amber-400 uppercase tracking-wider mb-3">Executive</div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center font-bold">M</div>
                         <div>
-                            <div class="font-semibold">Michelle</div>
+                            <div class="font-semibold text-sm">Michelle Benfer</div>
                             <div class="text-xs text-gray-400">CEO • Francisco Partners</div>
                         </div>
                     </div>
-                    <div class="text-xs text-gray-300">Executive sponsor. PE background - focused on operational efficiency and growth metrics.</div>
+                    <div class="text-xs text-gray-300">Executive sponsor. Received audit findings Dec 1. Focus: KPIs, 180-day roadmap.</div>
                 </div>
-                
-                <div class="glass rounded-xl p-5">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-lg font-bold">MR</div>
+
+                <!-- Sales Leadership -->
+                <div class="glass rounded-xl p-4 border border-green-500/30">
+                    <div class="text-xs text-green-400 uppercase tracking-wider mb-3">Sales Leadership</div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center font-bold">MR</div>
                         <div>
-                            <div class="font-semibold">Mark Rosenthal</div>
+                            <div class="font-semibold text-sm">Mark Rosenthal</div>
                             <div class="text-xs text-gray-400">Head of Sales • NEW</div>
                         </div>
                     </div>
-                    <div class="text-xs text-gray-300">Recently joined. Strategic thinker. Interested in BDR evolution, automation, and reducing rep friction.</div>
-                    <div class="mt-2 text-xs text-green-400">✓ Call today (Feb 5)</div>
+                    <div class="text-xs text-gray-300">Recently joined. Strategic on BDR evolution, automation. Call TODAY (Feb 5).</div>
+                    <div class="mt-2 text-xs text-green-400">🔑 Key relationship</div>
                 </div>
-                
-                <div class="glass rounded-xl p-5">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-lg font-bold">MC</div>
+
+                <!-- Ops Coordinator -->
+                <div class="glass rounded-xl p-4 border border-blue-500/30">
+                    <div class="text-xs text-blue-400 uppercase tracking-wider mb-3">Operations</div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center font-bold">MC</div>
                         <div>
-                            <div class="font-semibold">Michael Crook</div>
-                            <div class="text-xs text-gray-400">Main Ops Coordinator</div>
+                            <div class="font-semibold text-sm">Michael Crook</div>
+                            <div class="text-xs text-gray-400">Head of Business Systems</div>
                         </div>
                     </div>
-                    <div class="text-xs text-gray-300">Primary liaison. Documentation-focused. "Builder not architect" - needs strategic tech stack guidance.</div>
-                    <div class="mt-2 text-xs text-blue-400">🔑 Key contact</div>
+                    <div class="text-xs text-gray-300">Main coordinator. Documentation-focused. "Builder not architect" - needs strategic tech stack guidance.</div>
+                    <div class="mt-2 text-xs text-blue-400">🔑 Primary liaison</div>
                 </div>
-                
-                <div class="glass rounded-xl p-5">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-cyan-700 flex items-center justify-center text-lg font-bold">CH</div>
+
+                <!-- CX -->
+                <div class="glass rounded-xl p-4">
+                    <div class="text-xs text-cyan-400 uppercase tracking-wider mb-3">Customer Experience</div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-cyan-700 flex items-center justify-center font-bold">CH</div>
                         <div>
-                            <div class="font-semibold">Colin Hegwood</div>
+                            <div class="font-semibold text-sm">Colin Hegwood</div>
                             <div class="text-xs text-gray-400">CX Ops</div>
                         </div>
                     </div>
-                    <div class="text-xs text-gray-300">Owns onboarding and CS lifecycle. Leading Plan Hat migration. Sending documentation package.</div>
+                    <div class="text-xs text-gray-300">Owns onboarding & CS lifecycle. Leading Plan Hat migration. Sending documentation.</div>
                     <div class="mt-2 text-xs text-amber-400">📋 Action item pending</div>
                 </div>
-                
-                <div class="glass rounded-xl p-5">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-lg font-bold">EW</div>
+
+                <!-- Customer Success -->
+                <div class="glass rounded-xl p-4">
+                    <div class="text-xs text-purple-400 uppercase tracking-wider mb-3">Customer Success</div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center font-bold">TL</div>
                         <div>
-                            <div class="font-semibold">Ethan Warlick</div>
+                            <div class="font-semibold text-sm">Todd Lefkowitz</div>
+                            <div class="text-xs text-gray-400">Chief Customer Officer</div>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-300">Revealed 30M lines tech debt. Focus: retention strategy, product adoption.</div>
+                </div>
+
+                <!-- Marketing Ops -->
+                <div class="glass rounded-xl p-4">
+                    <div class="text-xs text-pink-400 uppercase tracking-wider mb-3">Marketing Ops</div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-pink-700 flex items-center justify-center font-bold">EW</div>
+                        <div>
+                            <div class="font-semibold text-sm">Ethan Warlick</div>
                             <div class="text-xs text-gray-400">Marketing Ops</div>
                         </div>
                     </div>
-                    <div class="text-xs text-gray-300">Lead routing, database health, lead scoring. Nearly 1 year in role. Building automation foundation.</div>
+                    <div class="text-xs text-gray-300">Lead routing, database health, lead scoring. Nearly 1 year in role.</div>
                 </div>
-                
-                <div class="glass rounded-xl p-5">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-pink-700 flex items-center justify-center text-lg font-bold">EL</div>
+
+                <!-- Marketing -->
+                <div class="glass rounded-xl p-4">
+                    <div class="text-xs text-rose-400 uppercase tracking-wider mb-3">Marketing</div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-rose-500 to-rose-700 flex items-center justify-center font-bold">EL</div>
                         <div>
-                            <div class="font-semibold">Erica Light</div>
+                            <div class="font-semibold text-sm">Erica Light</div>
                             <div class="text-xs text-gray-400">Marketing</div>
                         </div>
                     </div>
-                    <div class="text-xs text-gray-300">Owns attribution and lead source strategy. Meeting scheduled to clarify lead stages and multi-touch models.</div>
+                    <div class="text-xs text-gray-300">Attribution and lead source strategy. Meeting scheduled for multi-touch models.</div>
                 </div>
-                
-                <div class="glass rounded-xl p-5">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center text-lg font-bold">TS</div>
+
+                <!-- Sales Ops -->
+                <div class="glass rounded-xl p-4">
+                    <div class="text-xs text-orange-400 uppercase tracking-wider mb-3">Sales Ops</div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center font-bold">TS</div>
                         <div>
-                            <div class="font-semibold">Trent Schoonmaker</div>
-                            <div class="text-xs text-gray-400">Sales Ops</div>
+                            <div class="font-semibold text-sm">Trent Schoonmaker</div>
+                            <div class="text-xs text-gray-400">VP Sales Ops</div>
                         </div>
                     </div>
-                    <div class="text-xs text-gray-300">Sales process and compensation plans. Working on opportunity stage simplification for SMB focus.</div>
+                    <div class="text-xs text-gray-300">Sales process and compensation plans. SMB stage simplification.</div>
                 </div>
-                
-                <div class="glass rounded-xl p-5">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center text-lg font-bold">MH</div>
+
+                <!-- Sales -->
+                <div class="glass rounded-xl p-4">
+                    <div class="text-xs text-emerald-400 uppercase tracking-wider mb-3">Sales</div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center font-bold">DW</div>
                         <div>
-                            <div class="font-semibold">Mike Hubert</div>
-                            <div class="text-xs text-gray-400">The Hubert Group • Partner</div>
+                            <div class="font-semibold text-sm">Dodge Walker</div>
+                            <div class="text-xs text-gray-400">Sales</div>
                         </div>
                     </div>
-                    <div class="text-xs text-gray-300">Harmony's partner on this engagement. Coordinating cross-functional meetings and synthesizing insights.</div>
+                    <div class="text-xs text-gray-300">Provided hunter-farmer model insights. Lead scoring gaps identified.</div>
+                </div>
+
+                <!-- Legal -->
+                <div class="glass rounded-xl p-4">
+                    <div class="text-xs text-gray-400 uppercase tracking-wider mb-3">Legal/Compliance</div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gray-500 to-gray-700 flex items-center justify-center font-bold">JC</div>
+                        <div>
+                            <div class="font-semibold text-sm">Jen Castillo</div>
+                            <div class="text-xs text-gray-400">Legal</div>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-300">Contract review and AI vendor policies. Dec 22 legal conversation.</div>
+                </div>
+
+                <!-- Compliance -->
+                <div class="glass rounded-xl p-4">
+                    <div class="text-xs text-gray-400 uppercase tracking-wider mb-3">Security</div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gray-500 to-gray-700 flex items-center justify-center font-bold">SR</div>
+                        <div>
+                            <div class="font-semibold text-sm">Sami Ramos</div>
+                            <div class="text-xs text-gray-400">Compliance</div>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-300">ISO, SOC2, security policy review. Contractor access checklist.</div>
+                </div>
+
+                <!-- Partner -->
+                <div class="glass rounded-xl p-4 border border-amber-500/30">
+                    <div class="text-xs text-amber-400 uppercase tracking-wider mb-3">Harmony Partner</div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center font-bold">MH</div>
+                        <div>
+                            <div class="font-semibold text-sm">Mike Hubert</div>
+                            <div class="text-xs text-gray-400">The Hubert Group</div>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-300">Harmony's technical partner. Pardot/Salesforce expertise. Cross-functional coordination.</div>
                 </div>
             </div>
         </div>
 
-        <!-- Tab Content: Action Items -->
+        <!-- Tab: Action Items -->
         <div id="content-actions" class="tab-content hidden">
             <h2 class="text-lg font-semibold mb-6 flex items-center gap-2">
                 <span class="w-1 h-6 bg-amber-500 rounded-full"></span>
-                Action Items & Next Steps
+                Active Action Items (from Feb 4-5 calls)
             </h2>
             
-            <div class="space-y-3">
-                <div class="glass rounded-xl p-4 flex items-center gap-4">
-                    <input type="checkbox" class="w-5 h-5 rounded accent-amber-500">
-                    <div class="flex-1">
-                        <div class="font-medium">Colin to send onboarding/lifecycle documentation</div>
-                        <div class="text-xs text-gray-400">Success plan templates, shared lifecycle docs → Harmony team</div>
+            <div class="grid grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-semibold mb-4 text-red-400">🔥 Immediate (This Week)</h3>
+                    <div class="space-y-3">
+                        <div class="glass rounded-xl p-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <input type="checkbox" class="w-4 h-4 rounded">
+                                <span class="font-medium">Colin: Send onboarding/lifecycle documentation</span>
+                            </div>
+                            <div class="text-xs text-gray-400 ml-7">Success plan templates, shared lifecycle docs → Harmony team</div>
+                            <div class="text-xs text-amber-400 ml-7 mt-1">Due: TODAY</div>
+                        </div>
+                        <div class="glass rounded-xl p-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <input type="checkbox" class="w-4 h-4 rounded">
+                                <span class="font-medium">Jonathan: Complete journey documentation draft</span>
+                            </div>
+                            <div class="text-xs text-gray-400 ml-7">Visual journey map with handoff gaps and improvements</div>
+                            <div class="text-xs text-blue-400 ml-7 mt-1">Due: Early next week</div>
+                        </div>
+                        <div class="glass rounded-xl p-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <input type="checkbox" class="w-4 h-4 rounded">
+                                <span class="font-medium">Jonathan: Schedule Erica meeting</span>
+                            </div>
+                            <div class="text-xs text-gray-400 ml-7">Lead source details, multi-touch attribution, reporting</div>
+                            <div class="text-xs text-purple-400 ml-7 mt-1">Status: Scheduling</div>
+                        </div>
+                        <div class="glass rounded-xl p-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <input type="checkbox" class="w-4 h-4 rounded" checked>
+                                <span class="font-medium line-through opacity-60">New lead stages rollout</span>
+                            </div>
+                            <div class="text-xs text-gray-400 ml-7 opacity-60">MQL → SAL → SQL with enablement materials</div>
+                            <div class="text-xs text-green-400 ml-7 mt-1">Live: Friday</div>
+                        </div>
                     </div>
-                    <span class="text-xs bg-amber-500/20 text-amber-400 px-2 py-1 rounded">Due: Today</span>
                 </div>
-                
-                <div class="glass rounded-xl p-4 flex items-center gap-4">
-                    <input type="checkbox" class="w-5 h-5 rounded accent-amber-500">
-                    <div class="flex-1">
-                        <div class="font-medium">Complete customer journey documentation draft</div>
-                        <div class="text-xs text-gray-400">Visual journey map with handoff gaps and improvement opportunities</div>
+
+                <div>
+                    <h3 class="font-semibold mb-4 text-blue-400">📋 From Mark Rosenthal Call (Today)</h3>
+                    <div class="space-y-3">
+                        <div class="glass rounded-xl p-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <input type="checkbox" class="w-4 h-4 rounded">
+                                <span class="font-medium">Complete Phase 2 journey audit</span>
+                            </div>
+                            <div class="text-xs text-gray-400 ml-7">Synthesize findings into living strategic asset</div>
+                        </div>
+                        <div class="glass rounded-xl p-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <input type="checkbox" class="w-4 h-4 rounded">
+                                <span class="font-medium">Schedule follow-up with Mark</span>
+                            </div>
+                            <div class="text-xs text-gray-400 ml-7">Review V1 journey documentation before finalization</div>
+                        </div>
+                        <div class="glass rounded-xl p-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <input type="checkbox" class="w-4 h-4 rounded">
+                                <span class="font-medium">Connect with Enablement team</span>
+                            </div>
+                            <div class="text-xs text-gray-400 ml-7">Align on training, messaging, change management</div>
+                        </div>
+                        <div class="glass rounded-xl p-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <input type="checkbox" class="w-4 h-4 rounded">
+                                <span class="font-medium">Share AI voice-of-customer tools</span>
+                            </div>
+                            <div class="text-xs text-gray-400 ml-7">Product validation tools for Mark's review</div>
+                        </div>
                     </div>
-                    <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded">Due: Early next week</span>
-                </div>
-                
-                <div class="glass rounded-xl p-4 flex items-center gap-4">
-                    <input type="checkbox" class="w-5 h-5 rounded accent-amber-500">
-                    <div class="flex-1">
-                        <div class="font-medium">Meeting with Erica: Lead stages & attribution</div>
-                        <div class="text-xs text-gray-400">Clarify lead source consolidation, multi-touch attribution models</div>
-                    </div>
-                    <span class="text-xs bg-purple-500/20 text-purple-400 px-2 py-1 rounded">Scheduling</span>
-                </div>
-                
-                <div class="glass rounded-xl p-4 flex items-center gap-4">
-                    <input type="checkbox" class="w-5 h-5 rounded accent-green-500" checked>
-                    <div class="flex-1 opacity-60">
-                        <div class="font-medium line-through">New lead stages rollout</div>
-                        <div class="text-xs text-gray-400">MQL → SAL → SQL stages with enablement materials</div>
-                    </div>
-                    <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">Live Friday</span>
-                </div>
-                
-                <div class="glass rounded-xl p-4 flex items-center gap-4">
-                    <input type="checkbox" class="w-5 h-5 rounded accent-amber-500">
-                    <div class="flex-1">
-                        <div class="font-medium">Follow-up review with Mark Rosenthal</div>
-                        <div class="text-xs text-gray-400">Present findings and strategic recommendations from audit</div>
-                    </div>
-                    <span class="text-xs bg-gray-500/20 text-gray-400 px-2 py-1 rounded">TBD</span>
-                </div>
-                
-                <div class="glass rounded-xl p-4 flex items-center gap-4">
-                    <input type="checkbox" class="w-5 h-5 rounded accent-amber-500">
-                    <div class="flex-1">
-                        <div class="font-medium">Create master project folder</div>
-                        <div class="text-xs text-gray-400">Consolidate all documentation, processes, and handoff materials</div>
-                    </div>
-                    <span class="text-xs bg-gray-500/20 text-gray-400 px-2 py-1 rounded">In Progress</span>
                 </div>
             </div>
-            
-            <!-- Meeting Schedule -->
-            <h3 class="text-md font-semibold mt-8 mb-4 flex items-center gap-2">
-                <span class="w-1 h-5 bg-blue-500 rounded-full"></span>
-                Upcoming Meetings
-            </h3>
+
+            <h3 class="font-semibold mt-8 mb-4 text-gray-400">📅 Longer-Term Items</h3>
             <div class="glass rounded-xl p-4">
-                <div class="text-sm text-gray-400 mb-2">Cross-functional meetings scheduled to refine:</div>
-                <ul class="text-sm space-y-1">
-                    <li>• Handoff processes between departments</li>
-                    <li>• Customer journey workflows</li>
-                    <li>• Lead status governance</li>
-                    <li>• Marketing cascade reporting</li>
-                </ul>
+                <div class="grid grid-cols-3 gap-4 text-sm">
+                    <div>
+                        <div class="font-medium mb-2">Data & Reporting</div>
+                        <ul class="text-xs text-gray-400 space-y-1">
+                            <li>• Salesforce field consolidation (200+ unused)</li>
+                            <li>• Cross-object reporting enablement</li>
+                            <li>• GA4 + Pardot integration</li>
+                            <li>• Google Ads connection</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="font-medium mb-2">Platform Decisions</div>
+                        <ul class="text-xs text-gray-400 space-y-1">
+                            <li>• Pardot vs HubSpot final decision (Q1)</li>
+                            <li>• Gong expansion to CS (2027)</li>
+                            <li>• Plan Hat full migration</li>
+                            <li>• Pendo health scoring rollout</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="font-medium mb-2">Strategic</div>
+                        <ul class="text-xs text-gray-400 space-y-1">
+                            <li>• SVP RevOps role decision</li>
+                            <li>• BDR program redesign</li>
+                            <li>• 180-day roadmap milestones</li>
+                            <li>• Legacy architecture modernization plan</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -677,36 +1066,24 @@
     <!-- Footer -->
     <footer class="glass mt-12 py-6">
         <div class="max-w-7xl mx-auto px-6 flex items-center justify-between text-sm text-gray-400">
-            <div>Built by <span class="text-amber-400">Harmony Strategy</span> • RevOps Command Center</div>
-            <div>Data sourced from 6 Fireflies transcripts (Jan-Feb 2026)</div>
+            <div>Built by <span class="text-amber-400">Harmony Strategy</span> × <span class="text-blue-400">Henry</span></div>
+            <div>Data from 30 Fireflies transcripts (Oct 14, 2025 - Feb 5, 2026)</div>
         </div>
     </footer>
 
     <script>
-        // Initialize Lucide icons
         lucide.createIcons();
         
-        // Tab switching
         function showTab(tabId) {
-            // Hide all content
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            // Remove active from all tabs
             document.querySelectorAll('[id^="tab-"]').forEach(el => {
                 el.classList.remove('tab-active');
                 el.classList.add('glass');
             });
-            // Show selected content
             document.getElementById('content-' + tabId).classList.remove('hidden');
-            // Activate selected tab
             const tab = document.getElementById('tab-' + tabId);
             tab.classList.add('tab-active');
             tab.classList.remove('glass');
-        }
-        
-        // Stage detail modal (placeholder)
-        function showStageDetail(stage) {
-            console.log('Show detail for:', stage);
-            // Could expand to show modal with more details
         }
     </script>
 </body>
