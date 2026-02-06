@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOS Partner Dashboard | Coordinator View</title>
+  
+  <!-- Fonts - Roboto per SOS Brand Guide -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  <style>
+    :root {
+      /* SOS Brand Colors - Per Brand Guide */
+      --sos-navy: #1A3850;      /* Primary - Trust and reliability */
+      --sos-red: #EF4E4B;       /* Secondary - Urgency and importance */
+      --sos-blue: #89CFF0;      /* Tertiary - Calm, safety, hope (CTAs) */
+      --sos-blue-dark: #6BB5D8;
+      --sos-yellow: #FFC107;    /* Warning - Medium urgency */
+      --sos-green: #34A853;     /* Success states */
+      --sos-orange: #F97316;    /* High urgency */
+      --sos-white: #FFFFFF;
+      --sos-light: #F9F9F9;     /* Light backgrounds */
+      --sos-gray-100: #F7FAFC;
+      --sos-gray-200: #EDF2F7;
+      --sos-gray-300: #E2E8F0;
+      --sos-gray-500: #718096;
+      --sos-gray-700: #4A5568;
+      --sos-gray-900: #1A202C;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--sos-light);
+      color: var(--sos-gray-900);
+      min-height: 100vh;
+    }
+    
+    /* Layout */
+    .dashboard-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: 100vh;
+    }
+    
+    /* Sidebar */
+    .sidebar {
+      background: var(--sos-navy);
+      color: white;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .sidebar-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+    }
+    
+    .sidebar-logo svg {
+      width: 36px;
+      height: 36px;
+    }
+    
+    .sidebar-nav {
+      flex: 1;
+    }
+    
+    .nav-section {
+      margin-bottom: 1.5rem;
+    }
+    
+    .nav-section-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.75rem;
+    }
+    
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      color: rgba(255,255,255,0.8);
+      transition: all 0.2s;
+      margin-bottom: 0.25rem;
+    }
+    
+    .nav-item:hover {
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+    
+    .nav-item.active {
+      background: rgba(255,255,255,0.15);
+      color: white;
+    }
+    
+    .nav-item .icon {
+      font-size: 1.25rem;
+    }
+    
+    .nav-item .badge {
+      margin-left: auto;
+      background: var(--sos-red);
+      color: white;
+      font-size: 0.75rem;
+      padding: 0.125rem 0.5rem;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+    
+    /* Main Content */
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    .top-bar {
+      background: white;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--sos-gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .page-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--sos-navy);
+    }
+    
+    .top-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: var(--sos-blue);
+      color: var(--sos-navy);
+      font-weight: 500;
+    }
+    
+    .btn-primary:hover {
+      background: var(--sos-blue-dark);
+    }
+    
+    .btn-outline {
+      background: white;
+      border: 1px solid var(--sos-gray-300);
+      color: var(--sos-gray-700);
+    }
+    
+    .btn-outline:hover {
+      background: var(--sos-gray-100);
+    }
+    
+    .content-area {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem;
+    }
+    
+    /* Stats Row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .stat-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    
+    .stat-card .label {
+      font-size: 0.875rem;
+      color: var(--sos-gray-500);
+      margin-bottom: 0.25rem;
+    }
+    
+    .stat-card .value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--sos-navy);
+    }
+    
+    .stat-card .trend {
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+    }
+    
+    .stat-card .trend.up { color: var(--sos-green); }
+    .stat-card .trend.down { color: var(--sos-red); }
+    
+    /* Content Panels */
+    .panel-grid {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 1.5rem;
+    }
+    
+    .panel {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+    
+    .panel-header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--sos-gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .panel-header h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--sos-navy);
+    }
+    
+    .panel-body {
+      padding: 0;
+    }
+    
+    /* Triage Queue */
+    .queue-item {
+      display: flex;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--sos-gray-100);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    
+    .queue-item:hover {
+      background: var(--sos-gray-100);
+    }
+    
+    .queue-item:last-child {
+      border-bottom: none;
+    }
+    
+    .urgency-badge {
+      width: 4px;
+      border-radius: 2px;
+      margin-right: 1rem;
+    }
+    
+    .urgency-badge.critical { background: var(--sos-red); }
+    .urgency-badge.high { background: var(--sos-orange); }
+    .urgency-badge.medium { background: var(--sos-blue); }
+    .urgency-badge.low { background: var(--sos-green); }
+    
+    .queue-content {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .queue-content h4 {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--sos-gray-900);
+      margin-bottom: 0.25rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .queue-content p {
+      font-size: 0.8rem;
+      color: var(--sos-gray-500);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .queue-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.25rem;
+    }
+    
+    .category-tag {
+      font-size: 0.7rem;
+      padding: 0.125rem 0.5rem;
+      border-radius: 4px;
+      background: var(--sos-gray-200);
+      color: var(--sos-gray-700);
+    }
+    
+    .time-ago {
+      font-size: 0.75rem;
+      color: var(--sos-gray-500);
+    }
+    
+    /* Match Cards */
+    .match-card {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--sos-gray-100);
+    }
+    
+    .match-card:last-child {
+      border-bottom: none;
+    }
+    
+    .match-card.three-way {
+      background: linear-gradient(135deg, rgba(137,207,240,0.1) 0%, rgba(52,168,83,0.1) 100%);
+      border: 1px solid var(--sos-blue);
+    }
+    
+    .match-card.three-way .match-status {
+      background: rgba(137,207,240,0.2);
+      color: var(--sos-navy);
+    }
+    
+    .match-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+    
+    .match-score {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+    
+    .match-score .score-value {
+      color: var(--sos-green);
+    }
+    
+    .match-status {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
+    
+    .match-status.pending {
+      background: rgba(245,158,11,0.1);
+      color: var(--sos-orange);
+    }
+    
+    .match-status.accepted {
+      background: rgba(52,168,83,0.1);
+      color: var(--sos-green);
+    }
+    
+    .match-parties {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    
+    .match-party {
+      flex: 1;
+      padding: 0.75rem;
+      background: var(--sos-gray-100);
+      border-radius: 8px;
+    }
+    
+    .match-party .type {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: var(--sos-gray-500);
+      margin-bottom: 0.25rem;
+    }
+    
+    .match-party .name {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    
+    .match-arrow {
+      color: var(--sos-gray-400);
+      font-size: 1.25rem;
+    }
+    
+    .match-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    
+    .match-actions .btn {
+      flex: 1;
+      justify-content: center;
+    }
+    
+    /* Empty State */
+    .empty-state {
+      padding: 3rem;
+      text-align: center;
+      color: var(--sos-gray-500);
+    }
+    
+    .empty-state .icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    /* Quick Actions */
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .quick-action {
+      background: white;
+      border-radius: 12px;
+      padding: 1.25rem;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.2s;
+      text-align: center;
+    }
+    
+    .quick-action:hover {
+      border-color: var(--sos-blue);
+      transform: translateY(-2px);
+    }
+    
+    .quick-action .icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .quick-action .label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--sos-gray-700);
+    }
+    
+    /* Spinner */
+    .loading-spinner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+    }
+    
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--sos-gray-200);
+      border-top-color: var(--sos-blue);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .dashboard-layout {
+        grid-template-columns: 1fr;
+      }
+      
+      .sidebar {
+        display: none;
+      }
+      
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .panel-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .quick-actions {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <svg viewBox="0 0 36 36" fill="none">
+          <circle cx="18" cy="18" r="16" fill="#EF4E4B"/>
+          <path d="M18 8L20 14H26L21 18L23 24L18 20L13 24L15 18L10 14H16L18 8Z" fill="white"/>
+        </svg>
+        <span>SOS</span>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-section-title">Operations</div>
+          <div class="nav-item active">
+            <span class="icon">📋</span>
+            <span>Triage Queue</span>
+            <span class="badge" id="queue-count">0</span>
+          </div>
+          <div class="nav-item">
+            <span class="icon">🔗</span>
+            <span>Matches</span>
+          </div>
+          <div class="nav-item">
+            <span class="icon">🗺️</span>
+            <span>Map View</span>
+          </div>
+        </div>
+        
+        <div class="nav-section">
+          <div class="nav-section-title">Resources</div>
+          <div class="nav-item">
+            <span class="icon">🏠</span>
+            <span>Housing</span>
+          </div>
+          <div class="nav-item">
+            <span class="icon">🍽️</span>
+            <span>Food</span>
+          </div>
+          <div class="nav-item">
+            <span class="icon">📦</span>
+            <span>Supplies</span>
+          </div>
+        </div>
+        
+        <div class="nav-section">
+          <div class="nav-section-title">Reports</div>
+          <div class="nav-item">
+            <span class="icon">📊</span>
+            <span>Analytics</span>
+          </div>
+          <div class="nav-item">
+            <span class="icon">📜</span>
+            <span>Decision Log</span>
+          </div>
+        </div>
+      </nav>
+      
+      <div class="nav-item" onclick="window.location='index.html'">
+        <span class="icon">🏠</span>
+        <span>Public Site</span>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="top-bar">
+        <h1 class="page-title">Partner Dashboard</h1>
+        <div class="top-actions">
+          <button class="btn btn-outline" onclick="loadData()">🔄 Refresh</button>
+          <button class="btn btn-primary" onclick="runMatching()">⚡ Run Matching</button>
+        </div>
+      </div>
+      
+      <div class="content-area">
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+          <div class="quick-action" onclick="window.location='index.html'">
+            <div class="icon">🆘</div>
+            <div class="label">Add Request</div>
+          </div>
+          <div class="quick-action" onclick="window.location='index.html'">
+            <div class="icon">🤝</div>
+            <div class="label">Add Resource</div>
+          </div>
+          <div class="quick-action" onclick="runMatching()">
+            <div class="icon">⚡</div>
+            <div class="label">Run Auto-Match</div>
+          </div>
+        </div>
+        
+        <!-- Stats -->
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="label">🆘 Active Requests</div>
+            <div class="value" id="stat-requests">-</div>
+            <div class="trend up">↑ 12% from yesterday</div>
+          </div>
+          <div class="stat-card">
+            <div class="label">🤝 Available Resources</div>
+            <div class="value" id="stat-resources">-</div>
+            <div class="trend up">↑ 8% from yesterday</div>
+          </div>
+          <div class="stat-card">
+            <div class="label">🔗 Pending Matches</div>
+            <div class="value" id="stat-pending">-</div>
+          </div>
+          <div class="stat-card">
+            <div class="label">✅ Completed Today</div>
+            <div class="value" id="stat-completed">-</div>
+          </div>
+        </div>
+        
+        <!-- Main Panels -->
+        <div class="panel-grid">
+          <!-- Triage Queue -->
+          <div class="panel">
+            <div class="panel-header">
+              <h2>🆘 Triage Queue</h2>
+              <span class="btn btn-outline btn-sm">View All</span>
+            </div>
+            <div class="panel-body" id="triage-queue">
+              <div class="loading-spinner">
+                <div class="spinner"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Pending Matches -->
+          <div class="panel">
+            <div class="panel-header">
+              <h2>🔗 Pending Matches</h2>
+            </div>
+            <div class="panel-body" id="pending-matches">
+              <div class="loading-spinner">
+                <div class="spinner"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script>
+    // ==================== SUPABASE CONFIG ====================
+    const SUPABASE_URL = 'https://rtduqguwhkczexnoawej.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ0ZHVxZ3V3aGtjemV4bm9hd2VqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE2Njg1ODAsImV4cCI6MjA2NzI0NDU4MH0.1QZ5ofS-ND_OI71igPlxxMTyZJJRlATSSC0djccWR8o';
+    
+    const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    
+    // ==================== DATA LOADING ====================
+    async function loadData() {
+      await Promise.all([
+        loadStats(),
+        loadTriageQueue(),
+        loadPendingMatches()
+      ]);
+    }
+    
+    async function loadStats() {
+      try {
+        const [reqResult, resResult, pendingResult, completedResult] = await Promise.all([
+          db.from('requests').select('id', { count: 'exact' }).eq('status', 'active'),
+          db.from('resources').select('id', { count: 'exact' }).eq('status', 'active'),
+          db.from('matches').select('id', { count: 'exact' }).eq('status', 'proposed'),
+          db.from('matches').select('id', { count: 'exact' }).eq('status', 'completed')
+        ]);
+        
+        document.getElementById('stat-requests').textContent = reqResult.count || 0;
+        document.getElementById('stat-resources').textContent = resResult.count || 0;
+        document.getElementById('stat-pending').textContent = pendingResult.count || 0;
+        document.getElementById('stat-completed').textContent = completedResult.count || 0;
+        document.getElementById('queue-count').textContent = reqResult.count || 0;
+        
+      } catch (err) {
+        console.error('Stats error:', err);
+      }
+    }
+    
+    async function loadTriageQueue() {
+      const container = document.getElementById('triage-queue');
+      
+      try {
+        const { data: requests, error } = await db
+          .from('requests')
+          .select('*')
+          .eq('status', 'active')
+          .order('created_at', { ascending: false })
+          .limit(10);
+        
+        if (error) throw error;
+        
+        if (!requests || requests.length === 0) {
+          container.innerHTML = `
+            <div class="empty-state">
+              <div class="icon">📭</div>
+              <p>No pending requests</p>
+            </div>
+          `;
+          return;
+        }
+        
+        container.innerHTML = requests.map(req => `
+          <div class="queue-item" onclick="viewRequest('${req.id}')">
+            <div class="urgency-badge ${req.urgency || 'medium'}"></div>
+            <div class="queue-content">
+              <h4>${req.title || req.description?.substring(0, 50) || 'Untitled request'}</h4>
+              <p>${req.location_description || 'No location'}</p>
+            </div>
+            <div class="queue-meta">
+              <span class="category-tag">${req.need_type_id || 'general'}</span>
+              <span class="time-ago">${timeAgo(new Date(req.created_at))}</span>
+            </div>
+          </div>
+        `).join('');
+        
+      } catch (err) {
+        console.error('Triage queue error:', err);
+        container.innerHTML = '<div class="empty-state"><p>Error loading queue</p></div>';
+      }
+    }
+    
+    async function loadPendingMatches() {
+      const container = document.getElementById('pending-matches');
+      
+      try {
+        // Fetch matches with full request details
+        const { data: matches, error } = await db
+          .from('matches')
+          .select(`
+            *,
+            request:request_id (id, title, description, contact_name, need_type_id, urgency, location_description, quantity_needed)
+          `)
+          .eq('status', 'proposed')
+          .order('created_at', { ascending: false })
+          .limit(5);
+        
+        if (error) throw error;
+        
+        if (!matches || matches.length === 0) {
+          container.innerHTML = `
+            <div class="empty-state">
+              <div class="icon">🔗</div>
+              <p>No pending matches</p>
+              <button class="btn btn-primary" onclick="runMatching()" style="margin-top:1rem;">Run Matching</button>
+            </div>
+          `;
+          return;
+        }
+        
+        // Fetch resources for all matches
+        const allResourceIds = matches.flatMap(m => m.resource_ids || []);
+        const { data: resources } = await db
+          .from('resources')
+          .select('*')
+          .in('id', allResourceIds);
+        
+        const resourceMap = {};
+        (resources || []).forEach(r => resourceMap[r.id] = r);
+        
+        container.innerHTML = matches.map(match => {
+          const isThreeWay = match.match_type === 'three_way';
+          const matchResources = (match.resource_ids || []).map(id => resourceMap[id]).filter(Boolean);
+          const primaryResource = matchResources[0];
+          
+          // Build decision trace / rationale
+          const rationale = match.metadata?.rationale || match.metadata?.match_reasons || [];
+          const rationaleText = Array.isArray(rationale) ? rationale.join(' • ') : 
+            (rationale || `Category match: ${match.request?.need_type_id} • Location: ${match.request?.location_description || 'WNC'}`);
+          
+          return `
+          <div class="match-card ${isThreeWay ? 'three-way' : ''}">
+            <div class="match-header">
+              <div class="match-score">
+                ${isThreeWay ? '🔗 3-Way Match' : '🔗 Match'}: <span class="score-value">${match.match_score || 85}%</span>
+              </div>
+              <span class="match-status pending">${match.request?.urgency === 'critical' ? '🔴 Critical' : isThreeWay ? 'Emergency RV' : 'Pending'}</span>
+            </div>
+            
+            <!-- Decision Trace / Why this match -->
+            <div class="match-rationale" style="background: var(--sos-gray-100); padding: 0.5rem 0.75rem; border-radius: 6px; margin: 0.75rem 0; font-size: 0.8rem; color: var(--sos-gray-700);">
+              <strong>Why:</strong> ${rationaleText}
+            </div>
+            
+            <div class="match-parties" style="${isThreeWay ? 'flex-direction: column; gap: 0.5rem;' : ''}">
+              <div class="match-party">
+                <div class="type">🆘 ${match.request?.need_type_id || 'Need'}</div>
+                <div class="name">${match.request?.contact_name || 'Unknown'}</div>
+                <div class="detail" style="font-size: 0.75rem; color: var(--sos-gray-500);">${match.request?.location_description || ''}</div>
+              </div>
+              ${isThreeWay ? `
+              <div style="text-align: center; color: var(--sos-gray-400);">↓</div>
+              ${matchResources.map((res, i) => `
+              <div class="match-party" style="border-left: 3px solid ${i === 0 ? 'var(--sos-blue)' : 'var(--sos-green)'};">
+                <div class="type">${res?.metadata?.subtype === 'rv' ? '🚐 RV' : res?.metadata?.subtype === 'rv_driver' ? '🚗 Driver' : '🤝 Resource'}</div>
+                <div class="name">${res?.contact_name || 'Provider'}</div>
+                <div class="detail" style="font-size: 0.75rem; color: var(--sos-gray-500);">${res?.title || res?.description?.substring(0, 40) || ''}</div>
+              </div>
+              ${i < matchResources.length - 1 ? '<div style="text-align: center; color: var(--sos-gray-400);">↓</div>' : ''}
+              `).join('')}
+              ` : `
+              <span class="match-arrow">→</span>
+              <div class="match-party">
+                <div class="type">🤝 ${primaryResource?.resource_type_id || 'Resource'}</div>
+                <div class="name">${primaryResource?.contact_name || 'Provider'}</div>
+                <div class="detail" style="font-size: 0.75rem; color: var(--sos-gray-500);">${primaryResource?.title || ''}</div>
+              </div>
+              `}
+            </div>
+            <div class="match-actions">
+              <button class="btn btn-outline" onclick="declineMatch('${match.id}')">Decline</button>
+              <button class="btn btn-primary" onclick="approveMatch('${match.id}')">${isThreeWay ? 'Coordinate All 3' : 'Approve'}</button>
+            </div>
+          </div>
+        `}).join('');
+        
+      } catch (err) {
+        console.error('Matches error:', err);
+        container.innerHTML = '<div class="empty-state"><p>Error loading matches</p></div>';
+      }
+    }
+    
+    // ==================== ACTIONS ====================
+    async function runMatching() {
+      alert('Running auto-matching... (In production, this calls the match-engine edge function)');
+      // Would call: await db.functions.invoke('match-engine', { body: { disaster_id: 'helene-wnc-2024' } })
+      await loadData();
+    }
+    
+    function viewRequest(id) {
+      alert('View request: ' + id);
+      // Would open modal or detail page
+    }
+    
+    async function approveMatch(id) {
+      try {
+        await db
+          .from('matches')
+          .update({ status: 'accepted' })
+          .eq('id', id);
+        
+        alert('Match approved!');
+        await loadData();
+      } catch (err) {
+        alert('Error: ' + err.message);
+      }
+    }
+    
+    async function declineMatch(id) {
+      try {
+        await db
+          .from('matches')
+          .update({ status: 'declined' })
+          .eq('id', id);
+        
+        alert('Match declined');
+        await loadData();
+      } catch (err) {
+        alert('Error: ' + err.message);
+      }
+    }
+    
+    // ==================== HELPERS ====================
+    function timeAgo(date) {
+      const seconds = Math.floor((new Date() - date) / 1000);
+      if (seconds < 60) return 'just now';
+      if (seconds < 3600) return Math.floor(seconds / 60) + 'm ago';
+      if (seconds < 86400) return Math.floor(seconds / 3600) + 'h ago';
+      return Math.floor(seconds / 86400) + 'd ago';
+    }
+    
+    // ==================== INIT ====================
+    document.addEventListener('DOMContentLoaded', () => {
+      loadData();
+      console.log('Partner Dashboard initialized');
+    });
+    
+    // Auto-refresh every 30 seconds
+    setInterval(loadData, 30000);
+  </script>
+</body>
+</html>
